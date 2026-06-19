@@ -169,7 +169,7 @@ export default function HomeContent() {
               Büyüme Sistemini Planla
             </a>
             <a
-              href="#services"
+              href="#why"
               className="rounded-full border border-white/15 px-8 py-3 text-sm font-semibold tracking-wide text-white/90 transition-colors duration-300 hover:border-white/35 hover:bg-white/5"
             >
               Nasıl Çalışıyoruz?
@@ -182,27 +182,8 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ============ 2. GLOBAL SATIŞ ALTYAPISI ============ */}
-      <section id="services" className="relative px-6 py-24 sm:px-10">
-        <Glow visible={mounted} targetOpacity="opacity-50" className="right-[-180px] top-10 h-[460px] w-[460px]" />
-
-        <div className="relative mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Sistem</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Global Satış Altyapısını Birlikte Kuruyoruz
-            </h2>
-          </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <Panel key={service.title} title={service.title} description={service.description} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ 3. FARKIMIZ ============ */}
-      <section className="relative px-6 py-24 sm:px-10">
+      {/* ============ 2. FARKIMIZ ============ */}
+      <section id="why" className="relative px-6 py-24 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
@@ -226,14 +207,19 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ============ 4. SÜREÇ ============ */}
-      <section className="relative px-6 py-24 sm:px-10">
-        <Glow visible={mounted} targetOpacity="opacity-50" className="right-[-160px] bottom-[-100px] h-[460px] w-[460px]" />
+      {/* ============ 3. SÜREÇ — sistemi en iyi anlatan, en güçlü vurgulu bölüm ============ */}
+      <section className="relative px-6 py-28 sm:px-10">
+        <span
+          aria-hidden="true"
+          className="absolute left-1/2 top-0 h-px w-2/3 max-w-lg -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
+        />
+        <Glow visible={mounted} targetOpacity="opacity-65" className="right-[-200px] top-[-80px] h-[560px] w-[560px]" />
+        <Glow visible={mounted} targetOpacity="opacity-45" className="left-[-180px] bottom-[-120px] h-[420px] w-[420px]" />
 
         <div className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Süreç</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
               Üründen Sisteme, Sistemden Global Satışa
             </h2>
           </div>
@@ -242,14 +228,33 @@ export default function HomeContent() {
             {processSteps.map((step, index) => (
               <div key={step.number} className="relative flex flex-col items-center text-center">
                 {index < processSteps.length - 1 && (
-                  <span className="absolute left-1/2 top-5 hidden h-px w-full bg-gradient-to-r from-blue-400/50 to-transparent lg:block" />
+                  <span className="absolute left-1/2 top-[22px] hidden h-[2px] w-full bg-gradient-to-r from-blue-400/60 to-transparent lg:block" />
                 )}
-                <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-blue-400/40 bg-white/[0.04] text-sm font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.6)] backdrop-blur-sm">
+                <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-blue-400/50 bg-white/[0.04] text-sm font-semibold text-blue-300 shadow-[0_0_22px_-2px_rgba(59,130,246,0.7)] backdrop-blur-sm">
                   {step.number}
                 </span>
                 <h3 className="mt-4 text-base font-semibold text-white">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-blue-100/60">{step.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 4. GLOBAL SATIŞ ALTYAPISI ============ */}
+      <section id="services" className="relative px-6 py-24 sm:px-10">
+        <Glow visible={mounted} targetOpacity="opacity-50" className="right-[-180px] top-10 h-[460px] w-[460px]" />
+
+        <div className="relative mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Sistem</p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              Global Satış Altyapısını Birlikte Kuruyoruz
+            </h2>
+          </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <Panel key={service.title} title={service.title} description={service.description} />
             ))}
           </div>
         </div>
