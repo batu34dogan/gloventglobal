@@ -4,10 +4,7 @@ import Image from 'next/image';
 
 export default function IntroBackground() {
   return (
-    // Dark navy fallback zemin: mobilde object-contain devreye girince görselin
-    // sağında/altında kalan boşlukta bu renk görünür (beyaz flaş / boşluk olmasın diye).
-    // GloventIntro.tsx'e dokunmadan, bu kapsayıcı sadece bu dosyanın içinde.
-    <div className="absolute inset-0 bg-[#050b14]">
+    <div className="absolute inset-0 overflow-hidden bg-[#050b14]">
       <Image
         src="/glovent-platform-hero.png"
         alt=""
@@ -15,9 +12,12 @@ export default function IntroBackground() {
         priority
         quality={100}
         sizes="100vw"
-        // Mobilde (md altı): object-contain -> görsel hiç kırpılmadan küçülür, dünya/kartlar tam görünür.
-        // md ve üstü (desktop): mevcut object-cover davranışı birebir korunuyor.
-        className="object-contain object-center md:object-cover"
+        // Mobilde (md altı): "contain" ile görsel önce hiç kırpılmadan tam sığar, sonra ölçülü bir
+        // scale (1.15x) ile büyütülür — taşan kısım üstteki overflow-hidden tarafından kırpılır.
+        // Bu, object-cover'ın o ekran oranında ne kadar aşırı zoom yapacağını öngöremediğimiz
+        // sorunu ortadan kaldırıyor: büyütme miktarı artık tek bir sabit sayı (1.15) ile bizim kontrolümüzde.
+        // md ve üstü (desktop): hiçbir değişiklik yok, mevcut object-cover birebir korunuyor.
+        className="scale-[1.15] object-contain object-center md:scale-100 md:object-cover"
       />
     </div>
   );
