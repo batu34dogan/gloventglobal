@@ -115,10 +115,6 @@ const networkBrands = [
   },
 ];
 
-// Kartların sırayla, scroll'da görününce hafifçe belirmesi için sabit/literal delay class'ları
-// (Tailwind derleme zamanında metni tarar — index'e göre dinamik string üretmek çalışmaz).
-const cardDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[240ms]', 'delay-[320ms]', 'delay-[400ms]'];
-
 // Tek, sürekli koyu lacivert taban — section'lar arasında sert renk/sınır geçişi yok.
 // Section kimliği, arka planda dağılmış yumuşak mavi glow'larla veriliyor (intro'nun network temasıyla aynı dil).
 function Glow({
@@ -223,9 +219,9 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ============ 2. SİSTEM (marka bölümü) ============ */}
-      <section className="relative px-6 py-24 sm:px-10">
-        <Glow visible={mounted} targetOpacity="opacity-45" className="left-1/2 top-0 h-[460px] w-[820px] -translate-x-1/2" />
+      {/* ============ 2. SİSTEM (marka bölümü) — tek sıra, çok yavaş sağdan sola kayan premium bant ============ */}
+      <section className="relative overflow-hidden px-6 py-24 sm:px-10">
+        <Glow visible={mounted} targetOpacity="opacity-35" className="left-1/2 top-0 h-[460px] w-[820px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-5xl">
           <div className="mx-auto max-w-2xl text-center">
@@ -238,30 +234,45 @@ export default function HomeContent() {
               özelleştirilmiş dijital satış sistemleri tasarlıyoruz.
             </p>
           </div>
+        </div>
 
-          {/* 6 marka kartı, hepsi aynı genişlik VE yükseklikte — 3x2 (desktop) / 2 sütun (tablet) / 1 sütun (mobil).
-              Not: burada paylaşılan Panel component'i yerine kendi içine min-h/h-full eklenmiş bir versiyon
-              kullanıyoruz, böylece Services bölümündeki Panel kullanımına dokunmadan sadece bu grid'i eşitliyoruz. */}
-          <div ref={brandsGridRef} className="mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {networkBrands.map((brand, index) => (
+        {/* Bant, mx-auto max-w-5xl'in dışında — section'ın tam genişliğini kullanıyor (kenarlardaki fade mask için). */}
+        <div
+          ref={brandsGridRef}
+          className={`relative mt-14 overflow-hidden transition-opacity duration-700 ease-out motion-reduce:transition-none ${
+            brandsInView ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          {/* Sol/sağ fade mask: kartlar kenarlara yumuşak girip çıksın */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#070d18] to-transparent sm:w-28" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#070d18] to-transparent sm:w-28" />
+
+          {/* Kart dizisi iki kez art arda render edilir — translateX(-50%) tam bir set genişliği kadar kayınca
+              ikinci set ilkinin başladığı yere denk gelir, kopma/zıplama olmadan kesintisiz döngü oluşur. */}
+          <div className="flex w-max animate-[brand-marquee_55s_linear_infinite] gap-6 motion-reduce:animate-none hover:[animation-play-state:paused]">
+            {[...networkBrands, ...networkBrands].map((brand, index) => (
               <div
-                key={brand.name}
-                className={`h-full transition-all duration-700 ease-out motion-reduce:transition-none ${cardDelays[index]} ${
-                  brandsInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                }`}
+                key={`${brand.name}-${index}`}
+                className="flex h-[180px] w-[280px] flex-shrink-0 flex-col justify-start rounded-xl border border-white/[0.07] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)] sm:w-[340px]"
               >
-                <div className="relative flex h-full min-h-[180px] flex-col justify-start rounded-xl border border-white/[0.07] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
-                  />
-                  <h3 className="text-lg font-semibold text-white">{brand.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-blue-100/70">{brand.description}</p>
-                </div>
+                <span
+                  aria-hidden="true"
+                  className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
+                />
+                <h3 className="text-lg font-semibold text-white">{brand.name}</h3>
+                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-blue-100/70">{brand.description}</p>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Marquee için @keyframes — globals.css'e dokunmamak için component içinde tanımlı. */}
+        <style>{`
+          @keyframes brand-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+        `}</style>
       </section>
 
       {/* ============ 3. FARKIMIZ ============ */}
