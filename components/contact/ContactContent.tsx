@@ -264,15 +264,16 @@ export default function ContactContent() {
               'delay-[200ms]',
             )}`}
           >
-            Markanız İçin Global Satış Sistemini Birlikte Planlayalım
+            Markanız İçin Dijital Satış ve Büyüme Sistemini Birlikte Planlayalım
           </h1>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
             )}`}
           >
-            Ürününüzü, mevcut satış kanallarınızı ve hedef pazarınızı analiz ederek GloventGlobal&apos;ın sizin için
-            nasıl bir sistem kurabileceğini birlikte değerlendirelim.
+            Ürününüzü, mevcut satış kanallarınızı, dijital altyapınızı ve hedeflerinizi analiz ederek
+            GloventGlobal&apos;ın markanız için nasıl bir dijital satış ve büyüme sistemi kurabileceğini birlikte
+            değerlendirelim.
           </p>
         </div>
       </section>
@@ -296,8 +297,8 @@ export default function ContactContent() {
 
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Başvuru Bilgileri</h2>
             <p className="mt-3 text-sm leading-relaxed text-blue-100/70 sm:text-base">
-              Markanızla ilgili temel bilgileri paylaşın; ürününüz, hedef pazarınız ve ihtiyaçlarınıza göre doğru
-              satış sistemini birlikte değerlendirelim.
+              Markanızla ilgili temel bilgileri paylaşın; satış kanallarınızı, hedeflerinizi ve ihtiyaçlarınızı
+              birlikte değerlendirerek doğru dijital satış sistemini planlayalım.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -397,8 +398,8 @@ export default function ContactContent() {
               'delay-[200ms]',
             )}`}
           >
-            Başvurunuzu yalnızca bir iletişim talebi olarak değil, markanız için doğru global satış sistemini
-            belirlemenin ilk adımı olarak değerlendiriyoruz.
+            Başvurunuzu yalnızca bir iletişim talebi olarak değil, markanız için doğru dijital satış ve büyüme
+            sistemini belirlemenin ilk adımı olarak değerlendiriyoruz.
           </p>
         </div>
 
@@ -437,7 +438,8 @@ export default function ContactContent() {
           <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Her Marka İçin Aynı Hizmet Paketini Sunmuyoruz</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
             Ürününüz, satış kanalınız, hedef pazarınız ve büyüme aşamanıza göre GloventGlobal hizmetlerinden
-            hangilerinin sizin için doğru sistemi oluşturacağını birlikte belirliyoruz.
+            hangilerinin markanız için doğru dijital satış ve büyüme sistemini oluşturacağını birlikte
+            belirliyoruz.
           </p>
           <p className="mt-5 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
             Strateji • Altyapı • İçerik • Reklam • Otomasyon
