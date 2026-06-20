@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 
+// Bu component artık SADECE desktop (md ve üstü) için kullanılıyor.
+// Mobil için ayrı bir görsel yerleştirme mantığı GloventIntro.tsx içinde tanımlı.
 export default function IntroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#050b14]">
@@ -12,11 +14,7 @@ export default function IntroBackground() {
         priority
         quality={100}
         sizes="100vw"
-        // Mobilde (md altı): "contain" ile görsel önce hiç kırpılmadan tam sığar, sonra ölçülü bir
-        // scale (1.21x) ile büyütülür ve biraz yukarı kaydırılır (logo ile görsel, görsel ile buton
-        // arası boşluğu azaltmak için) — taşan kısım üstteki overflow-hidden tarafından kırpılır.
-        // md ve üstü (desktop): hiçbir değişiklik yok, mevcut object-cover birebir korunuyor.
-        className="-translate-y-[55px] scale-[1.21] object-contain object-center md:translate-y-0 md:scale-100 md:object-cover"
+        className="object-cover object-center"
       />
     </div>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import IntroBackground from './IntroBackground';
 
 type Phase = 'idle' | 'leaving' | 'done';
@@ -40,10 +41,48 @@ export default function GloventIntro() {
           leaving ? 'scale-[1.04]' : 'scale-100'
         }`}
       >
-        <IntroBackground />
+        {/* ===== DESKTOP (md ve üstü): mevcut full-bleed cover arka plan — DOKUNULMADI ===== */}
+        <div className="hidden h-full w-full md:block">
+          <IntroBackground />
+        </div>
+
+        {/* ===== MOBİL (md altı): tek ana görsel, ama overlay değil — logo / görsel / buton
+             üç ayrı dikey bölge olarak (root min-height: 100svh, flex column) ===== */}
+        <div className="flex h-full min-h-[100svh] w-full flex-col bg-[#050b14] md:hidden">
+          <div className="px-6 pt-4">
+            <span className="text-sm font-semibold tracking-[0.25em] text-white">GLOVENTGLOBAL</span>
+          </div>
+
+          <div className="relative flex flex-1 items-center justify-center overflow-hidden">
+            <div className="w-[118vw] max-w-none -translate-y-5">
+              <Image
+                src="/glovent-platform-hero.png"
+                alt=""
+                width={1534}
+                height={1025}
+                priority
+                quality={100}
+                sizes="118vw"
+                className="h-auto w-full object-contain"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center pb-10">
+            <button
+              type="button"
+              onClick={handleEnter}
+              disabled={phase !== 'idle'}
+              className="rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10"
+            >
+              ENTER GLOBAL NETWORK
+            </button>
+          </div>
+        </div>
       </div>
 
-      <span className="absolute left-6 top-4 text-sm font-semibold tracking-[0.25em] text-white sm:left-10 sm:top-8 sm:text-base">
+      {/* ===== DESKTOP logo + buton (md ve üstü): mevcut absolute overlay — DOKUNULMADI ===== */}
+      <span className="absolute left-10 top-8 hidden text-base font-semibold tracking-[0.25em] text-white md:block">
         GLOVENTGLOBAL
       </span>
 
@@ -51,7 +90,7 @@ export default function GloventIntro() {
         type="button"
         onClick={handleEnter}
         disabled={phase !== 'idle'}
-        className="absolute bottom-20 left-1/2 -translate-x-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 sm:bottom-14 sm:text-sm"
+        className="absolute bottom-14 left-1/2 hidden -translate-x-1/2 rounded-full border border-white/40 px-8 py-3 text-sm font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 md:block"
       >
         ENTER GLOBAL NETWORK
       </button>
