@@ -310,11 +310,11 @@ export default function HomeContent() {
 
         {/* 3 katmanlı sistem kartı: numaralı badge + ince bağlantı çizgisi (desktop) — Süreç bölümündeki
             aynı görsel dilin daha sakin bir versiyonu. Mobilde çizgi kalkar, kartlar alt alta sıralanır. */}
-        <div className="relative mx-auto mt-14 grid max-w-5xl items-stretch gap-8 lg:grid-cols-3 lg:gap-6">
+        <div className="relative mx-auto mt-9 grid max-w-5xl items-stretch gap-5 lg:grid-cols-3 lg:gap-5">
           {whySteps.map((step, index) => (
             <div
               key={step.number}
-              className={`relative flex h-full flex-col rounded-xl border p-7 backdrop-blur-sm transition-all duration-300 ${
+              className={`relative flex h-full flex-col rounded-xl border p-5 backdrop-blur-sm transition-all duration-300 ${
                 index === 1
                   ? 'border-blue-400/25 bg-white/[0.045] shadow-[0_0_50px_-18px_rgba(59,130,246,0.55)]'
                   : 'border-white/[0.07] bg-white/[0.035] hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]'
@@ -322,19 +322,19 @@ export default function HomeContent() {
             >
               <span
                 aria-hidden="true"
-                className="absolute left-7 right-7 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
+                className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
               />
               {index < whySteps.length - 1 && (
                 <span
                   aria-hidden="true"
-                  className="absolute left-full top-[46px] hidden h-px w-6 bg-gradient-to-r from-blue-400/40 to-transparent lg:block"
+                  className="absolute left-full top-[36px] hidden h-px w-5 bg-gradient-to-r from-blue-400/70 via-blue-400/35 to-transparent lg:block"
                 />
               )}
-              <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/40 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+              <span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border border-blue-400/40 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
                 {step.number}
               </span>
-              <h3 className="mt-5 text-lg font-semibold text-white">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-blue-100/70">{step.description}</p>
+              <h3 className="mt-3 text-base font-semibold text-white">{step.title}</h3>
+              <p className="mt-1.5 text-[13px] leading-snug text-blue-100/70">{step.description}</p>
             </div>
           ))}
         </div>
