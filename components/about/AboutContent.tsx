@@ -116,7 +116,7 @@ const audienceSegments = [
   {
     number: '04',
     title: 'Kendi Satış Sistemini Kurmak İsteyenler',
-    description: 'Shopify, B2B katalog veya dijital showroom ile kendi satış altyapısını kurmak isteyen markalara sistem tasarlarız.',
+    description: 'Shopify, B2B katalog, dijital showroom veya pazaryeri yapısıyla kendi satış altyapısını kurmak isteyen markalara sistem tasarlarız.',
   },
   {
     number: '05',
@@ -198,16 +198,16 @@ export default function AboutContent() {
               'delay-[200ms]',
             )}`}
           >
-            Markalar İçin E-Ticaret ve Dijital Satış Sistemleri Kuruyoruz
+            Markalar İçin Dijital Satış ve Global Büyüme Sistemleri Kuruyoruz
           </h1>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
             )}`}
           >
-            GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B dijital altyapılar, sosyal medya, reklam ve otomasyon
-            süreçlerini birbirine bağlayarak markalar için sürdürülebilir e-ticaret ve dijital satış sistemleri
-            kurar.
+            GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B dijital altyapılar, sosyal medya, içerik, reklam ve
+            otomasyon süreçlerini birbirine bağlayarak markalar için sürdürülebilir dijital satış ve global büyüme
+            sistemleri kurar.
           </p>
         </div>
       </section>
@@ -224,19 +224,19 @@ export default function AboutContent() {
               Biz Kimiz?
             </p>
             <h2 className={`mt-4 text-2xl font-bold tracking-tight sm:text-3xl ${whoReveal('delay-[100ms]')}`}>
-              Ajans Değil, E-Ticaret Sistemi Kuruyoruz
+              Ajans Değil, Dijital Satış Sistemi Kuruyoruz
             </h2>
             <p className={`mt-5 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[200ms]')}`}>
               GloventGlobal; markaların yalnızca reklam vermesini, sosyal medya yönetmesini veya pazaryerinde
-              mağaza açmasını değil, tüm bu parçaların birlikte çalıştığı sürdürülebilir bir e-ticaret ve dijital
-              satış sistemi kurmasını hedefler. Strateji, altyapı, içerik, reklam, operasyon ve otomasyon
-              süreçlerini birbirinden kopuk hizmetler olarak değil; markanın satışını ve büyümesini destekleyen tek
-              bir yapı olarak ele alır.
+              mağaza açmasını değil, tüm bu parçaların birlikte çalıştığı sürdürülebilir bir dijital satış ve büyüme
+              sistemi kurmasını hedefler. Strateji, altyapı, içerik, reklam, operasyon ve otomasyon süreçlerini
+              birbirinden kopuk hizmetler olarak değil; markanın satışını ve büyümesini destekleyen tek bir yapı
+              olarak ele alır.
             </p>
             <p className={`mt-4 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[280ms]')}`}>
               Bu yüzden her markaya hazır paketlerle yaklaşmayız. Ürünü, hedef pazarı, satış kanalını, fiyat
               yapısını, görsel dili, operasyon kapasitesini ve dijital altyapıyı birlikte analiz eder; markaya özel
-              uygulanabilir bir e-ticaret yol haritası tasarlarız.
+              uygulanabilir bir dijital satış ve global büyüme yol haritası tasarlarız.
             </p>
             <p
               className={`mt-5 border-l-2 border-blue-400/40 pl-4 text-sm font-medium leading-relaxed text-blue-100/85 sm:text-base ${whoReveal(
@@ -360,15 +360,16 @@ export default function AboutContent() {
               'delay-[100ms]',
             )}`}
           >
-            E-Ticaret Sistemini Güçlendirmek İsteyen Markalarla Çalışıyoruz
+            Dijital Satış Sistemini Güçlendirmek İsteyen Markalarla Çalışıyoruz
           </h2>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${audienceReveal(
               'delay-[200ms]',
             )}`}
           >
-            GloventGlobal; ürününü dijital satış kanallarına taşımak, mevcut e-ticaret yapısını güçlendirmek veya
-            pazaryeri, Shopify, B2B ve sosyal medya kanallarında daha sistemli büyümek isteyen markalarla çalışır.
+            GloventGlobal; ürününü dijital satış kanallarına taşımak, mevcut satış yapısını güçlendirmek veya
+            pazaryeri, Shopify, B2B, sosyal medya, reklam ve otomasyon süreçlerini daha sistemli yönetmek isteyen
+            markalarla çalışır.
           </p>
         </div>
 
