@@ -116,7 +116,12 @@ const serviceCards = [
     description: 'Amazon, Etsy, Google ve Meta reklamlarını veri, dönüşüm ve kârlılık odağında optimize ederiz.',
   },
   {
-    tag: '10 STRATEJİ',
+    tag: '10 OTOMASYON',
+    title: 'Otomasyon & n8n Sistemleri',
+    description: 'Form, teklif, müşteri, ürün, sipariş ve raporlama süreçlerini n8n, API ve entegrasyon yapılarıyla birbirine bağlayan otomasyon sistemleri kurarız.',
+  },
+  {
+    tag: '11 STRATEJİ',
     title: 'Global Pazara Giriş Stratejisi',
     description: 'Ürününüz için doğru ülke, kanal, fiyat, rekabet ve büyüme yol haritasını belirleriz.',
   },
@@ -192,6 +197,7 @@ const serviceCardDelays = [
   'delay-[350ms]',
   'delay-[400ms]',
   'delay-[450ms]',
+  'delay-[500ms]',
 ];
 
 export default function ServicesContent() {
@@ -359,11 +365,16 @@ export default function ServicesContent() {
           </p>
         </div>
 
-        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 11 kart, 4'lü görünüm için 8 "sanal" sütun (lg:grid-cols-8) + her kart 2 sütun (lg:col-span-2):
+            ilk 8 kart 2 satırı tam dolduruyor (4+4), 9. karta lg:col-start-2 verilince son 3 kart
+            (09/10/11) satırın ortasına simetrik şekilde yerleşiyor — her iki kenarda eşit boşluk kalıyor. */}
+        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
           {serviceCards.map((service, index) => (
             <div
               key={service.title}
-              className={`${servicesReveal(serviceCardDelays[index])} ${index === 8 ? 'lg:col-start-2' : ''}`}
+              className={`${servicesReveal(serviceCardDelays[index])} lg:col-span-2 ${
+                index === 8 ? 'lg:col-start-2' : ''
+              }`}
             >
               <div className="relative flex h-full min-h-[180px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
                 <span
@@ -512,7 +523,7 @@ export default function ServicesContent() {
           </p>
 
           <p className="mt-6 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
-            Amazon • Etsy • eBay • Shopify • B2B • Sosyal Medya • Reklam
+            Amazon • Etsy • eBay • Shopify • B2B • Sosyal Medya • Reklam • Otomasyon
           </p>
 
           <a
