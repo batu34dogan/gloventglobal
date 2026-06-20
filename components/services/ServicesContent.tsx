@@ -122,6 +122,36 @@ const serviceCards = [
   },
 ];
 
+const audienceSegments = [
+  {
+    number: '01',
+    title: 'Üreticiler',
+    description: 'Ürününü ilk kez global pazarlara taşımak isteyen üreticiler için pazar, kanal ve satış sistemi planı oluştururuz.',
+  },
+  {
+    number: '02',
+    title: 'Toptan Satış Yapan Markalar',
+    description: 'Toptan çalışan markalar için dijital katalog, B2B showroom, teklif listesi ve müşteri odaklı ürün sunumu kurgularız.',
+  },
+  {
+    number: '03',
+    title: 'Etsy / Amazon’a Girmek İsteyen Markalar',
+    description: 'Pazaryerlerine giriş yapmak isteyen markalar için mağaza kurulumu, listeleme, SEO, görsel dil ve reklam altyapısını hazırlarız.',
+  },
+  {
+    number: '04',
+    title: 'Shopify ile Kendi Sistemini Kurmak İsteyenler',
+    description: 'Kendi markasına ait satış kanalı kurmak isteyen işletmeler için Shopify tabanlı vitrin, ürün yönetimi ve satış deneyimi oluştururuz.',
+  },
+  {
+    number: '05',
+    title: 'Globalde Marka Algısını Güçlendirmek İsteyenler',
+    description: 'Yalnızca satış değil, marka algısı, görsel bütünlük, sosyal medya ve içerik diliyle global pazarda daha güçlü görünmek isteyen markalara sistem kurarız.',
+  },
+];
+
+const audienceDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[240ms]', 'delay-[320ms]'];
+
 const serviceCardDelays = [
   'delay-[0ms]',
   'delay-[50ms]',
@@ -139,6 +169,7 @@ export default function ServicesContent() {
   const [mounted, setMounted] = useState(false);
   const [systemRef, systemInView] = useInView<HTMLElement>();
   const [servicesRef, servicesInView] = useInView<HTMLElement>();
+  const [audienceRef, audienceInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -163,6 +194,12 @@ export default function ServicesContent() {
   const servicesReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       servicesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "Hangi Marka İçin Hangi Hizmet?" bölümü Hizmet Kartları'nın altında — kendi viewport girişine bağlı, ayrı reveal.
+  const audienceReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -295,6 +332,59 @@ export default function ServicesContent() {
                 </span>
                 <h3 className="mt-2.5 text-base font-semibold text-white">{service.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{service.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ 4. KİMLER İÇİN? (5 segment kartı, 3+2 ortalı) ============ */}
+      <section ref={audienceRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={audienceInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[400px] w-[760px] -translate-x-1/2" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${audienceReveal('delay-[0ms]')}`}>
+            Kimler İçin?
+          </p>
+          <h2
+            className={`mx-auto mt-4 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl ${audienceReveal(
+              'delay-[100ms]',
+            )}`}
+          >
+            Hangi Marka İçin Hangi Sistem Daha Doğru?
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${audienceReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            Her markanın ihtiyacı aynı değildir. GloventGlobal; ürün yapısı, satış kanalı, hedef pazar ve büyüme
+            aşamasına göre doğru hizmet kombinasyonunu belirler.
+          </p>
+        </div>
+
+        {/* 6 sanal sütun (lg:grid-cols-6) + her kart 2 sütun kaplıyor (lg:col-span-2):
+            ilk 3 kart tam satırı dolduruyor (3x2=6), 4. karta lg:col-start-2 verilince
+            5. kart otomatik onun yanına geliyor — son sırada 1 sütunluk boşluk her iki kenarda
+            eşit kalıyor, böylece 2 kart simetrik şekilde ortalanmış oluyor. */}
+        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-6">
+          {audienceSegments.map((segment, index) => (
+            <div
+              key={segment.title}
+              className={`${audienceReveal(audienceDelays[index])} lg:col-span-2 ${
+                index === 3 ? 'lg:col-start-2' : ''
+              }`}
+            >
+              <div className="relative flex h-full min-h-[190px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-7 right-7 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+                  {segment.number}
+                </span>
+                <h3 className="mt-4 text-base font-semibold text-white">{segment.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{segment.description}</p>
               </div>
             </div>
           ))}
