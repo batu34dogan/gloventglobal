@@ -97,14 +97,16 @@ function SelectField({
   value,
   onChange,
   options,
+  fullWidth,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   options: string[];
+  fullWidth?: boolean;
 }) {
   return (
-    <label className="block">
+    <label className={`block ${fullWidth ? 'sm:col-span-2' : ''}`}>
       <span className={fieldLabelClass}>{label}</span>
       <select value={value} onChange={(e) => onChange(e.target.value)} className={fieldInputClass}>
         <option value="" className="bg-[#070d18]">
@@ -120,7 +122,17 @@ function SelectField({
   );
 }
 
-const targetChannelOptions = ['Amazon', 'Etsy', 'eBay', 'Shopify', 'B2B Dijital Showroom', 'Sosyal Medya', 'Henüz Belirsiz'];
+const targetChannelOptions = [
+  'Amazon',
+  'Etsy',
+  'eBay',
+  'Shopify',
+  'B2B Dijital Showroom',
+  'Sosyal Medya',
+  'Reklam',
+  'Otomasyon / n8n',
+  'Emin değilim, birlikte belirleyelim',
+];
 
 const quickContactCards = [
   {
@@ -188,11 +200,7 @@ export default function ContactContent() {
     phone: '',
     email: '',
     website: '',
-    category: '',
-    currentChannels: '',
     targetChannel: '',
-    targetMarket: '',
-    neededServices: '',
     notes: '',
   });
 
@@ -281,8 +289,8 @@ export default function ContactContent() {
 
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Başvuru Bilgileri</h2>
             <p className="mt-3 text-sm leading-relaxed text-blue-100/70 sm:text-base">
-              Markanızı, ürünlerinizi ve hedeflerinizi daha doğru anlayabilmemiz için aşağıdaki bilgileri
-              paylaşabilirsiniz.
+              Markanızla ilgili temel bilgileri paylaşın; ürününüz, hedef pazarınız ve ihtiyaçlarınıza göre doğru
+              satış sistemini birlikte değerlendirelim.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -294,29 +302,14 @@ export default function ContactContent() {
                 label="Web Sitesi / Sosyal Medya Hesabı"
                 value={formValues.website}
                 onChange={updateField('website')}
-              />
-              <TextField label="Ürün Kategorisi" value={formValues.category} onChange={updateField('category')} />
-              <TextField
-                label="Mevcut Satış Kanalları"
-                value={formValues.currentChannels}
-                onChange={updateField('currentChannels')}
+                fullWidth
               />
               <SelectField
                 label="Hedeflenen Satış Kanalı"
                 value={formValues.targetChannel}
                 onChange={updateField('targetChannel')}
                 options={targetChannelOptions}
-              />
-              <TextField
-                label="Hedef Pazar / Ülke"
-                value={formValues.targetMarket}
-                onChange={updateField('targetMarket')}
                 fullWidth
-              />
-              <TextAreaField
-                label="İhtiyaç Duyulan Hizmetler"
-                value={formValues.neededServices}
-                onChange={updateField('neededServices')}
               />
               <TextAreaField label="Kısa Açıklama" value={formValues.notes} onChange={updateField('notes')} />
 
