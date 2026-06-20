@@ -133,6 +133,7 @@ export default function AboutContent() {
   const [whyRef, whyInView] = useInView<HTMLElement>();
   const [mindsetRef, mindsetInView] = useInView<HTMLElement>();
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
+  const [ctaRef, ctaInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -171,6 +172,12 @@ export default function AboutContent() {
   const audienceReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Final CTA sayfanın en sonunda — kendi viewport girişine bağlı, ayrı reveal.
+  const ctaReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      ctaInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -388,6 +395,39 @@ export default function AboutContent() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ============ 6. FİNAL CTA ============ */}
+      <section ref={ctaRef} className="relative px-6 pb-24 pt-14 sm:px-10">
+        <Glow visible={ctaInView} targetOpacity="opacity-55" className="left-1/2 top-0 h-[460px] w-[800px] -translate-x-1/2" />
+
+        <div
+          className={`relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-10 text-center backdrop-blur-sm sm:px-12 sm:py-12 ${ctaReveal(
+            'delay-[0ms]',
+          )}`}
+        >
+          <span
+            aria-hidden="true"
+            className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
+          />
+
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Markanız İçin Doğru Sistemi Birlikte Kuralım</h2>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
+            Ürününüzü, mevcut satış yapınızı ve hedeflerinizi birlikte değerlendirerek markanız için doğru dijital
+            satış ve büyüme sistemini planlayalım.
+          </p>
+
+          <p className="mt-6 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
+            Strateji • Altyapı • İçerik • Reklam • Otomasyon • Büyüme
+          </p>
+
+          <a
+            href="/iletisim"
+            className="mt-9 inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-12 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
+          >
+            GloventGlobal ile Görüş
+          </a>
         </div>
       </section>
     </main>

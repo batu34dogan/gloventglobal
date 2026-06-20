@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 const navLinks = [
   { label: 'Hizmetler', href: '/hizmetler' },
+  { label: 'Hakkımızda', href: '/hakkimizda' },
   { label: 'Farkımız', href: '/#why' },
   { label: 'Süreç', href: '/#process' },
   { label: 'Sistem', href: '/#services' },
