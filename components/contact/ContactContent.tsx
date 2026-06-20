@@ -123,22 +123,37 @@ function SelectField({
 const targetChannelOptions = ['Amazon', 'Etsy', 'eBay', 'Shopify', 'B2B Dijital Showroom', 'Sosyal Medya', 'Henüz Belirsiz'];
 
 const quickContactCards = [
-  { label: 'E-posta', value: 'info@gloventglobal.com', href: 'mailto:info@gloventglobal.com' },
+  {
+    label: 'E-posta',
+    value: 'info@gloventglobal.com',
+    description: 'Proje, hizmet ve iş birliği talepleriniz için bize e-posta gönderebilirsiniz.',
+    href: 'mailto:info@gloventglobal.com',
+  },
   {
     label: 'WhatsApp',
-    value: '+90 XXX XXX XX XX',
-    note: 'Markanız ve hedef pazarınızla ilgili hızlı ön görüşme için WhatsApp üzerinden ulaşabilirsiniz.',
+    value: '0536 834 88 97',
+    description: 'Markanız, ürünleriniz ve hedef pazarınızla ilgili hızlı ön görüşme için WhatsApp üzerinden ulaşabilirsiniz.',
+    href: 'https://wa.me/905368348897',
   },
-  { label: 'Instagram', value: '@gloventglobal', href: 'https://instagram.com/gloventglobal' },
+  {
+    label: 'Instagram',
+    value: '@gloventglobal',
+    description: 'Güncel çalışmalar, içerikler ve marka duyuruları için Instagram hesabımızı takip edebilirsiniz.',
+    href: 'https://www.instagram.com/gloventglobal',
+  },
   {
     label: 'Görüşme Planı',
-    value: 'Markanız, ürünleriniz ve hedef pazarınız üzerinden ilk değerlendirme yapılır.',
+    value: 'Ön Değerlendirme',
+    description: 'Markanız, ürünleriniz, mevcut satış kanallarınız ve hedef pazarınız üzerinden ilk değerlendirme yapılır.',
   },
   {
     label: 'Yanıt Süreci',
-    value: 'Başvurular ön analiz sonrası uygun yol haritası için değerlendirilir.',
+    value: 'Yol Haritası',
+    description: 'Başvurular ön analiz sonrası uygun hizmet kombinasyonu ve yol haritası için değerlendirilir.',
   },
 ];
+
+const quickContactDelays = ['delay-[80ms]', 'delay-[130ms]', 'delay-[180ms]', 'delay-[230ms]', 'delay-[280ms]'];
 
 export default function ContactContent() {
   const [mounted, setMounted] = useState(false);
@@ -296,33 +311,44 @@ export default function ContactContent() {
           </div>
 
           {/* Hızlı iletişim kartları — desktop'ta sağ/dar kolon, mobilde formun altında.
-              5 karta çıkınca sağ kolon uzadığı için boşluk/padding hafif sıkılaştırıldı (gap-4→gap-3, p-5→p-4). */}
+              Tıklanabilir kartlar (href varsa) tüm yüzeyiyle link; diğerleri sade bilgi kartı. */}
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-            {quickContactCards.map((card, index) => (
-              <div
-                key={card.label}
-                className={`relative rounded-xl border border-white/[0.08] bg-white/[0.035] p-4 backdrop-blur-sm ${formReveal(
-                  ['delay-[80ms]', 'delay-[130ms]', 'delay-[180ms]', 'delay-[230ms]', 'delay-[280ms]'][index],
-                )}`}
-              >
-                <span
-                  aria-hidden="true"
-                  className="absolute left-4 right-4 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
-                />
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">{card.label}</p>
-                {card.href ? (
-                  <a
-                    href={card.href}
-                    className="mt-2 block text-sm font-medium text-white transition-colors duration-200 hover:text-blue-300"
-                  >
-                    {card.value}
-                  </a>
-                ) : (
-                  <p className="mt-2 text-sm leading-relaxed text-blue-100/75">{card.value}</p>
-                )}
-                {card.note && <p className="mt-1.5 text-xs leading-relaxed text-blue-100/50">{card.note}</p>}
-              </div>
-            ))}
+            {quickContactCards.map((card, index) => {
+              const isExternal = card.href?.startsWith('http');
+              const cardClassName = `relative block rounded-xl border border-white/[0.08] bg-white/[0.035] p-4 backdrop-blur-sm transition-all duration-300 ${
+                card.href
+                  ? 'hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.45)]'
+                  : ''
+              } ${formReveal(quickContactDelays[index])}`;
+
+              const cardContent = (
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-4 right-4 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
+                  />
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">{card.label}</p>
+                  <p className="mt-2 text-sm font-semibold text-white">{card.value}</p>
+                  <p className="mt-1.5 text-xs leading-relaxed text-blue-100/60">{card.description}</p>
+                </>
+              );
+
+              return card.href ? (
+                <a
+                  key={card.label}
+                  href={card.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                  className={cardClassName}
+                >
+                  {cardContent}
+                </a>
+              ) : (
+                <div key={card.label} className={cardClassName}>
+                  {cardContent}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
