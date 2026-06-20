@@ -31,26 +31,32 @@ function useInView<T extends HTMLElement>() {
 
 const services = [
   {
+    tag: '01 ANALİZ',
     title: 'Pazar ve Ürün Analizi',
     description: 'Ürünün hangi pazarda, hangi müşteri kitlesine ve hangi fiyat yapısıyla sunulacağını analiz ederiz.',
   },
   {
+    tag: '02 MARKA',
     title: 'Marka Konumlandırma',
     description: 'Ürününüzü yalnızca satılacak bir ürün değil, pazarda algısı olan bir marka yapısına dönüştürürüz.',
   },
   {
+    tag: '03 PAZARYERİ',
     title: 'Pazaryeri Sistemleri',
     description: 'Amazon, Etsy ve eBay için listeleme, SEO, kategori, fiyatlandırma ve reklam altyapısını kurarız.',
   },
   {
+    tag: '04 B2B',
     title: 'Shopify ve B2B Altyapı',
     description: 'Markanıza özel vitrin, dijital katalog, B2B teklif sistemi ve ürün yönetim yapıları oluştururuz.',
   },
   {
+    tag: '05 İÇERİK',
     title: 'Görsel ve İçerik Sistemi',
     description: 'Ürün fotoğrafı, yapay zeka destekli görsel konsept, açıklama, başlık ve marka dili bütünlüğünü kurarız.',
   },
   {
+    tag: '06 OPTİMİZASYON',
     title: 'Reklam ve Optimizasyon',
     description: 'Pazar yeri, Google ve Meta reklamlarını veri, dönüşüm ve kârlılık odağında optimize ederiz.',
   },
@@ -153,19 +159,6 @@ function Glow({
   );
 }
 
-// Cam panel kart: ince üst ışık çizgisi + hover'da mavi glow. "Network panel" hissi için.
-function Panel({ title, description }: { title: string; description: string }) {
-  return (
-    <div className="relative rounded-xl border border-white/[0.07] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
-      <span
-        aria-hidden="true"
-        className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
-      />
-      <h3 className="text-lg font-semibold text-white">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-blue-100/70">{description}</p>
-    </div>
-  );
-}
 
 export default function HomeContent() {
   const [mounted, setMounted] = useState(false);
@@ -393,9 +386,24 @@ export default function HomeContent() {
               Global Satış Altyapısını Birlikte Kuruyoruz
             </h2>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Sistem modülü kartları: küçük modül etiketi (01 ANALİZ vb.) + başlık + açıklama —
+              klasik hizmet kutusu değil, "global satış altyapısının modülleri" gibi okunsun. */}
+          <div className="mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <Panel key={service.title} title={service.title} description={service.description} />
+              <div
+                key={service.title}
+                className="group relative flex h-full flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent transition-colors duration-300 group-hover:from-blue-400/75"
+                />
+                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-300/80">
+                  {service.tag}
+                </span>
+                <h3 className="mt-3 text-lg font-semibold text-white">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{service.description}</p>
+              </div>
             ))}
           </div>
         </div>
