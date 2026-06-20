@@ -142,15 +142,15 @@ export default function AboutContent() {
               Ajans Değil, Global Satış Sistemi Kuruyoruz
             </h2>
             <p className={`mt-5 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[200ms]')}`}>
-              GloventGlobal; markaların yalnızca dijitalde görünür olmasını değil, global pazarlarda sürdürülebilir
-              şekilde satış yapabilecek bir sistem kurmasını hedefler. Reklam, sosyal medya, web sitesi, pazaryeri
-              kurulumu, içerik üretimi veya otomasyon gibi parçaları birbirinden kopuk hizmetler olarak değil;
-              markanın büyümesini destekleyen tek bir yapı olarak ele alır.
+              GloventGlobal; markaların yalnızca reklam vermesini, sosyal medya yönetmesini veya pazaryerinde
+              mağaza açmasını değil, tüm bu parçaların birlikte çalıştığı sürdürülebilir bir global satış sistemi
+              kurmasını hedefler. Strateji, altyapı, içerik, reklam, operasyon ve otomasyon süreçlerini birbirinden
+              kopuk hizmetler olarak değil; markanın büyümesini destekleyen tek bir yapı olarak ele alır.
             </p>
             <p className={`mt-4 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[280ms]')}`}>
               Bu yüzden her markaya hazır paketlerle yaklaşmayız. Ürünü, hedef pazarı, satış kanalını, fiyat
               yapısını, görsel dili, operasyon kapasitesini ve dijital altyapıyı birlikte analiz eder; markaya özel
-              uygulanabilir bir global satış sistemi tasarlarız.
+              uygulanabilir bir yol haritası tasarlarız.
             </p>
             <p
               className={`mt-5 border-l-2 border-blue-400/40 pl-4 text-sm font-medium leading-relaxed text-blue-100/85 sm:text-base ${whoReveal(
