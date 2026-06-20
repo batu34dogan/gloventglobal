@@ -53,21 +53,25 @@ function Glow({
 }
 
 const focusAreas = [
-  'Pazaryeri Danışmanlığı',
+  'Global Pazar Stratejisi',
+  'Pazaryeri Sistemleri',
   'Shopify & B2B Altyapı',
   'Marka Konumlandırma',
   'Görsel & İçerik Sistemi',
+  'Sosyal Medya Yönetimi',
   'Reklam & Optimizasyon',
   'Otomasyon & n8n Sistemleri',
 ];
 
 const focusAreaDelays = [
   'delay-[0ms]',
-  'delay-[60ms]',
-  'delay-[120ms]',
-  'delay-[180ms]',
-  'delay-[240ms]',
+  'delay-[50ms]',
+  'delay-[100ms]',
+  'delay-[150ms]',
+  'delay-[200ms]',
+  'delay-[250ms]',
   'delay-[300ms]',
+  'delay-[350ms]',
 ];
 
 export default function AboutContent() {
@@ -135,13 +139,26 @@ export default function AboutContent() {
               Biz Kimiz?
             </p>
             <h2 className={`mt-4 text-2xl font-bold tracking-tight sm:text-3xl ${whoReveal('delay-[100ms]')}`}>
-              Danışmanlıktan Fazlası: Global Satış Sistemi Kuruyoruz
+              Ajans Değil, Global Satış Sistemi Kuruyoruz
             </h2>
             <p className={`mt-5 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[200ms]')}`}>
-              GloventGlobal, markaların yalnızca dijital pazarlara giriş yapmasını değil, bu pazarlarda
-              sürdürülebilir şekilde satış yapabilecek bir sistem kurmasını hedefler. Ürün, pazar, kanal, içerik,
-              reklam, operasyon ve otomasyon süreçlerini birbirinden kopuk işler olarak değil; birlikte çalışan bir
-              büyüme yapısı olarak ele alır.
+              GloventGlobal; markaların yalnızca dijitalde görünür olmasını değil, global pazarlarda sürdürülebilir
+              şekilde satış yapabilecek bir sistem kurmasını hedefler. Reklam, sosyal medya, web sitesi, pazaryeri
+              kurulumu, içerik üretimi veya otomasyon gibi parçaları birbirinden kopuk hizmetler olarak değil;
+              markanın büyümesini destekleyen tek bir yapı olarak ele alır.
+            </p>
+            <p className={`mt-4 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[280ms]')}`}>
+              Bu yüzden her markaya hazır paketlerle yaklaşmayız. Ürünü, hedef pazarı, satış kanalını, fiyat
+              yapısını, görsel dili, operasyon kapasitesini ve dijital altyapıyı birlikte analiz eder; markaya özel
+              uygulanabilir bir global satış sistemi tasarlarız.
+            </p>
+            <p
+              className={`mt-5 border-l-2 border-blue-400/40 pl-4 text-sm font-medium leading-relaxed text-blue-100/85 sm:text-base ${whoReveal(
+                'delay-[360ms]',
+              )}`}
+            >
+              Ürün var ama sistem yoksa, sürdürülebilir satış da zorlaşır. GloventGlobal bu sistemi kurmak için
+              çalışır.
             </p>
           </div>
 
