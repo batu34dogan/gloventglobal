@@ -56,7 +56,23 @@ const services = [
   },
 ];
 
-const whyHighlights = ['Önce Pazarı ve Ürünü Okuruz', 'Sonra Markayı Konumlandırırız', 'Ardından Satış Sistemini Kurarız'];
+const whySteps = [
+  {
+    number: '01',
+    title: 'Pazarı ve Ürünü Okuruz',
+    description: 'Ürünün hangi pazarda, hangi müşteri kitlesine ve hangi fiyat yapısıyla konumlanacağını analiz ederiz.',
+  },
+  {
+    number: '02',
+    title: 'Markayı Konumlandırırız',
+    description: 'Ürünü yalnızca satılacak bir ürün değil, pazarda algısı olan bir marka yapısına dönüştürürüz.',
+  },
+  {
+    number: '03',
+    title: 'Satış Sistemini Kurarız',
+    description: 'Pazaryeri, Shopify, içerik, reklam ve operasyon yapısını birlikte çalışan tek sistem haline getiririz.',
+  },
+];
 
 const processSteps = [
   { number: '01', title: 'Keşif', description: 'Ürünü, hedef pazarı, rakipleri, marjı ve satış potansiyelini analiz ederiz.' },
@@ -290,14 +306,37 @@ export default function HomeContent() {
             GloventGlobal; strateji, marka, altyapı, içerik, reklam ve operasyonu birbirinden kopuk parçalar olarak
             değil, tek bir büyüme sistemi olarak ele alır.
           </p>
-          <div className="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-0">
-            {whyHighlights.map((item, index) => (
-              <div key={item} className="flex items-center">
-                {index > 0 && <span className="mx-6 hidden h-8 w-px bg-white/10 sm:block" />}
-                <p className="text-sm font-medium uppercase tracking-[0.15em] text-white/80">{item}</p>
-              </div>
-            ))}
-          </div>
+        </div>
+
+        {/* 3 katmanlı sistem kartı: numaralı badge + ince bağlantı çizgisi (desktop) — Süreç bölümündeki
+            aynı görsel dilin daha sakin bir versiyonu. Mobilde çizgi kalkar, kartlar alt alta sıralanır. */}
+        <div className="relative mx-auto mt-14 grid max-w-5xl items-stretch gap-8 lg:grid-cols-3 lg:gap-6">
+          {whySteps.map((step, index) => (
+            <div
+              key={step.number}
+              className={`relative flex h-full flex-col rounded-xl border p-7 backdrop-blur-sm transition-all duration-300 ${
+                index === 1
+                  ? 'border-blue-400/25 bg-white/[0.045] shadow-[0_0_50px_-18px_rgba(59,130,246,0.55)]'
+                  : 'border-white/[0.07] bg-white/[0.035] hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]'
+              }`}
+            >
+              <span
+                aria-hidden="true"
+                className="absolute left-7 right-7 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
+              />
+              {index < whySteps.length - 1 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute left-full top-[46px] hidden h-px w-6 bg-gradient-to-r from-blue-400/40 to-transparent lg:block"
+                />
+              )}
+              <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/40 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+                {step.number}
+              </span>
+              <h3 className="mt-5 text-lg font-semibold text-white">{step.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-blue-100/70">{step.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
