@@ -1,6 +1,33 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+// Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
+// Bir kez göründükten sonra gözlemeyi durdurur — sürekli tetiklenen bir "marquee" değil, tek seferlik giriş efekti.
+function useInView<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, inView] as const;
+}
 
 const services = [
   {
@@ -60,7 +87,7 @@ const processSteps = [
   },
 ];
 
-// GloventGlobal Network bölümü için marka verisi. İlk 4'ü 2x2 grid, 5.'si (Boncukcu Amca) altta ayrı geniş kart.
+// GloventGlobal Network bölümü için marka verisi — 6 kart, hepsi aynı boyutta, 3x2 grid.
 const networkBrands = [
   {
     name: 'BERD',
@@ -82,7 +109,15 @@ const networkBrands = [
     name: 'Boncukcu Amca',
     description: 'Toptan ve perakende takı malzemeleri için Shopify tabanlı ürün yönetimi ve satış sistemi kurgusu.',
   },
+  {
+    name: 'Yeni Marka Altyapıları',
+    description: 'Yeni ürün grupları, pazaryerleri ve satış kanalları için ölçeklenebilir global sistemler tasarlanır.',
+  },
 ];
+
+// Kartların sırayla, scroll'da görününce hafifçe belirmesi için sabit/literal delay class'ları
+// (Tailwind derleme zamanında metni tarar — index'e göre dinamik string üretmek çalışmaz).
+const cardDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[240ms]', 'delay-[320ms]', 'delay-[400ms]'];
 
 // Tek, sürekli koyu lacivert taban — section'lar arasında sert renk/sınır geçişi yok.
 // Section kimliği, arka planda dağılmış yumuşak mavi glow'larla veriliyor (intro'nun network temasıyla aynı dil).
@@ -122,6 +157,7 @@ function Panel({ title, description }: { title: string; description: string }) {
 
 export default function HomeContent() {
   const [mounted, setMounted] = useState(false);
+  const [brandsGridRef, brandsInView] = useInView<HTMLDivElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -203,16 +239,18 @@ export default function HomeContent() {
             </p>
           </div>
 
-          {/* İlk 4 marka: düzenli 2x2 grid (mobilde tek sütun stack) */}
-          <div className="mt-14 grid gap-6 sm:grid-cols-2">
-            {networkBrands.slice(0, 4).map((brand) => (
-              <Panel key={brand.name} title={brand.name} description={brand.description} />
+          {/* 6 marka kartı, hepsi aynı boyutta — 3x2 (desktop) / 2 sütun (tablet) / 1 sütun (mobil) */}
+          <div ref={brandsGridRef} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {networkBrands.map((brand, index) => (
+              <div
+                key={brand.name}
+                className={`transition-all duration-700 ease-out motion-reduce:transition-none ${cardDelays[index]} ${
+                  brandsInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              >
+                <Panel title={brand.name} description={brand.description} />
+              </div>
             ))}
-          </div>
-
-          {/* 5. marka (Boncukcu Amca): gridin altında ayrı, geniş kart — aynı tasarım dili */}
-          <div className="mt-6">
-            <Panel title={networkBrands[4].name} description={networkBrands[4].description} />
           </div>
         </div>
       </section>
