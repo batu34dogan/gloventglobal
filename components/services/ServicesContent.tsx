@@ -69,9 +69,64 @@ const systemPillars = [
   },
 ];
 
+const serviceCards = [
+  {
+    tag: '01 AMAZON',
+    title: 'Amazon Danışmanlığı',
+    description: 'Amazon’da doğru kategori, listeleme, SEO, reklam ve operasyon yapısıyla satışa hazır bir sistem kurarız.',
+  },
+  {
+    tag: '02 ETSY',
+    title: 'Etsy Mağaza Sistemi',
+    description: 'El yapımı, butik, tasarım ve niş ürünler için Etsy mağaza yapısı, görsel dili ve listeleme stratejisi oluştururuz.',
+  },
+  {
+    tag: '03 SHOPIFY / B2B',
+    title: 'Shopify & B2B Altyapı',
+    description: 'Markanıza özel vitrin, ürün yönetimi, dijital katalog, teklif sistemi ve B2B satış altyapısı kurarız.',
+  },
+  {
+    tag: '04 EBAY',
+    title: 'eBay Global Satış',
+    description: 'Farklı pazarlara açılmak isteyen markalar için eBay listeleme, kategori ve satış altyapısını hazırlarız.',
+  },
+  {
+    tag: '05 MARKA',
+    title: 'Marka Konumlandırma',
+    description: 'Ürününüzü yalnızca satılacak bir ürün olarak değil, pazarda algısı olan bir marka yapısı içinde konumlandırırız.',
+  },
+  {
+    tag: '06 İÇERİK',
+    title: 'Görsel & İçerik Sistemi',
+    description: 'Ürün fotoğrafı, yapay zeka destekli görsel konsept, açıklama, başlık ve marka dili bütünlüğünü kurarız.',
+  },
+  {
+    tag: '07 REKLAM',
+    title: 'Reklam & Optimizasyon',
+    description: 'Amazon, Etsy, Google ve Meta reklamlarını veri, dönüşüm ve kârlılık odağında optimize ederiz.',
+  },
+  {
+    tag: '08 STRATEJİ',
+    title: 'Global Pazara Giriş Stratejisi',
+    description: 'Ürününüz için doğru ülke, kanal, fiyat, rekabet ve büyüme yol haritasını belirleriz.',
+  },
+];
+
+const serviceCardDelays = [
+  'delay-[0ms]',
+  'delay-[60ms]',
+  'delay-[120ms]',
+  'delay-[180ms]',
+  'delay-[240ms]',
+  'delay-[300ms]',
+  'delay-[360ms]',
+  'delay-[420ms]',
+];
+
 export default function ServicesContent() {
   const [mounted, setMounted] = useState(false);
   const [systemRef, systemInView] = useInView<HTMLElement>();
+  const [servicesRef, servicesInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -90,6 +145,12 @@ export default function ServicesContent() {
   const systemReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       systemInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Hizmet Kartları bölümü, Sistem Mantığı'nın daha da altında — kendi viewport girişine bağlı, ayrı reveal.
+  const servicesReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      servicesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -174,6 +235,51 @@ export default function ServicesContent() {
                 </span>
                 <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.15em] text-white">{pillar.title}</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{pillar.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ 3. HİZMETLERİMİZ (8 hizmet kartı) ============ */}
+      <section id="hizmetlerimiz" ref={servicesRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={servicesInView} targetOpacity="opacity-45" className="right-[-200px] top-0 h-[440px] w-[440px]" />
+        <Glow visible={servicesInView} targetOpacity="opacity-35" className="left-[-200px] bottom-0 h-[420px] w-[420px]" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${servicesReveal('delay-[0ms]')}`}>
+            Hizmetlerimiz
+          </p>
+          <h2
+            className={`mx-auto mt-4 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl ${servicesReveal(
+              'delay-[100ms]',
+            )}`}
+          >
+            Global Satış Sistemini Oluşturan Hizmetler
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${servicesReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            Her hizmeti tek başına bir işlem olarak değil, markanızın global pazarda sürdürülebilir satış
+            üretebilmesi için birbirini tamamlayan sistem parçaları olarak ele alıyoruz.
+          </p>
+        </div>
+
+        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {serviceCards.map((service, index) => (
+            <div key={service.title} className={servicesReveal(serviceCardDelays[index])}>
+              <div className="relative flex h-full min-h-[160px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-300/80">
+                  {service.tag}
+                </span>
+                <h3 className="mt-2.5 text-base font-semibold text-white">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{service.description}</p>
               </div>
             </div>
           ))}
