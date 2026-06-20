@@ -243,6 +243,17 @@ export default function HomeContent() {
             </a>
           </div>
 
+          {/* İki ana CTA'nın altında, onlar kadar baskın olmayan küçük bir üçüncü/ikincil link —
+              mobilde hamburger menüyü açmayan kullanıcıların da /hakkimizda'yı fark etmesi için. */}
+          <div className={`mt-5 text-center ${reveal('delay-[450ms]')}`}>
+            <a
+              href="/hakkimizda"
+              className="inline-block py-1 text-xs font-medium text-blue-100/55 transition-colors duration-200 hover:text-blue-200"
+            >
+              GloventGlobal nedir? →
+            </a>
+          </div>
+
           <div className={`relative mt-14 ${reveal('delay-[500ms]')}`}>
             <div className="relative mx-auto max-w-[420px] overflow-hidden sm:max-w-[520px]">
               <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-3 bg-gradient-to-r from-[#070d18] to-transparent opacity-15 sm:w-5" />
