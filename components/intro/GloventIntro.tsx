@@ -43,16 +43,16 @@ export default function GloventIntro() {
         <IntroBackground />
       </div>
 
-      <span className="absolute left-6 top-4 text-sm font-semibold tracking-[0.25em] text-white md:left-10 md:top-8 md:text-base">
+      <span className="absolute left-1/2 top-4 -translate-x-1/2 text-sm font-semibold tracking-[0.25em] text-white md:left-10 md:top-8 md:translate-x-0 md:text-base">
         GLOVENTGLOBAL
       </span>
 
-      {/* Mobilde: ekranın tam merkezi (dikey + yatay). Desktop'ta (md:): mevcut bottom-14 konumu — DOKUNULMADI. */}
+      {/* Mobilde: ekran merkezinden ~110px aşağıda (dünya ile Shopify arasında). Desktop'ta (md:): mevcut bottom-14 — DOKUNULMADI. */}
       <button
         type="button"
         onClick={handleEnter}
         disabled={phase !== 'idle'}
-        className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 md:top-auto md:bottom-14 md:translate-y-0 md:text-sm"
+        className="absolute left-1/2 top-[calc(50%_+_110px)] z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 md:top-auto md:bottom-14 md:translate-y-0 md:text-sm"
       >
         ENTER GLOBAL NETWORK
       </button>
