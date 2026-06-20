@@ -124,6 +124,11 @@ const targetChannelOptions = ['Amazon', 'Etsy', 'eBay', 'Shopify', 'B2B Dijital 
 
 const quickContactCards = [
   { label: 'E-posta', value: 'info@gloventglobal.com', href: 'mailto:info@gloventglobal.com' },
+  {
+    label: 'WhatsApp',
+    value: '+90 XXX XXX XX XX',
+    note: 'Markanız ve hedef pazarınızla ilgili hızlı ön görüşme için WhatsApp üzerinden ulaşabilirsiniz.',
+  },
   { label: 'Instagram', value: '@gloventglobal', href: 'https://instagram.com/gloventglobal' },
   {
     label: 'Görüşme Planı',
@@ -290,18 +295,19 @@ export default function ContactContent() {
             </form>
           </div>
 
-          {/* Hızlı iletişim kartları — desktop'ta sağ/dar kolon, mobilde formun altında */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+          {/* Hızlı iletişim kartları — desktop'ta sağ/dar kolon, mobilde formun altında.
+              5 karta çıkınca sağ kolon uzadığı için boşluk/padding hafif sıkılaştırıldı (gap-4→gap-3, p-5→p-4). */}
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
             {quickContactCards.map((card, index) => (
               <div
                 key={card.label}
-                className={`relative rounded-xl border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-sm ${formReveal(
-                  ['delay-[80ms]', 'delay-[140ms]', 'delay-[200ms]', 'delay-[260ms]'][index],
+                className={`relative rounded-xl border border-white/[0.08] bg-white/[0.035] p-4 backdrop-blur-sm ${formReveal(
+                  ['delay-[80ms]', 'delay-[130ms]', 'delay-[180ms]', 'delay-[230ms]', 'delay-[280ms]'][index],
                 )}`}
               >
                 <span
                   aria-hidden="true"
-                  className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
+                  className="absolute left-4 right-4 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
                 />
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">{card.label}</p>
                 {card.href ? (
@@ -314,6 +320,7 @@ export default function ContactContent() {
                 ) : (
                   <p className="mt-2 text-sm leading-relaxed text-blue-100/75">{card.value}</p>
                 )}
+                {card.note && <p className="mt-1.5 text-xs leading-relaxed text-blue-100/50">{card.note}</p>}
               </div>
             ))}
           </div>
