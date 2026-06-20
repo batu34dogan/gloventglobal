@@ -152,6 +152,35 @@ const audienceSegments = [
 
 const audienceDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[240ms]', 'delay-[320ms]'];
 
+const platformSolutions = [
+  {
+    name: 'Amazon',
+    description:
+      'Amazon’da ürün araştırması, kategori seçimi, listeleme, SEO, reklam, operasyon ve marka koruma süreçlerini satışa hazır bir yapıya dönüştürürüz.',
+  },
+  {
+    name: 'Etsy',
+    description:
+      'Etsy’de butik, el yapımı, tasarım ve niş ürünler için mağaza konsepti, ürün sunumu, görsel dil, listeleme ve SEO sistemini kurarız.',
+  },
+  {
+    name: 'eBay',
+    description: 'eBay üzerinden farklı pazarlara açılmak isteyen markalar için listeleme, kategori, fiyatlandırma ve satış altyapısını hazırlarız.',
+  },
+  {
+    name: 'Shopify',
+    description:
+      'Markanın kendi dijital vitrinini kurması için Shopify tabanlı ürün yönetimi, koleksiyon yapısı, satış deneyimi ve büyüme altyapısı oluştururuz.',
+  },
+  {
+    name: 'B2B Dijital Showroom',
+    description:
+      'Toptan satış yapan markalar için ürün katalogları, teklif listeleri, müşteri odaklı sunum alanları ve dijital showroom deneyimi tasarlarız.',
+  },
+];
+
+const platformDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[240ms]', 'delay-[320ms]'];
+
 const serviceCardDelays = [
   'delay-[0ms]',
   'delay-[50ms]',
@@ -170,6 +199,7 @@ export default function ServicesContent() {
   const [systemRef, systemInView] = useInView<HTMLElement>();
   const [servicesRef, servicesInView] = useInView<HTMLElement>();
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
+  const [platformsRef, platformsInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -200,6 +230,12 @@ export default function ServicesContent() {
   const audienceReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Platform Bazlı Çözümler bölümü en altta — kendi viewport girişine bağlı, ayrı reveal.
+  const platformsReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      platformsInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -385,6 +421,61 @@ export default function ServicesContent() {
                 </span>
                 <h3 className="mt-4 text-base font-semibold text-white">{segment.title}</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{segment.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ 5. PLATFORM ÇÖZÜMLERİ (5 platform kartı, 3+2 ortalı) ============
+          Bilinçli olarak Hizmet Kartları'ndan farklı bir kart dili kullanılıyor: numara rozeti yok,
+          platform adı büyük bir "wordmark" gibi öne çıkıyor, altında ince bir ayraç çizgisi var. */}
+      <section ref={platformsRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={platformsInView} targetOpacity="opacity-40" className="right-[-200px] top-0 h-[420px] w-[420px]" />
+        <Glow visible={platformsInView} targetOpacity="opacity-30" className="left-[-200px] bottom-0 h-[400px] w-[400px]" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p
+            className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${platformsReveal(
+              'delay-[0ms]',
+            )}`}
+          >
+            Platform Çözümleri
+          </p>
+          <h2
+            className={`mx-auto mt-4 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl ${platformsReveal(
+              'delay-[100ms]',
+            )}`}
+          >
+            Her Kanal İçin Ayrı, Tek Sistem İçinde Bağlı Çözümler
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${platformsReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            Amazon, Etsy, eBay, Shopify ve B2B dijital yapılar farklı dinamiklere sahiptir. GloventGlobal her kanalı
+            ayrı planlar, ancak tamamını markanın global satış sistemi içinde birbirine bağlı şekilde kurgular.
+          </p>
+        </div>
+
+        {/* "Kimler İçin?" bölümündeki aynı 6 sanal sütun + col-span-2 + col-start-2 tekniği — 3+2 ortalı düzen. */}
+        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-6">
+          {platformSolutions.map((platform, index) => (
+            <div
+              key={platform.name}
+              className={`${platformsReveal(platformDelays[index])} lg:col-span-2 ${
+                index === 3 ? 'lg:col-start-2' : ''
+              }`}
+            >
+              <div className="relative flex h-full min-h-[190px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-7 right-7 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <h3 className="text-xl font-bold uppercase tracking-[0.08em] text-white">{platform.name}</h3>
+                <span aria-hidden="true" className="mt-3 h-px w-8 bg-blue-400/45" />
+                <p className="mt-3 text-sm leading-relaxed text-blue-100/75">{platform.description}</p>
               </div>
             </div>
           ))}
