@@ -101,7 +101,7 @@ const audienceSegments = [
   {
     number: '01',
     title: 'Üreticiler',
-    description: 'Ürününü ilk kez global pazarlara taşımak isteyen üreticiler için pazar, kanal ve satış sistemi planı oluştururuz.',
+    description: 'Ürününü ilk kez dijital satış kanallarına ve pazaryerlerine taşımak isteyen üreticiler için pazar, kanal ve satış sistemi planı oluştururuz.',
   },
   {
     number: '02',
@@ -120,8 +120,8 @@ const audienceSegments = [
   },
   {
     number: '05',
-    title: 'Globalde Marka Algısını Güçlendirmek İsteyenler',
-    description: 'Görsel dil, sosyal medya, içerik ve reklam yapısıyla global pazarda daha güçlü görünmek isteyen markalar için bütüncül yapı kurarız.',
+    title: 'Dijitalde Marka Algısını Güçlendirmek İsteyenler',
+    description: 'Görsel dil, sosyal medya, içerik ve reklam yapısıyla dijital kanallarda daha güçlü görünmek isteyen markalar için bütüncül yapı kurarız.',
   },
 ];
 
@@ -191,7 +191,7 @@ export default function AboutContent() {
               'delay-[200ms]',
             )}`}
           >
-            Markaları Global Satışa Hazırlayan Sistem Ortağı
+            Markalar İçin E-Ticaret ve Dijital Satış Sistemleri Kuruyoruz
           </h1>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
@@ -199,7 +199,8 @@ export default function AboutContent() {
             )}`}
           >
             GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B dijital altyapılar, sosyal medya, reklam ve otomasyon
-            süreçlerini birbirine bağlayarak markalar için sürdürülebilir global satış sistemleri kurar.
+            süreçlerini birbirine bağlayarak markalar için sürdürülebilir e-ticaret ve dijital satış sistemleri
+            kurar.
           </p>
         </div>
       </section>
@@ -216,25 +217,26 @@ export default function AboutContent() {
               Biz Kimiz?
             </p>
             <h2 className={`mt-4 text-2xl font-bold tracking-tight sm:text-3xl ${whoReveal('delay-[100ms]')}`}>
-              Ajans Değil, Global Satış Sistemi Kuruyoruz
+              Ajans Değil, E-Ticaret Sistemi Kuruyoruz
             </h2>
             <p className={`mt-5 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[200ms]')}`}>
               GloventGlobal; markaların yalnızca reklam vermesini, sosyal medya yönetmesini veya pazaryerinde
-              mağaza açmasını değil, tüm bu parçaların birlikte çalıştığı sürdürülebilir bir global satış sistemi
-              kurmasını hedefler. Strateji, altyapı, içerik, reklam, operasyon ve otomasyon süreçlerini birbirinden
-              kopuk hizmetler olarak değil; markanın büyümesini destekleyen tek bir yapı olarak ele alır.
+              mağaza açmasını değil, tüm bu parçaların birlikte çalıştığı sürdürülebilir bir e-ticaret ve dijital
+              satış sistemi kurmasını hedefler. Strateji, altyapı, içerik, reklam, operasyon ve otomasyon
+              süreçlerini birbirinden kopuk hizmetler olarak değil; markanın satışını ve büyümesini destekleyen tek
+              bir yapı olarak ele alır.
             </p>
             <p className={`mt-4 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[280ms]')}`}>
               Bu yüzden her markaya hazır paketlerle yaklaşmayız. Ürünü, hedef pazarı, satış kanalını, fiyat
               yapısını, görsel dili, operasyon kapasitesini ve dijital altyapıyı birlikte analiz eder; markaya özel
-              uygulanabilir bir yol haritası tasarlarız.
+              uygulanabilir bir e-ticaret yol haritası tasarlarız.
             </p>
             <p
               className={`mt-5 border-l-2 border-blue-400/40 pl-4 text-sm font-medium leading-relaxed text-blue-100/85 sm:text-base ${whoReveal(
                 'delay-[360ms]',
               )}`}
             >
-              Ürün var ama sistem yoksa, sürdürülebilir satış da zorlaşır. GloventGlobal bu sistemi kurmak için
+              Ürün var ama satış sistemi yoksa, sürdürülebilir büyüme zorlaşır. GloventGlobal bu sistemi kurmak için
               çalışır.
             </p>
           </div>
@@ -351,15 +353,15 @@ export default function AboutContent() {
               'delay-[100ms]',
             )}`}
           >
-            Global Pazara Açılmak İsteyen Markalarla Çalışıyoruz
+            E-Ticaret Sistemini Güçlendirmek İsteyen Markalarla Çalışıyoruz
           </h2>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${audienceReveal(
               'delay-[200ms]',
             )}`}
           >
-            GloventGlobal; ürününü dijital kanallara taşımak, mevcut satış yapısını güçlendirmek veya global pazarda
-            daha sistemli büyümek isteyen markalarla çalışır.
+            GloventGlobal; ürününü dijital satış kanallarına taşımak, mevcut e-ticaret yapısını güçlendirmek veya
+            pazaryeri, Shopify, B2B ve sosyal medya kanallarında daha sistemli büyümek isteyen markalarla çalışır.
           </p>
         </div>
 
