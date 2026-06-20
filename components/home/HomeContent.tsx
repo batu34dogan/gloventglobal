@@ -29,6 +29,8 @@ function useInView<T extends HTMLElement>() {
   return [ref, inView] as const;
 }
 
+const heroPlatforms = ['AMAZON', 'ETSY', 'EBAY', 'SHOPIFY', 'B2B SYSTEMS', 'VISUAL COMMERCE', 'GLOBAL MARKETPLACES'];
+
 const services = [
   {
     tag: '01 ANALİZ',
@@ -222,10 +224,35 @@ export default function HomeContent() {
             </a>
           </div>
 
-          <p className={`mt-14 text-xs font-medium uppercase tracking-[0.3em] text-blue-100/45 ${reveal('delay-[500ms]')}`}>
-            Amazon • Etsy • eBay • Shopify • B2B Dijital Altyapılar
-          </p>
+          <div className={`relative mt-14 ${reveal('delay-[500ms]')}`}>
+            <div className="relative mx-auto max-w-xs overflow-hidden sm:max-w-sm">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-gradient-to-r from-[#070d18] to-transparent opacity-70 sm:w-10" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-gradient-to-l from-[#070d18] to-transparent opacity-70 sm:w-10" />
+              <div className="flex w-max animate-[hero-platform-marquee_50s_linear_infinite] items-center gap-5 motion-reduce:animate-none">
+                {[...heroPlatforms, ...heroPlatforms].map((name, index) => (
+                  <span
+                    key={`${name}-${index}`}
+                    className="flex shrink-0 items-center gap-5 text-[10px] font-medium uppercase tracking-[0.3em] text-blue-100/40"
+                  >
+                    {name}
+                    <span aria-hidden="true" className="text-blue-400/30">
+                      •
+                    </span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Hero platform bandı için @keyframes — globals.css'e dokunmamak için component içinde tanımlı.
+            Marka kartları marquee'sinden tamamen ayrı, kendi keyframe adıyla (hero-platform-marquee). */}
+        <style>{`
+          @keyframes hero-platform-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+        `}</style>
       </section>
 
       {/* ============ 2. SİSTEM (marka bölümü) — tek sıra, çok yavaş sağdan sola kayan premium bant ============ */}
