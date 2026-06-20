@@ -1,6 +1,33 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+// Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
+// HomeContent.tsx'teki aynı desenin bu dosyaya özel, bağımsız bir kopyası.
+function useInView<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, inView] as const;
+}
 
 // Ana sayfadaki (HomeContent.tsx) aynı görsel dil — ama bu dosyaya özel, bağımsız kopya.
 // HomeContent.tsx'e dokunmamak / import etmemek için bilerek burada yeniden tanımlandı.
@@ -24,8 +51,24 @@ function Glow({
   );
 }
 
+const systemPillars = [
+  {
+    title: 'Strateji',
+    description: 'Ürünün hangi pazarda, hangi müşteri kitlesine ve hangi satış kanalıyla büyüyebileceğini planlarız.',
+  },
+  {
+    title: 'Altyapı',
+    description: 'Pazaryeri, Shopify, B2B katalog veya dijital showroom yapısını markanın ihtiyacına göre kurarız.',
+  },
+  {
+    title: 'Büyüme',
+    description: 'İçerik, reklam, veri ve operasyon süreçlerini sürekli optimize ederek sistemi ölçeklenebilir hale getiririz.',
+  },
+];
+
 export default function ServicesContent() {
   const [mounted, setMounted] = useState(false);
+  const [systemRef, systemInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -37,6 +80,13 @@ export default function ServicesContent() {
   const reveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Sistem Mantığı bölümü Hero'nun altında, ekran dışında başlıyor — bu yüzden "mounted"a değil,
+  // bu section'ın gerçekten viewport'a girip girmediğine (systemInView) bağlı, ayrı bir reveal.
+  const systemReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      systemInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -80,6 +130,47 @@ export default function ServicesContent() {
               Sistem Mantığını Gör
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ============ 2. SİSTEM MANTIĞI ============ */}
+      <section id="system-logic" ref={systemRef} className="relative px-6 py-20 sm:px-10">
+        <Glow visible={systemInView} targetOpacity="opacity-45" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${systemReveal('delay-[0ms]')}`}>
+            Sistem Mantığı
+          </p>
+          <h2 className={`mt-4 text-3xl font-bold tracking-tight sm:text-4xl ${systemReveal('delay-[100ms]')}`}>
+            Sadece Hizmet Değil, Birbirine Bağlı Satış Sistemi
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${systemReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            Strateji olmadan reklam, içerik olmadan mağaza, altyapı olmadan büyüme sürdürülebilir olmaz.
+            GloventGlobal; pazar analizi, marka konumlandırma, dijital altyapı, içerik üretimi, reklam ve operasyon
+            süreçlerini tek bir sistem mantığıyla birleştirir.
+          </p>
+        </div>
+
+        <div className="relative mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
+          {systemPillars.map((pillar, index) => (
+            <div
+              key={pillar.title}
+              className={systemReveal(['delay-[300ms]', 'delay-[380ms]', 'delay-[460ms]'][index])}
+            >
+              <div className="relative flex h-full flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <h3 className="text-lg font-semibold text-white">{pillar.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{pillar.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
