@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import IntroBackground from './IntroBackground';
 
 type Phase = 'idle' | 'leaving' | 'done';
@@ -41,55 +40,23 @@ export default function GloventIntro() {
           leaving ? 'scale-[1.04]' : 'scale-100'
         }`}
       >
-        {/* ===== DESKTOP (md ve üstü): mevcut full-bleed overlay — DOKUNULMADI ===== */}
-        <div className="hidden h-full w-full md:block">
-          <IntroBackground />
-
-          <span className="absolute left-10 top-8 text-base font-semibold tracking-[0.25em] text-white">
-            GLOVENTGLOBAL
-          </span>
-
-          <button
-            type="button"
-            onClick={handleEnter}
-            disabled={phase !== 'idle'}
-            className="absolute bottom-14 left-1/2 -translate-x-1/2 rounded-full border border-white/40 px-8 py-3 text-sm font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10"
-          >
-            ENTER GLOBAL NETWORK
-          </button>
-        </div>
-
-        {/* ===== MOBİL (md altı): logo / görsel / buton üç ayrı AKIŞ bloğu —
-             buton artık overlay değil, görselin altında kendi koyu bölgesinde, üst üste binmiyor ===== */}
-        <div className="flex h-full min-h-[100svh] w-full flex-col bg-[#050b14] md:hidden">
-          <div className="px-6 py-4">
-            <span className="text-sm font-semibold tracking-[0.25em] text-white">GLOVENTGLOBAL</span>
-          </div>
-
-          <div className="relative flex-1">
-            <Image
-              src="/glovent-platform-hero-mobile.png"
-              alt=""
-              fill
-              priority
-              quality={100}
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-
-          <div className="flex items-center justify-center bg-[#050b14] py-6">
-            <button
-              type="button"
-              onClick={handleEnter}
-              disabled={phase !== 'idle'}
-              className="rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10"
-            >
-              ENTER GLOBAL NETWORK
-            </button>
-          </div>
-        </div>
+        <IntroBackground />
       </div>
+
+      <span className="absolute left-6 top-4 text-sm font-semibold tracking-[0.25em] text-white md:left-10 md:top-8 md:text-base">
+        GLOVENTGLOBAL
+      </span>
+
+      {/* Mobilde: görselin ÜZERİNDE overlay, alt-orta, 12svh (viewport yüksekliğine göre oranlı).
+          Desktop'ta (md:): mevcut bottom-14 konumu — DOKUNULMADI. */}
+      <button
+        type="button"
+        onClick={handleEnter}
+        disabled={phase !== 'idle'}
+        className="absolute bottom-[12svh] left-1/2 z-20 -translate-x-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 md:bottom-14 md:text-sm"
+      >
+        ENTER GLOBAL NETWORK
+      </button>
     </section>
   );
 }
