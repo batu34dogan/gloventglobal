@@ -60,45 +60,29 @@ const processSteps = [
   },
 ];
 
-// GloventGlobal Network bölümü için marka verisi. "position" sadece desktop network haritasındaki
-// köşeyi belirler (mobilde hepsi sade, üst üste bir liste olarak render edilir, konum önemsiz).
-type NetworkPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'bottom-center';
-
-const networkBrands: { name: string; description: string; position: NetworkPosition }[] = [
+// GloventGlobal Network bölümü için marka verisi. İlk 4'ü 2x2 grid, 5.'si (Boncukcu Amca) altta ayrı geniş kart.
+const networkBrands = [
   {
     name: 'BERD',
     description: 'Amazon Australia ve eBay Australia pazaryerlerinde ürün listeleme, reklam ve operasyon deneyimi.',
-    position: 'top-left',
   },
   {
     name: 'Ziynet Bijuteri',
     description: 'Toptan bijuteri markası için B2B dijital showroom ve Shopify tabanlı katalog sistemi.',
-    position: 'top-right',
   },
   {
     name: 'GermaniaLeather',
     description: 'Deri ürünleri için Etsy odaklı görsel dil, ürün sunumu ve global mağaza hazırlığı.',
-    position: 'bottom-left',
   },
   {
     name: 'Ritüelco',
     description: 'Etsy için ritüel, mum, tütsü ve dijital ürün odaklı marka dili ve mağaza konsepti.',
-    position: 'bottom-right',
   },
   {
     name: 'Boncukcu Amca',
     description: 'Toptan ve perakende takı malzemeleri için Shopify tabanlı ürün yönetimi ve satış sistemi kurgusu.',
-    position: 'bottom-center',
   },
 ];
-
-const networkAnchor: Record<NetworkPosition, string> = {
-  'top-left': 'left-0 top-0',
-  'top-right': 'right-0 top-0',
-  'bottom-left': 'left-0 bottom-12',
-  'bottom-right': 'right-0 bottom-12',
-  'bottom-center': 'left-1/2 -translate-x-1/2 bottom-0',
-};
 
 // Tek, sürekli koyu lacivert taban — section'lar arasında sert renk/sınır geçişi yok.
 // Section kimliği, arka planda dağılmış yumuşak mavi glow'larla veriliyor (intro'nun network temasıyla aynı dil).
@@ -203,15 +187,15 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ============ 2. GLOVENTGLOBAL NETWORK ============ */}
+      {/* ============ 2. SİSTEM (marka bölümü) ============ */}
       <section className="relative px-6 py-24 sm:px-10">
-        <Glow visible={mounted} targetOpacity="opacity-55" className="left-1/2 top-1/2 h-[520px] w-[820px] -translate-x-1/2 -translate-y-1/2" />
+        <Glow visible={mounted} targetOpacity="opacity-45" className="left-1/2 top-0 h-[460px] w-[820px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-5xl">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">GloventGlobal Network</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Sistem</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Farklı Markalar İçin Global Satış Sistemleri Kuruyoruz
+              Farklı Markalar İçin Farklı Global Sistemler
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
               Her marka için aynı şablonu değil; ürün, hedef pazar, satış kanalı ve büyüme hedeflerine göre
@@ -219,51 +203,16 @@ export default function HomeContent() {
             </p>
           </div>
 
-          {/* Desktop (md ve üstü): network haritası — 4 köşe + 1 alt merkez kart, merkezde glow node, ince bağlantı çizgileri */}
-          <div className="relative mt-16 hidden h-[620px] md:block">
-            <svg
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 h-full w-full"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-            >
-              {[
-                [14, 9],
-                [86, 9],
-                [14, 76],
-                [86, 76],
-                [50, 92],
-              ].map(([x, y]) => (
-                <line
-                  key={`${x}-${y}`}
-                  x1={x}
-                  y1={y}
-                  x2={50}
-                  y2={46}
-                  stroke="rgba(96,165,250,0.3)"
-                  strokeWidth="1"
-                  vectorEffect="non-scaling-stroke"
-                />
-              ))}
-            </svg>
-
-            {/* Merkez node: GloventGlobal çekirdeği */}
-            <div className="absolute left-1/2 top-[46%] z-10 -translate-x-1/2 -translate-y-1/2">
-              <div className="h-16 w-16 rounded-full border border-blue-400/50 bg-blue-500/10 shadow-[0_0_40px_-4px_rgba(59,130,246,0.7)] backdrop-blur-sm" />
-            </div>
-
-            {networkBrands.map((brand) => (
-              <div key={brand.name} className={`absolute w-[240px] ${networkAnchor[brand.position]}`}>
-                <Panel title={brand.name} description={brand.description} />
-              </div>
+          {/* İlk 4 marka: düzenli 2x2 grid (mobilde tek sütun stack) */}
+          <div className="mt-14 grid gap-6 sm:grid-cols-2">
+            {networkBrands.slice(0, 4).map((brand) => (
+              <Panel key={brand.name} title={brand.name} description={brand.description} />
             ))}
           </div>
 
-          {/* Mobil (md altı): sade, üst üste cam panel listesi — network haritası geometrisi yok, taşma yok */}
-          <div className="mt-12 grid gap-6 md:hidden">
-            {networkBrands.map((brand) => (
-              <Panel key={brand.name} title={brand.name} description={brand.description} />
-            ))}
+          {/* 5. marka (Boncukcu Amca): gridin altında ayrı, geniş kart — aynı tasarım dili */}
+          <div className="mt-6">
+            <Panel title={networkBrands[4].name} description={networkBrands[4].description} />
           </div>
         </div>
       </section>
