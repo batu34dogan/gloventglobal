@@ -1,6 +1,34 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+// Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
+// HomeContent.tsx / ServicesContent.tsx / ContactContent.tsx'teki aynı desenin bu dosyaya özel,
+// bağımsız bir kopyası.
+function useInView<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, inView] as const;
+}
 
 // Ana sayfadaki / hizmetler / iletişim sayfalarındaki aynı görsel dil — ama bu dosyaya özel,
 // bağımsız kopya. O dosyalara dokunmamak / import etmemek için bilerek burada yeniden tanımlandı.
@@ -24,8 +52,27 @@ function Glow({
   );
 }
 
+const focusAreas = [
+  'Pazaryeri Danışmanlığı',
+  'Shopify & B2B Altyapı',
+  'Marka Konumlandırma',
+  'Görsel & İçerik Sistemi',
+  'Reklam & Optimizasyon',
+  'Otomasyon & n8n Sistemleri',
+];
+
+const focusAreaDelays = [
+  'delay-[0ms]',
+  'delay-[60ms]',
+  'delay-[120ms]',
+  'delay-[180ms]',
+  'delay-[240ms]',
+  'delay-[300ms]',
+];
+
 export default function AboutContent() {
   const [mounted, setMounted] = useState(false);
+  const [whoRef, whoInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -37,6 +84,12 @@ export default function AboutContent() {
   const reveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Biz Kimiz bölümü Hero'nun altında, ekran dışında başlıyor — kendi viewport girişine bağlı, ayrı reveal.
+  const whoReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      whoInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -67,6 +120,44 @@ export default function AboutContent() {
             GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B dijital altyapılar, sosyal medya, reklam ve otomasyon
             süreçlerini birbirine bağlayarak markalar için sürdürülebilir global satış sistemleri kurar.
           </p>
+        </div>
+      </section>
+
+      {/* ============ 2. BİZ KİMİZ? ============
+          Bilinçli olarak ağır kart yok — sol tarafta metin, sağ tarafta odak alanları hafif bir
+          liste olarak (ince ayraçlı, küçük nokta işaretli), glass panel/kart kabuğu kullanılmadı. */}
+      <section ref={whoRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={whoInView} targetOpacity="opacity-35" className="right-[-220px] top-10 h-[440px] w-[440px]" />
+
+        <div className="relative mx-auto grid max-w-5xl gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+          <div>
+            <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${whoReveal('delay-[0ms]')}`}>
+              Biz Kimiz?
+            </p>
+            <h2 className={`mt-4 text-2xl font-bold tracking-tight sm:text-3xl ${whoReveal('delay-[100ms]')}`}>
+              Danışmanlıktan Fazlası: Global Satış Sistemi Kuruyoruz
+            </h2>
+            <p className={`mt-5 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[200ms]')}`}>
+              GloventGlobal, markaların yalnızca dijital pazarlara giriş yapmasını değil, bu pazarlarda
+              sürdürülebilir şekilde satış yapabilecek bir sistem kurmasını hedefler. Ürün, pazar, kanal, içerik,
+              reklam, operasyon ve otomasyon süreçlerini birbirinden kopuk işler olarak değil; birlikte çalışan bir
+              büyüme yapısı olarak ele alır.
+            </p>
+          </div>
+
+          <div className="lg:pt-1">
+            {focusAreas.map((area, index) => (
+              <div
+                key={area}
+                className={`flex items-center gap-3 border-b border-white/[0.07] py-3 first:pt-0 last:border-0 last:pb-0 ${whoReveal(
+                  focusAreaDelays[index],
+                )}`}
+              >
+                <span aria-hidden="true" className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-400/70" />
+                <span className="text-sm font-medium text-blue-100/85">{area}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </main>
