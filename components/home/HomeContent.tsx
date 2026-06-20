@@ -183,7 +183,7 @@ export default function HomeContent() {
       }`}
     >
       {/* ============ 1. HERO ============ */}
-      <section id="hero" className="relative px-6 py-32 sm:px-10 md:py-40">
+      <section id="hero" className="relative px-6 pb-24 pt-32 sm:px-10 md:pb-32 md:pt-40">
         <Glow visible={mounted} targetOpacity="opacity-70" className="left-1/2 top-[-120px] h-[640px] w-[960px] -translate-x-1/2" />
         <Glow visible={mounted} targetOpacity="opacity-60" className="left-[-200px] top-[280px] h-[420px] w-[420px]" />
 
@@ -229,7 +229,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 2. SİSTEM (marka bölümü) — tek sıra, çok yavaş sağdan sola kayan premium bant ============ */}
-      <section className="relative overflow-hidden px-6 py-24 sm:px-10">
+      <section className="relative overflow-hidden px-6 py-20 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-35" className="left-1/2 top-0 h-[460px] w-[820px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-5xl">
@@ -286,7 +286,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 3. FARKIMIZ ============ */}
-      <section id="why" className="relative px-6 py-24 sm:px-10">
+      <section id="why" className="relative px-6 py-20 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
@@ -333,7 +333,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 4. SÜREÇ ============ */}
-      <section className="relative px-6 pb-20 pt-24 sm:px-10">
+      <section className="relative px-6 pb-16 pt-20 sm:px-10">
         <span
           aria-hidden="true"
           className="absolute left-1/2 top-0 h-px w-2/3 max-w-lg -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
@@ -376,7 +376,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 5. GLOBAL SATIŞ ALTYAPISI ============ */}
-      <section id="services" className="relative px-6 py-24 sm:px-10">
+      <section id="services" className="relative px-6 py-20 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-50" className="right-[-180px] top-10 h-[460px] w-[460px]" />
 
         <div className="relative mx-auto max-w-6xl">
@@ -410,7 +410,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 6. FİNAL CTA ============ */}
-      <section id="contact" className="relative px-6 pb-28 pt-20 sm:px-10">
+      <section id="contact" className="relative px-6 pb-28 pt-16 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-60" className="left-1/2 top-0 h-[500px] w-[860px] -translate-x-1/2" />
         <span
           aria-hidden="true"
