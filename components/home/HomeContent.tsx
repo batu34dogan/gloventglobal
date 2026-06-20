@@ -308,27 +308,26 @@ export default function HomeContent() {
           </p>
         </div>
 
-        {/* 3 katmanlı sistem kartı: bölümün ana görsel ağırlığı artık burada — küçük bilgi kutusu değil,
-            sayfanın "sistem katmanı" mesajını taşıyan büyük, belirgin panel. */}
-        <div className="relative mx-auto mt-10 grid max-w-5xl items-stretch gap-8 lg:grid-cols-3">
+        {/* 3 katmanlı sistem kartı: önceki "büyük" aşamadan ~%20-25 küçültülmüş, dengeli orta boy. */}
+        <div className="relative mx-auto mt-9 grid max-w-5xl items-stretch gap-6 lg:grid-cols-3">
           {whySteps.map((step, index) => (
             <div
               key={step.number}
-              className={`relative flex h-full min-h-[220px] flex-col rounded-xl border p-8 backdrop-blur-sm transition-all duration-300 ${
+              className={`relative flex h-full min-h-[190px] flex-col rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 ${
                 index === 1
-                  ? 'border-blue-400/35 bg-white/[0.05] shadow-[0_0_70px_-18px_rgba(59,130,246,0.7)]'
-                  : 'border-white/[0.09] bg-white/[0.04] hover:border-blue-400/45 hover:bg-white/[0.065] hover:shadow-[0_0_50px_-14px_rgba(59,130,246,0.5)]'
+                  ? 'border-blue-400/28 bg-white/[0.042] shadow-[0_0_55px_-16px_rgba(59,130,246,0.5)]'
+                  : 'border-white/[0.075] bg-white/[0.037] hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]'
               }`}
             >
               <span
                 aria-hidden="true"
-                className="absolute left-8 right-8 top-0 h-[2px] bg-gradient-to-r from-blue-400/70 via-blue-400/25 to-transparent"
+                className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/60 via-blue-400/20 to-transparent"
               />
-              <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-blue-400/50 bg-blue-500/15 text-sm font-semibold text-blue-300 shadow-[0_0_24px_-2px_rgba(59,130,246,0.75)]">
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.65)]">
                 {step.number}
               </span>
-              <h3 className="mt-5 text-xl font-semibold text-white sm:text-2xl">{step.title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-blue-100/80">{step.description}</p>
+              <h3 className="mt-4 text-lg font-semibold text-white sm:text-xl">{step.title}</h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{step.description}</p>
             </div>
           ))}
         </div>
