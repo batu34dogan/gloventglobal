@@ -53,14 +53,17 @@ function Glow({
 
 const systemPillars = [
   {
+    number: '01',
     title: 'Strateji',
     description: 'Ürünün hangi pazarda, hangi müşteri kitlesine ve hangi satış kanalıyla büyüyebileceğini planlarız.',
   },
   {
+    number: '02',
     title: 'Altyapı',
     description: 'Pazaryeri, Shopify, B2B katalog veya dijital showroom yapısını markanın ihtiyacına göre kurarız.',
   },
   {
+    number: '03',
     title: 'Büyüme',
     description: 'İçerik, reklam, veri ve operasyon süreçlerini sürekli optimize ederek sistemi ölçeklenebilir hale getiririz.',
   },
@@ -92,7 +95,7 @@ export default function ServicesContent() {
   return (
     <main className="relative overflow-hidden bg-[#070d18] font-sans text-white">
       {/* ============ 1. HİZMETLER HERO ============ */}
-      <section className="relative px-6 pb-20 pt-28 sm:px-10 md:pb-24 md:pt-32">
+      <section className="relative px-6 pb-14 pt-24 sm:px-10 md:pb-16 md:pt-28">
         <Glow visible={mounted} targetOpacity="opacity-70" className="left-1/2 top-[-120px] h-[560px] w-[860px] -translate-x-1/2" />
         <Glow visible={mounted} targetOpacity="opacity-50" className="left-[-200px] top-[200px] h-[380px] w-[380px]" />
 
@@ -134,14 +137,14 @@ export default function ServicesContent() {
       </section>
 
       {/* ============ 2. SİSTEM MANTIĞI ============ */}
-      <section id="system-logic" ref={systemRef} className="relative px-6 py-20 sm:px-10">
+      <section id="system-logic" ref={systemRef} className="relative px-6 pb-20 pt-14 sm:px-10">
         <Glow visible={systemInView} targetOpacity="opacity-45" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
           <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${systemReveal('delay-[0ms]')}`}>
             Sistem Mantığı
           </p>
-          <h2 className={`mt-4 text-3xl font-bold tracking-tight sm:text-4xl ${systemReveal('delay-[100ms]')}`}>
+          <h2 className={`mx-auto mt-4 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl ${systemReveal('delay-[100ms]')}`}>
             Sadece Hizmet Değil, Birbirine Bağlı Satış Sistemi
           </h2>
           <p
@@ -155,18 +158,21 @@ export default function ServicesContent() {
           </p>
         </div>
 
-        <div className="relative mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
+        <div className="relative mx-auto mt-10 grid max-w-5xl items-stretch gap-6 lg:grid-cols-3">
           {systemPillars.map((pillar, index) => (
             <div
               key={pillar.title}
               className={systemReveal(['delay-[300ms]', 'delay-[380ms]', 'delay-[460ms]'][index])}
             >
-              <div className="relative flex h-full flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+              <div className="relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.09] bg-white/[0.042] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.065] hover:shadow-[0_0_45px_-12px_rgba(59,130,246,0.5)]">
                 <span
                   aria-hidden="true"
-                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/60 via-blue-400/20 to-transparent"
                 />
-                <h3 className="text-lg font-semibold text-white">{pillar.title}</h3>
+                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.65)]">
+                  {pillar.number}
+                </span>
+                <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.15em] text-white">{pillar.title}</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{pillar.description}</p>
               </div>
             </div>
