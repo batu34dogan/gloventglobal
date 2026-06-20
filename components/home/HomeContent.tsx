@@ -243,9 +243,10 @@ export default function HomeContent() {
             brandsInView ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {/* Sol/sağ fade mask: kartlar kenarlara yumuşak girip çıksın */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#070d18] to-transparent sm:w-28" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#070d18] to-transparent sm:w-28" />
+          {/* Sol/sağ fade mask: kartlar kenarlara yumuşak girip çıksın.
+              Mobilde (sm altı) daha dar ve daha şeffaf — desktop'ta (sm ve üstü) mevcut görünüm aynı. */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#070d18] to-transparent opacity-40 sm:w-28 sm:opacity-100" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[#070d18] to-transparent opacity-40 sm:w-28 sm:opacity-100" />
 
           {/* Kart dizisi iki kez art arda render edilir — translateX(-50%) tam bir set genişliği kadar kayınca
               ikinci set ilkinin başladığı yere denk gelir, kopma/zıplama olmadan kesintisiz döngü oluşur. */}
