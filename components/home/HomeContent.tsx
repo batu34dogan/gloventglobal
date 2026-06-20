@@ -30,13 +30,13 @@ function useInView<T extends HTMLElement>() {
 }
 
 const heroPlatforms = [
-  { name: 'AMAZON', tone: 'text-orange-100/75' },
-  { name: 'ETSY', tone: 'text-orange-300/55' },
-  { name: 'EBAY', tone: 'text-blue-100/75' },
-  { name: 'SHOPIFY', tone: 'text-cyan-200/60' },
-  { name: 'B2B SYSTEMS', tone: 'text-blue-300/55' },
-  { name: 'VISUAL COMMERCE', tone: 'text-blue-200/55' },
-  { name: 'GLOBAL MARKETPLACES', tone: 'text-blue-100/75' },
+  { name: 'AMAZON', tone: 'text-orange-50/85' },
+  { name: 'ETSY', tone: 'text-orange-300/75' },
+  { name: 'EBAY', tone: 'text-blue-100/85' },
+  { name: 'SHOPIFY', tone: 'text-cyan-200/75' },
+  { name: 'B2B SYSTEMS', tone: 'text-blue-300/72' },
+  { name: 'VISUAL COMMERCE', tone: 'text-blue-200/72' },
+  { name: 'GLOBAL MARKETPLACES', tone: 'text-blue-100/85' },
 ];
 
 const services = [
@@ -233,17 +233,17 @@ export default function HomeContent() {
           </div>
 
           <div className={`relative mt-14 ${reveal('delay-[500ms]')}`}>
-            <div className="relative mx-auto max-w-[360px] overflow-hidden sm:max-w-[440px]">
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-4 bg-gradient-to-r from-[#070d18] to-transparent opacity-30 sm:w-6" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-4 bg-gradient-to-l from-[#070d18] to-transparent opacity-30 sm:w-6" />
+            <div className="relative mx-auto max-w-[420px] overflow-hidden sm:max-w-[520px]">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-3 bg-gradient-to-r from-[#070d18] to-transparent opacity-15 sm:w-5" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-3 bg-gradient-to-l from-[#070d18] to-transparent opacity-15 sm:w-5" />
               <div className="flex w-max animate-[hero-platform-marquee_50s_linear_infinite] items-center gap-5 motion-reduce:animate-none">
                 {[...heroPlatforms, ...heroPlatforms].map((platform, index) => (
                   <span
                     key={`${platform.name}-${index}`}
-                    className={`flex shrink-0 items-center gap-5 text-[10px] font-medium uppercase tracking-[0.3em] ${platform.tone}`}
+                    className={`flex shrink-0 items-center gap-5 text-[11px] font-medium uppercase tracking-[0.3em] ${platform.tone}`}
                   >
                     {platform.name}
-                    <span aria-hidden="true" className="text-blue-400/35">
+                    <span aria-hidden="true" className="text-blue-400/45">
                       •
                     </span>
                   </span>
