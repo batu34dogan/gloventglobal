@@ -45,7 +45,7 @@ export default function GloventIntro() {
 
       {/* Mobilde: görselin üzerinde overlay, top:34svh (Etsy kartının altı / dünyanın üst bölgesi), yatayda ortalı.
           Desktop'ta (md:): mevcut sol-üst konum — DOKUNULMADI. */}
-      <span className="absolute left-1/2 top-[34svh] z-20 -translate-x-1/2 -translate-y-1/2 text-sm font-semibold tracking-[0.25em] text-white md:left-10 md:top-8 md:translate-x-0 md:translate-y-0 md:text-base">
+      <span className="absolute left-1/2 top-[37svh] z-20 -translate-x-1/2 -translate-y-1/2 text-sm font-semibold tracking-[0.25em] text-white md:left-10 md:top-8 md:translate-x-0 md:translate-y-0 md:text-base">
         GLOVENTGLOBAL
       </span>
 
