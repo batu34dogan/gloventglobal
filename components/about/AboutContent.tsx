@@ -101,6 +101,7 @@ export default function AboutContent() {
   const [mounted, setMounted] = useState(false);
   const [whoRef, whoInView] = useInView<HTMLElement>();
   const [whyRef, whyInView] = useInView<HTMLElement>();
+  const [mindsetRef, mindsetInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -125,6 +126,13 @@ export default function AboutContent() {
   const whyReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       whyInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Nasıl Düşünüyoruz bölümü Neden GloventGlobal'ın altında, ekran dışında başlıyor — kendi
+  // viewport girişine bağlı, ayrı reveal.
+  const mindsetReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      mindsetInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -247,6 +255,41 @@ export default function AboutContent() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ============ 4. NASIL DÜŞÜNÜYORUZ? ============
+          Bilinçli olarak kart yok — tek bir geniş glass panel içinde manifesto/yaklaşım metni. */}
+      <section ref={mindsetRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={mindsetInView} targetOpacity="opacity-35" className="left-1/2 top-0 h-[400px] w-[760px] -translate-x-1/2" />
+
+        <div
+          className={`relative mx-auto max-w-3xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-10 text-center backdrop-blur-sm sm:px-12 sm:py-12 ${mindsetReveal(
+            'delay-[0ms]',
+          )}`}
+        >
+          <span
+            aria-hidden="true"
+            className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/55 to-transparent"
+          />
+
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Nasıl Düşünüyoruz?</p>
+          <h2 className="mx-auto mt-4 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
+            Her Marka İçin Aynı Yol Haritası Kullanılmaz
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
+            Bir markanın global pazara açılması yalnızca doğru platformu seçmekle başlamaz. Ürünün pazardaki
+            karşılığı, hedef müşteri, fiyat yapısı, rakipler, görsel dil, operasyon kapasitesi ve reklam bütçesi
+            birlikte değerlendirilmelidir.
+          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
+            Bu yüzden GloventGlobal, her markaya aynı hizmet paketini sunmak yerine, markanın mevcut durumuna ve
+            hedeflerine göre uygulanabilir bir yol haritası tasarlar. Amaç yalnızca dijitalde görünmek değil;
+            yönetilebilir, ölçülebilir ve sürdürülebilir bir satış sistemi kurmaktır.
+          </p>
+          <p className="mx-auto mt-6 max-w-xl border-l-2 border-blue-400/40 pl-4 text-left text-sm font-medium leading-relaxed text-blue-100/85 sm:text-base">
+            Önce ürünü ve pazarı okuruz, sonra sistemi kurarız.
+          </p>
         </div>
       </section>
     </main>
