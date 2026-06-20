@@ -111,8 +111,7 @@ const networkBrands = [
   },
   {
     name: 'Güvenli Adımlar',
-    description:
-      'Amazon Türkiye’de Güvenli Adımlar markası için ürün listeleme, marka koruma, görünürlük ve pazaryeri operasyon süreçleri.',
+    description: 'Amazon Türkiye’de ürün listeleme, marka koruma, görünürlük ve pazaryeri operasyon süreçleri.',
   },
 ];
 
@@ -240,16 +239,25 @@ export default function HomeContent() {
             </p>
           </div>
 
-          {/* 6 marka kartı, hepsi aynı boyutta — 3x2 (desktop) / 2 sütun (tablet) / 1 sütun (mobil) */}
-          <div ref={brandsGridRef} className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* 6 marka kartı, hepsi aynı genişlik VE yükseklikte — 3x2 (desktop) / 2 sütun (tablet) / 1 sütun (mobil).
+              Not: burada paylaşılan Panel component'i yerine kendi içine min-h/h-full eklenmiş bir versiyon
+              kullanıyoruz, böylece Services bölümündeki Panel kullanımına dokunmadan sadece bu grid'i eşitliyoruz. */}
+          <div ref={brandsGridRef} className="mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {networkBrands.map((brand, index) => (
               <div
                 key={brand.name}
-                className={`transition-all duration-700 ease-out motion-reduce:transition-none ${cardDelays[index]} ${
+                className={`h-full transition-all duration-700 ease-out motion-reduce:transition-none ${cardDelays[index]} ${
                   brandsInView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                 }`}
               >
-                <Panel title={brand.name} description={brand.description} />
+                <div className="relative flex h-full min-h-[180px] flex-col justify-start rounded-xl border border-white/[0.07] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
+                  />
+                  <h3 className="text-lg font-semibold text-white">{brand.name}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-blue-100/70">{brand.description}</p>
+                </div>
               </div>
             ))}
           </div>
