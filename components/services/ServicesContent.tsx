@@ -267,15 +267,15 @@ export default function ServicesContent() {
               'delay-[200ms]',
             )}`}
           >
-            Global Satış İçin Uçtan Uca Sistemler
+            Dijital Satış ve Global Büyüme İçin Uçtan Uca Sistemler
           </h1>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
             )}`}
           >
-            GloventGlobal; Amazon, Etsy, eBay, Shopify ve B2B dijital altyapılar üzerinden markaların global
-            pazarlara açılması için strateji, içerik, altyapı, reklam ve operasyon sistemleri kurar.
+            GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B, sosyal medya, reklam, içerik, operasyon ve otomasyon
+            süreçlerini birbirine bağlayarak markalar için sürdürülebilir dijital satış ve büyüme sistemleri kurar.
           </p>
 
           <div className={`mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row ${reveal('delay-[400ms]')}`}>
@@ -312,8 +312,8 @@ export default function ServicesContent() {
             )}`}
           >
             Strateji olmadan reklam, içerik olmadan mağaza, altyapı olmadan büyüme sürdürülebilir olmaz.
-            GloventGlobal; pazar analizi, marka konumlandırma, dijital altyapı, içerik üretimi, reklam ve operasyon
-            süreçlerini tek bir sistem mantığıyla birleştirir.
+            GloventGlobal; pazar analizi, marka konumlandırma, dijital altyapı, içerik üretimi, reklam, operasyon ve
+            otomasyon süreçlerini tek bir satış sistemi mantığıyla birleştirir.
           </p>
         </div>
 
@@ -353,15 +353,15 @@ export default function ServicesContent() {
               'delay-[100ms]',
             )}`}
           >
-            Global Satış Sistemini Oluşturan Hizmetler
+            Dijital Satış Sistemini Oluşturan Hizmetler
           </h2>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${servicesReveal(
               'delay-[200ms]',
             )}`}
           >
-            Her hizmeti tek başına bir işlem olarak değil, markanızın global pazarda sürdürülebilir satış
-            üretebilmesi için birbirini tamamlayan sistem parçaları olarak ele alıyoruz.
+            Her hizmeti tek başına bir işlem olarak değil, markanızın dijital satış kanallarında sürdürülebilir
+            büyüme üretebilmesi için birbirini tamamlayan sistem parçaları olarak ele alıyoruz.
           </p>
         </div>
 
@@ -473,7 +473,8 @@ export default function ServicesContent() {
             )}`}
           >
             Amazon, Etsy, eBay, Shopify ve B2B dijital yapılar farklı dinamiklere sahiptir. GloventGlobal her kanalı
-            ayrı planlar, ancak tamamını markanın global satış sistemi içinde birbirine bağlı şekilde kurgular.
+            ayrı planlar, ancak tamamını markanın dijital satış ve büyüme sistemi içinde birbirine bağlı şekilde
+            kurgular.
           </p>
         </div>
 
@@ -515,11 +516,11 @@ export default function ServicesContent() {
           />
 
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Markanız İçin Doğru Satış Sistemini Birlikte Belirleyelim
+            Markanız İçin Doğru Dijital Satış Sistemini Birlikte Belirleyelim
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
-            Ürününüzü, mevcut satış kanallarınızı ve hedef pazarınızı analiz ederek GloventGlobal hizmetlerinden
-            hangilerinin markanız için doğru sistem oluşturacağını birlikte planlayalım.
+            Ürününüzü, mevcut satış kanallarınızı ve hedeflerinizi analiz ederek GloventGlobal hizmetlerinden
+            hangilerinin markanız için doğru satış ve büyüme sistemini oluşturacağını birlikte planlayalım.
           </p>
 
           <p className="mt-6 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
