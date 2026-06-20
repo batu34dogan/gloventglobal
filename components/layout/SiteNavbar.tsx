@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Farkımız', href: '/#why' },
   { label: 'Süreç', href: '/#process' },
   { label: 'Sistem', href: '/#services' },
-  { label: 'İletişim', href: '/#contact' },
+  { label: 'İletişim', href: '/iletisim' },
 ];
 
 // Intro (GloventIntro.tsx) "fixed inset-0 z-50" ile çalışıyor. SiteNavbar'a bilerek daha düşük bir
