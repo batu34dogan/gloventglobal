@@ -209,22 +209,23 @@ export default function HomeContent() {
 
         <div className="relative mx-auto max-w-4xl text-center">
           <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
-            GloventGlobal — Global Growth Systems
+            GLOVENTGLOBAL — DIGITAL COMMERCE SYSTEMS
           </p>
           <h1
             className={`mx-auto mt-8 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
               'delay-[200ms]',
             )}`}
           >
-            Markalar İçin Global Satış Sistemleri Kuruyoruz
+            Markalar İçin Dijital Satış ve Global Büyüme Sistemleri Kuruyoruz
           </h1>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
             )}`}
           >
-            Ürününüzü yalnızca bir pazaryerine yüklemiyoruz. Markanızı; doğru pazar, doğru görsel dil, doğru satış
-            kanalı ve sürdürülebilir büyüme sistemiyle global ticarete hazırlıyoruz.
+            Ürününüzü yalnızca bir pazaryerine yüklemiyoruz. Markanız için doğru pazar, doğru satış kanalı, güçlü
+            görsel dil, reklam, operasyon ve otomasyon süreçlerini birlikte çalışan bir dijital satış sistemine
+            dönüştürüyoruz.
           </p>
 
           <div className={`mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row ${reveal('delay-[400ms]')}`}>
@@ -281,7 +282,7 @@ export default function HomeContent() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Sistem</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Farklı Markalar İçin Farklı Global Sistemler
+              Farklı Markalar İçin Farklı Dijital Satış Sistemleri
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
               Her marka için aynı şablonu değil; ürün, hedef pazar, satış kanalı ve büyüme hedeflerine göre
@@ -399,7 +400,7 @@ export default function HomeContent() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Süreç</p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
-              Üründen Sisteme, Sistemden Global Satışa
+              Üründen Sisteme, Sistemden Sürdürülebilir Büyümeye
             </h2>
           </div>
 
@@ -437,7 +438,7 @@ export default function HomeContent() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Sistem</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Global Satış Altyapısını Birlikte Kuruyoruz
+              Dijital Satış Altyapısını Birlikte Kuruyoruz
             </h2>
           </div>
           {/* Sistem modülü kartları: küçük modül etiketi (01 ANALİZ vb.) + başlık + açıklama —
@@ -480,11 +481,11 @@ export default function HomeContent() {
 
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Başlayalım</p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Markanız İçin Global Satış Sistemi Tasarlayalım
+            Markanız İçin Dijital Satış ve Büyüme Sistemi Tasarlayalım
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
-            Ürününüzü, hedef pazarınızı ve mevcut dijital altyapınızı analiz ederek size özel global satış
-            sistemini birlikte planlayalım.
+            Ürününüzü, hedef pazarınızı, mevcut satış kanallarınızı ve dijital altyapınızı analiz ederek markanız
+            için doğru dijital satış ve büyüme sistemini birlikte planlayalım.
           </p>
 
           <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
