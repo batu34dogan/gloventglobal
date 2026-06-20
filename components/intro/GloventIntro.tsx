@@ -57,7 +57,7 @@ export default function GloventIntro() {
         disabled={phase !== 'idle'}
         className="absolute left-1/2 top-[50svh] z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 md:top-auto md:bottom-14 md:translate-y-0 md:text-sm"
       >
-        ENTER GLOBAL NETWORK
+        GLOBAL SİSTEME GİR
       </button>
     </section>
   );
