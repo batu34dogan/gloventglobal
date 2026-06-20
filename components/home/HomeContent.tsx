@@ -340,7 +340,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 4. SÜREÇ ============ */}
-      <section className="relative px-6 py-28 sm:px-10">
+      <section className="relative px-6 pb-20 pt-24 sm:px-10">
         <span
           aria-hidden="true"
           className="absolute left-1/2 top-0 h-px w-2/3 max-w-lg -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
@@ -351,12 +351,12 @@ export default function HomeContent() {
         <div className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Süreç</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
               Üründen Sisteme, Sistemden Global Satışa
             </h2>
           </div>
 
-          <div className="relative mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
             {/* Mobilde (sm altı): tek sütun stack olduğunda adımları bağlayan ince dikey çizgi.
                 Konteynerin gerçek yüksekliğine göre otomatik uzar (sabit piksel tahmini yok). */}
             <span
