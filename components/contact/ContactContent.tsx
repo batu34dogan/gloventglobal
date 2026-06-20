@@ -192,6 +192,7 @@ export default function ContactContent() {
   const [mounted, setMounted] = useState(false);
   const [formRef, formInView] = useInView<HTMLElement>();
   const [processRef, processInView] = useInView<HTMLElement>();
+  const [trustRef, trustInView] = useInView<HTMLElement>();
   const [submitted, setSubmitted] = useState(false);
 
   const [formValues, setFormValues] = useState({
@@ -237,6 +238,12 @@ export default function ContactContent() {
   const processReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       processInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Final güven paneli sayfanın en sonunda — kendi viewport girişine bağlı, ayrı reveal.
+  const trustReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      trustInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -411,6 +418,30 @@ export default function ContactContent() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ============ 4. FİNAL GÜVEN MESAJI ============
+          Final CTA değil — buton yok, sadece sakin/küçük bir kapanış paneli. */}
+      <section ref={trustRef} className="relative px-6 pb-20 pt-2 sm:px-10">
+        <div
+          className={`relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-8 text-center backdrop-blur-sm sm:px-10 sm:py-9 ${trustReveal(
+            'delay-[0ms]',
+          )}`}
+        >
+          <span
+            aria-hidden="true"
+            className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"
+          />
+
+          <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Her Marka İçin Aynı Hizmet Paketini Sunmuyoruz</h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
+            Ürününüz, satış kanalınız, hedef pazarınız ve büyüme aşamanıza göre GloventGlobal hizmetlerinden
+            hangilerinin sizin için doğru sistemi oluşturacağını birlikte belirliyoruz.
+          </p>
+          <p className="mt-5 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
+            Strateji • Altyapı • İçerik • Reklam • Otomasyon • Global Büyüme
+          </p>
         </div>
       </section>
     </main>
