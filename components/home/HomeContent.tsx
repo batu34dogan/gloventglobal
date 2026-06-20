@@ -110,8 +110,9 @@ const networkBrands = [
     description: 'Toptan ve perakende takı malzemeleri için Shopify tabanlı ürün yönetimi ve satış sistemi kurgusu.',
   },
   {
-    name: 'Yeni Marka Altyapıları',
-    description: 'Yeni ürün grupları, pazaryerleri ve satış kanalları için ölçeklenebilir global sistemler tasarlanır.',
+    name: 'Güvenli Adımlar',
+    description:
+      'Amazon Türkiye’de Güvenli Adımlar markası için ürün listeleme, marka koruma, görünürlük ve pazaryeri operasyon süreçleri.',
   },
 ];
 
