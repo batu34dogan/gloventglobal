@@ -47,13 +47,12 @@ export default function GloventIntro() {
         GLOVENTGLOBAL
       </span>
 
-      {/* Mobilde: görselin ÜZERİNDE overlay, alt-orta, 12svh (viewport yüksekliğine göre oranlı).
-          Desktop'ta (md:): mevcut bottom-14 konumu — DOKUNULMADI. */}
+      {/* Mobilde: ekranın tam merkezi (dikey + yatay). Desktop'ta (md:): mevcut bottom-14 konumu — DOKUNULMADI. */}
       <button
         type="button"
         onClick={handleEnter}
         disabled={phase !== 'idle'}
-        className="absolute bottom-[12svh] left-1/2 z-20 -translate-x-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 md:bottom-14 md:text-sm"
+        className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 md:top-auto md:bottom-14 md:translate-y-0 md:text-sm"
       >
         ENTER GLOBAL NETWORK
       </button>
