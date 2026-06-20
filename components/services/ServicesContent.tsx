@@ -135,7 +135,7 @@ const audienceSegments = [
   },
   {
     number: '03',
-    title: 'Etsy / Amazon’a Girmek İsteyen Markalar',
+    title: 'Pazaryerlerine Girmek İsteyen Markalar',
     description: 'Pazaryerlerine giriş yapmak isteyen markalar için mağaza kurulumu, listeleme, SEO, görsel dil ve reklam altyapısını hazırlarız.',
   },
   {
@@ -351,7 +351,7 @@ export default function ServicesContent() {
               'delay-[100ms]',
             )}`}
           >
-            Hangi Marka İçin Hangi Sistem Daha Doğru?
+            Hangi Marka İçin Hangi Sistem Doğru?
           </h2>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${audienceReveal(
