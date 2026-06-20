@@ -426,7 +426,7 @@ export default function HomeContent() {
 
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Başlayalım</p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Markanız İçin Global Growth System Tasarlayalım
+            Markanız İçin Global Satış Sistemi Tasarlayalım
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
             Ürününüzü, hedef pazarınızı ve mevcut dijital altyapınızı analiz ederek size özel global satış
