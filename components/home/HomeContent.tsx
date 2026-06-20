@@ -387,7 +387,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 4. SÜREÇ ============ */}
-      <section className="relative px-6 pb-16 pt-20 sm:px-10">
+      <section id="process" className="relative px-6 pb-16 pt-20 sm:px-10">
         <span
           aria-hidden="true"
           className="absolute left-1/2 top-0 h-px w-2/3 max-w-lg -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
