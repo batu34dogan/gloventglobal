@@ -43,7 +43,7 @@ export default function GloventIntro() {
         <IntroBackground />
       </div>
 
-      <span className="absolute left-6 top-6 text-sm font-semibold tracking-[0.25em] text-white sm:left-10 sm:top-8 sm:text-base">
+      <span className="absolute left-6 top-4 text-sm font-semibold tracking-[0.25em] text-white sm:left-10 sm:top-8 sm:text-base">
         GLOVENTGLOBAL
       </span>
 
@@ -51,7 +51,7 @@ export default function GloventIntro() {
         type="button"
         onClick={handleEnter}
         disabled={phase !== 'idle'}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 sm:bottom-14 sm:text-sm"
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 sm:bottom-14 sm:text-sm"
       >
         ENTER GLOBAL NETWORK
       </button>

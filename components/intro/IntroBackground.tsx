@@ -13,11 +13,10 @@ export default function IntroBackground() {
         quality={100}
         sizes="100vw"
         // Mobilde (md altı): "contain" ile görsel önce hiç kırpılmadan tam sığar, sonra ölçülü bir
-        // scale (1.15x) ile büyütülür — taşan kısım üstteki overflow-hidden tarafından kırpılır.
-        // Bu, object-cover'ın o ekran oranında ne kadar aşırı zoom yapacağını öngöremediğimiz
-        // sorunu ortadan kaldırıyor: büyütme miktarı artık tek bir sabit sayı (1.15) ile bizim kontrolümüzde.
+        // scale (1.21x) ile büyütülür ve biraz yukarı kaydırılır (logo ile görsel, görsel ile buton
+        // arası boşluğu azaltmak için) — taşan kısım üstteki overflow-hidden tarafından kırpılır.
         // md ve üstü (desktop): hiçbir değişiklik yok, mevcut object-cover birebir korunuyor.
-        className="scale-[1.15] object-contain object-center md:scale-100 md:object-cover"
+        className="-translate-y-[55px] scale-[1.21] object-contain object-center md:translate-y-0 md:scale-100 md:object-cover"
       />
     </div>
   );
