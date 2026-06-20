@@ -440,7 +440,10 @@ export default function ContactContent() {
             hangilerinin sizin için doğru sistemi oluşturacağını birlikte belirliyoruz.
           </p>
           <p className="mt-5 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
-            Strateji • Altyapı • İçerik • Reklam • Otomasyon • Global Büyüme
+            Strateji • Altyapı • İçerik • Reklam • Otomasyon
+          </p>
+          <p className="mt-1.5 whitespace-nowrap text-xs font-semibold uppercase tracking-[0.3em] text-blue-200/60">
+            Global Büyüme
           </p>
         </div>
       </section>
