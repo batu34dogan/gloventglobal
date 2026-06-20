@@ -173,6 +173,7 @@ function Glow({
 export default function HomeContent() {
   const [mounted, setMounted] = useState(false);
   const [brandsGridRef, brandsInView] = useInView<HTMLDivElement>();
+  const [whyRef, whyInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -185,6 +186,15 @@ export default function HomeContent() {
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
+
+  // Farkımız section'ı için ayrı bir reveal — Hero'nun "mounted" durumuna değil, bu section'ın
+  // viewport'a girip girmediğine (whyInView) bağlı. /#why ile direkt bu bölüme inilse de
+  // IntersectionObserver mevcut görünürlüğü algılayıp animasyonu doğru tetikler.
+  const whyReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      whyInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+  const whyCardDelays = ['delay-[320ms]', 'delay-[400ms]', 'delay-[480ms]'];
 
   return (
     <main
@@ -321,47 +331,56 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 3. FARKIMIZ ============ */}
-      <section id="why" className="relative px-6 py-20 sm:px-10">
+      <section id="why" ref={whyRef} className="relative px-6 py-20 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Farkımız</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${whyReveal('delay-[0ms]')}`}>
+            Farkımız
+          </p>
+          <h2 className={`mt-4 text-3xl font-bold tracking-tight sm:text-4xl ${whyReveal('delay-[100ms]')}`}>
             Parça Parça Hizmet Değil, Bütün Bir Satış Sistemi
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${whyReveal(
+              'delay-[200ms]',
+            )}`}
+          >
             Birçok marka ürününü dijitale taşır ama sistem kurmadığı için sürdürülebilir satış üretemez.
             GloventGlobal; strateji, marka, altyapı, içerik, reklam ve operasyonu birbirinden kopuk parçalar olarak
             değil, tek bir büyüme sistemi olarak ele alır.
           </p>
         </div>
 
-        {/* 3 katmanlı sistem kartı: önceki "büyük" aşamadan ~%20-25 küçültülmüş, dengeli orta boy. */}
+        {/* 3 katmanlı sistem kartı: önceki "büyük" aşamadan ~%20-25 küçültülmüş, dengeli orta boy.
+            Giriş animasyonu DIŞ div'de (whyReveal), hover ise İÇ div'de (duration-300) — ikisi farklı
+            transition-duration kullandığı için aynı elementte çakışmasın diye bilerek ayrıldı. */}
         <div className="relative mx-auto mt-9 grid max-w-5xl items-stretch gap-6 lg:grid-cols-3">
           {whySteps.map((step, index) => (
-            <div
-              key={step.number}
-              className={`relative flex h-full min-h-[190px] flex-col rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 ${
-                index === 1
-                  ? 'border-blue-400/28 bg-white/[0.042] shadow-[0_0_55px_-16px_rgba(59,130,246,0.5)] hover:border-blue-400/45 hover:bg-white/[0.065] hover:shadow-[0_0_65px_-14px_rgba(59,130,246,0.65)]'
-                  : 'border-white/[0.075] bg-white/[0.037] hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]'
-              }`}
-            >
-              <span
-                aria-hidden="true"
-                className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/60 via-blue-400/20 to-transparent"
-              />
-              {index < whySteps.length - 1 && (
+            <div key={step.number} className={whyReveal(whyCardDelays[index])}>
+              <div
+                className={`relative flex h-full min-h-[190px] flex-col rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 ${
+                  index === 1
+                    ? 'border-blue-400/28 bg-white/[0.042] shadow-[0_0_55px_-16px_rgba(59,130,246,0.5)] hover:border-blue-400/45 hover:bg-white/[0.065] hover:shadow-[0_0_65px_-14px_rgba(59,130,246,0.65)]'
+                    : 'border-white/[0.075] bg-white/[0.037] hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]'
+                }`}
+              >
                 <span
                   aria-hidden="true"
-                  className="absolute left-full top-[44px] hidden h-px w-6 bg-gradient-to-r from-blue-400/45 to-transparent lg:block"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/60 via-blue-400/20 to-transparent"
                 />
-              )}
-              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.65)]">
-                {step.number}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold text-white sm:text-xl">{step.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{step.description}</p>
+                {index < whySteps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-full top-[44px] hidden h-px w-6 bg-gradient-to-r from-blue-400/45 to-transparent lg:block"
+                  />
+                )}
+                <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.65)]">
+                  {step.number}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold text-white sm:text-xl">{step.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{step.description}</p>
+              </div>
             </div>
           ))}
         </div>
