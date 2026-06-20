@@ -81,32 +81,42 @@ const serviceCards = [
     description: 'El yapımı, butik, tasarım ve niş ürünler için Etsy mağaza yapısı, görsel dili ve listeleme stratejisi oluştururuz.',
   },
   {
-    tag: '03 SHOPIFY / B2B',
-    title: 'Shopify & B2B Altyapı',
-    description: 'Markanıza özel vitrin, ürün yönetimi, dijital katalog, teklif sistemi ve B2B satış altyapısı kurarız.',
-  },
-  {
-    tag: '04 EBAY',
+    tag: '03 EBAY',
     title: 'eBay Global Satış',
     description: 'Farklı pazarlara açılmak isteyen markalar için eBay listeleme, kategori ve satış altyapısını hazırlarız.',
   },
   {
-    tag: '05 MARKA',
+    tag: '04 SHOPIFY',
+    title: 'Shopify Satış Altyapısı',
+    description: 'Markanıza özel vitrin, ürün yönetimi, koleksiyon yapısı, ödeme ve satış deneyimi için Shopify altyapısı kurarız.',
+  },
+  {
+    tag: '05 B2B',
+    title: 'B2B Dijital Showroom',
+    description: 'Toptan satış yapan markalar için dijital katalog, teklif listesi, müşteri odaklı ürün sunumu ve showroom sistemi oluştururuz.',
+  },
+  {
+    tag: '06 MARKA',
     title: 'Marka Konumlandırma',
     description: 'Ürününüzü yalnızca satılacak bir ürün olarak değil, pazarda algısı olan bir marka yapısı içinde konumlandırırız.',
   },
   {
-    tag: '06 İÇERİK',
+    tag: '07 GÖRSEL',
     title: 'Görsel & İçerik Sistemi',
     description: 'Ürün fotoğrafı, yapay zeka destekli görsel konsept, açıklama, başlık ve marka dili bütünlüğünü kurarız.',
   },
   {
-    tag: '07 REKLAM',
+    tag: '08 SOSYAL MEDYA',
+    title: 'Sosyal Medya Yönetimi',
+    description: 'Markanızın Instagram, TikTok ve diğer sosyal kanallarda tutarlı görünmesi için içerik planı, görsel dil ve paylaşım stratejisi oluştururuz.',
+  },
+  {
+    tag: '09 REKLAM',
     title: 'Reklam & Optimizasyon',
     description: 'Amazon, Etsy, Google ve Meta reklamlarını veri, dönüşüm ve kârlılık odağında optimize ederiz.',
   },
   {
-    tag: '08 STRATEJİ',
+    tag: '10 STRATEJİ',
     title: 'Global Pazara Giriş Stratejisi',
     description: 'Ürününüz için doğru ülke, kanal, fiyat, rekabet ve büyüme yol haritasını belirleriz.',
   },
@@ -114,13 +124,15 @@ const serviceCards = [
 
 const serviceCardDelays = [
   'delay-[0ms]',
-  'delay-[60ms]',
-  'delay-[120ms]',
-  'delay-[180ms]',
-  'delay-[240ms]',
+  'delay-[50ms]',
+  'delay-[100ms]',
+  'delay-[150ms]',
+  'delay-[200ms]',
+  'delay-[250ms]',
   'delay-[300ms]',
-  'delay-[360ms]',
-  'delay-[420ms]',
+  'delay-[350ms]',
+  'delay-[400ms]',
+  'delay-[450ms]',
 ];
 
 export default function ServicesContent() {
@@ -267,10 +279,10 @@ export default function ServicesContent() {
           </p>
         </div>
 
-        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {serviceCards.map((service, index) => (
             <div key={service.title} className={servicesReveal(serviceCardDelays[index])}>
-              <div className="relative flex h-full min-h-[160px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+              <div className="relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
                 <span
                   aria-hidden="true"
                   className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
