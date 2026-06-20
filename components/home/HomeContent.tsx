@@ -410,7 +410,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 6. FİNAL CTA ============ */}
-      <section id="contact" className="relative px-6 py-32 sm:px-10">
+      <section id="contact" className="relative px-6 pb-28 pt-20 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-60" className="left-1/2 top-0 h-[500px] w-[860px] -translate-x-1/2" />
         <span
           aria-hidden="true"
@@ -418,7 +418,7 @@ export default function HomeContent() {
         />
 
         {/* Kapanış paneli: cam panel hissinde, ortalı, kontrollü genişlikte — "growth system start" hissi için */}
-        <div className="relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-12 text-center backdrop-blur-sm sm:px-12 sm:py-14">
+        <div className="relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-10 text-center backdrop-blur-sm sm:px-12 sm:py-12">
           <span
             aria-hidden="true"
             className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
