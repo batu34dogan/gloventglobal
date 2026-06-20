@@ -155,9 +155,31 @@ const quickContactCards = [
 
 const quickContactDelays = ['delay-[80ms]', 'delay-[130ms]', 'delay-[180ms]', 'delay-[230ms]', 'delay-[280ms]'];
 
+const processSteps = [
+  {
+    number: '01',
+    title: 'Ön Analiz',
+    description: 'Markanız, ürün kategoriniz, mevcut satış kanallarınız ve hedef pazarınız ilk aşamada değerlendirilir.',
+  },
+  {
+    number: '02',
+    title: 'Sistem Planı',
+    description:
+      'Amazon, Etsy, eBay, Shopify, B2B, sosyal medya, reklam veya otomasyon ihtiyaçlarınıza göre uygun hizmet kombinasyonu belirlenir.',
+  },
+  {
+    number: '03',
+    title: 'Görüşme ve Yol Haritası',
+    description: 'Ön analiz sonrası markanız için uygulanabilir bir yol haritası ve sonraki adımlar netleştirilir.',
+  },
+];
+
+const processDelays = ['delay-[0ms]', 'delay-[100ms]', 'delay-[200ms]'];
+
 export default function ContactContent() {
   const [mounted, setMounted] = useState(false);
   const [formRef, formInView] = useInView<HTMLElement>();
+  const [processRef, processInView] = useInView<HTMLElement>();
   const [submitted, setSubmitted] = useState(false);
 
   const [formValues, setFormValues] = useState({
@@ -201,6 +223,12 @@ export default function ContactContent() {
   const formReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       formInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Süreç bölümü form bölümünün altında, ekran dışında başlıyor — kendi viewport girişine bağlı, ayrı reveal.
+  const processReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      processInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -350,6 +378,46 @@ export default function ContactContent() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* ============ 3. SÜREÇ — Başvurudan Sonra Ne Olur? ============ */}
+      <section ref={processRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={processInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${processReveal('delay-[0ms]')}`}>
+            Süreç
+          </p>
+          <h2 className={`mt-4 text-3xl font-bold tracking-tight sm:text-4xl ${processReveal('delay-[100ms]')}`}>
+            Başvurudan Sonra Ne Olur?
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${processReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            Başvurunuzu yalnızca bir iletişim talebi olarak değil, markanız için doğru global satış sistemini
+            belirlemenin ilk adımı olarak değerlendiriyoruz.
+          </p>
+        </div>
+
+        <div className="relative mx-auto mt-10 grid max-w-5xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {processSteps.map((step, index) => (
+            <div key={step.number} className={processReveal(processDelays[index])}>
+              <div className="relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+                  {step.number}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold text-white">{step.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{step.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
