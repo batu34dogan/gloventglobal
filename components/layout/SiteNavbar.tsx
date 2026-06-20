@@ -6,10 +6,10 @@ const navLinks = [
   { label: 'İletişim', href: '/#contact' },
 ];
 
-// Intro (GloventIntro.tsx) "fixed inset-0 z-50" ile çalışıyor. Navbar'a bilerek daha düşük bir
+// Intro (GloventIntro.tsx) "fixed inset-0 z-50" ile çalışıyor. SiteNavbar'a bilerek daha düşük bir
 // z-index (z-40) veriliyor — intro açıkken navbar'ın arkasında kalır (görünmez), intro fade-out
 // olurken doğal şekilde belirir. Bu sayede GloventIntro.tsx'e hiç dokunulmadan çakışma önleniyor.
-export default function Navbar() {
+export default function SiteNavbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
