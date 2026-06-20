@@ -417,18 +417,36 @@ export default function HomeContent() {
           className="absolute left-1/2 top-0 h-px w-2/3 max-w-md -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
         />
 
-        <div className="relative mx-auto max-w-2xl text-center">
+        {/* Kapanış paneli: cam panel hissinde, ortalı, kontrollü genişlikte — "growth system start" hissi için */}
+        <div className="relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-12 text-center backdrop-blur-sm sm:px-12 sm:py-14">
+          <span
+            aria-hidden="true"
+            className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
+          />
+
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Başlayalım</p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Markanızı Global Satışa Hazırlayalım
+            Markanız İçin Global Growth System Tasarlayalım
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
-            Ürününüz, hedef pazarınız ve mevcut dijital yapınız üzerinden size özel bir global büyüme sistemi
-            planlayalım.
+            Ürününüzü, hedef pazarınızı ve mevcut dijital altyapınızı analiz ederek size özel global satış
+            sistemini birlikte planlayalım.
           </p>
+
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
+            {['Strateji', 'Altyapı', 'Pazaryeri', 'Reklam', 'Büyüme'].map((chip) => (
+              <span
+                key={chip}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.1em] text-blue-100/70"
+              >
+                {chip}
+              </span>
+            ))}
+          </div>
+
           <button
             type="button"
-            className="mt-10 rounded-full border border-blue-400/40 bg-blue-500/10 px-12 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/70 hover:bg-blue-500/20 hover:shadow-[0_0_30px_-6px_rgba(59,130,246,0.55)]"
+            className="mt-9 rounded-full border border-blue-400/45 bg-blue-500/10 px-12 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
           >
             GloventGlobal ile Görüş
           </button>
