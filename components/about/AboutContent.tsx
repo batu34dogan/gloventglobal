@@ -74,9 +74,33 @@ const focusAreaDelays = [
   'delay-[350ms]',
 ];
 
+const whyCards = [
+  {
+    number: '01',
+    title: 'Parça Hizmet Değil Sistem',
+    description:
+      'Reklam, sosyal medya, pazaryeri, Shopify, içerik ve otomasyon süreçlerini ayrı işler olarak değil, aynı hedefe çalışan tek bir yapı olarak planlarız.',
+  },
+  {
+    number: '02',
+    title: 'Global Pazara Uyum',
+    description:
+      'Her ürünün her pazarda aynı şekilde satılamayacağını biliriz. Ürün, fiyat, hedef müşteri, rakipler ve satış kanalı birlikte değerlendirilir.',
+  },
+  {
+    number: '03',
+    title: 'Operasyon ve Büyüme Mantığı',
+    description:
+      'Sistemin yalnızca kurulmasını değil, sürdürülebilir şekilde yönetilebilir, ölçülebilir ve geliştirilebilir olmasını hedefleriz.',
+  },
+];
+
+const whyCardDelays = ['delay-[0ms]', 'delay-[100ms]', 'delay-[200ms]'];
+
 export default function AboutContent() {
   const [mounted, setMounted] = useState(false);
   const [whoRef, whoInView] = useInView<HTMLElement>();
+  const [whyRef, whyInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -94,6 +118,13 @@ export default function AboutContent() {
   const whoReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       whoInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Neden GloventGlobal bölümü Biz Kimiz'in altında, ekran dışında başlıyor — kendi viewport
+  // girişine bağlı, ayrı reveal.
+  const whyReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      whyInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   return (
@@ -175,6 +206,47 @@ export default function AboutContent() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ============ 3. NEDEN GLOVENTGLOBAL? ============ */}
+      <section ref={whyRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={whyInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${whyReveal('delay-[0ms]')}`}>
+            Neden GloventGlobal?
+          </p>
+          <h2 className={`mx-auto mt-4 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl ${whyReveal('delay-[100ms]')}`}>
+            Parçaları Değil, Sistemin Tamamını Kuruyoruz
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${whyReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            Markaların global pazarda büyümesi yalnızca reklam, mağaza kurulumu veya içerik üretimiyle sürdürülebilir
+            olmaz. GloventGlobal; strateji, altyapı, içerik, reklam, operasyon ve otomasyonu birbirine bağlı bir
+            satış sistemi olarak ele alır.
+          </p>
+        </div>
+
+        <div className="relative mx-auto mt-10 grid max-w-5xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {whyCards.map((card, index) => (
+            <div key={card.number} className={whyReveal(whyCardDelays[index])}>
+              <div className="relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+                  {card.number}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold text-white">{card.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{card.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
