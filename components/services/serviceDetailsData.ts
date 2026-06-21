@@ -435,9 +435,9 @@ export const serviceDetails: Record<
   },
   shopify: {
     eyebrow: 'SHOPIFY SATIŞ ALTYAPISI',
-    title: 'Markanız İçin Shopify Tabanlı Dijital Satış Sistemi Kuruyoruz',
+    title: 'Markanız İçin Shopify Tabanlı Satış Altyapısı Kuruyoruz',
     description:
-      'Shopify yalnızca bir web sitesi değil; ürün yönetimi, koleksiyon yapısı, ödeme deneyimi, teklif akışı, içerik dili ve büyüme kanallarıyla birlikte çalışan bir dijital satış altyapısıdır.',
+      'Shopify yalnızca bir web sitesi değil; ürün yönetimi, koleksiyon yapısı, ödeme deneyimi, teklif akışı, içerik dili ve büyüme kanallarıyla birlikte çalışan bir satış altyapısıdır.',
     ctaLabel: 'Shopify Hizmet Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
@@ -447,7 +447,7 @@ export const serviceDetails: Record<
       cards: [
         {
           number: '01',
-          title: 'Kendi Web Sitesinden Satış Yapmak İsteyen Markalar',
+          title: 'Kendi Satış Kanalını Kurmak İsteyen Markalar',
           description: 'Pazaryerlerine ek olarak kendi markasına ait bağımsız bir satış kanalı kurmak isteyen işletmeler için uygundur.',
         },
         {
@@ -469,9 +469,9 @@ export const serviceDetails: Record<
     },
     problem: {
       eyebrow: 'SİSTEM EKSİKLERİ',
-      title: 'Shopify’da Site Açmak Değil, Satış Altyapısı Kurmak Gerekir',
+      title: 'Shopify’da Başarılı Satış İçin Sadece Site Değil, Sistem Gerekir',
       description:
-        'Birçok marka Shopify sitesi kurar ama ürün yapısı, kategori mantığı, içerik dili, ödeme deneyimi, teklif akışı ve dönüşüm sistemi birlikte çalışmadığında site yalnızca dijital bir vitrin olarak kalır.',
+        'Birçok marka Shopify sitesi kurar ama ürün yapısı, kategori mantığı, içerik dili, ödeme deneyimi, teklif akışı ve dönüşüm sistemi birlikte çalışmadığında site satış üreten bir altyapı yerine yalnızca dijital vitrin olarak kalır.',
       cards: [
         {
           number: '01',
