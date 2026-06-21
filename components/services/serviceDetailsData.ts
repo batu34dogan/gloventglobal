@@ -77,8 +77,8 @@ export const serviceDetails: Record<
         },
         {
           number: '04',
-          title: 'Etsy’ye Yeni Başlayacak İşletmeler',
-          description: 'Mağaza kurulumu, ürün listeleme, SEO, görsel dil ve ilk reklam yapısını baştan doğru kurmak isteyen işletmeler için uygundur.',
+          title: 'Yeni Başlayan veya Sonuç Alamayan Mağazalar',
+          description: 'Etsy mağazası açmak isteyen ya da mağazası açık olduğu halde yeterli görüntülenme, favori veya satış alamayan işletmeler için uygundur.',
         },
       ],
     },
@@ -86,7 +86,7 @@ export const serviceDetails: Record<
       eyebrow: 'ÇÖZDÜĞÜ SORUN',
       title: 'Etsy’de Mağaza Açmak Yeterli Değil, Doğru Sunum Sistemi Gerekir',
       description:
-        'Birçok marka Etsy’ye ürün yükler ama mağaza dili, görsel sunum, SEO, kategori seçimi ve ürün açıklamaları birlikte çalışmadığı için görünürlük ve satış potansiyeli sınırlı kalır.',
+        'Birçok marka Etsy’ye ürün yükler, hatta mağazasını açıp satış bekler; ancak mağaza dili, görsel sunum, SEO, kategori seçimi ve ürün açıklamaları birlikte çalışmadığında görünürlük, favori ve satış potansiyeli sınırlı kalır.',
       cards: [
         {
           number: '01',
