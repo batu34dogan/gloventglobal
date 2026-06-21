@@ -1436,7 +1436,7 @@ export const serviceDetails: Record<
   },
   'gorsel-icerik-sistemi': {
     eyebrow: 'GÖRSEL & İÇERİK SİSTEMİ',
-    title: 'Ürünlerinizi Satışa Hazır Görsel ve İçerik Sistemiyle Sunuyoruz',
+    title: 'Ürünlerinizi Satışa Hazır Görsel ve İçerik Sistemiyle Hazırlıyoruz',
     description:
       'Dijital satışta ürün yalnızca listelenmez; doğru görsel dil, güçlü ürün sunumu, açıklama, başlık, SEO ve marka anlatımı birlikte çalıştığında alıcı için daha güven veren bir satış deneyimi oluşur.',
     ctaLabel: 'İçerik Planı Oluştur',
