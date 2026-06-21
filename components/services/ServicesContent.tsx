@@ -79,6 +79,7 @@ const serviceCards = [
     tag: '02 ETSY',
     title: 'Etsy Mağaza Sistemi',
     description: 'El yapımı, butik, tasarım ve niş ürünler için Etsy mağaza yapısı, görsel dili ve listeleme stratejisi oluştururuz.',
+    href: '/hizmetler/etsy',
   },
   {
     tag: '03 EBAY',
@@ -369,14 +370,12 @@ export default function ServicesContent() {
             ilk 8 kart 2 satırı tam dolduruyor (4+4), 9. karta lg:col-start-2 verilince son 3 kart
             (09/10/11) satırın ortasına simetrik şekilde yerleşiyor — her iki kenarda eşit boşluk kalıyor. */}
         <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
-          {serviceCards.map((service, index) => (
-            <div
-              key={service.title}
-              className={`${servicesReveal(serviceCardDelays[index])} lg:col-span-2 ${
-                index === 8 ? 'lg:col-start-2' : ''
-              }`}
-            >
-              <div className="relative flex h-full min-h-[180px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+          {serviceCards.map((service, index) => {
+            const cardClassName =
+              'relative flex h-full min-h-[180px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]';
+
+            const cardContent = (
+              <>
                 <span
                   aria-hidden="true"
                   className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
@@ -386,9 +385,33 @@ export default function ServicesContent() {
                 </span>
                 <h3 className="mt-2.5 text-base font-semibold text-white">{service.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{service.description}</p>
+                {/* Sadece detay sayfası olan kartlarda (şimdilik tek Etsy) görünen küçük yönlendirme —
+                    flex-col + mt-auto ile kartın altına sabitleniyor, tasarımı kalabalıklaştırmıyor. */}
+                {service.href && (
+                  <span className="mt-auto pt-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-blue-300/70 transition-colors duration-300 group-hover:text-blue-200">
+                    Detayı Gör →
+                  </span>
+                )}
+              </>
+            );
+
+            return (
+              <div
+                key={service.title}
+                className={`${servicesReveal(serviceCardDelays[index])} lg:col-span-2 ${
+                  index === 8 ? 'lg:col-start-2' : ''
+                }`}
+              >
+                {service.href ? (
+                  <a href={service.href} className={`group ${cardClassName}`}>
+                    {cardContent}
+                  </a>
+                ) : (
+                  <div className={cardClassName}>{cardContent}</div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
