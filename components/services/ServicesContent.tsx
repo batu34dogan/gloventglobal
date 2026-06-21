@@ -128,6 +128,8 @@ const serviceCards = [
     tag: '05 B2B',
     title: 'B2B Dijital Showroom',
     description: 'Toptan satış yapan markalar için dijital katalog, teklif listesi, müşteri odaklı ürün sunumu ve showroom sistemi oluştururuz.',
+    href: '/hizmetler/b2b-dijital-showroom',
+    ctaName: 'B2B',
   },
   {
     tag: '06 MARKA',
