@@ -156,6 +156,8 @@ const serviceCards = [
     tag: '09 SOSYAL MEDYA',
     title: 'Sosyal Medya Yönetimi',
     description: 'Markanızın Instagram, TikTok ve diğer sosyal kanallarda tutarlı görünmesi için içerik planı, görsel dil ve paylaşım stratejisi oluştururuz.',
+    href: '/hizmetler/sosyal-medya-yonetimi',
+    ctaName: 'Sosyal Medya',
   },
   {
     tag: '10 REKLAM',
