@@ -329,8 +329,8 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
               <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-blue-400/55 bg-white/[0.045] text-sm font-semibold text-blue-300 shadow-[0_0_24px_-2px_rgba(59,130,246,0.75)] backdrop-blur-sm transition-all duration-300 group-hover:border-blue-400/85 group-hover:shadow-[0_0_32px_-2px_rgba(59,130,246,0.95)]">
                 {step.number}
               </span>
-              <h3 className="mt-4 text-base font-semibold text-white sm:text-lg">{step.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75 transition-colors duration-300 group-hover:text-blue-100/90 sm:text-base">
+              <h3 className="mt-4 text-lg font-semibold text-white">{step.title}</h3>
+              <p className="mt-2.5 text-base leading-relaxed text-blue-100/80 transition-colors duration-300 group-hover:text-blue-100/95">
                 {step.description}
               </p>
             </div>

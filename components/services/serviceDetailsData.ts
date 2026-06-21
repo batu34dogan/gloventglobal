@@ -83,8 +83,8 @@ export const serviceDetails: Record<
       ],
     },
     problem: {
-      eyebrow: 'ÇÖZDÜĞÜ SORUN',
-      title: 'Etsy’de Mağaza Açmak Yeterli Değil, Doğru Sunum Sistemi Gerekir',
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Etsy’de Satış İçin Mağaza Açmak Değil, Sunum Sistemi Kurmak Gerekir',
       description:
         'Birçok marka Etsy’ye ürün yükler, hatta mağazasını açıp satış bekler; ancak mağaza dili, görsel sunum, SEO, kategori seçimi ve ürün açıklamaları birlikte çalışmadığında görünürlük, favori ve satış potansiyeli sınırlı kalır.',
       cards: [
@@ -172,7 +172,7 @@ export const serviceDetails: Record<
       ],
     },
     deliverables: {
-      eyebrow: 'TESLİM / ÇIKTILAR',
+      eyebrow: 'HAZIRLANAN SİSTEM',
       title: 'Etsy Mağazanız İçin Hazırlanan Sistem Çıktıları',
       description:
         'Etsy hizmeti sonunda yalnızca açılmış bir mağaza değil; ürünlerinizi daha doğru sunan, mağaza bütünlüğünü güçlendiren ve satış sürecini yönetilebilir hale getiren bir yapı hazırlanır.',
