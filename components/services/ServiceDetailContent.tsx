@@ -58,6 +58,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
   const [problemRef, problemInView] = useInView<HTMLElement>();
   const [approachRef, approachInView] = useInView<HTMLElement>();
+  const [dataSystemRef, dataSystemInView] = useInView<HTMLElement>();
   const [processRef, processInView] = useInView<HTMLElement>();
   const [deliverablesRef, deliverablesInView] = useInView<HTMLElement>();
   const [ctaRef, ctaInView] = useInView<HTMLElement>();
@@ -93,6 +94,13 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const approachReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       approachInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "Veriyle Yönetilen Sistem" bölümü "Nasıl Yaklaşır?"ın altında, ekran dışında başlıyor — kendi
+  // viewport girişine bağlı, ayrı reveal.
+  const dataSystemReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      dataSystemInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // "Süreç" bölümü "Nasıl Yaklaşır?"ın altında, ekran dışında başlıyor — kendi viewport girişine
@@ -336,6 +344,81 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ============ VERİYLE YÖNETİLEN ETSY SİSTEMİ ============
+          Kısa, veri-odaklı bir "dashboard hissi" bölümü — gerçek/sahte sayı veya metrik YOK,
+          sadece açıklayıcı metin + dekoratif sinyal çubukları (stilize, "temsili sistem kartı" gibi).
+          Kayan şerit ana sayfanın marka marquee'siyle aynı teknik (bağımsız kopya, kendi keyframe'i),
+          overflow-hidden konteyner içinde olduğu için mobilde de sayfa düzeyinde taşma oluşturmaz. */}
+      <section ref={dataSystemRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={dataSystemInView} targetOpacity="opacity-35" className="right-[-200px] top-0 h-[400px] w-[400px]" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p
+            className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${dataSystemReveal(
+              'delay-[0ms]',
+            )}`}
+          >
+            {data.dataSystem.eyebrow}
+          </p>
+          <h2
+            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${dataSystemReveal(
+              'delay-[100ms]',
+            )}`}
+          >
+            {data.dataSystem.title}
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${dataSystemReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            {data.dataSystem.description}
+          </p>
+        </div>
+
+        {/* Kayan kart şeridi — section'ın tam genişliğini kullanır (kenar fade mask için mx-auto/max-w dışında). */}
+        <div
+          className={`relative mt-10 overflow-hidden ${dataSystemReveal('delay-[300ms]')}`}
+        >
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#070d18] to-transparent opacity-40 sm:w-24 sm:opacity-100" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[#070d18] to-transparent opacity-40 sm:w-24 sm:opacity-100" />
+
+          <div className="flex w-max animate-[etsy-data-marquee_38s_linear_infinite] gap-5 motion-reduce:animate-none hover:[animation-play-state:paused]">
+            {[...data.dataSystem.signals, ...data.dataSystem.signals].map((signal, index) => (
+              <div
+                key={`${signal.title}-${index}`}
+                className="flex h-[150px] w-[230px] flex-shrink-0 flex-col justify-start rounded-xl border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.45)]"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
+                />
+                {/* Dekoratif sinyal çubukları — gerçek/sahte veri değil, sadece "dashboard" hissi
+                    veren stilize bir görsel motif. Hiçbir sayı/etiket yok. */}
+                <div aria-hidden="true" className="flex items-end gap-1">
+                  <span className="h-3 w-1 rounded-full bg-blue-400/40" />
+                  <span className="h-5 w-1 rounded-full bg-blue-400/60" />
+                  <span className="h-4 w-1 rounded-full bg-blue-400/50" />
+                  <span className="h-6 w-1 rounded-full bg-blue-400/70" />
+                  <span className="h-3.5 w-1 rounded-full bg-blue-400/45" />
+                </div>
+                <h3 className="mt-3 text-sm font-semibold text-white">{signal.title}</h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-blue-100/65">{signal.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Marquee için @keyframes — globals.css'e dokunmamak için component içinde tanımlı,
+            ana sayfadaki brand-marquee'den bağımsız, farklı bir isimle. */}
+        <style>{`
+          @keyframes etsy-data-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+        `}</style>
       </section>
 
       {/* ============ SÜREÇ ============

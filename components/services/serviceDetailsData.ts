@@ -46,6 +46,12 @@ export const serviceDetails: Record<
       ctaLabel: string;
       supportText: string;
     };
+    dataSystem: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      signals: { title: string; description: string }[];
+    };
   }
 > = {
   etsy: {
@@ -135,6 +141,34 @@ export const serviceDetails: Record<
           number: '04',
           title: 'Reklam ve Test Süreci',
           description: 'İlk ürünlerin yayınlanması sonrası reklam, fiyat, ürün seçimi ve dönüşüm verilerine göre sistemi test edip geliştiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Etsy Mağazanızı Yayına Alıp Bırakmıyoruz',
+      description:
+        'Mağaza yayına alındıktan sonra görüntülenme, tıklama, favori, reklam, fiyat ve dönüşüm sinyalleri birlikte takip edilmelidir. Etsy sistemini yalnızca kurulan bir mağaza olarak değil, verilerle geliştirilen bir satış yapısı olarak ele alırız.',
+      signals: [
+        {
+          title: 'Görüntülenme Sinyalleri',
+          description: 'Ürünlerin hangi listelemelerde daha fazla görünürlük aldığını takip ederiz.',
+        },
+        {
+          title: 'Favori ve Sepet Davranışı',
+          description: 'Alıcı ilgisini gösteren favori, sepet ve ürün etkileşimlerini değerlendiririz.',
+        },
+        {
+          title: 'Reklam Testleri',
+          description: 'İlk reklam verilerini ürün, bütçe, tıklama ve dönüşüm sinyallerine göre okuruz.',
+        },
+        {
+          title: 'Listeleme Performansı',
+          description: 'Başlık, görsel, açıklama ve etiket yapısının performansını analiz ederiz.',
+        },
+        {
+          title: 'Optimizasyon Alanları',
+          description: 'Hangi ürünlerin, görsellerin veya fiyat aralıklarının geliştirilmesi gerektiğini belirleriz.',
         },
       ],
     },
