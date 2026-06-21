@@ -135,6 +135,8 @@ const serviceCards = [
     tag: '06 MARKA',
     title: 'Marka Konumlandırma',
     description: 'Ürününüzü yalnızca satılacak bir ürün olarak değil, pazarda algısı olan bir marka yapısı içinde konumlandırırız.',
+    href: '/hizmetler/marka-konumlandirma',
+    ctaName: 'Marka',
   },
   {
     tag: '07 GÖRSEL',
