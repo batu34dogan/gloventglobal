@@ -150,6 +150,8 @@ const serviceCards = [
     tag: '09 REKLAM',
     title: 'Reklam & Optimizasyon',
     description: 'Amazon, Etsy, Google ve Meta reklamlarını veri, dönüşüm ve kârlılık odağında optimize ederiz.',
+    href: '/hizmetler/reklam-optimizasyon',
+    ctaName: 'Reklam',
   },
   {
     tag: '10 OTOMASYON',
