@@ -74,12 +74,15 @@ const serviceCards = [
     tag: '01 AMAZON',
     title: 'Amazon Danışmanlığı',
     description: 'Amazon’da doğru kategori, listeleme, SEO, reklam ve operasyon yapısıyla satışa hazır bir sistem kurarız.',
+    href: '/hizmetler/amazon',
+    ctaName: 'Amazon',
   },
   {
     tag: '02 ETSY',
     title: 'Etsy Mağaza Sistemi',
     description: 'El yapımı, butik, tasarım ve niş ürünler için Etsy mağaza yapısı, görsel dili ve listeleme stratejisi oluştururuz.',
     href: '/hizmetler/etsy',
+    ctaName: 'Etsy',
   },
   {
     tag: '03 EBAY',
@@ -391,7 +394,7 @@ export default function ServicesContent() {
                     kartlarına da aynı şablonla uygulanabilecek standart bir desen oluşturuyor. */}
                 {service.href && (
                   <span className="mt-5 inline-flex w-fit flex-col items-start gap-0.5 self-start rounded-full border border-blue-400/40 bg-blue-500/10 px-3.5 py-2 text-[11px] font-semibold uppercase leading-tight tracking-[0.12em] text-blue-200 transition-all duration-300 group-hover:border-blue-400/70 group-hover:bg-blue-500/20 group-hover:text-white group-hover:shadow-[0_0_18px_-4px_rgba(59,130,246,0.6)]">
-                    <span>Etsy</span>
+                    <span>{service.ctaName}</span>
                     <span>Detayını İncele →</span>
                   </span>
                 )}
