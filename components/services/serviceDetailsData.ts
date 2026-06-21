@@ -2035,4 +2035,204 @@ export const serviceDetails: Record<
       supportText: 'Marka Dili • Hedef Müşteri • Değer Önerisi • Görsel Kimlik • Kanal Uyumu • Büyüme',
     },
   },
+  'sosyal-medya-yonetimi': {
+    eyebrow: 'SOSYAL MEDYA YÖNETİMİ',
+    title: 'Markanız İçin Satış Kanallarıyla Uyumlu Sosyal Medya Sistemi Kuruyoruz',
+    description:
+      'Sosyal medya yalnızca paylaşım yapmak değildir. Marka dili, ürün sunumu, görsel konsept, içerik planı, kampanya mesajı ve satış kanalları birlikte çalıştığında sosyal medya markanın dijital güven alanına dönüşür.',
+    ctaLabel: 'Sosyal Medya Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Sosyal Medyada Daha Tutarlı ve Güven Veren Görünmek İsteyen Markalar İçin',
+      description:
+        'Sosyal Medya Yönetimi; Instagram, TikTok, Pinterest, LinkedIn veya diğer kanallarda markasını daha profesyonel göstermek, ürünlerini daha doğru anlatmak ve satış sistemleriyle uyumlu içerik üretmek isteyen markalar için uygundur.',
+      cards: [
+        {
+          number: '01',
+          title: 'Dijitalde Daha Güven Veren Görünmek İsteyen Markalar',
+          description: 'Profil yapısı, içerik dili, görsel bütünlük ve marka anlatımıyla daha profesyonel bir sosyal medya algısı oluşturmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Ürünlerini Sosyal Medyada Daha Güçlü Sunmak İsteyenler',
+          description: 'Ürün görselleri, kullanım senaryoları, kısa videolar, hikaye içerikleri ve açıklama diliyle ürünlerini daha iyi anlatmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Pazaryeri ve Shopify Satışını Desteklemek İsteyenler',
+          description: 'Amazon, Etsy, eBay, Shopify veya B2B katalog gibi satış kanallarını sosyal medya içerikleriyle desteklemek isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'İçerik Planını Sistemli Hale Getirmek İsteyenler',
+          description: 'Paylaşım takvimi, kampanya dönemi, ürün odakları, marka mesajı ve içerik türlerini düzenli planlamak isteyen işletmeler için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Paylaşım Yapmak Değil, Markaya Güven Veren İçerik Sistemi Kurmak Gerekir',
+      description:
+        'Birçok marka sosyal medyada paylaşım yapar ama görsel dil, ürün anlatımı, profil yapısı, içerik planı, marka mesajı ve satış kanalları birlikte çalışmadığında sosyal medya gerçek bir güven ve satış desteği oluşturmaz.',
+      cards: [
+        {
+          number: '01',
+          title: 'Dağınık Görsel Dil',
+          description: 'Her paylaşım farklı bir tarzda olduğunda marka algısı zayıflar ve profil profesyonel görünmez.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Anlatımı Eksikliği',
+          description: 'Ürünlerin kullanım alanı, faydası, farkı ve satın alma yönlendirmesi net anlatılmadığında içerikler satış sistemini desteklemez.',
+        },
+        {
+          number: '03',
+          title: 'Plansız İçerik Akışı',
+          description: 'İçerikler ürün, kampanya, sezon, hedef müşteri ve satış kanalına göre planlanmadığında sosyal medya süreklilik kazanmaz.',
+        },
+        {
+          number: '04',
+          title: 'Satış Kanallarından Kopuk Yapı',
+          description: 'Sosyal medya içerikleri pazaryeri, Shopify, B2B katalog, reklam veya iletişim akışlarıyla bağlantılı değilse etki sınırlı kalır.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Sosyal Medyayı Tekil Paylaşımlar Değil, Marka Güven Sistemi Olarak Kurgularız',
+      description:
+        'GloventGlobal için sosyal medya yönetimi yalnızca post hazırlamak değildir. Marka dili, ürün sunumu, görsel sistem, içerik planı, kampanya mesajı ve satış kanalları birlikte ele alınarak markanın dijital güven alanı oluşturulur.',
+      steps: [
+        {
+          number: '01',
+          title: 'Marka ve Kanal Analizi',
+          description: 'Markanın mevcut sosyal medya algısını, hedef müşterisini, ürün yapısını, satış kanallarını ve içerik ihtiyaçlarını analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Görsel Dil ve İçerik Planı',
+          description: 'Profil görünümü, görsel konsept, ürün sunumu, içerik türleri, paylaşım takvimi ve marka dilini planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Ürün ve Kampanya Anlatımı',
+          description: 'Ürün odakları, kampanya dönemleri, koleksiyon tanıtımları, satış mesajları ve yönlendirme metinlerini sosyal medya yapısına uygun hale getiririz.',
+        },
+        {
+          number: '04',
+          title: 'Performans ve Optimizasyon',
+          description: 'Erişim, etkileşim, kayıt, tıklama, mesaj, takipçi davranışı ve satış kanalı yönlendirmelerine göre içerik sistemini geliştiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Sosyal Medya İçeriklerinizi Verilerle Geliştirilen Bir Marka Sistemine Dönüştürüyoruz',
+      description:
+        'İçerikler yayına alındıktan sonra erişim, etkileşim, kayıt, tıklama, mesaj, takipçi davranışı ve satış kanalı yönlendirmeleri birlikte takip edilir. Böylece sosyal medya yalnızca paylaşım yapılan bir alan değil, geliştirilebilir bir marka sistemi haline gelir.',
+      // Sosyal Medya Yönetimi için gerçek dashboard/analytics görselleri henüz hazır değil — diğer
+      // hizmetlerdeki gibi geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek
+      // görseller hazır olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'Erişim ve Etkileşim',
+          description: 'Hangi içeriklerin daha fazla görüntülenme, beğeni, yorum, kayıt veya paylaşım aldığını takip ederiz.',
+        },
+        {
+          title: 'Profil ve Güven Algısı',
+          description: 'Profil görünümü, içerik bütünlüğü, marka dili ve ürün sunumunun güven algısına etkisini değerlendiririz.',
+        },
+        {
+          title: 'Ürün İçerik Performansı',
+          description: 'Hangi ürünlerin, koleksiyonların veya kullanım senaryolarının daha fazla ilgi gördüğünü analiz ederiz.',
+        },
+        {
+          title: 'Satış Kanalı Yönlendirmeleri',
+          description: 'Web sitesi, pazaryeri, Shopify, B2B katalog, WhatsApp veya form yönlendirmelerinin nasıl çalıştığını takip ederiz.',
+        },
+        {
+          title: 'Gelişim Alanları',
+          description: 'Hangi içerik türlerinin, görsel dilin, kampanya mesajlarının veya ürün anlatımlarının güçlendirilmesi gerektiğini belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Sosyal Medya Sisteminizi Hazırlayan Yol Haritası',
+      description:
+        'Sosyal medya sürecini yalnızca paylaşım takvimi olarak ele almayız; marka dili, ürün sunumu, satış kanalı, kampanya dönemi, görsel konsept ve performans takibini birlikte planlarız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Marka ve Profil Keşfi',
+          description: 'Markanın mevcut sosyal medya görünümünü, hedef müşterisini, ürün yapısını ve satış kanallarını analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'İçerik Stratejisi',
+          description: 'Hangi ürünlerin, hangi içerik türleriyle, hangi mesaj ve hangi görsel dil üzerinden anlatılacağını planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Görsel ve Metin Kurgusu',
+          description: 'Post, hikaye, Reels, kısa video, açıklama, başlık, kampanya mesajı ve yönlendirme metinlerini marka diliyle uyumlu hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Yayın ve Kanal Uyumu',
+          description: 'İçeriklerin Instagram, TikTok, Pinterest, LinkedIn, Shopify, pazaryeri veya B2B satış akışlarıyla uyumlu çalışmasını sağlarız.',
+        },
+        {
+          number: '05',
+          title: 'Takip ve Optimizasyon',
+          description: 'Erişim, etkileşim, tıklama, mesaj, kayıt, satış kanalı yönlendirmesi ve kullanıcı davranışlarına göre içerik sistemini geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Sosyal Medya Yönetimi İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Sosyal Medya Yönetimi sonunda yalnızca paylaşım takvimi değil; markanın ürünlerini daha güçlü anlatan, güven algısını destekleyen ve satış kanallarıyla bağlantılı bir içerik sistemi hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Sosyal Medya Stratejisi',
+          description: 'Markanın hedef müşteri, kanal yapısı, içerik türleri, ürün odakları ve paylaşım mantığı belirlenir.',
+        },
+        {
+          number: '02',
+          title: 'Görsel Dil ve Profil Yapısı',
+          description: 'Profil görünümü, görsel konsept, renk dili, ürün sunumu ve marka algısını destekleyen görsel yön belirlenir.',
+        },
+        {
+          number: '03',
+          title: 'İçerik Planı',
+          description: 'Post, hikaye, Reels, kısa video, kampanya, ürün tanıtımı ve bilgilendirici içerik akışı planlanır.',
+        },
+        {
+          number: '04',
+          title: 'Metin ve Marka Dili',
+          description: 'Açıklama, başlık, kampanya metni, ürün anlatımı ve yönlendirme dili markayla uyumlu hale getirilir.',
+        },
+        {
+          number: '05',
+          title: 'Satış Kanalı Bağlantısı',
+          description: 'İçeriklerin Shopify, pazaryeri, B2B katalog, WhatsApp, form veya reklam akışlarıyla nasıl bağlantı kuracağı planlanır.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Sonraki aşamada hangi ürünlerin, içerik türlerinin, kampanya mesajlarının veya görsel dilin güçlendirileceği belirlenir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Markanız İçin Güven Veren Sosyal Medya Sistemi Kuralım',
+      description:
+        'Mevcut sosyal medya görünümünüzü, ürünlerinizi, satış kanallarınızı ve hedef müşterinizi birlikte değerlendirerek markanız için doğru sosyal medya ve içerik yol haritasını planlayalım.',
+      ctaLabel: 'Sosyal Medya Planı Oluştur',
+      supportText: 'Instagram • TikTok • İçerik Planı • Ürün Sunumu • Marka Dili • Satış Kanalı Uyumu',
+    },
+  },
 };
