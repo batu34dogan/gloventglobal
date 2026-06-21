@@ -636,7 +636,7 @@ export const serviceDetails: Record<
   },
   ebay: {
     eyebrow: 'EBAY GLOBAL SATIŞ',
-    title: 'eBay’de Farklı Pazarlara Açılan Satış Sistemi Kuruyoruz',
+    title: 'eBay’de Farklı Pazarlara Açılan Satış Kanalı Kuruyoruz',
     description:
       'eBay yalnızca ürün listeleme alanı değil; doğru pazar seçimi, kategori yapısı, ürün sunumu, fiyatlandırma, kargo stratejisi ve mağaza güveniyle birlikte çalışan bir global satış kanalıdır.',
     ctaLabel: 'eBay Hizmet Planı Oluştur',
@@ -698,7 +698,7 @@ export const serviceDetails: Record<
     },
     approach: {
       eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
-      title: 'eBay Mağazasını Tek Tek Listelemeler Değil, Bir Satış Kanalı Olarak Kurgularız',
+      title: 'eBay Mağazasını Listeleme Değil, Satış Kanalı Olarak Kurgularız',
       description:
         'eBay’de sürdürülebilir satış için ürün, pazar, kategori, fiyat, kargo, açıklama ve mağaza güveni birlikte çalışmalıdır. GloventGlobal bu parçaları tek bir satış sistemi içinde ele alır.',
       steps: [
