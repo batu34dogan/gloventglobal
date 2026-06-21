@@ -1157,7 +1157,7 @@ export const serviceDetails: Record<
     },
     process: {
       eyebrow: 'SÜREÇ',
-      title: 'Otomasyon Sisteminizi Kurmaya Hazırlayan Yol Haritası',
+      title: 'Otomasyon Sisteminizi Kurma Yol Haritası',
       description:
         'Otomasyon sistemini yalnızca teknik bağlantılar olarak kurmayız; iş akışını, veri yapısını, ekip kullanımını, hata senaryolarını ve gelişim planını birlikte ele alırız.',
       steps: [
