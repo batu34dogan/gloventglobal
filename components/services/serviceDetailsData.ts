@@ -66,23 +66,23 @@ export const serviceDetails: Record<
       cards: [
         {
           number: '01',
-          title: 'Zayıf Ürün Sunumu',
-          description: 'Ürün kaliteli olsa bile görseller, başlıklar ve açıklamalar satış algısını yeterince desteklemeyebilir.',
+          title: 'Yetersiz Ürün Sunumu',
+          description: 'Ürün kaliteli olsa bile görseller, başlıklar ve açıklamalar satış algısını yeterince güçlü şekilde desteklemeyebilir.',
         },
         {
           number: '02',
-          title: 'Yanlış SEO ve Anahtar Kelimeler',
-          description: 'Etsy’de ürünün doğru alıcıya ulaşması için başlık, etiket, açıklama ve kategori yapısının birlikte planlanması gerekir.',
+          title: 'Etsy SEO ve Anahtar Kelime Kurgusu',
+          description: 'Ürünün doğru alıcıya ulaşması için başlık, etiket, açıklama ve kategori yapısının birlikte planlanması gerekir.',
         },
         {
           number: '03',
-          title: 'Dağınık Mağaza Algısı',
-          description: 'Mağaza kapağı, ürün sıralaması, koleksiyon dili ve marka anlatımı bir bütün gibi görünmediğinde güven zayıflar.',
+          title: 'Bütünlük Kurmayan Mağaza Algısı',
+          description: 'Mağaza kapağı, ürün sıralaması, koleksiyon dili ve marka anlatımı bir bütün gibi görünmediğinde güven ve profesyonel algı zayıflar.',
         },
         {
           number: '04',
-          title: 'Reklamsız veya Plansız Başlangıç',
-          description: 'İlk ürünleri yayına almak tek başına yeterli değildir; görünürlük için reklam, fiyat, ürün seçimi ve test süreci planlanmalıdır.',
+          title: 'Plansız Yayın ve Test Süreci',
+          description: 'Ürünleri yayına almak tek başına yeterli değildir; görünürlük için reklam, fiyat, ürün seçimi ve test süreci birlikte planlanmalıdır.',
         },
       ],
     },
