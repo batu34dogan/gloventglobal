@@ -140,6 +140,8 @@ const serviceCards = [
     tag: '07 GÖRSEL',
     title: 'Görsel & İçerik Sistemi',
     description: 'Ürün fotoğrafı, yapay zeka destekli görsel konsept, açıklama, başlık ve marka dili bütünlüğünü kurarız.',
+    href: '/hizmetler/gorsel-icerik-sistemi',
+    ctaName: 'Görsel',
   },
   {
     tag: '08 SOSYAL MEDYA',
