@@ -53,26 +53,24 @@ function Glow({
   );
 }
 
-// Büyük başlıkların arkasına oturan çok hafif, beyaz ağırlıklı/mavi tonlu radial ışık — text-shadow
-// gibi ucuz durmaması için ayrı bir blurlanmış katman olarak, başlığın TAM arkasında, düşük opaklıkta.
-// "strong" sadece Hero'da, "normal" 6 büyük section başlığında, "subtle" sadece Final CTA'da kullanılıyor.
-// Kartlara veya carousel'e dokunmuyor — sadece başlık container'larının (zaten relative olan) içine,
-// negatif z-index ile metnin arkasına ekleniyor.
-function TitleGlow({ intensity }: { intensity: 'strong' | 'normal' | 'subtle' }) {
+// Büyük başlıkların arkasına oturan, Hero'da kanıtlanmış aynı teknik: başlığın KENDİ (relative
+// isolate) wrapper'ına sıkıca bağlı bir radial ışık katmanı — eyebrow+başlık+açıklamayı içeren
+// daha büyük bloğun ortasına değil, doğrudan başlığın arkasına. "normal" 6 büyük section
+// başlığında, "subtle" sadece Final CTA'da (daha hafif) kullanılıyor. Hero kendi özel/daha güçlü
+// glow'unu kullanıyor (bu helper'dan bağımsız, değişmedi). Kartlara veya carousel'e dokunmuyor.
+function SectionTitleGlow({ intensity }: { intensity: 'normal' | 'subtle' }) {
   const sizeClass =
-    intensity === 'strong'
-      ? 'h-[220px] w-[460px] sm:h-[260px] sm:w-[560px]'
-      : intensity === 'normal'
-        ? 'h-[160px] w-[360px] sm:h-[190px] sm:w-[440px]'
-        : 'h-[130px] w-[300px] sm:h-[150px] sm:w-[360px]';
-  const opacityClass = intensity === 'strong' ? 'opacity-[0.16]' : intensity === 'normal' ? 'opacity-[0.1]' : 'opacity-[0.07]';
+    intensity === 'normal'
+      ? 'h-[200px] w-[min(560px,85vw)] sm:h-[230px] sm:w-[min(620px,82vw)]'
+      : 'h-[170px] w-[min(480px,80vw)] sm:h-[190px] sm:w-[min(520px,78vw)]';
+  const opacityClass = intensity === 'normal' ? 'opacity-[0.26]' : 'opacity-[0.16]';
 
   return (
-    <div
+    <span
       aria-hidden="true"
-      className={`pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 ${sizeClass} rounded-full blur-3xl ${opacityClass}`}
+      className={`pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 ${sizeClass} rounded-full blur-2xl ${opacityClass}`}
       style={{
-        background: 'radial-gradient(closest-side, rgba(224,238,255,0.95), rgba(59,130,246,0.4) 55%, transparent 80%)',
+        background: 'radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(96,165,250,0.5) 45%, transparent 75%)',
       }}
     />
   );
@@ -226,7 +224,6 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={audienceInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${audienceReveal(
               'delay-[0ms]',
@@ -234,13 +231,16 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           >
             {data.audience.eyebrow}
           </p>
-          <h2
-            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${audienceReveal(
-              'delay-[100ms]',
-            )}`}
-          >
-            {data.audience.title}
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-2xl">
+            <SectionTitleGlow intensity="normal" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${audienceReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              {data.audience.title}
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${audienceReveal(
               'delay-[200ms]',
@@ -282,7 +282,6 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={problemInView} targetOpacity="opacity-25" className="left-[-220px] bottom-0 h-[400px] w-[400px]" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${problemReveal(
               'delay-[0ms]',
@@ -290,13 +289,16 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           >
             {data.problem.eyebrow}
           </p>
-          <h2
-            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${problemReveal(
-              'delay-[100ms]',
-            )}`}
-          >
-            {data.problem.title}
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-2xl">
+            <SectionTitleGlow intensity="normal" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${problemReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              {data.problem.title}
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${problemReveal(
               'delay-[200ms]',
@@ -341,7 +343,6 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={approachInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${approachReveal(
               'delay-[0ms]',
@@ -349,13 +350,16 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           >
             {data.approach.eyebrow}
           </p>
-          <h2
-            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${approachReveal(
-              'delay-[100ms]',
-            )}`}
-          >
-            {data.approach.title}
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-2xl">
+            <SectionTitleGlow intensity="normal" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${approachReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              {data.approach.title}
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${approachReveal(
               'delay-[200ms]',
@@ -404,7 +408,6 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={dataSystemInView} targetOpacity="opacity-35" className="right-[-200px] top-0 h-[400px] w-[400px]" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${dataSystemReveal(
               'delay-[0ms]',
@@ -412,13 +415,16 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           >
             {data.dataSystem.eyebrow}
           </p>
-          <h2
-            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${dataSystemReveal(
-              'delay-[100ms]',
-            )}`}
-          >
-            {data.dataSystem.title}
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-2xl">
+            <SectionTitleGlow intensity="normal" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${dataSystemReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              {data.dataSystem.title}
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${dataSystemReveal(
               'delay-[200ms]',
@@ -563,7 +569,6 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={processInView} targetOpacity="opacity-35" className="right-[-220px] top-0 h-[420px] w-[420px]" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${processReveal(
               'delay-[0ms]',
@@ -571,13 +576,16 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           >
             {data.process.eyebrow}
           </p>
-          <h2
-            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${processReveal(
-              'delay-[100ms]',
-            )}`}
-          >
-            {data.process.title}
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-2xl">
+            <SectionTitleGlow intensity="normal" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${processReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              {data.process.title}
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${processReveal(
               'delay-[200ms]',
@@ -621,7 +629,6 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={deliverablesInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${deliverablesReveal(
               'delay-[0ms]',
@@ -629,13 +636,16 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           >
             {data.deliverables.eyebrow}
           </p>
-          <h2
-            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${deliverablesReveal(
-              'delay-[100ms]',
-            )}`}
-          >
-            {data.deliverables.title}
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-2xl">
+            <SectionTitleGlow intensity="normal" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${deliverablesReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              {data.deliverables.title}
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${deliverablesReveal(
               'delay-[200ms]',
@@ -686,8 +696,10 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
           />
 
-          <TitleGlow intensity="subtle" />
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{data.finalCta.title}</h2>
+          <div className="relative isolate mx-auto max-w-2xl">
+            <SectionTitleGlow intensity="subtle" />
+            <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">{data.finalCta.title}</h2>
+          </div>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
             {data.finalCta.description}
           </p>
