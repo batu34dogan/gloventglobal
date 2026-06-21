@@ -1434,4 +1434,205 @@ export const serviceDetails: Record<
       supportText: 'Amazon Ads • Etsy Ads • Google • Meta • ROAS • Dönüşüm • Optimizasyon',
     },
   },
+  'gorsel-icerik-sistemi': {
+    eyebrow: 'GÖRSEL & İÇERİK SİSTEMİ',
+    title: 'Ürünlerinizi Satışa Hazır Görsel ve İçerik Sistemiyle Sunuyoruz',
+    description:
+      'Dijital satışta ürün yalnızca listelenmez; doğru görsel dil, güçlü ürün sunumu, açıklama, başlık, SEO ve marka anlatımı birlikte çalıştığında alıcı için daha güven veren bir satış deneyimi oluşur.',
+    ctaLabel: 'İçerik Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Ürünlerini Dijital Kanallarda Daha Güçlü Sunmak İsteyen Markalar İçin',
+      description:
+        'Görsel & İçerik Sistemi; ürünlerini pazaryerlerinde, Shopify mağazasında, B2B katalogda veya sosyal medya kanallarında daha profesyonel ve satış odaklı sunmak isteyen markalar için uygundur.',
+      cards: [
+        {
+          number: '01',
+          title: 'Ürün Görsellerini Güçlendirmek İsteyenler',
+          description: 'Ürün fotoğraflarını, lifestyle görsellerini, konsept sunumlarını ve mağaza görsel dilini daha profesyonel hale getirmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Listeleme İçeriğini İyileştirmek İsteyenler',
+          description: 'Başlık, açıklama, bullet point, etiket, kategori metni ve SEO yapısını daha satış odaklı düzenlemek isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Pazaryeri ve Shopify Kullanan Markalar',
+          description: 'Amazon, Etsy, eBay, Shopify veya B2B katalog sayfalarında ürün sunumunu daha güçlü hale getirmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Marka Algısını Güçlendirmek İsteyenler',
+          description: 'Ürünlerin yalnızca teknik özellikleriyle değil, görsel dili ve anlatımıyla da daha güvenilir görünmesini isteyen markalar için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Ürünü Göstermek Değil, Satışa Hazır Sunum Sistemi Kurmak Gerekir',
+      description:
+        'Birçok marka ürününü dijital kanallara taşır ama görsel dil, açıklama, başlık, kategori, SEO ve marka anlatımı birlikte çalışmadığında ürün güçlü görünmez ve satış potansiyeli sınırlı kalır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Zayıf Görsel Sunum',
+          description: 'Ürün fotoğrafları, arka plan, açı, ışık, kompozisyon veya lifestyle kullanımı yetersiz olduğunda ürün algısı zayıflayabilir.',
+        },
+        {
+          number: '02',
+          title: 'Dağınık İçerik Dili',
+          description: 'Başlık, açıklama, kategori metni ve marka anlatımı birbirinden kopuk olduğunda ürün profesyonel bir bütünlük oluşturmaz.',
+        },
+        {
+          number: '03',
+          title: 'SEO ve Listeleme Eksikleri',
+          description: 'Anahtar kelime, etiket, kategori yapısı ve ürün açıklamaları doğru kurgulanmadığında görünürlük sınırlı kalabilir.',
+        },
+        {
+          number: '04',
+          title: 'Kanal Uyumsuzluğu',
+          description: 'Aynı ürün Amazon, Etsy, Shopify, B2B katalog veya sosyal medya için farklı sunum ihtiyaçlarına sahipken tek tip içerik kullanmak performansı düşürebilir.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Görsel ve İçeriği Satış Sisteminin Parçası Olarak Kurgularız',
+      description:
+        'Görsel ve içerik yalnızca estetik bir çalışma değildir. Ürün algısı, kanal beklentisi, müşteri davranışı, SEO, reklam ve dönüşüm hedefi birlikte ele alındığında satışa çalışan bir içerik sistemi oluşur.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Kanal Analizi',
+          description: 'Ürünün hangi kanalda, hangi hedef kitleye, hangi görsel dil ve içerik yapısıyla sunulması gerektiğini analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Görsel Dil ve Konsept Kurgusu',
+          description: 'Ürün fotoğrafı, lifestyle sahne, arka plan, renk dili, kompozisyon ve marka algısını destekleyen görsel sistem planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Listeleme ve SEO İçeriği',
+          description: 'Başlık, açıklama, bullet point, etiket, kategori metni ve anahtar kelime yapısını satış kanalına uygun şekilde hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Test ve Optimizasyon',
+          description: 'Görsel, başlık, açıklama ve içerik yapılarını performans verilerine, reklam dönüşlerine ve kullanıcı davranışına göre geliştiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Görsel ve İçerik Yapınızı Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      description:
+        'İçerikler yayına alındıktan sonra görüntülenme, tıklama, favori, sepet, teklif, reklam ve dönüşüm sinyallerini birlikte takip ederiz. Böylece görsel ve içerik yalnızca hazırlanmış bir set değil, geliştirilebilir bir satış sistemi haline gelir.',
+      // Görsel & İçerik Sistemi için gerçek dashboard/analytics görselleri henüz hazır değil —
+      // Shopify/eBay/B2B/Otomasyon/Reklam'daki gibi geçici, metin tabanlı kayan veri kartları
+      // kullanılıyor. Gerçek görseller hazır olduğunda buraya sadece `dashboardImages` eklenmesi
+      // yeterli olacak.
+      dataCards: [
+        {
+          title: 'Görsel Performansı',
+          description: 'Hangi ürün görsellerinin daha fazla ilgi, tıklama veya dönüşüm sağladığını takip ederiz.',
+        },
+        {
+          title: 'Listeleme Etkileşimi',
+          description: 'Başlık, açıklama, etiket ve kategori yapısının ürün görünürlüğüne etkisini değerlendiririz.',
+        },
+        {
+          title: 'Kanal Uyumu',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B katalog ve sosyal medya için içerik yapısının uygunluğunu analiz ederiz.',
+        },
+        {
+          title: 'Reklam ve Dönüşüm Sinyalleri',
+          description: 'Reklamdan gelen tıklama, sepet, teklif, favori veya satış sinyallerine göre içerik alanlarını geliştiririz.',
+        },
+        {
+          title: 'Optimizasyon Alanları',
+          description: 'Hangi görsellerin, başlıkların, açıklamaların veya kategori metinlerinin güçlendirilmesi gerektiğini belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Görsel ve İçerik Sisteminizi Hazırlayan Yol Haritası',
+      description:
+        'Görsel ve içerik sürecini yalnızca fotoğraf veya metin üretimi olarak ele almayız; ürün, kanal, hedef müşteri, marka dili, SEO ve dönüşüm hedefini birlikte planlarız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Kanal Keşfi',
+          description: 'Ürünlerinizi, hedef müşterinizi, satış kanalınızı, rakip sunumları ve mevcut görsel/içerik yapınızı analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Görsel Konsept Planı',
+          description: 'Ürün fotoğrafı, lifestyle sahne, arka plan, açı, renk dili ve kullanım senaryolarını markaya uygun şekilde planlarız.',
+        },
+        {
+          number: '03',
+          title: 'İçerik ve Listeleme Kurgusu',
+          description: 'Başlık, açıklama, bullet point, etiket, kategori metni ve SEO yapısını satış kanalına göre hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Yayın ve Uyum Kontrolü',
+          description: 'Hazırlanan görsel ve içeriklerin pazaryeri, Shopify, B2B katalog veya sosyal medya yapısına uygunluğunu kontrol ederiz.',
+        },
+        {
+          number: '05',
+          title: 'Optimizasyon',
+          description: 'Performans verilerine, reklam sonuçlarına ve kullanıcı davranışına göre görsel ve içerik sistemini geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Görsel ve İçerik Süreciniz İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Görsel & İçerik Sistemi sonunda yalnızca ürün fotoğrafı veya açıklama değil; ürünlerinizi daha doğru sunan, kanal uyumunu güçlendiren ve satış algısını destekleyen bir içerik altyapısı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Görsel Dil ve Konsept Planı',
+          description: 'Ürün fotoğrafı, lifestyle sahne, renk dili, arka plan, açı ve kompozisyon yapısı markaya uygun şekilde planlanır.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Sunum Kurgusu',
+          description: 'Ürünlerin hangi özelliklerinin, hangi görsellerle ve hangi anlatım sırasıyla öne çıkarılacağı belirlenir.',
+        },
+        {
+          number: '03',
+          title: 'Listeleme İçerikleri',
+          description: 'Başlık, açıklama, bullet point, etiket, kategori metni ve ürün detayları satış kanalına uygun şekilde hazırlanır.',
+        },
+        {
+          number: '04',
+          title: 'SEO ve Anahtar Kelime Yapısı',
+          description: 'Ürünlerin doğru alıcıya ulaşması için anahtar kelime, arama terimi, etiket ve kategori yapısı oluşturulur.',
+        },
+        {
+          number: '05',
+          title: 'Kanal Bazlı İçerik Uyumu',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B katalog ve sosyal medya için içeriklerin nasıl farklılaştırılacağı belirlenir.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Hangi görsellerin, ürün açıklamalarının, kategori metinlerinin veya marka anlatımının geliştirileceği netleştirilir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Ürünlerinizi Daha Güçlü Görsel ve İçerik Sistemiyle Sunalım',
+      description:
+        'Ürünlerinizi, mevcut görsel dilinizi ve satış kanallarınızı birlikte değerlendirerek markanız için doğru görsel, içerik, SEO ve ürün sunumu yol haritasını planlayalım.',
+      ctaLabel: 'İçerik Planı Oluştur',
+      supportText: 'Ürün Görseli • Listeleme İçeriği • SEO • Marka Dili • Kanal Uyumu • Optimizasyon',
+    },
+  },
 };
