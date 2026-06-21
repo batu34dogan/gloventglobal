@@ -57,6 +57,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const [mounted, setMounted] = useState(false);
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
   const [problemRef, problemInView] = useInView<HTMLElement>();
+  const [approachRef, approachInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -82,6 +83,13 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const problemReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       problemInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "GloventGlobal Nasıl Yaklaşır?" bölümü "Çözdüğü Sorun"un altında, ekran dışında başlıyor —
+  // kendi viewport girişine bağlı, ayrı reveal.
+  const approachReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      approachInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // page.tsx zaten slug'ı kontrol edip yoksa notFound() çağırıyor; bu yine de TypeScript'i ve
@@ -240,6 +248,68 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-blue-100/75">{card.description}</p>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ GLOVENTGLOBAL NASIL YAKLAŞIR? ============
+          Bilinçli olarak dolu kart değil — ana sayfanın Süreç bölümündeki "bağlantılı node" görseli
+          (numaralı daire + aralarında bağlantı çizgisi). Bu, "Kimler İçin?" ve "Çözdüğü Sorun"
+          bölümlerinin (ikisi de dolu glass kart) tekrarı gibi durmuyor; sıralı bir yaklaşım/akış
+          hissi veriyor — sorun değil, çözüm odaklı bir his için bilinçli tercih. */}
+      <section ref={approachRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={approachInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p
+            className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${approachReveal(
+              'delay-[0ms]',
+            )}`}
+          >
+            {data.approach.eyebrow}
+          </p>
+          <h2
+            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${approachReveal(
+              'delay-[100ms]',
+            )}`}
+          >
+            {data.approach.title}
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${approachReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            {data.approach.description}
+          </p>
+        </div>
+
+        <div
+          className={`relative mx-auto mt-14 grid max-w-5xl gap-y-10 sm:grid-cols-2 lg:grid-cols-4 ${approachReveal(
+            'delay-[300ms]',
+          )}`}
+        >
+          {/* Mobil için dikey bağlantı çizgisi (sadece tek sütunken anlamlı) — yükseklik
+              konteynere göre otomatik uzar. Tablet'in 2 sütunlu grid'inde hiçbir çizgi yok (orta
+              boy ekranda ne dikey ne yatay çizgi öğeleri doğru bağlayamaz), desktop'ta yatay çizgi var. */}
+          <span
+            aria-hidden="true"
+            className="absolute left-1/2 top-6 bottom-6 block w-px -translate-x-1/2 bg-gradient-to-b from-blue-400/45 via-blue-400/25 to-blue-400/45 sm:hidden"
+          />
+
+          {data.approach.steps.map((step, index) => (
+            <div key={step.number} className="group relative flex flex-col items-center text-center">
+              {index < data.approach.steps.length - 1 && (
+                <span className="absolute left-1/2 top-[24px] hidden h-px w-full bg-gradient-to-r from-blue-400/70 to-transparent lg:block" />
+              )}
+              <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-blue-400/55 bg-white/[0.045] text-sm font-semibold text-blue-300 shadow-[0_0_24px_-2px_rgba(59,130,246,0.75)] backdrop-blur-sm transition-all duration-300 group-hover:border-blue-400/85 group-hover:shadow-[0_0_32px_-2px_rgba(59,130,246,0.95)]">
+                {step.number}
+              </span>
+              <h3 className="mt-4 text-base font-semibold text-white">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-blue-100/65 transition-colors duration-300 group-hover:text-blue-100/85">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>

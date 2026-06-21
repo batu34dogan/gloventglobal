@@ -22,6 +22,12 @@ export const serviceDetails: Record<
       description: string;
       cards: { number: string; title: string; description: string }[];
     };
+    approach: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      steps: { number: string; title: string; description: string }[];
+    };
   }
 > = {
   etsy: {
@@ -83,6 +89,34 @@ export const serviceDetails: Record<
           number: '04',
           title: 'Plansız Yayın ve Test Süreci',
           description: 'Ürünleri yayına almak tek başına yeterli değildir; görünürlük için reklam, fiyat, ürün seçimi ve test süreci birlikte planlanmalıdır.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Etsy Mağazasını Tek Tek İşler Değil, Bir Satış Sistemi Olarak Kurarız',
+      description:
+        'Etsy’de başarılı bir mağaza yalnızca ürün yüklemekle oluşmaz. Ürün seçimi, görsel sunum, başlık, açıklama, SEO, mağaza bütünlüğü, fiyatlandırma ve reklam yapısı birlikte planlandığında daha güçlü bir satış zemini ortaya çıkar.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Pazar Okuması',
+          description: 'Ürünün Etsy kitlesine, rekabet yapısına, fiyat aralığına ve kategori dinamiklerine uygunluğunu değerlendiririz.',
+        },
+        {
+          number: '02',
+          title: 'Görsel ve Mağaza Dili',
+          description: 'Ürün fotoğrafları, kapak görselleri, mağaza düzeni ve marka anlatımını tek bir görsel kimlik içinde kurgularız.',
+        },
+        {
+          number: '03',
+          title: 'Listeleme ve SEO Yapısı',
+          description: 'Başlık, açıklama, etiket, kategori ve ürün varyasyonlarını Etsy arama mantığına uygun şekilde planlarız.',
+        },
+        {
+          number: '04',
+          title: 'Reklam ve Test Süreci',
+          description: 'İlk ürünlerin yayınlanması sonrası reklam, fiyat, ürün seçimi ve dönüşüm verilerine göre sistemi test edip geliştiririz.',
         },
       ],
     },
