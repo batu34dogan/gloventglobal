@@ -16,6 +16,12 @@ export const serviceDetails: Record<
       description: string;
       cards: { number: string; title: string; description: string }[];
     };
+    problem: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      cards: { number: string; title: string; description: string }[];
+    };
   }
 > = {
   etsy: {
@@ -49,6 +55,34 @@ export const serviceDetails: Record<
           number: '04',
           title: 'Etsy’ye Yeni Başlayacak İşletmeler',
           description: 'Mağaza kurulumu, ürün listeleme, SEO, görsel dil ve ilk reklam yapısını baştan doğru kurmak isteyen işletmeler için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'ÇÖZDÜĞÜ SORUN',
+      title: 'Etsy’de Mağaza Açmak Yeterli Değil, Doğru Sunum Sistemi Gerekir',
+      description:
+        'Birçok marka Etsy’ye ürün yükler ama mağaza dili, görsel sunum, SEO, kategori seçimi ve ürün açıklamaları birlikte çalışmadığı için görünürlük ve satış potansiyeli sınırlı kalır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Zayıf Ürün Sunumu',
+          description: 'Ürün kaliteli olsa bile görseller, başlıklar ve açıklamalar satış algısını yeterince desteklemeyebilir.',
+        },
+        {
+          number: '02',
+          title: 'Yanlış SEO ve Anahtar Kelimeler',
+          description: 'Etsy’de ürünün doğru alıcıya ulaşması için başlık, etiket, açıklama ve kategori yapısının birlikte planlanması gerekir.',
+        },
+        {
+          number: '03',
+          title: 'Dağınık Mağaza Algısı',
+          description: 'Mağaza kapağı, ürün sıralaması, koleksiyon dili ve marka anlatımı bir bütün gibi görünmediğinde güven zayıflar.',
+        },
+        {
+          number: '04',
+          title: 'Reklamsız veya Plansız Başlangıç',
+          description: 'İlk ürünleri yayına almak tek başına yeterli değildir; görünürlük için reklam, fiyat, ürün seçimi ve test süreci planlanmalıdır.',
         },
       ],
     },

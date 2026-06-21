@@ -56,6 +56,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const data = serviceDetails[slug];
   const [mounted, setMounted] = useState(false);
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
+  const [problemRef, problemInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -74,6 +75,13 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const audienceReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "Çözdüğü Sorun" bölümü "Kimler İçin?"in altında, ekran dışında başlıyor — kendi viewport
+  // girişine bağlı, ayrı reveal.
+  const problemReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      problemInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // page.tsx zaten slug'ı kontrol edip yoksa notFound() çağırıyor; bu yine de TypeScript'i ve
@@ -174,6 +182,63 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
                 </span>
                 <h3 className="mt-4 text-base font-semibold text-white">{card.title}</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{card.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ ÇÖZDÜĞÜ SORUN ============
+          Bilinçli olarak "Kimler İçin?"den farklı: 4 yerine 2 sütunlu (2x2) grid, kartlarda numara
+          ve başlık dikey değil yatay (yan yana) yerleşiyor — sorun odaklı olduğu görsel olarak ayrışsın. */}
+      <section ref={problemRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={problemInView} targetOpacity="opacity-35" className="right-[-220px] top-0 h-[420px] w-[420px]" />
+        <Glow visible={problemInView} targetOpacity="opacity-25" className="left-[-220px] bottom-0 h-[400px] w-[400px]" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p
+            className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${problemReveal(
+              'delay-[0ms]',
+            )}`}
+          >
+            {data.problem.eyebrow}
+          </p>
+          <h2
+            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${problemReveal(
+              'delay-[100ms]',
+            )}`}
+          >
+            {data.problem.title}
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${problemReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            {data.problem.description}
+          </p>
+        </div>
+
+        <div className="relative mx-auto mt-10 grid max-w-4xl items-stretch gap-6 sm:grid-cols-2">
+          {data.problem.cards.map((card, index) => (
+            <div
+              key={card.number}
+              className={problemReveal(
+                ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[240ms]'][index] ?? 'delay-[0ms]',
+              )}
+            >
+              <div className="relative flex h-full min-h-[150px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_14px_-2px_rgba(59,130,246,0.6)]">
+                    {card.number}
+                  </span>
+                  <h3 className="text-base font-semibold text-white">{card.title}</h3>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-blue-100/75">{card.description}</p>
               </div>
             </div>
           ))}
