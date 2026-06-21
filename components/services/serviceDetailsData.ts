@@ -147,7 +147,7 @@ export const serviceDetails: Record<
     },
     dataSystem: {
       eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
-      title: 'Etsy Mağazanızı Verilerle Geliştirilen Bir Sisteme Dönüştürüyoruz',
+      title: 'Etsy Mağazanızı Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
       description:
         'Mağaza yayına alındıktan sonra görüntülenme, tıklama, favori, reklam, fiyat ve dönüşüm sinyallerini birlikte takip ederiz. Etsy mağazasını yalnızca kurulmuş bir vitrin olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
       note: 'Görseller, performans takibi mantığını temsil eden anonimleştirilmiş dashboard örnekleridir.',
@@ -161,7 +161,7 @@ export const serviceDetails: Record<
     },
     process: {
       eyebrow: 'SÜREÇ',
-      title: 'Etsy Mağazanızı Satışa Hazır Hale Getiren Yol Haritası',
+      title: 'Etsy Mağazanızı Satışa Hazırlayan Yol Haritası',
       description:
         'Etsy mağazasını yalnızca teknik olarak açmakla kalmayız; ürün, sunum, listeleme, SEO ve test sürecini birlikte planlayarak mağazayı daha düzenli ve yönetilebilir bir satış yapısına dönüştürürüz.',
       steps: [
