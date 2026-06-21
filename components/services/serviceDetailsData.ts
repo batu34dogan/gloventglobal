@@ -1635,4 +1635,204 @@ export const serviceDetails: Record<
       supportText: 'Ürün Görseli • Listeleme İçeriği • SEO • Marka Dili • Kanal Uyumu • Optimizasyon',
     },
   },
+  'yapay-zeka-entegrasyonu': {
+    eyebrow: 'YAPAY ZEKA ENTEGRASYONU',
+    title: 'Yapay Zekayı Satış ve Operasyon Sistemlerinize Entegre Ediyoruz',
+    description:
+      'Yapay zeka yalnızca içerik üretmek için kullanılan bir araç değildir. Doğru kurgulandığında ürün analizi, görsel konsept, listeleme, raporlama, müşteri akışı, operasyon ve karar süreçlerini destekleyen bir satış sistemi parçasına dönüşür.',
+    ctaLabel: 'AI Entegrasyon Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'İş Süreçlerine Yapay Zekayı Doğru Şekilde Entegre Etmek İsteyen Markalar İçin',
+      description:
+        'Yapay Zeka Entegrasyonu; ürünlerini, içeriklerini, operasyonlarını, raporlamalarını ve dijital satış süreçlerini daha hızlı, düzenli ve veriye dayalı yönetmek isteyen markalar için uygundur.',
+      cards: [
+        {
+          number: '01',
+          title: 'Ürün ve İçerik Süreci Yoğun Markalar',
+          description: 'Çok sayıda ürün, açıklama, görsel, listeleme veya kategori içeriği hazırlayan markalar için yapay zeka destekli üretim ve kontrol sistemi kurulur.',
+        },
+        {
+          number: '02',
+          title: 'Pazaryeri ve Shopify Kullanan Markalar',
+          description: 'Amazon, Etsy, eBay, Shopify veya B2B katalog süreçlerinde ürün sunumu, içerik, analiz ve optimizasyonu yapay zeka desteğiyle güçlendirmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Operasyonel İş Yükünü Azaltmak İsteyenler',
+          description: 'Tekrarlayan analiz, raporlama, veri düzenleme, müşteri sınıflandırma veya içerik kontrol süreçlerini daha yönetilebilir hale getirmek isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Karar Süreçlerini Veriye Dayalı Güçlendirmek İsteyenler',
+          description: 'Pazar, ürün, reklam, içerik ve müşteri verilerini daha anlamlı yorumlamak isteyen ekipler için yapay zeka destekli karar sistemleri oluşturulur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Yapay Zeka Kullanmak Değil, İşe Entegre Etmek Gerekir',
+      description:
+        'Birçok marka yapay zekayı tekil içerik üretimi veya rastgele araç kullanımı olarak görür. Ancak ürün verisi, satış kanalı, operasyon akışı, müşteri ihtiyacı ve karar süreciyle bağlantı kurulmadığında yapay zeka sürdürülebilir fayda üretmez.',
+      cards: [
+        {
+          number: '01',
+          title: 'Dağınık AI Kullanımı',
+          description: 'Farklı araçlar plansız kullanıldığında içerik dili, veri yapısı ve süreç çıktıları tutarsız hale gelebilir.',
+        },
+        {
+          number: '02',
+          title: 'Satış Sisteminden Kopuk İçerik',
+          description: 'Yapay zeka ile üretilen metin, görsel veya analiz çıktıları satış kanalı, SEO, reklam ve müşteri beklentisiyle uyumlu değilse etkisi sınırlı kalır.',
+        },
+        {
+          number: '03',
+          title: 'Manuel Kontrol Yükü',
+          description: 'AI çıktıları kontrol, düzenleme, sınıflandırma ve yayın süreciyle entegre edilmediğinde ekipler hâlâ aynı işi tekrar tekrar yapmak zorunda kalır.',
+        },
+        {
+          number: '04',
+          title: 'Ölçülmeyen Verimlilik',
+          description: 'Yapay zekanın hangi süreçte zaman kazandırdığı, kaliteyi artırdığı veya satış sistemine katkı sağladığı ölçülmediğinde gelişim alanları görünmez.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Yapay Zekayı Araç Olarak Değil, Satış Sisteminin Parçası Olarak Kurgularız',
+      description:
+        'GloventGlobal yapay zekayı yalnızca metin veya görsel üretimi için kullanmaz. Ürün, pazar, içerik, operasyon, reklam, raporlama ve müşteri akışlarını destekleyen uygulanabilir AI sistemleri kurgular.',
+      steps: [
+        {
+          number: '01',
+          title: 'Süreç ve İhtiyaç Analizi',
+          description: 'Markanın ürün, içerik, operasyon, raporlama, müşteri ve satış süreçlerinde yapay zekanın nerede gerçek fayda sağlayacağını analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'AI Kullanım Alanı Kurgusu',
+          description: 'Görsel konsept, ürün açıklaması, listeleme, SEO, raporlama, müşteri sınıflandırma, veri analizi veya operasyon desteği için uygun kullanım alanlarını belirleriz.',
+        },
+        {
+          number: '03',
+          title: 'Araç ve Akış Entegrasyonu',
+          description: 'Yapay zeka araçlarını n8n, API, Google Sheets, Shopify, pazaryeri verileri, CRM, form veya raporlama yapılarıyla uyumlu hale getiririz.',
+        },
+        {
+          number: '04',
+          title: 'Kontrol ve Gelişim Sistemi',
+          description: 'AI çıktılarının kalite kontrolünü, marka diliyle uyumunu, insan onay adımlarını ve performans takibini birlikte planlarız.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Yapay Zeka Kullanımınızı Verilerle Geliştirilen Bir İş Sistemine Dönüştürüyoruz',
+      description:
+        'Yapay zeka entegrasyonu yayına alındıktan sonra içerik kalitesi, süreç hızı, raporlama çıktıları, müşteri akışı, operasyon verimliliği ve satış sistemine katkısı takip edilir. Böylece AI kullanımı tek seferlik bir deneme değil, geliştirilebilir bir iş sistemi haline gelir.',
+      // Yapay Zeka Entegrasyonu için gerçek dashboard/analytics görselleri henüz hazır değil —
+      // diğer hizmetlerdeki gibi geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek
+      // görseller hazır olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'İçerik Kalitesi',
+          description: 'AI destekli içeriklerin marka dili, kanal uyumu, SEO ve satış algısı açısından kalitesini değerlendiririz.',
+        },
+        {
+          title: 'Süreç Hızı',
+          description: 'Ürün açıklaması, görsel konsept, raporlama, sınıflandırma veya veri düzenleme süreçlerinde kazanılan zamanı takip ederiz.',
+        },
+        {
+          title: 'Operasyon Verimliliği',
+          description: 'Tekrarlayan işlerin ne kadar azaldığını, ekiplerin hangi süreçlerde daha hızlı ilerlediğini analiz ederiz.',
+        },
+        {
+          title: 'Karar Destek Sinyalleri',
+          description: 'Ürün, pazar, reklam, müşteri ve içerik verilerinden çıkan AI destekli içgörüleri karar süreçlerine dahil ederiz.',
+        },
+        {
+          title: 'Gelişim Alanları',
+          description: 'Hangi AI akışlarının güçlendirileceğini, hangi süreçlerin otomasyona bağlanacağını ve hangi çıktılarda insan kontrolü gerektiğini belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Yapay Zeka Entegrasyonu İçin Uygulama Yol Haritası',
+      description:
+        'Yapay zeka entegrasyonunu yalnızca araç seçimi olarak ele almayız; iş süreci, veri yapısı, insan kontrolü, marka dili, otomasyon ve ölçüm mantığını birlikte planlarız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Süreç Keşfi',
+          description: 'Markanın ürün, içerik, satış, operasyon, raporlama ve müşteri süreçlerinde yapay zekanın nerede kullanılabileceğini analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Kullanım Senaryoları',
+          description: 'İçerik üretimi, görsel konsept, pazar analizi, ürün sınıflandırma, raporlama, müşteri akışı veya operasyon desteği için net senaryolar belirleriz.',
+        },
+        {
+          number: '03',
+          title: 'Araç ve Entegrasyon Planı',
+          description: 'Kullanılacak AI araçlarını, veri kaynaklarını, onay adımlarını, n8n/API bağlantılarını ve ekip kullanım akışını planlarız.',
+        },
+        {
+          number: '04',
+          title: 'Test ve Kalite Kontrol',
+          description: 'AI çıktılarının doğruluğunu, marka diliyle uyumunu, insan onay noktalarını ve hata risklerini test ederiz.',
+        },
+        {
+          number: '05',
+          title: 'Yayın ve Optimizasyon',
+          description: 'Sistem kullanıma alındıktan sonra süreç hızı, içerik kalitesi, operasyon verimliliği ve satış etkisine göre geliştirmeler yaparız.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Yapay Zeka Entegrasyonu İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Yapay Zeka Entegrasyonu sonunda yalnızca kullanılan araçlar değil; markanın iş süreçlerine uyarlanmış, kontrol edilebilir ve geliştirilebilir AI destekli bir çalışma sistemi hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'AI Kullanım Haritası',
+          description: 'Markanın hangi süreçlerinde yapay zekadan faydalanılacağı, hangi işlerin AI destekli yürütüleceği ve hangi alanlarda insan kontrolü gerektiği belirlenir.',
+        },
+        {
+          number: '02',
+          title: 'İçerik ve Görsel Destek Akışları',
+          description: 'Ürün açıklaması, başlık, SEO, görsel konsept, lifestyle fikirleri ve marka dili için AI destekli üretim akışları hazırlanır.',
+        },
+        {
+          number: '03',
+          title: 'Raporlama ve Analiz Akışları',
+          description: 'Ürün, satış, reklam, müşteri, teklif veya operasyon verilerinden anlamlı raporlar üretmek için AI destekli analiz yapısı kurgulanır.',
+        },
+        {
+          number: '04',
+          title: 'Operasyon Destek Sistemi',
+          description: 'Form, teklif, müşteri sınıflandırma, veri düzenleme, ürün bilgisi kontrolü veya tekrar eden işlerde AI destekli akışlar oluşturulur.',
+        },
+        {
+          number: '05',
+          title: 'Kontrol ve Onay Yapısı',
+          description: 'AI çıktılarının marka dili, doğruluk, satış uygunluğu ve kalite açısından kontrol edilmesi için insan onay adımları planlanır.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Sonraki aşamada hangi süreçlerin otomasyona bağlanacağı, hangi AI akışlarının geliştirileceği ve hangi verilerin daha iyi kullanılacağı netleştirilir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Yapay Zekayı Markanızın Satış Sistemine Entegre Edelim',
+      description:
+        'Mevcut ürün, içerik, operasyon, raporlama ve satış süreçlerinizi birlikte değerlendirerek markanız için doğru yapay zeka entegrasyonu ve uygulama yol haritasını planlayalım.',
+      ctaLabel: 'AI Entegrasyon Planı Oluştur',
+      supportText: 'AI • İçerik • Görsel Konsept • Raporlama • Operasyon • n8n • API • Karar Destek',
+    },
+  },
 };
