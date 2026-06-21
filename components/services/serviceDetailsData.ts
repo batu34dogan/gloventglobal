@@ -1837,7 +1837,7 @@ export const serviceDetails: Record<
   },
   'marka-konumlandirma': {
     eyebrow: 'MARKA KONUMLANDIRMA',
-    title: 'Markanızı Pazarda Daha Net ve Güven Veren Bir Yapıya Konumlandırıyoruz',
+    title: 'Markanızı Pazarda Daha Net Konumlandırıyoruz',
     description:
       'Dijital satışta ürün kalitesi tek başına yeterli değildir. Marka dili, hedef müşteri, ürün algısı, fiyat konumu, görsel kimlik ve kanal uyumu birlikte çalıştığında marka pazarda daha güçlü ve güvenilir görünür.',
     ctaLabel: 'Marka Planı Oluştur',
