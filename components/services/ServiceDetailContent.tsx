@@ -398,11 +398,22 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
                   const objectFitClass = isContain ? 'object-contain' : 'object-cover';
                   const hasFailed = failedImages.has(src);
 
+                  // Bazı dashboard görselleri (örn. Amazon Ads/ROAS reklam paneli) diğerlerinden
+                  // farklı bir oranda (yatay) olabilir. Veri yapısını (düz string dizisi) değiştirip
+                  // her görsele meta eklemek yerine, dosya adına göre tanıyıp SADECE bu görsele özel
+                  // bir kart boyutu/çerçevesi veriyoruz — diğer görseller ve Etsy'nin verisi/render'ı
+                  // hiç etkilenmiyor (Etsy'nin dosya adlarında "ads-roas" hiç geçmiyor).
+                  const isWideAdsPanel = src.includes('ads-roas');
+
                   // "contain" modunda (örn. Amazon, dikey ağırlıklı dashboard görselleri) kart
                   // hem biraz daha büyük/dikey hem de daha ince/hafif bir çerçeveye sahip — görsel
                   // koyu kutunun içinde "gömülü" değil, kutunun kendisi gibi hissettiriyor.
                   // "cover" modu (Etsy) hiç değişmedi: aynı boyut, aynı çerçeve, aynı padding.
-                  const cardSizeClass = isContain ? 'h-[260px] w-[230px]' : 'h-[190px] w-[300px]';
+                  const cardSizeClass = !isContain
+                    ? 'h-[190px] w-[300px]'
+                    : isWideAdsPanel
+                      ? 'h-[210px] w-[340px]'
+                      : 'h-[260px] w-[230px]';
                   const frameClass = isContain
                     ? 'border border-white/[0.07] bg-white/[0.02] p-1'
                     : 'border border-white/[0.1] bg-white/[0.035] p-2';
