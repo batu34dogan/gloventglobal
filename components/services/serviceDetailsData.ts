@@ -337,31 +337,14 @@ export const serviceDetails: Record<
       title: 'Amazon Mağazanızı Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
       description:
         'Mağaza yayına alındıktan sonra trafik, tıklama, reklam, dönüşüm, stok ve satış sinyallerini birlikte takip ederiz. Amazon mağazasını yalnızca kurulmuş bir vitrin olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
-      // Amazon için gerçek dashboard görselleri henüz hazır değil — Etsy'deki görsel carousel'i
-      // taklit eden sahte/placeholder görsel KOYMUYORUZ. Bunun yerine geçici, metin tabanlı veri
-      // kartları kullanılıyor. Gerçek görseller hazır olduğunda buraya sadece `dashboardImages`
-      // eklenmesi yeterli olacak — şablon otomatik olarak görsel moduna geçecek (kod değişikliği gerekmez).
-      dataCards: [
-        {
-          title: 'Trafik ve Görünürlük',
-          description: 'Ürünlerin hangi arama ve kategori alanlarında görünürlük aldığını takip ederiz.',
-        },
-        {
-          title: 'Reklam Performansı',
-          description: 'Tıklama, bütçe, anahtar kelime ve dönüşüm sinyallerini birlikte değerlendiririz.',
-        },
-        {
-          title: 'Listeleme Kalitesi',
-          description: 'Başlık, görsel, bullet point ve açıklama yapısının etkisini analiz ederiz.',
-        },
-        {
-          title: 'Stok ve Operasyon Takibi',
-          description: 'Stok, sipariş, iade ve teslimat süreçlerini satış performansının parçası olarak takip ederiz.',
-        },
-        {
-          title: 'Gelişim Alanları',
-          description: 'Hangi ürünlerin, fiyatların, reklamların veya içerik alanlarının geliştirilmesi gerektiğini belirleriz.',
-        },
+      note: 'Dashboard görselleri, takip edilen performans metriklerini temsil eden anonimleştirilmiş ekran örnekleridir.',
+      dashboardImages: [
+        '/dashboards/amazon-dashboard-01.jpg',
+        '/dashboards/amazon-dashboard-02.png',
+        '/dashboards/amazon-dashboard-03.jpg',
+        '/dashboards/amazon-dashboard-04.png',
+        '/dashboards/amazon-dashboard-05.webp',
+        '/dashboards/amazon-ads-roas-01.png',
       ],
     },
     process: {
