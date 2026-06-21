@@ -114,6 +114,8 @@ const serviceCards = [
     tag: '03 EBAY',
     title: 'eBay Global Satış',
     description: 'Farklı pazarlara açılmak isteyen markalar için eBay listeleme, kategori ve satış altyapısını hazırlarız.',
+    href: '/hizmetler/ebay',
+    ctaName: 'eBay',
   },
   {
     tag: '04 SHOPIFY',
