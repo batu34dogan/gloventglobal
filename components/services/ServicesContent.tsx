@@ -144,26 +144,33 @@ const serviceCards = [
     ctaName: 'Görsel',
   },
   {
-    tag: '08 SOSYAL MEDYA',
+    tag: '08 AI',
+    title: 'Yapay Zeka Entegrasyonu',
+    description: 'Ürün, içerik, görsel konsept, raporlama, operasyon ve karar süreçlerine yapay zeka destekli sistemler entegre ederiz.',
+    href: '/hizmetler/yapay-zeka-entegrasyonu',
+    ctaName: 'AI',
+  },
+  {
+    tag: '09 SOSYAL MEDYA',
     title: 'Sosyal Medya Yönetimi',
     description: 'Markanızın Instagram, TikTok ve diğer sosyal kanallarda tutarlı görünmesi için içerik planı, görsel dil ve paylaşım stratejisi oluştururuz.',
   },
   {
-    tag: '09 REKLAM',
+    tag: '10 REKLAM',
     title: 'Reklam & Optimizasyon',
     description: 'Amazon, Etsy, Google ve Meta reklamlarını veri, dönüşüm ve kârlılık odağında optimize ederiz.',
     href: '/hizmetler/reklam-optimizasyon',
     ctaName: 'Reklam',
   },
   {
-    tag: '10 OTOMASYON',
+    tag: '11 OTOMASYON',
     title: 'Otomasyon & n8n Sistemleri',
     description: 'Form, teklif, müşteri, ürün, sipariş ve raporlama süreçlerini n8n, API ve entegrasyon yapılarıyla birbirine bağlayan otomasyon sistemleri kurarız.',
     href: '/hizmetler/otomasyon-n8n',
     ctaName: 'Otomasyon',
   },
   {
-    tag: '11 STRATEJİ',
+    tag: '12 STRATEJİ',
     title: 'Global Pazara Giriş Stratejisi',
     description: 'Ürününüz için doğru ülke, kanal, fiyat, rekabet ve büyüme yol haritasını belirleriz.',
   },
@@ -240,6 +247,7 @@ const serviceCardDelays = [
   'delay-[400ms]',
   'delay-[450ms]',
   'delay-[500ms]',
+  'delay-[550ms]',
 ];
 
 export default function ServicesContent() {
@@ -416,9 +424,9 @@ export default function ServicesContent() {
           </p>
         </div>
 
-        {/* 11 kart, 4'lü görünüm için 8 "sanal" sütun (lg:grid-cols-8) + her kart 2 sütun (lg:col-span-2):
-            ilk 8 kart 2 satırı tam dolduruyor (4+4), 9. karta lg:col-start-2 verilince son 3 kart
-            (09/10/11) satırın ortasına simetrik şekilde yerleşiyor — her iki kenarda eşit boşluk kalıyor. */}
+        {/* 12 kart, 4'lü görünüm için 8 "sanal" sütun (lg:grid-cols-8) + her kart 2 sütun
+            (lg:col-span-2): 12 kart 4'e tam bölündüğü için (3x4) hiçbir ortalama hilesi
+            gerekmiyor, 3 satır da doğal olarak tam doluyor. */}
         <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
           {serviceCards.map((service, index) => {
             const cardClassName =
@@ -451,9 +459,7 @@ export default function ServicesContent() {
             return (
               <div
                 key={service.title}
-                className={`${servicesReveal(serviceCardDelays[index])} lg:col-span-2 ${
-                  index === 8 ? 'lg:col-start-2' : ''
-                }`}
+                className={`${servicesReveal(serviceCardDelays[index])} lg:col-span-2`}
               >
                 {service.href ? (
                   <a href={service.href} className={`group ${cardClassName}`}>
