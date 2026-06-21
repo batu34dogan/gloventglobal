@@ -385,11 +385,12 @@ export default function ServicesContent() {
                 </span>
                 <h3 className="mt-2.5 text-base font-semibold text-white">{service.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{service.description}</p>
-                {/* Sadece detay sayfası olan kartlarda (şimdilik tek Etsy) görünen küçük yönlendirme —
-                    flex-col + mt-auto ile kartın altına sabitleniyor, tasarımı kalabalıklaştırmıyor. */}
+                {/* Sadece detay sayfası olan kartlarda (şimdilik tek Etsy) görünen mini CTA pill —
+                    flex-col + mt-auto ile kartın altına sabitleniyor, tasarımı kalabalıklaştırmıyor.
+                    Düz metinden daha fark edilir olması için pill/buton görünümüne çevrildi. */}
                 {service.href && (
-                  <span className="mt-auto pt-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-blue-300/70 transition-colors duration-300 group-hover:text-blue-200">
-                    Detayı Gör →
+                  <span className="mt-auto inline-flex w-fit items-center gap-1.5 self-start rounded-full border border-blue-400/40 bg-blue-500/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-200 transition-all duration-300 group-hover:border-blue-400/70 group-hover:bg-blue-500/20 group-hover:text-white group-hover:shadow-[0_0_18px_-4px_rgba(59,130,246,0.6)]">
+                    Etsy Detayını İncele →
                   </span>
                 )}
               </>
