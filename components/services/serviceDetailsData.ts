@@ -28,6 +28,12 @@ export const serviceDetails: Record<
       description: string;
       steps: { number: string; title: string; description: string }[];
     };
+    process: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      steps: { number: string; title: string; description: string }[];
+    };
   }
 > = {
   etsy: {
@@ -117,6 +123,39 @@ export const serviceDetails: Record<
           number: '04',
           title: 'Reklam ve Test Süreci',
           description: 'İlk ürünlerin yayınlanması sonrası reklam, fiyat, ürün seçimi ve dönüşüm verilerine göre sistemi test edip geliştiririz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Etsy Mağazanızı Satışa Hazır Hale Getiren Yol Haritası',
+      description:
+        'Etsy mağazasını yalnızca teknik olarak açmakla kalmayız; ürün, sunum, listeleme, SEO ve test sürecini birlikte planlayarak mağazayı daha düzenli ve yönetilebilir bir satış yapısına dönüştürürüz.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Ürün Analizi',
+          description: 'Ürünlerinizi, hedef kitlenizi, fiyat aralığınızı, rekabet ortamını ve Etsy’ye uygunluk durumunu analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Mağaza ve Marka Kurgusu',
+          description: 'Mağaza adı, kapak alanı, profil dili, kategori mantığı ve genel mağaza algısını markanızla uyumlu hale getiririz.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Listeleme ve SEO',
+          description: 'Başlık, açıklama, etiket, kategori, varyasyon ve ürün detaylarını Etsy arama mantığına göre hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Görsel Sunum Sistemi',
+          description: 'Ürün fotoğrafları, kapak görselleri, detay kareleri ve mağaza içi görsel bütünlüğü satış algısını destekleyecek şekilde kurgularız.',
+        },
+        {
+          number: '05',
+          title: 'Yayın, Test ve Optimizasyon',
+          description: 'İlk ürünler yayına alındıktan sonra reklam, fiyat, trafik ve dönüşüm verilerine göre mağaza yapısını test edip geliştiririz.',
         },
       ],
     },

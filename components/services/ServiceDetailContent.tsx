@@ -58,6 +58,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
   const [problemRef, problemInView] = useInView<HTMLElement>();
   const [approachRef, approachInView] = useInView<HTMLElement>();
+  const [processRef, processInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -90,6 +91,13 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const approachReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       approachInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "Süreç" bölümü "Nasıl Yaklaşır?"ın altında, ekran dışında başlıyor — kendi viewport girişine
+  // bağlı, ayrı reveal.
+  const processReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      processInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // page.tsx zaten slug'ı kontrol edip yoksa notFound() çağırıyor; bu yine de TypeScript'i ve
@@ -310,6 +318,65 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
               <p className="mt-2 text-sm leading-relaxed text-blue-100/65 transition-colors duration-300 group-hover:text-blue-100/85">
                 {step.description}
               </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ SÜREÇ ============
+          Bilinçli olarak hem kart grid'lerinden (Kimler İçin / Çözdüğü Sorun) hem yatay node
+          akışından (Nasıl Yaklaşır?) farklı: dikey, sola hizalı bir "yol haritası" timeline'ı —
+          numaralı işaretler arasında dikey bağlantı çizgisi, sağında başlık+açıklama. Bu yapı
+          mobil/desktop'ta aynı (tek sütun), bu yüzden breakpoint'e bağlı layout shift riski yok. */}
+      <section ref={processRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={processInView} targetOpacity="opacity-35" className="right-[-220px] top-0 h-[420px] w-[420px]" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p
+            className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${processReveal(
+              'delay-[0ms]',
+            )}`}
+          >
+            {data.process.eyebrow}
+          </p>
+          <h2
+            className={`mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl ${processReveal(
+              'delay-[100ms]',
+            )}`}
+          >
+            {data.process.title}
+          </h2>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${processReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            {data.process.description}
+          </p>
+        </div>
+
+        <div className="relative mx-auto mt-12 max-w-2xl">
+          {/* Dikey bağlantı çizgisi — işaretlerin merkezinden geçecek şekilde sola hizalı,
+              konteynerin gerçek yüksekliğine göre otomatik uzar (sabit piksel tahmini yok). */}
+          <span
+            aria-hidden="true"
+            className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-blue-400/50 via-blue-400/25 to-transparent"
+          />
+
+          {data.process.steps.map((step, index) => (
+            <div
+              key={step.number}
+              className={`relative flex gap-5 pb-10 last:pb-0 ${processReveal(
+                ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]'][index] ?? 'delay-[0ms]',
+              )}`}
+            >
+              <span className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-blue-400/55 bg-[#070d18] text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.6)]">
+                {step.number}
+              </span>
+              <div className="pt-1.5">
+                <h3 className="text-base font-semibold text-white">{step.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-blue-100/70">{step.description}</p>
+              </div>
             </div>
           ))}
         </div>
