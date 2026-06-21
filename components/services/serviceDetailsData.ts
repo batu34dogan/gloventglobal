@@ -1034,4 +1034,204 @@ export const serviceDetails: Record<
       supportText: 'Dijital Katalog • Ürün Sunumu • Teklif Listesi • B2B Akış • Müşteri Deneyimi • Optimizasyon',
     },
   },
+  'otomasyon-n8n': {
+    eyebrow: 'OTOMASYON & N8N SİSTEMLERİ',
+    title: 'Satış ve Operasyon Süreçleri İçin Otomasyon Sistemleri Kuruyoruz',
+    description:
+      'Teklif, müşteri, ürün, sipariş, raporlama ve takip süreçleri manuel ilerlediğinde zaman kaybı ve hata riski artar. GloventGlobal, bu süreçleri n8n, API ve entegrasyon yapılarıyla daha yönetilebilir hale getirir.',
+    ctaLabel: 'Otomasyon Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Tekrarlayan İşlerini Otomasyona Taşımak İsteyen Markalar İçin',
+      description:
+        'Otomasyon sistemleri; müşteri taleplerini, teklif akışlarını, ürün verilerini, sipariş süreçlerini ve raporlama işlerini daha düzenli yönetmek isteyen markalar için güçlü bir altyapı sağlar.',
+      cards: [
+        {
+          number: '01',
+          title: 'Teklif ve Başvuru Süreci Olan Markalar',
+          description: 'Form, WhatsApp, e-posta veya web sitesi üzerinden gelen talepleri daha düzenli toplamak ve takip etmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Ürün ve Sipariş Süreci Yoğun İşletmeler',
+          description: 'Ürün bilgisi, stok, sipariş, kargo veya müşteri takip süreçlerinde manuel iş yükünü azaltmak isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Pazaryeri ve Shopify Kullanan Markalar',
+          description: 'Amazon, Etsy, eBay, Shopify veya B2B katalog yapılarındaki verileri daha kontrollü takip etmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Raporlama ve Takip Sistemi Kurmak İsteyenler',
+          description: 'Satış, reklam, ürün, teklif, müşteri ve operasyon verilerini düzenli raporlamak isteyen ekipler için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Manuel İş Takibi Değil, Birbirine Bağlı Operasyon Sistemi Gerekir',
+      description:
+        'Birçok işletmede müşteri talepleri, sipariş bilgileri, ürün güncellemeleri ve raporlar farklı dosyalarda veya mesajlarda takip edilir. Bu yapı büyüdükçe süreçler yavaşlar, hata riski artar ve ekipler aynı işi tekrar tekrar yapmak zorunda kalır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Dağınık Müşteri ve Talep Takibi',
+          description: 'Form, e-posta, WhatsApp veya sosyal medya üzerinden gelen talepler tek bir akışta toplanmadığında takip zorlaşır.',
+        },
+        {
+          number: '02',
+          title: 'Tekrarlayan Manuel İşler',
+          description: 'Ürün, sipariş, rapor, müşteri veya teklif bilgilerini sürekli elle taşımak zaman kaybına ve hata riskine yol açar.',
+        },
+        {
+          number: '03',
+          title: 'Kopuk Sistemler',
+          description: 'Shopify, pazaryeri, form, CRM, e-posta veya raporlama araçları birbirine bağlı değilse veri akışı sürdürülebilir olmaz.',
+        },
+        {
+          number: '04',
+          title: 'Görünmeyen Operasyon Verisi',
+          description: 'Satış, teklif, sipariş, müşteri, ürün ve reklam verileri düzenli raporlanmadığında karar almak zorlaşır.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Otomasyonu Tek Bir Araç Değil, Operasyon Sistemi Olarak Kurgularız',
+      description:
+        'Otomasyon yalnızca bir aracı birbirine bağlamak değildir. İş akışı, veri yapısı, tetikleyiciler, bildirimler, raporlar ve ekip kullanım kolaylığı birlikte planlandığında sürdürülebilir bir operasyon sistemi oluşur.',
+      steps: [
+        {
+          number: '01',
+          title: 'Süreç ve Veri Analizi',
+          description: 'Müşteri, ürün, sipariş, teklif, reklam ve raporlama süreçlerinin nerede başladığını, nasıl ilerlediğini ve nerede tıkandığını analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Akış ve Entegrasyon Kurgusu',
+          description: 'Form, CRM, Google Sheets, Shopify, pazaryeri, e-posta, WhatsApp, Slack veya diğer araçlar arasındaki veri akışını planlarız.',
+        },
+        {
+          number: '03',
+          title: 'n8n ve API Yapısı',
+          description: 'Uygun süreçlerde n8n, webhook, API, otomatik bildirim, görev oluşturma ve veri güncelleme yapıları kurarız.',
+        },
+        {
+          number: '04',
+          title: 'Test ve Gelişim Planı',
+          description: 'Otomasyonların doğru çalışmasını test eder, hata risklerini azaltır ve süreç büyüdükçe geliştirilebilecek alanları belirleriz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Operasyon Süreçlerinizi Verilerle Geliştirilen Bir Sisteme Dönüştürüyoruz',
+      description:
+        'Otomasyon yayına alındıktan sonra talep sayısı, görev akışı, form dönüşleri, teklif durumları, sipariş takibi ve raporlama çıktıları birlikte izlenir. Böylece operasyon yalnızca çalışan bir akış değil, geliştirilebilir bir sistem haline gelir.',
+      // Otomasyon & n8n için gerçek dashboard/analytics görselleri henüz hazır değil — Shopify/eBay/
+      // B2B'deki gibi geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek görseller hazır
+      // olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'Talep ve Form Akışı',
+          description: 'Gelen müşteri taleplerinin hangi kanaldan geldiğini ve nasıl işlendiğini takip ederiz.',
+        },
+        {
+          title: 'Görev ve Bildirim Takibi',
+          description: 'Ekip içi görevlerin, bildirimlerin ve takip süreçlerinin doğru tetiklenip tetiklenmediğini kontrol ederiz.',
+        },
+        {
+          title: 'Teklif ve Sipariş Durumu',
+          description: 'Teklif, sipariş, ödeme, kargo veya müşteri yanıtı gibi süreçlerin hangi aşamada olduğunu izlenebilir hale getiririz.',
+        },
+        {
+          title: 'Veri Senkronizasyonu',
+          description: 'Form, tablo, CRM, Shopify, pazaryeri veya raporlama araçları arasında veri akışının sağlıklı çalışmasını takip ederiz.',
+        },
+        {
+          title: 'Optimizasyon Alanları',
+          description: 'Hangi manuel işlerin azaltılabileceğini, hangi akışların hızlandırılabileceğini ve hangi raporların geliştirileceğini belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Otomasyon Sisteminizi Kurmaya Hazırlayan Yol Haritası',
+      description:
+        'Otomasyon sistemini yalnızca teknik bağlantılar olarak kurmayız; iş akışını, veri yapısını, ekip kullanımını, hata senaryolarını ve gelişim planını birlikte ele alırız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Süreç Keşfi',
+          description: 'Mevcut iş akışlarını, manuel yapılan işleri, kullanılan araçları ve veri kaynaklarını analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Akış Tasarımı',
+          description: 'Hangi verinin nereden alınacağını, hangi araca aktarılacağını, hangi tetikleyicilerin çalışacağını ve hangi bildirimlerin gönderileceğini planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Entegrasyon Kurulumu',
+          description: 'n8n, API, webhook, Google Sheets, CRM, Shopify, form veya diğer araçlarla gerekli bağlantıları kurarız.',
+        },
+        {
+          number: '04',
+          title: 'Test ve Hata Kontrolü',
+          description: 'Akışların doğru çalıştığını, tekrar eden kayıtların oluşmadığını, eksik veri taşınmadığını ve kritik hataların yakalandığını test ederiz.',
+        },
+        {
+          number: '05',
+          title: 'Yayın ve Optimizasyon',
+          description: 'Sistem çalışmaya başladıktan sonra süreçleri izler, eksik noktaları geliştirir ve ihtiyaç oldukça yeni otomasyon alanları ekleriz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Otomasyon Süreçleriniz İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Otomasyon hizmeti sonunda yalnızca çalışan birkaç bağlantı değil; iş yükünü azaltan, veri akışını düzenleyen ve operasyonu daha yönetilebilir hale getiren bir sistem hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Süreç ve Akış Haritası',
+          description: 'Mevcut iş akışları, manuel tekrarlar, veri kaynakları ve otomasyon fırsatları netleştirilir.',
+        },
+        {
+          number: '02',
+          title: 'n8n Otomasyon Akışları',
+          description: 'Belirlenen süreçlere göre n8n tabanlı tetikleyici, veri taşıma, bildirim ve görev akışları oluşturulur.',
+        },
+        {
+          number: '03',
+          title: 'API ve Entegrasyon Yapısı',
+          description: 'Shopify, form, tablo, CRM, e-posta, pazaryeri veya diğer araçlar arasında gerekli bağlantılar kurulur.',
+        },
+        {
+          number: '04',
+          title: 'Raporlama ve Takip Alanları',
+          description: 'Talep, teklif, sipariş, görev, müşteri ve operasyon verilerini izlemek için raporlama alanları hazırlanır.',
+        },
+        {
+          number: '05',
+          title: 'Test ve Hata Kontrol Planı',
+          description: 'Otomasyonların doğru çalışmasını takip etmek, veri hatalarını azaltmak ve kritik durumları görmek için kontrol mantığı oluşturulur.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Sonraki aşamada hangi manuel işlerin azaltılacağı, hangi araçların bağlanacağı ve hangi raporların geliştirileceği belirlenir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Operasyon Süreçlerinizi Otomasyonla Birlikte Güçlendirelim',
+      description:
+        'Mevcut iş akışlarınızı, kullandığınız araçları ve tekrar eden manuel süreçlerinizi birlikte değerlendirerek markanız için doğru otomasyon ve entegrasyon yol haritasını planlayalım.',
+      ctaLabel: 'Otomasyon Planı Oluştur',
+      supportText: 'n8n • API • Form Akışları • CRM • Raporlama • Bildirim • Entegrasyon',
+    },
+  },
 };
