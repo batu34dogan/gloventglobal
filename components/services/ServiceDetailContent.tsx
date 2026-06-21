@@ -168,17 +168,33 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={mounted} targetOpacity="opacity-50" className="left-[-200px] top-[200px] h-[380px] w-[380px]" />
 
         <div className="relative mx-auto max-w-4xl text-center">
-          <TitleGlow intensity="strong" />
           <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
             {data.eyebrow}
           </p>
-          <h1
-            className={`mx-auto mt-8 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            {data.title}
-          </h1>
+          {/* Hero ana başlığı için ÖZEL, sıkı kapsamlı glow — daha önceki deneme yanlışlıkla
+              eyebrow+başlık+açıklama+butonları içeren TÜM bloğun ortasına (top-1/2) oturuyordu, bu
+              da görsel olarak başlığın "arkasında" değil, blok'un ortasında bir yerde kalmasına
+              sebep oluyordu. Burada glow artık SADECE h1'in kendi (relative isolate) kutusuna
+              bağlı; isolate yeni bir stacking context kuruyor (z-index'in yanlış katmana
+              kaymaması için), h1 kendi relative z-10'una sahip. Opaklık/blur da gözle görünür
+              olacak şekilde belirgin artırıldı (eski: opacity-[0.16] + blur-3xl, çok zayıf
+              kalıyordu). */}
+          <div className="relative isolate mx-auto mt-8 max-w-3xl">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[220px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-2xl sm:h-[260px] sm:w-[640px]"
+              style={{
+                background: 'radial-gradient(closest-side, rgba(255,255,255,0.95), rgba(96,165,250,0.55) 45%, transparent 75%)',
+              }}
+            />
+            <h1
+              className={`relative z-10 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
+                'delay-[200ms]',
+              )}`}
+            >
+              {data.title}
+            </h1>
+          </div>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
