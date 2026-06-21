@@ -147,10 +147,10 @@ export const serviceDetails: Record<
     },
     dataSystem: {
       eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
-      title: 'Etsy Mağazanızı Yayına Alıp Bırakmıyoruz',
+      title: 'Etsy Mağazanızı Verilerle Geliştirilen Bir Sisteme Dönüştürüyoruz',
       description:
-        'Mağaza yayına alındıktan sonra görüntülenme, tıklama, favori, reklam, fiyat ve dönüşüm sinyalleri birlikte takip edilmelidir. Etsy sistemini yalnızca kurulan bir mağaza olarak değil, verilerle geliştirilen bir satış yapısı olarak ele alırız.',
-      note: 'Dashboard görselleri, takip edilen performans metriklerini temsil eden anonimleştirilmiş ekran örnekleridir.',
+        'Mağaza yayına alındıktan sonra görüntülenme, tıklama, favori, reklam, fiyat ve dönüşüm sinyallerini birlikte takip ederiz. Etsy mağazasını yalnızca kurulmuş bir vitrin olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
+      note: 'Görseller, performans takibi mantığını temsil eden anonimleştirilmiş dashboard örnekleridir.',
       dashboardImages: [
         '/dashboards/etsy-dashboard-01.jpg',
         '/dashboards/etsy-dashboard-02.webp',
