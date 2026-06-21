@@ -56,7 +56,7 @@ export const serviceDetails: Record<
     ctaLabel: 'Etsy Hizmet Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
-      title: 'Etsy’de Doğru Ürün Sunumu ve Mağaza Yapısı Kurmak İsteyen Markalar İçin',
+      title: 'Etsy’de Satışa Hazır Mağaza Kurmak İsteyenler İçin',
       description:
         'Etsy, yalnızca ürün listelemekten ibaret değildir. Ürünün hikâyesi, görsel dili, kategori seçimi, anahtar kelimeleri ve mağaza bütünlüğü birlikte çalıştığında daha güçlü bir satış zemini oluşur.',
       cards: [
