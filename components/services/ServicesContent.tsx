@@ -54,13 +54,17 @@ function Glow({
 // Büyük başlıkların arkasına oturan, hizmet detay sayfalarındaki (ServiceDetailContent.tsx) Hero
 // glow'uyla aynı kanıtlanmış teknik — bağımsız kopya (sayfa izolasyonu prensibi korunuyor).
 // Başlığın KENDİ (relative isolate) kutusuna sıkıca bağlı; eyebrow/açıklama gibi çevresindeki
-// içeriği değil, SADECE başlığı kapsıyor. "hero" daha geniş/belirgin, "section" daha hafif/küçük.
-function TitleGlow({ tone }: { tone: 'hero' | 'section' }) {
+// içeriği değil, SADECE başlığı kapsıyor. Sitedeki 3 sabit seviye: "hero" en geniş/belirgin,
+// "section" orta, "cta" en hafif (ServiceDetailContent.tsx'teki Final CTA glow'uyla birebir aynı
+// değerler — tüm site genelinde Final CTA glow'unun aynı seviyede algılanması için).
+function TitleGlow({ tone }: { tone: 'hero' | 'section' | 'cta' }) {
   const sizeClass =
     tone === 'hero'
       ? 'h-[300px] w-[min(820px,92vw)] sm:h-[360px] sm:w-[min(940px,90vw)]'
-      : 'h-[200px] w-[min(560px,85vw)] sm:h-[230px] sm:w-[min(620px,82vw)]';
-  const opacityClass = tone === 'hero' ? 'opacity-50' : 'opacity-[0.26]';
+      : tone === 'section'
+        ? 'h-[200px] w-[min(560px,85vw)] sm:h-[230px] sm:w-[min(620px,82vw)]'
+        : 'h-[170px] w-[min(480px,80vw)] sm:h-[190px] sm:w-[min(520px,78vw)]';
+  const opacityClass = tone === 'hero' ? 'opacity-50' : tone === 'section' ? 'opacity-[0.26]' : 'opacity-[0.16]';
 
   return (
     <span
@@ -584,7 +588,7 @@ export default function ServicesContent() {
           />
 
           <div className="relative isolate mx-auto max-w-2xl">
-            <TitleGlow tone="section" />
+            <TitleGlow tone="cta" />
             <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
               Markanız İçin Doğru Dijital Satış Sistemini Birlikte Belirleyelim
             </h2>
