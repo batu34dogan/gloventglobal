@@ -1236,7 +1236,7 @@ export const serviceDetails: Record<
   },
   'reklam-optimizasyon': {
     eyebrow: 'REKLAM & OPTİMİZASYON',
-    title: 'Satış Kanallarınızı Veriye Dayalı Reklam ve Optimizasyonla Büyütüyoruz',
+    title: 'Satış Kanallarınızı Veriye Dayalı Reklamlarla Büyütüyoruz',
     description:
       'Reklam yalnızca bütçe harcamak değildir. Doğru ürün, doğru hedefleme, doğru kanal, dönüşüm takibi ve düzenli optimizasyon birlikte çalıştığında sürdürülebilir büyüme sistemi oluşur.',
     ctaLabel: 'Reklam Planı Oluştur',
