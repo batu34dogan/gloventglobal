@@ -169,6 +169,28 @@ function Glow({
   );
 }
 
+// Büyük başlıkların arkasına oturan, hizmet detay sayfalarındaki (ServiceDetailContent.tsx) Hero
+// glow'uyla aynı kanıtlanmış teknik — bağımsız kopya (sayfa izolasyonu prensibi korunuyor).
+// Başlığın KENDİ (relative isolate) kutusuna sıkıca bağlı; eyebrow/açıklama gibi çevresindeki
+// içeriği değil, SADECE başlığı kapsıyor. "hero" daha geniş/belirgin, "section" daha hafif/küçük.
+function TitleGlow({ tone }: { tone: 'hero' | 'section' }) {
+  const sizeClass =
+    tone === 'hero'
+      ? 'h-[300px] w-[min(820px,92vw)] sm:h-[360px] sm:w-[min(940px,90vw)]'
+      : 'h-[200px] w-[min(560px,85vw)] sm:h-[230px] sm:w-[min(620px,82vw)]';
+  const opacityClass = tone === 'hero' ? 'opacity-50' : 'opacity-[0.26]';
+
+  return (
+    <span
+      aria-hidden="true"
+      className={`pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 ${sizeClass} rounded-full ${opacityClass} blur-2xl`}
+      style={{
+        background: 'radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(96,165,250,0.5) 45%, transparent 75%)',
+      }}
+    />
+  );
+}
+
 
 export default function HomeContent() {
   const [mounted, setMounted] = useState(false);
@@ -211,13 +233,16 @@ export default function HomeContent() {
           <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
             GLOVENTGLOBAL — DIGITAL COMMERCE SYSTEMS
           </p>
-          <h1
-            className={`mx-auto mt-8 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            Markalar İçin Dijital Satış ve Global Büyüme Sistemleri Kuruyoruz
-          </h1>
+          <div className="relative isolate mx-auto mt-8 max-w-3xl">
+            <TitleGlow tone="hero" />
+            <h1
+              className={`relative z-10 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
+                'delay-[200ms]',
+              )}`}
+            >
+              Markalar İçin Dijital Satış ve Global Büyüme Sistemleri Kuruyoruz
+            </h1>
+          </div>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
@@ -292,9 +317,12 @@ export default function HomeContent() {
         <div className="relative mx-auto max-w-5xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Sistem</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Farklı Markalar İçin Farklı Dijital Satış Sistemleri
-            </h2>
+            <div className="relative isolate mx-auto mt-4 max-w-2xl">
+              <TitleGlow tone="section" />
+              <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
+                Farklı Markalar İçin Farklı Dijital Satış Sistemleri
+              </h2>
+            </div>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
               Her marka için aynı şablonu değil; ürün, hedef pazar, satış kanalı ve büyüme hedeflerine göre
               özelleştirilmiş dijital satış sistemleri tasarlıyoruz.
@@ -350,9 +378,12 @@ export default function HomeContent() {
           <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${whyReveal('delay-[0ms]')}`}>
             Farkımız
           </p>
-          <h2 className={`mt-4 text-3xl font-bold tracking-tight sm:text-4xl ${whyReveal('delay-[100ms]')}`}>
-            Parça Parça Hizmet Değil, Bütün Bir Satış Sistemi
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-2xl">
+            <TitleGlow tone="section" />
+            <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${whyReveal('delay-[100ms]')}`}>
+              Parça Parça Hizmet Değil, Bütün Bir Satış Sistemi
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${whyReveal(
               'delay-[200ms]',
@@ -410,9 +441,12 @@ export default function HomeContent() {
         <div className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Süreç</p>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
-              Üründen Sisteme, Sistemden Sürdürülebilir Büyümeye
-            </h2>
+            <div className="relative isolate mx-auto mt-4 max-w-2xl">
+              <TitleGlow tone="section" />
+              <h2 className="relative z-10 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
+                Üründen Sisteme, Sistemden Sürdürülebilir Büyümeye
+              </h2>
+            </div>
           </div>
 
           <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
@@ -448,9 +482,12 @@ export default function HomeContent() {
         <div className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Sistem</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Dijital Satış Altyapısını Birlikte Kuruyoruz
-            </h2>
+            <div className="relative isolate mx-auto mt-4 max-w-2xl">
+              <TitleGlow tone="section" />
+              <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
+                Dijital Satış Altyapısını Birlikte Kuruyoruz
+              </h2>
+            </div>
           </div>
           {/* Sistem modülü kartları: küçük modül etiketi (01 ANALİZ vb.) + başlık + açıklama —
               klasik hizmet kutusu değil, "global satış altyapısının modülleri" gibi okunsun. */}
@@ -491,9 +528,12 @@ export default function HomeContent() {
           />
 
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Başlayalım</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Markanız İçin Dijital Satış ve Büyüme Sistemi Tasarlayalım
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-2xl">
+            <TitleGlow tone="section" />
+            <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
+              Markanız İçin Dijital Satış ve Büyüme Sistemi Tasarlayalım
+            </h2>
+          </div>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
             Ürününüzü, hedef pazarınızı, mevcut satış kanallarınızı ve dijital altyapınızı analiz ederek markanız
             için doğru dijital satış ve büyüme sistemini birlikte planlayalım.
