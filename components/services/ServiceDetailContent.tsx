@@ -182,7 +182,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           <div className="relative isolate mx-auto mt-8 max-w-3xl">
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[220px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-2xl sm:h-[260px] sm:w-[640px]"
+              className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[260px] w-[min(640px,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-2xl sm:h-[300px] sm:w-[min(760px,88vw)]"
               style={{
                 background: 'radial-gradient(closest-side, rgba(255,255,255,0.95), rgba(96,165,250,0.55) 45%, transparent 75%)',
               }}
