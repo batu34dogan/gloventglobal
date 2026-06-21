@@ -1234,4 +1234,204 @@ export const serviceDetails: Record<
       supportText: 'n8n • API • Form Akışları • CRM • Raporlama • Bildirim • Entegrasyon',
     },
   },
+  'reklam-optimizasyon': {
+    eyebrow: 'REKLAM & OPTİMİZASYON',
+    title: 'Satış Kanallarınızı Veriye Dayalı Reklam ve Optimizasyonla Büyütüyoruz',
+    description:
+      'Reklam yalnızca bütçe harcamak değildir. Doğru ürün, doğru hedefleme, doğru kanal, dönüşüm takibi ve düzenli optimizasyon birlikte çalıştığında sürdürülebilir büyüme sistemi oluşur.',
+    ctaLabel: 'Reklam Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Reklam Bütçesini Daha Verimli Yönetmek İsteyen Markalar İçin',
+      description:
+        'Reklam & Optimizasyon hizmeti; pazaryeri, Shopify, sosyal medya veya Google üzerinden daha kontrollü büyümek isteyen markalar için satış kanallarını veriye göre geliştirmeyi hedefler.',
+      cards: [
+        {
+          number: '01',
+          title: 'Reklama Yeni Başlayacak Markalar',
+          description: 'Amazon, Etsy, eBay, Shopify, Google veya Meta reklamlarına kontrollü bir başlangıç yapmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Reklam Harcayıp Sonuç Alamayanlar',
+          description: 'Bütçe harcadığı halde yeterli tıklama, dönüşüm veya satış elde edemeyen markalar için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Satışı Olan Ama Ölçeklenmek İsteyenler',
+          description: 'Mevcut satışlarını daha doğru kampanya, hedefleme, ürün seçimi ve dönüşüm optimizasyonuyla büyütmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Farklı Kanalları Birlikte Yönetmek İsteyenler',
+          description: 'Pazaryeri, Shopify, sosyal medya ve Google reklamlarını tek büyüme mantığı içinde takip etmek isteyen işletmeler için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Reklam Vermek Değil, Ölçülebilir Büyüme Sistemi Kurmak Gerekir',
+      description:
+        'Birçok marka reklam verir ama ürün seçimi, hedefleme, bütçe, kreatif, listeleme kalitesi ve dönüşüm takibi birlikte planlanmadığında reklam yalnızca maliyet üreten bir kanala dönüşebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Plansız Bütçe Kullanımı',
+          description: 'Bütçe, ürün önceliği, hedef kitle ve kanal yapısı netleşmeden reklam açıldığında maliyet kontrolü zorlaşır.',
+        },
+        {
+          number: '02',
+          title: 'Yanlış Hedefleme ve Kampanya Yapısı',
+          description: 'Hedef kitle, anahtar kelime, kampanya türü veya ürün seçimi doğru kurgulanmadığında reklam performansı zayıflar.',
+        },
+        {
+          number: '03',
+          title: 'Eksik Dönüşüm Takibi',
+          description: 'Tıklama, sepet, teklif, satış, ROAS, CPA veya dönüşüm verileri izlenmediğinde hangi reklamın işe yaradığı anlaşılamaz.',
+        },
+        {
+          number: '04',
+          title: 'Optimize Edilmeyen Reklamlar',
+          description: 'Reklamlar düzenli analiz edilmediğinde düşük performanslı kampanyalar bütçe tüketmeye devam eder.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Reklamı Tek Başına Değil, Satış Sisteminin Parçası Olarak Kurgularız',
+      description:
+        'Reklam performansı yalnızca kampanya ayarlarına bağlı değildir. Ürün sunumu, fiyat, listeleme kalitesi, görsel dil, satış kanalı ve dönüşüm akışı birlikte değerlendirildiğinde reklam daha anlamlı sonuç üretir.',
+      steps: [
+        {
+          number: '01',
+          title: 'Kanal ve Ürün Analizi',
+          description: 'Hangi ürünün, hangi kanalda, hangi hedef kitleye ve hangi bütçeyle reklam almaya uygun olduğunu analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Kampanya ve Hedefleme Kurgusu',
+          description: 'Anahtar kelime, hedef kitle, kampanya yapısı, bütçe dağılımı ve test mantığını satış hedeflerine göre planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Kreatif ve Dönüşüm Uyumu',
+          description: 'Görsel, metin, ürün sayfası, teklif akışı ve mağaza deneyiminin reklamla uyumlu çalışmasını değerlendiririz.',
+        },
+        {
+          number: '04',
+          title: 'Ölçüm ve Optimizasyon',
+          description: 'Tıklama, maliyet, dönüşüm, ROAS, CPA, satış ve kanal performansına göre kampanyaları düzenli geliştiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Reklam Performansınızı Verilerle Geliştirilen Bir Büyüme Sistemine Dönüştürüyoruz',
+      description:
+        'Reklam yayına alındıktan sonra gösterim, tıklama, maliyet, dönüşüm, ROAS, satış ve kanal performansı birlikte takip edilir. Böylece reklam yalnızca harcama yapılan bir alan değil, geliştirilebilir bir büyüme sistemi haline gelir.',
+      // Reklam & Optimizasyon için gerçek dashboard/analytics görselleri henüz hazır değil —
+      // Shopify/eBay/B2B/Otomasyon'daki gibi geçici, metin tabanlı kayan veri kartları kullanılıyor.
+      // Gerçek görseller hazır olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'Gösterim ve Tıklama Verileri',
+          description: 'Reklamların hangi ürün, hedef kitle veya anahtar kelime üzerinden ilgi aldığını takip ederiz.',
+        },
+        {
+          title: 'Maliyet ve Bütçe Kontrolü',
+          description: 'CPC, günlük bütçe, kampanya harcaması ve maliyet dağılımını düzenli analiz ederiz.',
+        },
+        {
+          title: 'Dönüşüm ve Satış Takibi',
+          description: 'Tıklamanın satışa, teklif talebine, sepete veya iletişime dönüşüp dönüşmediğini değerlendiririz.',
+        },
+        {
+          title: 'ROAS ve Kârlılık Sinyalleri',
+          description: 'Reklam harcamasının satışa ve kârlılığa etkisini kanal bazında takip ederiz.',
+        },
+        {
+          title: 'Optimizasyon Alanları',
+          description: 'Durdurulacak, güçlendirilecek, test edilecek veya yeniden yapılandırılacak kampanyaları belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Reklam ve Optimizasyon İçin Büyüme Yol Haritası',
+      description:
+        'Reklam sürecini yalnızca kampanya açmak olarak ele almayız; ürün, kanal, hedefleme, bütçe, kreatif, dönüşüm ve performans takibini birlikte planlarız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Kanal Analizi',
+          description: 'Markanın mevcut satış kanallarını, ürün yapısını, hedef müşterisini, reklam geçmişini ve büyüme hedeflerini analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Reklam Stratejisi',
+          description: 'Hangi ürünlerin, hangi kanallarda, hangi hedefleme ve bütçe yapısıyla test edileceğini planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Kampanya Kurulumu',
+          description: 'Amazon, Etsy, eBay, Google, Meta veya Shopify satış akışına uygun kampanya yapılarını oluştururuz.',
+        },
+        {
+          number: '04',
+          title: 'Ölçüm ve Performans Takibi',
+          description: 'Gösterim, tıklama, maliyet, dönüşüm, satış, ROAS ve kanal performansını düzenli izleriz.',
+        },
+        {
+          number: '05',
+          title: 'Optimizasyon ve Büyüme',
+          description: 'Verilere göre bütçe dağılımını, hedeflemeyi, kreatifleri, ürün önceliklerini ve kampanya yapısını geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Reklam ve Optimizasyon İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Reklam hizmeti sonunda yalnızca açılmış kampanyalar değil; hangi kanalın, hangi ürünün ve hangi bütçenin daha verimli çalıştığını gösteren yönetilebilir bir büyüme sistemi hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Reklam Stratejisi',
+          description: 'Ürün, kanal, hedef kitle, kampanya türü, bütçe ve test mantığı için yol haritası oluşturulur.',
+        },
+        {
+          number: '02',
+          title: 'Kampanya Yapısı',
+          description: 'Amazon, Etsy, eBay, Google, Meta veya diğer satış kanallarına uygun kampanya kurgusu hazırlanır.',
+        },
+        {
+          number: '03',
+          title: 'Hedefleme ve Anahtar Kelime Planı',
+          description: 'Hedef kitle, anahtar kelime, ilgi alanı, ürün grubu veya yeniden pazarlama yapıları belirlenir.',
+        },
+        {
+          number: '04',
+          title: 'Performans Takip Alanları',
+          description: 'Gösterim, tıklama, maliyet, dönüşüm, satış, ROAS ve CPA gibi metrikler için takip alanları netleştirilir.',
+        },
+        {
+          number: '05',
+          title: 'Optimizasyon Planı',
+          description: 'Durdurulacak, artırılacak, test edilecek veya yeniden yapılandırılacak kampanyalar için kontrol mantığı oluşturulur.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Sonraki aşamada hangi kanalların büyütüleceği, hangi ürünlerin öne çıkarılacağı ve hangi kreatiflerin geliştirileceği belirlenir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Reklam Bütçenizi Ölçülebilir Büyüme Sistemine Dönüştürelim',
+      description:
+        'Mevcut satış kanallarınızı, reklam geçmişinizi ve hedeflerinizi birlikte değerlendirerek markanız için doğru reklam, optimizasyon ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'Reklam Planı Oluştur',
+      supportText: 'Amazon Ads • Etsy Ads • Google • Meta • ROAS • Dönüşüm • Optimizasyon',
+    },
+  },
 };
