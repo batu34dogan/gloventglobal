@@ -1835,4 +1835,204 @@ export const serviceDetails: Record<
       supportText: 'AI • İçerik • Görsel Konsept • Raporlama • Operasyon • n8n • API • Karar Destek',
     },
   },
+  'marka-konumlandirma': {
+    eyebrow: 'MARKA KONUMLANDIRMA',
+    title: 'Markanızı Pazarda Daha Net ve Güven Veren Bir Yapıya Konumlandırıyoruz',
+    description:
+      'Dijital satışta ürün kalitesi tek başına yeterli değildir. Marka dili, hedef müşteri, ürün algısı, fiyat konumu, görsel kimlik ve kanal uyumu birlikte çalıştığında marka pazarda daha güçlü ve güvenilir görünür.',
+    ctaLabel: 'Marka Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Pazarda Daha Net Algılanmak İsteyen Markalar İçin',
+      description:
+        'Marka Konumlandırma; ürününü dijital satış kanallarında daha doğru anlatmak, hedef müşterisine daha net ulaşmak ve pazarda güven veren bir algı oluşturmak isteyen markalar için uygundur.',
+      cards: [
+        {
+          number: '01',
+          title: 'Ürünü Güçlü Ama Anlatımı Zayıf Markalar',
+          description: 'Ürün kalitesi iyi olmasına rağmen pazarda kendini doğru ifade edemeyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Yeni Pazara Açılmak İsteyenler',
+          description: 'Amazon, Etsy, eBay, Shopify veya B2B kanallarda hedef müşteri ve marka algısını doğru kurmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Görsel ve İçerik Dilini Netleştirmek İsteyenler',
+          description: 'Ürün görselleri, açıklamalar, marka dili ve satış mesajları arasında tutarlı bir yapı kurmak isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Fiyat ve Segment Algısını Güçlendirmek İsteyenler',
+          description: 'Ürünlerini hangi müşteri kitlesine, hangi değer algısıyla ve hangi fiyat konumunda sunacağını netleştirmek isteyen markalar için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Ürün Satmak Değil, Pazarda Net Bir Marka Algısı Kurmak Gerekir',
+      description:
+        'Birçok marka ürününü dijitale taşır ama hedef müşteri, marka dili, görsel kimlik, fiyat algısı ve kanal mesajı birlikte planlanmadığında ürün güçlü olsa bile pazarda yeterince ayrışamaz.',
+      cards: [
+        {
+          number: '01',
+          title: 'Belirsiz Marka Dili',
+          description: 'Markanın kime, nasıl ve hangi değer önerisiyle konuştuğu net değilse müşteri algısı dağılır.',
+        },
+        {
+          number: '02',
+          title: 'Tutarsız Görsel ve İçerik Yapısı',
+          description: 'Görseller, açıklamalar, sosyal medya dili ve pazaryeri listelemeleri birbirinden kopuk olduğunda marka güveni zayıflar.',
+        },
+        {
+          number: '03',
+          title: 'Yanlış Hedef Müşteri Algısı',
+          description: 'Ürün doğru kitleye doğru mesajla sunulmadığında reklam, listeleme ve satış performansı sınırlı kalır.',
+        },
+        {
+          number: '04',
+          title: 'Zayıf Değer ve Fiyat Konumu',
+          description: 'Ürünün neden tercih edilmesi gerektiği ve hangi fiyat seviyesinde algılanacağı net değilse rekabet içinde görünmez hale gelebilir.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Marka Algısını Satış Sisteminin Temel Parçası Olarak Kurgularız',
+      description:
+        'GloventGlobal için marka konumlandırma yalnızca logo, renk veya slogan çalışması değildir. Ürün, müşteri, pazar, fiyat, içerik, görsel dil ve satış kanalı birlikte ele alındığında sürdürülebilir bir marka algısı oluşur.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Pazar Algısı Analizi',
+          description: 'Ürünün pazarda nasıl algılandığını, hangi rakiplerle karşılaştırıldığını ve hangi müşteri kitlesine hitap ettiğini analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Hedef Müşteri ve Değer Önerisi',
+          description: 'Markanın kime konuşacağını, hangi problemi çözdüğünü, hangi değerle ayrışacağını ve hangi mesajla görünmesi gerektiğini netleştiririz.',
+        },
+        {
+          number: '03',
+          title: 'Görsel Dil ve İçerik Tutarlılığı',
+          description: 'Ürün görselleri, listeleme metinleri, sosyal medya dili, katalog yapısı ve reklam mesajlarının aynı marka algısını desteklemesini planlarız.',
+        },
+        {
+          number: '04',
+          title: 'Kanal Bazlı Konumlandırma',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B katalog ve sosyal medya kanallarında markanın nasıl görünmesi gerektiğini satış hedeflerine göre kurgularız.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Marka Konumunuzu Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      description:
+        'Marka algısı yalnızca estetik tercihlerle belirlenmez. Ürün ilgisi, reklam tepkisi, listeleme performansı, müşteri davranışı, fiyat hassasiyeti ve kanal verileri birlikte değerlendirildiğinde marka konumu daha net geliştirilebilir.',
+      // Marka Konumlandırma için gerçek dashboard/analytics görselleri henüz hazır değil — diğer
+      // hizmetlerdeki gibi geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek
+      // görseller hazır olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'Ürün Algısı',
+          description: 'Hangi ürünlerin daha fazla ilgi gördüğünü ve müşterinin markayı hangi ürün grupları üzerinden algıladığını analiz ederiz.',
+        },
+        {
+          title: 'Müşteri Davranışı',
+          description: 'Tıklama, favori, teklif, sepet, mesaj veya satış sinyallerinden hedef müşteri davranışını takip ederiz.',
+        },
+        {
+          title: 'Fiyat ve Değer Sinyalleri',
+          description: 'Fiyat aralıkları, kampanya tepkileri ve rakip konumları üzerinden markanın değer algısını değerlendiririz.',
+        },
+        {
+          title: 'Kanal Performansı',
+          description: 'Pazaryeri, Shopify, B2B katalog, sosyal medya ve reklam kanallarında markanın nasıl tepki aldığını inceleriz.',
+        },
+        {
+          title: 'Gelişim Alanları',
+          description: 'Marka dili, görsel sistem, ürün sunumu, fiyat konumu ve satış mesajlarında güçlendirilecek alanları belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Marka Konumlandırmanızı Hazırlayan Yol Haritası',
+      description:
+        'Marka konumlandırma sürecini yalnızca söylem veya görsel kimlik olarak ele almayız; ürün, hedef müşteri, pazar, satış kanalı, fiyat algısı ve içerik dilini birlikte planlarız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Marka ve Ürün Keşfi',
+          description: 'Markanın mevcut algısını, ürün yapısını, hedef müşterisini, rakiplerini ve satış kanallarını analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Pazar ve Rakip İncelemesi',
+          description: 'Markanın hangi pazarda, hangi rakipler arasında ve hangi değer önerisiyle konumlanacağını değerlendiririz.',
+        },
+        {
+          number: '03',
+          title: 'Hedef Müşteri ve Mesaj Kurgusu',
+          description: 'Markanın kime, nasıl konuşacağını ve hangi satış mesajıyla görünmesi gerektiğini netleştiririz.',
+        },
+        {
+          number: '04',
+          title: 'Görsel ve İçerik Dilinin Planlanması',
+          description: 'Ürün sunumu, görsel konsept, açıklama dili, sosyal medya tonu ve pazaryeri listeleme mantığını marka algısıyla uyumlu hale getiririz.',
+        },
+        {
+          number: '05',
+          title: 'Yayın ve Optimizasyon',
+          description: 'Marka dili satış kanallarında kullanıma alındıktan sonra performans verilerine, müşteri tepkilerine ve satış sonuçlarına göre geliştirilir.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Marka Konumlandırma İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Marka Konumlandırma hizmeti sonunda yalnızca bir anlatım değil; ürünlerinizi, görsel dilinizi, içerik yapınızı ve satış mesajınızı aynı marka algısında birleştiren bir sistem hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Marka Konum Haritası',
+          description: 'Markanın hedef müşteri, pazar, rakip, değer önerisi ve satış kanalı açısından nasıl konumlanacağı belirlenir.',
+        },
+        {
+          number: '02',
+          title: 'Değer Önerisi ve Mesaj Yapısı',
+          description: 'Markanın ne sunduğu, neden tercih edilmesi gerektiği ve müşteriye hangi dille anlatılacağı netleştirilir.',
+        },
+        {
+          number: '03',
+          title: 'Görsel Dil Yönlendirmesi',
+          description: 'Ürün görselleri, renk dili, konsept yaklaşımı, lifestyle kullanım alanları ve görsel sunum mantığı belirlenir.',
+        },
+        {
+          number: '04',
+          title: 'İçerik ve Listeleme Dili',
+          description: 'Başlık, açıklama, kategori metni, sosyal medya dili ve pazaryeri listeleme dili için yönlendirici yapı hazırlanır.',
+        },
+        {
+          number: '05',
+          title: 'Kanal Bazlı Konumlandırma',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B katalog ve sosyal medya kanallarında markanın nasıl görünmesi gerektiği planlanır.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Sonraki aşamada hangi ürünlerin, içeriklerin, görsellerin veya mesajların güçlendirilmesi gerektiği belirlenir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Markanızı Daha Net ve Güven Veren Bir Satış Sistemine Konumlandıralım',
+      description:
+        'Ürünlerinizi, hedef müşterinizi, mevcut marka algınızı ve satış kanallarınızı birlikte değerlendirerek markanız için doğru konumlandırma ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'Marka Planı Oluştur',
+      supportText: 'Marka Dili • Hedef Müşteri • Değer Önerisi • Görsel Kimlik • Kanal Uyumu • Büyüme',
+    },
+  },
 };
