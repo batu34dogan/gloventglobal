@@ -60,6 +60,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const [approachRef, approachInView] = useInView<HTMLElement>();
   const [processRef, processInView] = useInView<HTMLElement>();
   const [deliverablesRef, deliverablesInView] = useInView<HTMLElement>();
+  const [ctaRef, ctaInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -106,6 +107,12 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const deliverablesReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       deliverablesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Final CTA sayfanın en sonunda — kendi viewport girişine bağlı, ayrı reveal.
+  const ctaReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      ctaInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // page.tsx zaten slug'ı kontrol edip yoksa notFound() çağırıyor; bu yine de TypeScript'i ve
@@ -443,6 +450,47 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ============ FİNAL CTA ============
+          Diğer sayfalardaki Final CTA panelleriyle aynı glass dil — küçük, sakin bir kapanış. */}
+      <section ref={ctaRef} className="relative px-6 pb-24 pt-14 sm:px-10">
+        <Glow visible={ctaInView} targetOpacity="opacity-55" className="left-1/2 top-0 h-[460px] w-[800px] -translate-x-1/2" />
+
+        <div
+          className={`relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-10 text-center backdrop-blur-sm sm:px-12 sm:py-12 ${ctaReveal(
+            'delay-[0ms]',
+          )}`}
+        >
+          <span
+            aria-hidden="true"
+            className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
+          />
+
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{data.finalCta.title}</h2>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
+            {data.finalCta.description}
+          </p>
+
+          <p className="mt-6 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
+            {data.finalCta.supportText}
+          </p>
+
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="/iletisim"
+              className="inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-10 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
+            >
+              {data.finalCta.ctaLabel}
+            </a>
+            <a
+              href="/hizmetler"
+              className="inline-block rounded-full border border-white/15 px-10 py-3.5 text-sm font-semibold tracking-wide text-white/90 transition-colors duration-300 hover:border-white/35 hover:bg-white/5"
+            >
+              Tüm Hizmetleri Gör
+            </a>
+          </div>
         </div>
       </section>
     </main>

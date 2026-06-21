@@ -40,6 +40,12 @@ export const serviceDetails: Record<
       description: string;
       items: { number: string; title: string; description: string }[];
     };
+    finalCta: {
+      title: string;
+      description: string;
+      ctaLabel: string;
+      supportText: string;
+    };
   }
 > = {
   etsy: {
@@ -202,6 +208,13 @@ export const serviceDetails: Record<
           description: 'Mağazanın sonraki aşamada nasıl iyileştirileceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
         },
       ],
+    },
+    finalCta: {
+      title: 'Etsy Mağazanız İçin Doğru Satış Sistemini Birlikte Kuralım',
+      description:
+        'Ürünlerinizi, mevcut görsel dilinizi ve hedef müşteri kitlenizi birlikte değerlendirerek Etsy mağazanız için doğru listeleme, sunum, SEO ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'Etsy Hizmet Planı Oluştur',
+      supportText: 'Mağaza Kurulumu • Ürün Listeleme • Etsy SEO • Görsel Sunum • Reklam • Optimizasyon',
     },
   },
 };
