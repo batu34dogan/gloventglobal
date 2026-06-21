@@ -1,617 +1,1037 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
-
-// Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
-// HomeContent.tsx'teki aynı desenin bu dosyaya özel, bağımsız bir kopyası.
-function useInView<T extends HTMLElement>() {
-  const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return [ref, inView] as const;
-}
-
-// Ana sayfadaki (HomeContent.tsx) aynı görsel dil — ama bu dosyaya özel, bağımsız kopya.
-// HomeContent.tsx'e dokunmamak / import etmemek için bilerek burada yeniden tanımlandı.
-function Glow({
-  className,
-  targetOpacity,
-  visible,
-}: {
-  className: string;
-  targetOpacity: string;
-  visible: boolean;
-}) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`pointer-events-none absolute rounded-full transition-opacity duration-[1200ms] ease-out motion-reduce:transition-none ${className} ${
-        visible ? targetOpacity : 'opacity-0'
-      }`}
-      style={{ background: 'radial-gradient(closest-side, rgba(59,130,246,0.22), transparent)' }}
-    />
-  );
-}
-
-// Büyük başlıkların arkasına oturan, hizmet detay sayfalarındaki (ServiceDetailContent.tsx) Hero
-// glow'uyla aynı kanıtlanmış teknik — bağımsız kopya (sayfa izolasyonu prensibi korunuyor).
-// Başlığın KENDİ (relative isolate) kutusuna sıkıca bağlı; eyebrow/açıklama gibi çevresindeki
-// içeriği değil, SADECE başlığı kapsıyor. Sitedeki 3 sabit seviye: "hero" en geniş/belirgin,
-// "section" orta, "cta" en hafif (ServiceDetailContent.tsx'teki Final CTA glow'uyla birebir aynı
-// değerler — tüm site genelinde Final CTA glow'unun aynı seviyede algılanması için).
-function TitleGlow({ tone }: { tone: 'hero' | 'section' | 'cta' }) {
-  const sizeClass =
-    tone === 'hero'
-      ? 'h-[300px] w-[min(820px,92vw)] sm:h-[360px] sm:w-[min(940px,90vw)]'
-      : tone === 'section'
-        ? 'h-[200px] w-[min(560px,85vw)] sm:h-[230px] sm:w-[min(620px,82vw)]'
-        : 'h-[170px] w-[min(480px,80vw)] sm:h-[190px] sm:w-[min(520px,78vw)]';
-  const opacityClass = tone === 'hero' ? 'opacity-50' : tone === 'section' ? 'opacity-[0.26]' : 'opacity-[0.16]';
-
-  return (
-    <span
-      aria-hidden="true"
-      className={`pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 ${sizeClass} rounded-full ${opacityClass} blur-2xl`}
-      style={{
-        background: 'radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(96,165,250,0.5) 45%, transparent 75%)',
-      }}
-    />
-  );
-}
-
-const systemPillars = [
+// Her hizmet detay sayfasının içeriği bu objede tutulur. Bu dosya sade bir veri modülü — "use
+// client" işareti YOK — bu sayede hem sunucu component'i (app/hizmetler/[slug]/page.tsx,
+// generateStaticParams + notFound kontrolü için) hem client component'i (ServiceDetailContent.tsx,
+// render için) aynı veriyi sorunsuz import edebiliyor. Yeni bir hizmet eklemek = bu objeye yeni
+// bir key eklemek (şablon koduna dokunmadan).
+export const serviceDetails: Record<
+  string,
   {
-    number: '01',
-    title: 'Strateji',
-    description: 'Ürünün hangi pazarda, hangi müşteri kitlesine ve hangi satış kanalıyla büyüyebileceğini planlarız.',
-  },
-  {
-    number: '02',
-    title: 'Altyapı',
-    description: 'Pazaryeri, Shopify, B2B katalog veya dijital showroom yapısını markanın ihtiyacına göre kurarız.',
-  },
-  {
-    number: '03',
-    title: 'Büyüme',
-    description: 'İçerik, reklam, veri ve operasyon süreçlerini sürekli optimize ederek sistemi ölçeklenebilir hale getiririz.',
-  },
-];
-
-const serviceCards = [
-  {
-    tag: '01 AMAZON',
-    title: 'Amazon Danışmanlığı',
-    description: 'Amazon’da doğru kategori, listeleme, SEO, reklam ve operasyon yapısıyla satışa hazır bir sistem kurarız.',
-    href: '/hizmetler/amazon',
-    ctaName: 'Amazon',
-  },
-  {
-    tag: '02 ETSY',
-    title: 'Etsy Mağaza Sistemi',
-    description: 'El yapımı, butik, tasarım ve niş ürünler için Etsy mağaza yapısı, görsel dili ve listeleme stratejisi oluştururuz.',
-    href: '/hizmetler/etsy',
-    ctaName: 'Etsy',
-  },
-  {
-    tag: '03 EBAY',
-    title: 'eBay Global Satış',
-    description: 'Farklı pazarlara açılmak isteyen markalar için eBay listeleme, kategori ve satış altyapısını hazırlarız.',
-    href: '/hizmetler/ebay',
-    ctaName: 'eBay',
-  },
-  {
-    tag: '04 SHOPIFY',
-    title: 'Shopify Satış Altyapısı',
-    description: 'Markanıza özel vitrin, ürün yönetimi, koleksiyon yapısı, ödeme ve satış deneyimi için Shopify altyapısı kurarız.',
-    href: '/hizmetler/shopify',
-    ctaName: 'Shopify',
-  },
-  {
-    tag: '05 B2B',
-    title: 'B2B Dijital Showroom',
-    description: 'Toptan satış yapan markalar için dijital katalog, teklif listesi, müşteri odaklı ürün sunumu ve showroom sistemi oluştururuz.',
-  },
-  {
-    tag: '06 MARKA',
-    title: 'Marka Konumlandırma',
-    description: 'Ürününüzü yalnızca satılacak bir ürün olarak değil, pazarda algısı olan bir marka yapısı içinde konumlandırırız.',
-  },
-  {
-    tag: '07 GÖRSEL',
-    title: 'Görsel & İçerik Sistemi',
-    description: 'Ürün fotoğrafı, yapay zeka destekli görsel konsept, açıklama, başlık ve marka dili bütünlüğünü kurarız.',
-  },
-  {
-    tag: '08 SOSYAL MEDYA',
-    title: 'Sosyal Medya Yönetimi',
-    description: 'Markanızın Instagram, TikTok ve diğer sosyal kanallarda tutarlı görünmesi için içerik planı, görsel dil ve paylaşım stratejisi oluştururuz.',
-  },
-  {
-    tag: '09 REKLAM',
-    title: 'Reklam & Optimizasyon',
-    description: 'Amazon, Etsy, Google ve Meta reklamlarını veri, dönüşüm ve kârlılık odağında optimize ederiz.',
-  },
-  {
-    tag: '10 OTOMASYON',
-    title: 'Otomasyon & n8n Sistemleri',
-    description: 'Form, teklif, müşteri, ürün, sipariş ve raporlama süreçlerini n8n, API ve entegrasyon yapılarıyla birbirine bağlayan otomasyon sistemleri kurarız.',
-  },
-  {
-    tag: '11 STRATEJİ',
-    title: 'Global Pazara Giriş Stratejisi',
-    description: 'Ürününüz için doğru ülke, kanal, fiyat, rekabet ve büyüme yol haritasını belirleriz.',
-  },
-];
-
-const audienceSegments = [
-  {
-    number: '01',
-    title: 'Üreticiler',
-    description: 'Ürününü ilk kez global pazarlara taşımak isteyen üreticiler için pazar, kanal ve satış sistemi planı oluştururuz.',
-  },
-  {
-    number: '02',
-    title: 'Toptan Satış Yapan Markalar',
-    description: 'Toptan çalışan markalar için dijital katalog, B2B showroom, teklif listesi ve müşteri odaklı ürün sunumu kurgularız.',
-  },
-  {
-    number: '03',
-    title: 'Pazaryerlerine Girmek İsteyen Markalar',
-    description: 'Pazaryerlerine giriş yapmak isteyen markalar için mağaza kurulumu, listeleme, SEO, görsel dil ve reklam altyapısını hazırlarız.',
-  },
-  {
-    number: '04',
-    title: 'Shopify ile Kendi Sistemini Kurmak İsteyenler',
-    description: 'Kendi markasına ait satış kanalı kurmak isteyen işletmeler için Shopify tabanlı vitrin, ürün yönetimi ve satış deneyimi oluştururuz.',
-  },
-  {
-    number: '05',
-    title: 'Globalde Marka Algısını Güçlendirmek İsteyenler',
-    description: 'Yalnızca satış değil, marka algısı, görsel bütünlük, sosyal medya ve içerik diliyle global pazarda daha güçlü görünmek isteyen markalara sistem kurarız.',
-  },
-];
-
-const audienceDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[240ms]', 'delay-[320ms]'];
-
-const platformSolutions = [
-  {
-    name: 'Amazon',
+    eyebrow: string;
+    title: string;
+    description: string;
+    ctaLabel: string;
+    audience: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      cards: { number: string; title: string; description: string }[];
+    };
+    problem: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      cards: { number: string; title: string; description: string }[];
+    };
+    approach: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      steps: { number: string; title: string; description: string }[];
+    };
+    process: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      steps: { number: string; title: string; description: string }[];
+    };
+    deliverables: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      items: { number: string; title: string; description: string }[];
+    };
+    finalCta: {
+      title: string;
+      description: string;
+      ctaLabel: string;
+      supportText: string;
+    };
+    dataSystem: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      // Gerçek dashboard görselleri hazır olan hizmetlerde dolu, görsel yokken boş/yok bırakılır.
+      note?: string;
+      dashboardImages?: string[];
+      // Görselin kart içine nasıl sığacağı. Belirtilmezse 'cover' (Etsy'nin mevcut davranışı,
+      // dokunulmadı). Dashboard ekranlarında üst metrik satırının kırpılmaması gerektiğinde
+      // 'contain' kullanılır (örn. Amazon) — görselin tamamı görünür, kart zemini koyu kalır.
+      imageFit?: 'cover' | 'contain';
+      // Görsel henüz hazır olmayan hizmetler için geçici, metin tabanlı veri kartları. Görseller
+      // eklendiğinde bu alanın silinmesi yeterli — şablon otomatik olarak görsel moduna döner.
+      dataCards?: { title: string; description: string }[];
+    };
+  }
+> = {
+  etsy: {
+    eyebrow: 'ETSY MAĞAZA SİSTEMİ',
+    title: 'Etsy’de Satışa Hazır Marka ve Mağaza Sistemi Kuruyoruz',
     description:
-      'Amazon’da ürün araştırması, kategori seçimi, listeleme, SEO, reklam, operasyon ve marka koruma süreçlerini satışa hazır bir yapıya dönüştürürüz.',
+      'El yapımı, butik, tasarım ve niş ürünler için Etsy mağazanızı yalnızca açmakla kalmıyor; ürün sunumu, görsel dil, listeleme, SEO ve reklam altyapısıyla satışa hazır bir dijital satış sistemi olarak kurguluyoruz.',
+    ctaLabel: 'Etsy Hizmet Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Etsy’de Satışa Hazır Mağaza Kurmak İsteyenler İçin',
+      description:
+        'Etsy, yalnızca ürün listelemekten ibaret değildir. Ürünün hikâyesi, görsel dili, kategori seçimi, anahtar kelimeleri ve mağaza bütünlüğü birlikte çalıştığında daha güçlü bir satış zemini oluşur.',
+      cards: [
+        {
+          number: '01',
+          title: 'Butik Üreticiler',
+          description: 'El yapımı, tasarım veya sınırlı üretim ürünlerini dijital satış kanallarına taşımak isteyen üreticiler için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Deri, Takı ve Aksesuar Markaları',
+          description: 'Ürün kalitesi kadar görsel sunum, detay fotoğrafları, açıklama dili ve mağaza konseptiyle öne çıkması gereken markalar için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Niş Ürün Satan Markalar',
+          description: 'Ritüel ürünleri, dekorasyon, kişiselleştirilebilir ürünler, dijital ürünler veya özel konseptli koleksiyonlar için Etsy stratejisi oluşturulur.',
+        },
+        {
+          number: '04',
+          title: 'Yeni Başlayan veya Sonuç Alamayan Mağazalar',
+          description: 'Etsy mağazası açmak isteyen ya da mağazası açık olduğu halde yeterli görüntülenme, favori veya satış alamayan işletmeler için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Etsy’de Satış İçin Mağaza Açmak Değil, Sunum Sistemi Kurmak Gerekir',
+      description:
+        'Birçok marka Etsy’ye ürün yükler, hatta mağazasını açıp satış bekler; ancak mağaza dili, görsel sunum, SEO, kategori seçimi ve ürün açıklamaları birlikte çalışmadığında görünürlük, favori ve satış potansiyeli sınırlı kalır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Yetersiz Ürün Sunumu',
+          description: 'Ürün kaliteli olsa bile görseller, başlıklar ve açıklamalar satış algısını yeterince güçlü şekilde desteklemeyebilir.',
+        },
+        {
+          number: '02',
+          title: 'Etsy SEO ve Anahtar Kelime Kurgusu',
+          description: 'Ürünün doğru alıcıya ulaşması için başlık, etiket, açıklama ve kategori yapısının birlikte planlanması gerekir.',
+        },
+        {
+          number: '03',
+          title: 'Bütünlük Kurmayan Mağaza Algısı',
+          description: 'Mağaza kapağı, ürün sıralaması, koleksiyon dili ve marka anlatımı bir bütün gibi görünmediğinde güven ve profesyonel algı zayıflar.',
+        },
+        {
+          number: '04',
+          title: 'Plansız Yayın ve Test Süreci',
+          description: 'Ürünleri yayına almak tek başına yeterli değildir; görünürlük için reklam, fiyat, ürün seçimi ve test süreci birlikte planlanmalıdır.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Etsy Mağazasını Tek Tek İşler Değil, Bir Satış Sistemi Olarak Kurarız',
+      description:
+        'Etsy’de başarılı bir mağaza yalnızca ürün yüklemekle oluşmaz. Ürün seçimi, görsel sunum, başlık, açıklama, SEO, mağaza bütünlüğü, fiyatlandırma ve reklam yapısı birlikte planlandığında daha güçlü bir satış zemini ortaya çıkar.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Pazar Okuması',
+          description: 'Ürünün Etsy kitlesine, rekabet yapısına, fiyat aralığına ve kategori dinamiklerine uygunluğunu değerlendiririz.',
+        },
+        {
+          number: '02',
+          title: 'Görsel ve Mağaza Dili',
+          description: 'Ürün fotoğrafları, kapak görselleri, mağaza düzeni ve marka anlatımını tek bir görsel kimlik içinde kurgularız.',
+        },
+        {
+          number: '03',
+          title: 'Listeleme ve SEO Yapısı',
+          description: 'Başlık, açıklama, etiket, kategori ve ürün varyasyonlarını Etsy arama mantığına uygun şekilde planlarız.',
+        },
+        {
+          number: '04',
+          title: 'Reklam ve Test Süreci',
+          description: 'İlk ürünlerin yayınlanması sonrası reklam, fiyat, ürün seçimi ve dönüşüm verilerine göre sistemi test edip geliştiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Etsy Mağazanızı Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      description:
+        'Mağaza yayına alındıktan sonra görüntülenme, tıklama, favori, reklam, fiyat ve dönüşüm sinyallerini birlikte takip ederiz. Etsy mağazasını yalnızca kurulmuş bir vitrin olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
+      note: 'Görseller, performans takibi mantığını temsil eden anonimleştirilmiş dashboard örnekleridir.',
+      dashboardImages: [
+        '/dashboards/etsy-dashboard-01.jpg',
+        '/dashboards/etsy-dashboard-02.webp',
+        '/dashboards/etsy-dashboard-03.jpg',
+        '/dashboards/etsy-dashboard-04.jpg',
+        '/dashboards/etsy-dashboard-05.webp',
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Etsy Mağazanızı Satışa Hazırlayan Yol Haritası',
+      description:
+        'Etsy mağazasını yalnızca teknik olarak açmakla kalmayız; ürün, sunum, listeleme, SEO ve test sürecini birlikte planlayarak mağazayı daha düzenli ve yönetilebilir bir satış yapısına dönüştürürüz.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Ürün Analizi',
+          description: 'Ürünlerinizi, hedef kitlenizi, fiyat aralığınızı, rekabet ortamını ve Etsy’ye uygunluk durumunu analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Mağaza ve Marka Kurgusu',
+          description: 'Mağaza adı, kapak alanı, profil dili, kategori mantığı ve genel mağaza algısını markanızla uyumlu hale getiririz.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Listeleme ve SEO',
+          description: 'Başlık, açıklama, etiket, kategori, varyasyon ve ürün detaylarını Etsy arama mantığına göre hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Görsel Sunum Sistemi',
+          description: 'Ürün fotoğrafları, kapak görselleri, detay kareleri ve mağaza içi görsel bütünlüğü satış algısını destekleyecek şekilde kurgularız.',
+        },
+        {
+          number: '05',
+          title: 'Yayın, Test ve Optimizasyon',
+          description: 'İlk ürünler yayına alındıktan sonra reklam, fiyat, trafik ve dönüşüm verilerine göre mağaza yapısını test edip geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Etsy Mağazanız İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Etsy hizmeti sonunda yalnızca açılmış bir mağaza değil; ürünlerinizi daha doğru sunan, mağaza bütünlüğünü güçlendiren ve satış sürecini yönetilebilir hale getiren bir yapı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Mağaza Yapısı',
+          description: 'Etsy mağaza profili, kapak alanı, mağaza dili ve genel görünüm markanızla uyumlu şekilde düzenlenir.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Listeleme Kurgusu',
+          description: 'Başlık, açıklama, etiket, kategori, varyasyon ve ürün detayları Etsy arama mantığına uygun şekilde hazırlanır.',
+        },
+        {
+          number: '03',
+          title: 'Görsel Sunum Planı',
+          description: 'Ürün kapak görselleri, detay kareleri, lifestyle görsel ihtiyacı ve mağaza içi görsel bütünlük planlanır.',
+        },
+        {
+          number: '04',
+          title: 'SEO ve Anahtar Kelime Yapısı',
+          description: 'Ürünlerin doğru alıcıya ulaşması için Etsy SEO, etiket yapısı ve kategori mantığı oluşturulur.',
+        },
+        {
+          number: '05',
+          title: 'Reklam ve Test Yol Haritası',
+          description: 'İlk yayın sonrası reklam, fiyat, ürün seçimi ve dönüşüm verileri için izlenecek test süreci belirlenir.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Mağazanın sonraki aşamada nasıl iyileştirileceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Etsy Mağazanız İçin Doğru Satış Sistemini Birlikte Kuralım',
+      description:
+        'Ürünlerinizi, mevcut görsel dilinizi ve hedef müşteri kitlenizi birlikte değerlendirerek Etsy mağazanız için doğru listeleme, sunum, SEO ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'Etsy Hizmet Planı Oluştur',
+      supportText: 'Mağaza Kurulumu • Ürün Listeleme • Etsy SEO • Görsel Sunum • Reklam • Optimizasyon',
+    },
   },
-  {
-    name: 'Etsy',
+  amazon: {
+    eyebrow: 'AMAZON DANIŞMANLIĞI',
+    title: 'Amazon’da Satışa Hazır Ürün ve Mağaza Sistemi Kuruyoruz',
     description:
-      'Etsy’de butik, el yapımı, tasarım ve niş ürünler için mağaza konsepti, ürün sunumu, görsel dil, listeleme ve SEO sistemini kurarız.',
+      'Amazon’da yalnızca ürün listelemek yeterli değildir. Doğru kategori, güçlü ürün sunumu, SEO uyumlu listeleme, fiyatlandırma, reklam ve operasyon yapısı birlikte planlandığında sürdürülebilir bir satış sistemi oluşur.',
+    ctaLabel: 'Amazon Hizmet Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Amazon’da Satış Sistemi Kurmak veya Güçlendirmek İsteyen Markalar İçin',
+      description:
+        'Amazon, doğru ürün seçimi, listeleme kalitesi, reklam yönetimi ve operasyon disiplini isteyen bir pazaryeridir. Ürün, kategori, fiyat, rekabet ve reklam yapısı birlikte planlandığında daha güçlü bir satış zemini oluşur.',
+      cards: [
+        {
+          number: '01',
+          title: 'Üreticiler ve Marka Sahipleri',
+          description: 'Ürünlerini Amazon Türkiye veya global Amazon pazarlarında daha sistemli şekilde satışa açmak isteyen üreticiler için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Amazon’a Doğru Altyapıyla Başlamak İsteyenler',
+          description: 'Hesap açılışı, ürün listeleme, kategori seçimi, SEO ve ilk reklam yapısını baştan doğru kurmak isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Satışı Olan Ama Büyümek İsteyen Markalar',
+          description: 'Mevcut ürünlerini daha doğru listeleme, reklam ve fiyat stratejisiyle geliştirmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Marka Koruma ve Listeleme Sorunu Yaşayanlar',
+          description: 'Ürün sayfası, marka kaydı, yanlış kategori, hatalı listeleme veya başka satıcı sorunları yaşayan markalar için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Amazon’da Ürün Yüklemek Değil, Satış Sistemi Kurmak Gerekir',
+      description:
+        'Birçok marka Amazon’a ürün yükler ama kategori, listeleme kalitesi, fiyat, rekabet, reklam ve operasyon yapısı birlikte çalışmadığında görünürlük ve satış potansiyeli sınırlı kalır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Yetersiz Listeleme Kurgusu',
+          description: 'Başlık, açıklama, bullet point, görsel ve ürün detayları doğru kurgulanmadığında ürün güçlü bir satış algısı oluşturamayabilir.',
+        },
+        {
+          number: '02',
+          title: 'Yanlış Kategori ve Rekabet Konumu',
+          description: 'Ürünün doğru kategori, fiyat aralığı ve rakip yapısı içinde konumlanması satış performansı için kritiktir.',
+        },
+        {
+          number: '03',
+          title: 'Veriye Dayanmayan Reklam Kurgusu',
+          description: 'Amazon reklamları ürün, bütçe, anahtar kelime ve dönüşüm verileriyle birlikte planlanmadığında maliyet artabilir.',
+        },
+        {
+          number: '04',
+          title: 'Operasyon ve Stok Takibi Eksikliği',
+          description: 'Sipariş, stok, teslimat, iade ve müşteri deneyimi süreçleri kontrol edilmediğinde mağaza performansı zayıflayabilir.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Amazon Mağazasını Tek Tek İşler Değil, Bir Satış Sistemi Olarak Kurarız',
+      description:
+        'Amazon’da sürdürülebilir satış için ürün, kategori, listeleme, reklam, fiyatlandırma ve operasyon süreçlerinin birlikte çalışması gerekir. GloventGlobal bu parçaları tek bir satış sistemi içinde kurgular.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Rekabet Analizi',
+          description: 'Ürünün kategori, fiyat, rakip, talep ve kârlılık açısından Amazon’a uygunluğunu değerlendiririz.',
+        },
+        {
+          number: '02',
+          title: 'Listeleme ve SEO Yapısı',
+          description: 'Başlık, bullet point, açıklama, görsel sıralaması ve anahtar kelime yapısını Amazon arama mantığına göre planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Reklam ve Büyüme Kurgusu',
+          description: 'Sponsorlu ürün reklamları, anahtar kelime testleri, bütçe ve dönüşüm verilerini birlikte değerlendiririz.',
+        },
+        {
+          number: '04',
+          title: 'Operasyon ve Performans Takibi',
+          description: 'Stok, sipariş, iade, müşteri deneyimi ve mağaza performansını satış sisteminin parçası olarak ele alırız.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Amazon Mağazanızı Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      description:
+        'Mağaza yayına alındıktan sonra trafik, tıklama, reklam, dönüşüm, stok ve satış sinyallerini birlikte takip ederiz. Amazon mağazasını yalnızca kurulmuş bir vitrin olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
+      note: 'Dashboard görselleri, takip edilen performans metriklerini temsil eden anonimleştirilmiş ekran örnekleridir.',
+      // Dashboard ekranlarında üst metrik satırı (ciro/sales/orders/conversion) çok önemli —
+      // 'cover' bu alanları kırpabileceği için Amazon'da bilerek 'contain' kullanılıyor.
+      imageFit: 'contain',
+      dashboardImages: [
+        '/dashboards/amazon-dashboard-01.jpg',
+        '/dashboards/amazon-dashboard-02.png',
+        '/dashboards/amazon-dashboard-03.jpg',
+        '/dashboards/amazon-dashboard-04.png',
+        '/dashboards/amazon-dashboard-05.webp',
+        '/dashboards/amazon-ads-roas-01.png',
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Amazon Mağazanızı Satışa Hazırlayan Yol Haritası',
+      description:
+        'Amazon mağazasını yalnızca teknik olarak açmakla kalmayız; ürün, kategori, listeleme, reklam ve operasyon sürecini birlikte planlayarak mağazayı yönetilebilir bir satış yapısına dönüştürürüz.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Ürün Analizi',
+          description: 'Ürünlerinizi, hedef pazarınızı, fiyat aralığınızı, rakiplerinizi ve Amazon’a uygunluk durumunu analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Kategori ve Mağaza Kurgusu',
+          description: 'Kategori seçimi, mağaza yapısı, ürün grupları ve satış stratejisini markanızla uyumlu hale getiririz.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Listeleme ve SEO',
+          description: 'Başlık, açıklama, bullet point, görsel sıralaması ve anahtar kelime yapısını Amazon arama mantığına göre hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Reklam ve Yayın Süreci',
+          description: 'İlk ürünler yayına alındıktan sonra reklam, bütçe, anahtar kelime ve dönüşüm verilerine göre test sürecini başlatırız.',
+        },
+        {
+          number: '05',
+          title: 'Takip ve Optimizasyon',
+          description: 'Stok, satış, reklam, trafik ve dönüşüm verilerine göre mağaza yapısını düzenli olarak geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Amazon Mağazanız İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Amazon hizmeti sonunda yalnızca açılmış bir mağaza değil; ürünlerinizi daha doğru konumlandıran, listeleme kalitesini güçlendiren ve satış sürecini yönetilebilir hale getiren bir yapı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Mağaza ve Kategori Yapısı',
+          description: 'Amazon mağaza yapısı, kategori seçimi ve ürün gruplama mantığı markanızla uyumlu şekilde düzenlenir.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Listeleme Kurgusu',
+          description: 'Başlık, bullet point, açıklama, görsel sıralaması, varyasyon ve ürün detayları Amazon arama mantığına uygun şekilde hazırlanır.',
+        },
+        {
+          number: '03',
+          title: 'SEO ve Anahtar Kelime Yapısı',
+          description: 'Ürünlerin doğru alıcıya ulaşması için Amazon SEO, arama terimleri ve kategori yapısı oluşturulur.',
+        },
+        {
+          number: '04',
+          title: 'Reklam Test Yol Haritası',
+          description: 'İlk reklam kampanyaları için ürün, bütçe, anahtar kelime ve dönüşüm odaklı test planı belirlenir.',
+        },
+        {
+          number: '05',
+          title: 'Operasyon Kontrol Planı',
+          description: 'Stok, sipariş, iade, teslimat ve müşteri deneyimi süreçleri için kontrol alanları netleştirilir.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Mağazanın sonraki aşamada nasıl iyileştirileceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği belirlenir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Amazon Mağazanız İçin Doğru Satış Sistemini Birlikte Kuralım',
+      description:
+        'Ürünlerinizi, mevcut satış yapınızı ve hedef pazarınızı birlikte değerlendirerek Amazon mağazanız için doğru listeleme, reklam, operasyon ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'Amazon Hizmet Planı Oluştur',
+      supportText: 'Mağaza Kurulumu • Ürün Listeleme • Amazon SEO • Reklam • Operasyon • Optimizasyon',
+    },
   },
-  {
-    name: 'eBay',
-    description: 'eBay üzerinden farklı pazarlara açılmak isteyen markalar için listeleme, kategori, fiyatlandırma ve satış altyapısını hazırlarız.',
-  },
-  {
-    name: 'Shopify',
+  shopify: {
+    eyebrow: 'SHOPIFY SATIŞ ALTYAPISI',
+    title: 'Markanız İçin Shopify Tabanlı Satış Altyapısı Kuruyoruz',
     description:
-      'Markanın kendi dijital vitrinini kurması için Shopify tabanlı ürün yönetimi, koleksiyon yapısı, satış deneyimi ve büyüme altyapısı oluştururuz.',
+      'Shopify yalnızca bir web sitesi değil; ürün yönetimi, koleksiyon yapısı, ödeme deneyimi, teklif akışı, içerik dili ve büyüme kanallarıyla birlikte çalışan bir satış altyapısıdır.',
+    ctaLabel: 'Shopify Hizmet Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Kendi Satış Kanalını Kurmak veya Güçlendirmek İsteyen Markalar İçin',
+      description:
+        'Shopify, markanın yalnızca pazaryerlerine bağlı kalmadan kendi dijital vitrini, ürün yönetimi ve müşteri deneyimi üzerinden satış sistemi kurmasını sağlar.',
+      cards: [
+        {
+          number: '01',
+          title: 'Kendi Satış Kanalını Kurmak İsteyen Markalar',
+          description: 'Pazaryerlerine ek olarak kendi markasına ait bağımsız bir satış kanalı kurmak isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Yönetimini Merkezileştirmek İsteyenler',
+          description: 'Ürünlerini, koleksiyonlarını, stoklarını ve içeriklerini daha kontrollü bir dijital altyapı üzerinden yönetmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'B2B veya Toptan Satış Yapısı Kurmak İsteyenler',
+          description: 'Dijital katalog, teklif listesi, müşteri odaklı ürün sunumu ve toptan satış akışı oluşturmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Mevcut Sitesini Güçlendirmek İsteyen Markalar',
+          description: 'Mevcut web sitesinde dönüşüm, hız, ürün sunumu, kategori yapısı veya kullanıcı deneyimi sorunları yaşayan markalar için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Shopify’da Başarılı Satış İçin Sadece Site Değil, Sistem Gerekir',
+      description:
+        'Birçok marka Shopify sitesi kurar ama ürün yapısı, kategori mantığı, içerik dili, ödeme deneyimi, teklif akışı ve dönüşüm sistemi birlikte çalışmadığında site satış üreten bir altyapı yerine yalnızca dijital vitrin olarak kalır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Dağınık Ürün ve Kategori Yapısı',
+          description: 'Ürünler, koleksiyonlar ve kategori mantığı doğru kurulmadığında kullanıcıların aradığı ürüne ulaşması zorlaşır.',
+        },
+        {
+          number: '02',
+          title: 'Zayıf Ürün Sunumu',
+          description: 'Görseller, açıklamalar, varyasyonlar ve ürün detayları doğru kurgulanmadığında satış algısı yeterince güçlenmez.',
+        },
+        {
+          number: '03',
+          title: 'Dönüşüm Odaklı Olmayan Altyapı',
+          description: 'Sepet, teklif, ödeme, iletişim ve yönlendirme akışları net değilse ziyaretçi satışa veya başvuruya dönüşmeyebilir.',
+        },
+        {
+          number: '04',
+          title: 'Yönetilebilir Olmayan Sistem',
+          description: 'Ürün ekleme, içerik güncelleme, stok takibi ve kampanya yönetimi kolay değilse marka dijital kanalı sürdürülebilir şekilde kullanamaz.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Shopify Altyapısını Tek Bir Satış Sistemi Olarak Kurgularız',
+      description:
+        'Shopify tarafında yalnızca tasarım veya tema kurulumu yapmayız. Ürün yapısı, koleksiyon mantığı, kullanıcı deneyimi, teklif akışı, içerik dili ve büyüme kanallarını birlikte çalışan bir sistem olarak ele alırız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Satış Modeli Analizi',
+          description: 'Ürün yapısını, hedef müşteriyi, satış kanalını, B2B veya B2C ihtiyacını ve operasyon kapasitesini birlikte değerlendiririz.',
+        },
+        {
+          number: '02',
+          title: 'Mağaza ve Kategori Kurgusu',
+          description: 'Koleksiyonlar, ürün grupları, menü yapısı, filtreleme mantığı ve kullanıcı akışını markaya uygun şekilde planlarız.',
+        },
+        {
+          number: '03',
+          title: 'İçerik ve Ürün Sunumu',
+          description: 'Ürün görselleri, açıklamalar, kategori metinleri, marka dili ve sayfa içeriklerini satış algısını destekleyecek şekilde kurgularız.',
+        },
+        {
+          number: '04',
+          title: 'Dönüşüm ve Yönetim Altyapısı',
+          description: 'Sepet, teklif, iletişim, ödeme, ürün yönetimi ve takip araçlarını yönetilebilir bir satış altyapısı haline getiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Shopify Mağazanızı Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      description:
+        'Mağaza yayına alındıktan sonra trafik, ürün görüntülenmeleri, sepet davranışı, teklif talepleri, dönüşüm ve kanal performansını birlikte takip ederiz. Shopify altyapısını yalnızca kurulmuş bir site olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
+      // Shopify için gerçek dashboard/analytics görselleri henüz hazır değil — Etsy/Amazon'daki
+      // görsel carousel'i taklit eden sahte/placeholder görsel KOYMUYORUZ. Bunun yerine geçici,
+      // metin tabanlı veri kartları kullanılıyor. Gerçek görseller hazır olduğunda buraya sadece
+      // `dashboardImages` eklenmesi yeterli olacak — şablon otomatik olarak görsel moduna geçecek.
+      dataCards: [
+        {
+          title: 'Trafik ve Kanal Kaynakları',
+          description: 'Ziyaretçilerin hangi kanal, kampanya veya yönlendirmeler üzerinden geldiğini takip ederiz.',
+        },
+        {
+          title: 'Ürün Görüntülenmeleri',
+          description: 'Hangi ürünlerin daha fazla ilgi gördüğünü ve hangi ürünlerin güçlendirilmesi gerektiğini analiz ederiz.',
+        },
+        {
+          title: 'Sepet ve Teklif Davranışı',
+          description: 'Sepete ekleme, teklif talebi, iletişim tıklamaları ve dönüşüm sinyallerini değerlendiririz.',
+        },
+        {
+          title: 'İçerik ve Kategori Performansı',
+          description: 'Kategori, koleksiyon, ürün açıklaması ve sayfa içeriklerinin kullanıcı davranışına etkisini takip ederiz.',
+        },
+        {
+          title: 'Optimizasyon Alanları',
+          description: 'Hız, kullanıcı deneyimi, ürün sunumu, kampanya ve dönüşüm akışlarında geliştirilecek alanları belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Shopify Mağazanızı Satışa Hazırlayan Yol Haritası',
+      description:
+        'Shopify mağazasını yalnızca teknik olarak kurmakla kalmayız; ürün, kategori, içerik, kullanıcı deneyimi ve yönetim süreçlerini birlikte planlayarak mağazayı sürdürülebilir bir satış altyapısına dönüştürürüz.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Satış Modeli Analizi',
+          description: 'Markanızı, ürün yapınızı, hedef müşterinizi, satış kanalınızı ve B2B/B2C ihtiyacınızı analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Altyapı ve Mağaza Kurgusu',
+          description: 'Shopify mağaza yapısı, sayfa düzeni, menü, koleksiyon ve ürün yönetim mantığını planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Ürün ve İçerik Sistemi',
+          description: 'Ürün görselleri, açıklamalar, varyasyonlar, kategori içerikleri ve marka anlatımını satışa uygun hale getiririz.',
+        },
+        {
+          number: '04',
+          title: 'Dönüşüm Akışı',
+          description: 'Sepet, ödeme, teklif, iletişim ve yönlendirme adımlarını kullanıcıyı aksiyon almaya götürecek şekilde düzenleriz.',
+        },
+        {
+          number: '05',
+          title: 'Yayın ve Optimizasyon',
+          description: 'Mağaza yayına alındıktan sonra trafik, dönüşüm, ürün ilgisi ve kullanıcı davranışlarına göre sistemi geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Shopify Mağazanız İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Shopify hizmeti sonunda yalnızca açılmış bir web sitesi değil; ürünlerinizi daha doğru sunan, satış akışını netleştiren ve yönetilebilir bir dijital satış altyapısı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Mağaza ve Sayfa Yapısı',
+          description: 'Shopify mağaza yapısı, ana sayfa, kategori, ürün ve temel sayfa düzenleri markanızla uyumlu şekilde hazırlanır.',
+        },
+        {
+          number: '02',
+          title: 'Koleksiyon ve Ürün Kurgusu',
+          description: 'Ürün grupları, koleksiyon yapısı, varyasyonlar, filtreleme mantığı ve ürün sunum akışı oluşturulur.',
+        },
+        {
+          number: '03',
+          title: 'Ürün İçerik Sistemi',
+          description: 'Başlık, açıklama, görsel sıralaması, ürün detayları ve marka dili satış algısını destekleyecek şekilde düzenlenir.',
+        },
+        {
+          number: '04',
+          title: 'Dönüşüm Akışı',
+          description: 'Sepet, ödeme, teklif, iletişim ve yönlendirme yapıları kullanıcıyı satışa veya başvuruya götürecek şekilde kurgulanır.',
+        },
+        {
+          number: '05',
+          title: 'Yönetim Planı',
+          description: 'Ürün ekleme, içerik güncelleme, stok takibi, kampanya ve operasyon süreçleri için yönetilebilir bir yapı hazırlanır.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Mağazanın sonraki aşamada nasıl büyütüleceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği belirlenir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Shopify Mağazanız İçin Doğru Satış Altyapısını Birlikte Kuralım',
+      description:
+        'Ürünlerinizi, mevcut dijital yapınızı ve hedef satış modelinizi birlikte değerlendirerek Shopify mağazanız için doğru ürün, içerik, dönüşüm ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'Shopify Hizmet Planı Oluştur',
+      supportText: 'Mağaza Kurulumu • Ürün Yönetimi • Koleksiyon Yapısı • Dönüşüm Akışı • Teklif Sistemi • Optimizasyon',
+    },
   },
-  {
-    name: 'B2B Dijital Showroom',
+  ebay: {
+    eyebrow: 'EBAY GLOBAL SATIŞ',
+    title: 'eBay’de Farklı Pazarlara Açılan Satış Kanalı Kuruyoruz',
     description:
-      'Toptan satış yapan markalar için ürün katalogları, teklif listeleri, müşteri odaklı sunum alanları ve dijital showroom deneyimi tasarlarız.',
+      'eBay yalnızca ürün listeleme alanı değil; doğru pazar seçimi, kategori yapısı, ürün sunumu, fiyatlandırma, kargo stratejisi ve mağaza güveniyle birlikte çalışan bir global satış kanalıdır.',
+    ctaLabel: 'eBay Hizmet Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'eBay Üzerinden Farklı Pazarlara Açılmak İsteyen Markalar İçin',
+      description:
+        'eBay; farklı ülkelere ürün satmak, niş ürünleri daha geniş alıcı kitlesine ulaştırmak ve pazaryeri üzerinden global satış deneyimi oluşturmak isteyen markalar için güçlü bir kanaldır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Farklı Ülkelere Satış Yapmak İsteyenler',
+          description: 'Ürünlerini yalnızca yerel pazarda değil, farklı ülkelerdeki alıcılara da sunmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Niş Ürün Satan Markalar',
+          description: 'Koleksiyon, yedek parça, aksesuar, özel üretim, el yapımı veya sınırlı ürünlerini doğru alıcı kitlesine ulaştırmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Pazaryeri Deneyimini Genişletmek İsteyenler',
+          description: 'Amazon, Etsy veya Shopify dışında yeni bir satış kanalı kurarak farklı müşteri kitlesine ulaşmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Kargo ve Operasyon Yapısını Planlamak İsteyenler',
+          description: 'Uluslararası gönderim, teslimat süresi, iade, ürün kondisyonu ve müşteri deneyimi süreçlerini doğru planlamak isteyen işletmeler için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'eBay’de Ürün Yayına Almak Değil, Güven Veren Satış Sistemi Kurmak Gerekir',
+      description:
+        'Birçok marka eBay’e ürün yükler ama pazar seçimi, kategori, ürün açıklaması, fiyatlandırma, kargo politikası ve mağaza güveni birlikte planlanmadığında satış potansiyeli sınırlı kalır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Yanlış Pazar ve Kategori Seçimi',
+          description: 'Ürünün doğru ülke, kategori, fiyat aralığı ve rakip yapısı içinde konumlanması satış performansı için kritiktir.',
+        },
+        {
+          number: '02',
+          title: 'Eksik Ürün Sunumu',
+          description: 'Başlık, açıklama, ürün kondisyonu, görsel sıralaması ve teknik detaylar net olmadığında alıcı güveni zayıflayabilir.',
+        },
+        {
+          number: '03',
+          title: 'Plansız Kargo ve İade Politikası',
+          description: 'Uluslararası satışta kargo ücreti, teslimat süresi, iade koşulları ve müşteri beklentileri doğru planlanmadığında dönüşüm düşebilir.',
+        },
+        {
+          number: '04',
+          title: 'Güven Oluşturmayan Mağaza Yapısı',
+          description: 'Mağaza profili, ürün açıklamaları, satış politikaları ve müşteri iletişimi güven vermediğinde alıcı karar süreci zorlaşır.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'eBay Mağazasını Listeleme Değil, Satış Kanalı Olarak Kurgularız',
+      description:
+        'eBay’de sürdürülebilir satış için ürün, pazar, kategori, fiyat, kargo, açıklama ve mağaza güveni birlikte çalışmalıdır. GloventGlobal bu parçaları tek bir satış sistemi içinde ele alır.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Pazar Analizi',
+          description: 'Ürünün hangi ülke, kategori, fiyat aralığı ve alıcı kitlesi için daha uygun olduğunu analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Listeleme ve Mağaza Kurgusu',
+          description: 'Başlık, açıklama, ürün detayları, görsel sıralaması, mağaza profili ve kategori yapısını güven veren bir satış diliyle planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Fiyat ve Kargo Stratejisi',
+          description: 'Ürün fiyatı, kargo maliyeti, teslimat süresi, iade koşulları ve rekabet yapısını birlikte değerlendiririz.',
+        },
+        {
+          number: '04',
+          title: 'Performans ve Optimizasyon',
+          description: 'Görüntülenme, tıklama, satış, mesaj, iade ve mağaza performansı sinyallerine göre satış sistemini geliştiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'eBay Mağazanızı Verilerle Geliştirilen Bir Satış Kanalına Dönüştürüyoruz',
+      description:
+        'Mağaza yayına alındıktan sonra görüntülenme, tıklama, mesaj, satış, kargo ve mağaza performansı sinyallerini birlikte takip ederiz. eBay mağazasını yalnızca kurulmuş bir vitrin olarak değil, verilerle geliştirilen bir satış kanalı olarak ele alırız.',
+      // eBay için gerçek dashboard/analytics görselleri henüz hazır değil — Shopify'daki gibi
+      // geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek görseller hazır olduğunda
+      // buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'Görüntülenme ve Trafik',
+          description: 'Ürünlerin hangi pazarlarda ve hangi arama alanlarında görünürlük aldığını takip ederiz.',
+        },
+        {
+          title: 'Listeleme Performansı',
+          description: 'Başlık, açıklama, görsel, kategori ve ürün detaylarının performansını analiz ederiz.',
+        },
+        {
+          title: 'Fiyat ve Kargo Sinyalleri',
+          description: 'Ürün fiyatı, kargo maliyeti, teslimat süresi ve rekabet yapısının satışa etkisini değerlendiririz.',
+        },
+        {
+          title: 'Mesaj ve Alıcı Davranışı',
+          description: 'Alıcı soruları, teklif talepleri, favoriler ve etkileşim sinyallerini takip ederiz.',
+        },
+        {
+          title: 'Optimizasyon Alanları',
+          description: 'Hangi ürünlerin, açıklamaların, fiyatların veya kargo politikalarının geliştirilmesi gerektiğini belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'eBay Mağazanızı Satışa Hazırlayan Yol Haritası',
+      description:
+        'eBay mağazasını yalnızca teknik olarak açmakla kalmayız; ürün, pazar, kategori, listeleme, fiyat, kargo ve güven yapısını birlikte planlayarak mağazayı yönetilebilir bir satış kanalına dönüştürürüz.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Ürün Analizi',
+          description: 'Ürünlerinizi, hedef pazarınızı, kategori uygunluğunu, fiyat aralığını ve rekabet durumunu analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Pazar ve Kategori Kurgusu',
+          description: 'Hangi ülkelerde, hangi kategori yapısıyla ve hangi satış diliyle ilerlenmesi gerektiğini planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Listeleme Sistemi',
+          description: 'Başlık, açıklama, ürün detayları, görsel sıralaması, kondisyon bilgisi ve anahtar kelime yapısını hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Fiyat, Kargo ve Politika Planı',
+          description: 'Fiyatlandırma, kargo maliyeti, teslimat süresi, iade koşulları ve müşteri beklentilerini satış sistemine dahil ederiz.',
+        },
+        {
+          number: '05',
+          title: 'Yayın ve Optimizasyon',
+          description: 'Ürünler yayına alındıktan sonra görünürlük, tıklama, mesaj, satış ve performans verilerine göre sistemi geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'eBay Mağazanız İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'eBay hizmeti sonunda yalnızca açılmış bir mağaza değil; ürünlerinizi doğru pazarda konumlandıran, listeleme kalitesini güçlendiren ve satış sürecini yönetilebilir hale getiren bir yapı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Mağaza ve Kategori Yapısı',
+          description: 'eBay mağaza yapısı, kategori seçimi, ürün gruplama mantığı ve satış dili markanızla uyumlu şekilde düzenlenir.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Listeleme Kurgusu',
+          description: 'Başlık, açıklama, görsel sıralaması, ürün detayları, kondisyon bilgisi ve anahtar kelime yapısı hazırlanır.',
+        },
+        {
+          number: '03',
+          title: 'Fiyat ve Kargo Planı',
+          description: 'Ürün fiyatlandırması, kargo stratejisi, teslimat süresi, iade koşulları ve rekabet yapısı planlanır.',
+        },
+        {
+          number: '04',
+          title: 'Güven ve Mağaza Politikaları',
+          description: 'Mağaza profili, açıklama dili, iade politikası, teslimat bilgisi ve müşteri iletişimi güven verecek şekilde kurgulanır.',
+        },
+        {
+          number: '05',
+          title: 'Performans Takip Alanları',
+          description: 'Görüntülenme, tıklama, mesaj, satış, iade ve müşteri davranışlarını takip edecek kontrol alanları belirlenir.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Mağazanın sonraki aşamada nasıl iyileştirileceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'eBay Mağazanız İçin Doğru Satış Kanalını Birlikte Kuralım',
+      description:
+        'Ürünlerinizi, mevcut satış yapınızı ve hedef pazarınızı birlikte değerlendirerek eBay mağazanız için doğru listeleme, fiyatlandırma, kargo ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'eBay Hizmet Planı Oluştur',
+      supportText: 'Pazar Seçimi • Ürün Listeleme • Fiyatlandırma • Kargo Stratejisi • Mağaza Güveni • Optimizasyon',
+    },
   },
-];
-
-const platformDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[240ms]', 'delay-[320ms]'];
-
-const serviceCardDelays = [
-  'delay-[0ms]',
-  'delay-[50ms]',
-  'delay-[100ms]',
-  'delay-[150ms]',
-  'delay-[200ms]',
-  'delay-[250ms]',
-  'delay-[300ms]',
-  'delay-[350ms]',
-  'delay-[400ms]',
-  'delay-[450ms]',
-  'delay-[500ms]',
-];
-
-export default function ServicesContent() {
-  const [mounted, setMounted] = useState(false);
-  const [systemRef, systemInView] = useInView<HTMLElement>();
-  const [servicesRef, servicesInView] = useInView<HTMLElement>();
-  const [audienceRef, audienceInView] = useInView<HTMLElement>();
-  const [platformsRef, platformsInView] = useInView<HTMLElement>();
-  const [ctaRef, ctaInView] = useInView<HTMLElement>();
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  // Hero içindeki elementler için kademeli giriş (delay class'ları literal/sabit olmalı —
-  // Tailwind derleme zamanında metni tarayarak class üretir, dinamik string birleştirme çalışmaz).
-  const reveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  // Sistem Mantığı bölümü Hero'nun altında, ekran dışında başlıyor — bu yüzden "mounted"a değil,
-  // bu section'ın gerçekten viewport'a girip girmediğine (systemInView) bağlı, ayrı bir reveal.
-  const systemReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      systemInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  // Hizmet Kartları bölümü, Sistem Mantığı'nın daha da altında — kendi viewport girişine bağlı, ayrı reveal.
-  const servicesReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      servicesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  // "Hangi Marka İçin Hangi Hizmet?" bölümü Hizmet Kartları'nın altında — kendi viewport girişine bağlı, ayrı reveal.
-  const audienceReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  // Platform Bazlı Çözümler bölümü en altta — kendi viewport girişine bağlı, ayrı reveal.
-  const platformsReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      platformsInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  // Final CTA, sayfanın en sonunda — kendi viewport girişine bağlı, ayrı reveal.
-  const ctaReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      ctaInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  return (
-    <main className="relative overflow-hidden bg-[#070d18] font-sans text-white">
-      {/* ============ 1. HİZMETLER HERO ============ */}
-      <section className="relative px-6 pb-14 pt-24 sm:px-10 md:pb-16 md:pt-28">
-        <Glow visible={mounted} targetOpacity="opacity-70" className="left-1/2 top-[-120px] h-[560px] w-[860px] -translate-x-1/2" />
-        <Glow visible={mounted} targetOpacity="opacity-50" className="left-[-200px] top-[200px] h-[380px] w-[380px]" />
-
-        <div className="relative mx-auto max-w-4xl text-center">
-          <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
-            Hizmetler
-          </p>
-          <div className="relative isolate mx-auto mt-8 max-w-3xl">
-            <TitleGlow tone="hero" />
-            <h1
-              className={`relative z-10 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
-                'delay-[200ms]',
-              )}`}
-            >
-              Dijital Satış ve Global Büyüme İçin Uçtan Uca Sistemler
-            </h1>
-          </div>
-          <p
-            className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
-              'delay-[300ms]',
-            )}`}
-          >
-            GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B, sosyal medya, reklam, içerik, operasyon ve otomasyon
-            süreçlerini birbirine bağlayarak markalar için sürdürülebilir dijital satış ve büyüme sistemleri kurar.
-          </p>
-
-          <div className={`mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row ${reveal('delay-[400ms]')}`}>
-            <a
-              href="/iletisim"
-              className="rounded-full border border-blue-400/40 bg-blue-500/10 px-8 py-3 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/70 hover:bg-blue-500/20 hover:shadow-[0_0_30px_-6px_rgba(59,130,246,0.55)]"
-            >
-              Hizmet Planı Oluştur
-            </a>
-            <a
-              href="#system-logic"
-              className="rounded-full border border-white/15 px-8 py-3 text-sm font-semibold tracking-wide text-white/90 transition-colors duration-300 hover:border-white/35 hover:bg-white/5"
-            >
-              Sistem Mantığını Gör
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ 2. SİSTEM MANTIĞI ============ */}
-      <section id="system-logic" ref={systemRef} className="relative px-6 pb-20 pt-14 sm:px-10">
-        <Glow visible={systemInView} targetOpacity="opacity-45" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
-
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${systemReveal('delay-[0ms]')}`}>
-            Sistem Mantığı
-          </p>
-          <div className="relative isolate mx-auto mt-4 max-w-xl">
-            <TitleGlow tone="section" />
-            <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${systemReveal('delay-[100ms]')}`}>
-              Sadece Hizmet Değil, Birbirine Bağlı Satış Sistemi
-            </h2>
-          </div>
-          <p
-            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${systemReveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            Strateji olmadan reklam, içerik olmadan mağaza, altyapı olmadan büyüme sürdürülebilir olmaz.
-            GloventGlobal; pazar analizi, marka konumlandırma, dijital altyapı, içerik üretimi, reklam, operasyon ve
-            otomasyon süreçlerini tek bir satış sistemi mantığıyla birleştirir.
-          </p>
-        </div>
-
-        <div className="relative mx-auto mt-10 grid max-w-5xl items-stretch gap-6 lg:grid-cols-3">
-          {systemPillars.map((pillar, index) => (
-            <div
-              key={pillar.title}
-              className={systemReveal(['delay-[300ms]', 'delay-[380ms]', 'delay-[460ms]'][index])}
-            >
-              <div className="relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.09] bg-white/[0.042] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.065] hover:shadow-[0_0_45px_-12px_rgba(59,130,246,0.5)]">
-                <span
-                  aria-hidden="true"
-                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/60 via-blue-400/20 to-transparent"
-                />
-                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.65)]">
-                  {pillar.number}
-                </span>
-                <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.15em] text-white">{pillar.title}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{pillar.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ 3. HİZMETLERİMİZ (8 hizmet kartı) ============ */}
-      <section id="hizmetlerimiz" ref={servicesRef} className="relative px-6 pb-20 pt-14 sm:px-10">
-        <Glow visible={servicesInView} targetOpacity="opacity-45" className="right-[-200px] top-0 h-[440px] w-[440px]" />
-        <Glow visible={servicesInView} targetOpacity="opacity-35" className="left-[-200px] bottom-0 h-[420px] w-[420px]" />
-
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${servicesReveal('delay-[0ms]')}`}>
-            Hizmetlerimiz
-          </p>
-          <div className="relative isolate mx-auto mt-4 max-w-xl">
-            <TitleGlow tone="section" />
-            <h2
-              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${servicesReveal(
-                'delay-[100ms]',
-              )}`}
-            >
-              Dijital Satış Sistemini Oluşturan Hizmetler
-            </h2>
-          </div>
-          <p
-            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${servicesReveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            Her hizmeti tek başına bir işlem olarak değil, markanızın dijital satış kanallarında sürdürülebilir
-            büyüme üretebilmesi için birbirini tamamlayan sistem parçaları olarak ele alıyoruz.
-          </p>
-        </div>
-
-        {/* 11 kart, 4'lü görünüm için 8 "sanal" sütun (lg:grid-cols-8) + her kart 2 sütun (lg:col-span-2):
-            ilk 8 kart 2 satırı tam dolduruyor (4+4), 9. karta lg:col-start-2 verilince son 3 kart
-            (09/10/11) satırın ortasına simetrik şekilde yerleşiyor — her iki kenarda eşit boşluk kalıyor. */}
-        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
-          {serviceCards.map((service, index) => {
-            const cardClassName =
-              'relative flex h-full min-h-[180px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]';
-
-            const cardContent = (
-              <>
-                <span
-                  aria-hidden="true"
-                  className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
-                />
-                <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-300/80">
-                  {service.tag}
-                </span>
-                <h3 className="mt-2.5 text-base font-semibold text-white">{service.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{service.description}</p>
-                {/* Sadece detay sayfası olan kartlarda (şimdilik tek Etsy) görünen mini CTA pill —
-                    flex-col + mt-auto ile kartın altına sabitleniyor, tasarımı kalabalıklaştırmıyor.
-                    İki satırlı yapı (hizmet adı / "Detayını İncele →") ileride diğer hizmet
-                    kartlarına da aynı şablonla uygulanabilecek standart bir desen oluşturuyor. */}
-                {service.href && (
-                  <span className="mt-5 inline-flex w-fit flex-col items-start gap-0.5 self-start rounded-full border border-blue-400/40 bg-blue-500/10 px-3.5 py-2 text-[11px] font-semibold uppercase leading-tight tracking-[0.12em] text-blue-200 transition-all duration-300 group-hover:border-blue-400/70 group-hover:bg-blue-500/20 group-hover:text-white group-hover:shadow-[0_0_18px_-4px_rgba(59,130,246,0.6)]">
-                    <span>{service.ctaName}</span>
-                    <span>Detayını İncele →</span>
-                  </span>
-                )}
-              </>
-            );
-
-            return (
-              <div
-                key={service.title}
-                className={`${servicesReveal(serviceCardDelays[index])} lg:col-span-2 ${
-                  index === 8 ? 'lg:col-start-2' : ''
-                }`}
-              >
-                {service.href ? (
-                  <a href={service.href} className={`group ${cardClassName}`}>
-                    {cardContent}
-                  </a>
-                ) : (
-                  <div className={cardClassName}>{cardContent}</div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ============ 4. KİMLER İÇİN? (5 segment kartı, 3+2 ortalı) ============ */}
-      <section ref={audienceRef} className="relative px-6 pb-20 pt-14 sm:px-10">
-        <Glow visible={audienceInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[400px] w-[760px] -translate-x-1/2" />
-
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${audienceReveal('delay-[0ms]')}`}>
-            Kimler İçin?
-          </p>
-          <div className="relative isolate mx-auto mt-4 max-w-xl">
-            <TitleGlow tone="section" />
-            <h2
-              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${audienceReveal(
-                'delay-[100ms]',
-              )}`}
-            >
-              Hangi Marka İçin Hangi Sistem Doğru?
-            </h2>
-          </div>
-          <p
-            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${audienceReveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            Her markanın ihtiyacı aynı değildir. GloventGlobal; ürün yapısı, satış kanalı, hedef pazar ve büyüme
-            aşamasına göre doğru hizmet kombinasyonunu belirler.
-          </p>
-        </div>
-
-        {/* 6 sanal sütun (lg:grid-cols-6) + her kart 2 sütun kaplıyor (lg:col-span-2):
-            ilk 3 kart tam satırı dolduruyor (3x2=6), 4. karta lg:col-start-2 verilince
-            5. kart otomatik onun yanına geliyor — son sırada 1 sütunluk boşluk her iki kenarda
-            eşit kalıyor, böylece 2 kart simetrik şekilde ortalanmış oluyor. */}
-        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-6">
-          {audienceSegments.map((segment, index) => (
-            <div
-              key={segment.title}
-              className={`${audienceReveal(audienceDelays[index])} lg:col-span-2 ${
-                index === 3 ? 'lg:col-start-2' : ''
-              }`}
-            >
-              <div className="relative flex h-full min-h-[190px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
-                <span
-                  aria-hidden="true"
-                  className="absolute left-7 right-7 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
-                />
-                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
-                  {segment.number}
-                </span>
-                <h3 className="mt-4 text-base font-semibold text-white">{segment.title}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{segment.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ 5. PLATFORM ÇÖZÜMLERİ (5 platform kartı, 3+2 ortalı) ============
-          Bilinçli olarak Hizmet Kartları'ndan farklı bir kart dili kullanılıyor: numara rozeti yok,
-          platform adı büyük bir "wordmark" gibi öne çıkıyor, altında ince bir ayraç çizgisi var. */}
-      <section ref={platformsRef} className="relative px-6 pb-20 pt-14 sm:px-10">
-        <Glow visible={platformsInView} targetOpacity="opacity-40" className="right-[-200px] top-0 h-[420px] w-[420px]" />
-        <Glow visible={platformsInView} targetOpacity="opacity-30" className="left-[-200px] bottom-0 h-[400px] w-[400px]" />
-
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p
-            className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${platformsReveal(
-              'delay-[0ms]',
-            )}`}
-          >
-            Platform Çözümleri
-          </p>
-          <div className="relative isolate mx-auto mt-4 max-w-xl">
-            <TitleGlow tone="section" />
-            <h2
-              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${platformsReveal(
-                'delay-[100ms]',
-              )}`}
-            >
-              Her Kanal İçin Ayrı, Tek Sistem İçinde Bağlı Çözümler
-            </h2>
-          </div>
-          <p
-            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${platformsReveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            Amazon, Etsy, eBay, Shopify ve B2B dijital yapılar farklı dinamiklere sahiptir. GloventGlobal her kanalı
-            ayrı planlar, ancak tamamını markanın dijital satış ve büyüme sistemi içinde birbirine bağlı şekilde
-            kurgular.
-          </p>
-        </div>
-
-        {/* "Kimler İçin?" bölümündeki aynı 6 sanal sütun + col-span-2 + col-start-2 tekniği — 3+2 ortalı düzen. */}
-        <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-6">
-          {platformSolutions.map((platform, index) => (
-            <div
-              key={platform.name}
-              className={`${platformsReveal(platformDelays[index])} lg:col-span-2 ${
-                index === 3 ? 'lg:col-start-2' : ''
-              }`}
-            >
-              <div className="relative flex h-full min-h-[190px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
-                <span
-                  aria-hidden="true"
-                  className="absolute left-7 right-7 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
-                />
-                <h3 className="text-xl font-bold uppercase tracking-[0.08em] text-white">{platform.name}</h3>
-                <span aria-hidden="true" className="mt-3 h-px w-8 bg-blue-400/45" />
-                <p className="mt-3 text-sm leading-relaxed text-blue-100/75">{platform.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ 6. FİNAL CTA ============ */}
-      <section ref={ctaRef} className="relative px-6 pb-24 pt-14 sm:px-10">
-        <Glow visible={ctaInView} targetOpacity="opacity-55" className="left-1/2 top-0 h-[460px] w-[800px] -translate-x-1/2" />
-
-        <div
-          className={`relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-10 text-center backdrop-blur-sm sm:px-12 sm:py-12 ${ctaReveal(
-            'delay-[0ms]',
-          )}`}
-        >
-          <span
-            aria-hidden="true"
-            className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
-          />
-
-          <div className="relative isolate mx-auto max-w-2xl">
-            <TitleGlow tone="cta" />
-            <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
-              Markanız İçin Doğru Dijital Satış Sistemini Birlikte Belirleyelim
-            </h2>
-          </div>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
-            Ürününüzü, mevcut satış kanallarınızı ve hedeflerinizi analiz ederek GloventGlobal hizmetlerinden
-            hangilerinin markanız için doğru satış ve büyüme sistemini oluşturacağını birlikte planlayalım.
-          </p>
-
-          <p className="mt-6 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
-            Amazon • Etsy • eBay • Shopify • B2B • Sosyal Medya • Reklam • Otomasyon
-          </p>
-
-          <a
-            href="/iletisim"
-            className="mt-9 inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-12 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
-          >
-            Hizmet Planı Oluştur
-          </a>
-        </div>
-      </section>
-    </main>
-  );
-}
+  'b2b-dijital-showroom': {
+    eyebrow: 'B2B DİJİTAL SHOWROOM',
+    title: 'Toptan Satış Yapan Markalar İçin Dijital Showroom Sistemi Kuruyoruz',
+    description:
+      'B2B satışta ürünleri yalnızca listelemek yeterli değildir. Dijital katalog, ürün grupları, teklif listesi, müşteri odaklı sunum ve yönetilebilir ürün altyapısı birlikte çalıştığında daha güçlü bir toptan satış sistemi oluşur.',
+    ctaLabel: 'B2B Showroom Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Toptan Satışını Dijital Ortama Taşımak İsteyen Markalar İçin',
+      description:
+        'B2B Dijital Showroom; ürünlerini müşterilere daha düzenli sunmak, teklif sürecini kolaylaştırmak ve satış ekibinin ürün anlatımını dijital olarak güçlendirmek isteyen markalar için uygundur.',
+      cards: [
+        {
+          number: '01',
+          title: 'Toptan Satış Yapan Markalar',
+          description: 'Ürünlerini bayi, mağaza, distribütör veya kurumsal müşterilere daha düzenli sunmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Fiziksel Showroom’u Dijitale Taşımak İsteyenler',
+          description: 'Mağaza, atölye veya showroom deneyimini dijital katalog ve ürün sunumu ile desteklemek isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Çeşidi Fazla Olan İşletmeler',
+          description: 'Çok sayıda model, kategori, varyasyon veya sezon ürünü olan markaların ürünlerini daha yönetilebilir hale getirir.',
+        },
+        {
+          number: '04',
+          title: 'Teklif ve Sipariş Sürecini Kolaylaştırmak İsteyenler',
+          description: 'Müşterilerin ürün seçmesini, favorilere eklemesini, teklif listesi oluşturmasını veya satış ekibiyle daha hızlı iletişim kurmasını isteyen markalar için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'B2B Satışta Ürün Göstermek Değil, Yönetilebilir Sunum Sistemi Kurmak Gerekir',
+      description:
+        'Birçok marka ürünlerini WhatsApp, PDF, katalog fotoğrafı veya dağınık dosyalarla paylaşır. Ancak ürün yapısı, kategori mantığı, görsel sunum, teklif süreci ve müşteri deneyimi birlikte planlanmadığında satış süreci yavaşlar.',
+      cards: [
+        {
+          number: '01',
+          title: 'Dağınık Ürün Sunumu',
+          description: 'Ürünler farklı dosyalarda, mesajlarda veya kataloglarda kaldığında müşteri doğru ürüne ulaşmakta zorlanabilir.',
+        },
+        {
+          number: '02',
+          title: 'Zayıf Kategori ve Koleksiyon Yapısı',
+          description: 'Kategori, koleksiyon, sezon veya ürün grubu mantığı net değilse ürünlerin algısı ve satış süreci zayıflar.',
+        },
+        {
+          number: '03',
+          title: 'Zorlaşan Teklif Süreci',
+          description: 'Müşterilerin ürün seçimi, adet bilgisi, varyasyon tercihi ve teklif talebi net akmadığında satış ekibinin işi zorlaşır.',
+        },
+        {
+          number: '04',
+          title: 'Yönetilemeyen Ürün Altyapısı',
+          description: 'Ürün ekleme, güncelleme, stok bilgisi, görsel düzenleme ve katalog yönetimi kolay değilse sistem sürdürülebilir olmaz.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'B2B Showroom’u Sadece Katalog Değil, Satış Sistemi Olarak Kurgularız',
+      description:
+        'B2B satışta dijital showroom yalnızca ürünlerin sergilendiği bir sayfa değildir. Ürün yapısı, kategori mantığı, teklif akışı, müşteri deneyimi ve satış ekibinin kullanım kolaylığı birlikte ele alınmalıdır.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Satış Modeli Analizi',
+          description: 'Ürün gruplarını, müşteri tiplerini, satış modelini, kategori yapısını ve teklif sürecini birlikte değerlendiririz.',
+        },
+        {
+          number: '02',
+          title: 'Katalog ve Kategori Kurgusu',
+          description: 'Ürünleri kategori, koleksiyon, sezon, kullanım alanı veya müşteri ihtiyacına göre düzenli bir showroom yapısına yerleştiririz.',
+        },
+        {
+          number: '03',
+          title: 'Teklif ve Müşteri Akışı',
+          description: 'Müşterinin ürün seçmesini, favorilere eklemesini, teklif listesi oluşturmasını ve satış ekibiyle iletişim kurmasını kolaylaştırırız.',
+        },
+        {
+          number: '04',
+          title: 'Yönetim ve Gelişim Altyapısı',
+          description: 'Ürün ekleme, güncelleme, görsel düzenleme, katalog yönetimi ve müşteri geri bildirimlerini sürdürülebilir bir sistem haline getiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'B2B Showroom’unuzu Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      description:
+        'Showroom yayına alındıktan sonra ürün görüntülenmeleri, kategori ilgisi, teklif talepleri, favoriler, müşteri davranışı ve satış ekibi geri bildirimlerini birlikte takip ederiz. Dijital showroom’u yalnızca katalog olarak değil, gelişen bir B2B satış sistemi olarak ele alırız.',
+      // B2B showroom için gerçek dashboard/katalog görselleri henüz hazır değil — Shopify/eBay'deki
+      // gibi geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek görseller hazır
+      // olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'Ürün Görüntülenmeleri',
+          description: 'Hangi ürünlerin daha fazla ilgi gördüğünü ve hangi ürünlerin öne çıkarılması gerektiğini analiz ederiz.',
+        },
+        {
+          title: 'Kategori ve Koleksiyon İlgisi',
+          description: 'Müşterilerin hangi kategori, koleksiyon veya ürün gruplarında daha fazla zaman geçirdiğini takip ederiz.',
+        },
+        {
+          title: 'Teklif Listesi Davranışı',
+          description: 'Müşterilerin hangi ürünleri seçtiğini, hangi ürünleri teklif listesine eklediğini ve hangi gruplarda yoğunlaştığını değerlendiririz.',
+        },
+        {
+          title: 'Müşteri Etkileşimi',
+          description: 'WhatsApp tıklamaları, form talepleri, favoriler ve iletişim davranışlarını satış sürecinin parçası olarak takip ederiz.',
+        },
+        {
+          title: 'Gelişim Alanları',
+          description: 'Hangi ürün gruplarının, görsellerin, kategori yapısının veya teklif akışının geliştirilmesi gerektiğini belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'B2B Showroom’unuzu Satışa Hazırlayan Yol Haritası',
+      description:
+        'Dijital showroom’u yalnızca teknik olarak kurmakla kalmayız; ürün, kategori, müşteri akışı, teklif sistemi ve yönetim altyapısını birlikte planlayarak markaya özel bir B2B satış yapısına dönüştürürüz.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Ürün Analizi',
+          description: 'Ürün gruplarınızı, hedef müşterilerinizi, satış kanalınızı, toptan süreçlerinizi ve mevcut katalog yapınızı analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Katalog ve Showroom Kurgusu',
+          description: 'Kategori, koleksiyon, ürün grubu, filtreleme ve müşteri gezinme yapısını markanızla uyumlu şekilde planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Sunum Sistemi',
+          description: 'Ürün görselleri, açıklamalar, varyasyonlar, ölçü bilgileri, minimum adet veya teklif notlarını showroom mantığına göre hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Teklif ve İletişim Akışı',
+          description: 'Müşterinin ürün seçmesi, teklif listesi oluşturması, satış ekibine ulaşması ve sürecin takip edilmesi için net bir akış kurarız.',
+        },
+        {
+          number: '05',
+          title: 'Yayın ve Optimizasyon',
+          description: 'Showroom yayına alındıktan sonra ürün ilgisi, müşteri davranışı, teklif talepleri ve geri bildirimlere göre sistemi geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'B2B Showroom’unuz İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'B2B Dijital Showroom hizmeti sonunda yalnızca açılmış bir katalog değil; ürünlerinizi düzenli sunan, müşteri seçimini kolaylaştıran ve teklif sürecini yönetilebilir hale getiren bir satış altyapısı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Dijital Katalog Yapısı',
+          description: 'Kategori, koleksiyon, sezon, ürün grubu ve filtreleme mantığı markanızla uyumlu şekilde düzenlenir.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Sunum Kurgusu',
+          description: 'Ürün görselleri, açıklamalar, varyasyonlar, ölçüler, minimum adet ve teknik detaylar düzenli şekilde hazırlanır.',
+        },
+        {
+          number: '03',
+          title: 'Teklif Listesi Akışı',
+          description: 'Müşterilerin ürün seçmesi, favorilere eklemesi, teklif listesi oluşturması ve satış ekibine ulaşması için akış kurgulanır.',
+        },
+        {
+          number: '04',
+          title: 'Müşteri Odaklı Gezinme',
+          description: 'Bayi, mağaza, kurumsal alıcı veya perakende müşterinin ürünleri kolay incelemesi için sayfa yapısı oluşturulur.',
+        },
+        {
+          number: '05',
+          title: 'Yönetim Planı',
+          description: 'Ürün ekleme, güncelleme, kategori düzenleme, kampanya ve sezon yönetimi için sürdürülebilir bir yapı hazırlanır.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Showroom’un sonraki aşamada nasıl geliştirileceği, hangi ürün gruplarının öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'B2B Showroom’unuz İçin Doğru Satış Sistemini Birlikte Kuralım',
+      description:
+        'Ürünlerinizi, mevcut satış sürecinizi ve müşteri yapınızı birlikte değerlendirerek B2B showroom’unuz için doğru katalog, teklif, ürün sunumu ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'B2B Showroom Planı Oluştur',
+      supportText: 'Dijital Katalog • Ürün Sunumu • Teklif Listesi • B2B Akış • Müşteri Deneyimi • Optimizasyon',
+    },
+  },
+};
