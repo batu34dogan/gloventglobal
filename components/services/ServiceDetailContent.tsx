@@ -53,6 +53,31 @@ function Glow({
   );
 }
 
+// Büyük başlıkların arkasına oturan çok hafif, beyaz ağırlıklı/mavi tonlu radial ışık — text-shadow
+// gibi ucuz durmaması için ayrı bir blurlanmış katman olarak, başlığın TAM arkasında, düşük opaklıkta.
+// "strong" sadece Hero'da, "normal" 6 büyük section başlığında, "subtle" sadece Final CTA'da kullanılıyor.
+// Kartlara veya carousel'e dokunmuyor — sadece başlık container'larının (zaten relative olan) içine,
+// negatif z-index ile metnin arkasına ekleniyor.
+function TitleGlow({ intensity }: { intensity: 'strong' | 'normal' | 'subtle' }) {
+  const sizeClass =
+    intensity === 'strong'
+      ? 'h-[220px] w-[460px] sm:h-[260px] sm:w-[560px]'
+      : intensity === 'normal'
+        ? 'h-[160px] w-[360px] sm:h-[190px] sm:w-[440px]'
+        : 'h-[130px] w-[300px] sm:h-[150px] sm:w-[360px]';
+  const opacityClass = intensity === 'strong' ? 'opacity-[0.16]' : intensity === 'normal' ? 'opacity-[0.1]' : 'opacity-[0.07]';
+
+  return (
+    <div
+      aria-hidden="true"
+      className={`pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 ${sizeClass} rounded-full blur-3xl ${opacityClass}`}
+      style={{
+        background: 'radial-gradient(closest-side, rgba(224,238,255,0.95), rgba(59,130,246,0.4) 55%, transparent 80%)',
+      }}
+    />
+  );
+}
+
 export default function ServiceDetailContent({ slug }: { slug: string }) {
   const data = serviceDetails[slug];
   const [mounted, setMounted] = useState(false);
@@ -143,6 +168,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={mounted} targetOpacity="opacity-50" className="left-[-200px] top-[200px] h-[380px] w-[380px]" />
 
         <div className="relative mx-auto max-w-4xl text-center">
+          <TitleGlow intensity="strong" />
           <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
             {data.eyebrow}
           </p>
@@ -184,6 +210,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={audienceInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
+          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${audienceReveal(
               'delay-[0ms]',
@@ -239,6 +266,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={problemInView} targetOpacity="opacity-25" className="left-[-220px] bottom-0 h-[400px] w-[400px]" />
 
         <div className="relative mx-auto max-w-3xl text-center">
+          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${problemReveal(
               'delay-[0ms]',
@@ -297,6 +325,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={approachInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
+          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${approachReveal(
               'delay-[0ms]',
@@ -359,6 +388,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={dataSystemInView} targetOpacity="opacity-35" className="right-[-200px] top-0 h-[400px] w-[400px]" />
 
         <div className="relative mx-auto max-w-3xl text-center">
+          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${dataSystemReveal(
               'delay-[0ms]',
@@ -517,6 +547,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={processInView} targetOpacity="opacity-35" className="right-[-220px] top-0 h-[420px] w-[420px]" />
 
         <div className="relative mx-auto max-w-3xl text-center">
+          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${processReveal(
               'delay-[0ms]',
@@ -574,6 +605,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <Glow visible={deliverablesInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
 
         <div className="relative mx-auto max-w-3xl text-center">
+          <TitleGlow intensity="normal" />
           <p
             className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${deliverablesReveal(
               'delay-[0ms]',
@@ -638,6 +670,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
           />
 
+          <TitleGlow intensity="subtle" />
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{data.finalCta.title}</h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
             {data.finalCta.description}
