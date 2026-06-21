@@ -394,13 +394,23 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
 
               <div className="flex w-max animate-[etsy-data-marquee_52s_linear_infinite] gap-6 motion-reduce:animate-none hover:[animation-play-state:paused]">
                 {[...data.dataSystem.dashboardImages, ...data.dataSystem.dashboardImages].map((src, index) => {
-                  const objectFitClass = data.dataSystem.imageFit === 'contain' ? 'object-contain' : 'object-cover';
+                  const isContain = data.dataSystem.imageFit === 'contain';
+                  const objectFitClass = isContain ? 'object-contain' : 'object-cover';
                   const hasFailed = failedImages.has(src);
+
+                  // "contain" modunda (örn. Amazon, dikey ağırlıklı dashboard görselleri) kart
+                  // hem biraz daha büyük/dikey hem de daha ince/hafif bir çerçeveye sahip — görsel
+                  // koyu kutunun içinde "gömülü" değil, kutunun kendisi gibi hissettiriyor.
+                  // "cover" modu (Etsy) hiç değişmedi: aynı boyut, aynı çerçeve, aynı padding.
+                  const cardSizeClass = isContain ? 'h-[260px] w-[230px]' : 'h-[190px] w-[300px]';
+                  const frameClass = isContain
+                    ? 'border border-white/[0.07] bg-white/[0.02] p-1'
+                    : 'border border-white/[0.1] bg-white/[0.035] p-2';
 
                   return (
                     <div
                       key={`${src}-${index}`}
-                      className="group relative h-[190px] w-[300px] flex-shrink-0 rounded-xl border border-white/[0.1] bg-white/[0.035] p-2 backdrop-blur-sm transition-all duration-500 hover:border-blue-400/45 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.5)]"
+                      className={`group relative ${cardSizeClass} flex-shrink-0 rounded-xl ${frameClass} backdrop-blur-sm transition-all duration-500 hover:border-blue-400/45 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.5)]`}
                     >
                       <div className="relative h-full w-full overflow-hidden rounded-lg bg-[#0a1120]">
                         {hasFailed ? (
