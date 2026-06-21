@@ -433,4 +433,205 @@ export const serviceDetails: Record<
       supportText: 'Mağaza Kurulumu • Ürün Listeleme • Amazon SEO • Reklam • Operasyon • Optimizasyon',
     },
   },
+  shopify: {
+    eyebrow: 'SHOPIFY SATIŞ ALTYAPISI',
+    title: 'Markanız İçin Shopify Tabanlı Dijital Satış Sistemi Kuruyoruz',
+    description:
+      'Shopify yalnızca bir web sitesi değil; ürün yönetimi, koleksiyon yapısı, ödeme deneyimi, teklif akışı, içerik dili ve büyüme kanallarıyla birlikte çalışan bir dijital satış altyapısıdır.',
+    ctaLabel: 'Shopify Hizmet Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Kendi Satış Kanalını Kurmak veya Güçlendirmek İsteyen Markalar İçin',
+      description:
+        'Shopify, markanın yalnızca pazaryerlerine bağlı kalmadan kendi dijital vitrini, ürün yönetimi ve müşteri deneyimi üzerinden satış sistemi kurmasını sağlar.',
+      cards: [
+        {
+          number: '01',
+          title: 'Kendi Web Sitesinden Satış Yapmak İsteyen Markalar',
+          description: 'Pazaryerlerine ek olarak kendi markasına ait bağımsız bir satış kanalı kurmak isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Yönetimini Merkezileştirmek İsteyenler',
+          description: 'Ürünlerini, koleksiyonlarını, stoklarını ve içeriklerini daha kontrollü bir dijital altyapı üzerinden yönetmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'B2B veya Toptan Satış Yapısı Kurmak İsteyenler',
+          description: 'Dijital katalog, teklif listesi, müşteri odaklı ürün sunumu ve toptan satış akışı oluşturmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Mevcut Sitesini Güçlendirmek İsteyen Markalar',
+          description: 'Mevcut web sitesinde dönüşüm, hız, ürün sunumu, kategori yapısı veya kullanıcı deneyimi sorunları yaşayan markalar için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Shopify’da Site Açmak Değil, Satış Altyapısı Kurmak Gerekir',
+      description:
+        'Birçok marka Shopify sitesi kurar ama ürün yapısı, kategori mantığı, içerik dili, ödeme deneyimi, teklif akışı ve dönüşüm sistemi birlikte çalışmadığında site yalnızca dijital bir vitrin olarak kalır.',
+      cards: [
+        {
+          number: '01',
+          title: 'Dağınık Ürün ve Kategori Yapısı',
+          description: 'Ürünler, koleksiyonlar ve kategori mantığı doğru kurulmadığında kullanıcıların aradığı ürüne ulaşması zorlaşır.',
+        },
+        {
+          number: '02',
+          title: 'Zayıf Ürün Sunumu',
+          description: 'Görseller, açıklamalar, varyasyonlar ve ürün detayları doğru kurgulanmadığında satış algısı yeterince güçlenmez.',
+        },
+        {
+          number: '03',
+          title: 'Dönüşüm Odaklı Olmayan Altyapı',
+          description: 'Sepet, teklif, ödeme, iletişim ve yönlendirme akışları net değilse ziyaretçi satışa veya başvuruya dönüşmeyebilir.',
+        },
+        {
+          number: '04',
+          title: 'Yönetilebilir Olmayan Sistem',
+          description: 'Ürün ekleme, içerik güncelleme, stok takibi ve kampanya yönetimi kolay değilse marka dijital kanalı sürdürülebilir şekilde kullanamaz.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Shopify Altyapısını Tek Bir Satış Sistemi Olarak Kurgularız',
+      description:
+        'Shopify tarafında yalnızca tasarım veya tema kurulumu yapmayız. Ürün yapısı, koleksiyon mantığı, kullanıcı deneyimi, teklif akışı, içerik dili ve büyüme kanallarını birlikte çalışan bir sistem olarak ele alırız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Satış Modeli Analizi',
+          description: 'Ürün yapısını, hedef müşteriyi, satış kanalını, B2B veya B2C ihtiyacını ve operasyon kapasitesini birlikte değerlendiririz.',
+        },
+        {
+          number: '02',
+          title: 'Mağaza ve Kategori Kurgusu',
+          description: 'Koleksiyonlar, ürün grupları, menü yapısı, filtreleme mantığı ve kullanıcı akışını markaya uygun şekilde planlarız.',
+        },
+        {
+          number: '03',
+          title: 'İçerik ve Ürün Sunumu',
+          description: 'Ürün görselleri, açıklamalar, kategori metinleri, marka dili ve sayfa içeriklerini satış algısını destekleyecek şekilde kurgularız.',
+        },
+        {
+          number: '04',
+          title: 'Dönüşüm ve Yönetim Altyapısı',
+          description: 'Sepet, teklif, iletişim, ödeme, ürün yönetimi ve takip araçlarını yönetilebilir bir satış altyapısı haline getiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Shopify Mağazanızı Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      description:
+        'Mağaza yayına alındıktan sonra trafik, ürün görüntülenmeleri, sepet davranışı, teklif talepleri, dönüşüm ve kanal performansını birlikte takip ederiz. Shopify altyapısını yalnızca kurulmuş bir site olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
+      // Shopify için gerçek dashboard/analytics görselleri henüz hazır değil — Etsy/Amazon'daki
+      // görsel carousel'i taklit eden sahte/placeholder görsel KOYMUYORUZ. Bunun yerine geçici,
+      // metin tabanlı veri kartları kullanılıyor. Gerçek görseller hazır olduğunda buraya sadece
+      // `dashboardImages` eklenmesi yeterli olacak — şablon otomatik olarak görsel moduna geçecek.
+      dataCards: [
+        {
+          title: 'Trafik ve Kanal Kaynakları',
+          description: 'Ziyaretçilerin hangi kanal, kampanya veya yönlendirmeler üzerinden geldiğini takip ederiz.',
+        },
+        {
+          title: 'Ürün Görüntülenmeleri',
+          description: 'Hangi ürünlerin daha fazla ilgi gördüğünü ve hangi ürünlerin güçlendirilmesi gerektiğini analiz ederiz.',
+        },
+        {
+          title: 'Sepet ve Teklif Davranışı',
+          description: 'Sepete ekleme, teklif talebi, iletişim tıklamaları ve dönüşüm sinyallerini değerlendiririz.',
+        },
+        {
+          title: 'İçerik ve Kategori Performansı',
+          description: 'Kategori, koleksiyon, ürün açıklaması ve sayfa içeriklerinin kullanıcı davranışına etkisini takip ederiz.',
+        },
+        {
+          title: 'Optimizasyon Alanları',
+          description: 'Hız, kullanıcı deneyimi, ürün sunumu, kampanya ve dönüşüm akışlarında geliştirilecek alanları belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Shopify Mağazanızı Satışa Hazırlayan Yol Haritası',
+      description:
+        'Shopify mağazasını yalnızca teknik olarak kurmakla kalmayız; ürün, kategori, içerik, kullanıcı deneyimi ve yönetim süreçlerini birlikte planlayarak mağazayı sürdürülebilir bir satış altyapısına dönüştürürüz.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Satış Modeli Analizi',
+          description: 'Markanızı, ürün yapınızı, hedef müşterinizi, satış kanalınızı ve B2B/B2C ihtiyacınızı analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Altyapı ve Mağaza Kurgusu',
+          description: 'Shopify mağaza yapısı, sayfa düzeni, menü, koleksiyon ve ürün yönetim mantığını planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Ürün ve İçerik Sistemi',
+          description: 'Ürün görselleri, açıklamalar, varyasyonlar, kategori içerikleri ve marka anlatımını satışa uygun hale getiririz.',
+        },
+        {
+          number: '04',
+          title: 'Dönüşüm Akışı',
+          description: 'Sepet, ödeme, teklif, iletişim ve yönlendirme adımlarını kullanıcıyı aksiyon almaya götürecek şekilde düzenleriz.',
+        },
+        {
+          number: '05',
+          title: 'Yayın ve Optimizasyon',
+          description: 'Mağaza yayına alındıktan sonra trafik, dönüşüm, ürün ilgisi ve kullanıcı davranışlarına göre sistemi geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Shopify Mağazanız İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Shopify hizmeti sonunda yalnızca açılmış bir web sitesi değil; ürünlerinizi daha doğru sunan, satış akışını netleştiren ve yönetilebilir bir dijital satış altyapısı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Mağaza ve Sayfa Yapısı',
+          description: 'Shopify mağaza yapısı, ana sayfa, kategori, ürün ve temel sayfa düzenleri markanızla uyumlu şekilde hazırlanır.',
+        },
+        {
+          number: '02',
+          title: 'Koleksiyon ve Ürün Kurgusu',
+          description: 'Ürün grupları, koleksiyon yapısı, varyasyonlar, filtreleme mantığı ve ürün sunum akışı oluşturulur.',
+        },
+        {
+          number: '03',
+          title: 'Ürün İçerik Sistemi',
+          description: 'Başlık, açıklama, görsel sıralaması, ürün detayları ve marka dili satış algısını destekleyecek şekilde düzenlenir.',
+        },
+        {
+          number: '04',
+          title: 'Dönüşüm Akışı',
+          description: 'Sepet, ödeme, teklif, iletişim ve yönlendirme yapıları kullanıcıyı satışa veya başvuruya götürecek şekilde kurgulanır.',
+        },
+        {
+          number: '05',
+          title: 'Yönetim Planı',
+          description: 'Ürün ekleme, içerik güncelleme, stok takibi, kampanya ve operasyon süreçleri için yönetilebilir bir yapı hazırlanır.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Mağazanın sonraki aşamada nasıl büyütüleceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği belirlenir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Shopify Mağazanız İçin Doğru Satış Altyapısını Birlikte Kuralım',
+      description:
+        'Ürünlerinizi, mevcut dijital yapınızı ve hedef satış modelinizi birlikte değerlendirerek Shopify mağazanız için doğru ürün, içerik, dönüşüm ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'Shopify Hizmet Planı Oluştur',
+      supportText: 'Mağaza Kurulumu • Ürün Yönetimi • Koleksiyon Yapısı • Dönüşüm Akışı • Teklif Sistemi • Optimizasyon',
+    },
+  },
 };
