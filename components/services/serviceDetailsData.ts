@@ -261,8 +261,8 @@ export const serviceDetails: Record<
         },
         {
           number: '02',
-          title: 'Amazon’a Yeni Başlayacak İşletmeler',
-          description: 'Hesap açılışı, ürün listeleme, kategori seçimi, SEO ve ilk reklam yapısını doğru kurmak isteyen işletmeler için uygundur.',
+          title: 'Amazon’a Doğru Altyapıyla Başlamak İsteyenler',
+          description: 'Hesap açılışı, ürün listeleme, kategori seçimi, SEO ve ilk reklam yapısını baştan doğru kurmak isteyen işletmeler için uygundur.',
         },
         {
           number: '03',
@@ -284,8 +284,8 @@ export const serviceDetails: Record<
       cards: [
         {
           number: '01',
-          title: 'Zayıf Listeleme Yapısı',
-          description: 'Başlık, açıklama, bullet point, görsel ve ürün detayları doğru kurgulanmadığında ürün güçlü görünmeyebilir.',
+          title: 'Yetersiz Listeleme Kurgusu',
+          description: 'Başlık, açıklama, bullet point, görsel ve ürün detayları doğru kurgulanmadığında ürün güçlü bir satış algısı oluşturamayabilir.',
         },
         {
           number: '02',
@@ -294,7 +294,7 @@ export const serviceDetails: Record<
         },
         {
           number: '03',
-          title: 'Plansız Reklam Yönetimi',
+          title: 'Veriye Dayanmayan Reklam Kurgusu',
           description: 'Amazon reklamları ürün, bütçe, anahtar kelime ve dönüşüm verileriyle birlikte planlanmadığında maliyet artabilir.',
         },
         {
@@ -347,19 +347,19 @@ export const serviceDetails: Record<
           description: 'Ürünlerin hangi arama ve kategori alanlarında görünürlük aldığını takip ederiz.',
         },
         {
-          title: 'Reklam Verileri',
+          title: 'Reklam Performansı',
           description: 'Tıklama, bütçe, anahtar kelime ve dönüşüm sinyallerini birlikte değerlendiririz.',
         },
         {
-          title: 'Listeleme Performansı',
+          title: 'Listeleme Kalitesi',
           description: 'Başlık, görsel, bullet point ve açıklama yapısının etkisini analiz ederiz.',
         },
         {
-          title: 'Stok ve Operasyon',
+          title: 'Stok ve Operasyon Takibi',
           description: 'Stok, sipariş, iade ve teslimat süreçlerini satış performansının parçası olarak takip ederiz.',
         },
         {
-          title: 'Optimizasyon Alanları',
+          title: 'Gelişim Alanları',
           description: 'Hangi ürünlerin, fiyatların, reklamların veya içerik alanlarının geliştirilmesi gerektiğini belirleriz.',
         },
       ],
