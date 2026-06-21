@@ -434,6 +434,17 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           </p>
         </div>
 
+        {/* Marquee için @keyframes — globals.css'e dokunmamak için component içinde tanımlı, ana
+            sayfadaki brand-marquee'den bağımsız, farklı bir isimle. Koşulsuz/ortak burada
+            tanımlanıyor ki hem görsel carousel (Etsy/Amazon) hem metin kartı şeridi (Shopify)
+            aynı keyframe'i kullanabilsin — hangi dal render olursa olsun erişilebilir. */}
+        <style>{`
+          @keyframes etsy-data-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+        `}</style>
+
         {data.dataSystem.dashboardImages && data.dataSystem.dashboardImages.length > 0 ? (
           <>
             {/* Kayan görsel şeridi — diğer bölümlerle (Kimler İçin, Sistem Eksikleri, Hazırlanan Sistem)
@@ -514,29 +525,27 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
                 {data.dataSystem.note}
               </p>
             )}
-
-            {/* Marquee için @keyframes — globals.css'e dokunmamak için component içinde tanımlı,
-                ana sayfadaki brand-marquee'den bağımsız, farklı bir isimle. */}
-            <style>{`
-              @keyframes etsy-data-marquee {
-                from { transform: translateX(0); }
-                to { transform: translateX(-50%); }
-              }
-            `}</style>
           </>
         ) : (
           data.dataSystem.dataCards && (
-            // Geçici metin kartı grid'i — görseller hazır olana kadar. 6 sanal sütun + col-span-2 +
-            // col-start-2 ile 5 kart 3+2 simetrik ortalanıyor (sitede zaten kanıtlanmış teknik).
-            <div className="relative mx-auto mt-10 grid max-w-6xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-6">
-              {data.dataSystem.dataCards.map((card, index) => (
-                <div
-                  key={card.title}
-                  className={`${dataSystemReveal(
-                    ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]'][index] ?? 'delay-[0ms]',
-                  )} lg:col-span-2 ${index === 3 ? 'lg:col-start-2' : ''}`}
-                >
-                  <div className="relative flex h-full min-h-[140px] flex-col justify-start rounded-xl border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.45)]">
+            // Sabit grid yerine yatay kayan şerit — Etsy/Amazon'daki görsel carousel ile aynı
+            // teknik (max-w-6xl sınırı, yumuşak fade mask, dizi 2x tekrarla kesintisiz döngü),
+            // ama görsel yerine mevcut metin kartları kullanılıyor. İçerik/ikon/metin AYNI kaldı,
+            // sadece sunum sabit grid'den kayan şeride döndü.
+            <div className="relative mx-auto mt-10 max-w-6xl overflow-hidden">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#070d18]/70 via-[#070d18]/25 to-transparent sm:w-36" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#070d18]/70 via-[#070d18]/25 to-transparent sm:w-36" />
+
+              <div
+                className={`flex w-max animate-[etsy-data-marquee_46s_linear_infinite] gap-6 motion-reduce:animate-none hover:[animation-play-state:paused] ${dataSystemReveal(
+                  'delay-[300ms]',
+                )}`}
+              >
+                {[...data.dataSystem.dataCards, ...data.dataSystem.dataCards].map((card, index) => (
+                  <div
+                    key={`${card.title}-${index}`}
+                    className="relative flex h-[150px] w-[260px] flex-shrink-0 flex-col justify-start rounded-xl border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.45)]"
+                  >
                     <span
                       aria-hidden="true"
                       className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
@@ -553,8 +562,8 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
                     <h3 className="mt-3 text-sm font-semibold text-white">{card.title}</h3>
                     <p className="mt-1.5 text-xs leading-relaxed text-blue-100/65">{card.description}</p>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           )
         )}
