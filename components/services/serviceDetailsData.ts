@@ -836,13 +836,13 @@ export const serviceDetails: Record<
   },
   'b2b-dijital-showroom': {
     eyebrow: 'B2B DİJİTAL SHOWROOM',
-    title: 'Toptan Satış Yapan Markalar İçin Dijital Showroom Sistemi Kuruyoruz',
+    title: 'Toptan Satış Yapan Markalar İçin Dijital Showroom Kuruyoruz',
     description:
       'B2B satışta ürünleri yalnızca listelemek yeterli değildir. Dijital katalog, ürün grupları, teklif listesi, müşteri odaklı sunum ve yönetilebilir ürün altyapısı birlikte çalıştığında daha güçlü bir toptan satış sistemi oluşur.',
     ctaLabel: 'B2B Showroom Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
-      title: 'Toptan Satışını Dijital Ortama Taşımak İsteyen Markalar İçin',
+      title: 'Toptan Satışını Dijitalleştirmek İsteyen Markalar İçin',
       description:
         'B2B Dijital Showroom; ürünlerini müşterilere daha düzenli sunmak, teklif sürecini kolaylaştırmak ve satış ekibinin ürün anlatımını dijital olarak güçlendirmek isteyen markalar için uygundur.',
       cards: [
@@ -870,7 +870,7 @@ export const serviceDetails: Record<
     },
     problem: {
       eyebrow: 'SİSTEM EKSİKLERİ',
-      title: 'B2B Satışta Ürün Göstermek Değil, Yönetilebilir Sunum Sistemi Kurmak Gerekir',
+      title: 'B2B Satışta Ürün Göstermek Değil, Yönetilebilir Satış Sunumu Kurmak Gerekir',
       description:
         'Birçok marka ürünlerini WhatsApp, PDF, katalog fotoğrafı veya dağınık dosyalarla paylaşır. Ancak ürün yapısı, kategori mantığı, görsel sunum, teklif süreci ve müşteri deneyimi birlikte planlanmadığında satış süreci yavaşlar.',
       cards: [
