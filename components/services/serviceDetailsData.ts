@@ -53,6 +53,10 @@ export const serviceDetails: Record<
       // Gerçek dashboard görselleri hazır olan hizmetlerde dolu, görsel yokken boş/yok bırakılır.
       note?: string;
       dashboardImages?: string[];
+      // Görselin kart içine nasıl sığacağı. Belirtilmezse 'cover' (Etsy'nin mevcut davranışı,
+      // dokunulmadı). Dashboard ekranlarında üst metrik satırının kırpılmaması gerektiğinde
+      // 'contain' kullanılır (örn. Amazon) — görselin tamamı görünür, kart zemini koyu kalır.
+      imageFit?: 'cover' | 'contain';
       // Görsel henüz hazır olmayan hizmetler için geçici, metin tabanlı veri kartları. Görseller
       // eklendiğinde bu alanın silinmesi yeterli — şablon otomatik olarak görsel moduna döner.
       dataCards?: { title: string; description: string }[];
@@ -338,6 +342,9 @@ export const serviceDetails: Record<
       description:
         'Mağaza yayına alındıktan sonra trafik, tıklama, reklam, dönüşüm, stok ve satış sinyallerini birlikte takip ederiz. Amazon mağazasını yalnızca kurulmuş bir vitrin olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
       note: 'Dashboard görselleri, takip edilen performans metriklerini temsil eden anonimleştirilmiş ekran örnekleridir.',
+      // Dashboard ekranlarında üst metrik satırı (ciro/sales/orders/conversion) çok önemli —
+      // 'cover' bu alanları kırpabileceği için Amazon'da bilerek 'contain' kullanılıyor.
+      imageFit: 'contain',
       dashboardImages: [
         '/dashboards/amazon-dashboard-01.jpg',
         '/dashboards/amazon-dashboard-02.png',

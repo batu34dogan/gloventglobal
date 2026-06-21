@@ -60,6 +60,9 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const [problemRef, problemInView] = useInView<HTMLElement>();
   const [approachRef, approachInView] = useInView<HTMLElement>();
   const [dataSystemRef, dataSystemInView] = useInView<HTMLElement>();
+  // Bir görsel yüklenemezse (yanlış dosya adı, eksik dosya vb.) src'sini buraya ekleyip o kartı
+  // çirkin "kırık görsel + alt text" yerine zarif bir koyu placeholder ile gösteriyoruz.
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
   const [processRef, processInView] = useInView<HTMLElement>();
   const [deliverablesRef, deliverablesInView] = useInView<HTMLElement>();
   const [ctaRef, ctaInView] = useInView<HTMLElement>();
@@ -390,24 +393,42 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
               <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#070d18]/70 via-[#070d18]/25 to-transparent sm:w-36" />
 
               <div className="flex w-max animate-[etsy-data-marquee_52s_linear_infinite] gap-6 motion-reduce:animate-none hover:[animation-play-state:paused]">
-                {[...data.dataSystem.dashboardImages, ...data.dataSystem.dashboardImages].map((src, index) => (
-                  <div
-                    key={`${src}-${index}`}
-                    className="group relative h-[190px] w-[300px] flex-shrink-0 rounded-xl border border-white/[0.1] bg-white/[0.035] p-2 backdrop-blur-sm transition-all duration-500 hover:border-blue-400/45 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.5)]"
-                  >
-                    <div className="relative h-full w-full overflow-hidden rounded-lg bg-[#0a1120]">
-                      <Image
-                        src={src}
-                        alt="Mağaza performans panelinden anonimleştirilmiş örnek görünüm"
-                        fill
-                        sizes="300px"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      />
-                      {/* Görselin koyu site zeminine karşı sert patlamaması için hafif üst-alt karartma. */}
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070d18]/35 via-transparent to-[#070d18]/10" />
+                {[...data.dataSystem.dashboardImages, ...data.dataSystem.dashboardImages].map((src, index) => {
+                  const objectFitClass = data.dataSystem.imageFit === 'contain' ? 'object-contain' : 'object-cover';
+                  const hasFailed = failedImages.has(src);
+
+                  return (
+                    <div
+                      key={`${src}-${index}`}
+                      className="group relative h-[190px] w-[300px] flex-shrink-0 rounded-xl border border-white/[0.1] bg-white/[0.035] p-2 backdrop-blur-sm transition-all duration-500 hover:border-blue-400/45 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.5)]"
+                    >
+                      <div className="relative h-full w-full overflow-hidden rounded-lg bg-[#0a1120]">
+                        {hasFailed ? (
+                          // Görsel yüklenemedi — tarayıcının çirkin kırık ikon + alt text gösterimi
+                          // yerine, kartın kendi koyu/glass diliyle uyumlu sade bir yer tutucu.
+                          <div className="flex h-full w-full items-center justify-center">
+                            <span className="h-1.5 w-10 rounded-full bg-blue-400/25" />
+                          </div>
+                        ) : (
+                          <Image
+                            src={src}
+                            alt="Mağaza performans panelinden anonimleştirilmiş örnek görünüm"
+                            fill
+                            sizes="300px"
+                            className={`${objectFitClass} transition-transform duration-500 group-hover:scale-[1.03]`}
+                            onError={() => setFailedImages((previous) => new Set(previous).add(src))}
+                          />
+                        )}
+                        {/* Görselin koyu site zeminine karşı sert patlamaması için hafif üst-alt karartma.
+                            object-contain kullanıldığında (örn. Amazon) metrik alanlarını gizlememesi için
+                            bu karartma zaten çok hafif tutulmuştu, değişmedi. */}
+                        {!hasFailed && (
+                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070d18]/35 via-transparent to-[#070d18]/10" />
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
