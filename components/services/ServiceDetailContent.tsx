@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { serviceDetails } from './serviceDetailsData';
 
 // Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
@@ -347,10 +348,12 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* ============ VERİYLE YÖNETİLEN ETSY SİSTEMİ ============
-          Kısa, veri-odaklı bir "dashboard hissi" bölümü — gerçek/sahte sayı veya metrik YOK,
-          sadece açıklayıcı metin + dekoratif sinyal çubukları (stilize, "temsili sistem kartı" gibi).
-          Kayan şerit ana sayfanın marka marquee'siyle aynı teknik (bağımsız kopya, kendi keyframe'i),
-          overflow-hidden konteyner içinde olduğu için mobilde de sayfa düzeyinde taşma oluşturmaz. */}
+          Artık küçük metrik kartları yerine 5 gerçek dashboard görseli — her biri koyu glass bir
+          çerçeve içinde (görsel siteye karşı sert "patlamıyor"), kenarlarda yumuşak fade mask,
+          hover'da hafif büyüme. Kayan şerit ana sayfanın marka marquee'siyle aynı teknik (bağımsız
+          kopya, kendi keyframe'i), overflow-hidden konteyner içinde olduğu için mobilde de sayfa
+          düzeyinde taşma oluşturmaz. Görseller garanti/sonuç iddiası taşımıyor, sadece küçük bir
+          açıklayıcı not eşliğinde "performans takip ediliyor" hissini veriyor. */}
       <section ref={dataSystemRef} className="relative px-6 pb-20 pt-14 sm:px-10">
         <Glow visible={dataSystemInView} targetOpacity="opacity-35" className="right-[-200px] top-0 h-[400px] w-[400px]" />
 
@@ -378,38 +381,44 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           </p>
         </div>
 
-        {/* Kayan kart şeridi — section'ın tam genişliğini kullanır (kenar fade mask için mx-auto/max-w dışında). */}
+        {/* Kayan görsel şeridi — diğer bölümlerle (Kimler İçin, Sistem Eksikleri, Hazırlanan Sistem)
+            aynı max-w-6xl sınırına oturtuldu, böylece kesilme/fade her zaman kontrollü bir yerde oluyor. */}
         <div
-          className={`relative mt-10 overflow-hidden ${dataSystemReveal('delay-[300ms]')}`}
+          className={`relative mx-auto mt-10 max-w-6xl overflow-hidden ${dataSystemReveal('delay-[300ms]')}`}
         >
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#070d18] to-transparent opacity-40 sm:w-24 sm:opacity-100" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[#070d18] to-transparent opacity-40 sm:w-24 sm:opacity-100" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#070d18] via-[#070d18]/80 to-transparent sm:w-36" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#070d18] via-[#070d18]/80 to-transparent sm:w-36" />
 
-          <div className="flex w-max animate-[etsy-data-marquee_38s_linear_infinite] gap-5 motion-reduce:animate-none hover:[animation-play-state:paused]">
-            {[...data.dataSystem.signals, ...data.dataSystem.signals].map((signal, index) => (
+          <div className="flex w-max animate-[etsy-data-marquee_52s_linear_infinite] gap-6 motion-reduce:animate-none hover:[animation-play-state:paused]">
+            {[...data.dataSystem.dashboardImages, ...data.dataSystem.dashboardImages].map((src, index) => (
               <div
-                key={`${signal.title}-${index}`}
-                className="flex h-[150px] w-[230px] flex-shrink-0 flex-col justify-start rounded-xl border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.45)]"
+                key={`${src}-${index}`}
+                className="group relative h-[190px] w-[300px] flex-shrink-0 rounded-xl border border-white/[0.1] bg-white/[0.035] p-2 backdrop-blur-sm transition-all duration-500 hover:border-blue-400/45 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.5)]"
               >
-                <span
-                  aria-hidden="true"
-                  className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
-                />
-                {/* Dekoratif sinyal çubukları — gerçek/sahte veri değil, sadece "dashboard" hissi
-                    veren stilize bir görsel motif. Hiçbir sayı/etiket yok. */}
-                <div aria-hidden="true" className="flex items-end gap-1">
-                  <span className="h-3 w-1 rounded-full bg-blue-400/40" />
-                  <span className="h-5 w-1 rounded-full bg-blue-400/60" />
-                  <span className="h-4 w-1 rounded-full bg-blue-400/50" />
-                  <span className="h-6 w-1 rounded-full bg-blue-400/70" />
-                  <span className="h-3.5 w-1 rounded-full bg-blue-400/45" />
+                <div className="relative h-full w-full overflow-hidden rounded-lg bg-[#0a1120]">
+                  <Image
+                    src={src}
+                    alt="Etsy mağaza performans panelinden anonimleştirilmiş örnek görünüm"
+                    fill
+                    sizes="300px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  {/* Görselin koyu site zeminine karşı sert patlamaması için hafif üst-alt karartma. */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070d18]/35 via-transparent to-[#070d18]/10" />
                 </div>
-                <h3 className="mt-3 text-sm font-semibold text-white">{signal.title}</h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-blue-100/65">{signal.description}</p>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Küçük, sakin açıklayıcı not — dikkat çekmeyen ama görünür. */}
+        <p
+          className={`relative mx-auto mt-6 max-w-lg text-center text-xs leading-relaxed text-blue-100/40 ${dataSystemReveal(
+            'delay-[400ms]',
+          )}`}
+        >
+          {data.dataSystem.note}
+        </p>
 
         {/* Marquee için @keyframes — globals.css'e dokunmamak için component içinde tanımlı,
             ana sayfadaki brand-marquee'den bağımsız, farklı bir isimle. */}

@@ -50,7 +50,8 @@ export const serviceDetails: Record<
       eyebrow: string;
       title: string;
       description: string;
-      signals: { title: string; description: string }[];
+      note: string;
+      dashboardImages: string[];
     };
   }
 > = {
@@ -149,27 +150,13 @@ export const serviceDetails: Record<
       title: 'Etsy Mağazanızı Yayına Alıp Bırakmıyoruz',
       description:
         'Mağaza yayına alındıktan sonra görüntülenme, tıklama, favori, reklam, fiyat ve dönüşüm sinyalleri birlikte takip edilmelidir. Etsy sistemini yalnızca kurulan bir mağaza olarak değil, verilerle geliştirilen bir satış yapısı olarak ele alırız.',
-      signals: [
-        {
-          title: 'Görüntülenme Sinyalleri',
-          description: 'Ürünlerin hangi listelemelerde daha fazla görünürlük aldığını takip ederiz.',
-        },
-        {
-          title: 'Favori ve Sepet Davranışı',
-          description: 'Alıcı ilgisini gösteren favori, sepet ve ürün etkileşimlerini değerlendiririz.',
-        },
-        {
-          title: 'Reklam Testleri',
-          description: 'İlk reklam verilerini ürün, bütçe, tıklama ve dönüşüm sinyallerine göre okuruz.',
-        },
-        {
-          title: 'Listeleme Performansı',
-          description: 'Başlık, görsel, açıklama ve etiket yapısının performansını analiz ederiz.',
-        },
-        {
-          title: 'Optimizasyon Alanları',
-          description: 'Hangi ürünlerin, görsellerin veya fiyat aralıklarının geliştirilmesi gerektiğini belirleriz.',
-        },
+      note: 'Dashboard görselleri, takip edilen performans metriklerini temsil eden anonimleştirilmiş ekran örnekleridir.',
+      dashboardImages: [
+        '/dashboards/etsy-dashboard-01.jpg',
+        '/dashboards/etsy-dashboard-02.webp',
+        '/dashboards/etsy-dashboard-03.jpg',
+        '/dashboards/etsy-dashboard-04.jpg',
+        '/dashboards/etsy-dashboard-05.webp',
       ],
     },
     process: {
