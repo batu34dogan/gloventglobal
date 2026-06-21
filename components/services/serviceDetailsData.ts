@@ -34,6 +34,12 @@ export const serviceDetails: Record<
       description: string;
       steps: { number: string; title: string; description: string }[];
     };
+    deliverables: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      items: { number: string; title: string; description: string }[];
+    };
   }
 > = {
   etsy: {
@@ -156,6 +162,44 @@ export const serviceDetails: Record<
           number: '05',
           title: 'Yayın, Test ve Optimizasyon',
           description: 'İlk ürünler yayına alındıktan sonra reklam, fiyat, trafik ve dönüşüm verilerine göre mağaza yapısını test edip geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'TESLİM / ÇIKTILAR',
+      title: 'Etsy Mağazanız İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Etsy hizmeti sonunda yalnızca açılmış bir mağaza değil; ürünlerinizi daha doğru sunan, mağaza bütünlüğünü güçlendiren ve satış sürecini yönetilebilir hale getiren bir yapı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Mağaza Yapısı',
+          description: 'Etsy mağaza profili, kapak alanı, mağaza dili ve genel görünüm markanızla uyumlu şekilde düzenlenir.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Listeleme Kurgusu',
+          description: 'Başlık, açıklama, etiket, kategori, varyasyon ve ürün detayları Etsy arama mantığına uygun şekilde hazırlanır.',
+        },
+        {
+          number: '03',
+          title: 'Görsel Sunum Planı',
+          description: 'Ürün kapak görselleri, detay kareleri, lifestyle görsel ihtiyacı ve mağaza içi görsel bütünlük planlanır.',
+        },
+        {
+          number: '04',
+          title: 'SEO ve Anahtar Kelime Yapısı',
+          description: 'Ürünlerin doğru alıcıya ulaşması için Etsy SEO, etiket yapısı ve kategori mantığı oluşturulur.',
+        },
+        {
+          number: '05',
+          title: 'Reklam ve Test Yol Haritası',
+          description: 'İlk yayın sonrası reklam, fiyat, ürün seçimi ve dönüşüm verileri için izlenecek test süreci belirlenir.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Mağazanın sonraki aşamada nasıl iyileştirileceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
         },
       ],
     },
