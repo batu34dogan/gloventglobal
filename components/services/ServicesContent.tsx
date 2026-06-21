@@ -155,6 +155,8 @@ const serviceCards = [
     tag: '10 OTOMASYON',
     title: 'Otomasyon & n8n Sistemleri',
     description: 'Form, teklif, müşteri, ürün, sipariş ve raporlama süreçlerini n8n, API ve entegrasyon yapılarıyla birbirine bağlayan otomasyon sistemleri kurarız.',
+    href: '/hizmetler/otomasyon-n8n',
+    ctaName: 'Otomasyon',
   },
   {
     tag: '11 STRATEJİ',
