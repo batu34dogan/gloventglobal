@@ -386,8 +386,8 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <div
           className={`relative mx-auto mt-10 max-w-6xl overflow-hidden ${dataSystemReveal('delay-[300ms]')}`}
         >
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#070d18] via-[#070d18]/80 to-transparent sm:w-36" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#070d18] via-[#070d18]/80 to-transparent sm:w-36" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#070d18]/70 via-[#070d18]/25 to-transparent sm:w-36" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#070d18]/70 via-[#070d18]/25 to-transparent sm:w-36" />
 
           <div className="flex w-max animate-[etsy-data-marquee_52s_linear_infinite] gap-6 motion-reduce:animate-none hover:[animation-play-state:paused]">
             {[...data.dataSystem.dashboardImages, ...data.dataSystem.dashboardImages].map((src, index) => (
@@ -413,7 +413,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
 
         {/* Küçük, sakin açıklayıcı not — dikkat çekmeyen ama görünür. */}
         <p
-          className={`relative mx-auto mt-6 max-w-lg text-center text-xs leading-relaxed text-blue-100/40 ${dataSystemReveal(
+          className={`relative mx-auto mt-3 max-w-lg text-center text-xs leading-relaxed text-blue-100/40 ${dataSystemReveal(
             'delay-[400ms]',
           )}`}
         >
