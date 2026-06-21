@@ -93,6 +93,8 @@ const serviceCards = [
     tag: '04 SHOPIFY',
     title: 'Shopify Satış Altyapısı',
     description: 'Markanıza özel vitrin, ürün yönetimi, koleksiyon yapısı, ödeme ve satış deneyimi için Shopify altyapısı kurarız.',
+    href: '/hizmetler/shopify',
+    ctaName: 'Shopify',
   },
   {
     tag: '05 B2B',
