@@ -1664,14 +1664,14 @@ export const serviceDetails: Record<
         },
         {
           number: '04',
-          title: 'Karar Süreçlerini Veriye Dayalı Güçlendirmek İsteyenler',
+          title: 'Veriye Dayalı Karar Süreçlerini Güçlendirmek İsteyenler',
           description: 'Pazar, ürün, reklam, içerik ve müşteri verilerini daha anlamlı yorumlamak isteyen ekipler için yapay zeka destekli karar sistemleri oluşturulur.',
         },
       ],
     },
     problem: {
       eyebrow: 'SİSTEM EKSİKLERİ',
-      title: 'Yapay Zeka Kullanmak Değil, İşe Entegre Etmek Gerekir',
+      title: 'Yapay Zeka Kullanmak Değil, İş Sürecine Entegre Etmek Gerekir',
       description:
         'Birçok marka yapay zekayı tekil içerik üretimi veya rastgele araç kullanımı olarak görür. Ancak ürün verisi, satış kanalı, operasyon akışı, müşteri ihtiyacı ve karar süreciyle bağlantı kurulmadığında yapay zeka sürdürülebilir fayda üretmez.',
       cards: [
@@ -1710,7 +1710,7 @@ export const serviceDetails: Record<
         },
         {
           number: '02',
-          title: 'AI Kullanım Alanı Kurgusu',
+          title: 'AI Kullanım Alanlarının Belirlenmesi',
           description: 'Görsel konsept, ürün açıklaması, listeleme, SEO, raporlama, müşteri sınıflandırma, veri analizi veya operasyon desteği için uygun kullanım alanlarını belirleriz.',
         },
         {
