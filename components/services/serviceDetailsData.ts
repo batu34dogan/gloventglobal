@@ -834,4 +834,204 @@ export const serviceDetails: Record<
       supportText: 'Pazar Seçimi • Ürün Listeleme • Fiyatlandırma • Kargo Stratejisi • Mağaza Güveni • Optimizasyon',
     },
   },
+  'b2b-dijital-showroom': {
+    eyebrow: 'B2B DİJİTAL SHOWROOM',
+    title: 'Toptan Satış Yapan Markalar İçin Dijital Showroom Sistemi Kuruyoruz',
+    description:
+      'B2B satışta ürünleri yalnızca listelemek yeterli değildir. Dijital katalog, ürün grupları, teklif listesi, müşteri odaklı sunum ve yönetilebilir ürün altyapısı birlikte çalıştığında daha güçlü bir toptan satış sistemi oluşur.',
+    ctaLabel: 'B2B Showroom Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Toptan Satışını Dijital Ortama Taşımak İsteyen Markalar İçin',
+      description:
+        'B2B Dijital Showroom; ürünlerini müşterilere daha düzenli sunmak, teklif sürecini kolaylaştırmak ve satış ekibinin ürün anlatımını dijital olarak güçlendirmek isteyen markalar için uygundur.',
+      cards: [
+        {
+          number: '01',
+          title: 'Toptan Satış Yapan Markalar',
+          description: 'Ürünlerini bayi, mağaza, distribütör veya kurumsal müşterilere daha düzenli sunmak isteyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Fiziksel Showroom’u Dijitale Taşımak İsteyenler',
+          description: 'Mağaza, atölye veya showroom deneyimini dijital katalog ve ürün sunumu ile desteklemek isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Çeşidi Fazla Olan İşletmeler',
+          description: 'Çok sayıda model, kategori, varyasyon veya sezon ürünü olan markaların ürünlerini daha yönetilebilir hale getirir.',
+        },
+        {
+          number: '04',
+          title: 'Teklif ve Sipariş Sürecini Kolaylaştırmak İsteyenler',
+          description: 'Müşterilerin ürün seçmesini, favorilere eklemesini, teklif listesi oluşturmasını veya satış ekibiyle daha hızlı iletişim kurmasını isteyen markalar için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'B2B Satışta Ürün Göstermek Değil, Yönetilebilir Sunum Sistemi Kurmak Gerekir',
+      description:
+        'Birçok marka ürünlerini WhatsApp, PDF, katalog fotoğrafı veya dağınık dosyalarla paylaşır. Ancak ürün yapısı, kategori mantığı, görsel sunum, teklif süreci ve müşteri deneyimi birlikte planlanmadığında satış süreci yavaşlar.',
+      cards: [
+        {
+          number: '01',
+          title: 'Dağınık Ürün Sunumu',
+          description: 'Ürünler farklı dosyalarda, mesajlarda veya kataloglarda kaldığında müşteri doğru ürüne ulaşmakta zorlanabilir.',
+        },
+        {
+          number: '02',
+          title: 'Zayıf Kategori ve Koleksiyon Yapısı',
+          description: 'Kategori, koleksiyon, sezon veya ürün grubu mantığı net değilse ürünlerin algısı ve satış süreci zayıflar.',
+        },
+        {
+          number: '03',
+          title: 'Zorlaşan Teklif Süreci',
+          description: 'Müşterilerin ürün seçimi, adet bilgisi, varyasyon tercihi ve teklif talebi net akmadığında satış ekibinin işi zorlaşır.',
+        },
+        {
+          number: '04',
+          title: 'Yönetilemeyen Ürün Altyapısı',
+          description: 'Ürün ekleme, güncelleme, stok bilgisi, görsel düzenleme ve katalog yönetimi kolay değilse sistem sürdürülebilir olmaz.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'B2B Showroom’u Sadece Katalog Değil, Satış Sistemi Olarak Kurgularız',
+      description:
+        'B2B satışta dijital showroom yalnızca ürünlerin sergilendiği bir sayfa değildir. Ürün yapısı, kategori mantığı, teklif akışı, müşteri deneyimi ve satış ekibinin kullanım kolaylığı birlikte ele alınmalıdır.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Satış Modeli Analizi',
+          description: 'Ürün gruplarını, müşteri tiplerini, satış modelini, kategori yapısını ve teklif sürecini birlikte değerlendiririz.',
+        },
+        {
+          number: '02',
+          title: 'Katalog ve Kategori Kurgusu',
+          description: 'Ürünleri kategori, koleksiyon, sezon, kullanım alanı veya müşteri ihtiyacına göre düzenli bir showroom yapısına yerleştiririz.',
+        },
+        {
+          number: '03',
+          title: 'Teklif ve Müşteri Akışı',
+          description: 'Müşterinin ürün seçmesini, favorilere eklemesini, teklif listesi oluşturmasını ve satış ekibiyle iletişim kurmasını kolaylaştırırız.',
+        },
+        {
+          number: '04',
+          title: 'Yönetim ve Gelişim Altyapısı',
+          description: 'Ürün ekleme, güncelleme, görsel düzenleme, katalog yönetimi ve müşteri geri bildirimlerini sürdürülebilir bir sistem haline getiririz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'B2B Showroom’unuzu Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      description:
+        'Showroom yayına alındıktan sonra ürün görüntülenmeleri, kategori ilgisi, teklif talepleri, favoriler, müşteri davranışı ve satış ekibi geri bildirimlerini birlikte takip ederiz. Dijital showroom’u yalnızca katalog olarak değil, gelişen bir B2B satış sistemi olarak ele alırız.',
+      // B2B showroom için gerçek dashboard/katalog görselleri henüz hazır değil — Shopify/eBay'deki
+      // gibi geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek görseller hazır
+      // olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'Ürün Görüntülenmeleri',
+          description: 'Hangi ürünlerin daha fazla ilgi gördüğünü ve hangi ürünlerin öne çıkarılması gerektiğini analiz ederiz.',
+        },
+        {
+          title: 'Kategori ve Koleksiyon İlgisi',
+          description: 'Müşterilerin hangi kategori, koleksiyon veya ürün gruplarında daha fazla zaman geçirdiğini takip ederiz.',
+        },
+        {
+          title: 'Teklif Listesi Davranışı',
+          description: 'Müşterilerin hangi ürünleri seçtiğini, hangi ürünleri teklif listesine eklediğini ve hangi gruplarda yoğunlaştığını değerlendiririz.',
+        },
+        {
+          title: 'Müşteri Etkileşimi',
+          description: 'WhatsApp tıklamaları, form talepleri, favoriler ve iletişim davranışlarını satış sürecinin parçası olarak takip ederiz.',
+        },
+        {
+          title: 'Gelişim Alanları',
+          description: 'Hangi ürün gruplarının, görsellerin, kategori yapısının veya teklif akışının geliştirilmesi gerektiğini belirleriz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'B2B Showroom’unuzu Satışa Hazırlayan Yol Haritası',
+      description:
+        'Dijital showroom’u yalnızca teknik olarak kurmakla kalmayız; ürün, kategori, müşteri akışı, teklif sistemi ve yönetim altyapısını birlikte planlayarak markaya özel bir B2B satış yapısına dönüştürürüz.',
+      steps: [
+        {
+          number: '01',
+          title: 'Keşif ve Ürün Analizi',
+          description: 'Ürün gruplarınızı, hedef müşterilerinizi, satış kanalınızı, toptan süreçlerinizi ve mevcut katalog yapınızı analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Katalog ve Showroom Kurgusu',
+          description: 'Kategori, koleksiyon, ürün grubu, filtreleme ve müşteri gezinme yapısını markanızla uyumlu şekilde planlarız.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Sunum Sistemi',
+          description: 'Ürün görselleri, açıklamalar, varyasyonlar, ölçü bilgileri, minimum adet veya teklif notlarını showroom mantığına göre hazırlarız.',
+        },
+        {
+          number: '04',
+          title: 'Teklif ve İletişim Akışı',
+          description: 'Müşterinin ürün seçmesi, teklif listesi oluşturması, satış ekibine ulaşması ve sürecin takip edilmesi için net bir akış kurarız.',
+        },
+        {
+          number: '05',
+          title: 'Yayın ve Optimizasyon',
+          description: 'Showroom yayına alındıktan sonra ürün ilgisi, müşteri davranışı, teklif talepleri ve geri bildirimlere göre sistemi geliştiririz.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'B2B Showroom’unuz İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'B2B Dijital Showroom hizmeti sonunda yalnızca açılmış bir katalog değil; ürünlerinizi düzenli sunan, müşteri seçimini kolaylaştıran ve teklif sürecini yönetilebilir hale getiren bir satış altyapısı hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Dijital Katalog Yapısı',
+          description: 'Kategori, koleksiyon, sezon, ürün grubu ve filtreleme mantığı markanızla uyumlu şekilde düzenlenir.',
+        },
+        {
+          number: '02',
+          title: 'Ürün Sunum Kurgusu',
+          description: 'Ürün görselleri, açıklamalar, varyasyonlar, ölçüler, minimum adet ve teknik detaylar düzenli şekilde hazırlanır.',
+        },
+        {
+          number: '03',
+          title: 'Teklif Listesi Akışı',
+          description: 'Müşterilerin ürün seçmesi, favorilere eklemesi, teklif listesi oluşturması ve satış ekibine ulaşması için akış kurgulanır.',
+        },
+        {
+          number: '04',
+          title: 'Müşteri Odaklı Gezinme',
+          description: 'Bayi, mağaza, kurumsal alıcı veya perakende müşterinin ürünleri kolay incelemesi için sayfa yapısı oluşturulur.',
+        },
+        {
+          number: '05',
+          title: 'Yönetim Planı',
+          description: 'Ürün ekleme, güncelleme, kategori düzenleme, kampanya ve sezon yönetimi için sürdürülebilir bir yapı hazırlanır.',
+        },
+        {
+          number: '06',
+          title: 'Gelişim Önerileri',
+          description: 'Showroom’un sonraki aşamada nasıl geliştirileceği, hangi ürün gruplarının öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'B2B Showroom’unuz İçin Doğru Satış Sistemini Birlikte Kuralım',
+      description:
+        'Ürünlerinizi, mevcut satış sürecinizi ve müşteri yapınızı birlikte değerlendirerek B2B showroom’unuz için doğru katalog, teklif, ürün sunumu ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'B2B Showroom Planı Oluştur',
+      supportText: 'Dijital Katalog • Ürün Sunumu • Teklif Listesi • B2B Akış • Müşteri Deneyimi • Optimizasyon',
+    },
+  },
 };
