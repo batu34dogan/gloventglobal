@@ -219,6 +219,37 @@ const audienceGroups = [
   },
 ];
 
+// "Teknoloji Ekosistemimiz" bölümü için 5 kategori — logo YOK, sadece küçük premium chip/glass
+// tag'ler. Marka algısı "teknoloji kullanan ajans" değil, "teknolojiyle büyüme sistemi kuran
+// şirket" olsun diye bilerek araç listesi gibi değil, kategori haritası gibi kurgulandı.
+const techStack = [
+  {
+    number: '01',
+    title: 'Commerce & Web',
+    chips: ['Shopify', 'Headless Commerce', 'Next.js', 'Vercel', 'Cloudflare'],
+  },
+  {
+    number: '02',
+    title: 'Yapay Zeka',
+    chips: ['OpenAI', 'Claude', 'AI İçerik', 'AI Görsel', 'AI Analiz'],
+  },
+  {
+    number: '03',
+    title: 'Otomasyon & Entegrasyon',
+    chips: ['n8n', 'Zapier', 'API', 'CRM', 'WhatsApp', 'E-mail'],
+  },
+  {
+    number: '04',
+    title: 'Pazaryeri & Satış Kanalları',
+    chips: ['Amazon', 'Etsy', 'eBay', 'Trendyol', 'Hepsiburada', 'B2B'],
+  },
+  {
+    number: '05',
+    title: 'Veri & Performans',
+    chips: ['Google Analytics', 'Search Console', 'Meta', 'SEO', 'CRO', 'Reklam Raporlama'],
+  },
+];
+
 // Tek, sürekli koyu lacivert taban — section'lar arasında sert renk/sınır geçişi yok.
 // Section kimliği, arka planda dağılmış yumuşak mavi glow'larla veriliyor (intro'nun network temasıyla aynı dil).
 function Glow({
@@ -273,6 +304,7 @@ export default function HomeContent() {
   const [brandsGridRef, brandsInView] = useInView<HTMLDivElement>();
   const [whyRef, whyInView] = useInView<HTMLElement>();
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
+  const [techRef, techInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -308,6 +340,13 @@ export default function HomeContent() {
       audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
   const audienceCardDelays = ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]'];
+
+  // "Teknoloji Ekosistemimiz" bölümü için ayrı reveal — kendi viewport girişine (techInView) bağlı.
+  const techReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      techInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+  const techCardDelays = ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]'];
 
   return (
     <main
@@ -677,6 +716,65 @@ export default function HomeContent() {
                   </span>
                   <h3 className="mt-4 text-lg font-semibold text-white">{group.title}</h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-blue-100/70">{group.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 5.6 TEKNOLOJİ EKOSİSTEMİMİZ ============ */}
+      <section ref={techRef} className="relative px-6 py-20 sm:px-10">
+        <Glow visible={techInView} targetOpacity="opacity-45" className="right-[-160px] bottom-[-100px] h-[420px] w-[420px]" />
+
+        <div className="relative mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${techReveal('delay-[0ms]')}`}>
+              Teknoloji
+            </p>
+            <div className="relative isolate mx-auto mt-4 max-w-2xl">
+              <TitleGlow tone="section" />
+              <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${techReveal('delay-[60ms]')}`}>
+                Teknoloji Ekosistemimiz
+              </h2>
+            </div>
+            <p
+              className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${techReveal(
+                'delay-[120ms]',
+              )}`}
+            >
+              Strateji ve operasyonu yalnızca manuel süreçlerle değil; doğru teknoloji, yapay zeka, otomasyon,
+              analiz ve dijital satış altyapılarıyla destekleriz.
+            </p>
+          </div>
+
+          {/* 5 teknoloji kategorisi — Kimlerle Çalışıyoruz bölümündeki aynı kanıtlanmış 3+2 merkezli
+              grid tekniği (8 sanal sütun, col-span-2, 0. karta col-start-2 / 3. karta col-start-3
+              ile her iki satır bağımsız ortalanıyor). Logo YOK, sadece küçük monokromatik mavi
+              chip/glass tag'ler — "araç listesi" değil, "teknoloji kategorisi haritası" hissi. */}
+          <div className="relative mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
+            {techStack.map((category, index) => (
+              <div
+                key={category.title}
+                className={`${techReveal(techCardDelays[index])} lg:col-span-2 ${
+                  index === 0 ? 'lg:col-start-2' : index === 3 ? 'lg:col-start-3' : ''
+                }`}
+              >
+                <div className="group relative flex h-full min-h-[190px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.65)]">
+                    {category.number}
+                  </span>
+                  <h3 className="mt-4 text-lg font-semibold text-white">{category.title}</h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {category.chips.map((chip) => (
+                      <span
+                        key={chip}
+                        className="rounded-full border border-blue-400/25 bg-blue-500/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.05em] text-blue-200/75"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
