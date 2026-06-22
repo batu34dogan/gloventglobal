@@ -2237,13 +2237,13 @@ export const serviceDetails: Record<
   },
   'global-pazara-giris-stratejisi': {
     eyebrow: 'GLOBAL PAZARA GİRİŞ STRATEJİSİ',
-    title: 'Markanız İçin Doğru Global Pazara Giriş Yol Haritası Oluşturuyoruz',
+    title: 'Markanız İçin Global Pazara Giriş Yol Haritası Oluşturuyoruz',
     description:
       'Global pazara açılmak yalnızca ürünleri yurt dışına listelemek değildir. Doğru ülke, doğru satış kanalı, doğru fiyat, doğru ürün sunumu, rekabet analizi ve operasyon planı birlikte çalıştığında sürdürülebilir büyüme zemini oluşur.',
     ctaLabel: 'Pazar Giriş Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
-      title: 'Global Pazara Kontrollü ve Doğru Stratejiyle Açılmak İsteyen Markalar İçin',
+      title: 'Global Pazara Doğru Stratejiyle Açılmak İsteyen Markalar İçin',
       description:
         'Global Pazara Giriş Stratejisi; ürününü yurt dışı pazarlara taşımak isteyen, hangi ülke ve kanaldan başlaması gerektiğini netleştirmek isteyen markalar için uygundur.',
       cards: [
