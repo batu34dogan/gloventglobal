@@ -52,6 +52,31 @@ function Glow({
   );
 }
 
+// Büyük başlıkların arkasına oturan, ana sayfa/hizmet detay sayfalarındaki Hero glow'uyla aynı
+// kanıtlanmış teknik — bağımsız kopya (sayfa izolasyonu prensibi korunuyor). Başlığın KENDİ
+// (relative isolate) kutusuna sıkıca bağlı; eyebrow/açıklama gibi çevresindeki içeriği değil,
+// SADECE başlığı kapsıyor. Sitedeki 3 sabit seviye: "hero" en geniş/belirgin, "section" orta,
+// "cta" en hafif.
+function TitleGlow({ tone }: { tone: 'hero' | 'section' | 'cta' }) {
+  const sizeClass =
+    tone === 'hero'
+      ? 'h-[300px] w-[min(820px,92vw)] sm:h-[360px] sm:w-[min(940px,90vw)]'
+      : tone === 'section'
+        ? 'h-[200px] w-[min(560px,85vw)] sm:h-[230px] sm:w-[min(620px,82vw)]'
+        : 'h-[170px] w-[min(480px,80vw)] sm:h-[190px] sm:w-[min(520px,78vw)]';
+  const opacityClass = tone === 'hero' ? 'opacity-50' : tone === 'section' ? 'opacity-[0.26]' : 'opacity-[0.16]';
+
+  return (
+    <span
+      aria-hidden="true"
+      className={`pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 ${sizeClass} rounded-full ${opacityClass} blur-2xl`}
+      style={{
+        background: 'radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(96,165,250,0.5) 45%, transparent 75%)',
+      }}
+    />
+  );
+}
+
 const focusAreas = [
   'Global Pazar Stratejisi',
   'Pazaryeri Sistemleri',
@@ -193,13 +218,16 @@ export default function AboutContent() {
           <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
             Hakkımızda
           </p>
-          <h1
-            className={`mx-auto mt-8 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            Markalar İçin Dijital Satış ve Global Büyüme Sistemleri Kuruyoruz
-          </h1>
+          <div className="relative isolate mx-auto mt-8 max-w-3xl">
+            <TitleGlow tone="hero" />
+            <h1
+              className={`relative z-10 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
+                'delay-[200ms]',
+              )}`}
+            >
+              Markalar İçin Dijital Satış ve Global Büyüme Sistemleri Kuruyoruz
+            </h1>
+          </div>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
@@ -272,9 +300,12 @@ export default function AboutContent() {
           <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${whyReveal('delay-[0ms]')}`}>
             Neden GloventGlobal?
           </p>
-          <h2 className={`mx-auto mt-4 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl ${whyReveal('delay-[100ms]')}`}>
-            Parçaları Değil, Sistemin Tamamını Kuruyoruz
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-xl">
+            <TitleGlow tone="section" />
+            <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${whyReveal('delay-[100ms]')}`}>
+              Parçaları Değil, Sistemin Tamamını Kuruyoruz
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${whyReveal(
               'delay-[200ms]',
@@ -321,9 +352,12 @@ export default function AboutContent() {
           />
 
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Nasıl Düşünüyoruz?</p>
-          <h2 className="mx-auto mt-4 max-w-xl text-2xl font-bold tracking-tight sm:text-3xl">
-            Her Marka İçin Aynı Yol Haritası Kullanılmaz
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-xl">
+            <TitleGlow tone="section" />
+            <h2 className="relative z-10 text-2xl font-bold tracking-tight sm:text-3xl">
+              Her Marka İçin Aynı Yol Haritası Kullanılmaz
+            </h2>
+          </div>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
             Bir markanın global pazara açılması yalnızca doğru platformu seçmekle başlamaz. Ürünün pazardaki
             karşılığı, hedef müşteri, fiyat yapısı, rakipler, görsel dil, operasyon kapasitesi ve reklam bütçesi
@@ -355,13 +389,16 @@ export default function AboutContent() {
           >
             Kimlerle Çalışıyoruz?
           </p>
-          <h2
-            className={`mx-auto mt-4 max-w-xl text-3xl font-bold tracking-tight sm:text-4xl ${audienceReveal(
-              'delay-[100ms]',
-            )}`}
-          >
-            Dijital Satış Sistemini Güçlendirmek İsteyen Markalarla Çalışıyoruz
-          </h2>
+          <div className="relative isolate mx-auto mt-4 max-w-xl">
+            <TitleGlow tone="section" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${audienceReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              Dijital Satış Sistemini Güçlendirmek İsteyen Markalarla Çalışıyoruz
+            </h2>
+          </div>
           <p
             className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${audienceReveal(
               'delay-[200ms]',
@@ -413,7 +450,12 @@ export default function AboutContent() {
             className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
           />
 
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Markanız İçin Doğru Sistemi Birlikte Kuralım</h2>
+          <div className="relative isolate mx-auto max-w-2xl">
+            <TitleGlow tone="cta" />
+            <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
+              Markanız İçin Doğru Sistemi Birlikte Kuralım
+            </h2>
+          </div>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
             Ürününüzü, mevcut satış yapınızı ve hedeflerinizi birlikte değerlendirerek markanız için doğru dijital
             satış ve büyüme sistemini planlayalım.
