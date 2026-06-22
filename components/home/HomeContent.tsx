@@ -40,36 +40,45 @@ const heroPlatforms = [
   { name: 'TEKNOLOJİ ALTYAPISI', tone: 'text-blue-200/72' },
 ];
 
+// "Markanız İçin Kurduğumuz Dijital Ekosistem" bölümü için 6 modül kartı — her biri kısa bir
+// açıklama + küçük "chip" alt etiketler ile (Shopify, Amazon, AI İçerik vb.). Önceki "Global Satış
+// Altyapısı" bölümünün dönüştürülmüş hali; yeni bölüm değil, mevcut veri/markup güncellendi.
 const services = [
   {
-    tag: '01 ANALİZ',
-    title: 'Pazar ve Ürün Analizi',
-    description: 'Ürünün hangi pazarda, hangi müşteri kitlesine ve hangi fiyat yapısıyla sunulacağını analiz ederiz.',
+    tag: '01 WEB & COMMERCE',
+    title: 'Web & Commerce Altyapısı',
+    description: 'Shopify, headless commerce, B2B showroom, ürün sayfaları ve marka web platformlarını satışa ve büyümeye uygun şekilde kurgularız.',
+    chips: ['Shopify', 'Headless', 'B2B', 'Showroom'],
   },
   {
-    tag: '02 MARKA',
-    title: 'Marka Konumlandırma',
-    description: 'Ürününüzü yalnızca satılacak bir ürün değil, pazarda algısı olan bir marka yapısına dönüştürürüz.',
-  },
-  {
-    tag: '03 PAZARYERİ',
+    tag: '02 PAZARYERİ',
     title: 'Pazaryeri Sistemleri',
-    description: 'Amazon, Etsy ve eBay için listeleme, SEO, kategori, fiyatlandırma ve reklam altyapısını kurarız.',
+    description: 'Amazon, Etsy, eBay ve yerel pazaryerlerinde ürün listeleme, mağaza yapısı, görünürlük, reklam ve operasyon süreçlerini yönetilebilir hale getiririz.',
+    chips: ['Amazon', 'Etsy', 'eBay', 'Trendyol', 'Hepsiburada'],
   },
   {
-    tag: '04 B2B',
-    title: 'Shopify ve B2B Altyapı',
-    description: 'Markanıza özel vitrin, dijital katalog, B2B teklif sistemi ve ürün yönetim yapıları oluştururuz.',
+    tag: '03 YAPAY ZEKA',
+    title: 'Yapay Zeka Entegrasyonu',
+    description: 'Yapay zekayı içerik üretimi, görsel konsept, ürün sunumu, analiz, raporlama ve operasyon süreçlerine entegre ederiz.',
+    chips: ['AI İçerik', 'AI Görsel', 'AI Analiz', 'AI Operasyon'],
   },
   {
-    tag: '05 İÇERİK',
-    title: 'Görsel ve İçerik Sistemi',
-    description: 'Ürün fotoğrafı, yapay zeka destekli görsel konsept, açıklama, başlık ve marka dili bütünlüğünü kurarız.',
+    tag: '04 OTOMASYON',
+    title: 'Otomasyon & Entegrasyonlar',
+    description: 'Form, teklif, müşteri, ürün, sipariş, WhatsApp, e-mail ve raporlama süreçlerini otomasyon sistemleriyle birbirine bağlarız.',
+    chips: ['n8n', 'CRM', 'WhatsApp', 'E-mail', 'API'],
   },
   {
-    tag: '06 OPTİMİZASYON',
-    title: 'Reklam ve Optimizasyon',
-    description: 'Pazar yeri, Google ve Meta reklamlarını veri, dönüşüm ve kârlılık odağında optimize ederiz.',
+    tag: '05 PERFORMANS',
+    title: 'Performans & Veri Analizi',
+    description: 'Trafik, dönüşüm, reklam, satış ve kullanıcı davranışı verilerini takip ederek dijital büyüme kararlarını ölçülebilir hale getiririz.',
+    chips: ['SEO', 'Analytics', 'CRO', 'Reklam', 'Raporlama'],
+  },
+  {
+    tag: '06 OPERASYON',
+    title: 'Dijital Operasyon',
+    description: 'Ürün yönetimi, kategori yapısı, banner, kampanya, içerik güncelleme ve günlük dijital operasyon süreçlerini sürdürülebilir hale getiririz.',
+    chips: ['Ürün', 'Kategori', 'Kampanya', 'Banner', 'İçerik'],
   },
 ];
 
@@ -535,16 +544,22 @@ export default function HomeContent() {
 
         <div className="relative mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Sistem</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Ekosistem</p>
             <div className="relative isolate mx-auto mt-4 max-w-2xl">
               <TitleGlow tone="section" />
               <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
-                Dijital Satış Altyapısını Birlikte Kuruyoruz
+                Markanız İçin Kurduğumuz Dijital Ekosistem
               </h2>
             </div>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
+              Web altyapısı, pazaryerleri, yapay zeka, otomasyon, veri analizi ve dijital operasyon süreçlerini
+              birbirinden kopuk araçlar olarak değil; markanın büyümesini destekleyen tek bir sistemin parçaları
+              olarak kurgularız.
+            </p>
           </div>
-          {/* Sistem modülü kartları: küçük modül etiketi (01 ANALİZ vb.) + başlık + açıklama —
-              klasik hizmet kutusu değil, "global satış altyapısının modülleri" gibi okunsun. */}
+          {/* Ekosistem modülü kartları: küçük modül etiketi (01 WEB & COMMERCE vb.) + başlık +
+              açıklama + alt kısımda küçük "chip" etiketler (Shopify, Amazon, AI İçerik vb.) —
+              klasik hizmet kutusu değil, "kurulan dijital ekosistemin haritası" gibi okunsun. */}
           <div className="mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
@@ -560,6 +575,18 @@ export default function HomeContent() {
                 </span>
                 <h3 className="mt-3 text-lg font-semibold text-white">{service.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{service.description}</p>
+                {/* Chip / alt etiketler — tek tip mavi/premium ton, marka logosu veya çok renkli
+                    rozet hissi vermesin diye sadece monokromatik mavi tonlarda. */}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {service.chips.map((chip) => (
+                    <span
+                      key={chip}
+                      className="rounded-full border border-blue-400/25 bg-blue-500/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.05em] text-blue-200/75"
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
