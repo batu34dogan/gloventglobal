@@ -30,13 +30,14 @@ function useInView<T extends HTMLElement>() {
 }
 
 const heroPlatforms = [
-  { name: 'AMAZON', tone: 'text-orange-50/85' },
-  { name: 'ETSY', tone: 'text-orange-300/75' },
-  { name: 'EBAY', tone: 'text-blue-100/85' },
-  { name: 'SHOPIFY', tone: 'text-cyan-200/75' },
-  { name: 'B2B SYSTEMS', tone: 'text-blue-300/72' },
-  { name: 'VISUAL COMMERCE', tone: 'text-blue-200/72' },
-  { name: 'GLOBAL MARKETPLACES', tone: 'text-blue-100/85' },
+  { name: 'YAPAY ZEKA', tone: 'text-blue-100/85' },
+  { name: 'OTOMASYON', tone: 'text-blue-200/72' },
+  { name: 'E-TİCARET', tone: 'text-blue-300/72' },
+  { name: 'B2B', tone: 'text-blue-100/85' },
+  { name: 'DİJİTAL BÜYÜME', tone: 'text-blue-200/72' },
+  { name: 'VERİ ANALİZİ', tone: 'text-blue-300/72' },
+  { name: 'DİJİTAL OPERASYON', tone: 'text-blue-100/85' },
+  { name: 'TEKNOLOJİ ALTYAPISI', tone: 'text-blue-200/72' },
 ];
 
 const services = [
