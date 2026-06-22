@@ -120,31 +120,38 @@ const processSteps = [
   },
 ];
 
-// GloventGlobal Network bölümü için marka verisi — 6 kart, hepsi aynı boyutta, 3x2 grid.
+// GloventGlobal Network bölümü için marka verisi — 6 kart, hepsi aynı boyutta, kayan şeritte.
+// Her kart 3 kısa alan: marka adı, sektör/iş alanı (muted, küçük), GloventGlobal'ın katkısı.
 const networkBrands = [
   {
     name: 'BERD',
-    description: 'Amazon Australia ve eBay Australia pazaryerlerinde ürün listeleme, reklam ve operasyon deneyimi.',
+    sector: 'Amazon Australia & eBay Australia',
+    contribution: 'Ürün listeleme, reklam, SEO ve pazaryeri operasyon sistemi.',
   },
   {
     name: 'Ziynet Bijuteri',
-    description: 'Toptan bijuteri markası için B2B dijital showroom ve Shopify tabanlı katalog sistemi.',
+    sector: 'Toptan Bijuteri / B2B',
+    contribution: 'Headless Shopify, dijital showroom ve B2B ürün sunum sistemi.',
   },
   {
     name: 'GermaniaLeather',
-    description: 'Deri ürünleri için Etsy odaklı görsel dil, ürün sunumu ve global mağaza hazırlığı.',
+    sector: 'Deri Ürünleri / Etsy',
+    contribution: 'Etsy odaklı ürün sunumu, görsel dil ve global mağaza hazırlığı.',
   },
   {
     name: 'Ritüelco',
-    description: 'Etsy için ritüel, mum, tütsü ve dijital ürün odaklı marka dili ve mağaza konsepti.',
+    sector: 'Ritüel, Mum ve Tütsü Ürünleri',
+    contribution: 'Etsy için marka dili, ürün hikayesi ve dijital mağaza konsepti.',
   },
   {
     name: 'Boncukcu Amca',
-    description: 'Toptan ve perakende takı malzemeleri için Shopify tabanlı ürün yönetimi ve satış sistemi kurgusu.',
+    sector: 'Takı Malzemeleri / Toptan & Perakende',
+    contribution: 'Shopify tabanlı ürün yönetimi, kategori ve satış altyapısı kurgusu.',
   },
   {
     name: 'Güvenli Adımlar',
-    description: 'Amazon Türkiye’de ürün listeleme, marka koruma, görünürlük ve pazaryeri operasyon süreçleri.',
+    sector: 'Amazon Türkiye',
+    contribution: 'Amazon listeleme, marka görünürlüğü, operasyon ve pazaryeri süreçleri.',
   },
 ];
 
@@ -359,7 +366,10 @@ export default function HomeContent() {
                   className="absolute left-5 right-5 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
                 />
                 <h3 className="text-lg font-semibold text-white">{brand.name}</h3>
-                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-blue-100/70">{brand.description}</p>
+                <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.08em] text-blue-100/45">
+                  {brand.sector}
+                </p>
+                <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-blue-100/70">{brand.contribution}</p>
               </div>
             ))}
           </div>
