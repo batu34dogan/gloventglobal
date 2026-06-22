@@ -83,6 +83,7 @@ const focusAreas = [
   'Shopify & B2B Altyapı',
   'Marka Konumlandırma',
   'Görsel & İçerik Sistemi',
+  'Yapay Zeka Entegrasyonu',
   'Sosyal Medya Yönetimi',
   'Reklam & Optimizasyon',
   'Otomasyon & n8n Sistemleri',
@@ -97,6 +98,7 @@ const focusAreaDelays = [
   'delay-[250ms]',
   'delay-[300ms]',
   'delay-[350ms]',
+  'delay-[400ms]',
 ];
 
 const whyCards = [
@@ -233,9 +235,9 @@ export default function AboutContent() {
               'delay-[300ms]',
             )}`}
           >
-            GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B dijital altyapılar, sosyal medya, içerik, reklam ve
-            otomasyon süreçlerini birbirine bağlayarak markalar için sürdürülebilir dijital satış ve global büyüme
-            sistemleri kurar.
+            GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B dijital altyapılar, yapay zeka entegrasyonu, sosyal
+            medya, içerik, reklam ve otomasyon süreçlerini birbirine bağlayarak markalar için sürdürülebilir
+            dijital satış ve global büyüme sistemleri kurar.
           </p>
         </div>
       </section>
@@ -257,9 +259,9 @@ export default function AboutContent() {
             <p className={`mt-5 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[200ms]')}`}>
               GloventGlobal; markaların yalnızca reklam vermesini, sosyal medya yönetmesini veya pazaryerinde
               mağaza açmasını değil, tüm bu parçaların birlikte çalıştığı sürdürülebilir bir dijital satış ve büyüme
-              sistemi kurmasını hedefler. Strateji, altyapı, içerik, reklam, operasyon ve otomasyon süreçlerini
-              birbirinden kopuk hizmetler olarak değil; markanın satışını ve büyümesini destekleyen tek bir yapı
-              olarak ele alır.
+              sistemi kurmasını hedefler. Strateji, altyapı, içerik, reklam, operasyon, otomasyon ve yapay zeka
+              entegrasyonlarını birbirinden kopuk hizmetler olarak değil; markanın satışını ve büyümesini
+              destekleyen tek bir yapı olarak ele alır.
             </p>
             <p className={`mt-4 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[280ms]')}`}>
               Bu yüzden her markaya hazır paketlerle yaklaşmayız. Ürünü, hedef pazarı, satış kanalını, fiyat
