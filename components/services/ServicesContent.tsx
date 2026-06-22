@@ -177,6 +177,8 @@ const serviceCards = [
     tag: '12 STRATEJİ',
     title: 'Global Pazara Giriş Stratejisi',
     description: 'Ürününüz için doğru ülke, kanal, fiyat, rekabet ve büyüme yol haritasını belirleriz.',
+    href: '/hizmetler/global-pazara-giris-stratejisi',
+    ctaName: 'Strateji',
   },
 ];
 
