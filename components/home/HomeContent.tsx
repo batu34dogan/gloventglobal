@@ -76,18 +76,33 @@ const services = [
 const whySteps = [
   {
     number: '01',
-    title: 'Pazarı ve Ürünü Okuruz',
-    description: 'Ürünün hangi pazarda, hangi müşteri kitlesine ve hangi fiyat yapısıyla konumlanacağını analiz ederiz.',
+    title: 'İşletmeyi Analiz Ederiz',
+    description: 'İşletmenin mevcut dijital yapısını, ürünlerini, hedef müşterisini, satış kanallarını ve büyüme potansiyelini analiz ederiz.',
   },
   {
     number: '02',
-    title: 'Markayı Konumlandırırız',
-    description: 'Ürünü yalnızca satılacak bir ürün değil, pazarda algısı olan bir marka yapısına dönüştürürüz.',
+    title: 'Stratejiyi Oluştururuz',
+    description: 'Hangi pazarda, hangi kanalda, hangi ürün ve mesajla ilerlenmesi gerektiğini uygulanabilir bir dijital büyüme planına dönüştürürüz.',
   },
   {
     number: '03',
-    title: 'Satış Sistemini Kurarız',
-    description: 'Pazaryeri, Shopify, içerik, reklam ve operasyon yapısını birlikte çalışan tek sistem haline getiririz.',
+    title: 'Teknolojiyi Kurarız',
+    description: 'Shopify, headless yapılar, B2B showroom, pazaryeri sistemleri, veri takibi ve dijital altyapı çözümlerini markaya uygun şekilde kurarız.',
+  },
+  {
+    number: '04',
+    title: 'Yapay Zekayı Entegre Ederiz',
+    description: 'Yapay zekayı içerik, görsel konsept, raporlama, analiz, operasyon ve karar süreçlerine entegre ederek markanın çalışma sistemini güçlendiririz.',
+  },
+  {
+    number: '05',
+    title: 'Operasyonu Yönetiriz',
+    description: 'Ürün yönetimi, kategori yapısı, kampanya, reklam, içerik, müşteri akışı ve günlük dijital operasyon süreçlerini yönetilebilir hale getiririz.',
+  },
+  {
+    number: '06',
+    title: 'Büyümeyi Ölçer ve Geliştiririz',
+    description: 'Trafik, dönüşüm, reklam, satış, müşteri davranışı ve operasyon verilerini takip ederek sistemi düzenli olarak geliştiririz.',
   },
 ];
 
@@ -228,7 +243,14 @@ export default function HomeContent() {
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       whyInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
-  const whyCardDelays = ['delay-[320ms]', 'delay-[400ms]', 'delay-[480ms]'];
+  const whyCardDelays = [
+    'delay-[320ms]',
+    'delay-[380ms]',
+    'delay-[440ms]',
+    'delay-[500ms]',
+    'delay-[560ms]',
+    'delay-[620ms]',
+  ];
 
   return (
     <main
@@ -395,7 +417,7 @@ export default function HomeContent() {
           <div className="relative isolate mx-auto mt-4 max-w-2xl">
             <TitleGlow tone="section" />
             <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${whyReveal('delay-[100ms]')}`}>
-              Parça Parça Hizmet Değil, Bütün Bir Satış Sistemi
+              Parça Parça Hizmet Değil, Bütün Bir Dijital Büyüme Sistemi
             </h2>
           </div>
           <p
@@ -403,30 +425,30 @@ export default function HomeContent() {
               'delay-[200ms]',
             )}`}
           >
-            Birçok marka ürününü dijitale taşır ama sistem kurmadığı için sürdürülebilir satış üretemez.
-            GloventGlobal; strateji, marka, altyapı, içerik, reklam ve operasyonu birbirinden kopuk parçalar olarak
-            değil, tek bir büyüme sistemi olarak ele alır.
+            Birçok marka dijitalde farklı araçlar kullanır ama strateji, teknoloji, içerik, yapay zeka, otomasyon
+            ve operasyon birbirinden kopuk ilerlediğinde sürdürülebilir büyüme oluşmaz. GloventGlobal bu parçaları
+            tek bir dijital büyüme sistemi olarak ele alır.
           </p>
         </div>
 
-        {/* 3 katmanlı sistem kartı: önceki "büyük" aşamadan ~%20-25 küçültülmüş, dengeli orta boy.
-            Giriş animasyonu DIŞ div'de (whyReveal), hover ise İÇ div'de (duration-300) — ikisi farklı
-            transition-duration kullandığı için aynı elementte çakışmasın diye bilerek ayrıldı. */}
+        {/* 6 katmanlı sistem kartı, 3+3 grid (lg:grid-cols-3 + 6 kart otomatik olarak 2 satıra
+            bölünüyor, ek bir merkezleme hilesi gerekmiyor). Giriş animasyonu DIŞ div'de (whyReveal),
+            hover ise İÇ div'de (duration-300) — ikisi farklı transition-duration kullandığı için
+            aynı elementte çakışmasın diye bilerek ayrıldı. Eskiden ortadaki (3 kartlık) kart
+            vurgulanıyordu; 6 eşit ağırlıklı adımlık bir sistem akışı olduğu için bu vurgu kaldırıldı,
+            6 kart da aynı stilde. */}
         <div className="relative mx-auto mt-9 grid max-w-5xl items-stretch gap-6 lg:grid-cols-3">
           {whySteps.map((step, index) => (
             <div key={step.number} className={whyReveal(whyCardDelays[index])}>
-              <div
-                className={`relative flex h-full min-h-[190px] flex-col rounded-xl border p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 ${
-                  index === 1
-                    ? 'border-blue-400/28 bg-white/[0.042] shadow-[0_0_55px_-16px_rgba(59,130,246,0.5)] hover:border-blue-400/45 hover:bg-white/[0.065] hover:shadow-[0_0_65px_-14px_rgba(59,130,246,0.65)]'
-                    : 'border-white/[0.075] bg-white/[0.037] hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]'
-                }`}
-              >
+              <div className="relative flex h-full min-h-[190px] flex-col rounded-xl border border-white/[0.075] bg-white/[0.037] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
                 <span
                   aria-hidden="true"
                   className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/60 via-blue-400/20 to-transparent"
                 />
-                {index < whySteps.length - 1 && (
+                {/* Bağlantı çizgisi sadece AYNI satırdaki bir sonraki karta uzanır — 3+3 grid'de
+                    satır sonunda (index 2, 5) bir sonraki kart farklı satırda olduğu için çizgi
+                    yanlışlıkla satırlar arası atlamasın diye index % 3 !== 2 kontrolü eklendi. */}
+                {index < whySteps.length - 1 && index % 3 !== 2 && (
                   <span
                     aria-hidden="true"
                     className="absolute left-full top-[44px] hidden h-px w-6 bg-gradient-to-r from-blue-400/45 to-transparent lg:block"
