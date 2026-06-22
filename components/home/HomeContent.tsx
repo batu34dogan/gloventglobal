@@ -235,7 +235,7 @@ export default function HomeContent() {
 
         <div className="relative mx-auto max-w-4xl text-center">
           <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
-            GLOVENTGLOBAL — DIGITAL COMMERCE SYSTEMS
+            GLOVENTGLOBAL — DIGITAL GROWTH SYSTEMS
           </p>
           <div className="relative isolate mx-auto mt-8 max-w-3xl">
             <TitleGlow tone="hero" />
@@ -244,7 +244,7 @@ export default function HomeContent() {
                 'delay-[200ms]',
               )}`}
             >
-              Markalar İçin Dijital Satış ve Global Büyüme Sistemleri Kuruyoruz
+              İşletmenizin Dijitalde Büyümesi İçin Gerekli Sistemi Kuruyoruz
             </h1>
           </div>
           <p
@@ -252,9 +252,8 @@ export default function HomeContent() {
               'delay-[300ms]',
             )}`}
           >
-            Ürününüzü yalnızca bir pazaryerine yüklemiyoruz. Markanız için doğru pazar, doğru satış kanalı, güçlü
-            görsel dil, reklam, operasyon ve otomasyon süreçlerini birlikte çalışan bir dijital satış sistemine
-            dönüştürüyoruz.
+            Markanızın mevcut yapısını analiz ediyor; strateji, teknoloji, yapay zeka, otomasyon, e-ticaret
+            altyapısı ve dijital operasyon süreçlerini birlikte çalışan bir büyüme sistemine dönüştürüyoruz.
           </p>
 
           <div className={`mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row ${reveal('delay-[400ms]')}`}>
@@ -262,10 +261,10 @@ export default function HomeContent() {
               href="/iletisim"
               className="rounded-full border border-blue-400/40 bg-blue-500/10 px-8 py-3 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/70 hover:bg-blue-500/20 hover:shadow-[0_0_30px_-6px_rgba(59,130,246,0.55)]"
             >
-              Büyüme Sistemini Planla
+              Dijital Büyüme Planı Oluşturalım
             </a>
             <a
-              href="#why"
+              href="#process"
               className="rounded-full border border-white/15 px-8 py-3 text-sm font-semibold tracking-wide text-white/90 transition-colors duration-300 hover:border-white/35 hover:bg-white/5"
             >
               Nasıl Çalışıyoruz?
