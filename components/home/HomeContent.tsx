@@ -189,6 +189,36 @@ const networkBrands = [
   },
 ];
 
+// "Kimlerle Çalışıyoruz?" bölümü için hedef kitle kartları — bilerek hizmet kartı (tag/etiket)
+// dilinden farklı, dairesel numara rozeti kullanılıyor; "kimlere uygun" sorusuna cevap veriyor.
+const audienceGroups = [
+  {
+    number: '01',
+    title: 'Üreticiler',
+    description: 'Ürünlerini dijital kanallara taşımak, marka görünürlüğünü artırmak ve yeni satış kanalları oluşturmak isteyen üretici işletmeler.',
+  },
+  {
+    number: '02',
+    title: 'Toptancılar',
+    description: 'B2B satış süreçlerini dijitalleştirmek, ürün sunumunu güçlendirmek ve bayi / müşteri erişimini kolaylaştırmak isteyen toptan firmalar.',
+  },
+  {
+    number: '03',
+    title: 'E-Ticaret Markaları',
+    description: 'Web sitesi, pazaryeri, reklam, içerik, veri ve operasyon süreçlerini daha yönetilebilir bir büyüme sistemine dönüştürmek isteyen markalar.',
+  },
+  {
+    number: '04',
+    title: 'B2B Firmalar',
+    description: 'Teklif, katalog, ürün gösterimi, müşteri akışı ve dijital showroom ihtiyaçlarını profesyonel bir altyapıya taşımak isteyen işletmeler.',
+  },
+  {
+    number: '05',
+    title: 'Global Pazara Açılmak İsteyen İşletmeler',
+    description: 'Amazon, Etsy, eBay, Shopify veya farklı dijital kanallar üzerinden yeni pazarlara kontrollü şekilde açılmak isteyen markalar.',
+  },
+];
+
 // Tek, sürekli koyu lacivert taban — section'lar arasında sert renk/sınır geçişi yok.
 // Section kimliği, arka planda dağılmış yumuşak mavi glow'larla veriliyor (intro'nun network temasıyla aynı dil).
 function Glow({
@@ -242,6 +272,7 @@ export default function HomeContent() {
   const [mounted, setMounted] = useState(false);
   const [brandsGridRef, brandsInView] = useInView<HTMLDivElement>();
   const [whyRef, whyInView] = useInView<HTMLElement>();
+  const [audienceRef, audienceInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -270,6 +301,13 @@ export default function HomeContent() {
     'delay-[560ms]',
     'delay-[620ms]',
   ];
+
+  // "Kimlerle Çalışıyoruz?" bölümü için ayrı reveal — kendi viewport girişine (audienceInView) bağlı.
+  const audienceReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+  const audienceCardDelays = ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]'];
 
   return (
     <main
@@ -586,6 +624,59 @@ export default function HomeContent() {
                       {chip}
                     </span>
                   ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 5.5 KİMLERLE ÇALIŞIYORUZ? ============ */}
+      <section ref={audienceRef} className="relative px-6 py-20 sm:px-10">
+        <Glow visible={audienceInView} targetOpacity="opacity-45" className="left-[-160px] top-10 h-[420px] w-[420px]" />
+
+        <div className="relative mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${audienceReveal('delay-[0ms]')}`}>
+              Hedef Kitle
+            </p>
+            <div className="relative isolate mx-auto mt-4 max-w-2xl">
+              <TitleGlow tone="section" />
+              <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${audienceReveal('delay-[60ms]')}`}>
+                Kimlerle Çalışıyoruz?
+              </h2>
+            </div>
+            <p
+              className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${audienceReveal(
+                'delay-[120ms]',
+              )}`}
+            >
+              Her işletmenin dijital büyüme ihtiyacı aynı değildir. GloventGlobal; üretim yapan, toptan satış
+              yapan, e-ticaret kanallarını büyütmek isteyen veya global pazarlara açılmayı hedefleyen işletmeler
+              için uygulanabilir dijital büyüme sistemleri kurar.
+            </p>
+          </div>
+
+          {/* 5 hedef kitle kartı, 8 sanal sütun (lg:grid-cols-8) + her kart 2 sütun (lg:col-span-2):
+              5 kart 4'e tam bölünmediği için (3 üst + 2 alt) iki satır da BAĞIMSIZ olarak ortalanıyor:
+              0. karta lg:col-start-2 verilince üst satırdaki 3 kart (6 sütun kullanır) 8 sütun
+              içinde simetrik ortalanır (1 sütun sol + 1 sütun sağ boşluk); 3. karta lg:col-start-3
+              verilince alt satırdaki 2 kart (4 sütun kullanır) yine simetrik ortalanır (2 sütun
+              sol + 2 sütun sağ boşluk). */}
+          <div className="relative mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
+            {audienceGroups.map((group, index) => (
+              <div
+                key={group.title}
+                className={`${audienceReveal(audienceCardDelays[index])} lg:col-span-2 ${
+                  index === 0 ? 'lg:col-start-2' : index === 3 ? 'lg:col-start-3' : ''
+                }`}
+              >
+                <div className="group relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.65)]">
+                    {group.number}
+                  </span>
+                  <h3 className="mt-4 text-lg font-semibold text-white">{group.title}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-blue-100/70">{group.description}</p>
                 </div>
               </div>
             ))}
