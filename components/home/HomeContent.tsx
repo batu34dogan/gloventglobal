@@ -107,31 +107,41 @@ const whySteps = [
 ];
 
 const processSteps = [
-  { number: '01', title: 'Keşif', description: 'Ürünü, hedef pazarı, rakipleri, marjı ve satış potansiyelini analiz ederiz.' },
+  { number: '01', title: 'Keşif', description: 'İşletmenin mevcut yapısını, hedeflerini, ürünlerini, satış kanallarını ve dijital ihtiyaçlarını birlikte netleştiririz.' },
   {
     number: '02',
-    title: 'Strateji',
-    description: 'Hangi pazara, hangi kanalla, hangi fiyat ve hangi mesajla girileceğini planlarız.',
+    title: 'Analiz',
+    description: 'Pazar, rakip, ürün, müşteri, kanal, veri ve mevcut operasyon yapısını değerlendirerek fırsat ve eksikleri belirleriz.',
   },
   {
     number: '03',
-    title: 'Altyapı',
-    description: 'Pazaryeri, Shopify, B2B katalog veya dijital showroom yapısını kurarız.',
+    title: 'Strateji',
+    description: 'Marka için doğru pazar, kanal, konumlandırma, teknoloji ve operasyon yol haritasını oluştururuz.',
   },
   {
     number: '04',
-    title: 'İçerik',
-    description: 'Ürün görselleri, listeleme metinleri, SEO, kategori ve marka anlatımını hazırlarız.',
+    title: 'Kurulum',
+    description: 'Web altyapısı, Shopify, pazaryeri, B2B showroom, veri takibi ve gerekli dijital sistemleri markaya uygun şekilde kurarız.',
   },
   {
     number: '05',
-    title: 'Yayın',
-    description: 'Sistemi kontrollü şekilde yayına alır, ilk verileri toplamaya başlarız.',
+    title: 'Yapay Zeka ve Otomasyon',
+    description: 'İçerik, görsel, raporlama, teklif, müşteri akışı, ürün yönetimi ve operasyon süreçlerinde yapay zeka ve otomasyon entegrasyonları kurgularız.',
   },
   {
     number: '06',
+    title: 'Yayın',
+    description: 'Hazırlanan dijital sistemi test eder, gerekli kontrolleri yapar ve markayı yayına veya satışa hazır hale getiririz.',
+  },
+  {
+    number: '07',
+    title: 'Operasyon',
+    description: 'Ürün, kategori, kampanya, içerik, reklam, müşteri akışı ve günlük dijital operasyon süreçlerini yönetilebilir hale getiririz.',
+  },
+  {
+    number: '08',
     title: 'Büyüme',
-    description: 'Reklam, dönüşüm, fiyat ve yeni kanal optimizasyonlarıyla sistemi ölçekleriz.',
+    description: 'Trafik, dönüşüm, satış, reklam, müşteri davranışı ve operasyon verilerini takip ederek sistemi düzenli olarak geliştiririz.',
   },
 ];
 
@@ -480,12 +490,17 @@ export default function HomeContent() {
             <div className="relative isolate mx-auto mt-4 max-w-2xl">
               <TitleGlow tone="section" />
               <h2 className="relative z-10 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
-                Üründen Sisteme, Sistemden Sürdürülebilir Büyümeye
+                GloventGlobal Çalışma Metodolojisi
               </h2>
             </div>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
+              Her marka için aynı paketleri kullanmayız. Önce işletmenin mevcut durumunu, hedeflerini ve dijital
+              potansiyelini analiz eder; ardından strateji, teknoloji, yapay zeka, otomasyon ve operasyon
+              adımlarını birlikte çalışan bir büyüme sistemine dönüştürürüz.
+            </p>
           </div>
 
-          <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="relative mt-14 grid gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
             {/* Mobilde (sm altı): tek sütun stack olduğunda adımları bağlayan ince dikey çizgi.
                 Konteynerin gerçek yüksekliğine göre otomatik uzar (sabit piksel tahmini yok). */}
             <span
@@ -495,7 +510,10 @@ export default function HomeContent() {
 
             {processSteps.map((step, index) => (
               <div key={step.number} className="group relative flex flex-col items-center text-center">
-                {index < processSteps.length - 1 && (
+                {/* Bağlantı çizgisi sadece AYNI satırdaki bir sonraki düğüme uzanır — 4+4 grid'de
+                    satır sonunda (index 3) bir sonraki adım farklı satırda olduğu için çizgi
+                    yanlışlıkla satırlar arası atlamasın diye index % 4 !== 3 kontrolü eklendi. */}
+                {index < processSteps.length - 1 && index % 4 !== 3 && (
                   <span className="absolute left-1/2 top-[24px] hidden h-px w-full bg-gradient-to-r from-blue-400/70 to-transparent lg:block" />
                 )}
                 <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-blue-400/55 bg-white/[0.045] text-sm font-semibold text-blue-300 shadow-[0_0_24px_-2px_rgba(59,130,246,0.75)] backdrop-blur-sm transition-all duration-300 group-hover:border-blue-400/85 group-hover:shadow-[0_0_32px_-2px_rgba(59,130,246,0.95)]">
