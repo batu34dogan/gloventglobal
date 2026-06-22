@@ -2235,4 +2235,204 @@ export const serviceDetails: Record<
       supportText: 'Instagram • TikTok • İçerik Planı • Ürün Sunumu • Marka Dili • Satış Kanalı Uyumu',
     },
   },
+  'global-pazara-giris-stratejisi': {
+    eyebrow: 'GLOBAL PAZARA GİRİŞ STRATEJİSİ',
+    title: 'Markanız İçin Doğru Global Pazara Giriş Yol Haritası Oluşturuyoruz',
+    description:
+      'Global pazara açılmak yalnızca ürünleri yurt dışına listelemek değildir. Doğru ülke, doğru satış kanalı, doğru fiyat, doğru ürün sunumu, rekabet analizi ve operasyon planı birlikte çalıştığında sürdürülebilir büyüme zemini oluşur.',
+    ctaLabel: 'Pazar Giriş Planı Oluştur',
+    audience: {
+      eyebrow: 'KİMLER İÇİN?',
+      title: 'Global Pazara Kontrollü ve Doğru Stratejiyle Açılmak İsteyen Markalar İçin',
+      description:
+        'Global Pazara Giriş Stratejisi; ürününü yurt dışı pazarlara taşımak isteyen, hangi ülke ve kanaldan başlaması gerektiğini netleştirmek isteyen markalar için uygundur.',
+      cards: [
+        {
+          number: '01',
+          title: 'İlk Kez Global Pazara Açılacak Markalar',
+          description: 'Ürününü yurt dışında satmak isteyen ama hangi ülke, kanal ve satış modeliyle başlaması gerektiğini netleştirmek isteyen markalar için uygundur.',
+        },
+        {
+          number: '02',
+          title: 'Yanlış Pazarda Zaman Kaybetmek İstemeyenler',
+          description: 'Ürün, fiyat, rekabet, talep ve operasyon yapısını analiz ederek daha doğru pazara giriş kararı almak isteyen işletmeler için uygundur.',
+        },
+        {
+          number: '03',
+          title: 'Mevcut Satışını Yeni Pazarlara Taşımak İsteyenler',
+          description: 'Türkiye’de veya mevcut dijital kanallarında satış yapan, bunu Amazon, Etsy, eBay, Shopify veya B2B kanallarla global pazara taşımak isteyen markalar için uygundur.',
+        },
+        {
+          number: '04',
+          title: 'Ürün ve Kanal Önceliğini Belirlemek İsteyenler',
+          description: 'Hangi ürünlerin önce çıkarılacağını, hangi kanalın daha uygun olduğunu ve hangi fiyat yapısının daha doğru olacağını planlamak isteyen markalar için uygundur.',
+        },
+      ],
+    },
+    problem: {
+      eyebrow: 'SİSTEM EKSİKLERİ',
+      title: 'Global Pazara Açılmak Değil, Doğru Pazara Doğru Sistemle Girmek Gerekir',
+      description:
+        'Birçok marka global satışa başlamak ister ama ülke seçimi, kanal kararı, fiyatlandırma, rekabet, ürün sunumu ve operasyon planı netleşmeden ilerlediğinde zaman, bütçe ve enerji yanlış pazarda harcanabilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Belirsiz Pazar Seçimi',
+          description: 'Hangi ülkenin ürün için daha uygun olduğu analiz edilmeden ilerlemek, satış potansiyelini sınırlayabilir.',
+        },
+        {
+          number: '02',
+          title: 'Yanlış Kanal Tercihi',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B veya sosyal medya kanallarından hangisinin önce kullanılacağı net değilse sistem dağınık ilerler.',
+        },
+        {
+          number: '03',
+          title: 'Eksik Fiyat ve Rekabet Analizi',
+          description: 'Ürün maliyeti, komisyon, kargo, reklam, rakip fiyatı ve hedef kâr birlikte hesaplanmadığında sürdürülebilir satış zorlaşır.',
+        },
+        {
+          number: '04',
+          title: 'Operasyon Hazırlığı Eksikliği',
+          description: 'Listeleme, görsel, stok, kargo, müşteri iletişimi, iade ve raporlama süreçleri planlanmadan global satışa başlamak risk oluşturur.',
+        },
+      ],
+    },
+    approach: {
+      eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
+      title: 'Global Büyümeyi Tek Kanal Değil, Bütün Bir Satış Sistemi Olarak Kurgularız',
+      description:
+        'GloventGlobal global pazara giriş sürecini yalnızca mağaza açmak veya ürün listelemek olarak ele almaz. Ürün, pazar, kanal, fiyat, içerik, reklam ve operasyon birlikte planlandığında markaya özel sürdürülebilir bir büyüme sistemi oluşur.',
+      steps: [
+        {
+          number: '01',
+          title: 'Ürün ve Pazar Analizi',
+          description: 'Ürünün hangi pazarlarda daha güçlü konumlanabileceğini, talep yapısını, rekabeti ve müşteri beklentisini analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Kanal ve Satış Modeli Kurgusu',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B, sosyal medya veya hibrit satış modeli arasından markaya uygun giriş yolunu belirleriz.',
+        },
+        {
+          number: '03',
+          title: 'Fiyat, Rekabet ve Operasyon Planı',
+          description: 'Ürün maliyeti, satış fiyatı, komisyon, kargo, reklam, stok, iade ve müşteri iletişimini birlikte değerlendiririz.',
+        },
+        {
+          number: '04',
+          title: 'Yol Haritası ve Önceliklendirme',
+          description: 'Hangi ürünle, hangi pazarda, hangi kanalda ve hangi sırayla ilerlenmesi gerektiğini uygulanabilir bir yol haritasına dönüştürürüz.',
+        },
+      ],
+    },
+    dataSystem: {
+      eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
+      title: 'Pazara Giriş Kararınızı Verilerle Geliştirilen Bir Büyüme Sistemine Dönüştürüyoruz',
+      description:
+        'Pazar seçimi yalnızca tahminle yapılmaz. Arama hacmi, rakip yapısı, fiyat aralığı, ürün ilgisi, reklam maliyeti, satış kanalı verileri ve operasyon kapasitesi birlikte değerlendirildiğinde daha doğru bir global büyüme kararı alınabilir.',
+      // Global Pazara Giriş Stratejisi için gerçek dashboard/analytics görselleri henüz hazır değil
+      // — diğer hizmetlerdeki gibi geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek
+      // görseller hazır olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
+      dataCards: [
+        {
+          title: 'Pazar Potansiyeli',
+          description: 'Ürünün hangi ülkelerde ve hangi müşteri kitlelerinde daha yüksek satış potansiyeli taşıdığını analiz ederiz.',
+        },
+        {
+          title: 'Rekabet ve Fiyat Aralığı',
+          description: 'Rakip ürünleri, fiyat seviyelerini, yorum sayılarını, kategori yoğunluğunu ve görünürlük fırsatlarını değerlendiririz.',
+        },
+        {
+          title: 'Kanal Uygunluğu',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B veya sosyal medya kanallarından hangisinin marka için daha uygun olduğunu belirleriz.',
+        },
+        {
+          title: 'Operasyon Kapasitesi',
+          description: 'Stok, kargo, üretim, paketleme, müşteri iletişimi, iade ve teslimat süreçlerinin pazara uygunluğunu değerlendiririz.',
+        },
+        {
+          title: 'Büyüme Öncelikleri',
+          description: 'Hangi pazarın önce test edileceğini, hangi ürünlerin öne çıkarılacağını ve hangi yatırım sırasının daha mantıklı olduğunu netleştiririz.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'SÜREÇ',
+      title: 'Global Pazara Giriş İçin Strateji Yol Haritası',
+      description:
+        'Global pazara giriş sürecini yalnızca kanal seçimi olarak ele almayız; ürün, pazar, fiyat, rekabet, kanal, içerik, reklam ve operasyon hazırlığını birlikte planlarız.',
+      steps: [
+        {
+          number: '01',
+          title: 'Marka ve Ürün Keşfi',
+          description: 'Markanın ürün yapısını, mevcut satış kanallarını, üretim kapasitesini, hedeflerini ve global pazara uygunluk durumunu analiz ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Pazar ve Rekabet Analizi',
+          description: 'Hedef ülkeleri, kategori yapısını, rakipleri, fiyat seviyelerini, müşteri davranışını ve satış potansiyelini değerlendiririz.',
+        },
+        {
+          number: '03',
+          title: 'Kanal Stratejisi',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B veya sosyal medya gibi kanallar arasından markaya en uygun giriş modelini belirleriz.',
+        },
+        {
+          number: '04',
+          title: 'Fiyat ve Operasyon Planı',
+          description: 'Komisyon, kargo, reklam, stok, iade, müşteri iletişimi ve operasyon kapasitesini dikkate alarak uygulanabilir yapı oluştururuz.',
+        },
+        {
+          number: '05',
+          title: 'Uygulama Yol Haritası',
+          description: 'Hangi ürünle başlanacağı, hangi pazarda test yapılacağı, hangi içeriklerin hazırlanacağı ve hangi adımların önce uygulanacağı netleştirilir.',
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: 'HAZIRLANAN SİSTEM',
+      title: 'Global Pazara Giriş İçin Hazırlanan Sistem Çıktıları',
+      description:
+        'Global Pazara Giriş Stratejisi sonunda yalnızca genel bir öneri değil; markanızın hangi pazarda, hangi kanalda, hangi ürün ve operasyon yapısıyla ilerleyeceğini gösteren uygulanabilir bir yol haritası hazırlanır.',
+      items: [
+        {
+          number: '01',
+          title: 'Pazar Giriş Haritası',
+          description: 'Hangi ülke veya pazarlardan başlanacağı, hangi pazarların sonraya bırakılacağı ve nedenleri netleştirilir.',
+        },
+        {
+          number: '02',
+          title: 'Kanal Stratejisi',
+          description: 'Amazon, Etsy, eBay, Shopify, B2B, sosyal medya veya hibrit model seçenekleri değerlendirilir.',
+        },
+        {
+          number: '03',
+          title: 'Ürün Önceliklendirme Planı',
+          description: 'Hangi ürünlerin önce listeleneceği, hangi ürünlerin test edileceği ve hangi ürün gruplarının bekletileceği belirlenir.',
+        },
+        {
+          number: '04',
+          title: 'Fiyat ve Rekabet Çerçevesi',
+          description: 'Satış fiyatı, kargo, komisyon, reklam maliyeti, rakip fiyatları ve hedef kâr mantığı planlanır.',
+        },
+        {
+          number: '05',
+          title: 'Operasyon Hazırlık Planı',
+          description: 'Stok, kargo, paketleme, iade, müşteri iletişimi, içerik, görsel ve raporlama ihtiyaçları netleştirilir.',
+        },
+        {
+          number: '06',
+          title: 'Büyüme Yol Haritası',
+          description: 'İlk test, ilk yayın, reklam başlangıcı, optimizasyon ve yeni kanal/pazar genişleme sırası belirlenir.',
+        },
+      ],
+    },
+    finalCta: {
+      title: 'Markanız İçin Doğru Global Pazara Giriş Yolunu Birlikte Belirleyelim',
+      description:
+        'Ürününüzü, hedeflerinizi, mevcut satış yapınızı ve global pazara uygunluğunuzu birlikte değerlendirerek markanız için doğru pazar, kanal ve büyüme yol haritasını planlayalım.',
+      ctaLabel: 'Pazar Giriş Planı Oluştur',
+      supportText: 'Pazar Analizi • Kanal Seçimi • Fiyatlandırma • Rekabet • Operasyon • Büyüme Planı',
+    },
+  },
 };
