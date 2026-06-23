@@ -131,6 +131,26 @@ const systemComposition = [
   },
 ];
 
+// "Hizmeti Nasıl Alabilirsiniz?" bölümü için 3 çalışma modeli — bilerek "satış paketi" değil, "GloventGlobal
+// ile nasıl çalışılır" sorusuna cevap veren bir çalışma modeli gibi kurgulandı.
+const deliveryModels = [
+  {
+    number: '01',
+    title: 'Sistem Kurulumu',
+    description: 'Markanız için gerekli dijital altyapıyı, pazaryeri yapısını, Shopify / B2B sistemini, otomasyonları veya operasyon akışını kurar ve uygulanabilir şekilde teslim ederiz.',
+  },
+  {
+    number: '02',
+    title: 'Yönetim ve Operasyon',
+    description: 'Kurulan sistemin ürün, içerik, reklam, kampanya, kategori, müşteri akışı ve günlük dijital operasyon süreçlerini birlikte yönetiriz.',
+  },
+  {
+    number: '03',
+    title: 'Büyüme Partnerliği',
+    description: 'Markanızın uzun vadeli büyüme hedefleri için strateji, teknoloji, performans, yapay zeka, otomasyon ve operasyon süreçlerini düzenli olarak geliştiririz.',
+  },
+];
+
 const serviceCards = [
   {
     tag: '01 AMAZON',
@@ -297,6 +317,7 @@ export default function ServicesContent() {
   const [systemRef, systemInView] = useInView<HTMLElement>();
   const [compositionRef, compositionInView] = useInView<HTMLElement>();
   const [servicesRef, servicesInView] = useInView<HTMLElement>();
+  const [deliveryRef, deliveryInView] = useInView<HTMLElement>();
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
   const [platformsRef, platformsInView] = useInView<HTMLElement>();
   const [ctaRef, ctaInView] = useInView<HTMLElement>();
@@ -330,6 +351,12 @@ export default function ServicesContent() {
   const servicesReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       servicesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "Hizmeti Nasıl Alabilirsiniz?" bölümü — kendi viewport girişine (deliveryInView) bağlı.
+  const deliveryReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      deliveryInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // "Hangi Marka İçin Hangi Hizmet?" bölümü Hizmet Kartları'nın altında — kendi viewport girişine bağlı, ayrı reveal.
@@ -535,7 +562,7 @@ export default function ServicesContent() {
                 'delay-[100ms]',
               )}`}
             >
-              Dijital Satış Sistemini Oluşturan Hizmetler
+              Sistem İçerisindeki Uzmanlık Alanlarımız
             </h2>
           </div>
           <p
@@ -543,8 +570,8 @@ export default function ServicesContent() {
               'delay-[200ms]',
             )}`}
           >
-            Her hizmeti tek başına bir işlem olarak değil, markanızın dijital satış kanallarında sürdürülebilir
-            büyüme üretebilmesi için birbirini tamamlayan sistem parçaları olarak ele alıyoruz.
+            Her hizmet, markanız için kurulan dijital büyüme sisteminin bir parçasıdır. İhtiyaca göre pazaryeri,
+            commerce altyapısı, yapay zeka, otomasyon, reklam, içerik ve operasyon alanlarını birlikte kurgularız.
           </p>
         </div>
 
@@ -595,6 +622,60 @@ export default function ServicesContent() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* ============ 3.5 HİZMETİ NASIL ALABİLİRSİNİZ? ============
+          12 hizmet kartı ile "Hangi Marka İçin Hangi Sistem Doğru?" arasında — "satış paketi" değil,
+          GloventGlobal ile çalışma modelini (kurulum / yönetim / partnerlik) anlatan sade 3 kart. */}
+      <section ref={deliveryRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={deliveryInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[400px] w-[760px] -translate-x-1/2" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p
+            className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${deliveryReveal(
+              'delay-[0ms]',
+            )}`}
+          >
+            ÇALIŞMA MODELİ
+          </p>
+          <div className="relative isolate mx-auto mt-4 max-w-xl">
+            <TitleGlow tone="section" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${deliveryReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              Hizmeti Nasıl Alabilirsiniz?
+            </h2>
+          </div>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${deliveryReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            Her marka aynı seviyede destek ihtiyacı duymaz. Bu yüzden GloventGlobal&apos;da hizmetler tek bir
+            paket olarak değil; kurulum, yönetim veya uzun vadeli büyüme partnerliği şeklinde
+            yapılandırılabilir.
+          </p>
+        </div>
+
+        <div className="relative mx-auto mt-10 grid max-w-5xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {deliveryModels.map((model, index) => (
+            <div key={model.number} className={deliveryReveal(['delay-[300ms]', 'delay-[380ms]', 'delay-[460ms]'][index])}>
+              <div className="relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+                  {model.number}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold text-white">{model.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{model.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -730,12 +811,12 @@ export default function ServicesContent() {
           <div className="relative isolate mx-auto max-w-2xl">
             <TitleGlow tone="cta" />
             <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
-              Markanız İçin Doğru Dijital Satış Sistemini Birlikte Belirleyelim
+              Markanız İçin Doğru Dijital Büyüme Sistemini Birlikte Belirleyelim
             </h2>
           </div>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
             Ürününüzü, mevcut satış kanallarınızı ve hedeflerinizi analiz ederek GloventGlobal hizmetlerinden
-            hangilerinin markanız için doğru satış ve büyüme sistemini oluşturacağını birlikte planlayalım.
+            hangilerinin markanız için doğru dijital büyüme sistemini oluşturacağını birlikte planlayalım.
           </p>
 
           <p className="mt-6 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
