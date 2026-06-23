@@ -229,7 +229,7 @@ const processSteps = [
   },
   {
     number: '02',
-    title: 'Sistem Planı',
+    title: 'Yol Haritası Taslağı',
     description:
       'Amazon, Etsy, eBay, Shopify, B2B, sosyal medya, reklam veya otomasyon ihtiyaçlarınıza göre uygun hizmet kombinasyonu belirlenir.',
   },
@@ -353,7 +353,7 @@ export default function ContactContent() {
               className="absolute left-8 right-8 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
             />
 
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Başvuru Bilgileri</h2>
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Markanızı Tanıyalım</h2>
             <p className="mt-3 text-sm leading-relaxed text-blue-100/70 sm:text-base">
               Markanızla ilgili temel bilgileri paylaşın; ilgilendiğiniz alanı, hedeflerinizi ve ihtiyaçlarınızı
               birlikte değerlendirerek doğru dijital büyüme yol haritasını planlayalım.
@@ -503,10 +503,9 @@ export default function ContactContent() {
             className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"
           />
 
-          <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Her Marka İçin Aynı Hizmet Paketini Sunmuyoruz</h2>
+          <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Her Marka İçin Farklı Bir Büyüme Yol Haritası Oluşturuyoruz</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
-            Ürününüz, satış kanalınız, hedef pazarınız ve büyüme aşamanıza göre GloventGlobal hizmetlerinden
-            hangilerinin markanız için doğru dijital büyüme yol haritasını oluşturacağını birlikte belirliyoruz.
+            Hedeflerinize, mevcut yapınıza ve büyüme aşamanıza göre doğru stratejiyi birlikte belirliyoruz.
           </p>
           <p className="mt-5 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
             Strateji • Altyapı • İçerik • Reklam • Otomasyon
