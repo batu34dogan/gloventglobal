@@ -52,6 +52,29 @@ function Glow({
   );
 }
 
+// Hero başlığının arkasına oturan, ana sayfa/hakkımızda sayfalarındaki Hero glow'uyla aynı kanıtlanmış
+// teknik — bağımsız kopya (sayfa izolasyonu prensibi korunuyor). Başlığın KENDİ (relative isolate)
+// kutusuna sıkıca bağlı, çevresindeki içeriği kapsamıyor.
+function TitleGlow({ tone }: { tone: 'hero' | 'section' | 'cta' }) {
+  const sizeClass =
+    tone === 'hero'
+      ? 'h-[300px] w-[min(820px,92vw)] sm:h-[360px] sm:w-[min(940px,90vw)]'
+      : tone === 'section'
+        ? 'h-[200px] w-[min(560px,85vw)] sm:h-[230px] sm:w-[min(620px,82vw)]'
+        : 'h-[170px] w-[min(480px,80vw)] sm:h-[190px] sm:w-[min(520px,78vw)]';
+  const opacityClass = tone === 'hero' ? 'opacity-50' : tone === 'section' ? 'opacity-[0.26]' : 'opacity-[0.16]';
+
+  return (
+    <span
+      aria-hidden="true"
+      className={`pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 ${sizeClass} rounded-full ${opacityClass} blur-2xl`}
+      style={{
+        background: 'radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(96,165,250,0.5) 45%, transparent 75%)',
+      }}
+    />
+  );
+}
+
 // Koyu zeminli, ince border'lı form alanı kabuğu — input/textarea/select hepsi aynı çerçeveyi kullanır.
 const fieldInputClass =
   'w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder:text-blue-100/30 outline-none transition-colors duration-200 focus:border-blue-400/55 focus:bg-white/[0.05] focus:shadow-[0_0_0_3px_rgba(59,130,246,0.15)]';
@@ -291,13 +314,16 @@ export default function ContactContent() {
           <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
             İletişim
           </p>
-          <h1
-            className={`mx-auto mt-8 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            Markanızın Dijital Büyüme Yol Haritasını Birlikte Oluşturalım
-          </h1>
+          <div className="relative isolate mx-auto mt-8 max-w-3xl">
+            <TitleGlow tone="hero" />
+            <h1
+              className={`relative z-10 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
+                'delay-[200ms]',
+              )}`}
+            >
+              Markanızın Dijital Büyüme Yol Haritasını Birlikte Oluşturalım
+            </h1>
+          </div>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
