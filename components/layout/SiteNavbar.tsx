@@ -6,8 +6,6 @@ const navLinks = [
   { label: 'Hizmetler', href: '/hizmetler' },
   { label: 'Hakkımızda', href: '/hakkimizda' },
   { label: 'Farkımız', href: '/farkimiz' },
-  { label: 'Süreç', href: '/#process' },
-  { label: 'Sistem', href: '/#services' },
   { label: 'İletişim', href: '/iletisim' },
 ];
 
