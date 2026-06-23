@@ -77,6 +77,32 @@ function TitleGlow({ tone }: { tone: 'hero' | 'section' | 'cta' }) {
   );
 }
 
+// "Her Marka İçin Aynı Yol Haritası Kullanılmaz" panelindeki 4 kısa "karar mantığı" maddesi —
+// hizmet listesi değil, GloventGlobal'ın markaya özel yol haritasını nasıl kurguladığını anlatan
+// sıralı bir mantık (önce anlama, sonra önceliklendirme, sonra yol haritası, sonra ölçüm).
+const decisionLogic = [
+  {
+    number: '01',
+    title: 'Mevcut Yapıyı Anlarız',
+    description: 'İşletmenin ürünlerini, satış kanallarını, operasyon kapasitesini ve dijital ihtiyaçlarını değerlendiririz.',
+  },
+  {
+    number: '02',
+    title: 'Doğru Öncelikleri Belirleriz',
+    description: 'Her markaya aynı çözümü önermeyiz; önce büyümeyi en çok etkileyecek adımları netleştiririz.',
+  },
+  {
+    number: '03',
+    title: 'Uygulanabilir Yol Haritası Kurarız',
+    description: 'Strateji, teknoloji, yapay zeka, otomasyon ve operasyon adımlarını markanın gerçek kapasitesine uygun şekilde planlarız.',
+  },
+  {
+    number: '04',
+    title: 'Ölçülebilir Sistem Tasarlarız',
+    description: 'Kurulan yapının takip edilebilir, geliştirilebilir ve uzun vadede yönetilebilir olmasını hedefleriz.',
+  },
+];
+
 // "GloventGlobal'in Çalışma Prensipleri" listesi — bilerek hizmet adı değil, şirket prensibi/bakış
 // açısı cümleleri kullanılıyor (Hakkımızda sayfasının "ne yapıyoruz" değil "nasıl düşünüyoruz"
 // sorusuna cevap vermesi gerektiği için). Render mantığı (border-b liste, focusAreaDelays) aynı.
@@ -399,18 +425,32 @@ export default function AboutContent() {
             </h2>
           </div>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
-            Bir markanın global pazara açılması yalnızca doğru platformu seçmekle başlamaz. Ürünün pazardaki
-            karşılığı, hedef müşteri, fiyat yapısı, rakipler, görsel dil, operasyon kapasitesi ve reklam bütçesi
-            birlikte değerlendirilmelidir.
+            Her işletmenin ürünü, hedef müşterisi, dijital olgunluğu, satış kanalları ve büyüme hedefi farklıdır.
+            Bu yüzden GloventGlobal&apos;da hazır paketler veya herkese aynı şekilde uygulanan şablon süreçler
+            kullanılmaz.
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
-            Bu yüzden GloventGlobal, her markaya aynı hizmet paketini sunmak yerine, markanın mevcut durumuna ve
-            hedeflerine göre uygulanabilir bir yol haritası tasarlar. Amaç yalnızca dijitalde görünmek değil;
-            yönetilebilir, ölçülebilir ve sürdürülebilir bir satış sistemi kurmaktır.
+            Önce markanın mevcut yapısını, güçlü taraflarını, eksiklerini ve büyüme potansiyelini analiz ederiz.
+            Ardından doğru strateji, teknoloji, yapay zeka, otomasyon, içerik, reklam ve operasyon adımlarını
+            markaya özel bir yol haritasına dönüştürürüz.
           </p>
           <p className="mx-auto mt-6 max-w-xl border-l-2 border-blue-400/40 pl-4 text-left text-sm font-medium leading-relaxed text-blue-100/85 sm:text-base">
-            Önce ürünü ve pazarı okuruz, sonra sistemi kurarız.
+            Bizim için doğru sistem; yalnızca bugünü çözen değil, markanın ileride yönetebileceği, ölçebileceği
+            ve geliştirebileceği büyüme altyapısıdır.
           </p>
+
+          {/* Karar mantığı — hizmet kartı değil, GloventGlobal'ın "önce nasıl karar verdiğini" anlatan
+              4 kısa madde. Bilerek glass-card kabuğu kullanılmadı (panel zaten kendi cam kabuğunda),
+              sadece ince bir ayraç çizgisiyle manifesto metninden ayrıştırıldı. */}
+          <div className="mx-auto mt-10 grid max-w-2xl gap-6 border-t border-white/[0.07] pt-8 text-left sm:grid-cols-2">
+            {decisionLogic.map((item) => (
+              <div key={item.number}>
+                <span className="text-xs font-semibold text-blue-300/80">{item.number}</span>
+                <h3 className="mt-1.5 text-sm font-semibold text-white">{item.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-blue-100/65">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
