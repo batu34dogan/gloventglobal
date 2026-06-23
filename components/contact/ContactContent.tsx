@@ -78,13 +78,24 @@ function TextField({
   );
 }
 
-function TextAreaField({ label, value, onChange }: { label: string; value: string; onChange: (value: string) => void }) {
+function TextAreaField({
+  label,
+  value,
+  onChange,
+  placeholder,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+}) {
   return (
     <label className="block sm:col-span-2">
       <span className={fieldLabelClass}>{label}</span>
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
         rows={3}
         className={`${fieldInputClass} resize-none`}
       />
@@ -127,11 +138,31 @@ const targetChannelOptions = [
   'Etsy',
   'eBay',
   'Shopify',
-  'B2B Dijital Showroom',
+  'B2B',
+  'Kurumsal Website',
+  'Dijital Showroom',
+  'Yapay Zeka',
+  'Otomasyon',
+  'Reklam & Optimizasyon',
   'Sosyal Medya',
-  'Reklam',
-  'Otomasyon / n8n',
-  'Emin değilim, birlikte belirleyelim',
+  'Birden Fazlası',
+  'Henüz Emin Değilim',
+];
+
+// "Ana Hedefiniz" alanı — opsiyonel, formu zorunlu alanlarla şişirmemek için. Ziyaretçinin
+// "öncelikli kanal/alan" sorusundan ayrı olarak, ulaşmak istediği sonucu (marka bilinirliği, satış
+// artışı, dönüşüm vb.) tanımlamasını sağlar.
+const mainGoalOptions = [
+  'Marka Bilinirliği',
+  'Satış Artışı',
+  'E-Ticaret Altyapısı Kurulumu',
+  'B2B Satış Sistemi',
+  'Dijital Dönüşüm',
+  'Global Pazara Açılmak',
+  'Yapay Zeka Entegrasyonu',
+  'Otomasyon Sistemi Kurulumu',
+  'Operasyon Yönetimi',
+  'Henüz Net Değil',
 ];
 
 const quickContactCards = [
@@ -202,6 +233,7 @@ export default function ContactContent() {
     email: '',
     website: '',
     targetChannel: '',
+    mainGoal: '',
     notes: '',
   });
 
@@ -264,16 +296,16 @@ export default function ContactContent() {
               'delay-[200ms]',
             )}`}
           >
-            Markanız İçin Dijital Satış ve Büyüme Sistemini Birlikte Planlayalım
+            Markanızın Dijital Büyüme Yol Haritasını Birlikte Oluşturalım
           </h1>
           <p
             className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
               'delay-[300ms]',
             )}`}
           >
-            Ürününüzü, mevcut satış kanallarınızı, dijital altyapınızı ve hedeflerinizi analiz ederek
-            GloventGlobal&apos;ın markanız için nasıl bir dijital satış ve büyüme sistemi kurabileceğini birlikte
-            değerlendirelim.
+            İşletmenizin mevcut yapısını, hedeflerini ve dijital ihtiyaçlarını anlayarak; strateji, teknoloji,
+            yapay zeka, otomasyon, e-ticaret ve operasyon süreçleri için uygulanabilir bir yol haritası
+            oluşturalım.
           </p>
         </div>
       </section>
@@ -297,8 +329,8 @@ export default function ContactContent() {
 
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Başvuru Bilgileri</h2>
             <p className="mt-3 text-sm leading-relaxed text-blue-100/70 sm:text-base">
-              Markanızla ilgili temel bilgileri paylaşın; satış kanallarınızı, hedeflerinizi ve ihtiyaçlarınızı
-              birlikte değerlendirerek doğru dijital satış sistemini planlayalım.
+              Markanızla ilgili temel bilgileri paylaşın; ilgilendiğiniz alanı, hedeflerinizi ve ihtiyaçlarınızı
+              birlikte değerlendirerek doğru dijital büyüme yol haritasını planlayalım.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -313,13 +345,23 @@ export default function ContactContent() {
                 fullWidth
               />
               <SelectField
-                label="Hedeflenen Satış Kanalı"
+                label="İlgilendiğiniz Alan / Öncelikli İhtiyaç"
                 value={formValues.targetChannel}
                 onChange={updateField('targetChannel')}
                 options={targetChannelOptions}
-                fullWidth
               />
-              <TextAreaField label="Kısa Açıklama" value={formValues.notes} onChange={updateField('notes')} />
+              <SelectField
+                label="Ana Hedefiniz"
+                value={formValues.mainGoal}
+                onChange={updateField('mainGoal')}
+                options={mainGoalOptions}
+              />
+              <TextAreaField
+                label="Kısa Açıklama"
+                value={formValues.notes}
+                onChange={updateField('notes')}
+                placeholder="Markanız, ürünleriniz, mevcut dijital yapınız ve ulaşmak istediğiniz hedefler hakkında kısa bilgi paylaşın."
+              />
 
               <div className="sm:col-span-2">
                 <button
@@ -398,8 +440,8 @@ export default function ContactContent() {
               'delay-[200ms]',
             )}`}
           >
-            Başvurunuzu yalnızca bir iletişim talebi olarak değil, markanız için doğru dijital satış ve büyüme
-            sistemini belirlemenin ilk adımı olarak değerlendiriyoruz.
+            Başvurunuzu yalnızca bir iletişim talebi olarak değil, markanız için doğru dijital büyüme yol
+            haritasını belirlemenin ilk adımı olarak değerlendiriyoruz.
           </p>
         </div>
 
@@ -438,8 +480,7 @@ export default function ContactContent() {
           <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Her Marka İçin Aynı Hizmet Paketini Sunmuyoruz</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
             Ürününüz, satış kanalınız, hedef pazarınız ve büyüme aşamanıza göre GloventGlobal hizmetlerinden
-            hangilerinin markanız için doğru dijital satış ve büyüme sistemini oluşturacağını birlikte
-            belirliyoruz.
+            hangilerinin markanız için doğru dijital büyüme yol haritasını oluşturacağını birlikte belirliyoruz.
           </p>
           <p className="mt-5 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
             Strateji • Altyapı • İçerik • Reklam • Otomasyon
