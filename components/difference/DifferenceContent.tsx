@@ -81,7 +81,7 @@ function TitleGlow({ tone }: { tone: 'hero' | 'section' | 'cta' }) {
 const differenceCards = [
   {
     number: '01',
-    title: 'Önce İşletmeyi Anlarız',
+    title: 'Önce İşletmeyi Okuruz',
     description: 'Hazır paketlerle başlamayız. Markanın ürünlerini, hedef kitlesini, mevcut dijital yapısını, operasyon kapasitesini ve büyüme potansiyelini analiz ederiz.',
   },
   {
@@ -196,7 +196,7 @@ export default function DifferenceContent() {
                 'delay-[200ms]',
               )}`}
             >
-              Klasik Hizmet Mantığıyla Değil, Birlikte Çalışan Dijital Büyüme Sistemiyle İlerliyoruz
+              Klasik Hizmet Mantığıyla Değil, Sistem Yaklaşımıyla Çalışıyoruz
             </h1>
           </div>
           <p
@@ -226,7 +226,7 @@ export default function DifferenceContent() {
           <div className="relative isolate mx-auto mt-4 max-w-xl">
             <TitleGlow tone="section" />
             <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${coreReveal('delay-[100ms]')}`}>
-              Parça Parça Hizmet Değil, Sistem Yaklaşımı
+              Bizi Farklı Kılan Çalışma Mantığı
             </h2>
           </div>
           <p
@@ -358,7 +358,7 @@ export default function DifferenceContent() {
           <div className="relative isolate mx-auto max-w-2xl">
             <TitleGlow tone="cta" />
             <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
-              Markanız İçin Fark Yaratan Dijital Büyüme Sistemini Birlikte Kuralım
+              Markanız İçin Fark Yaratan Dijital Büyüme Sistemini Kuralım
             </h2>
           </div>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
