@@ -77,16 +77,16 @@ function TitleGlow({ tone }: { tone: 'hero' | 'section' | 'cta' }) {
   );
 }
 
+// "GloventGlobal'in Çalışma Prensipleri" listesi — bilerek hizmet adı değil, şirket prensibi/bakış
+// açısı cümleleri kullanılıyor (Hakkımızda sayfasının "ne yapıyoruz" değil "nasıl düşünüyoruz"
+// sorusuna cevap vermesi gerektiği için). Render mantığı (border-b liste, focusAreaDelays) aynı.
 const focusAreas = [
-  'Global Pazar Stratejisi',
-  'Pazaryeri Sistemleri',
-  'Shopify & B2B Altyapı',
-  'Marka Konumlandırma',
-  'Görsel & İçerik Sistemi',
-  'Yapay Zeka Entegrasyonu',
-  'Sosyal Medya Yönetimi',
-  'Reklam & Optimizasyon',
-  'Otomasyon & n8n Sistemleri',
+  'Sistem düşünürüz.',
+  'Veriye göre karar veririz.',
+  'Teknolojiyi amaç değil, araç olarak görürüz.',
+  'Yapay zekayı sürece dahil ederiz.',
+  'Operasyonu büyümenin parçası sayarız.',
+  'Uzun vadeli düşünürüz.',
 ];
 
 const focusAreaDelays = [
@@ -227,7 +227,7 @@ export default function AboutContent() {
                 'delay-[200ms]',
               )}`}
             >
-              Markalar İçin Dijital Satış ve Global Büyüme Sistemleri Kuruyoruz
+              Dijital Büyümeyi Parçalara Ayırmak Yerine Sistem Olarak Görüyoruz
             </h1>
           </div>
           <p
@@ -235,9 +235,8 @@ export default function AboutContent() {
               'delay-[300ms]',
             )}`}
           >
-            GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B dijital altyapılar, yapay zeka entegrasyonu, sosyal
-            medya, içerik, reklam ve otomasyon süreçlerini birbirine bağlayarak markalar için sürdürülebilir
-            dijital satış ve global büyüme sistemleri kurar.
+            GloventGlobal; işletmelerin dijitalde büyümesi için strateji, teknoloji, yapay zeka, otomasyon,
+            e-ticaret altyapısı ve operasyon süreçlerini birbirine bağlayan sistemler tasarlamak için kuruldu.
           </p>
         </div>
       </section>
@@ -279,6 +278,9 @@ export default function AboutContent() {
           </div>
 
           <div className="lg:pt-1">
+            <h3 className={`mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${whoReveal('delay-[80ms]')}`}>
+              GloventGlobal&apos;in Çalışma Prensipleri
+            </h3>
             {focusAreas.map((area, index) => (
               <div
                 key={area}
