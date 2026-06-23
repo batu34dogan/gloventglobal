@@ -153,28 +153,28 @@ const whyCardDelays = ['delay-[0ms]', 'delay-[100ms]', 'delay-[200ms]'];
 const audienceSegments = [
   {
     number: '01',
-    title: 'Üreticiler',
-    description: 'Ürününü ilk kez dijital satış kanallarına ve pazaryerlerine taşımak isteyen üreticiler için pazar, kanal ve satış sistemi planı oluştururuz.',
+    title: 'Üreten Markalar',
+    description: 'Ürününü dijital kanallarda daha doğru sunmak, görünürlüğünü artırmak ve yeni satış yapıları kurmak isteyen üreticiler.',
   },
   {
     number: '02',
-    title: 'Toptan Satış Yapan Markalar',
-    description: 'Toptan çalışan markalar için dijital katalog, B2B showroom, teklif listesi ve müşteri odaklı ürün sunumu kurgularız.',
+    title: 'Toptan ve B2B İşletmeler',
+    description: 'Ürün sunumu, teklif, katalog, bayi ve müşteri süreçlerini dijitalleştirmek isteyen toptan satış yapan firmalar.',
   },
   {
     number: '03',
-    title: 'Pazaryerlerine Girmek İsteyen Markalar',
-    description: 'Amazon, Etsy veya eBay gibi pazaryerlerine giriş yapmak isteyen markalar için mağaza, listeleme ve reklam altyapısı hazırlarız.',
+    title: 'E-Ticaretini Büyütmek İsteyen Markalar',
+    description: 'Pazaryeri, web sitesi, reklam, içerik ve operasyon süreçlerini daha yönetilebilir hale getirmek isteyen işletmeler.',
   },
   {
     number: '04',
-    title: 'Kendi Satış Sistemini Kurmak İsteyenler',
-    description: 'Shopify, B2B katalog, dijital showroom veya pazaryeri yapısıyla kendi satış altyapısını kurmak isteyen markalara sistem tasarlarız.',
+    title: 'Global Pazara Açılmak İsteyenler',
+    description: 'Amazon, Etsy, eBay, Shopify veya farklı dijital kanallar üzerinden yeni pazarlara kontrollü şekilde açılmak isteyen markalar.',
   },
   {
     number: '05',
-    title: 'Dijitalde Marka Algısını Güçlendirmek İsteyenler',
-    description: 'Görsel dil, sosyal medya, içerik ve reklam yapısıyla dijital kanallarda daha güçlü görünmek isteyen markalar için bütüncül yapı kurarız.',
+    title: 'Sistem Kurmaya Hazır İşletmeler',
+    description: 'Tek seferlik çözümler yerine, ölçülebilir ve geliştirilebilir bir dijital büyüme sistemi kurmak isteyen işletmeler.',
   },
 ];
 
@@ -467,7 +467,7 @@ export default function AboutContent() {
               'delay-[0ms]',
             )}`}
           >
-            Kimlerle Çalışıyoruz?
+            Kimlerle Çalışmayı Seviyoruz?
           </p>
           <div className="relative isolate mx-auto mt-4 max-w-xl">
             <TitleGlow tone="section" />
@@ -484,9 +484,8 @@ export default function AboutContent() {
               'delay-[200ms]',
             )}`}
           >
-            GloventGlobal; ürününü dijital satış kanallarına taşımak, mevcut satış yapısını güçlendirmek veya
-            pazaryeri, Shopify, B2B, sosyal medya, reklam ve otomasyon süreçlerini daha sistemli yönetmek isteyen
-            markalarla çalışır.
+            GloventGlobal; dijitalde büyümeyi yalnızca kısa vadeli satış hedefi olarak değil, işletmenin uzun
+            vadeli yapısını güçlendiren bir süreç olarak gören markalarla çalışmayı tercih eder.
           </p>
         </div>
 
