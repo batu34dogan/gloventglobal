@@ -157,6 +157,7 @@ const audienceDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[
 export default function AboutContent() {
   const [mounted, setMounted] = useState(false);
   const [whoRef, whoInView] = useInView<HTMLElement>();
+  const [founderRef, founderInView] = useInView<HTMLElement>();
   const [whyRef, whyInView] = useInView<HTMLElement>();
   const [mindsetRef, mindsetInView] = useInView<HTMLElement>();
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
@@ -172,6 +173,13 @@ export default function AboutContent() {
   const reveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "Neden Kurulduk?" bölümü Hero'nun altında, ekran dışında başlıyor — kendi viewport girişine
+  // (founderInView) bağlı, ayrı reveal.
+  const founderReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      founderInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // Biz Kimiz bölümü Hero'nun altında, ekran dışında başlıyor — kendi viewport girişine bağlı, ayrı reveal.
@@ -238,6 +246,36 @@ export default function AboutContent() {
             GloventGlobal; işletmelerin dijitalde büyümesi için strateji, teknoloji, yapay zeka, otomasyon,
             e-ticaret altyapısı ve operasyon süreçlerini birbirine bağlayan sistemler tasarlamak için kuruldu.
           </p>
+        </div>
+      </section>
+
+      {/* ============ 1.5 NEDEN KURULDUK? ============
+          Kısa, sade bir hikâye/manifesto bloğu — kart/panel kabuğu yok, Hero'nun sade dilini
+          devam ettiriyor. 3 kısa paragraf, ortalanmış başlık, sol hizalı okunabilir metin. */}
+      <section ref={founderRef} className="relative px-6 pb-14 pt-10 sm:px-10">
+        <Glow visible={founderInView} targetOpacity="opacity-35" className="left-1/2 top-0 h-[380px] w-[700px] -translate-x-1/2" />
+
+        <div className="relative mx-auto max-w-2xl">
+          <div className="relative isolate mx-auto max-w-xl text-center">
+            <TitleGlow tone="section" />
+            <h2 className={`relative z-10 text-2xl font-bold tracking-tight sm:text-3xl ${founderReveal('delay-[0ms]')}`}>
+              Neden Kurulduk?
+            </h2>
+          </div>
+          <div className="mx-auto mt-6 max-w-xl space-y-4">
+            <p className={`text-sm leading-relaxed text-blue-100/70 sm:text-base ${founderReveal('delay-[100ms]')}`}>
+              Birçok işletmenin dijital dünyaya yalnızca web sitesi, reklam veya pazaryeri kurulumu olarak
+              baktığını gördük.
+            </p>
+            <p className={`text-sm leading-relaxed text-blue-100/70 sm:text-base ${founderReveal('delay-[180ms]')}`}>
+              Oysa sürdürülebilir büyüme; strateji, teknoloji, operasyon, veri ve yapay zeka süreçlerinin birlikte
+              çalışmasıyla oluşur.
+            </p>
+            <p className={`text-sm leading-relaxed text-blue-100/70 sm:text-base ${founderReveal('delay-[260ms]')}`}>
+              GloventGlobal bu nedenle kuruldu: işletmelerin dijitalde büyümesi için dağınık araçları, kanalları
+              ve süreçleri birlikte çalışan bir sisteme dönüştürmek.
+            </p>
+          </div>
         </div>
       </section>
 
