@@ -81,17 +81,53 @@ const systemPillars = [
   {
     number: '01',
     title: 'Strateji',
-    description: 'Ürünün hangi pazarda, hangi müşteri kitlesine ve hangi satış kanalıyla büyüyebileceğini planlarız.',
+    description: 'Markanızın mevcut yapısını, hedef pazarını, ürünlerini, müşteri profilini ve büyüme potansiyelini analiz ederek doğru dijital yol haritasını oluştururuz.',
   },
   {
     number: '02',
-    title: 'Altyapı',
-    description: 'Pazaryeri, Shopify, B2B katalog veya dijital showroom yapısını markanın ihtiyacına göre kurarız.',
+    title: 'Teknoloji',
+    description: 'Shopify, headless commerce, pazaryeri sistemleri, yapay zeka, otomasyon ve veri altyapılarını markanızın ihtiyacına göre entegre ederiz.',
   },
   {
     number: '03',
-    title: 'Büyüme',
-    description: 'İçerik, reklam, veri ve operasyon süreçlerini sürekli optimize ederek sistemi ölçeklenebilir hale getiririz.',
+    title: 'Operasyon',
+    description: 'Kurulan sistemin sürdürülebilir olması için ürün, kategori, içerik, reklam, kampanya, raporlama ve günlük dijital operasyon süreçlerini yönetilebilir hale getiririz.',
+  },
+];
+
+// "Dijital Büyüme Sistemi Nelerden Oluşur?" bölümü için 5 ana sistem kategorisi — bilerek hizmet
+// listesi değil, GloventGlobal'ın kurduğu sistemin "haritası" gibi kurgulandı. Her kategori kısa
+// bir açıklama + küçük tek-tip mavi chip alt etiketlerle (Ekosistem/Teknoloji bölümlerindeki aynı dil).
+const systemComposition = [
+  {
+    number: '01',
+    title: 'Pazaryeri Sistemleri',
+    description: 'Amazon, Etsy, eBay ve diğer satış kanallarında ürün görünürlüğü, listeleme, reklam ve mağaza operasyonunu sistemli hale getiririz.',
+    chips: ['Amazon', 'Etsy', 'eBay', 'Pazaryeri Operasyonu'],
+  },
+  {
+    number: '02',
+    title: 'Commerce Altyapıları',
+    description: 'Markaya ait satış altyapısını Shopify, B2B, dijital showroom ve headless commerce yapılarıyla kurarız.',
+    chips: ['Shopify', 'B2B', 'Dijital Showroom', 'Headless Commerce'],
+  },
+  {
+    number: '03',
+    title: 'Büyüme ve Performans',
+    description: 'SEO, reklam, dönüşüm optimizasyonu, veri analizi ve performans takibiyle büyüme kararlarını ölçülebilir hale getiririz.',
+    chips: ['SEO', 'Reklam', 'CRO', 'Veri Analizi'],
+  },
+  {
+    number: '04',
+    title: 'Yapay Zeka ve Otomasyon',
+    description: 'AI içerik, görsel, raporlama, n8n otomasyonları, CRM ve entegrasyonlarla süreçleri daha verimli hale getiririz.',
+    chips: ['Yapay Zeka', 'n8n', 'CRM', 'Entegrasyon'],
+  },
+  {
+    number: '05',
+    title: 'Dijital Operasyon',
+    description: 'Ürün, kategori, kampanya, banner, içerik ve günlük dijital yönetim süreçlerini sürdürülebilir hale getiririz.',
+    chips: ['Ürün Yönetimi', 'Kategori', 'Kampanya', 'İçerik'],
   },
 ];
 
@@ -259,6 +295,7 @@ const serviceCardDelays = [
 export default function ServicesContent() {
   const [mounted, setMounted] = useState(false);
   const [systemRef, systemInView] = useInView<HTMLElement>();
+  const [compositionRef, compositionInView] = useInView<HTMLElement>();
   const [servicesRef, servicesInView] = useInView<HTMLElement>();
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
   const [platformsRef, platformsInView] = useInView<HTMLElement>();
@@ -281,6 +318,12 @@ export default function ServicesContent() {
   const systemReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       systemInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "Dijital Büyüme Sistemi Nelerden Oluşur?" bölümü — kendi viewport girişine (compositionInView) bağlı.
+  const compositionReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      compositionInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // Hizmet Kartları bölümü, Sistem Mantığı'nın daha da altında — kendi viewport girişine bağlı, ayrı reveal.
@@ -325,7 +368,7 @@ export default function ServicesContent() {
                 'delay-[200ms]',
               )}`}
             >
-              Dijital Satış ve Global Büyüme İçin Uçtan Uca Sistemler
+              Her Marka İçin Farklı Bir Dijital Büyüme Sistemi Kuruyoruz
             </h1>
           </div>
           <p
@@ -333,8 +376,9 @@ export default function ServicesContent() {
               'delay-[300ms]',
             )}`}
           >
-            GloventGlobal; Amazon, Etsy, eBay, Shopify, B2B, sosyal medya, reklam, içerik, operasyon ve otomasyon
-            süreçlerini birbirine bağlayarak markalar için sürdürülebilir dijital satış ve büyüme sistemleri kurar.
+            GloventGlobal; markanızın hedeflerine göre strateji, teknoloji, yapay zeka, otomasyon, e-ticaret
+            altyapısı, pazaryeri yönetimi ve dijital operasyon süreçlerini birlikte çalışan bir büyüme sistemi
+            olarak kurgular.
           </p>
 
           <div className={`mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row ${reveal('delay-[400ms]')}`}>
@@ -395,6 +439,80 @@ export default function ServicesContent() {
                 </span>
                 <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.15em] text-white">{pillar.title}</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{pillar.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ 2.5 DİJİTAL BÜYÜME SİSTEMİ NELERDEN OLUŞUR? ============
+          Sistem Mantığı (3 ilke) ile 12 hizmet kartı arasında — "hizmet listesi" değil, GloventGlobal'ın
+          kurduğu sistemin 5 ana kategorisinin haritası gibi okunsun. */}
+      <section ref={compositionRef} className="relative px-6 pb-20 pt-14 sm:px-10">
+        <Glow visible={compositionInView} targetOpacity="opacity-40" className="right-[-200px] top-0 h-[440px] w-[440px]" />
+        <Glow visible={compositionInView} targetOpacity="opacity-30" className="left-[-200px] bottom-0 h-[420px] w-[420px]" />
+
+        <div className="relative mx-auto max-w-3xl text-center">
+          <p
+            className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${compositionReveal(
+              'delay-[0ms]',
+            )}`}
+          >
+            Sistem Haritası
+          </p>
+          <div className="relative isolate mx-auto mt-4 max-w-xl">
+            <TitleGlow tone="section" />
+            <h2
+              className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${compositionReveal(
+                'delay-[100ms]',
+              )}`}
+            >
+              Dijital Büyüme Sistemi Nelerden Oluşur?
+            </h2>
+          </div>
+          <p
+            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${compositionReveal(
+              'delay-[200ms]',
+            )}`}
+          >
+            GloventGlobal&apos;da hizmetler tek tek sunulan bağımsız işler değildir. Pazaryeri, commerce
+            altyapısı, yapay zeka, otomasyon, performans ve dijital operasyon süreçleri birlikte çalışan bir
+            sistemin parçaları olarak ele alınır.
+          </p>
+        </div>
+
+        {/* 5 ana sistem kategorisi, 8 sanal sütun (lg:grid-cols-8) + her kart 2 sütun (lg:col-span-2):
+            5 kart 4'e tam bölünmediği için (3 üst + 2 alt) iki satır da BAĞIMSIZ olarak ortalanıyor —
+            /hizmetler'deki "Kimler İçin?" bölümünde ve ana sayfa/hakkımızda'daki benzer 5 kartlı
+            bölümlerde kullanılan aynı kanıtlanmış teknik. */}
+        <div className="relative mx-auto mt-10 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
+          {systemComposition.map((category, index) => (
+            <div
+              key={category.title}
+              className={`${compositionReveal(['delay-[300ms]', 'delay-[360ms]', 'delay-[420ms]', 'delay-[480ms]', 'delay-[540ms]'][index])} lg:col-span-2 ${
+                index === 0 ? 'lg:col-start-2' : index === 3 ? 'lg:col-start-3' : ''
+              }`}
+            >
+              <div className="relative flex h-full min-h-[210px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                />
+                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+                  {category.number}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold text-white">{category.title}</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{category.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {category.chips.map((chip) => (
+                    <span
+                      key={chip}
+                      className="rounded-full border border-blue-400/25 bg-blue-500/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.05em] text-blue-200/75"
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
