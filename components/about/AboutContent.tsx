@@ -110,7 +110,7 @@ const focusAreas = [
   'Sistem düşünürüz.',
   'Veriye göre karar veririz.',
   'Teknolojiyi amaç değil, araç olarak görürüz.',
-  'Yapay zekayı sürece dahil ederiz.',
+  'Yapay zekayı iş süreçlerine entegre ederiz.',
   'Operasyonu büyümenin parçası sayarız.',
   'Uzun vadeli düşünürüz.',
 ];
@@ -508,7 +508,7 @@ export default function AboutContent() {
                 'delay-[100ms]',
               )}`}
             >
-              Dijitalde Büyümeyi Sistemli Hale Getirmek İsteyen Markalarla Çalışıyoruz
+              Sistemli Büyümek İsteyen Markalarla Çalışıyoruz
             </h2>
           </div>
           <p
