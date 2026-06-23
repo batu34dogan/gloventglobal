@@ -291,27 +291,25 @@ export default function AboutContent() {
               Biz Kimiz?
             </p>
             <h2 className={`mt-4 text-2xl font-bold tracking-tight sm:text-3xl ${whoReveal('delay-[100ms]')}`}>
-              Ajans Değil, Dijital Satış Sistemi Kuruyoruz
+              Ajans Değil, Dijital Büyüme Sistemleri Kuran Bir Partneriz
             </h2>
             <p className={`mt-5 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[200ms]')}`}>
-              GloventGlobal; markaların yalnızca reklam vermesini, sosyal medya yönetmesini veya pazaryerinde
-              mağaza açmasını değil, tüm bu parçaların birlikte çalıştığı sürdürülebilir bir dijital satış ve büyüme
-              sistemi kurmasını hedefler. Strateji, altyapı, içerik, reklam, operasyon, otomasyon ve yapay zeka
-              entegrasyonlarını birbirinden kopuk hizmetler olarak değil; markanın satışını ve büyümesini
-              destekleyen tek bir yapı olarak ele alır.
+              GloventGlobal&apos;ı klasik bir ajans modeli üzerine kurmadık. Çünkü dijital büyümenin yalnızca
+              reklam yönetimi, web sitesi tasarımı veya pazaryeri kurulumu ile sürdürülebilir hale gelmediğini
+              biliyoruz.
             </p>
             <p className={`mt-4 text-sm leading-relaxed text-blue-100/70 sm:text-base ${whoReveal('delay-[280ms]')}`}>
-              Bu yüzden her markaya hazır paketlerle yaklaşmayız. Ürünü, hedef pazarı, satış kanalını, fiyat
-              yapısını, görsel dili, operasyon kapasitesini ve dijital altyapıyı birlikte analiz eder; markaya özel
-              uygulanabilir bir dijital satış ve global büyüme yol haritası tasarlarız.
+              Bizim yaklaşımımızda strateji, teknoloji, yapay zeka, otomasyon, içerik, reklam ve operasyon
+              birbirinden kopuk işler değildir. Her biri işletmenin büyümesini destekleyen aynı sistemin
+              parçasıdır.
             </p>
             <p
               className={`mt-5 border-l-2 border-blue-400/40 pl-4 text-sm font-medium leading-relaxed text-blue-100/85 sm:text-base ${whoReveal(
                 'delay-[360ms]',
               )}`}
             >
-              Ürün var ama satış sistemi yoksa, sürdürülebilir büyüme zorlaşır. GloventGlobal bu sistemi kurmak için
-              çalışır.
+              Bu yüzden markalarla yalnızca proje teslim eden bir ekip gibi değil; dijital büyüme sistemini
+              birlikte kuran, yöneten ve geliştiren bir partner gibi çalışırız.
             </p>
           </div>
 
