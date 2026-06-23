@@ -271,27 +271,23 @@ const audienceDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[
 const platformSolutions = [
   {
     name: 'Amazon',
-    description:
-      'Amazon’da ürün araştırması, kategori seçimi, listeleme, SEO, reklam, operasyon ve marka koruma süreçlerini satışa hazır bir yapıya dönüştürürüz.',
+    description: 'Rekabetçi pazarlarda doğru kategori, listeleme, reklam, görünürlük ve operasyon sistemi oluştururuz.',
   },
   {
     name: 'Etsy',
-    description:
-      'Etsy’de butik, el yapımı, tasarım ve niş ürünler için mağaza konsepti, ürün sunumu, görsel dil, listeleme ve SEO sistemini kurarız.',
+    description: 'Tasarım, butik, niş ve el yapımı ürünler için güçlü görsel dil, SEO ve mağaza sunumu kurgularız.',
   },
   {
     name: 'eBay',
-    description: 'eBay üzerinden farklı pazarlara açılmak isteyen markalar için listeleme, kategori, fiyatlandırma ve satış altyapısını hazırlarız.',
+    description: 'Farklı pazarlara açılmak isteyen markalar için listeleme, kategori ve satış operasyonu yapısını hazırlarız.',
   },
   {
     name: 'Shopify',
-    description:
-      'Markanın kendi dijital vitrinini kurması için Shopify tabanlı ürün yönetimi, koleksiyon yapısı, satış deneyimi ve büyüme altyapısı oluştururuz.',
+    description: 'Markaya ait müşteri, ürün, koleksiyon, kampanya ve satış altyapısını yönetilebilir hale getiririz.',
   },
   {
     name: 'B2B Dijital Showroom',
-    description:
-      'Toptan satış yapan markalar için ürün katalogları, teklif listeleri, müşteri odaklı sunum alanları ve dijital showroom deneyimi tasarlarız.',
+    description: 'Toptan satış, katalog, ürün sunumu, teklif toplama ve müşteri erişimi süreçlerini dijitalleştiririz.',
   },
 ];
 
@@ -562,7 +558,7 @@ export default function ServicesContent() {
                 'delay-[100ms]',
               )}`}
             >
-              Sistem İçerisindeki Uzmanlık Alanlarımız
+              Uzmanlık Alanlarımız
             </h2>
           </div>
           <p
