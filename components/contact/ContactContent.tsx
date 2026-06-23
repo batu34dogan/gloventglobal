@@ -142,16 +142,35 @@ function SelectField({
   return (
     <label className={`block ${fullWidth ? 'sm:col-span-2' : ''}`}>
       <span className={fieldLabelClass}>{label}</span>
-      <select value={value} onChange={(e) => onChange(e.target.value)} className={fieldInputClass}>
-        <option value="" className="bg-[#070d18]">
-          Seçiniz
-        </option>
-        {options.map((option) => (
-          <option key={option} value={option} className="bg-[#070d18]">
-            {option}
+      {/* İki dropdown da (İlgilendiğiniz Alan / Ana Hedefiniz) bu component'i paylaşıyor — sabit
+          h-[42px] + appearance-none + özel ok ikonu, native <select> render'ının tarayıcıdan
+          tarayıcıya/işletim sisteminden işletim sistemine farklı yükseklik/tıklanabilir alan
+          hesaplamasını tamamen ortadan kaldırıyor. fieldInputClass (input/textarea ile paylaşımlı)
+          değişmedi — sadece bu select-özel ek class'lar burada, izole şekilde uygulanıyor. */}
+      <div className="relative">
+        <select
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className={`${fieldInputClass} h-[42px] cursor-pointer appearance-none bg-none pr-9 leading-[1.375rem]`}
+        >
+          <option value="" className="bg-[#070d18]">
+            Seçiniz
           </option>
-        ))}
-      </select>
+          {options.map((option) => (
+            <option key={option} value={option} className="bg-[#070d18]">
+              {option}
+            </option>
+          ))}
+        </select>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 20 20"
+          fill="none"
+          className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-100/50"
+        >
+          <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
     </label>
   );
 }
