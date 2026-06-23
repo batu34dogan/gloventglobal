@@ -88,6 +88,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
   const [processRef, processInView] = useInView<HTMLElement>();
   const [deliverablesRef, deliverablesInView] = useInView<HTMLElement>();
+  const [workModelRef, workModelInView] = useInView<HTMLElement>();
   const [ctaRef, ctaInView] = useInView<HTMLElement>();
 
   useEffect(() => {
@@ -142,6 +143,13 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const deliverablesReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       deliverablesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Opsiyonel "Çalışma Modeli" bölümü (sadece data.workModel tanımlıysa render edilir) —
+  // kendi viewport girişine (workModelInView) bağlı.
+  const workModelReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      workModelInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // Final CTA sayfanın en sonunda — kendi viewport girişine bağlı, ayrı reveal.
@@ -583,6 +591,18 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             <p className="mx-auto mt-2.5 max-w-xl text-sm leading-relaxed text-blue-100/70">
               {data.dataSystem.insight.text}
             </p>
+            {data.dataSystem.insight.chips && data.dataSystem.insight.chips.length > 0 && (
+              <div className="mx-auto mt-4 flex max-w-xl flex-wrap justify-center gap-2">
+                {data.dataSystem.insight.chips.map((chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-full border border-blue-400/25 bg-blue-500/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.05em] text-blue-200/75"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </section>
@@ -707,6 +727,59 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           ))}
         </div>
       </section>
+
+      {/* Opsiyonel "Çalışma Modeli" bölümü — sadece bu alanı dolduran hizmetlerde (şu an Amazon)
+          render edilir, diğer hizmetlerde data.workModel tanımsız olduğu için hiçbir görsel
+          değişiklik oluşmaz. Final CTA'dan hemen önce, sade ve kısa: eyebrow + başlık + açıklama
+          + 2 kart (Hazırlanan Sistem bölümündeki aynı kart diliyle). */}
+      {data.workModel && (
+        <section ref={workModelRef} className="relative px-6 pb-20 pt-2 sm:px-10">
+          <div className="relative mx-auto max-w-3xl text-center">
+            <p
+              className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${workModelReveal(
+                'delay-[0ms]',
+              )}`}
+            >
+              {data.workModel.eyebrow}
+            </p>
+            <div className="relative isolate mx-auto mt-4 max-w-xl">
+              <SectionTitleGlow intensity="normal" />
+              <h2
+                className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${workModelReveal(
+                  'delay-[100ms]',
+                )}`}
+              >
+                {data.workModel.title}
+              </h2>
+            </div>
+            <p
+              className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${workModelReveal(
+                'delay-[200ms]',
+              )}`}
+            >
+              {data.workModel.description}
+            </p>
+          </div>
+
+          <div className="relative mx-auto mt-10 grid max-w-3xl items-stretch gap-6 sm:grid-cols-2">
+            {data.workModel.cards.map((card, index) => (
+              <div key={card.number} className={workModelReveal(['delay-[300ms]', 'delay-[380ms]'][index] ?? 'delay-[300ms]')}>
+                <div className="relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                  />
+                  <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+                    {card.number}
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-white">{card.title}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{card.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ============ FİNAL CTA ============
           Diğer sayfalardaki Final CTA panelleriyle aynı glass dil — küçük, sakin bir kapanış. */}

@@ -62,8 +62,18 @@ export const serviceDetails: Record<
       dataCards?: { title: string; description: string }[];
       // Dashboard/carousel'in altına, küçük ve premium bir bilgi katmanı olarak eklenen opsiyonel
       // tek paragraf (örn. Amazon'daki "Veri ve Karar Katmanı"). Belirtilmezse hiç render edilmez —
-      // diğer hizmet sayfalarının görünümü bu alandan etkilenmez.
-      insight?: { title: string; text: string };
+      // diğer hizmet sayfalarının görünümü bu alandan etkilenmez. chips: panel içindeki küçük
+      // mini madde rozetleri (opsiyonel, belirtilmezse hiç render edilmez).
+      insight?: { title: string; text: string; chips?: string[] };
+    };
+    // Final CTA'dan hemen önce, opsiyonel küçük "çalışma modeli" bölümü (örn. Amazon'daki
+    // "Sistem Kurulumu" / "Yönetim ve Operasyon" 2 kartı). Belirtilmezse hiç render edilmez —
+    // diğer hizmet sayfalarının görünümü bu alandan etkilenmez.
+    workModel?: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      cards: { number: string; title: string; description: string }[];
     };
   }
 > = {
@@ -251,7 +261,7 @@ export const serviceDetails: Record<
     },
   },
   amazon: {
-    eyebrow: 'AMAZON DANIŞMANLIĞI',
+    eyebrow: 'AMAZON GLOBAL SATIŞ SİSTEMİ',
     title: 'Amazon’da Sadece Mağaza Açmıyor, Sürdürülebilir Satış Sistemi Kuruyoruz',
     description:
       'Amazon’u markanız için yalnızca bir satış kanalı olarak değil; kategori, listeleme, içerik, reklam, veri takibi ve operasyon süreçleriyle birlikte çalışan global büyüme sisteminin bir parçası olarak kurgularız.',
@@ -359,8 +369,33 @@ export const serviceDetails: Record<
       ],
       insight: {
         title: 'Veri ve Karar Katmanı',
-        text: 'Satış, reklam, dönüşüm ve ürün performans verilerini düzenli takip eder; yapay zeka, raporlama ve karar destek yapılarıyla büyüme kararlarını ölçülebilir hale getiririz.',
+        text: 'Amazon’da sürdürülebilir büyüme yalnızca ürün yüklemek veya reklam açmakla oluşmaz. Satış, reklam, dönüşüm, stok ve ürün performans verilerini düzenli takip eder; yapay zeka destekli raporlama ve karar destek yapılarıyla büyüme kararlarını ölçülebilir hale getiririz.',
+        chips: [
+          'Satış ve reklam verilerinin analizi',
+          'Yapay zeka destekli raporlama',
+          'Operasyon ve stok takibi',
+          'Performans ve büyüme takibi',
+          'Karar destek sistemi',
+        ],
       },
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Amazon Satış Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın Amazon’daki ihtiyacı aynı değildir. GloventGlobal, ihtiyaca göre sistemi kurup teslim edebilir veya reklam, içerik, operasyon ve büyüme süreçlerini birlikte yönetmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Amazon satış sisteminizi kategori, listeleme, içerik, reklam testleri, veri takibi ve operasyon kontrol yapısıyla kurar; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Operasyon',
+          description: 'İsterseniz reklam, içerik, ürün, stok, kampanya, performans ve büyüme süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
+        },
+      ],
     },
     process: {
       eyebrow: 'SÜREÇ',
