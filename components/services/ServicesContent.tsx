@@ -154,8 +154,8 @@ const deliveryModels = [
 const serviceCards = [
   {
     tag: '01 AMAZON',
-    title: 'Amazon Danışmanlığı',
-    description: 'Amazon’da doğru kategori, listeleme, SEO, reklam ve operasyon yapısıyla satışa hazır bir sistem kurarız.',
+    title: 'Amazon Global Satış Sistemi',
+    description: 'Amazon’u yalnızca ürün listeleme alanı olarak değil; kategori, içerik, reklam ve operasyon süreçleriyle birlikte çalışan global satış sistemi olarak kurgularız.',
     href: '/hizmetler/amazon',
     ctaName: 'Amazon',
   },

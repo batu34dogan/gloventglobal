@@ -567,6 +567,24 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             </div>
           )
         )}
+
+        {/* Opsiyonel "küçük bilgi katmanı" — sadece bu alanı dolduran hizmetlerde (şu an Amazon)
+            render edilir, diğer hizmetlerde data.dataSystem.insight tanımsız olduğu için hiçbir
+            görsel değişiklik oluşmaz. Bilerek büyük section gibi değil, kompakt/sade bir panel. */}
+        {data.dataSystem.insight && (
+          <div
+            className={`relative mx-auto mt-8 max-w-2xl rounded-xl border border-white/[0.08] bg-white/[0.03] px-6 py-5 text-center backdrop-blur-sm sm:px-8 ${dataSystemReveal(
+              'delay-[450ms]',
+            )}`}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">
+              {data.dataSystem.insight.title}
+            </p>
+            <p className="mx-auto mt-2.5 max-w-xl text-sm leading-relaxed text-blue-100/70">
+              {data.dataSystem.insight.text}
+            </p>
+          </div>
+        )}
       </section>
 
       {/* ============ SÜREÇ ============

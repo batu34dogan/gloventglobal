@@ -60,6 +60,10 @@ export const serviceDetails: Record<
       // Görsel henüz hazır olmayan hizmetler için geçici, metin tabanlı veri kartları. Görseller
       // eklendiğinde bu alanın silinmesi yeterli — şablon otomatik olarak görsel moduna döner.
       dataCards?: { title: string; description: string }[];
+      // Dashboard/carousel'in altına, küçük ve premium bir bilgi katmanı olarak eklenen opsiyonel
+      // tek paragraf (örn. Amazon'daki "Veri ve Karar Katmanı"). Belirtilmezse hiç render edilmez —
+      // diğer hizmet sayfalarının görünümü bu alandan etkilenmez.
+      insight?: { title: string; text: string };
     };
   }
 > = {
@@ -248,13 +252,13 @@ export const serviceDetails: Record<
   },
   amazon: {
     eyebrow: 'AMAZON DANIŞMANLIĞI',
-    title: 'Amazon’da Satışa Hazır Ürün ve Mağaza Sistemi Kuruyoruz',
+    title: 'Amazon’da Sadece Mağaza Açmıyor, Sürdürülebilir Satış Sistemi Kuruyoruz',
     description:
-      'Amazon’da yalnızca ürün listelemek yeterli değildir. Doğru kategori, güçlü ürün sunumu, SEO uyumlu listeleme, fiyatlandırma, reklam ve operasyon yapısı birlikte planlandığında sürdürülebilir bir satış sistemi oluşur.',
+      'Amazon’u markanız için yalnızca bir satış kanalı olarak değil; kategori, listeleme, içerik, reklam, veri takibi ve operasyon süreçleriyle birlikte çalışan global büyüme sisteminin bir parçası olarak kurgularız.',
     ctaLabel: 'Amazon Hizmet Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
-      title: 'Amazon’da Satış Sistemi Kurmak veya Güçlendirmek İsteyen Markalar İçin',
+      title: 'Hangi Markalar İçin?',
       description:
         'Amazon, doğru ürün seçimi, listeleme kalitesi, reklam yönetimi ve operasyon disiplini isteyen bir pazaryeridir. Ürün, kategori, fiyat, rekabet ve reklam yapısı birlikte planlandığında daha güçlü bir satış zemini oluşur.',
       cards: [
@@ -331,8 +335,8 @@ export const serviceDetails: Record<
         },
         {
           number: '04',
-          title: 'Operasyon ve Performans Takibi',
-          description: 'Stok, sipariş, iade, müşteri deneyimi ve mağaza performansını satış sisteminin parçası olarak ele alırız.',
+          title: 'Veri ve Operasyon Yönetimi',
+          description: 'Satış, reklam, stok, dönüşüm ve operasyon verilerini takip ederek Amazon sisteminin yönetilebilir ve geliştirilebilir kalmasını sağlarız.',
         },
       ],
     },
@@ -353,6 +357,10 @@ export const serviceDetails: Record<
         '/dashboards/amazon-dashboard-05.webp',
         '/dashboards/amazon-ads-roas-01.png',
       ],
+      insight: {
+        title: 'Veri ve Karar Katmanı',
+        text: 'Satış, reklam, dönüşüm ve ürün performans verilerini düzenli takip eder; yapay zeka, raporlama ve karar destek yapılarıyla büyüme kararlarını ölçülebilir hale getiririz.',
+      },
     },
     process: {
       eyebrow: 'SÜREÇ',
@@ -420,8 +428,8 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Gelişim Önerileri',
-          description: 'Mağazanın sonraki aşamada nasıl iyileştirileceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği belirlenir.',
+          title: 'Büyüme Yol Haritası',
+          description: 'Amazon mağazasının sonraki büyüme adımlarını, reklam, içerik, operasyon ve veri takibi ekseninde uygulanabilir bir yol haritasına dönüştürürüz.',
         },
       ],
     },
