@@ -436,7 +436,7 @@ export default function ServicesContent() {
           <div className="relative isolate mx-auto mt-4 max-w-xl">
             <TitleGlow tone="section" />
             <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${systemReveal('delay-[100ms]')}`}>
-              Sadece Hizmet Değil, Birbirine Bağlı Satış Sistemi
+              Parça Parça Hizmet Değil, Birlikte Çalışan Büyüme Sistemi
             </h2>
           </div>
           <p
@@ -446,7 +446,7 @@ export default function ServicesContent() {
           >
             Strateji olmadan reklam, içerik olmadan mağaza, altyapı olmadan büyüme sürdürülebilir olmaz.
             GloventGlobal; pazar analizi, marka konumlandırma, dijital altyapı, içerik üretimi, reklam, operasyon ve
-            otomasyon süreçlerini tek bir satış sistemi mantığıyla birleştirir.
+            otomasyon süreçlerini tek bir dijital büyüme sistemi mantığıyla birleştirir.
           </p>
         </div>
 
