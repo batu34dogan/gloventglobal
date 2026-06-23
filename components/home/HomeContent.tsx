@@ -508,12 +508,12 @@ export default function HomeContent() {
 
         <div className="relative mx-auto max-w-3xl text-center">
           <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${whyReveal('delay-[0ms]')}`}>
-            Farkımız
+            NEDEN GLOVENTGLOBAL?
           </p>
           <div className="relative isolate mx-auto mt-4 max-w-2xl">
             <TitleGlow tone="section" />
             <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${whyReveal('delay-[100ms]')}`}>
-              Parça Parça Hizmet Değil, Bütün Bir Dijital Büyüme Sistemi
+              Parça Parça Hizmet Değil, Birlikte Çalışan Dijital Büyüme Sistemi
             </h2>
           </div>
           <p
@@ -521,9 +521,9 @@ export default function HomeContent() {
               'delay-[200ms]',
             )}`}
           >
-            Birçok marka dijitalde farklı araçlar kullanır ama strateji, teknoloji, içerik, yapay zeka, otomasyon
-            ve operasyon birbirinden kopuk ilerlediğinde sürdürülebilir büyüme oluşmaz. GloventGlobal bu parçaları
-            tek bir dijital büyüme sistemi olarak ele alır.
+            İşletmelerin dijitalde büyümesi için yalnızca araçlar kurmuyoruz. Strateji, teknoloji, yapay zeka,
+            otomasyon, operasyon ve veri odaklı büyüme adımlarını birlikte çalışan tek bir sistem olarak
+            tasarlıyoruz.
           </p>
         </div>
 
@@ -801,12 +801,12 @@ export default function HomeContent() {
           <div className="relative isolate mx-auto mt-4 max-w-2xl">
             <TitleGlow tone="cta" />
             <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
-              Markanız İçin Dijital Satış ve Büyüme Sistemi Tasarlayalım
+              İşletmeniz İçin Doğru Dijital Büyüme Sistemini Birlikte Kuralım
             </h2>
           </div>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
             Ürününüzü, hedef pazarınızı, mevcut satış kanallarınızı ve dijital altyapınızı analiz ederek markanız
-            için doğru dijital satış ve büyüme sistemini birlikte planlayalım.
+            için doğru dijital büyüme sistemini birlikte planlayalım.
           </p>
 
           <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
