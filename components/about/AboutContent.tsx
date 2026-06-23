@@ -130,21 +130,21 @@ const focusAreaDelays = [
 const whyCards = [
   {
     number: '01',
-    title: 'Parça Hizmet Değil Sistem',
+    title: 'Sistem Kurarız',
     description:
-      'Reklam, sosyal medya, pazaryeri, Shopify, içerik ve otomasyon süreçlerini ayrı işler olarak değil, aynı hedefe çalışan tek bir yapı olarak planlarız.',
+      'Strateji, teknoloji, içerik, reklam, otomasyon ve operasyon adımlarını birbirinden kopuk işler olarak değil, birlikte çalışan bir büyüme sistemi olarak kurgularız.',
   },
   {
     number: '02',
-    title: 'Global Pazara Uyum',
+    title: 'Teknolojiyi Entegre Ederiz',
     description:
-      'Her ürünün her pazarda aynı şekilde satılamayacağını biliriz. Ürün, fiyat, hedef müşteri, rakipler ve satış kanalı birlikte değerlendirilir.',
+      'Shopify, pazaryeri, yapay zeka, otomasyon, veri takibi ve dijital altyapı çözümlerini markanın gerçek ihtiyacına göre entegre ederiz.',
   },
   {
     number: '03',
-    title: 'Operasyon ve Büyüme Mantığı',
+    title: 'Operasyonu Yönetilebilir Hale Getiririz',
     description:
-      'Sistemin yalnızca kurulmasını değil, sürdürülebilir şekilde yönetilebilir, ölçülebilir ve geliştirilebilir olmasını hedefleriz.',
+      'Kurulan sistemin sürdürülebilir olması için ürün, kategori, içerik, kampanya, reklam ve günlük dijital operasyon süreçlerini yönetilebilir hale getiririz.',
   },
 ];
 
@@ -183,6 +183,7 @@ const audienceDelays = ['delay-[0ms]', 'delay-[80ms]', 'delay-[160ms]', 'delay-[
 export default function AboutContent() {
   const [mounted, setMounted] = useState(false);
   const [whoRef, whoInView] = useInView<HTMLElement>();
+  const [todayRef, todayInView] = useInView<HTMLElement>();
   const [founderRef, founderInView] = useInView<HTMLElement>();
   const [whyRef, whyInView] = useInView<HTMLElement>();
   const [mindsetRef, mindsetInView] = useInView<HTMLElement>();
@@ -212,6 +213,12 @@ export default function AboutContent() {
   const whoReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       whoInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // "GloventGlobal Bugün" küçük güven paneli — kendi viewport girişine (todayInView) bağlı.
+  const todayReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      todayInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // Neden GloventGlobal bölümü Biz Kimiz'in altında, ekran dışında başlıyor — kendi viewport
@@ -269,8 +276,8 @@ export default function AboutContent() {
               'delay-[300ms]',
             )}`}
           >
-            GloventGlobal; işletmelerin dijitalde büyümesi için strateji, teknoloji, yapay zeka, otomasyon,
-            e-ticaret altyapısı ve operasyon süreçlerini birbirine bağlayan sistemler tasarlamak için kuruldu.
+            GloventGlobal, strateji, teknoloji, yapay zeka ve operasyon süreçlerini birlikte çalışan dijital
+            büyüme sistemlerine dönüştürmek için kuruldu.
           </p>
         </div>
       </section>
@@ -300,6 +307,13 @@ export default function AboutContent() {
             <p className={`text-sm leading-relaxed text-blue-100/70 sm:text-base ${founderReveal('delay-[260ms]')}`}>
               GloventGlobal bu nedenle kuruldu: işletmelerin dijitalde büyümesi için dağınık araçları, kanalları
               ve süreçleri birlikte çalışan bir sisteme dönüştürmek.
+            </p>
+            <p
+              className={`mt-5 border-l-2 border-blue-400/40 pl-4 text-sm font-medium leading-relaxed text-blue-100/85 sm:text-base ${founderReveal(
+                'delay-[340ms]',
+              )}`}
+            >
+              Çünkü sürdürülebilir büyüme tek bir araçla değil, birlikte çalışan sistemlerle oluşur.
             </p>
           </div>
         </div>
@@ -355,6 +369,24 @@ export default function AboutContent() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ============ 2.5 GLOVENTGLOBAL BUGÜN ============
+          Bilerek büyük bölüm gibi değil — küçük bir güven/deneyim paneli. Glow yok, padding diğer
+          section'lardan (py-14/20) belirgin şekilde daha az (py-8), sade tek panel. */}
+      <section ref={todayRef} className="relative px-6 py-8 sm:px-10">
+        <div
+          className={`relative mx-auto max-w-2xl rounded-xl border border-white/[0.07] bg-white/[0.03] px-6 py-6 text-center backdrop-blur-sm sm:px-10 ${todayReveal(
+            'delay-[0ms]',
+          )}`}
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-300/70">GloventGlobal Bugün</p>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
+            Amazon, Etsy, eBay, Shopify ve B2B projelerinde edindiğimiz deneyimleri; üreticilerden toptan
+            firmalara, e-ticaret markalarından global pazara açılmak isteyen işletmelere kadar farklı yapılara
+            uygulanabilir dijital büyüme sistemleri kurmak için kullanıyoruz.
+          </p>
         </div>
       </section>
 
@@ -476,7 +508,7 @@ export default function AboutContent() {
                 'delay-[100ms]',
               )}`}
             >
-              Dijital Satış Sistemini Güçlendirmek İsteyen Markalarla Çalışıyoruz
+              Dijitalde Büyümeyi Sistemli Hale Getirmek İsteyen Markalarla Çalışıyoruz
             </h2>
           </div>
           <p
