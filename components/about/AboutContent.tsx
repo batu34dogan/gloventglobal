@@ -378,8 +378,8 @@ export default function AboutContent() {
             )}`}
           >
             Markaların global pazarda büyümesi yalnızca reklam, mağaza kurulumu veya içerik üretimiyle sürdürülebilir
-            olmaz. GloventGlobal; strateji, altyapı, içerik, reklam, operasyon ve otomasyonu birbirine bağlı bir
-            satış sistemi olarak ele alır.
+            olmaz. GloventGlobal; strateji, teknoloji, yapay zeka, operasyon ve otomasyonu birbirine bağlı bir
+            büyüme sistemi olarak ele alır.
           </p>
         </div>
 
@@ -532,16 +532,16 @@ export default function AboutContent() {
           <div className="relative isolate mx-auto max-w-2xl">
             <TitleGlow tone="cta" />
             <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
-              Markanız İçin Doğru Sistemi Birlikte Kuralım
+              Markanız İçin Doğru Dijital Büyüme Sistemini Birlikte Kuralım
             </h2>
           </div>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
-            Ürününüzü, mevcut satış yapınızı ve hedeflerinizi birlikte değerlendirerek markanız için doğru dijital
-            satış ve büyüme sistemini planlayalım.
+            Her işletmenin ihtiyacı farklıdır. GloventGlobal; işletmenizin mevcut yapısını analiz eder,
+            hedeflerinize uygun stratejiyi oluşturur ve sürdürülebilir dijital büyüme sisteminizi birlikte kurar.
           </p>
 
           <p className="mt-6 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
-            Strateji • Altyapı • İçerik • Reklam • Otomasyon • Büyüme
+            Strateji • Teknoloji • Yapay Zeka • Otomasyon • Operasyon • Büyüme
           </p>
 
           <a
