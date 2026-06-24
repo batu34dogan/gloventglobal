@@ -2323,7 +2323,7 @@ export const serviceDetails: Record<
     eyebrow: 'SOSYAL MEDYA YÖNETİMİ',
     title: 'Markanız İçin Satış Kanallarıyla Uyumlu Sosyal Medya Sistemi Kuruyoruz',
     description:
-      'Sosyal medya yalnızca paylaşım yapmak değildir. Marka dili, ürün sunumu, görsel konsept, içerik planı, kampanya mesajı ve satış kanalları birlikte çalıştığında sosyal medya markanın dijital güven alanına dönüşür.',
+      'Sosyal medya yalnızca içerik paylaşmak için değil; markanın güven algısını güçlendirmek, ürün değerini anlatmak ve Amazon, Etsy, Shopify, B2B ve web sitesi gibi satış kanallarını desteklemek için kurgulanmalıdır. GloventGlobal, sosyal medyayı satış sisteminizle uyumlu bir marka iletişim yapısına dönüştürür.',
     ctaLabel: 'Sosyal Medya Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
@@ -2338,8 +2338,8 @@ export const serviceDetails: Record<
         },
         {
           number: '02',
-          title: 'Ürünlerini Sosyal Medyada Daha Güçlü Sunmak İsteyenler',
-          description: 'Ürün görselleri, kullanım senaryoları, kısa videolar, hikaye içerikleri ve açıklama diliyle ürünlerini daha iyi anlatmak isteyen markalar için uygundur.',
+          title: 'Ürünlerini Satış Kanallarıyla Uyumlu Sunmak İsteyenler',
+          description: 'Ürün görselleri, kullanım senaryoları, kısa videolar ve açıklama diliyle ürünlerini yalnızca sosyal medyada değil; Amazon, Etsy, Shopify, B2B, web sitesi ve reklam kanallarıyla uyumlu şekilde anlatmak isteyen markalar için uygundur.',
         },
         {
           number: '03',
@@ -2361,22 +2361,22 @@ export const serviceDetails: Record<
       cards: [
         {
           number: '01',
-          title: 'Dağınık Görsel Dil',
+          title: 'Güven Vermeyen Marka Görünümü',
           description: 'Her paylaşım farklı bir tarzda olduğunda marka algısı zayıflar ve profil profesyonel görünmez.',
         },
         {
           number: '02',
-          title: 'Ürün Anlatımı Eksikliği',
+          title: 'Ürün Değerini Aktaramayan İçerikler',
           description: 'Ürünlerin kullanım alanı, faydası, farkı ve satın alma yönlendirmesi net anlatılmadığında içerikler satış sistemini desteklemez.',
         },
         {
           number: '03',
-          title: 'Plansız İçerik Akışı',
+          title: 'Ölçülemeyen ve Plansız İçerik Süreci',
           description: 'İçerikler ürün, kampanya, sezon, hedef müşteri ve satış kanalına göre planlanmadığında sosyal medya süreklilik kazanmaz.',
         },
         {
           number: '04',
-          title: 'Satış Kanallarından Kopuk Yapı',
+          title: 'Satış Kanallarından Kopuk İletişim',
           description: 'Sosyal medya içerikleri pazaryeri, Shopify, B2B katalog, reklam veya iletişim akışlarıyla bağlantılı değilse etki sınırlı kalır.',
         },
       ],
@@ -2435,8 +2435,8 @@ export const serviceDetails: Record<
           description: 'Web sitesi, pazaryeri, Shopify, B2B katalog, WhatsApp veya form yönlendirmelerinin nasıl çalıştığını takip ederiz.',
         },
         {
-          title: 'Gelişim Alanları',
-          description: 'Hangi içerik türlerinin, görsel dilin, kampanya mesajlarının veya ürün anlatımlarının güçlendirilmesi gerektiğini belirleriz.',
+          title: 'Mesaj ve Talep Kalitesi',
+          description: 'Sosyal medya üzerinden gelen mesajların, teklif taleplerinin ve müşteri ilgisinin yalnızca sayısını değil, satışa dönüşme potansiyelini ve müşteri kalitesini de değerlendiririz.',
         },
       ],
     },
@@ -2506,17 +2506,35 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Gelişim Önerileri',
-          description: 'Sonraki aşamada hangi ürünlerin, içerik türlerinin, kampanya mesajlarının veya görsel dilin güçlendirileceği belirlenir.',
+          title: 'İçerik ve Büyüme Yol Haritası',
+          description: 'Markanın sosyal medya görünümünü, içerik yönünü, satış kanalı uyumunu, ürün iletişimini ve büyüme adımlarını uygulanabilir bir yol haritasına dönüştürürüz.',
         },
       ],
     },
     finalCta: {
-      title: 'Markanız İçin Güven Veren Sosyal Medya Sistemi Kuralım',
+      title: 'Markanız İçin Satış Kanallarıyla Uyumlu Sosyal Medya Sistemi Kuralım',
       description:
-        'Mevcut sosyal medya görünümünüzü, ürünlerinizi, satış kanallarınızı ve hedef müşterinizi birlikte değerlendirerek markanız için doğru sosyal medya ve içerik yol haritasını planlayalım.',
+        'Mevcut sosyal medya görünümünüzü, ürünlerinizi, satış kanallarınızı ve hedef müşterinizi birlikte değerlendirerek markanız için doğru güven algısı, ürün iletişimi ve kaliteli talep üreten sosyal medya yol haritasını planlayalım.',
       ctaLabel: 'Sosyal Medya Planı Oluştur',
       supportText: 'Instagram • TikTok • İçerik Planı • Ürün Sunumu • Marka Dili • Satış Kanalı Uyumu',
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Sosyal Medya Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın sosyal medya ihtiyacı aynı değildir. GloventGlobal, ihtiyaca göre sosyal medya iletişim sistemini kurup teslim edebilir veya içerik, ürün anlatımı, marka dili, kanal uyumu ve büyüme süreçlerini birlikte yönetmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Markanız için sosyal medya dilini, içerik yapısını, ürün anlatımını, satış kanalı uyumunu ve yayın planını kurar; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz sosyal medya içerikleri, ürün iletişimi, marka dili, satış kanalı yönlendirmeleri, mesaj kalitesi ve büyüme süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
+        },
+      ],
     },
   },
   'global-pazara-giris-stratejisi': {
