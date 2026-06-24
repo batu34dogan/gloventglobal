@@ -1055,22 +1055,22 @@ export const serviceDetails: Record<
         {
           number: '01',
           title: 'Ürün ve Satış Modeli Analizi',
-          description: 'Ürün gruplarını, müşteri tiplerini, satış modelini, kategori yapısını ve teklif sürecini birlikte değerlendiririz.',
+          description: 'Ürün gruplarını, müşteri tiplerini, satış modelini, hedef müşteriyi ve teklif sürecini birlikte analiz ederiz.',
         },
         {
           number: '02',
-          title: 'Katalog ve Kategori Kurgusu',
-          description: 'Ürünleri kategori, koleksiyon, sezon, kullanım alanı veya müşteri ihtiyacına göre düzenli bir showroom yapısına yerleştiririz.',
+          title: 'Katalog ve Sunum Yapısı',
+          description: 'Ürünleri kategori, koleksiyon, sezon, kullanım alanı veya müşteri ihtiyacına göre düzenli bir katalog ve sunum sistemine yerleştiririz.',
         },
         {
           number: '03',
-          title: 'Teklif ve Müşteri Akışı',
-          description: 'Müşterinin ürün seçmesini, favorilere eklemesini, teklif listesi oluşturmasını ve satış ekibiyle iletişim kurmasını kolaylaştırırız.',
+          title: 'Teklif ve Müşteri Yönetimi',
+          description: 'Teklif toplama, müşteri iletişimi, müşteri grupları ve satış ekibinin takip sürecini destekleyen yapıları kurgularız.',
         },
         {
           number: '04',
-          title: 'Yönetim ve Gelişim Altyapısı',
-          description: 'Ürün ekleme, güncelleme, görsel düzenleme, katalog yönetimi ve müşteri geri bildirimlerini sürdürülebilir bir sistem haline getiririz.',
+          title: 'Satış Takibi ve Gelişim',
+          description: 'Görüntülenme, teklif, müşteri ilgisi ve satış performansını takip ederek sistemi sürdürülebilir şekilde geliştiririz.',
         },
       ],
     },
@@ -1084,24 +1084,57 @@ export const serviceDetails: Record<
       // olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
       dataCards: [
         {
-          title: 'Ürün Görüntülenmeleri',
+          title: 'Ürün İlgi Analizi',
           description: 'Hangi ürünlerin daha fazla ilgi gördüğünü ve hangi ürünlerin öne çıkarılması gerektiğini analiz ederiz.',
         },
         {
-          title: 'Kategori ve Koleksiyon İlgisi',
+          title: 'Kategori Performansı',
           description: 'Müşterilerin hangi kategori, koleksiyon veya ürün gruplarında daha fazla zaman geçirdiğini takip ederiz.',
         },
         {
-          title: 'Teklif Listesi Davranışı',
+          title: 'Teklif Dönüşüm Takibi',
           description: 'Müşterilerin hangi ürünleri seçtiğini, hangi ürünleri teklif listesine eklediğini ve hangi gruplarda yoğunlaştığını değerlendiririz.',
         },
         {
-          title: 'Müşteri Etkileşimi',
+          title: 'Müşteri Davranış Verileri',
           description: 'WhatsApp tıklamaları, form talepleri, favoriler ve iletişim davranışlarını satış sürecinin parçası olarak takip ederiz.',
         },
         {
           title: 'Gelişim Alanları',
           description: 'Hangi ürün gruplarının, görsellerin, kategori yapısının veya teklif akışının geliştirilmesi gerektiğini belirleriz.',
+        },
+      ],
+    },
+    systemComposition: {
+      eyebrow: 'B2B SATIŞ SİSTEMİ',
+      title: 'B2B Showroom ile Neler Yönetilebilir?',
+      description:
+        'Dijital showroom yalnızca ürünlerin sergilendiği bir katalog değildir. Doğru kurgulandığında ürün sunumu, teklif toplama, müşteri grupları, özel fiyat yapıları ve satış takibini bir araya getiren B2B satış sistemi haline gelir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Ürün Sunumu',
+          description: 'Ürünleri kategori, koleksiyon, görsel, açıklama ve teknik bilgilerle satışa hazır şekilde sunarız.',
+        },
+        {
+          number: '02',
+          title: 'Teklif Süreci',
+          description: 'Müşterilerin ürün seçmesi, teklif listesi oluşturması ve satış ekibine kolayca talep göndermesi için akış kurgularız.',
+        },
+        {
+          number: '03',
+          title: 'Müşteri Grupları',
+          description: 'Farklı müşteri tipleri, bayi grupları, toptan alıcılar veya özel müşteri segmentleri için yönetilebilir yapı oluştururuz.',
+        },
+        {
+          number: '04',
+          title: 'Özel Fiyat Yapıları',
+          description: 'Fiyat gösterme, fiyat gizleme, özel fiyat listeleri veya teklif bazlı çalışma modellerine uygun altyapı kurgularız.',
+        },
+        {
+          number: '05',
+          title: 'Satış Takibi',
+          description: 'Ürün ilgisi, teklif davranışı, müşteri etkileşimi ve satış sürecini takip edilebilir hale getiririz.',
         },
       ],
     },
@@ -1118,7 +1151,7 @@ export const serviceDetails: Record<
         },
         {
           number: '02',
-          title: 'Katalog ve Showroom Kurgusu',
+          title: 'Ürün Sunum Yapısı',
           description: 'Kategori, koleksiyon, ürün grubu, filtreleme ve müşteri gezinme yapısını markanızla uyumlu şekilde planlarız.',
         },
         {
@@ -1171,17 +1204,35 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Gelişim Önerileri',
-          description: 'Showroom’un sonraki aşamada nasıl geliştirileceği, hangi ürün gruplarının öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
+          title: 'Büyüme Yol Haritası',
+          description: 'B2B satış sisteminin sonraki büyüme adımlarını; ürün sunumu, teklif akışı, müşteri yönetimi, özel fiyat yapıları ve satış takibi ekseninde uygulanabilir bir yol haritasına dönüştürürüz.',
         },
       ],
     },
     finalCta: {
-      title: 'B2B Showroom’unuz İçin Doğru Satış Sistemini Birlikte Kuralım',
+      title: 'B2B Satış Sisteminizi Dijitalleştirelim',
       description:
-        'Ürünlerinizi, mevcut satış sürecinizi ve müşteri yapınızı birlikte değerlendirerek B2B showroom’unuz için doğru katalog, teklif, ürün sunumu ve büyüme yol haritasını planlayalım.',
+        'Ürünlerinizi, mevcut satış sürecinizi ve müşteri yapınızı birlikte değerlendirerek B2B satış sisteminiz için doğru showroom, teklif yönetimi, müşteri takibi ve büyüme yol haritasını planlayalım.',
       ctaLabel: 'B2B Showroom Planı Oluştur',
       supportText: 'Dijital Katalog • Ürün Sunumu • Teklif Listesi • B2B Akış • Müşteri Deneyimi • Optimizasyon',
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'B2B Satış Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın B2B satış ihtiyacı aynı değildir. GloventGlobal, ihtiyaca göre dijital showroom ve teklif sistemini kurup teslim edebilir veya müşteri yönetimi, ürün sunumu, teklif akışı ve büyüme süreçlerini birlikte yönetmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'B2B satış sisteminizi ürün sunumu, katalog yapısı, teklif akışı, müşteri grupları, özel fiyat yapıları ve satış takibiyle kurar; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz ürün sunumu, müşteri yönetimi, teklif süreçleri, özel fiyat yapıları, satış takibi ve büyüme adımlarını düzenli olarak birlikte yönetir ve geliştiririz.',
+        },
+      ],
     },
   },
   'otomasyon-n8n': {
