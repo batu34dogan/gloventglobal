@@ -2038,9 +2038,9 @@ export const serviceDetails: Record<
   },
   'marka-konumlandirma': {
     eyebrow: 'MARKA KONUMLANDIRMA',
-    title: 'Markanızı Pazarda Daha Net Konumlandırıyoruz',
+    title: 'Markanızı Doğru Müşterinin Gözünde Doğru Konuma Yerleştiriyoruz',
     description:
-      'Dijital satışta ürün kalitesi tek başına yeterli değildir. Marka dili, hedef müşteri, ürün algısı, fiyat konumu, görsel kimlik ve kanal uyumu birlikte çalıştığında marka pazarda daha güçlü ve güvenilir görünür.',
+      'Marka konumlandırma yalnızca logo, renk veya slogan çalışması değildir. Markanızın kime hitap ettiğini, pazarda nasıl algılanacağını, rakiplerden nasıl ayrışacağını ve satış sisteminde nasıl görünmesi gerektiğini birlikte kurgularız.',
     ctaLabel: 'Marka Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
@@ -2065,8 +2065,8 @@ export const serviceDetails: Record<
         },
         {
           number: '04',
-          title: 'Fiyat ve Segment Algısını Güçlendirmek İsteyenler',
-          description: 'Ürünlerini hangi müşteri kitlesine, hangi değer algısıyla ve hangi fiyat konumunda sunacağını netleştirmek isteyen markalar için uygundur.',
+          title: 'Daha Güçlü Marka Algısı Oluşturmak İsteyenler',
+          description: 'Fiyat algısı, güven, segment ve premium görünüm açısından hedef müşterinin gözünde daha güçlü bir marka algısı oluşturmak isteyen markalar için uygundur.',
         },
       ],
     },
@@ -2152,8 +2152,8 @@ export const serviceDetails: Record<
           description: 'Pazaryeri, Shopify, B2B katalog, sosyal medya ve reklam kanallarında markanın nasıl tepki aldığını inceleriz.',
         },
         {
-          title: 'Gelişim Alanları',
-          description: 'Marka dili, görsel sistem, ürün sunumu, fiyat konumu ve satış mesajlarında güçlendirilecek alanları belirleriz.',
+          title: 'Rakip Konumlandırması',
+          description: 'Markanızın rakipler arasında nerede durduğunu, hangi alanda ayrışabileceğini ve pazarda hangi boşluğu sahiplenebileceğini analiz ederiz.',
         },
       ],
     },
@@ -2208,8 +2208,8 @@ export const serviceDetails: Record<
         },
         {
           number: '03',
-          title: 'Görsel Dil Yönlendirmesi',
-          description: 'Ürün görselleri, renk dili, konsept yaklaşımı, lifestyle kullanım alanları ve görsel sunum mantığı belirlenir.',
+          title: 'Marka Kimliği Rehberi',
+          description: 'Markanın görsel dili, iletişim tonu, sunum yaklaşımı ve satış kanallarındaki görünümü için uygulanabilir bir marka kimliği rehberi oluştururuz.',
         },
         {
           number: '04',
@@ -2218,8 +2218,8 @@ export const serviceDetails: Record<
         },
         {
           number: '05',
-          title: 'Kanal Bazlı Konumlandırma',
-          description: 'Amazon, Etsy, eBay, Shopify, B2B katalog ve sosyal medya kanallarında markanın nasıl görünmesi gerektiği planlanır.',
+          title: 'Pazar ve Rakip Konumu',
+          description: 'Markanızın pazarda hangi müşteri segmentine, hangi fiyat algısıyla ve hangi rakip ayrışmasıyla konumlanacağını netleştiririz.',
         },
         {
           number: '06',
@@ -2229,11 +2229,29 @@ export const serviceDetails: Record<
       ],
     },
     finalCta: {
-      title: 'Markanızı Daha Net ve Güven Veren Bir Satış Sistemine Konumlandıralım',
+      title: 'Markanız İçin Net Bir Pazar Konumu Oluşturalım',
       description:
-        'Ürünlerinizi, hedef müşterinizi, mevcut marka algınızı ve satış kanallarınızı birlikte değerlendirerek markanız için doğru konumlandırma ve büyüme yol haritasını planlayalım.',
+        'Ürünlerinizi, hedef müşterinizi, mevcut marka algınızı ve satış kanallarınızı birlikte değerlendirerek markanız için doğru hedef müşteri, fiyat algısı, rakip ayrışması ve büyüme yol haritasını planlayalım.',
       ctaLabel: 'Marka Planı Oluştur',
       supportText: 'Marka Dili • Hedef Müşteri • Değer Önerisi • Görsel Kimlik • Kanal Uyumu • Büyüme',
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Marka Konumlandırma Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın pazardaki konumu aynı değildir. GloventGlobal, ihtiyaca göre marka konumlandırma sistemini kurup teslim edebilir veya marka dili, pazar algısı, kanal uyumu ve büyüme süreçlerini birlikte geliştirmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Markanızın hedef müşteri, pazar konumu, rakip ayrışması, değer önerisi, fiyat algısı ve kanal dilini netleştirir; ekibinizin kullanabileceği bir konumlandırma sistemi haline getiririz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz marka dili, içerik yönü, kanal sunumu, pazar algısı ve büyüme iletişimini düzenli olarak birlikte geliştiririz.',
+        },
+      ],
     },
   },
   'sosyal-medya-yonetimi': {
