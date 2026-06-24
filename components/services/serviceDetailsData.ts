@@ -1247,9 +1247,9 @@ export const serviceDetails: Record<
   },
   'otomasyon-n8n': {
     eyebrow: 'OTOMASYON & N8N SİSTEMLERİ',
-    title: 'Satış ve Operasyon Süreçleri İçin Otomasyon Sistemleri Kuruyoruz',
+    title: 'Tekrarlayan İşleri Azaltan ve Operasyonu Hızlandıran Sistemler Kuruyoruz',
     description:
-      'Teklif, müşteri, ürün, sipariş, raporlama ve takip süreçleri manuel ilerlediğinde zaman kaybı ve hata riski artar. GloventGlobal, bu süreçleri n8n, API ve entegrasyon yapılarıyla daha yönetilebilir hale getirir.',
+      'Form, teklif, müşteri, sipariş, raporlama ve takip süreçlerini birbirinden kopuk manuel işler olmaktan çıkarır; daha hızlı, daha az hatalı ve tek merkezden izlenebilir operasyon akışlarına dönüştürürüz.',
     ctaLabel: 'Otomasyon Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
@@ -1269,8 +1269,8 @@ export const serviceDetails: Record<
         },
         {
           number: '03',
-          title: 'Pazaryeri ve Shopify Kullanan Markalar',
-          description: 'Amazon, Etsy, eBay, Shopify veya B2B katalog yapılarındaki verileri daha kontrollü takip etmek isteyen markalar için uygundur.',
+          title: 'Birden Fazla Kanalı Aynı Anda Yöneten Markalar',
+          description: 'Pazaryeri, Shopify, web sitesi veya B2B kanallarındaki teklif, sipariş, müşteri ve raporlama süreçlerini aynı anda yönetmekte zorlanan markalar için uygundur.',
         },
         {
           number: '04',
@@ -1345,20 +1345,20 @@ export const serviceDetails: Record<
       // olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
       dataCards: [
         {
-          title: 'Talep ve Form Akışı',
-          description: 'Gelen müşteri taleplerinin hangi kanaldan geldiğini ve nasıl işlendiğini takip ederiz.',
+          title: 'Daha Hızlı Yanıt Süresi',
+          description: 'Form, teklif ve müşteri taleplerinin doğru kişiye daha hızlı ulaşmasını sağlayarak yanıt süresini kısaltırız.',
         },
         {
-          title: 'Görev ve Bildirim Takibi',
-          description: 'Ekip içi görevlerin, bildirimlerin ve takip süreçlerinin doğru tetiklenip tetiklenmediğini kontrol ederiz.',
+          title: 'Tek Merkezden Takip',
+          description: 'Görev, bildirim, müşteri, teklif ve operasyon adımlarını dağınık takipten çıkarıp daha görünür bir takip yapısına dönüştürürüz.',
         },
         {
-          title: 'Teklif ve Sipariş Durumu',
-          description: 'Teklif, sipariş, ödeme, kargo veya müşteri yanıtı gibi süreçlerin hangi aşamada olduğunu izlenebilir hale getiririz.',
+          title: 'Daha Az Operasyon Hatası',
+          description: 'Teklif, sipariş, müşteri ve takip süreçlerinde manuel girişlerden kaynaklanan hata riskini azaltacak iş akışları kurarız.',
         },
         {
-          title: 'Veri Senkronizasyonu',
-          description: 'Form, tablo, CRM, Shopify, pazaryeri veya raporlama araçları arasında veri akışının sağlıklı çalışmasını takip ederiz.',
+          title: 'Ölçeklenebilir Operasyon',
+          description: 'Satış kanalları, formlar, müşteri verileri ve operasyon süreçleri büyüdükçe yönetilebilir kalacak sistem yapıları oluştururuz.',
         },
         {
           title: 'Optimizasyon Alanları',
@@ -1417,8 +1417,8 @@ export const serviceDetails: Record<
         },
         {
           number: '03',
-          title: 'API ve Entegrasyon Yapısı',
-          description: 'Shopify, form, tablo, CRM, e-posta, pazaryeri veya diğer araçlar arasında gerekli bağlantılar kurulur.',
+          title: 'Tüm Sistemlerin Birlikte Çalışması',
+          description: 'Form, teklif, müşteri, sipariş, bildirim, raporlama ve satış kanallarının birbirinden kopuk değil, birlikte çalışan bir operasyon yapısı içinde işlemesini sağlarız.',
         },
         {
           number: '04',
@@ -1432,17 +1432,35 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Gelişim Önerileri',
-          description: 'Sonraki aşamada hangi manuel işlerin azaltılacağı, hangi araçların bağlanacağı ve hangi raporların geliştirileceği belirlenir.',
+          title: 'Operasyon Gelişim Yol Haritası',
+          description: 'İşletmenin tekrar eden manuel süreçlerini, hata risklerini, geciken takip noktalarını ve büyüme sırasında oluşabilecek operasyon yükünü azaltacak sonraki otomasyon adımlarını netleştiririz.',
         },
       ],
     },
     finalCta: {
-      title: 'Operasyon Süreçlerinizi Otomasyonla Birlikte Güçlendirelim',
+      title: 'Operasyonunuzu Daha Hızlı, Daha Takip Edilebilir ve Ölçeklenebilir Hale Getirelim',
       description:
-        'Mevcut iş akışlarınızı, kullandığınız araçları ve tekrar eden manuel süreçlerinizi birlikte değerlendirerek markanız için doğru otomasyon ve entegrasyon yol haritasını planlayalım.',
+        'Mevcut iş akışlarınızı ve tekrar eden manuel süreçlerinizi birlikte değerlendirerek markanız için zaman kazandıran, hata riskini azaltan ve tek merkezden takip edilebilir bir operasyon yol haritası planlayalım.',
       ctaLabel: 'Otomasyon Planı Oluştur',
-      supportText: 'n8n • API • Form Akışları • CRM • Raporlama • Bildirim • Entegrasyon',
+      supportText: 'Hızlı Yanıt • Tek Merkezden Takip • Daha Az Hata • Raporlama • Ölçeklenebilir Operasyon',
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Otomasyon ve Entegrasyon Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın operasyon yapısı aynı değildir. GloventGlobal, ihtiyaca göre otomasyon sistemini kurup teslim edebilir veya satış, teklif, müşteri, raporlama ve operasyon süreçlerini birlikte geliştirmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Tekrarlayan manuel işleri, form ve teklif akışlarını, müşteri takip süreçlerini, bildirimleri, raporlamayı ve kanal entegrasyonlarını daha düzenli çalışan bir operasyon sistemine dönüştürür; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz yeni otomasyon akışları, entegrasyonlar, raporlama düzeni, müşteri takip süreçleri ve operasyon geliştirme adımlarını düzenli olarak birlikte yönetir ve iyileştiririz.',
+        },
+      ],
     },
   },
   'reklam-optimizasyon': {
