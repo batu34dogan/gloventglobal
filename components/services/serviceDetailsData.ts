@@ -1637,7 +1637,7 @@ export const serviceDetails: Record<
   },
   'gorsel-icerik-sistemi': {
     eyebrow: 'GÖRSEL & İÇERİK SİSTEMİ',
-    title: 'Ürünlerinizi Satışa Hazır Görsel ve İçerik Sistemiyle Hazırlıyoruz',
+    title: 'Ürünlerinizi Satışa Dönüşen Görsel ve İçerik Sistemiyle Hazırlıyoruz',
     description:
       'Dijital satışta ürün yalnızca listelenmez; doğru görsel dil, güçlü ürün sunumu, açıklama, başlık, SEO ve marka anlatımı birlikte çalıştığında alıcı için daha güven veren bir satış deneyimi oluşur.',
     ctaLabel: 'İçerik Planı Oluştur',
@@ -1664,7 +1664,7 @@ export const serviceDetails: Record<
         },
         {
           number: '04',
-          title: 'Marka Algısını Güçlendirmek İsteyenler',
+          title: 'Daha Güçlü Ürün Algısı Oluşturmak İsteyenler',
           description: 'Ürünlerin yalnızca teknik özellikleriyle değil, görsel dili ve anlatımıyla da daha güvenilir görünmesini isteyen markalar için uygundur.',
         },
       ],
@@ -1677,22 +1677,22 @@ export const serviceDetails: Record<
       cards: [
         {
           number: '01',
-          title: 'Zayıf Görsel Sunum',
+          title: 'Zayıf Ürün Sunumu',
           description: 'Ürün fotoğrafları, arka plan, açı, ışık, kompozisyon veya lifestyle kullanımı yetersiz olduğunda ürün algısı zayıflayabilir.',
         },
         {
           number: '02',
-          title: 'Dağınık İçerik Dili',
+          title: 'Tutarsız Marka ve İçerik Dili',
           description: 'Başlık, açıklama, kategori metni ve marka anlatımı birbirinden kopuk olduğunda ürün profesyonel bir bütünlük oluşturmaz.',
         },
         {
           number: '03',
-          title: 'SEO ve Listeleme Eksikleri',
+          title: 'Satışa Hazır Olmayan Listeleme Yapısı',
           description: 'Anahtar kelime, etiket, kategori yapısı ve ürün açıklamaları doğru kurgulanmadığında görünürlük sınırlı kalabilir.',
         },
         {
           number: '04',
-          title: 'Kanal Uyumsuzluğu',
+          title: 'Kanal Bazlı İçerik Eksikliği',
           description: 'Aynı ürün Amazon, Etsy, Shopify, B2B katalog veya sosyal medya için farklı sunum ihtiyaçlarına sahipken tek tip içerik kullanmak performansı düşürebilir.',
         },
       ],
@@ -1754,6 +1754,10 @@ export const serviceDetails: Record<
         {
           title: 'Optimizasyon Alanları',
           description: 'Hangi görsellerin, başlıkların, açıklamaların veya kategori metinlerinin güçlendirilmesi gerektiğini belirleriz.',
+        },
+        {
+          title: 'Rakip İçerik Analizi',
+          description: 'Rakiplerin görsel dili, listeleme yapısı ve içerik sunumunu inceleyerek markanızın hangi alanda daha güçlü ayrışabileceğini belirleriz.',
         },
       ],
     },
@@ -1818,7 +1822,7 @@ export const serviceDetails: Record<
         },
         {
           number: '05',
-          title: 'Kanal Bazlı İçerik Uyumu',
+          title: 'Kanal Bazlı Yayın Planı',
           description: 'Amazon, Etsy, eBay, Shopify, B2B katalog ve sosyal medya için içeriklerin nasıl farklılaştırılacağı belirlenir.',
         },
         {
@@ -1829,7 +1833,7 @@ export const serviceDetails: Record<
       ],
     },
     finalCta: {
-      title: 'Ürünlerinizi Daha Güçlü Görsel ve İçerik Sistemiyle Sunalım',
+      title: 'Ürünlerinizi Satışa Hazır Bir Sunum Sistemine Dönüştürelim',
       description:
         'Ürünlerinizi, mevcut görsel dilinizi ve satış kanallarınızı birlikte değerlendirerek markanız için doğru görsel, içerik, SEO ve ürün sunumu yol haritasını planlayalım.',
       ctaLabel: 'İçerik Planı Oluştur',
