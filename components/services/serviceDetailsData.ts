@@ -2581,7 +2581,7 @@ export const serviceDetails: Record<
     eyebrow: 'GLOBAL PAZARA GİRİŞ STRATEJİSİ',
     title: 'Markanız İçin Global Pazara Giriş Yol Haritası Oluşturuyoruz',
     description:
-      'Global pazara açılmak yalnızca ürünleri yurt dışına listelemek değildir. Doğru ülke, doğru satış kanalı, doğru fiyat, doğru ürün sunumu, rekabet analizi ve operasyon planı birlikte çalıştığında sürdürülebilir büyüme zemini oluşur.',
+      'Global pazara açılmak yalnızca ülke seçmek değildir. Doğru ülke, doğru satış kanalı, doğru fiyat, doğru ürün sunumu, rekabet analizi ve operasyon planı birlikte ele alındığında global pazara giriş daha yönetilebilir bir büyüme sistemine dönüşür.',
     ctaLabel: 'Pazar Giriş Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
@@ -2677,20 +2677,20 @@ export const serviceDetails: Record<
       // görseller hazır olduğunda buraya sadece `dashboardImages` eklenmesi yeterli olacak.
       dataCards: [
         {
-          title: 'Pazar Potansiyeli',
-          description: 'Ürünün hangi ülkelerde ve hangi müşteri kitlelerinde daha yüksek satış potansiyeli taşıdığını analiz ederiz.',
+          title: 'Talep Potansiyeli',
+          description: 'Ürün ve kategori bazında gerçek talebi, arama davranışını, pazar ilgisini ve satış ihtimalini analiz ederiz.',
         },
         {
-          title: 'Rekabet ve Fiyat Aralığı',
-          description: 'Rakip ürünleri, fiyat seviyelerini, yorum sayılarını, kategori yoğunluğunu ve görünürlük fırsatlarını değerlendiririz.',
+          title: 'Rekabet Yoğunluğu',
+          description: 'Rakip sayısını, fiyat aralığını, ürün konumunu ve pazara giriş zorluğunu değerlendiririz.',
         },
         {
           title: 'Kanal Uygunluğu',
-          description: 'Amazon, Etsy, eBay, Shopify, B2B veya sosyal medya kanallarından hangisinin marka için daha uygun olduğunu belirleriz.',
+          description: 'Global büyüme her marka için aynı kanaldan başlamaz. Bazı markalar için Amazon EU veya Amazon US daha doğru olabilirken, bazı ürün gruplarında Etsy, Shopify, B2B Showroom veya distribütör kanalı daha uygun başlangıç noktası olabilir.',
         },
         {
-          title: 'Operasyon Kapasitesi',
-          description: 'Stok, kargo, üretim, paketleme, müşteri iletişimi, iade ve teslimat süreçlerinin pazara uygunluğunu değerlendiririz.',
+          title: 'Operasyon Hazırlığı',
+          description: 'Kargo, stok, üretim, müşteri iletişimi, iade, teslimat ve satış sonrası süreçlere ne kadar hazır olunduğunu değerlendiririz.',
         },
         {
           title: 'Büyüme Öncelikleri',
@@ -2764,17 +2764,35 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Büyüme Yol Haritası',
-          description: 'İlk test, ilk yayın, reklam başlangıcı, optimizasyon ve yeni kanal/pazar genişleme sırası belirlenir.',
+          title: 'İlk 12 Aylık Büyüme Planı',
+          description: 'Seçilen pazar, kanal, ürün önceliği, fiyat konumu, operasyon hazırlığı ve büyüme hedeflerine göre ilk 12 aylık uygulanabilir global büyüme planını oluştururuz.',
         },
       ],
     },
     finalCta: {
       title: 'Markanız İçin Doğru Global Pazara Giriş Yolunu Birlikte Belirleyelim',
       description:
-        'Ürününüzü, hedeflerinizi, mevcut satış yapınızı ve global pazara uygunluğunuzu birlikte değerlendirerek markanız için doğru pazar, kanal ve büyüme yol haritasını planlayalım.',
+        'Ürününüzü, hedeflerinizi ve mevcut satış yapınızı birlikte değerlendirerek markanız için doğru ülke, doğru kanal, doğru fiyat ve uygulanabilir bir büyüme planı oluşturalım.',
       ctaLabel: 'Pazar Giriş Planı Oluştur',
       supportText: 'Pazar Analizi • Kanal Seçimi • Fiyatlandırma • Rekabet • Operasyon • Büyüme Planı',
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Global Büyüme Stratejisini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın global pazara giriş yolu aynı değildir. GloventGlobal, ihtiyaca göre global büyüme stratejisini ve pazar giriş yol haritasını kurup teslim edebilir veya kanal seçimi, operasyon hazırlığı, performans takibi ve büyüme süreçlerini birlikte geliştirmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Markanız için doğru ülke, kanal, ürün önceliği, fiyat konumu, rekabet analizi, operasyon hazırlığı ve ilk büyüme planını oluşturur; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz pazar seçimi, kanal açılımı, ürün sunumu, fiyatlama, operasyon, reklam ve performans takibi süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
+        },
+      ],
     },
   },
 };
