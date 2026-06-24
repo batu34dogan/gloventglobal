@@ -79,13 +79,13 @@ export const serviceDetails: Record<
 > = {
   etsy: {
     eyebrow: 'ETSY MAĞAZA SİSTEMİ',
-    title: 'Etsy’de Satışa Hazır Marka ve Mağaza Sistemi Kuruyoruz',
+    title: 'Etsy’de Sadece Mağaza Değil, Satışa Hazır Bir Marka Sistemi Kuruyoruz',
     description:
-      'El yapımı, butik, tasarım ve niş ürünler için Etsy mağazanızı yalnızca açmakla kalmıyor; ürün sunumu, görsel dil, listeleme, SEO ve reklam altyapısıyla satışa hazır bir dijital satış sistemi olarak kurguluyoruz.',
+      'Etsy’de başarılı satış yalnızca mağaza açmakla oluşmaz. Ürün, görsel dil, marka hikayesi, SEO, listeleme yapısı ve veri takibi birlikte çalıştığında sürdürülebilir bir Etsy marka sistemi oluşur.',
     ctaLabel: 'Etsy Hizmet Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
-      title: 'Etsy’de Satışa Hazır Mağaza Kurmak İsteyenler İçin',
+      title: 'Etsy’de Marka Oluşturmak İsteyenler İçin',
       description:
         'Etsy, yalnızca ürün listelemekten ibaret değildir. Ürünün hikâyesi, görsel dili, kategori seçimi, anahtar kelimeleri ve mağaza bütünlüğü birlikte çalıştığında daha güçlü bir satış zemini oluşur.',
       cards: [
@@ -147,12 +147,12 @@ export const serviceDetails: Record<
       steps: [
         {
           number: '01',
-          title: 'Ürün ve Pazar Okuması',
-          description: 'Ürünün Etsy kitlesine, rekabet yapısına, fiyat aralığına ve kategori dinamiklerine uygunluğunu değerlendiririz.',
+          title: 'Ürün ve Pazar Analizi',
+          description: 'Ürünün hedef kitlesini, kategori dinamiklerini, rekabet yapısını ve fiyat aralığını Etsy pazarına uygunluk açısından analiz ederiz.',
         },
         {
           number: '02',
-          title: 'Görsel ve Mağaza Dili',
+          title: 'Marka ve Sunum Sistemi',
           description: 'Ürün fotoğrafları, kapak görselleri, mağaza düzeni ve marka anlatımını tek bir görsel kimlik içinde kurgularız.',
         },
         {
@@ -162,8 +162,8 @@ export const serviceDetails: Record<
         },
         {
           number: '04',
-          title: 'Reklam ve Test Süreci',
-          description: 'İlk ürünlerin yayınlanması sonrası reklam, fiyat, ürün seçimi ve dönüşüm verilerine göre sistemi test edip geliştiririz.',
+          title: 'Test ve Büyüme Süreci',
+          description: 'İlk ürünlerin yayınlanması sonrası reklam, fiyat, ürün seçimi ve dönüşüm verilerine göre sistemi test edip büyütürüz.',
         },
       ],
     },
@@ -179,6 +179,35 @@ export const serviceDetails: Record<
         '/dashboards/etsy-dashboard-03.jpg',
         '/dashboards/etsy-dashboard-04.jpg',
         '/dashboards/etsy-dashboard-05.webp',
+      ],
+      insight: {
+        title: 'Veri ve Marka Büyüme Katmanı',
+        text: 'Görüntülenme, favori, dönüşüm, SEO ve reklam verilerini takip ederek Etsy mağazasını yalnızca yönetilebilir değil, geliştirilebilir bir marka sistemi haline getiririz.',
+        chips: [
+          'Görüntülenme ve favori takibi',
+          'SEO ve anahtar kelime performansı',
+          'Reklam ve dönüşüm analizi',
+          'Görsel sunum ve listeleme optimizasyonu',
+          'Büyüme kararları için raporlama',
+        ],
+      },
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Etsy Marka Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın Etsy’deki ihtiyacı aynı değildir. GloventGlobal, ihtiyaca göre Etsy marka sistemini kurup teslim edebilir veya içerik, SEO, reklam, optimizasyon ve büyüme süreçlerini birlikte yönetmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Etsy mağazanızı, ürün sunum sisteminizi, SEO yapınızı, görsel dilinizi ve satış altyapınızı kurar; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz içerik, reklam, optimizasyon, SEO, görsel sunum ve büyüme süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
+        },
       ],
     },
     process: {
@@ -247,8 +276,8 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Gelişim Önerileri',
-          description: 'Mağazanın sonraki aşamada nasıl iyileştirileceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
+          title: 'Büyüme Yol Haritası',
+          description: 'Etsy mağazasının sonraki büyüme adımlarını; SEO, görsel sunum, reklam, içerik ve veri takibi ekseninde uygulanabilir bir yol haritasına dönüştürürüz.',
         },
       ],
     },
