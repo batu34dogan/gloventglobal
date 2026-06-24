@@ -829,9 +829,9 @@ export const serviceDetails: Record<
     },
     process: {
       eyebrow: 'SÜREÇ',
-      title: 'eBay Mağazanızı Satışa Hazırlayan Yol Haritası',
+      title: 'eBay Global Satış Sistemini Kuran Yol Haritası',
       description:
-        'eBay mağazasını yalnızca teknik olarak açmakla kalmayız; ürün, pazar, kategori, listeleme, fiyat, kargo ve güven yapısını birlikte planlayarak mağazayı yönetilebilir bir satış kanalına dönüştürürüz.',
+        'eBay sistemini yalnızca teknik olarak açmakla kalmayız; ürün, pazar, kategori, listeleme, fiyat, kargo ve güven yapısını birlikte planlayarak global satış sistemini yönetilebilir hale getiririz.',
       steps: [
         {
           number: '01',
@@ -862,7 +862,7 @@ export const serviceDetails: Record<
     },
     deliverables: {
       eyebrow: 'HAZIRLANAN SİSTEM',
-      title: 'eBay Mağazanız İçin Hazırlanan Sistem Çıktıları',
+      title: 'eBay Global Satış Sisteminiz İçin Hazırlanan Çıktılar',
       description:
         'eBay hizmeti sonunda yalnızca açılmış bir mağaza değil; ürünlerinizi doğru pazarda konumlandıran, listeleme kalitesini güçlendiren ve satış sürecini yönetilebilir hale getiren bir yapı hazırlanır.',
       items: [
