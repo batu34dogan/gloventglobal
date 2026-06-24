@@ -1449,7 +1449,7 @@ export const serviceDetails: Record<
     eyebrow: 'REKLAM & OPTİMİZASYON',
     title: 'Satış Kanallarınızı Veriye Dayalı Reklamlarla Büyütüyoruz',
     description:
-      'Reklam yalnızca bütçe harcamak değildir. Doğru ürün, doğru hedefleme, doğru kanal, dönüşüm takibi ve düzenli optimizasyon birlikte çalıştığında sürdürülebilir büyüme sistemi oluşur.',
+      'Reklam bütçesini yalnızca harcamak değil; dönüşüm altyapısı, kanal performansı, ROAS, müşteri edinme maliyeti ve büyüme hedefleriyle birlikte yönetmek gerekir. Doğru ürün, doğru hedefleme ve düzenli optimizasyon birlikte çalıştığında sürdürülebilir büyüme sistemi oluşur.',
     ctaLabel: 'Reklam Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
@@ -1474,8 +1474,8 @@ export const serviceDetails: Record<
         },
         {
           number: '04',
-          title: 'Farklı Kanalları Birlikte Yönetmek İsteyenler',
-          description: 'Pazaryeri, Shopify, sosyal medya ve Google reklamlarını tek büyüme mantığı içinde takip etmek isteyen işletmeler için uygundur.',
+          title: 'Çoklu Kanalda Büyümek İsteyenler',
+          description: 'Pazaryeri, Shopify, sosyal medya, Google ve Meta reklamlarını tek ölçülebilir büyüme mantığı içinde takip etmek isteyen işletmeler için uygundur.',
         },
       ],
     },
@@ -1564,6 +1564,10 @@ export const serviceDetails: Record<
           title: 'Optimizasyon Alanları',
           description: 'Durdurulacak, güçlendirilecek, test edilecek veya yeniden yapılandırılacak kampanyaları belirleriz.',
         },
+        {
+          title: 'Kanal Kârlılığı',
+          description: 'ROAS, CAC, LTV, dönüşüm oranı ve bütçe verimliliğini birlikte değerlendirerek reklam kanallarının yalnızca trafik değil, kârlı büyüme üretip üretmediğini takip ederiz.',
+        },
       ],
     },
     process: {
@@ -1574,28 +1578,28 @@ export const serviceDetails: Record<
       steps: [
         {
           number: '01',
-          title: 'Keşif ve Kanal Analizi',
-          description: 'Markanın mevcut satış kanallarını, ürün yapısını, hedef müşterisini, reklam geçmişini ve büyüme hedeflerini analiz ederiz.',
+          title: 'Keşif',
+          description: 'Markanın mevcut satış kanallarını, hedeflerini, bütçe yapısını ve reklam geçmişini analiz ederiz.',
         },
         {
           number: '02',
+          title: 'Dönüşüm Altyapısı',
+          description: 'Landing page, ürün sayfası, checkout, teklif formu, pixel, event ve dönüşüm takibi gibi reklam performansını etkileyen altyapı noktalarını kontrol ederiz.',
+        },
+        {
+          number: '03',
           title: 'Reklam Stratejisi',
           description: 'Hangi ürünlerin, hangi kanallarda, hangi hedefleme ve bütçe yapısıyla test edileceğini planlarız.',
         },
         {
-          number: '03',
+          number: '04',
           title: 'Kampanya Kurulumu',
           description: 'Amazon, Etsy, eBay, Google, Meta veya Shopify satış akışına uygun kampanya yapılarını oluştururuz.',
         },
         {
-          number: '04',
-          title: 'Ölçüm ve Performans Takibi',
-          description: 'Gösterim, tıklama, maliyet, dönüşüm, satış, ROAS ve kanal performansını düzenli izleriz.',
-        },
-        {
           number: '05',
-          title: 'Optimizasyon ve Büyüme',
-          description: 'Verilere göre bütçe dağılımını, hedeflemeyi, kreatifleri, ürün önceliklerini ve kampanya yapısını geliştiririz.',
+          title: 'Ölçüm ve Optimizasyon',
+          description: 'ROAS, CAC, dönüşüm oranı, kanal performansı ve bütçe verimliliğini takip ederek kampanyaları düzenli olarak geliştiririz.',
         },
       ],
     },
@@ -1632,8 +1636,26 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Gelişim Önerileri',
-          description: 'Sonraki aşamada hangi kanalların büyütüleceği, hangi ürünlerin öne çıkarılacağı ve hangi kreatiflerin geliştirileceği belirlenir.',
+          title: 'Büyüme Yol Haritası',
+          description: 'Reklam performansını, dönüşüm altyapısını, kanal kârlılığını ve bütçe verimliliğini analiz ederek sonraki büyüme adımlarını uygulanabilir bir yol haritasına dönüştürürüz.',
+        },
+      ],
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Performans Pazarlama Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın reklam ve büyüme ihtiyacı aynı değildir. GloventGlobal, ihtiyaca göre reklam ve dönüşüm altyapısını kurup teslim edebilir veya bütçe, kampanya, ölçüm, optimizasyon ve büyüme süreçlerini birlikte yönetmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Reklam stratejisi, dönüşüm altyapısı, pixel/event takibi, kampanya yapısı, bütçe dağılımı ve performans raporlama sistemini kurar; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz reklam kampanyaları, bütçe yönetimi, ROAS, CAC, dönüşüm oranı, kanal kârlılığı ve optimizasyon süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
         },
       ],
     },
