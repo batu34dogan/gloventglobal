@@ -88,7 +88,7 @@ const systemSteps = [
   {
     number: '03',
     title: 'Doğru Sistemleri Seçeriz',
-    description: 'Amazon, Etsy, eBay, Shopify, B2B, yapay zeka, otomasyon, reklam ve sosyal medya gibi alanlardan markaya en uygun sistem bileşenlerini belirleriz.',
+    description: 'Markanın hedeflerine göre hangi kanal, altyapı ve büyüme bileşenlerinin öncelikli olması gerektiğini belirler; Amazon, Etsy, Shopify, B2B, yapay zeka, otomasyon ve reklam gibi parçaları tek bir sistem mantığıyla kurgularız.',
   },
   {
     number: '04',
@@ -137,20 +137,21 @@ const continuityCards = [
 ];
 
 // Sistem bileşenleri — bilerek "hizmet listesi" değil, markaya göre değişen bileşen kümesi gibi
-// kurgulandı. Küçük, tek tip mavi chip/pill yapısı (sitenin diğer chip bölümleriyle aynı dil).
+// kurgulandı. Her chip kendi hizmet detay sayfasına bağlı (iç linkleme), ama görsel olarak klasik
+// mavi link gibi değil, mevcut chip/pill diliyle aynı kalıyor — sadece hover'da belirginleşiyor.
 const systemComponents = [
-  'Amazon',
-  'Etsy',
-  'eBay',
-  'Shopify',
-  'B2B Satış Sistemi',
-  'Yapay Zeka',
-  'Otomasyon',
-  'Performans Pazarlama',
-  'Sosyal Medya',
-  'Marka Konumlandırma',
-  'Görsel ve İçerik Sistemi',
-  'Global Büyüme Stratejisi',
+  { label: 'Amazon', href: '/hizmetler/amazon' },
+  { label: 'Etsy', href: '/hizmetler/etsy' },
+  { label: 'eBay', href: '/hizmetler/ebay' },
+  { label: 'Shopify', href: '/hizmetler/shopify' },
+  { label: 'B2B Satış Sistemi', href: '/hizmetler/b2b-dijital-showroom' },
+  { label: 'Yapay Zeka', href: '/hizmetler/yapay-zeka-entegrasyonu' },
+  { label: 'Otomasyon', href: '/hizmetler/otomasyon-n8n' },
+  { label: 'Performans Pazarlama', href: '/hizmetler/reklam-optimizasyon' },
+  { label: 'Sosyal Medya', href: '/hizmetler/sosyal-medya-yonetimi' },
+  { label: 'Marka Konumlandırma', href: '/hizmetler/marka-konumlandirma' },
+  { label: 'Görsel ve İçerik Sistemi', href: '/hizmetler/gorsel-icerik-sistemi' },
+  { label: 'Global Büyüme Stratejisi', href: '/hizmetler/global-pazara-giris-stratejisi' },
 ];
 
 export default function ProcessContent() {
@@ -367,12 +368,13 @@ export default function ProcessContent() {
           )}`}
         >
           {systemComponents.map((component) => (
-            <span
-              key={component}
-              className="rounded-full border border-blue-400/25 bg-blue-500/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.04em] text-blue-200/80"
+            <a
+              key={component.label}
+              href={component.href}
+              className="rounded-full border border-blue-400/25 bg-blue-500/5 px-4 py-2 text-xs font-medium uppercase tracking-[0.04em] text-blue-200/80 transition-all duration-300 hover:border-blue-400/55 hover:bg-blue-500/15 hover:text-blue-100"
             >
-              {component}
-            </span>
+              {component.label}
+            </a>
           ))}
         </div>
       </section>
@@ -394,26 +396,27 @@ export default function ProcessContent() {
           <div className="relative isolate mx-auto max-w-2xl">
             <TitleGlow tone="cta" />
             <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
-              Markanız İçin Doğru Büyüme Sistemini Birlikte Belirleyelim
+              Markanız İçin Hangi Sistemin Öncelikli Olduğunu Birlikte Belirleyelim
             </h2>
           </div>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
-            Nereden başlamanız gerektiğini bilmiyorsanız, mevcut yapınızı birlikte analiz ederek markanız için en
-            doğru büyüme yolunu netleştirebiliriz.
+            Amazon, Etsy, Shopify, B2B, yapay zeka, otomasyon veya reklam tarafında nereden başlamanız
+            gerektiğini bilmiyorsanız, mevcut yapınızı analiz ederek en doğru büyüme önceliğini birlikte
+            netleştirebiliriz.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="/iletisim"
+              href="/analiz"
               className="inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-12 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
             >
-              İletişime Geç
+              Ücretsiz Analiz Al
             </a>
             <a
-              href="/hizmetler"
+              href="/iletisim"
               className="inline-block rounded-full border border-white/15 px-12 py-3.5 text-sm font-semibold tracking-wide text-white/85 backdrop-blur-sm transition-all duration-300 hover:border-white/35 hover:text-white"
             >
-              Hizmetleri İncele
+              İletişime Geç
             </a>
           </div>
         </div>
