@@ -67,6 +67,15 @@ export const serviceDetails: Record<
       insight?: { title: string; text: string; chips?: string[] };
     };
     // Final CTA'dan hemen önce, opsiyonel küçük "çalışma modeli" bölümü (örn. Amazon'daki
+    // "Veriyle Yönetilen Sistem" ile "Süreç" arasına, opsiyonel küçük bir "sistem haritası"
+    // bölümü (örn. Shopify'daki "Shopify ile Neler Kurulabilir?" 5 kartı). Belirtilmezse hiç
+    // render edilmez — diğer hizmet sayfalarının görünümü bu alandan etkilenmez.
+    systemComposition?: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      cards: { number: string; title: string; description: string }[];
+    };
     // "Sistem Kurulumu" / "Yönetim ve Operasyon" 2 kartı). Belirtilmezse hiç render edilmez —
     // diğer hizmet sayfalarının görünümü bu alandan etkilenmez.
     workModel?: {
@@ -507,9 +516,9 @@ export const serviceDetails: Record<
   },
   shopify: {
     eyebrow: 'SHOPIFY SATIŞ ALTYAPISI',
-    title: 'Markanız İçin Shopify Tabanlı Satış Altyapısı Kuruyoruz',
+    title: 'Markanız İçin Bağımsız Dijital Ticaret Sistemi Kuruyoruz',
     description:
-      'Shopify yalnızca bir web sitesi değil; ürün yönetimi, koleksiyon yapısı, ödeme deneyimi, teklif akışı, içerik dili ve büyüme kanallarıyla birlikte çalışan bir satış altyapısıdır.',
+      'Shopify’ı yalnızca bir web sitesi olarak değil; ürün yönetimi, müşteri deneyimi, B2B yapıları, teklif süreçleri, dönüşüm optimizasyonu, veri takibi ve dijital operasyon süreçlerini yöneten bir commerce altyapısı olarak kurgularız.',
     ctaLabel: 'Shopify Hizmet Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
@@ -524,8 +533,8 @@ export const serviceDetails: Record<
         },
         {
           number: '02',
-          title: 'Ürün Yönetimini Merkezileştirmek İsteyenler',
-          description: 'Ürünlerini, koleksiyonlarını, stoklarını ve içeriklerini daha kontrollü bir dijital altyapı üzerinden yönetmek isteyen markalar için uygundur.',
+          title: 'Satış Süreçlerini Tek Merkezden Yönetmek İsteyenler',
+          description: 'Ürün, koleksiyon, müşteri, teklif ve satış süreçlerini daha kontrollü bir dijital altyapı üzerinden tek merkezden yönetmek isteyen markalar için uygundur.',
         },
         {
           number: '03',
@@ -552,8 +561,8 @@ export const serviceDetails: Record<
         },
         {
           number: '02',
-          title: 'Zayıf Ürün Sunumu',
-          description: 'Görseller, açıklamalar, varyasyonlar ve ürün detayları doğru kurgulanmadığında satış algısı yeterince güçlenmez.',
+          title: 'Düşük Dönüşüm Oranı',
+          description: 'Ürün sunumu, sayfa akışı ve güven unsurları doğru kurgulanmadığında ziyaretçinin satın alma kararı zayıflar ve dönüşüm oranı düşer.',
         },
         {
           number: '03',
@@ -597,9 +606,9 @@ export const serviceDetails: Record<
     },
     dataSystem: {
       eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
-      title: 'Shopify Mağazanızı Verilerle Geliştirilen Bir Satış Sistemine Dönüştürüyoruz',
+      title: 'Shopify Altyapınızı Verilerle Yönetilen Bir Ticaret Sistemine Dönüştürüyoruz',
       description:
-        'Mağaza yayına alındıktan sonra trafik, ürün görüntülenmeleri, sepet davranışı, teklif talepleri, dönüşüm ve kanal performansını birlikte takip ederiz. Shopify altyapısını yalnızca kurulmuş bir site olarak değil, verilerle geliştirilen bir satış sistemi olarak ele alırız.',
+        'Sistem yayına alındıktan sonra trafik, ürün görüntülenmeleri, sepet davranışı, teklif talepleri, müşteri verisi, dönüşüm ve kanal performansını birlikte takip ederiz. Shopify altyapısını yalnızca kurulmuş bir site olarak değil, müşteri verisi ve dönüşüm takibiyle yönetilen bir ticaret sistemi olarak ele alırız.',
       // Shopify için gerçek dashboard/analytics görselleri henüz hazır değil — Etsy/Amazon'daki
       // görsel carousel'i taklit eden sahte/placeholder görsel KOYMUYORUZ. Bunun yerine geçici,
       // metin tabanlı veri kartları kullanılıyor. Gerçek görseller hazır olduğunda buraya sadece
@@ -627,11 +636,44 @@ export const serviceDetails: Record<
         },
       ],
     },
+    systemComposition: {
+      eyebrow: 'COMMERCE SİSTEMİ',
+      title: 'Shopify ile Neler Kurulabilir?',
+      description:
+        'Shopify yalnızca ürünlerin listelendiği bir web sitesi değildir. Doğru kurgulandığında B2C satış, B2B showroom, teklif akışı, müşteri yönetimi, dönüşüm optimizasyonu ve veri takibini bir araya getiren dijital ticaret sistemi haline gelir.',
+      cards: [
+        {
+          number: '01',
+          title: 'B2C Satış Altyapısı',
+          description: 'Markaya ait ürün, koleksiyon, kampanya, sepet, ödeme ve müşteri deneyimi süreçlerini satışa hazır bir yapıya dönüştürürüz.',
+        },
+        {
+          number: '02',
+          title: 'B2B Dijital Showroom',
+          description: 'Toptan satış yapan markalar için ürün gösterimi, katalog, müşteri erişimi ve teklif toplama süreçlerini dijitalleştiririz.',
+        },
+        {
+          number: '03',
+          title: 'Teklif ve Müşteri Sistemi',
+          description: 'Fiyat göstermeden teklif toplama, müşteri segmentasyonu, iletişim akışı ve satış ekibi takibini destekleyen yapılar kurgularız.',
+        },
+        {
+          number: '04',
+          title: 'Ürün ve Koleksiyon Yönetimi',
+          description: 'Ürün grupları, koleksiyonlar, varyantlar, kategori yapısı ve kampanya alanlarını yönetilebilir bir sistem haline getiririz.',
+        },
+        {
+          number: '05',
+          title: 'Dönüşüm ve Veri Takibi',
+          description: 'Kullanıcı davranışı, trafik, dönüşüm, ürün performansı ve satış verilerini takip ederek sistemi geliştirilebilir hale getiririz.',
+        },
+      ],
+    },
     process: {
       eyebrow: 'SÜREÇ',
-      title: 'Shopify Mağazanızı Satışa Hazırlayan Yol Haritası',
+      title: 'Shopify Ticaret Sistemini Kuran Yol Haritası',
       description:
-        'Shopify mağazasını yalnızca teknik olarak kurmakla kalmayız; ürün, kategori, içerik, kullanıcı deneyimi ve yönetim süreçlerini birlikte planlayarak mağazayı sürdürülebilir bir satış altyapısına dönüştürürüz.',
+        'Shopify altyapısını yalnızca teknik olarak kurmakla kalmayız; ürün, kategori, içerik, kullanıcı deneyimi ve yönetim süreçlerini birlikte planlayarak sistemi sürdürülebilir bir ticaret altyapısına dönüştürürüz.',
       steps: [
         {
           number: '01',
@@ -668,8 +710,8 @@ export const serviceDetails: Record<
       items: [
         {
           number: '01',
-          title: 'Mağaza ve Sayfa Yapısı',
-          description: 'Shopify mağaza yapısı, ana sayfa, kategori, ürün ve temel sayfa düzenleri markanızla uyumlu şekilde hazırlanır.',
+          title: 'Ticaret Altyapısı Yapısı',
+          description: 'Shopify altyapısında sayfa, ürün, koleksiyon, müşteri akışı ve satış yapısını birlikte çalışan bir ticaret sistemi olarak kurgularız.',
         },
         {
           number: '02',
@@ -693,17 +735,35 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Gelişim Önerileri',
-          description: 'Mağazanın sonraki aşamada nasıl büyütüleceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği belirlenir.',
+          title: 'Büyüme Yol Haritası',
+          description: 'Sistemin sonraki aşamada nasıl büyütüleceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği uygulanabilir bir yol haritasına dönüştürülür.',
         },
       ],
     },
     finalCta: {
-      title: 'Shopify Mağazanız İçin Doğru Satış Altyapısını Birlikte Kuralım',
+      title: 'Shopify ile Dijital Ticaret Sisteminizi Birlikte Kuralım',
       description:
-        'Ürünlerinizi, mevcut dijital yapınızı ve hedef satış modelinizi birlikte değerlendirerek Shopify mağazanız için doğru ürün, içerik, dönüşüm ve büyüme yol haritasını planlayalım.',
+        'Ürünlerinizi, mevcut dijital yapınızı ve hedef satış modelinizi birlikte değerlendirerek Shopify için doğru ürün, içerik, dönüşüm ve büyüme yol haritasını planlayalım.',
       ctaLabel: 'Shopify Hizmet Planı Oluştur',
       supportText: 'Mağaza Kurulumu • Ürün Yönetimi • Koleksiyon Yapısı • Dönüşüm Akışı • Teklif Sistemi • Optimizasyon',
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Shopify Commerce Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın Shopify’daki ihtiyacı aynı değildir. GloventGlobal, ihtiyaca göre Shopify commerce sistemini kurup teslim edebilir veya ürün, koleksiyon, dönüşüm, kampanya, B2B ve büyüme süreçlerini birlikte yönetmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Shopify commerce altyapınızı ürün, koleksiyon, sayfa, B2B showroom, teklif akışı, veri takibi ve dönüşüm yapısıyla kurar; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz ürün, koleksiyon, kampanya, içerik, dönüşüm, müşteri akışı ve büyüme süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
+        },
+      ],
     },
   },
   ebay: {
