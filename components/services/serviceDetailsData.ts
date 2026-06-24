@@ -708,9 +708,9 @@ export const serviceDetails: Record<
   },
   ebay: {
     eyebrow: 'EBAY GLOBAL SATIŞ',
-    title: 'eBay’de Farklı Pazarlara Açılan Satış Kanalı Kuruyoruz',
+    title: 'eBay ile Global Pazarlara Açılan Satış Sistemi Kuruyoruz',
     description:
-      'eBay yalnızca ürün listeleme alanı değil; doğru pazar seçimi, kategori yapısı, ürün sunumu, fiyatlandırma, kargo stratejisi ve mağaza güveniyle birlikte çalışan bir global satış kanalıdır.',
+      'eBay’i markanız için yalnızca ürün listeleme alanı olarak değil; ülke stratejisi, fiyatlama, kargo, listeleme, görünürlük ve operasyon süreçleriyle birlikte çalışan global satış sistemi olarak kurgularız.',
     ctaLabel: 'eBay Hizmet Planı Oluştur',
     audience: {
       eyebrow: 'KİMLER İÇİN?',
@@ -742,9 +742,9 @@ export const serviceDetails: Record<
     },
     problem: {
       eyebrow: 'SİSTEM EKSİKLERİ',
-      title: 'eBay’de Ürün Yayına Almak Değil, Güven Veren Satış Sistemi Kurmak Gerekir',
+      title: 'eBay’de Listeleme Yapmak Değil, Global Satış Sistemi Kurmak Gerekir',
       description:
-        'Birçok marka eBay’e ürün yükler ama pazar seçimi, kategori, ürün açıklaması, fiyatlandırma, kargo politikası ve mağaza güveni birlikte planlanmadığında satış potansiyeli sınırlı kalır.',
+        'eBay’de sürdürülebilir satış yalnızca ürün eklemekle oluşmaz. Doğru ülke hedeflemesi, fiyatlama, kargo, listeleme kalitesi, güven sinyalleri ve performans takibi birlikte çalıştığında global satış sistemi oluşur.',
       cards: [
         {
           number: '01',
@@ -770,37 +770,37 @@ export const serviceDetails: Record<
     },
     approach: {
       eyebrow: 'GLOVENTGLOBAL YAKLAŞIMI',
-      title: 'eBay Mağazasını Listeleme Değil, Satış Kanalı Olarak Kurgularız',
+      title: 'eBay’i Global Satış Sistemi Olarak Kurgularız',
       description:
         'eBay’de sürdürülebilir satış için ürün, pazar, kategori, fiyat, kargo, açıklama ve mağaza güveni birlikte çalışmalıdır. GloventGlobal bu parçaları tek bir satış sistemi içinde ele alır.',
       steps: [
         {
           number: '01',
-          title: 'Ürün ve Pazar Analizi',
-          description: 'Ürünün hangi ülke, kategori, fiyat aralığı ve alıcı kitlesi için daha uygun olduğunu analiz ederiz.',
+          title: 'Pazar ve Talep Analizi',
+          description: 'Ürünün hangi pazarlarda talep görebileceğini, rekabet durumunu, kategori yapısını ve müşteri beklentilerini analiz ederiz.',
         },
         {
           number: '02',
-          title: 'Listeleme ve Mağaza Kurgusu',
-          description: 'Başlık, açıklama, ürün detayları, görsel sıralaması, mağaza profili ve kategori yapısını güven veren bir satış diliyle planlarız.',
+          title: 'Doğru Ülke Stratejisi',
+          description: 'eBay’i tek bir pazar gibi değil, farklı ülke ve müşteri davranışlarına göre kurgulanması gereken global bir satış kanalı olarak ele alırız.',
         },
         {
           number: '03',
-          title: 'Fiyat ve Kargo Stratejisi',
-          description: 'Ürün fiyatı, kargo maliyeti, teslimat süresi, iade koşulları ve rekabet yapısını birlikte değerlendiririz.',
+          title: 'Kârlı Fiyat ve Kargo Modeli',
+          description: 'Ürün fiyatı, kargo maliyeti, teslimat beklentisi ve rekabet seviyesini birlikte değerlendirerek sürdürülebilir satış modeli oluştururuz.',
         },
         {
           number: '04',
-          title: 'Performans ve Optimizasyon',
-          description: 'Görüntülenme, tıklama, satış, mesaj, iade ve mağaza performansı sinyallerine göre satış sistemini geliştiririz.',
+          title: 'Performans ve Büyüme Takibi',
+          description: 'Listeleme, görünürlük, satış, dönüşüm ve operasyon verilerini takip ederek eBay sistemini ölçülebilir şekilde geliştiririz.',
         },
       ],
     },
     dataSystem: {
       eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
-      title: 'eBay Mağazanızı Verilerle Geliştirilen Bir Satış Kanalına Dönüştürüyoruz',
+      title: 'eBay Operasyonunu Verilerle Yönetilen Bir Global Satış Sistemine Dönüştürüyoruz',
       description:
-        'Mağaza yayına alındıktan sonra görüntülenme, tıklama, mesaj, satış, kargo ve mağaza performansı sinyallerini birlikte takip ederiz. eBay mağazasını yalnızca kurulmuş bir vitrin olarak değil, verilerle geliştirilen bir satış kanalı olarak ele alırız.',
+        'Sistem yayına alındıktan sonra görüntülenme, tıklama, mesaj, satış, kargo ve pazar performansı sinyallerini birlikte takip ederiz. eBay’i yalnızca kurulmuş bir vitrin olarak değil, verilerle yönetilen global bir satış sistemi olarak ele alırız.',
       // eBay için gerçek dashboard/analytics görselleri henüz hazır değil — Shopify'daki gibi
       // geçici, metin tabanlı kayan veri kartları kullanılıyor. Gerçek görseller hazır olduğunda
       // buraya sadece `dashboardImages` eklenmesi yeterli olacak.
@@ -868,8 +868,8 @@ export const serviceDetails: Record<
       items: [
         {
           number: '01',
-          title: 'Mağaza ve Kategori Yapısı',
-          description: 'eBay mağaza yapısı, kategori seçimi, ürün gruplama mantığı ve satış dili markanızla uyumlu şekilde düzenlenir.',
+          title: 'Global Satış Yapısı',
+          description: 'eBay kanalında ürün, kategori, ülke hedefi, listeleme yapısı ve satış operasyonunu birlikte çalışan bir global satış yapısına dönüştürürüz.',
         },
         {
           number: '02',
@@ -893,17 +893,35 @@ export const serviceDetails: Record<
         },
         {
           number: '06',
-          title: 'Gelişim Önerileri',
-          description: 'Mağazanın sonraki aşamada nasıl iyileştirileceği, hangi ürünlerin öne çıkarılacağı ve hangi alanların optimize edileceği netleştirilir.',
+          title: 'Büyüme Yol Haritası',
+          description: 'eBay kanalının sonraki büyüme adımlarını ülke stratejisi, fiyatlama, kargo, listeleme, reklam ve performans takibi ekseninde uygulanabilir bir yol haritasına dönüştürürüz.',
         },
       ],
     },
     finalCta: {
-      title: 'eBay Mağazanız İçin Doğru Satış Kanalını Birlikte Kuralım',
+      title: 'eBay ile Global Satış Sisteminizi Birlikte Kuralım',
       description:
-        'Ürünlerinizi, mevcut satış yapınızı ve hedef pazarınızı birlikte değerlendirerek eBay mağazanız için doğru listeleme, fiyatlandırma, kargo ve büyüme yol haritasını planlayalım.',
+        'Ürünlerinizi, mevcut satış yapınızı ve hedef pazarınızı birlikte değerlendirerek eBay için doğru global satış sistemi, fiyatlandırma, kargo ve büyüme yol haritasını planlayalım.',
       ctaLabel: 'eBay Hizmet Planı Oluştur',
       supportText: 'Pazar Seçimi • Ürün Listeleme • Fiyatlandırma • Kargo Stratejisi • Mağaza Güveni • Optimizasyon',
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'eBay Global Satış Sistemini Nasıl Kurabiliriz?',
+      description:
+        'Her markanın eBay’deki ihtiyacı aynı değildir. GloventGlobal, ihtiyaca göre eBay global satış sistemini kurup teslim edebilir veya fiyatlama, listeleme, kargo, operasyon ve büyüme süreçlerini birlikte yönetmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'eBay satış sisteminizi pazar analizi, ülke stratejisi, listeleme yapısı, fiyat ve kargo modeli, veri takibi ve operasyon kontrol yapısıyla kurar; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz listeleme, fiyatlama, kargo, performans, operasyon ve büyüme süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
+        },
+      ],
     },
   },
   'b2b-dijital-showroom': {
