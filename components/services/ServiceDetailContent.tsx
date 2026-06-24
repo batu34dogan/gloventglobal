@@ -82,6 +82,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
   const [problemRef, problemInView] = useInView<HTMLElement>();
   const [approachRef, approachInView] = useInView<HTMLElement>();
+  const [useCasesRef, useCasesInView] = useInView<HTMLElement>();
   const [dataSystemRef, dataSystemInView] = useInView<HTMLElement>();
   const [compositionRef, compositionInView] = useInView<HTMLElement>();
   // Bir görsel yüklenemezse (yanlış dosya adı, eksik dosya vb.) src'sini buraya ekleyip o kartı
@@ -123,6 +124,13 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
   const approachReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       approachInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+
+  // Opsiyonel "kullanım alanları" bölümü (sadece data.useCases tanımlıysa render edilir) —
+  // kendi viewport girişine (useCasesInView) bağlı.
+  const useCasesReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      useCasesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
   // "Veriyle Yönetilen Sistem" bölümü "Nasıl Yaklaşır?"ın altında, ekran dışında başlıyor — kendi
@@ -414,6 +422,65 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
           ))}
         </div>
       </section>
+
+      {/* Opsiyonel "kullanım alanları" bölümü — sadece bu alanı dolduran hizmetlerde (şu an Yapay
+          Zeka Entegrasyonu) render edilir, diğer hizmetlerde data.useCases tanımsız olduğu için
+          hiçbir görsel değişiklik oluşmaz. "GloventGlobal Yaklaşımı" ile "Veriyle Yönetilen
+          Sistem" arasında, 5 kart için sitedeki kanıtlanmış 3+2 merkezli grid tekniği. */}
+      {data.useCases && (
+        <section ref={useCasesRef} className="relative px-6 pb-20 pt-2 sm:px-10">
+          <div className="relative mx-auto max-w-3xl text-center">
+            <p
+              className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${useCasesReveal(
+                'delay-[0ms]',
+              )}`}
+            >
+              {data.useCases.eyebrow}
+            </p>
+            <div className="relative isolate mx-auto mt-4 max-w-xl">
+              <SectionTitleGlow intensity="normal" />
+              <h2
+                className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${useCasesReveal(
+                  'delay-[100ms]',
+                )}`}
+              >
+                {data.useCases.title}
+              </h2>
+            </div>
+            <p
+              className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${useCasesReveal(
+                'delay-[200ms]',
+              )}`}
+            >
+              {data.useCases.description}
+            </p>
+          </div>
+
+          <div className="relative mx-auto mt-10 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
+            {data.useCases.cards.map((card, index) => (
+              <div
+                key={card.number}
+                className={`${useCasesReveal(
+                  ['delay-[300ms]', 'delay-[360ms]', 'delay-[420ms]', 'delay-[480ms]', 'delay-[540ms]'][index] ??
+                    'delay-[300ms]',
+                )} lg:col-span-2 ${index === 0 ? 'lg:col-start-2' : index === 3 ? 'lg:col-start-3' : ''}`}
+              >
+                <div className="relative flex h-full min-h-[190px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+                  />
+                  <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
+                    {card.number}
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-white">{card.title}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{card.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ============ VERİYLE YÖNETİLEN SİSTEM ============
           Gerçek dashboard görselleri hazır olan hizmetlerde (örn. Etsy) kayan görsel carousel

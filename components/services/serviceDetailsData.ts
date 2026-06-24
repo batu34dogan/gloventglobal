@@ -76,6 +76,16 @@ export const serviceDetails: Record<
       description: string;
       cards: { number: string; title: string; description: string }[];
     };
+    // "GloventGlobal Yaklaşımı" ile "Veriyle Yönetilen Sistem" arasına, opsiyonel küçük bir
+    // "kullanım alanları" bölümü (örn. Yapay Zeka Entegrasyonu'ndaki "Yapay Zeka Nerelerde
+    // Kullanılır?" 5 kartı). systemComposition'dan BİLEREK farklı bir konuma render edilir —
+    // Shopify/B2B'nin onaylanmış yerleşimini bozmadan. Belirtilmezse hiç render edilmez.
+    useCases?: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      cards: { number: string; title: string; description: string }[];
+    };
     // "Sistem Kurulumu" / "Yönetim ve Operasyon" 2 kartı). Belirtilmezse hiç render edilmez —
     // diğer hizmet sayfalarının görünümü bu alandan etkilenmez.
     workModel?: {
@@ -1859,8 +1869,8 @@ export const serviceDetails: Record<
         },
         {
           number: '02',
-          title: 'Pazaryeri ve Shopify Kullanan Markalar',
-          description: 'Amazon, Etsy, eBay, Shopify veya B2B katalog süreçlerinde ürün sunumu, içerik, analiz ve optimizasyonu yapay zeka desteğiyle güçlendirmek isteyen markalar için uygundur.',
+          title: 'Tekrarlayan Süreçleri Olan İşletmeler',
+          description: 'Pazaryeri, Shopify, ürün, içerik, müşteri mesajı, raporlama veya operasyon süreçlerinde sürekli tekrar eden işleri azaltmak isteyen markalar için uygundur.',
         },
         {
           number: '03',
@@ -1882,8 +1892,8 @@ export const serviceDetails: Record<
       cards: [
         {
           number: '01',
-          title: 'Dağınık AI Kullanımı',
-          description: 'Farklı araçlar plansız kullanıldığında içerik dili, veri yapısı ve süreç çıktıları tutarsız hale gelebilir.',
+          title: 'Parçalı ve Verimsiz İş Akışı',
+          description: 'Farklı araçlar plansız ve kontrolsüz kullanıldığında zaman kaybı, tekrar eden manuel işler ve dağınık takip süreçleri ortaya çıkabilir.',
         },
         {
           number: '02',
@@ -1930,6 +1940,39 @@ export const serviceDetails: Record<
         },
       ],
     },
+    useCases: {
+      eyebrow: 'KULLANIM ALANLARI',
+      title: 'Yapay Zeka Nerelerde Kullanılır?',
+      description:
+        'Yapay zeka tek başına ayrı bir araç olarak değil; ürün, içerik, müşteri iletişimi, raporlama ve operasyon süreçlerine entegre edildiğinde gerçek değer üretir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Ürün Açıklamaları',
+          description: 'Ürün özelliklerini, kullanım alanlarını ve satış argümanlarını daha düzenli, anlaşılır ve kanal uyumlu içeriklere dönüştürmek için AI destekli içerik yapıları kurarız.',
+        },
+        {
+          number: '02',
+          title: 'Müşteri Mesajları',
+          description: 'Sık gelen sorular, teklif talepleri, destek mesajları ve satış öncesi iletişim süreçleri için daha hızlı ve tutarlı yanıt akışları oluştururuz.',
+        },
+        {
+          number: '03',
+          title: 'Raporlama',
+          description: 'Satış, trafik, reklam, ürün performansı ve müşteri davranışı verilerini daha okunabilir raporlar ve karar destek çıktıları haline getiren yapılar kurgularız.',
+        },
+        {
+          number: '04',
+          title: 'İçerik Üretimi',
+          description: 'Pazaryeri listelemeleri, sosyal medya içerikleri, ürün sunum metinleri, kampanya metinleri ve kanal bazlı içerik üretimi için kontrollü AI destekli sistemler oluştururuz.',
+        },
+        {
+          number: '05',
+          title: 'Operasyon Otomasyonu',
+          description: 'Tekrarlayan veri hazırlama, içerik düzenleme, bildirim, görev ve takip süreçlerini AI destekli otomasyon yapılarıyla daha yönetilebilir hale getiririz.',
+        },
+      ],
+    },
     dataSystem: {
       eyebrow: 'VERİYLE YÖNETİLEN SİSTEM',
       title: 'Yapay Zeka Kullanımınızı Verilerle Geliştirilen Bir İş Sistemine Dönüştürüyoruz',
@@ -1944,8 +1987,8 @@ export const serviceDetails: Record<
           description: 'AI destekli içeriklerin marka dili, kanal uyumu, SEO ve satış algısı açısından kalitesini değerlendiririz.',
         },
         {
-          title: 'Süreç Hızı',
-          description: 'Ürün açıklaması, görsel konsept, raporlama, sınıflandırma veya veri düzenleme süreçlerinde kazanılan zamanı takip ederiz.',
+          title: 'Zaman Tasarrufu',
+          description: 'Tekrarlayan içerik, raporlama, müşteri iletişimi ve operasyon adımlarında harcanan zamanı azaltarak ekibin daha stratejik işlere odaklanmasını sağlar.',
         },
         {
           title: 'Operasyon Verimliliği',
@@ -2007,8 +2050,8 @@ export const serviceDetails: Record<
         },
         {
           number: '02',
-          title: 'İçerik ve Görsel Destek Akışları',
-          description: 'Ürün açıklaması, başlık, SEO, görsel konsept, lifestyle fikirleri ve marka dili için AI destekli üretim akışları hazırlanır.',
+          title: 'AI Destekli İçerik Sistemi',
+          description: 'Ürün açıklamaları, listeleme metinleri, görsel yönlendirmeler, sosyal içerikler ve kanal bazlı içerik üretimi için kontrollü AI destekli içerik sistemi oluştururuz.',
         },
         {
           number: '03',
@@ -2029,6 +2072,24 @@ export const serviceDetails: Record<
           number: '06',
           title: 'Gelişim Önerileri',
           description: 'Sonraki aşamada hangi süreçlerin otomasyona bağlanacağı, hangi AI akışlarının geliştirileceği ve hangi verilerin daha iyi kullanılacağı netleştirilir.',
+        },
+      ],
+    },
+    workModel: {
+      eyebrow: 'ÇALIŞMA MODELİ',
+      title: 'Yapay Zeka Entegrasyonunu Nasıl Kurabiliriz?',
+      description:
+        'Her markanın yapay zeka ihtiyacı aynı değildir. GloventGlobal, ihtiyaca göre AI destekli süreçleri kurup teslim edebilir veya içerik, raporlama, müşteri iletişimi, otomasyon ve karar destek süreçlerini birlikte geliştirmeye devam edebilir.',
+      cards: [
+        {
+          number: '01',
+          title: 'Sistem Kurulumu',
+          description: 'Yapay zeka destekli içerik, raporlama, müşteri iletişimi, operasyon ve karar destek süreçlerini markanızın mevcut satış ve operasyon yapısına entegre eder; ekibinizin kullanabileceği şekilde teslim ederiz.',
+        },
+        {
+          number: '02',
+          title: 'Yönetim ve Büyüme Partnerliği',
+          description: 'İsterseniz AI destekli içerik, raporlama, otomasyon, veri analizi ve operasyon geliştirme süreçlerini düzenli olarak birlikte yönetir ve iyileştiririz.',
         },
       ],
     },
