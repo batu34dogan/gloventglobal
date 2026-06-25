@@ -314,6 +314,8 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
     notes: '',
   });
   const [formError, setFormError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const currentQuestion = questions[stepIndex];
   const isLastQuestion = stepIndex === questions.length - 1;
@@ -377,10 +379,14 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
     resetAll();
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formValues.fullName.trim()) {
       setFormError('Lütfen ad soyad alanını doldurun.');
+      return;
+    }
+    if (!formValues.company.trim()) {
+      setFormError('Lütfen firma adı alanını doldurun.');
       return;
     }
     if (!formValues.phone.trim() && !formValues.email.trim()) {
@@ -388,8 +394,40 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
       return;
     }
     setFormError(null);
-    // Bu fazda mail / webhook / n8n entegrasyonu yok — sadece başarı ekranına geçiyoruz.
-    setStage('success');
+    setSubmitError(null);
+    setIsSubmitting(true);
+
+    const payload = {
+      contact: formValues,
+      answers,
+      growthScore,
+      recommendations: recommendations.map(({ tag }, index) => ({
+        tag,
+        title: serviceInfo[tag].title,
+        priority: PRIORITY_LABELS[index] ?? 'Destekleyici Öncelik',
+      })),
+      pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+      createdAt: new Date().toISOString(),
+      leadSource: 'analysis-widget',
+    };
+
+    try {
+      const res = await fetch('/api/analysis-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStage('success');
+      } else {
+        setSubmitError('Analiz talebiniz gönderilemedi. Lütfen daha sonra tekrar deneyin veya iletişim sayfasından bize ulaşın.');
+      }
+    } catch {
+      setSubmitError('Analiz talebiniz gönderilemedi. Lütfen daha sonra tekrar deneyin veya iletişim sayfasından bize ulaşın.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const fieldLabelClass = 'mb-1.5 block text-xs font-medium uppercase tracking-[0.1em] text-blue-100/70';
@@ -616,14 +654,20 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
               </label>
 
               {formError && <p className="text-xs font-medium text-red-300/90 sm:col-span-2">{formError}</p>}
+              {submitError && <p className="text-xs font-medium text-red-300/90 sm:col-span-2">{submitError}</p>}
 
               <div className="sm:col-span-2">
                 <button
                   type="submit"
-                  className="w-full rounded-full border border-blue-400/45 bg-blue-500/10 px-8 py-3 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)] sm:w-auto"
+                  disabled={isSubmitting}
+                  className="w-full rounded-full border border-blue-400/45 bg-blue-500/10 px-8 py-3 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
-                  Analiz Talebimi Gönder
+                  {isSubmitting ? 'Gönderiliyor...' : 'Analiz Talebimi Gönder'}
                 </button>
+                <p className="mt-3 text-[10px] leading-relaxed text-blue-100/40 sm:col-span-2">
+                  Analiz talebinizi göndererek, paylaştığınız bilgilerin sizinle iletişime geçilmesi ve ön analiz
+                  sürecinin yürütülmesi amacıyla işlenmesini kabul etmiş olursunuz.
+                </p>
               </div>
             </form>
           </div>
