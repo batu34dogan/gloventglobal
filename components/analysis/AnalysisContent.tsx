@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 // ============================================================================
 // Soru tanımları — 7 soruluk akış. Sıra: işletme tipi -> mevcut satış kanalları
@@ -419,6 +420,7 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
       });
       const data = await res.json();
       if (data.success) {
+        trackEvent('analysis_form_submit_success', { growthScore });
         setStage('success');
       } else {
         setSubmitError('Analiz talebiniz gönderilemedi. Lütfen daha sonra tekrar deneyin veya iletişim sayfasından bize ulaşın.');

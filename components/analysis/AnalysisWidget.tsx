@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import AnalysisContent from './AnalysisContent';
+import { trackEvent } from '@/lib/analytics';
 
 export default function AnalysisWidget() {
   const [open, setOpen] = useState(false);
@@ -10,6 +11,12 @@ export default function AnalysisWidget() {
   // seviyesinde isteniyordu, basit ve düşük riskli oldukları için ekledik.
   // Sayfanın başka yerlerindeki ("Ücretsiz Analiz Al" CTA'ları vb.) butonların, küçük bir
   // dependency-free custom event ile bu modalı açabilmesi için.
+  // Modal hangi yoldan açılırsa açılsın (sağ alt buton veya başka sayfadaki CTA'lar) tek bir
+  // yerden ölçülsün.
+  useEffect(() => {
+    if (open) trackEvent('analysis_widget_open');
+  }, [open]);
+
   useEffect(() => {
     const handleOpen = () => setOpen(true);
     window.addEventListener('open-analysis-widget', handleOpen);
@@ -43,7 +50,10 @@ export default function AnalysisWidget() {
       {!open && (
         <button
           type="button"
-          onClick={() => setOpen(true)}
+          onClick={() => {
+            trackEvent('free_analysis_cta_click', { location: 'floating_button' });
+            setOpen(true);
+          }}
           className="fixed bottom-5 right-4 z-[45] flex items-center gap-2 rounded-full border border-blue-400/45 bg-[#0a1326]/90 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_8px_32px_-8px_rgba(59,130,246,0.55)] backdrop-blur-md transition-all duration-300 hover:border-blue-400/75 hover:shadow-[0_8px_40px_-6px_rgba(59,130,246,0.75)] sm:bottom-6 sm:right-6"
         >
           <span

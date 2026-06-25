@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 // Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
 // HomeContent.tsx / ServicesContent.tsx'teki aynı desenin bu dosyaya özel, bağımsız bir kopyası.
@@ -286,6 +287,7 @@ export default function ContactContent() {
   // mailto açılmıyor, hiçbir ağ isteği yapılmıyor, konsola hata düşürmeden form state'i sıfırlanmadan kalıyor.
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    trackEvent('contact_form_submit_success');
     setSubmitted(true);
   };
 

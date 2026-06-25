@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 // Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
 // Bir kez göründükten sonra gözlemeyi durdurur — sürekli tetiklenen bir "marquee" değil, tek seferlik giriş efekti.
@@ -385,7 +386,10 @@ export default function HomeContent() {
           <div className={`mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row ${reveal('delay-[400ms]')}`}>
             <button
               type="button"
-              onClick={() => window.dispatchEvent(new Event('open-analysis-widget'))}
+              onClick={() => {
+                trackEvent('free_analysis_cta_click', { location: 'home_hero' });
+                window.dispatchEvent(new Event('open-analysis-widget'));
+              }}
               className="rounded-full border border-blue-400/40 bg-blue-500/10 px-8 py-3 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/70 hover:bg-blue-500/20 hover:shadow-[0_0_30px_-6px_rgba(59,130,246,0.55)]"
             >
               Ücretsiz Analiz Al

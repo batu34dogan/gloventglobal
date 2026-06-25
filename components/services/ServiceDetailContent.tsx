@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { serviceDetails } from './serviceDetailsData';
+import { trackEvent } from '@/lib/analytics';
 
 // Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
 // Sitedeki diğer sayfalarla aynı desenin bu dosyaya özel, bağımsız bir kopyası.
@@ -953,7 +954,10 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             </a>
             <button
               type="button"
-              onClick={() => window.dispatchEvent(new Event('open-analysis-widget'))}
+              onClick={() => {
+                trackEvent('free_analysis_cta_click', { location: 'service_detail_final_cta', service: slug });
+                window.dispatchEvent(new Event('open-analysis-widget'));
+              }}
               className="inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-10 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
             >
               Ücretsiz Analiz Al
