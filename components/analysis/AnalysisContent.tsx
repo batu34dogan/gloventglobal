@@ -233,7 +233,7 @@ function getRecommendations(answers: Answers): { tag: ServiceTag; score: number 
 
 // Sonuç kartlarındaki "Tahmini Öncelik" yüzdesi — kesin analiz sonucu gibi değil, ön
 // değerlendirme gibi hissettirecek sabit sıralama bazlı değerler (en güçlü öneri en yüksekte).
-const PRIORITY_PERCENTAGES = [92, 84, 76];
+const PRIORITY_LABELS = ['Yüksek Öncelik', 'Orta-Yüksek Öncelik', 'Destekleyici Öncelik'];
 
 // "Tahmini Büyüme Potansiyeli" skoru (0-100, gösterimde X/100). Basit, toplamalı frontend
 // mantığı — backend / AI entegrasyonu yok. Taban 60, sinyallere göre artar, 55-95 arasında
@@ -275,38 +275,29 @@ function getGrowthPotentialScore(answers: Answers): number {
 // Sonuç ekranındaki "Markanızın En Büyük Fırsat Alanı" özetini cevaplara göre üretir. Kanal
 // seçimi ilk güçlü sinyal olduğu için önce kanal bazlı eşleşmeler kontrol edilir, sonra problem
 // bazlı, hiçbiri yoksa genel (net sinyal yok) açıklamaya düşülür.
-function getOpportunityText(answers: Answers): string {
+function getReasonText(answers: Answers): string {
   const channels = (Array.isArray(answers.channels) ? answers.channels : []) as string[];
-
   if (channels.includes('Amazon')) {
-    return 'Amazon kanalını belirttiğiniz için ürün görünürlüğü, listeleme kalitesi, reklam verimliliği ve operasyon takibi öncelikli büyüme alanları arasında görünüyor.';
+    return 'Amazon kanalını belirttiğiniz için ürün görünürlüğü, reklam verimliliği ve operasyon takibi öncelikli görünüyor.';
   }
   if (channels.includes('Etsy')) {
-    return 'Etsy kanalını belirttiğiniz için marka dili, görsel sunum, SEO uyumu ve ürün algısı öncelikli büyüme alanları arasında görünüyor.';
+    return 'Etsy kanalını belirttiğiniz için marka dili, görsel sunum, SEO ve ürün algısı öncelikli görünüyor.';
   }
   if (channels.includes('Shopify / Kendi Web Sitem')) {
-    return 'Shopify veya kendi web sitenizi belirttiğiniz için dönüşüm akışı, ürün yapısı, müşteri deneyimi ve veri takibi öncelikli görünüyor.';
+    return 'Shopify veya kendi web sitenizi belirttiğiniz için dönüşüm akışı, ürün yapısı ve müşteri deneyimi öncelikli görünüyor.';
   }
   if (channels.includes('B2B / Toptan')) {
-    return 'B2B veya toptan satış yapınızı belirttiğiniz için ürün sunumu, teklif süreci, müşteri yönetimi ve satış takibi öncelikli görünüyor.';
+    return 'B2B satış yapınızı belirttiğiniz için ürün sunumu, teklif süreci ve müşteri yönetimi öncelikli görünüyor.';
   }
-  if (channels.includes('eBay')) {
-    return 'eBay kanalını belirttiğiniz için ülke stratejisi, listeleme kalitesi, fiyatlama ve global satış operasyonu öncelikli büyüme alanları arasında görünüyor.';
-  }
-  if (channels.includes('Sosyal Medya')) {
-    return 'Sosyal medya kanalını belirttiğiniz için marka algısı, görsel sunum ve satış kanallarıyla uyumlu içerik sistemi öncelikli görünüyor.';
-  }
-  if (answers.problem === 'Operasyon / süreç yönetimi çok dağınık' || answers.goal === 'Operasyonu düzenlemek' || answers.goal === 'Yapay zeka / otomasyon entegre etmek') {
-    return 'Operasyon ve süreç yönetimi tarafında dağınıklık belirttiğiniz için otomasyon, yapay zeka ve takip sistemleri öncelikli hale geliyor.';
+  if (answers.problem === 'Operasyon / süreç yönetimi çok dağınık' || answers.goal === 'Operasyonu düzenlemek') {
+    return 'Operasyon tarafında dağınıklık belirttiğiniz için otomasyon, yapay zeka ve takip sistemleri öncelikli hale geliyor.';
   }
   if (answers.problem === 'Reklam harcıyorum ama sonuç alamıyorum' || answers.problem === 'Yeterli trafik alamıyorum') {
-    return 'Reklam harcaması veya dönüşüm problemi belirttiğiniz için performans pazarlama, dönüşüm takibi ve içerik sistemi öncelikli görünüyor.';
+    return 'Reklam veya dönüşüm problemi belirttiğiniz için performans pazarlama, dönüşüm takibi ve içerik sistemi öncelikli görünüyor.';
   }
-  if (answers.problem === 'Global pazara açılmak istiyorum' || answers.goal === 'Yeni pazarlara açılmak') {
-    return 'Yeni pazarlara açılma hedefiniz olduğu için pazar seçimi, kanal önceliği ve global büyüme stratejisi öne çıkıyor.';
-  }
-  return 'Cevaplarınıza göre markanızın mevcut yapısının detaylı incelenmesi gerekiyor. İlk aşamada marka konumlandırma, kanal seçimi ve büyüme önceliği netleştirilmelidir.';
+  return 'Cevaplarınıza göre ilk aşamada kanal seçimi, marka konumu ve büyüme önceliği netleştirilmelidir.';
 }
+
 
 type Stage = 'quiz' | 'results' | 'success';
 
@@ -328,7 +319,7 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
   const isLastQuestion = stepIndex === questions.length - 1;
 
   const recommendations = useMemo(() => getRecommendations(answers), [answers]);
-  const opportunityText = useMemo(() => getOpportunityText(answers), [answers]);
+  const reasonText = useMemo(() => getReasonText(answers), [answers]);
   const growthScore = useMemo(() => getGrowthPotentialScore(answers), [answers]);
 
   const updateField = (field: keyof typeof formValues) => (value: string) => {
@@ -493,18 +484,30 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
             </div>
           </div>
           <p className="mt-2 text-[11px] leading-relaxed text-blue-100/45">
-            Bu skor, verdiğiniz cevaplara göre oluşturulan ön değerlendirmedir. Detaylı analiz için markanızın
-            mevcut yapısı ayrıca incelenmelidir.
+            Bu skor; mevcut satış kanallarınız, hedefleriniz, dijital altyapınız, satış hacminiz ve büyüme
+            bütçenize göre oluşturulan ön değerlendirmedir.
           </p>
 
-          {/* "Markanızın En Büyük Fırsat Alanı" — kanal/problem/hedef cevaplarına göre kişisel,
-              dinamik kısa özet. Küçük premium bilgi kutusu, sonuç kartlarını aşağı itip paneli
-              fazla uzatmayacak kadar kısa. */}
           <div className="mt-4 rounded-lg border border-blue-400/20 bg-blue-500/[0.05] px-4 py-3">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">
               Markanızın En Büyük Fırsat Alanı
             </p>
-            <p className="mt-1.5 text-xs leading-relaxed text-blue-100/75 sm:text-sm">{opportunityText}</p>
+            <p className="mt-1.5 text-xs text-blue-100/70">Cevaplarınıza göre ilk odaklanmanız gereken alanlar şunlar olabilir:</p>
+            <ul className="mt-1.5 space-y-1">
+              {recommendations.map(({ tag }) => (
+                <li key={tag} className="flex items-start gap-1.5 text-xs leading-relaxed text-blue-100/85 sm:text-sm">
+                  <span className="text-blue-400">✓</span>
+                  {serviceInfo[tag].title}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-3 rounded-lg border border-blue-400/20 bg-blue-500/[0.05] px-4 py-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">
+              Neden Bu Sistemler Önerildi?
+            </p>
+            <p className="mt-1.5 text-xs leading-relaxed text-blue-100/75 sm:text-sm">{reasonText}</p>
           </div>
 
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
@@ -515,7 +518,7 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
                 className="group relative rounded-xl border border-white/[0.08] bg-white/[0.035] p-4 pt-9 transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06]"
               >
                 <span className="absolute right-3 top-3 rounded-full border border-blue-400/35 bg-blue-500/10 px-2.5 py-1 text-[10px] font-semibold text-blue-200/90">
-                  {PRIORITY_PERCENTAGES[index] ?? 70}% öncelik
+                  {PRIORITY_LABELS[index] ?? 'Destekleyici Öncelik'}
                 </span>
                 <h4 className="text-sm font-semibold text-white group-hover:text-blue-200">{serviceInfo[tag].title}</h4>
                 <p className="mt-1.5 text-xs leading-relaxed text-blue-100/65">{serviceInfo[tag].description}</p>
@@ -527,11 +530,30 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
           </div>
 
           <p className="mt-3 text-[11px] leading-relaxed text-blue-100/45">
-            Bu skorlar, verdiğiniz cevaplara göre oluşturulan ön değerlendirmedir. Tahmini Öncelik Skoru, kesin bir
-            analiz sonucu değildir; detaylı analiz için markanızın mevcut yapısı ayrıca incelenmelidir.
+            Bu öncelik seviyeleri, verdiğiniz cevaplara göre oluşturulan ön değerlendirmedir; kesin bir analiz
+            sonucu değildir.
           </p>
 
-          <div className="mt-8 border-t border-white/[0.08] pt-7">
+          {/* 5. madde: Ücretsiz Detaylı Analizde Ne Alacaksınız? — formdan önce değer kutusu. */}
+          <div className="mt-8 rounded-lg border border-blue-400/20 bg-blue-500/[0.05] px-4 py-3.5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">
+              Ücretsiz Detaylı Analizde Ne Alacaksınız?
+            </p>
+            <p className="mt-1.5 text-xs leading-relaxed text-blue-100/70 sm:text-sm">
+              Bilgilerinizi bıraktığınızda markanızın mevcut yapısını daha detaylı inceleyerek size uygulanabilir
+              bir büyüme yönü sunabiliriz.
+            </p>
+            <ul className="mt-2 grid gap-1 sm:grid-cols-2">
+              {['Rakip ve pazar görünümü', 'Kanal önceliklendirme', 'İlk 90 gün yol haritası', 'Büyüme fırsatları', 'Sistem önerileri'].map((item) => (
+                <li key={item} className="flex items-start gap-1.5 text-xs leading-relaxed text-blue-100/80">
+                  <span className="text-blue-400">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-5 border-t border-white/[0.08] pt-7">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">
               Detaylı Analiz İçin Bilgilerinizi Bırakın
             </p>
