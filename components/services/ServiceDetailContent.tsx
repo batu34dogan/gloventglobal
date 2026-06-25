@@ -944,13 +944,20 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             {data.finalCta.supportText}
           </p>
 
-          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
             <a
               href="/iletisim"
               className="inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-10 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
             >
               {data.finalCta.ctaLabel}
             </a>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('open-analysis-widget'))}
+              className="inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-10 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
+            >
+              Ücretsiz Analiz Al
+            </button>
             <a
               href="/hizmetler"
               className="inline-block rounded-full border border-white/15 px-10 py-3.5 text-sm font-semibold tracking-wide text-white/90 transition-colors duration-300 hover:border-white/35 hover:bg-white/5"

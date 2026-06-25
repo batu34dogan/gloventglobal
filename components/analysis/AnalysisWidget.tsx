@@ -8,6 +8,14 @@ export default function AnalysisWidget() {
 
   // Modal açıkken: ESC ile kapatma + arka sayfa scroll'unu kilitleme. İkisi de "olursa güzel"
   // seviyesinde isteniyordu, basit ve düşük riskli oldukları için ekledik.
+  // Sayfanın başka yerlerindeki ("Ücretsiz Analiz Al" CTA'ları vb.) butonların, küçük bir
+  // dependency-free custom event ile bu modalı açabilmesi için.
+  useEffect(() => {
+    const handleOpen = () => setOpen(true);
+    window.addEventListener('open-analysis-widget', handleOpen);
+    return () => window.removeEventListener('open-analysis-widget', handleOpen);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
 
