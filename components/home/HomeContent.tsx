@@ -383,12 +383,13 @@ export default function HomeContent() {
           </p>
 
           <div className={`mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row ${reveal('delay-[400ms]')}`}>
-            <a
-              href="/iletisim"
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('open-analysis-widget'))}
               className="rounded-full border border-blue-400/40 bg-blue-500/10 px-8 py-3 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/70 hover:bg-blue-500/20 hover:shadow-[0_0_30px_-6px_rgba(59,130,246,0.55)]"
             >
-              Dijital Büyüme Planı Oluşturalım
-            </a>
+              Ücretsiz Analiz Al
+            </button>
             <a
               href="#process"
               className="rounded-full border border-white/15 px-8 py-3 text-sm font-semibold tracking-wide text-white/90 transition-colors duration-300 hover:border-white/35 hover:bg-white/5"
