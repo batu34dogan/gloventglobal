@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import SiteNavbar from "@/components/layout/SiteNavbar";
+import SiteFooter from "@/components/layout/SiteFooter";
 import AnalysisWidget from "@/components/analysis/AnalysisWidget";
 import "./globals.css";
 
@@ -61,6 +62,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <SiteNavbar />
         {children}
+        <SiteFooter />
         <AnalysisWidget />
       </body>
     </html>

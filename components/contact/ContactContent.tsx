@@ -417,6 +417,14 @@ export default function ContactContent() {
                 >
                   Başvuruyu Hazırla
                 </button>
+                <p className="mt-3 text-[10px] leading-relaxed text-blue-100/40">
+                  Formu göndererek bilgilerinizin talebinizin değerlendirilmesi ve sizinle iletişime geçilmesi
+                  amacıyla işlenmesini kabul etmiş olursunuz. Detaylı bilgi için{' '}
+                  <a href="/kvkk" className="underline hover:text-blue-200">
+                    KVKK Aydınlatma Metni
+                  </a>
+                  &apos;ni inceleyebilirsiniz.
+                </p>
 
                 {submitted && (
                   <p className="mt-4 text-sm leading-relaxed text-blue-100/75">

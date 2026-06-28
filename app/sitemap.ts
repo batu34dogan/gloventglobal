@@ -29,6 +29,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/nasil-calisiyoruz`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/iletisim`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/analiz`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/kvkk`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/gizlilik-politikasi`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/cerez-politikasi`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/kullanim-sartlari`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({

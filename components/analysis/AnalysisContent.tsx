@@ -667,8 +667,12 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
                   {isSubmitting ? 'Gönderiliyor...' : 'Analiz Talebimi Gönder'}
                 </button>
                 <p className="mt-3 text-[10px] leading-relaxed text-blue-100/40 sm:col-span-2">
-                  Analiz talebinizi göndererek, paylaştığınız bilgilerin sizinle iletişime geçilmesi ve ön analiz
-                  sürecinin yürütülmesi amacıyla işlenmesini kabul etmiş olursunuz.
+                  Formu göndererek bilgilerinizin talebinizin değerlendirilmesi ve sizinle iletişime geçilmesi
+                  amacıyla işlenmesini kabul etmiş olursunuz. Detaylı bilgi için{' '}
+                  <a href="/kvkk" className="underline hover:text-blue-200">
+                    KVKK Aydınlatma Metni
+                  </a>
+                  &apos;ni inceleyebilirsiniz.
                 </p>
               </div>
             </form>
