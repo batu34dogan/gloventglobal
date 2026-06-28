@@ -30,12 +30,21 @@ export const metadata: Metadata = {
     siteName: "GloventGlobal",
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: "/glovent-platform-hero.png",
+        width: 1534,
+        height: 1025,
+        alt: "GloventGlobal",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "GloventGlobal | Dijital Büyüme, E-Ticaret ve Yapay Zeka Sistemleri",
     description:
       "GloventGlobal; markalar için e-ticaret, yapay zeka, otomasyon, global satış ve dijital büyüme sistemleri kuran stratejik büyüme partneridir.",
+    images: ["/glovent-platform-hero.png"],
   },
 };
 
