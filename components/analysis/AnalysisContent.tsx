@@ -314,6 +314,8 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
     website: '',
     notes: '',
   });
+  // Pazarlama iletişimi izni — opsiyonel, varsayılan işaretsiz, form gönderimini engellemiyor.
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -371,6 +373,7 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
     setStepIndex(0);
     setAnswers({});
     setFormValues({ fullName: '', company: '', phone: '', email: '', website: '', notes: '' });
+    setMarketingConsent(false);
     setFormError(null);
   };
 
@@ -400,6 +403,7 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
 
     const payload = {
       contact: formValues,
+      marketingConsent,
       answers,
       growthScore,
       recommendations: recommendations.map(({ tag }, index) => ({
@@ -657,6 +661,20 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
 
               {formError && <p className="text-xs font-medium text-red-300/90 sm:col-span-2">{formError}</p>}
               {submitError && <p className="text-xs font-medium text-red-300/90 sm:col-span-2">{submitError}</p>}
+
+              <label className="flex items-start gap-2.5 sm:col-span-2">
+                <input
+                  type="checkbox"
+                  checked={marketingConsent}
+                  onChange={(e) => setMarketingConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-white/20 bg-white/[0.03] text-blue-500 accent-blue-500"
+                />
+                <span className="text-xs leading-relaxed text-blue-100/65">
+                  GloventGlobal tarafından hizmetler, kampanyalar, dijital büyüme içerikleri ve
+                  bilgilendirmeler hakkında e-posta, telefon ve WhatsApp üzerinden benimle iletişime
+                  geçilmesini kabul ediyorum.
+                </span>
+              </label>
 
               <div className="sm:col-span-2">
                 <button

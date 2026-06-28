@@ -268,6 +268,8 @@ export default function ContactContent() {
   const [processRef, processInView] = useInView<HTMLElement>();
   const [trustRef, trustInView] = useInView<HTMLElement>();
   const [submitted, setSubmitted] = useState(false);
+  // Pazarlama iletişimi izni — opsiyonel, varsayılan işaretsiz, form gönderimini engellemiyor.
+  const [marketingConsent, setMarketingConsent] = useState(false);
 
   const [formValues, setFormValues] = useState({
     fullName: '',
@@ -409,6 +411,20 @@ export default function ContactContent() {
                 onChange={updateField('notes')}
                 placeholder="Markanız, ürünleriniz, mevcut dijital yapınız ve ulaşmak istediğiniz hedefler hakkında kısa bilgi paylaşın."
               />
+
+              <label className="flex items-start gap-2.5 sm:col-span-2">
+                <input
+                  type="checkbox"
+                  checked={marketingConsent}
+                  onChange={(e) => setMarketingConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-white/20 bg-white/[0.03] text-blue-500 accent-blue-500"
+                />
+                <span className="text-xs leading-relaxed text-blue-100/65">
+                  GloventGlobal tarafından hizmetler, kampanyalar, dijital büyüme içerikleri ve
+                  bilgilendirmeler hakkında e-posta, telefon ve WhatsApp üzerinden benimle iletişime
+                  geçilmesini kabul ediyorum.
+                </span>
+              </label>
 
               <div className="sm:col-span-2">
                 <button
