@@ -9,7 +9,13 @@ declare global {
 
 export function trackEvent(eventName: string, params?: Record<string, unknown>) {
   try {
-    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    if (typeof window === 'undefined') return;
+    // Kullanıcı "Tümünü Kabul Et" demediyse (reddetti veya henüz hiç tercih belirtmediyse)
+    // analytics event'i hiç gönderilmez.
+    const consent = window.localStorage.getItem('glovent_cookie_consent');
+    if (consent !== 'accepted') return;
+
+    if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, params ?? {});
     }
   } catch {
