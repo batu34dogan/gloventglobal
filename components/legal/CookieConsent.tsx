@@ -42,8 +42,9 @@ export default function CookieConsent() {
           Çerez tercihlerinizi yönetin
         </h2>
         <p className="relative mt-2 text-xs leading-relaxed text-blue-100/70">
-          GloventGlobal olarak site deneyimini iyileştirmek, ziyaretçi etkileşimlerini analiz etmek ve
-          hizmetlerimizi geliştirmek için çerezlerden yararlanıyoruz.
+          GloventGlobal, sitenin çalışması için zorunlu çerezleri kullanır. Analitik çerezler ise ziyaretçi
+          etkileşimlerini ölçmek ve hizmetlerimizi geliştirmek için yalnızca tercihiniz doğrultusunda
+          kullanılır.
         </p>
         <a
           href="/cerez-politikasi"
@@ -58,14 +59,14 @@ export default function CookieConsent() {
             onClick={() => handleChoice('rejected')}
             className="flex-1 rounded-full border border-white/15 px-4 py-2 text-xs font-semibold text-white/75 transition-all duration-200 hover:border-white/35 hover:text-white"
           >
-            Reddet
+            Sadece Zorunlu
           </button>
           <button
             type="button"
             onClick={() => handleChoice('accepted')}
             className="flex-1 rounded-full border border-blue-400/55 bg-blue-500/15 px-4 py-2 text-xs font-semibold text-white shadow-[0_0_20px_-4px_rgba(59,130,246,0.65)] transition-all duration-200 hover:border-blue-400/85 hover:bg-blue-500/25 hover:shadow-[0_0_28px_-2px_rgba(59,130,246,0.8)]"
           >
-            Kabul Et
+            Tümünü Kabul Et
           </button>
         </div>
       </div>
