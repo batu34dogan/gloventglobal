@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import SiteNavbar from "@/components/layout/SiteNavbar";
 import SiteFooter from "@/components/layout/SiteFooter";
 import AnalysisWidget from "@/components/analysis/AnalysisWidget";
+import CookieConsent from "@/components/legal/CookieConsent";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -64,6 +65,7 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         <AnalysisWidget />
+        <CookieConsent />
       </body>
     </html>
   );
