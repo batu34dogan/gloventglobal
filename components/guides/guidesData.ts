@@ -1085,4 +1085,161 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile markanız için doğru otomasyon alanlarını değerlendirin',
     ],
   },
+
+  'e-ticarette-operasyon-sistemi-nasil-kurulur': {
+    title: 'E-Ticarette Operasyon Sistemi Nasıl Kurulur?',
+    slug: 'e-ticarette-operasyon-sistemi-nasil-kurulur',
+    excerpt:
+      'Sipariş, kargo, stok, iade, müşteri hizmetleri ve çok kanallı satış süreçlerini düzenli yönetmek isteyen e-ticaret işletmeleri için operasyon sisteminin nasıl kurulabileceğini açıklıyoruz.',
+    category: 'Operasyon',
+    targetAudience: 'E-ticaret operasyonunda dağınıklık yaşayan işletmeler',
+    searchIntent: 'e-ticaret operasyonu nedir, e-ticarette operasyon sistemi nasıl kurulur, sipariş yönetimi nasıl yapılır, kargo yönetimi nasıl planlanır, iade süreci nasıl yönetilir, stok ve envanter yönetimi nasıl yapılır, çok kanallı satış operasyonu nedir, e-ticarette müşteri hizmetleri nasıl yönetilir',
+    relatedServiceSlug: 'global-pazara-giris-stratejisi',
+    readTime: '5 dk',
+    publishedAt: '2026-02-05',
+    order: 8,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'E-ticarette operasyon sistemi; sipariş, kargo, stok, iade, müşteri iletişimi, pazaryeri süreçleri ve ekip takibinin düzenli şekilde yönetilmesini sağlayan yapıdır. Doğru kurulduğunda işletmenin yalnızca satışa değil, satış sonrası sürece de hakim olmasına yardımcı olur. Bu rehber, e-ticaret operasyon sisteminin nasıl kurulabileceğini açıklar.',
+    quickAnswer:
+      'E-ticarette operasyon sistemi; siparişlerin alınması, stokların takip edilmesi, kargonun yönetilmesi, iadelerin işlenmesi, müşteri mesajlarının yanıtlanması ve satış kanallarının düzenli kontrol edilmesi için kurulan iş akışıdır. Tek başına satış garantisi vermez; ancak büyüyen e-ticaret işletmelerinde hataları azaltmaya, süreçleri ölçülebilir hale getirmeye ve müşteri deneyimini iyileştirmeye yardımcı olur.',
+    whoShouldRead: [
+      'E-ticaret operasyonunda dağınıklık yaşayan işletmeler',
+      'Amazon, Etsy, Shopify veya kendi sitesinde satış yapan markalar',
+      'Sipariş, kargo, stok ve iade süreçlerini daha düzenli yönetmek isteyen ekipler',
+      'Çok kanallı satış yapan ve süreç takibi zorlaşan işletmeler',
+      'Global satışa hazırlanırken operasyon altyapısını güçlendirmek isteyen markalar',
+    ],
+    expertNote:
+      'E-ticarette operasyon sistemi kurarken en sık yapılan hata, sadece satış kanalına odaklanmaktır. Oysa siparişten teslimata, iadeden müşteri iletişimine kadar her adım satış deneyiminin parçasıdır. Operasyon zayıfsa reklam, SEO veya pazaryeri görünürlüğü tek başına sürdürülebilir büyüme sağlamaz.',
+    expertNoteAfterHeading: 'Çok kanallı satışta operasyon neden zorlaşır?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran işletmeler genellikle satış alıyor ama sipariş, kargo, stok, iade, müşteri mesajı ve kanal takibinde dağınıklık yaşıyordur. Operasyon sistemi sadece arka ofis işi değil, müşteri deneyimi ve sürdürülebilir büyüme için temel bir altyapıdır.',
+      },
+      {
+        heading: 'E-ticaret operasyonu nedir?',
+        body: '- Siparişin alınmasından teslimata kadar olan süreç\n- Stok, ürün, paketleme, kargo, iade ve müşteri iletişimi yönetimi\n- Pazaryeri, web sitesi ve sosyal medya satış kanallarının takibi\n- Ekip sorumluluklarının netleşmesi\n- Sürecin ölçülebilir hale gelmesi',
+      },
+      {
+        heading: 'E-ticaret operasyon sistemi ne işe yarar?',
+        body: '- Sipariş takibini düzenler\n- Stok hatalarını azaltmaya yardımcı olur\n- Kargo ve teslimat sürecini görünür hale getirir\n- İade süreçlerini standartlaştırır\n- Müşteri mesajlarının kaçmasını önler\n- Ekip içi görev dağılımını netleştirir\n- Çok kanallı satışta kontrol sağlar',
+      },
+      {
+        heading: 'Örnek Operasyon Senaryosu',
+        body: 'Örnek senaryo: Aynı anda Shopify, Etsy ve Instagram üzerinden satış yapan bir marka, siparişlerini tek bir takip tablosunda toplar; her sipariş için ödeme, stok, paketleme, kargo, teslimat ve iade durumunu ayrı ayrı izler. Bu yapı satış garantisi değil, operasyonun daha kontrollü ve takip edilebilir hale gelmesi için örnek bir başlangıç yaklaşımıdır.',
+      },
+      {
+        heading: 'E-ticarette hangi operasyon alanları yönetilmeli?',
+        body: '- Sipariş yönetimi\n- Stok ve envanter yönetimi\n- Paketleme ve hazırlık süreci\n- Kargo ve teslimat takibi\n- İade ve değişim süreci\n- Müşteri hizmetleri\n- Pazaryeri performans takibi\n- Raporlama ve görev yönetimi',
+      },
+      {
+        heading: 'Operasyon sistemi kurmadan önce hangi sorular cevaplanmalı?',
+        body: '- Siparişler nereden geliyor?\n- Stok bilgisi nerede tutuluyor?\n- Kargo süreci kim tarafından takip ediliyor?\n- İade ve değişim kararları nasıl veriliyor?\n- Müşteri mesajlarına kim cevap veriyor?\n- Hangi işlem hangi ekip üyesinin sorumluluğunda?\n- Günlük, haftalık ve aylık hangi raporlar takip ediliyor?\n- Hangi süreçler manuel, hangileri otomasyonla desteklenebilir?',
+      },
+      {
+        heading: 'Amazon, Etsy ve Shopify operasyonunda nelere dikkat edilmeli?',
+        body: 'Amazon’da performans metrikleri, teslimat, stok ve müşteri deneyimi önemlidir.\nEtsy’de ürün hazırlığı, kargo, müşteri mesajları ve mağaza güveni öne çıkar.\nShopify’da sipariş, ödeme, kargo entegrasyonu, e-posta iletişimi ve müşteri yolculuğu daha fazla markanın kontrolündedir.',
+      },
+      {
+        heading: 'Çok kanallı satışta operasyon neden zorlaşır?',
+        body: 'Birden fazla satış kanalı olduğunda sipariş, stok, mesaj, kargo ve raporlama farklı yerlerden akar. Bu yapı sistemli takip edilmezse stok hatası, gecikme, yanlış iletişim ve müşteri memnuniyetsizliği oluşabilir.',
+      },
+      {
+        heading: 'E-ticarette stok ve envanter yönetimi nasıl düşünülmeli?',
+        body: '- Ürünlerin hangi kanalda satışta olduğu bilinmeli\n- Stok güncellemeleri düzenli yapılmalı\n- Çok kanallı satışta stok çakışması riski düşünülmeli\n- Hızlı satılan ve yavaş hareket eden ürünler ayrılmalı\n- Stok kararları satış verisiyle birlikte değerlendirilmelidir',
+      },
+      {
+        heading: 'E-ticarette kargo ve iade süreci nasıl planlanmalı?',
+        body: '- Paketleme standardı\n- Kargo süresi\n- Takip numarası\n- Müşteri bilgilendirmesi\n- İade şartları\n- Değişim süreci\n- Uluslararası satışta gümrük/vergi gereklilikleri için uzman kontrolü',
+      },
+      {
+        heading: 'İlk 30 gün e-ticaret operasyon planı',
+        body: '1. hafta: mevcut operasyon süreçlerini listeleme\n2. hafta: sipariş, stok, kargo ve iade sorumluluklarını netleştirme\n3. hafta: takip tablosu, CRM veya operasyon aracı seçme\n4. hafta: süreçleri test edip raporlama ve iyileştirme düzeni kurma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, operasyonu yalnızca sipariş geldikten sonra başlayan bir süreç olarak görmektir. Operasyon, ürün bilgisinden stok durumuna, satış kanalından müşteri iletişimine kadar satış öncesi ve sonrası tüm akışı kapsar.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, e-ticaret işletmelerinin mevcut satış kanallarını, sipariş akışını, stok ve kargo süreçlerini, müşteri iletişimini ve raporlama yapısını analiz ederek daha sistemli bir operasyon altyapısı kurulmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Manuel Operasyon mu, Sistemli Operasyon mu?',
+      headers: ['Kriter', 'Manuel Operasyon', 'Sistemli Operasyon'],
+      rows: [
+        { criterion: 'Sipariş takibi', individual: 'Siparişler farklı kanallarda ayrı ayrı takip edilir', company: 'Siparişler tek bir süreç mantığıyla izlenir' },
+        { criterion: 'Stok yönetimi', individual: 'Stok takibi gecikmeli veya dağınık olabilir', company: 'Stok bilgisi düzenli güncellenir ve kontrol edilir' },
+        { criterion: 'Kargo süreci', individual: 'Kargo bilgisi elle takip edilir', company: 'Kargo durumu, takip numarası ve müşteri bilgilendirmesi standartlaşır' },
+        { criterion: 'İade yönetimi', individual: 'Her iade ayrı kararlarla yönetilir', company: 'İade şartları ve takip akışı daha net ilerler' },
+        { criterion: 'Raporlama', individual: 'Veriler sonradan toparlanır', company: 'Satış, stok, iade ve performans düzenli takip edilir' },
+      ],
+    },
+    checklist: {
+      heading: 'E-ticaret operasyon sistemi kurmadan önce kontrol listesi',
+      items: [
+        'Siparişlerin hangi kanallardan geldiği belli mi?',
+        'Stok takibi nerede yapılıyor?',
+        'Kargo süreci standart mı?',
+        'İade ve değişim kuralları net mi?',
+        'Müşteri mesajları düzenli takip ediliyor mu?',
+        'Hangi ekip üyesinin hangi süreçten sorumlu olduğu belli mi?',
+        'Günlük ve haftalık operasyon raporları hazırlanıyor mu?',
+        'Çok kanallı satış varsa stok çakışması önleniyor mu?',
+        'Otomasyon veya entegrasyon ihtiyacı belirlendi mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'E-ticaret operasyonu nedir?',
+          answer:
+            'E-ticaret operasyonu, siparişin alınmasından teslimata kadar olan sipariş, stok, kargo, iade ve müşteri iletişimi süreçlerinin yönetilmesidir. Amaç, satış sonrası sürecin de düzenli ve takip edilebilir olmasını sağlamaktır.',
+        },
+        {
+          question: 'E-ticarette operasyon sistemi neden önemlidir?',
+          answer:
+            'Operasyon zayıfsa reklam, SEO veya pazaryeri görünürlüğü tek başına sürdürülebilir büyüme sağlamaz. Sipariş, stok ve müşteri iletişiminde oluşan hatalar müşteri deneyimini ve marka güvenini doğrudan etkiler.',
+        },
+        {
+          question: 'Sipariş yönetimi nasıl yapılır?',
+          answer:
+            'Siparişlerin hangi kanaldan geldiğinin, hangi aşamada olduğunun ve kimin sorumlu olduğunun net olması gerekir. Çok kanallı satışta siparişlerin tek bir süreç mantığıyla takip edilmesi hata riskini azaltır.',
+        },
+        {
+          question: 'E-ticarette stok takibi nasıl yapılır?',
+          answer:
+            'Stok bilgisinin düzenli güncellenmesi ve tüm satış kanallarında tutarlı olması gerekir. Çok kanallı satışta stok çakışması riski özellikle dikkat edilmesi gereken bir noktadır.',
+        },
+        {
+          question: 'Kargo ve iade süreci nasıl yönetilir?',
+          answer:
+            'Paketleme standardı, kargo süresi, takip numarası ve müşteri bilgilendirmesinin net olması gerekir. İade ve değişim şartlarının da önceden tanımlanmış olması süreci daha öngörülebilir hale getirir.',
+        },
+        {
+          question: 'Çok kanallı satışta operasyon nasıl takip edilir?',
+          answer:
+            'Sipariş, stok, mesaj ve kargo bilgisinin farklı kanallardan tek bir sürece bağlanması önemlidir. Bu sistemli takip edilmezse stok hatası, gecikme veya yanlış iletişim oluşabilir.',
+        },
+        {
+          question: 'Operasyon sistemi kurmak için hangi araçlar kullanılabilir?',
+          answer:
+            'Takip tabloları, CRM sistemleri ve otomasyon/entegrasyon araçları işletmenin ihtiyacına göre kullanılabilir. Kesin bir araç önerisi yoktur; seçim sipariş hacmine ve kanal sayısına göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Mevcut sipariş, kargo, stok ve iade süreçlerinizi listeleyin',
+      'Hangi adımda zaman kaybı veya hata oluştuğunu belirleyin',
+      'Satış kanallarınızı ve operasyon sorumluluklarını netleştirin',
+      'Takip için tablo, CRM, otomasyon veya entegrasyon yapınızı planlayın',
+      'Ücretsiz analiz ile e-ticaret operasyon yapınızın ne kadar hazır olduğunu değerlendirin',
+    ],
+  },
 };
