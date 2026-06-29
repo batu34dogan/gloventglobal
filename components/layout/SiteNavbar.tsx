@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 const navLinks = [
   { label: 'Hizmetler', href: '/hizmetler' },
+  { label: 'Rehberler', href: '/rehberler' },
   { label: 'Farkımız', href: '/farkimiz' },
   { label: 'Nasıl Çalışıyoruz', href: '/nasil-calisiyoruz' },
   { label: 'Hakkımızda', href: '/hakkimizda' },
