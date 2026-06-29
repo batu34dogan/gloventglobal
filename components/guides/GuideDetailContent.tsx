@@ -1,7 +1,8 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import type { Guide } from './guidesData';
+import { guides, type Guide } from './guidesData';
 import { serviceDetails } from '@/components/services/serviceDetailsData';
 
 function slugify(text: string) {
@@ -11,8 +12,40 @@ function slugify(text: string) {
     .replace(/\s+/g, '-');
 }
 
+// Aynı kategoriden rehberleri önce sırala, yoksa farklı kategorilerden tamamla — en fazla 3,
+// kendisi hariç. 6 rehberlik kataloğu önceden bilmeden, ileride rehber sayısı artsa da çalışır.
+function getRelatedGuides(current: Guide): Guide[] {
+  const others = Object.values(guides).filter((g) => g.slug !== current.slug);
+  const sameCategory = others.filter((g) => g.category === current.category);
+  const otherCategory = others.filter((g) => g.category !== current.category);
+  return [...sameCategory, ...otherCategory].slice(0, 3);
+}
+
 export default function GuideDetailContent({ guide }: { guide: Guide }) {
   const relatedService = serviceDetails[guide.relatedServiceSlug];
+  const relatedGuides = getRelatedGuides(guide);
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  // İçindekiler'deki aktif başlık göstergesi — scroll ettikçe hangi bölümün görünür olduğunu
+  // takip eden hafif bir IntersectionObserver. Büyük bir refactor değil, mevcut codebase'de zaten
+  // kullanılan aynı teknik (bkz. useInView pattern'leri).
+  useEffect(() => {
+    const headings = guide.sections.map((s) => document.getElementById(slugify(s.heading))).filter(Boolean) as HTMLElement[];
+    if (headings.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          setActiveId(visible[0].target.id);
+        }
+      },
+      { rootMargin: '-15% 0px -70% 0px' },
+    );
+
+    headings.forEach((h) => observer.observe(h));
+    return () => observer.disconnect();
+  }, [guide.sections]);
 
   return (
     <main className="relative overflow-hidden bg-[#070d18] px-6 pb-24 pt-24 font-sans text-white sm:px-10 md:pt-28">
@@ -70,16 +103,23 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
       <div className="relative mx-auto mt-10 max-w-2xl rounded-xl border border-white/[0.08] bg-white/[0.03] p-5">
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/75">Bu Rehberde</p>
         <ul className="mt-2.5 space-y-1.5">
-          {guide.sections.map((section) => (
-            <li key={section.heading}>
-              <a
-                href={`#${slugify(section.heading)}`}
-                className="text-sm text-blue-100/70 underline-offset-2 hover:text-blue-200 hover:underline"
-              >
-                {section.heading}
-              </a>
-            </li>
-          ))}
+          {guide.sections.map((section) => {
+            const id = slugify(section.heading);
+            const isActive = activeId === id;
+            return (
+              <li key={section.heading}>
+                <a
+                  href={`#${id}`}
+                  className={`text-sm underline-offset-2 transition-colors duration-200 hover:text-blue-200 hover:underline focus-visible:text-blue-200 focus-visible:underline ${
+                    isActive ? 'font-semibold text-blue-300 drop-shadow-[0_0_8px_rgba(96,165,250,0.55)]' : 'text-blue-100/70'
+                  }`}
+                >
+                  {isActive && <span aria-hidden="true">→ </span>}
+                  {section.heading}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -140,6 +180,31 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
           >
             Hizmet Detayını Gör <span aria-hidden="true">→</span>
           </Link>
+        </div>
+      )}
+
+      {/* ============ İLGİLİ REHBERLER ============ */}
+      {relatedGuides.length > 0 && (
+        <div className="relative mx-auto mt-10 max-w-2xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">İlgili Rehberler</p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {relatedGuides.map((related) => (
+              <Link
+                key={related.slug}
+                href={`/rehberler/${related.slug}`}
+                className="group flex flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-4 transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06]"
+              >
+                <span className="text-[10px] font-semibold uppercase tracking-[0.05em] text-blue-300/75">
+                  {related.category}
+                </span>
+                <h4 className="mt-1.5 text-sm font-semibold text-white group-hover:text-blue-200">{related.title}</h4>
+                <p className="mt-1.5 flex-1 text-xs leading-relaxed text-blue-100/65">{related.excerpt}</p>
+                <span className="mt-2.5 inline-flex items-center gap-1 text-[11px] font-semibold text-blue-300/90">
+                  Rehberi Oku <span aria-hidden="true">→</span>
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
 

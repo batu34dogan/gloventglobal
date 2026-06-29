@@ -97,6 +97,12 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'etsy',
     readTime: '4 dk',
     publishedAt: '2026-01-18',
+    updatedAt: 'Haziran 2026',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy’de ilk satışı almak genellikle teknik bir sorun değil; görsel kalite, başlık/SEO uyumu ve fiyat algısı sorunudur. Bu rehber, yeni açılan bir Etsy mağazasının ilk satışını geciktiren en yaygın nedenleri ve hızlandıran temel adımları özetler.',
+    quickAnswer:
+      'Etsy’de ilk satışı geciktiren en yaygın neden, ürün fotoğrafı ve başlık kalitesine yeterince yatırım yapılmamasıdır. Doğru kategori, anahtar kelime ve fiyat dengesi kurulduğunda ilk satış genellikle daha hızlı gelir.',
     sections: [
       {
         heading: 'İlk satışı geciktiren en yaygın hata',
@@ -122,12 +128,18 @@ export const guides: Record<string, Guide> = {
     slug: 'shopify-mi-etsy-mi-hangi-isletme-icin-hangisi-daha-mantikli',
     excerpt:
       'Shopify ve Etsy birbirinin yerine geçen değil, farklı ihtiyaçlara hizmet eden iki farklı satış modelidir. Hangi işletme için hangisinin daha mantıklı olduğunu karşılaştırıyoruz.',
-    category: 'Karşılaştırma',
+    category: 'Shopify',
     targetAudience: 'İlk satış kanalını seçmeye çalışan marka sahipleri',
     searchIntent: 'shopify mı etsy mi, shopify etsy farkı, hangisi daha karlı',
     relatedServiceSlug: 'shopify',
     readTime: '5 dk',
     publishedAt: '2026-01-21',
+    updatedAt: 'Haziran 2026',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Shopify ve Etsy birbirinin yerine geçen değil, farklı ihtiyaçlara hizmet eden iki satış modelidir. Bu rehber, hangi işletme için hangisinin daha mantıklı olduğunu ve ikisinin birlikte nasıl kullanılabileceğini özetler.',
+    quickAnswer:
+      'Hazır bir alıcı kitlesine ihtiyaç duyan markalar için Etsy, kendi marka varlığını ve müşteri verisini kontrol etmek isteyen markalar için Shopify genellikle daha mantıklıdır. Çoğu marka için en sürdürülebilir yaklaşım, ikisini birlikte ve aşamalı olarak kullanmaktır.',
     sections: [
       {
         heading: 'Etsy ne zaman daha mantıklı?',
@@ -159,6 +171,12 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'global-pazara-giris-stratejisi',
     readTime: '5 dk',
     publishedAt: '2026-01-24',
+    updatedAt: 'Haziran 2026',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Global pazara açılmak isteyen Türkiye merkezli markaların ilk olarak hangi soruları cevaplaması, hangi kararları önce vermesi gerektiğini özetleyen bu rehber; pazar seçimi, operasyon hazırlığı ve kanal stratejisini bir araya getirir.',
+    quickAnswer:
+      'Doğru başlangıç noktası önce platform değil, hedef pazar ve müşteri seçimidir. Talep ve rekabet analizi yapılmadan seçilen kanal, doğru olsa bile beklenen sonucu vermeyebilir.',
     sections: [
       {
         heading: 'Önce pazar, sonra kanal',
@@ -190,6 +208,12 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'b2b-dijital-showroom',
     readTime: '4 dk',
     publishedAt: '2026-01-27',
+    updatedAt: 'Haziran 2026',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Toptan satış yapan markaların PDF katalog ve e-posta trafiğinden, ölçülebilir bir dijital showroom yapısına geçmesinin neden önemli olduğunu özetleyen bu rehber; teklif takibi, müşteri grupları ve satış görünürlüğü konularına odaklanır.',
+    quickAnswer:
+      'PDF katalog ve e-posta üzerinden yürüyen bir toptan satış süreci, hangi müşterinin hangi ürüne ilgi gösterdiğini izlemeyi zorlaştırır. Dijital showroom, ürün sunumu ve teklif sürecini tek bir görünür sisteme dönüştürür.',
     sections: [
       {
         heading: 'Klasik PDF katalogun sınırı',
@@ -221,6 +245,12 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'yapay-zeka-entegrasyonu',
     readTime: '4 dk',
     publishedAt: '2026-01-30',
+    updatedAt: 'Haziran 2026',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      '"Yapay zeka kullanıyoruz" demek yeterli değildir. Bu rehber, e-ticarette yapay zekanın gerçek anlamda değer ürettiği somut kullanım alanlarını; içerik üretimi, müşteri iletişimi ve raporlama başlıkları üzerinden özetler.',
+    quickAnswer:
+      'E-ticarette yapay zeka en çok ürün/içerik üretimi, müşteri iletişimi ve raporlama / karar desteği alanlarında gerçek değer üretir. Asıl fark, yapay zekanın kontrol ve onay yapısıyla satış sistemine entegre edilmesidir.',
     sections: [
       {
         heading: 'Ürün ve içerik üretiminde',

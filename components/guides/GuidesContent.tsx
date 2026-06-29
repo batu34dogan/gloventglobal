@@ -40,9 +40,15 @@ function TitleGlow() {
   );
 }
 
+// Filtre listesi bilerek sabit tutuldu (veri kategorilerinden otomatik türetilmedi) — 6 rehberin
+// her biri tam olarak bu 6 kategoriden birine ait, "Hepsi" ile birlikte 7 seçenek.
+const CATEGORY_FILTERS = ['Hepsi', 'Amazon', 'Etsy', 'Shopify', 'B2B', 'Yapay Zeka', 'Global Satış'];
+
 export default function GuidesContent() {
   const [mounted, setMounted] = useState(false);
   const [gridRef, gridInView] = useInView<HTMLDivElement>();
+  const [activeCategory, setActiveCategory] = useState('Hepsi');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -59,9 +65,17 @@ export default function GuidesContent() {
       gridInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
 
-  const guideList = Object.values(guides).sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-  );
+  const guideList = Object.values(guides)
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .filter((guide) => activeCategory === 'Hepsi' || guide.category === activeCategory)
+    .filter((guide) => {
+      const q = searchQuery.trim().toLowerCase();
+      if (!q) return true;
+      const haystack = [guide.title, guide.excerpt, guide.category, guide.targetAudience, guide.searchIntent]
+        .join(' ')
+        .toLowerCase();
+      return haystack.includes(q);
+    });
 
   return (
     <main className="relative overflow-hidden bg-[#070d18] font-sans text-white">
@@ -91,7 +105,44 @@ export default function GuidesContent() {
         </div>
       </section>
 
+      {/* ============ FİLTRE + ARAMA ============ */}
+      <section className="relative px-6 pb-8 sm:px-10">
+        <div className="mx-auto max-w-5xl">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {CATEGORY_FILTERS.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setActiveCategory(cat)}
+                className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition-all duration-200 ${
+                  activeCategory === cat
+                    ? 'border-blue-400/55 bg-blue-500/15 text-white'
+                    : 'border-white/10 bg-white/[0.03] text-blue-100/65 hover:border-white/25 hover:text-white'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div className="relative mx-auto mt-5 max-w-md">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Rehberlerde ara..."
+              className="w-full rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm text-white placeholder:text-blue-100/35 outline-none transition-colors duration-200 focus:border-blue-400/55 focus:bg-white/[0.05]"
+            />
+          </div>
+        </div>
+      </section>
+
       <section ref={gridRef} className="relative px-6 pb-24 pt-2 sm:px-10">
+        {guideList.length === 0 && (
+          <p className="mx-auto max-w-md text-center text-sm text-blue-100/50">
+            Aramanıza veya seçtiğiniz kategoriye uygun bir rehber bulunamadı.
+          </p>
+        )}
         <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
           {guideList.map((guide, index) => {
             const relatedService = serviceDetails[guide.relatedServiceSlug];
@@ -131,6 +182,11 @@ export default function GuidesContent() {
                     <span aria-hidden="true">→</span>
                   </span>
                 </div>
+                {guide.updatedAt && (
+                  <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.04em] text-blue-100/35">
+                    Son Güncelleme: {guide.updatedAt}
+                  </p>
+                )}
               </Link>
             );
           })}

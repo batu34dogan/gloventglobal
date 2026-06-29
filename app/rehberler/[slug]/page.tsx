@@ -18,14 +18,17 @@ export async function generateMetadata({
   if (!guide) return {};
 
   const url = `https://gloventglobal.com/rehberler/${slug}`;
+  // summary doluysa (artık 6 rehberin hepsinde) description için tercih edilir, yoksa excerpt'e
+  // düşer — mevcut metadata yapısı bozulmuyor, sadece daha kaliteli bir description kaynağı.
+  const description = guide.summary ?? guide.excerpt;
 
   return {
     title: `${guide.title} | GloventGlobal`,
-    description: guide.excerpt,
+    description,
     alternates: { canonical: `/rehberler/${slug}` },
     openGraph: {
       title: guide.title,
-      description: guide.excerpt,
+      description,
       url,
       siteName: 'GloventGlobal',
       locale: 'tr_TR',
@@ -34,7 +37,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: guide.title,
-      description: guide.excerpt,
+      description,
     },
   };
 }
@@ -48,6 +51,7 @@ export default async function RehberDetayPage({ params }: { params: Promise<{ sl
   }
 
   const url = `https://gloventglobal.com/rehberler/${slug}`;
+  const description = guide.summary ?? guide.excerpt;
 
   return (
     <>
@@ -57,7 +61,7 @@ export default async function RehberDetayPage({ params }: { params: Promise<{ sl
             '@context': 'https://schema.org',
             '@type': 'Article',
             headline: guide.title,
-            description: guide.excerpt,
+            description,
             datePublished: guide.publishedAt,
             url,
           },
