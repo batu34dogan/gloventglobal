@@ -142,125 +142,7 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
 
       {/* ============ İÇERİK ============ */}
       <article className="relative mx-auto mt-10 max-w-2xl space-y-8">
-        {guide.sections.map((section) => {
-          // "Kontrol listesi" başlıklı bölümler (şu an sadece Amazon rehberinde) PDF/checklist
-          // hissi veren, tik işaretli bir kutu içinde gösterilir. Diğer bölümler ve diğer
-          // rehberler bu koşula girmediği için eskisi gibi düz paragraf olarak kalır.
-          const isChecklist = section.heading.toLowerCase().includes('kontrol listesi');
-          const isFaq = section.heading.toLowerCase().includes('sık sorulan');
-
-          if (isFaq) {
-            // Soru-cevap çiftleri "\n\n" ile ayrılmış, her çift "Soru\nCevap" formatında.
-            const pairs = section.body
-              .split('\n\n')
-              .map((pair) => {
-                const [question, ...rest] = pair.split('\n');
-                return { question: question?.trim(), answer: rest.join(' ').trim() };
-              })
-              .filter((p) => p.question && p.answer);
-
-            return (
-              <div key={section.heading} id={slugify(section.heading)}>
-                <h2 className="text-xl font-semibold text-white sm:text-2xl">{section.heading}</h2>
-                <div className="mt-4 space-y-3">
-                  {pairs.map((pair) => (
-                    <div key={pair.question} className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
-                      <p className="text-sm font-semibold text-white sm:text-base">{pair.question}</p>
-                      <p className="mt-1.5 text-sm leading-relaxed text-blue-100/75">{pair.answer}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          }
-
-          if (isChecklist) {
-            const items = section.body
-              .split('\n')
-              .map((line) => line.replace(/^✓\s*/, '').trim())
-              .filter(Boolean);
-
-            return (
-              <div key={section.heading} id={slugify(section.heading)}>
-                <h2 className="text-xl font-semibold text-white sm:text-2xl">{section.heading}</h2>
-                <div className="mt-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 sm:p-6">
-                  <ul className="space-y-2.5">
-                    {items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-blue-100/85 sm:text-base">
-                        <span
-                          aria-hidden="true"
-                          className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-md border border-blue-400/40 bg-blue-500/10 text-[11px] text-blue-300"
-                        >
-                          ✓
-                        </span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            );
-          }
-
-          const isComparisonTable = section.heading.toLowerCase().includes('bireysel başlamak mı, şirketle başlamak mı');
-
-          if (isComparisonTable) {
-            // Satırlar "Kriter — Bireysel Başlangıç — Şirketli Başlangıç" formatında, em-dash
-            // ile ayrılmış. İlk satır başlık satırı, kalanı veri satırları.
-            const rows = section.body
-              .split('\n')
-              .map((line) => line.split(' — ').map((cell) => cell.trim()))
-              .filter((cells) => cells.length === 3);
-            const [, ...dataRows] = rows;
-
-            return (
-              <div key={section.heading} id={slugify(section.heading)}>
-                <h2 className="text-xl font-semibold text-white sm:text-2xl">{section.heading}</h2>
-
-                {/* Desktop: gerçek tablo */}
-                <div className="mt-4 hidden overflow-hidden rounded-2xl border border-white/[0.08] sm:block">
-                  <table className="w-full text-left text-sm">
-                    <thead>
-                      <tr className="bg-white/[0.04] text-[11px] font-semibold uppercase tracking-[0.04em] text-blue-300/80">
-                        <th className="px-4 py-3">Kriter</th>
-                        <th className="px-4 py-3">Bireysel Başlangıç</th>
-                        <th className="px-4 py-3">Şirketli Başlangıç</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {dataRows.map((cells, i) => (
-                        <tr key={cells[0]} className={i % 2 === 0 ? 'bg-white/[0.015]' : ''}>
-                          <td className="px-4 py-3 font-medium text-white">{cells[0]}</td>
-                          <td className="px-4 py-3 text-blue-100/75">{cells[1]}</td>
-                          <td className="px-4 py-3 text-blue-100/75">{cells[2]}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Mobil: her kriter ayrı kart, taşma yapmaz */}
-                <div className="mt-4 space-y-3 sm:hidden">
-                  {dataRows.map((cells) => (
-                    <div key={cells[0]} className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-4">
-                      <p className="text-sm font-semibold text-white">{cells[0]}</p>
-                      <div className="mt-2.5 grid grid-cols-2 gap-3 text-xs">
-                        <div>
-                          <p className="font-semibold uppercase tracking-[0.03em] text-blue-300/70">Bireysel</p>
-                          <p className="mt-1 text-blue-100/75">{cells[1]}</p>
-                        </div>
-                        <div>
-                          <p className="font-semibold uppercase tracking-[0.03em] text-blue-300/70">Şirketli</p>
-                          <p className="mt-1 text-blue-100/75">{cells[2]}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          }
-
+        {guide.sections.map((section, index) => {
           const sectionNode = (
             <div key={section.heading} id={slugify(section.heading)}>
               <h2 className="text-xl font-semibold text-white sm:text-2xl">{section.heading}</h2>
@@ -268,9 +150,18 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
             </div>
           );
 
-          // Uzman Notu, üst bölümden kaldırıldı — artık "Profesyonel satış için şirket neden
-          // önemlidir?" bölümünün hemen ardına, içeriğin doğal akışı içinde yerleşiyor.
-          if (section.heading === 'Profesyonel satış için şirket neden önemlidir?' && guide.expertNote) {
+          // Uzman Notu — veri odaklı yerleşim. guide.expertNoteAfterHeading belirtilmişse o
+          // başlıktan sonra; belirtilmemişse (ama expertNote doluysa) ana içerik başlangıcından
+          // hemen sonra görünmesin diye 3. bölümden sonra (ya da daha az bölüm varsa son
+          // bölümden sonra) gösterilir. Başlık metnine bağımlı bir arama YOK.
+          const fallbackIndex = Math.min(2, guide.sections.length - 1);
+          const showExpertNoteHere = guide.expertNote
+            ? guide.expertNoteAfterHeading
+              ? section.heading === guide.expertNoteAfterHeading
+              : index === fallbackIndex
+            : false;
+
+          if (showExpertNoteHere) {
             return (
               <div key={section.heading}>
                 {sectionNode}
@@ -285,6 +176,103 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
           return sectionNode;
         })}
       </article>
+
+      {/* ============ KARŞILAŞTIRMA (varsa) ============
+          Veri odaklı: guide.comparison doluysa gösterilir, değilse bölüm hiç render edilmez. */}
+      {guide.comparison && (() => {
+        const comparison = guide.comparison;
+        return (
+        <div className="relative mx-auto mt-10 max-w-2xl">
+          <h2 className="text-xl font-semibold text-white sm:text-2xl">{comparison.heading}</h2>
+
+          {/* Desktop: gerçek tablo */}
+          <div className="mt-4 hidden overflow-hidden rounded-2xl border border-white/[0.08] sm:block">
+            <table className="w-full text-left text-sm">
+              <thead>
+                <tr className="bg-white/[0.04] text-[11px] font-semibold uppercase tracking-[0.04em] text-blue-300/80">
+                  {comparison.headers.map((header) => (
+                    <th key={header} className="px-4 py-3">
+                      {header}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.rows.map((row, i) => (
+                  <tr key={row.criterion} className={i % 2 === 0 ? 'bg-white/[0.015]' : ''}>
+                    <td className="px-4 py-3 font-medium text-white">{row.criterion}</td>
+                    <td className="px-4 py-3 text-blue-100/75">{row.individual}</td>
+                    <td className="px-4 py-3 text-blue-100/75">{row.company}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobil: her kriter ayrı kart, taşma yapmaz */}
+          <div className="mt-4 space-y-3 sm:hidden">
+            {comparison.rows.map((row) => (
+              <div key={row.criterion} className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-4">
+                <p className="text-sm font-semibold text-white">{row.criterion}</p>
+                <div className="mt-2.5 grid grid-cols-2 gap-3 text-xs">
+                  <div>
+                    <p className="font-semibold uppercase tracking-[0.03em] text-blue-300/70">
+                      {comparison.headers[1]}
+                    </p>
+                    <p className="mt-1 text-blue-100/75">{row.individual}</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold uppercase tracking-[0.03em] text-blue-300/70">
+                      {comparison.headers[2]}
+                    </p>
+                    <p className="mt-1 text-blue-100/75">{row.company}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        );
+      })()}
+
+      {/* ============ KONTROL LİSTESİ (varsa) ============
+          Veri odaklı: guide.checklist doluysa gösterilir, değilse bölüm hiç render edilmez. */}
+      {guide.checklist && (
+        <div className="relative mx-auto mt-10 max-w-2xl">
+          <h2 className="text-xl font-semibold text-white sm:text-2xl">{guide.checklist.heading}</h2>
+          <div className="mt-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5 sm:p-6">
+            <ul className="space-y-2.5">
+              {guide.checklist.items.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-blue-100/85 sm:text-base">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-md border border-blue-400/40 bg-blue-500/10 text-[11px] text-blue-300"
+                  >
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {/* ============ FAQ (varsa) ============
+          Veri odaklı: guide.faq doluysa gösterilir, değilse bölüm hiç render edilmez. */}
+      {guide.faq && (
+        <div className="relative mx-auto mt-10 max-w-2xl">
+          <h2 className="text-xl font-semibold text-white sm:text-2xl">{guide.faq.heading}</h2>
+          <div className="mt-4 space-y-3">
+            {guide.faq.items.map((item) => (
+              <div key={item.question} className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+                <p className="text-sm font-semibold text-white sm:text-base">{item.question}</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-blue-100/75">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ============ İLGİLİ HİZMETE YÖNLENDİRME ============ */}
       {relatedService && (

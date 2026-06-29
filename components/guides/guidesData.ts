@@ -3,6 +3,22 @@ export type GuideSection = {
   body: string;
 };
 
+export type ComparisonTable = {
+  heading: string;
+  headers: [string, string, string];
+  rows: { criterion: string; individual: string; company: string }[];
+};
+
+export type Checklist = {
+  heading: string;
+  items: string[];
+};
+
+export type Faq = {
+  heading: string;
+  items: { question: string; answer: string }[];
+};
+
 export type Guide = {
   title: string;
   slug: string;
@@ -15,14 +31,25 @@ export type Guide = {
   relatedServiceSlug: string;
   readTime: string;
   publishedAt: string;
-  // Aşağıdaki 4 alan opsiyonel — henüz doldurulmamış rehberlerde (diğer 5 rehber) hiç görünmez,
-  // sayfa bu alanlar olmadan da eskisi gibi çalışır.
+  // Rehber liste sayfasındaki stratejik (publishedAt'ten bağımsız) sıralama için. Küçük sayı
+  // önce gösterilir. Belirtilmezse listenin en sonuna düşer (Number.MAX_SAFE_INTEGER fallback).
+  order?: number;
+  // Aşağıdaki alanlar opsiyonel — henüz doldurulmamış rehberlerde (diğer 5 rehber, bazı alanlar
+  // için) hiç görünmez, sayfa bu alanlar olmadan da eskisi gibi çalışır.
   updatedAt?: string;
   author?: string;
   summary?: string;
   quickAnswer?: string;
   whoShouldRead?: string[];
   expertNote?: string;
+  // expertNote hangi bölüm başlığından sonra gösterilsin. Belirtilmezse (ve expertNote doluysa)
+  // ana içerik başlangıcından hemen sonra görünmesin diye 3. bölümden sonra gösterilir (ya da
+  // daha az bölüm varsa son bölümden sonra) — veri odaklı, başlık metnine bağımlı olmayan
+  // bir varsayılan.
+  expertNoteAfterHeading?: string;
+  comparison?: ComparisonTable;
+  checklist?: Checklist;
+  faq?: Faq;
   nextSteps?: string[];
   sections: GuideSection[];
 };
@@ -39,6 +66,7 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'amazon',
     readTime: '4 dk',
     publishedAt: '2026-01-15',
+    order: 1,
     updatedAt: 'Haziran 2026',
     author: 'GloventGlobal Global Commerce Team',
     summary:
@@ -53,6 +81,68 @@ export const guides: Record<string, Guide> = {
     ],
     expertNote:
       'Amazon’da bireysel başlangıç bazı durumlarda mümkün olabilir. Ancak uzun vadeli marka oluşturmak, düzenli reklam yönetmek, fatura/vergi düzenini sağlamak ve operasyonu ölçeklemek isteyen işletmeler için şirketli yapı çoğu senaryoda daha sağlıklı bir temel oluşturur.',
+    expertNoteAfterHeading: 'Profesyonel satış için şirket neden önemlidir?',
+    comparison: {
+      heading: 'Bireysel başlamak mı, şirketle başlamak mı?',
+      headers: ['Kriter', 'Bireysel Başlangıç', 'Şirketli Başlangıç'],
+      rows: [
+        { criterion: 'Başlangıç maliyeti', individual: 'Daha düşük', company: 'Daha yüksek' },
+        { criterion: 'Güvenilirlik', individual: 'Sınırlı', company: 'Daha güçlü' },
+        { criterion: 'Ölçekleme', individual: 'Zorlaşabilir', company: 'Daha kolay' },
+        { criterion: 'Fatura / vergi düzeni', individual: 'Basit', company: 'Kurumsal' },
+        { criterion: 'Marka oluşturma', individual: 'Sınırlı', company: 'Uygun' },
+        { criterion: 'Uzun vadeli operasyon', individual: 'Zorlaşabilir', company: 'Sürdürülebilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon’da satışa başlamadan önce kontrol listesi',
+      items: [
+        'Satılacak ürün belirlendi mi?',
+        'Hedef pazar seçildi mi?',
+        'Rakip ve fiyat analizi yapıldı mı?',
+        'Ürün kârlılığı hesaplandı mı?',
+        'Kargo / FBA / FBM modeli seçildi mi?',
+        'Gerekli belgeler kontrol edildi mi?',
+        'Listeleme ve görsel stratejisi hazır mı?',
+        'Reklam bütçesi planlandı mı?',
+        'Operasyon takibi nasıl yapılacak?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon’da satış yapmak için şirket zorunlu mu?',
+          answer:
+            'Çoğu pazarda kesin bir zorunluluk yoktur ve bazı durumlarda bireysel başlangıç mümkün olabilir. Ancak ciddi, düzenli ve sürdürülebilir satış hedefleyen markalar için şirket yapısı genellikle daha sağlıklı bir temel sağlar. Güncel gereklilik, başvuru yapılacak pazara ve hesap türüne göre değişebilir.',
+        },
+        {
+          question: 'Amazon’da bireysel hesapla satış yapılabilir mi?',
+          answer:
+            'Bazı pazarlarda bireysel hesapla satışa başlamak mümkün olabilir. Ancak istenen belgeler ve hesap türü, satış yapılacak ülkeye ve ürün kategorisine göre farklılık gösterebilir. Başvuru öncesinde ilgili pazarın güncel şartlarının kontrol edilmesi önemlidir.',
+        },
+        {
+          question: 'Türkiye’den Amazon’da satış yapmak için ne gerekir?',
+          answer:
+            'Hedef pazar seçimi, ürün uygunluğu, lojistik modeli ve gerekli belgelerin netleştirilmesi gerekir. Bu adımlar; başvuru yapılacak Amazon pazarına, ürün kategorisine ve hesap türüne göre değişebileceği için önceden araştırılmalıdır. Kârlılık ve operasyon planı da bu aşamada birlikte değerlendirilmelidir.',
+        },
+        {
+          question: 'Amazon’da şirket kurmadan başlamak mantıklı mı?',
+          answer:
+            'Küçük ölçekli bir pazar testi veya ürün fikrini doğrulama aşamasında mantıklı bir seçenek olabilir. Ancak satış hacmi ve hedefler büyüdükçe; fatura, vergi ve tedarikçi ilişkileri için şirketleşme genellikle gerekli hale gelir. Bu karar, ürün kategorisi ve hedef pazara göre de değişebilir.',
+        },
+        {
+          question: 'Amazon’da satışa başlamak için en önemli hazırlık nedir?',
+          answer:
+            'Ürün, pazar ve kârlılık analizinin; listeleme, reklam ve operasyon planıyla birlikte yapılması en önemli hazırlıktır. Bu unsurlardan biri eksik kaldığında satış süreci dengesiz ilerleyebilir. Hazırlık adımları, hedeflenen pazara ve ürün grubuna göre küçük farklılıklar gösterebilir.',
+        },
+        {
+          question: 'Amazon FBA için şirket gerekir mi?',
+          answer:
+            'FBA programına katılım şartları pazara, ürün kategorisine ve hesap türüne göre değişebilir; bazı durumlarda kesin bir şirket şartı aranmayabilir. Yine de düzenli stok, lojistik ve finansal takip gerektiren bir model olduğu için kurumsal bir yapı çoğu zaman süreci kolaylaştırır. Güncel gereklilikler başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
+        },
+      ],
+    },
     nextSteps: [
       'Ürün ve pazar uygunluğunu değerlendirin',
       'Kârlılık ve operasyon modelinizi netleştirin',
@@ -82,24 +172,12 @@ export const guides: Record<string, Guide> = {
         body: '- Hedef pazar seçimi\n- Ürün uygunluğu\n- Rekabet analizi\n- Kargo / FBA / FBM kararı\n- Ürün listeleme\n- Reklam bütçesi\n- Kârlılık hesabı\n- Operasyon yönetimi\n- İade ve müşteri hizmetleri',
       },
       {
-        heading: 'Bireysel başlamak mı, şirketle başlamak mı?',
-        body: 'Kriter — Bireysel Başlangıç — Şirketli Başlangıç\nBaşlangıç maliyeti — Daha düşük — Daha yüksek\nGüvenilirlik — Sınırlı — Daha güçlü\nÖlçekleme — Zorlaşabilir — Daha kolay\nFatura / vergi düzeni — Basit — Kurumsal\nMarka oluşturma — Sınırlı — Uygun\nUzun vadeli operasyon — Zorlaşabilir — Sürdürülebilir',
-      },
-      {
-        heading: 'Amazon’da satışa başlamadan önce kontrol listesi',
-        body: '✓ Satılacak ürün belirlendi mi?\n✓ Hedef pazar seçildi mi?\n✓ Rakip ve fiyat analizi yapıldı mı?\n✓ Ürün kârlılığı hesaplandı mı?\n✓ Kargo / FBA / FBM modeli seçildi mi?\n✓ Gerekli belgeler kontrol edildi mi?\n✓ Listeleme ve görsel stratejisi hazır mı?\n✓ Reklam bütçesi planlandı mı?\n✓ Operasyon takibi nasıl yapılacak?',
-      },
-      {
         heading: 'En sık yapılan hata',
         body: 'Amazon’a sadece bir hesap açma işi gibi bakmak en sık yapılan hatadır. Asıl mesele; ürün, pazar, fiyat, lojistik, listeleme, reklam ve operasyon sisteminin birlikte kurulmasıdır.',
       },
       {
         heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
         body: 'GloventGlobal; ürün, pazar, şirketleşme ihtiyacı, listeleme, reklam, lojistik ve operasyon adımlarını birlikte değerlendirerek Amazon satış sürecini bir sisteme dönüştürür. Amazon’da satışa başlamadan önce ürününüzü, hedef pazarınızı ve mevcut hazırlık seviyenizi birlikte değerlendirebiliriz.',
-      },
-      {
-        heading: 'Sık Sorulan Sorular',
-        body: 'Amazon’da satış yapmak için şirket zorunlu mu?\nÇoğu pazarda kesin bir zorunluluk yoktur ve bazı durumlarda bireysel başlangıç mümkün olabilir. Ancak ciddi, düzenli ve sürdürülebilir satış hedefleyen markalar için şirket yapısı genellikle daha sağlıklı bir temel sağlar. Güncel gereklilik, başvuru yapılacak pazara ve hesap türüne göre değişebilir.\n\nAmazon’da bireysel hesapla satış yapılabilir mi?\nBazı pazarlarda bireysel hesapla satışa başlamak mümkün olabilir. Ancak istenen belgeler ve hesap türü, satış yapılacak ülkeye ve ürün kategorisine göre farklılık gösterebilir. Başvuru öncesinde ilgili pazarın güncel şartlarının kontrol edilmesi önemlidir.\n\nTürkiye’den Amazon’da satış yapmak için ne gerekir?\nHedef pazar seçimi, ürün uygunluğu, lojistik modeli ve gerekli belgelerin netleştirilmesi gerekir. Bu adımlar; başvuru yapılacak Amazon pazarına, ürün kategorisine ve hesap türüne göre değişebileceği için önceden araştırılmalıdır. Kârlılık ve operasyon planı da bu aşamada birlikte değerlendirilmelidir.\n\nAmazon’da şirket kurmadan başlamak mantıklı mı?\nKüçük ölçekli bir pazar testi veya ürün fikrini doğrulama aşamasında mantıklı bir seçenek olabilir. Ancak satış hacmi ve hedefler büyüdükçe; fatura, vergi ve tedarikçi ilişkileri için şirketleşme genellikle gerekli hale gelir. Bu karar, ürün kategorisi ve hedef pazara göre de değişebilir.\n\nAmazon’da satışa başlamak için en önemli hazırlık nedir?\nÜrün, pazar ve kârlılık analizinin; listeleme, reklam ve operasyon planıyla birlikte yapılması en önemli hazırlıktır. Bu unsurlardan biri eksik kaldığında satış süreci dengesiz ilerleyebilir. Hazırlık adımları, hedeflenen pazara ve ürün grubuna göre küçük farklılıklar gösterebilir.\n\nAmazon FBA için şirket gerekir mi?\nFBA programına katılım şartları pazara, ürün kategorisine ve hesap türüne göre değişebilir; bazı durumlarda kesin bir şirket şartı aranmayabilir. Yine de düzenli stok, lojistik ve finansal takip gerektiren bir model olduğu için kurumsal bir yapı çoğu zaman süreci kolaylaştırır. Güncel gereklilikler başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
       },
     ],
   },
@@ -115,6 +193,7 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'etsy',
     readTime: '4 dk',
     publishedAt: '2026-01-18',
+    order: 2,
     updatedAt: 'Haziran 2026',
     author: 'GloventGlobal Global Commerce Team',
     summary:
@@ -157,6 +236,7 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'shopify',
     readTime: '5 dk',
     publishedAt: '2026-01-21',
+    order: 3,
     updatedAt: 'Haziran 2026',
     author: 'GloventGlobal Global Commerce Team',
     summary:
@@ -199,6 +279,7 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'global-pazara-giris-stratejisi',
     readTime: '5 dk',
     publishedAt: '2026-01-24',
+    order: 4,
     updatedAt: 'Haziran 2026',
     author: 'GloventGlobal Global Commerce Team',
     summary:
@@ -241,6 +322,7 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'b2b-dijital-showroom',
     readTime: '4 dk',
     publishedAt: '2026-01-27',
+    order: 5,
     updatedAt: 'Haziran 2026',
     author: 'GloventGlobal Global Commerce Team',
     summary:
@@ -283,6 +365,7 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'yapay-zeka-entegrasyonu',
     readTime: '4 dk',
     publishedAt: '2026-01-30',
+    order: 6,
     updatedAt: 'Haziran 2026',
     author: 'GloventGlobal Global Commerce Team',
     summary:

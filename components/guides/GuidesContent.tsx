@@ -66,7 +66,7 @@ export default function GuidesContent() {
     }`;
 
   const guideList = Object.values(guides)
-    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .sort((a, b) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER))
     .filter((guide) => activeCategory === 'Hepsi' || guide.category === activeCategory)
     .filter((guide) => {
       const q = searchQuery.trim().toLowerCase();
