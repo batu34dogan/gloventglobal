@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { serviceDetails } from './serviceDetailsData';
 import { trackEvent } from '@/lib/analytics';
 
@@ -129,7 +130,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
 
   // Opsiyonel "kullanım alanları" bölümü (sadece data.useCases tanımlıysa render edilir) —
   // kendi viewport girişine (useCasesInView) bağlı.
-  const useCasesReveal = (delayClass: string) =>
+  const casesReveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
       useCasesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
@@ -233,12 +234,12 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             >
               {data.ctaLabel}
             </a>
-            <a
+            <Link
               href="/hizmetler"
               className="rounded-full border border-white/15 px-8 py-3 text-sm font-semibold tracking-wide text-white/90 transition-colors duration-300 hover:border-white/35 hover:bg-white/5"
             >
               Tüm Hizmetleri Gör
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -432,7 +433,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
         <section ref={useCasesRef} className="relative px-6 pb-20 pt-2 sm:px-10">
           <div className="relative mx-auto max-w-3xl text-center">
             <p
-              className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${useCasesReveal(
+              className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${casesReveal(
                 'delay-[0ms]',
               )}`}
             >
@@ -441,7 +442,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             <div className="relative isolate mx-auto mt-4 max-w-xl">
               <SectionTitleGlow intensity="normal" />
               <h2
-                className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${useCasesReveal(
+                className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${casesReveal(
                   'delay-[100ms]',
                 )}`}
               >
@@ -449,7 +450,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
               </h2>
             </div>
             <p
-              className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${useCasesReveal(
+              className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${casesReveal(
                 'delay-[200ms]',
               )}`}
             >
@@ -461,7 +462,7 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             {data.useCases.cards.map((card, index) => (
               <div
                 key={card.number}
-                className={`${useCasesReveal(
+                className={`${casesReveal(
                   ['delay-[300ms]', 'delay-[360ms]', 'delay-[420ms]', 'delay-[480ms]', 'delay-[540ms]'][index] ??
                     'delay-[300ms]',
                 )} lg:col-span-2 ${index === 0 ? 'lg:col-start-2' : index === 3 ? 'lg:col-start-3' : ''}`}
@@ -962,12 +963,12 @@ export default function ServiceDetailContent({ slug }: { slug: string }) {
             >
               Ücretsiz Analiz Al
             </button>
-            <a
+            <Link
               href="/hizmetler"
               className="inline-block rounded-full border border-white/15 px-10 py-3.5 text-sm font-semibold tracking-wide text-white/90 transition-colors duration-300 hover:border-white/35 hover:bg-white/5"
             >
               Tüm Hizmetleri Gör
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const navLinks = [
   { label: 'Hizmetler', href: '/hizmetler' },
@@ -39,9 +40,9 @@ export default function SiteNavbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
-        <a href="/" className="text-sm font-semibold uppercase tracking-[0.25em] text-white">
+        <Link href="/" className="text-sm font-semibold uppercase tracking-[0.25em] text-white">
           GloventGlobal
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 sm:flex">
           {navLinks.map((link) => (

@@ -10,7 +10,13 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // NOT: eslint'in "set-state-in-effect" uyarısı burada bilerek suppress edildi. Bu deseni
+    // (localStorage'ı sadece client'ta, mount sonrası okuyup state'i güncellemek) kaldırmak —
+    // örneğin useState'in lazy initializer'ına taşımak — SSR ile client'ın ilk render'ı arasında
+    // hydration mismatch'e yol açar (server hiçbir zaman localStorage'ı göremez). Bu yüzden
+    // mevcut desen, gerçek bir hatayı düzeltmek yerine, daha kötü bir hata yaratırdı.
     const existing = window.localStorage.getItem(STORAGE_KEY);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!existing) setVisible(true);
   }, []);
 

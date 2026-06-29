@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
 
 // ============================================================================
@@ -718,12 +719,12 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
             >
               Kapat
             </button>
-            <a
+            <Link
               href="/hizmetler"
               className="rounded-full border border-blue-400/45 bg-blue-500/10 px-8 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-blue-400/75 hover:bg-blue-500/20"
             >
               Hizmetleri İncele
-            </a>
+            </Link>
           </div>
         </div>
       )}
