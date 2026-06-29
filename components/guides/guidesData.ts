@@ -37,6 +37,10 @@ export type Guide = {
   // Aşağıdaki alanlar opsiyonel — henüz doldurulmamış rehberlerde (diğer 5 rehber, bazı alanlar
   // için) hiç görünmez, sayfa bu alanlar olmadan da eskisi gibi çalışır.
   updatedAt?: string;
+  // updatedAt ("Haziran 2026" gibi) insan-okunur bir gösterim metni — schema.org dateModified
+  // ISO 8601 formatı gerektirir. Bu yüzden ayrı, makine-okunur bir alan: görsel metne (updatedAt)
+  // hiç dokunmadan sadece JSON-LD için kullanılır.
+  updatedAtISO?: string;
   author?: string;
   summary?: string;
   quickAnswer?: string;
@@ -68,6 +72,7 @@ export const guides: Record<string, Guide> = {
     publishedAt: '2026-01-15',
     order: 1,
     updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
       'Amazon’da satış yapmak için her durumda şirket zorunlu olmayabilir. Ancak sürdürülebilir satış hedefleyen markalar için şirket, vergi, lojistik, ödeme ve operasyon planlaması en baştan düşünülmelidir. Bu rehber hangi durumda bireysel başlangıcın, hangi durumda şirketli yapının daha doğru olabileceğini açıklar.',
@@ -195,6 +200,7 @@ export const guides: Record<string, Guide> = {
     publishedAt: '2026-01-18',
     order: 2,
     updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
       'Etsy’de ilk satışı almak genellikle teknik bir sorun değil; görsel kalite, başlık/SEO uyumu ve fiyat algısı sorunudur. Bu rehber, yeni açılan bir Etsy mağazasının ilk satışını geciktiren en yaygın nedenleri ve hızlandıran temel adımları özetler.',
@@ -238,6 +244,7 @@ export const guides: Record<string, Guide> = {
     publishedAt: '2026-01-21',
     order: 3,
     updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
       'Shopify ve Etsy birbirinin yerine geçen değil, farklı ihtiyaçlara hizmet eden iki satış modelidir. Bu rehber, hangi işletme için hangisinin daha mantıklı olduğunu ve ikisinin birlikte nasıl kullanılabileceğini özetler.',
@@ -281,6 +288,7 @@ export const guides: Record<string, Guide> = {
     publishedAt: '2026-01-24',
     order: 4,
     updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
       'Global pazara açılmak isteyen Türkiye merkezli markaların ilk olarak hangi soruları cevaplaması, hangi kararları önce vermesi gerektiğini özetleyen bu rehber; pazar seçimi, operasyon hazırlığı ve kanal stratejisini bir araya getirir.',
@@ -324,6 +332,7 @@ export const guides: Record<string, Guide> = {
     publishedAt: '2026-01-27',
     order: 5,
     updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
       'Toptan satış yapan markaların PDF katalog ve e-posta trafiğinden, ölçülebilir bir dijital showroom yapısına geçmesinin neden önemli olduğunu özetleyen bu rehber; teklif takibi, müşteri grupları ve satış görünürlüğü konularına odaklanır.',
@@ -367,6 +376,7 @@ export const guides: Record<string, Guide> = {
     publishedAt: '2026-01-30',
     order: 6,
     updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
       '"Yapay zeka kullanıyoruz" demek yeterli değildir. Bu rehber, e-ticarette yapay zekanın gerçek anlamda değer ürettiği somut kullanım alanlarını; içerik üretimi, müşteri iletişimi ve raporlama başlıkları üzerinden özetler.',
