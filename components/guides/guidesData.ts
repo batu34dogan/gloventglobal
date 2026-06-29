@@ -1242,4 +1242,162 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile e-ticaret operasyon yapınızın ne kadar hazır olduğunu değerlendirin',
     ],
   },
+
+  'e-ticarette-dijital-pazarlama-nasil-yapilir': {
+    title: 'E-Ticarette Dijital Pazarlama Nasıl Yapılır?',
+    slug: 'e-ticarette-dijital-pazarlama-nasil-yapilir',
+    excerpt:
+      'Satışlarını artırmak, trafiği dönüşüme çevirmek ve reklam kanallarını doğru kullanmak isteyen e-ticaret işletmeleri için dijital pazarlamanın nasıl sistemli şekilde kurulabileceğini açıklıyoruz.',
+    category: 'Pazarlama',
+    targetAudience: 'E-ticaret satışlarını artırmak isteyen işletmeler',
+    searchIntent: 'e-ticarette dijital pazarlama nasıl yapılır, e-ticaret pazarlaması nedir, e-ticaret satışları nasıl artırılır, e-ticarette reklam nasıl verilir, meta ads e-ticarette nasıl kullanılır, google ads e-ticaret için işe yarar mı, e-ticarette seo nasıl yapılır, e-posta pazarlama e-ticarette işe yarar mı, remarketing nedir, e-ticarette dönüşüm oranı nasıl artırılır',
+    relatedServiceSlug: 'global-pazara-giris-stratejisi',
+    readTime: '5 dk',
+    publishedAt: '2026-02-08',
+    order: 9,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'E-ticarette dijital pazarlama; yalnızca reklam vermek değil, doğru hedef kitleye ulaşmak, güven oluşturmak, ürün sayfalarını dönüşüme hazırlamak, müşteri yolculuğunu takip etmek ve satış kanallarını veriyle yönetmektir. Bu rehber, e-ticaret işletmeleri için dijital pazarlamanın nasıl sistemli şekilde kurulabileceğini açıklar.',
+    quickAnswer:
+      'E-ticarette dijital pazarlama; SEO, reklam, sosyal medya, e-posta, remarketing, içerik, ürün sayfası optimizasyonu ve veri analizi gibi kanalların birlikte çalışmasıyla yapılır. Tek başına reklam vermek yeterli değildir; doğru ürün, doğru hedef kitle, güven veren sayfa, ölçümleme ve düzenli optimizasyon gerekir.',
+    whoShouldRead: [
+      'E-ticaret satışlarını artırmak isteyen işletmeler',
+      'Amazon, Etsy, Shopify veya kendi sitesinde satış yapan markalar',
+      'Reklam vermek isteyen ama nereden başlayacağını bilmeyenler',
+      'Trafik alıp dönüşüm alamayan e-ticaret siteleri',
+      'Dijital pazarlamayı sistemli hale getirmek isteyen ekipler',
+      'Global pazara açılırken pazarlama altyapısını güçlendirmek isteyen markalar',
+    ],
+    expertNote:
+      'E-ticarette dijital pazarlamada en sık yapılan hata, reklamı tek başına büyüme çözümü gibi görmektir. Reklam trafik getirebilir; ancak ürün sayfası, fiyatlandırma, güven unsurları, kargo bilgisi, müşteri deneyimi ve takip sistemi zayıfsa trafik satışa dönüşmeyebilir.',
+    expertNoteAfterHeading: 'Dönüşüm oranı neden reklamdan önce düşünülmeli?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran işletmeler genellikle daha fazla satış almak, reklamdan sonuç görmek, site trafiğini artırmak veya pazaryeri dışına çıkmak ister. Dijital pazarlama yalnızca reklam vermek değil; ürün, trafik, güven, dönüşüm ve tekrar satış sisteminin birlikte çalışmasıdır.',
+      },
+      {
+        heading: 'E-ticarette dijital pazarlama nedir?',
+        body: '- Ürün veya markanın dijital kanallarda doğru hedef kitleye ulaştırılması\n- SEO, reklam, sosyal medya, e-posta ve remarketing kanallarının kullanılması\n- Trafiğin satışa dönüşmesi için ürün sayfası ve müşteri yolculuğunun iyileştirilmesi\n- Veriye göre pazarlama kararlarının alınması\n- Tek seferlik reklam değil, sürekli ölçüm ve iyileştirme süreci olması',
+      },
+      {
+        heading: 'E-ticarette dijital pazarlama ne işe yarar?',
+        body: '- Marka görünürlüğünü artırır\n- Doğru hedef kitleye ulaşmaya yardımcı olur\n- Ürün sayfalarına trafik getirir\n- Sepete ekleme ve satın alma sürecini iyileştirmeye destek olur\n- Eski ziyaretçilere yeniden ulaşmayı sağlar\n- Müşteri sadakati ve tekrar satış için altyapı oluşturur\n- Veriye dayalı karar almayı kolaylaştırır',
+      },
+      {
+        heading: 'Örnek Pazarlama Senaryosu',
+        body: 'Örnek senaryo: Shopify üzerinden satış yapan bir marka, ilk etapta en güçlü 10 ürününü seçerek ürün sayfası, görsel, açıklama, fiyat, kargo bilgisi ve güven unsurlarını düzenler. Daha sonra bu ürünler için SEO, Meta Ads, Google Ads ve remarketing kanallarını küçük testlerle değerlendirir. Bu senaryo satış garantisi değil, pazarlamaya daha kontrollü başlamak için örnek bir planlama yaklaşımıdır.',
+      },
+      {
+        heading: 'E-ticarette hangi pazarlama kanalları kullanılabilir?',
+        body: '- SEO\n- Meta Ads\n- Google Ads\n- Sosyal medya içerikleri\n- E-posta pazarlama\n- Remarketing\n- Influencer ve içerik iş birlikleri\n- Pazaryeri içi reklamlar\n- Blog ve rehber içerikleri\n- CRO ve ürün sayfası optimizasyonu',
+      },
+      {
+        heading: 'Reklam vermeden önce hangi sorular cevaplanmalı?',
+        body: '- Hangi ürünü öne çıkaracağız?\n- Hedef kitle kim?\n- Ürün sayfası güven veriyor mu?\n- Fiyat, kargo ve iade bilgisi net mi?\n- Görseller satışa uygun mu?\n- Hangi kanal daha mantıklı: Meta Ads, Google Ads, pazaryeri reklamı veya SEO?\n- Reklamdan sonra kullanıcı hangi sayfaya gidecek?\n- Sonuçları hangi metriklerle ölçeceğiz?',
+      },
+      {
+        heading: 'SEO, reklam ve sosyal medya birlikte nasıl çalışır?',
+        body: 'SEO uzun vadeli organik görünürlük sağlar. Reklam daha hızlı trafik ve test imkanı sunar. Sosyal medya ise marka güveni, içerik teması ve tekrar temas noktası oluşturur. Bu kanallar ayrı değil, aynı müşteri yolculuğunun parçaları olarak düşünülmelidir.',
+      },
+      {
+        heading: 'Meta Ads ve Google Ads e-ticarette nasıl kullanılabilir?',
+        body: 'Meta Ads, görsel ürün sunumu, hedef kitle testi, ilgi alanı bazlı reklam ve yeniden pazarlama için güçlü olabilir.\nGoogle Ads, arama niyeti olan kullanıcıya ulaşmak, ürün aramalarını yakalamak ve alışveriş kampanyaları için kullanılabilir.\nHangi kanalın daha iyi olduğu ürün, hedef kitle, bütçe, ülke ve satış kanalına göre değişir.',
+      },
+      {
+        heading: 'E-posta pazarlama ve remarketing neden önemlidir?',
+        body: '- Siteye gelen herkes ilk ziyarette satın almaz\n- Sepet terk eden kullanıcılara yeniden ulaşmak gerekir\n- Önceki müşterilere yeni ürün ve kampanya duyurulabilir\n- Segment bazlı iletişim daha doğru mesaj sunar\n- E-posta ve remarketing tekrar satış için destekleyici kanallardır',
+      },
+      {
+        heading: 'Dönüşüm oranı neden reklamdan önce düşünülmeli?',
+        body: 'Reklam trafik getirir ama kullanıcı ürün sayfasında güven, bilgi, fiyat, kargo, iade ve ödeme konusunda ikna olmazsa satış oluşmayabilir. Bu yüzden ürün sayfası, CTA, görsel, açıklama, sosyal kanıt ve güven unsurları reklamdan önce kontrol edilmelidir.',
+      },
+      {
+        heading: 'İlk 30 gün e-ticaret pazarlama planı',
+        body: '1. hafta: ürün, hedef kitle ve mevcut veri analizi\n2. hafta: ürün sayfası, görsel, açıklama ve güven unsurlarını düzenleme\n3. hafta: SEO, reklam ve sosyal medya için küçük testler başlatma\n4. hafta: sonuçları analiz edip başarılı kanal ve ürünleri belirleme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, dijital pazarlamaya doğrudan reklam bütçesiyle başlamaktır. Ürün, hedef kitle, sayfa deneyimi, fiyatlandırma, kargo bilgisi ve ölçümleme net değilse reklam bütçesi hızlı tüketilebilir ama öğrenme ve satış sistemi oluşmayabilir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, e-ticaret işletmelerinin ürün yapısını, hedef kitlesini, satış kanalını, mevcut trafiğini, dönüşüm verilerini ve reklam potansiyelini analiz ederek daha sistemli bir dijital pazarlama altyapısı kurulmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Tek Kanallı Reklam mı, Sistemli Dijital Pazarlama mı?',
+      headers: ['Kriter', 'Tek Kanallı Reklam', 'Sistemli Dijital Pazarlama'],
+      rows: [
+        { criterion: 'Trafik', individual: 'Tek bir kanaldan ziyaretçi çekmeye çalışır', company: 'SEO, reklam, sosyal medya ve remarketing birlikte çalışır' },
+        { criterion: 'Dönüşüm', individual: 'Trafiğin satışa dönüşmesi şansa kalabilir', company: 'Ürün sayfası, güven, CTA ve müşteri yolculuğu birlikte optimize edilir' },
+        { criterion: 'Müşteri takibi', individual: 'Kullanıcı siteyi terk ederse takip zayıf kalabilir', company: 'Remarketing, e-posta ve segment bazlı iletişimle tekrar temas kurulur' },
+        { criterion: 'Veri kullanımı', individual: 'Sadece reklam sonuçlarına bakılır', company: 'Trafik, dönüşüm, sepet, satış ve müşteri davranışı birlikte analiz edilir' },
+        { criterion: 'Büyüme yaklaşımı', individual: 'Kısa vadeli kampanya mantığıyla ilerler', company: 'Test, ölçüm, optimizasyon ve tekrar satış yapısıyla büyür' },
+      ],
+    },
+    checklist: {
+      heading: 'E-ticarette dijital pazarlamaya başlamadan önce kontrol listesi',
+      items: [
+        'Hangi ürünleri öne çıkaracağınız belli mi?',
+        'Hedef kitleniz net mi?',
+        'Ürün sayfalarınız güven veriyor mu?',
+        'Görseller, açıklamalar, fiyat ve kargo bilgisi hazır mı?',
+        'SEO, reklam, sosyal medya ve e-posta öncelikleriniz belirlendi mi?',
+        'Reklam sonrası kullanıcıyı hangi sayfaya yönlendireceğiniz belli mi?',
+        'Dönüşüm takibi ve analytics kurulmuş mu?',
+        'Sepet terk ve tekrar pazarlama akışları düşünüldü mü?',
+        'İlk 30 gün test ve iyileştirme planı hazır mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'E-ticarette dijital pazarlama nedir?',
+          answer:
+            'E-ticarette dijital pazarlama; SEO, reklam, sosyal medya, e-posta ve remarketing gibi kanalların doğru hedef kitleye ulaşmak ve trafiği satışa dönüştürmek için birlikte kullanılmasıdır. Tek başına reklam vermekten daha geniş bir sistemi kapsar.',
+        },
+        {
+          question: 'E-ticarette satış artırmak için ilk ne yapılmalı?',
+          answer:
+            'Önce ürün, hedef kitle ve mevcut veri analizinin yapılması, ardından ürün sayfasının güven ve dönüşüme hazır olup olmadığının kontrol edilmesi gerekir. Reklam bütçesi genellikle bu adımlardan sonra daha verimli çalışır.',
+        },
+        {
+          question: 'Meta Ads mi Google Ads mi daha iyi?',
+          answer:
+            'Kesin bir doğru cevap yoktur; Meta Ads görsel sunum ve hedef kitle testi için, Google Ads ise arama niyeti olan kullanıcıya ulaşmak için güçlü olabilir. Hangisinin daha uygun olduğu ürün, bütçe ve hedef pazara göre değişir.',
+        },
+        {
+          question: 'E-ticarette SEO işe yarar mı?',
+          answer:
+            'Evet, SEO uzun vadeli organik görünürlük sağlayarak reklam bağımlılığını azaltabilir. Ancak sonuçları genellikle reklamdan daha yavaş oluşur ve düzenli içerik/optimizasyon gerektirir.',
+        },
+        {
+          question: 'Reklam vermeden satış yapılabilir mi?',
+          answer:
+            'Evet, SEO, sosyal medya, e-posta ve pazaryeri trafiği gibi kanallarla da satış yapılabilir. Ancak büyüme hızı ve görünürlük, kullanılan kanal kombinasyonuna göre değişir.',
+        },
+        {
+          question: 'Remarketing e-ticarette neden önemlidir?',
+          answer:
+            'Siteye gelen kullanıcıların büyük kısmı ilk ziyarette satın almaz; remarketing bu kullanıcılara yeniden ulaşmayı sağlar. Bu, tekrar temas ve dönüşüm şansını artırmaya yardımcı olabilecek destekleyici bir kanaldır.',
+        },
+        {
+          question: 'E-ticarette dönüşüm oranı nasıl artırılır?',
+          answer:
+            'Ürün sayfası, görsel, fiyat, kargo bilgisi, güven unsurları ve CTA’nın birlikte optimize edilmesi gerekir. Dönüşüm oranı tek bir değişiklikle değil, bu unsurların bütünüyle ilişkilidir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Mevcut trafik, satış ve dönüşüm verilerinizi inceleyin',
+      'Hedef kitlenizi ve satış kanalınızı netleştirin',
+      'SEO, reklam, sosyal medya, e-posta ve remarketing kanallarını önceliklendirin',
+      'Ürün sayfalarınızın dönüşüme hazır olup olmadığını kontrol edin',
+      'Ücretsiz analiz ile e-ticaret pazarlama sisteminizin hangi alanlarda güçlendirilebileceğini değerlendirin',
+    ],
+  },
 };
