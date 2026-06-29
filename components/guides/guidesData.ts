@@ -2522,4 +2522,166 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Etsy kargo ve fiyatlandırma yapınızı birlikte değerlendirin',
     ],
   },
+
+  'etsy-hesabi-askiya-alinirsa-ne-yapilir': {
+    title: 'Etsy Hesabı Askıya Alınırsa Ne Yapılır?',
+    slug: 'etsy-hesabi-askiya-alinirsa-ne-yapilir',
+    excerpt:
+      'Etsy hesabı askıya alınan veya politika ihlali uyarısı alan satıcılar için panik yapmadan hangi adımların kontrol edilmesi ve itiraz sürecine nasıl yaklaşılması gerektiğini açıklıyoruz.',
+    category: 'Etsy',
+    targetAudience: 'Etsy hesabı askıya alınan veya uyarı alan mağaza sahipleri',
+    searchIntent: 'etsy hesabı askıya alındı ne yapmalıyım, etsy mağaza suspend oldu, etsy hesabı neden askıya alınır, etsy suspend appeal nasıl yapılır, etsy hesabı nasıl geri açılır, etsy listeleme neden kaldırılır, etsy politika ihlali nedir, etsy itiraz mesajı nasıl yazılır',
+    relatedServiceSlug: 'etsy',
+    readTime: '5 dk',
+    publishedAt: '2026-03-04',
+    order: 17,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy hesabının askıya alınması, mağaza sahibinin satış, ödeme, listeleme ve müşteri iletişimi süreçlerini doğrudan etkileyebilen ciddi bir durumdur. Böyle bir durumda önce Etsy’den gelen bildirimler, politika ihlali iddiaları, ödeme veya kimlik doğrulama sorunları, listeleme içerikleri ve mağaza bilgileri dikkatlice kontrol edilmelidir. Bu rehber, Etsy hesabı askıya alındığında panik yapmadan hangi adımların değerlendirilmesi gerektiğini açıklar.',
+    quickAnswer:
+      'Etsy hesabı askıya alınırsa önce Etsy’den gelen e-posta ve panel bildirimleri dikkatlice okunmalı, askıya alma nedeni anlaşılmaya çalışılmalı, eksik belge, ödeme, kimlik doğrulama, politika ihlali veya listeleme sorunu olup olmadığı kontrol edilmelidir. Gerekirse Etsy’nin resmî itiraz süreci takip edilmeli; ancak hesabın kesin açılacağına dair garanti verilmemelidir.',
+    whoShouldRead: [
+      'Etsy hesabı askıya alınan mağaza sahipleri',
+      'Etsy mağazası uyarı alan satıcılar',
+      'Listelemesi kaldırılan veya ürünleri yayından alınanlar',
+      'Etsy politika ihlali konusunda ne yapacağını bilmeyenler',
+      'Mağazasını daha güvenli ve kurallara uygun yönetmek isteyen satıcılar',
+      'Etsy’de uzun vadeli satış yapmak isteyen markalar',
+    ],
+    expertNote:
+      'Etsy hesabı askıya alındığında en sık yapılan hata, nedeni tam anlamadan hızlı ve savunmacı bir itiraz mesajı göndermektir. Önce bildirimi, mağaza bilgilerini, listelemeleri, ödeme ve doğrulama durumunu dikkatlice kontrol etmek gerekir. İtiraz süreci kısa, net, saygılı ve çözüm odaklı olmalıdır.',
+    expertNoteAfterHeading: 'Etsy itiraz mesajında nelere dikkat edilmeli?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran satıcılar genellikle hesabına erişimin kısıtlandığını, ürünlerinin yayından kaldırıldığını, ödeme veya kimlik doğrulama sorunu yaşadığını ya da Etsy’den politika ihlali uyarısı aldığını fark eder. Böyle durumlarda panikle hareket etmek yerine bildirimleri okumak, nedeni anlamak ve resmî süreçlere uygun ilerlemek gerekir.',
+      },
+      {
+        heading: 'Etsy hesabı askıya alınması ne anlama gelir?',
+        body: '- Mağazanın geçici veya kalıcı şekilde kısıtlanabilmesi\n- Listelemelerin yayından kaldırılabilmesi\n- Satış, ödeme veya mağaza erişimi süreçlerinin etkilenebilmesi\n- Durumun sebebe ve Etsy değerlendirmesine göre değişebileceği\n- Her askıya alma durumunun aynı olmadığı',
+      },
+      {
+        heading: 'Etsy hesabı neden askıya alınabilir?',
+        body: '- Kimlik doğrulama veya ödeme bilgisi sorunları\n- Mağaza bilgilerinde eksiklik veya tutarsızlık\n- Listeleme politikası ihlalleri\n- Telif, marka veya fikri mülkiyet şikayetleri\n- Yasaklı veya kısıtlı ürünler\n- Yanıltıcı açıklama veya görseller\n- Kargo, müşteri şikayeti veya güven sorunları\n- Etsy politikalarına aykırı davranış iddiaları',
+      },
+      {
+        heading: 'Örnek Etsy Askıya Alma Senaryosu',
+        body: 'Örnek senaryo: Etsy mağazası askıya alınan bir satıcı, önce Etsy’den gelen bildirimi ve panel uyarılarını kontrol eder. Daha sonra kimlik doğrulama, ödeme bilgileri, listeleme içerikleri, ürün açıklamaları, görseller, kargo politikası ve mağaza bilgilerini tek tek gözden geçirir. Bu senaryo hesabın kesin açılacağını garanti etmez; yalnızca süreci daha kontrollü ve düzenli değerlendirmek için örnek bir yaklaşım sunar.',
+      },
+      {
+        heading: 'İlk olarak ne kontrol edilmeli?',
+        body: '- Etsy’den gelen e-posta\n- Etsy panelindeki bildirimler\n- Kimlik ve ödeme doğrulama durumu\n- Mağaza bilgileri\n- Listeleme içerikleri\n- Ürün görselleri ve açıklamaları\n- Kargo ve iade politikası\n- Müşteri mesajları ve açık siparişler\n- Politika ihlali iddiası varsa ilgili ürünler',
+      },
+      {
+        heading: 'Etsy’den gelen bildirimi nasıl okumak gerekir?',
+        body: '- Bildirimde belirtilen nedeni dikkatle inceleme\n- Genel ifadeleri değil, spesifik istenen aksiyonu anlamaya çalışma\n- Belge, doğrulama veya politika düzeltmesi istenip istenmediğini kontrol etme\n- Aynı anda birden fazla sorun olabileceğini düşünme\n- Emin olunmayan noktada aceleci itirazdan kaçınma',
+      },
+      {
+        heading: 'Etsy itiraz süreci nasıl düşünülmeli?',
+        body: 'Eğer itiraz hakkı veya açıklama yapma alanı varsa mesaj kısa, net, saygılı ve çözüm odaklı olmalıdır. Amaç Etsy’ye saldırmak değil, durumu anladığınızı, gerekli düzeltmeleri yaptığınızı veya hangi konuda açıklama sunduğunuzu net anlatmaktır. İtirazın kabul edileceği garanti değildir.',
+      },
+      {
+        heading: 'Etsy itiraz mesajında nelere dikkat edilmeli?',
+        body: '- Panik veya öfke dili kullanmamak\n- Uzun ve dağınık metin yazmamak\n- Sorunu anladığınızı göstermek\n- Varsa yapılan düzeltmeleri net belirtmek\n- Gerekli belgeleri veya açıklamaları düzenli sunmak\n- Kopyala-yapıştır hazır mesajlara güvenmemek\n- Yanlış veya yanıltıcı bilgi vermemek\n- Hesabın kesin açılacağı beklentisiyle hareket etmemek',
+      },
+      {
+        heading: 'Listeleme kaldırıldıysa ne yapılmalı?',
+        body: 'Ürün yayından kaldırıldıysa önce kaldırma nedeni incelenmelidir. Başlık, açıklama, tag, görsel, kategori, ürün tipi, marka kullanımı, telif/marka riski, yasaklı ürün veya yanıltıcı ifade ihtimali kontrol edilmelidir. Aynı listelemeyi nedeni anlamadan tekrar yüklemek risk oluşturabilir.',
+      },
+      {
+        heading: 'Yeni hesap açmak doğru mu?',
+        body: 'Askıya alma nedeni netleşmeden yeni hesap açmaya çalışmak riskli olabilir ve platform politikaları açısından daha büyük sorunlara yol açabilir. Resmî bildirimler ve Etsy politikaları dikkate alınmalı; gerekirse profesyonel destek alınmalıdır.',
+      },
+      {
+        heading: 'Etsy hesabı askıya alınmadan önce nasıl önlem alınabilir?',
+        body: '- Mağaza bilgilerini doğru tutmak\n- Kimlik ve ödeme bilgilerini eksiksiz tamamlamak\n- Ürün açıklamalarını doğru yazmak\n- Üründe olmayan özellikleri yazmamak\n- Telif, marka ve fikri mülkiyet risklerine dikkat etmek\n- Kargo ve iade politikalarını net yazmak\n- Müşteri mesajlarını düzenli takip etmek\n- Mağaza güvenini ve listeleme kalitesini korumak',
+      },
+      {
+        heading: 'İlk 7 gün Etsy hesap kontrol planı',
+        body: '1. gün: Etsy bildirimlerini ve panel uyarılarını kontrol etme\n2. gün: kimlik, ödeme ve mağaza bilgilerini kontrol etme\n3. gün: listelemeler, başlık, tag, açıklama ve görselleri inceleme\n4. gün: kargo, iade ve müşteri iletişimi alanlarını kontrol etme\n5. gün: varsa düzeltmeleri yapma ve belgeleri hazırlama\n6. gün: itiraz gerekiyorsa kısa ve net mesaj hazırlama\n7. gün: yanıtları ve açık sipariş / müşteri süreçlerini takip etme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Etsy hesabı askıya alındığında nedeni anlamadan hızlıca itiraz etmek veya aynı listelemeleri tekrar yayına almaya çalışmaktır. Önce sorunun kaynağı anlaşılmalı, ardından resmî süreçlere uygun ve çözüm odaklı ilerlenmelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarında listeleme yapısı, ürün açıklamaları, görseller, mağaza bilgileri, kargo/iade politikaları ve güven unsurlarını birlikte analiz ederek askıya alma risklerini azaltmaya ve mağazanın daha düzenli yönetilmesine yardımcı olur. Hesabın açılacağına dair garanti vermez; süreci daha kontrollü değerlendirmeye destek olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Panikle İtiraz mı, Kontrollü Etsy Hesap Analizi mi?',
+      headers: ['Kriter', 'Panikle İtiraz', 'Kontrollü Analiz'],
+      rows: [
+        { criterion: 'İlk tepki', individual: 'Bildirimi tam okumadan hızlı mesaj gönderir', company: 'Etsy bildirimini ve istenen aksiyonu dikkatle inceler' },
+        { criterion: 'Sorun tespiti', individual: 'Sorunu tek bir nedene bağlar', company: 'Kimlik, ödeme, listeleme, politika ve mağaza güvenini birlikte kontrol eder' },
+        { criterion: 'Mesaj dili', individual: 'Dağınık, savunmacı veya öfkeli olabilir', company: 'Kısa, net, saygılı ve çözüm odaklı ilerler' },
+        { criterion: 'Listeleme yönetimi', individual: 'Kaldırılan ürünü nedeni anlamadan tekrar yükleyebilir', company: 'Başlık, açıklama, görsel, tag ve politika risklerini inceler' },
+        { criterion: 'Sonuç beklentisi', individual: 'Hesabın kesin açılacağını varsayar', company: 'Sonucun Etsy değerlendirmesine bağlı olduğunu kabul eder' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy hesabı askıya alındığında kontrol listesi',
+      items: [
+        'Etsy’den gelen e-posta okundu mu?',
+        'Panel bildirimleri kontrol edildi mi?',
+        'Askıya alma nedeni netleşti mi?',
+        'Kimlik ve ödeme bilgileri doğru mu?',
+        'Mağaza bilgileri eksiksiz mi?',
+        'Listeleme başlık, tag ve açıklamaları kontrol edildi mi?',
+        'Ürün görselleri yanıltıcı olabilir mi?',
+        'Kargo ve iade politikaları net mi?',
+        'İtiraz gerekiyorsa mesaj kısa, net ve çözüm odaklı mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy hesabı neden askıya alınır?',
+          answer:
+            'Kimlik veya ödeme doğrulama sorunları, mağaza bilgilerinde eksiklik, listeleme politikası ihlalleri, telif/marka şikayetleri veya müşteri güveni sorunları gibi farklı nedenlerle olabilir. Kesin neden, Etsy’nin bildirimi ve değerlendirmesine göre değişir.',
+        },
+        {
+          question: 'Etsy hesabı askıya alınırsa ne yapılmalı?',
+          answer:
+            'Önce Etsy’den gelen e-posta ve panel bildirimleri dikkatlice okunmalı, askıya alma nedeni anlaşılmaya çalışılmalıdır. Ardından kimlik, ödeme, listeleme ve mağaza bilgileri kontrol edilip gerekirse resmî itiraz süreci takip edilmelidir.',
+        },
+        {
+          question: 'Etsy suspend appeal nasıl yapılır?',
+          answer:
+            'İtiraz mesajı kısa, net, saygılı ve çözüm odaklı olmalı; sorunu anladığınızı ve yapılan düzeltmeleri açık şekilde belirtmelidir. Hazır kopyala-yapıştır mesajlara güvenmek yerine duruma özel bir açıklama hazırlanması önerilir.',
+        },
+        {
+          question: 'Etsy hesabı kesin geri açılır mı?',
+          answer:
+            'Hayır, kesin bir garanti verilemez; sonuç Etsy’nin değerlendirmesine, ihlalin niteliğine ve mağaza geçmişine göre değişir. Kontrollü ve düzenli bir yaklaşım, sürecin daha sağlıklı ilerlemesine yardımcı olabilir.',
+        },
+        {
+          question: 'Etsy listeleme neden kaldırılır?',
+          answer:
+            'Başlık, açıklama, görsel, kategori, telif/marka kullanımı veya yasaklı ürün gibi politika ihlali ihtimalleri listeleme kaldırılmasına neden olabilir. Kaldırma nedeni anlaşılmadan aynı listelemeyi tekrar yüklemek ek risk oluşturabilir.',
+        },
+        {
+          question: 'Etsy askıya alınan hesap için yeni hesap açılır mı?',
+          answer:
+            'Askıya alma nedeni netleşmeden yeni hesap açmaya çalışmak riskli olabilir ve platform politikaları açısından daha büyük sorunlara yol açabilir. Bu konuda resmî bildirimler dikkate alınmalı, gerekirse profesyonel destek alınmalıdır.',
+        },
+        {
+          question: 'Etsy hesabı askıya alınmaması için nelere dikkat edilmeli?',
+          answer:
+            'Mağaza ve kimlik/ödeme bilgilerinin doğru tutulması, ürün açıklamalarının gerçeğe uygun yazılması, telif/marka risklerine dikkat edilmesi ve kargo/iade politikalarının net olması önemlidir. Mağaza güveni ve listeleme kalitesi düzenli korunmalıdır.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Etsy’den gelen e-posta ve panel bildirimlerini dikkatlice okuyun',
+      'Askıya alma nedenini netleştirmeye çalışın',
+      'Kimlik, ödeme, mağaza bilgisi, listeleme ve politika alanlarını kontrol edin',
+      'İtiraz gerekiyorsa kısa, net ve çözüm odaklı bir açıklama hazırlayın',
+      'Ücretsiz analiz ile Etsy mağazanızın politika, listeleme ve güven yapısını birlikte değerlendirin',
+    ],
+  },
 };
