@@ -194,7 +194,7 @@ export const guides: Record<string, Guide> = {
       'Yeni açılan bir Etsy mağazasının ilk satışını almasını geciktiren en yaygın hatalar ve ilk satışı hızlandıran temel adımlar.',
     category: 'Etsy',
     targetAudience: 'Etsy’de yeni mağaza açan veya açacak marka sahipleri',
-    searchIntent: 'etsy ilk satış nasıl alınır, etsy mağaza satış yapmıyor',
+    searchIntent: 'etsy ilk satış nasıl alınır, etsy mağaza satış yapmıyor, etsy mağazam neden satış almıyor, etsy seo nasıl yapılır, etsy reklam açmalı mıyım, etsy ilk 30 gün, etsy yeni mağaza nasıl büyür',
     relatedServiceSlug: 'etsy',
     readTime: '4 dk',
     publishedAt: '2026-01-18',
@@ -203,31 +203,130 @@ export const guides: Record<string, Guide> = {
     updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
-      'Etsy’de ilk satışı almak genellikle teknik bir sorun değil; görsel kalite, başlık/SEO uyumu ve fiyat algısı sorunudur. Bu rehber, yeni açılan bir Etsy mağazasının ilk satışını geciktiren en yaygın nedenleri ve hızlandıran temel adımları özetler.',
+      'Etsy’de ilk satış almak için yalnızca mağaza açmak yeterli değildir. Ürün seçimi, listeleme kalitesi, görseller, SEO, fiyatlandırma, mağaza güveni ve ilk trafik stratejisi birlikte çalışmalıdır. Bu rehber yeni Etsy mağazalarının ilk satışa giden süreçte hangi adımlara odaklanması gerektiğini açıklar.',
     quickAnswer:
-      'Etsy’de ilk satışı geciktiren en yaygın neden, ürün fotoğrafı ve başlık kalitesine yeterince yatırım yapılmamasıdır. Doğru kategori, anahtar kelime ve fiyat dengesi kurulduğunda ilk satış genellikle daha hızlı gelir.',
+      'Etsy’de ilk satış almak için ürününüzün doğru müşteriye görünmesi, tıklanınca güven vermesi ve satın alma kararını kolaylaştırması gerekir. Başlık, etiket, kategori, açıklama, fotoğraf, fiyat, kargo ve mağaza profili birlikte optimize edilmeden ilk satış süreci uzayabilir.',
     whoShouldRead: [
-      'Etsy’de yeni mağaza açan veya açacak marka sahipleri',
-      'İlk satışını almakta zorlanan Etsy satıcıları',
-      'Ürün fotoğrafı ve başlık stratejisini güçlendirmek isteyenler',
+      'Yeni Etsy mağazası açanlar',
+      'Etsy’de ürün yükleyip satış alamayanlar',
+      'El yapımı, tasarım veya niş ürünlerini yurtdışına satmak isteyenler',
+      'Etsy SEO ve ürün fotoğrafı konusunda nereden başlayacağını bilmeyenler',
     ],
+    expertNote:
+      'Etsy’de ilk satış çoğu zaman tek bir ayarın sonucu değildir. Başlık, etiket veya reklam tek başına yeterli olmayabilir; ürünün arama niyeti, görsel dili, fiyat algısı ve mağaza güveni aynı anda değerlendirilmelidir.',
+    expertNoteAfterHeading: 'Etsy reklamları ilk satış için gerekli mi?',
     sections: [
       {
-        heading: 'İlk satışı geciktiren en yaygın hata',
-        body: 'Çoğu yeni mağaza, ürün fotoğrafı ve başlık kalitesine yeterince yatırım yapmadan listeleme yapar. Etsy’de alıcı kararını büyük ölçüde görsel ve ilk üç kelimeden oluşan başlık üzerinden verir.',
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle mağazasını açmış, ürün yüklemiş ama görüntülenme, favori veya satış alamadığını fark etmiştir. İlk satış sadece ürün yüklemekle gelmez; doğru görünürlük ve güven sistemini birlikte kurmakla ilgilidir.',
       },
       {
-        heading: 'Doğru kategori ve anahtar kelime seçimi',
-        body: 'Etsy arama algoritması, başlık, etiket ve kategori uyumuna göre çalışır. Rastgele geniş kelimeler yerine, ürünü gerçekten arayan kişinin yazacağı spesifik ifadeler kullanmak görünürlüğü artırır.',
+        heading: 'Etsy’de ilk satış neden hemen gelmeyebilir?',
+        body: '- Ürün, arama niyetine tam uymuyor olabilir\n- Başlık ve etiketler alıcı diliyle yazılmamış olabilir\n- Fotoğraflar ürünü yeterince anlatmıyor olabilir\n- Fiyat, kargo veya teslimat algısı zayıf olabilir\n- Mağaza profili güven vermiyor olabilir\n- Rekabet yoğun olabilir\n- Listeleme yeni olduğu için yeterli veri oluşmamış olabilir',
       },
       {
-        heading: 'Fiyat ve sosyal kanıt dengesi',
-        body: 'Yeni bir mağazada yorum olmadığı için fiyat, alıcının ilk güven sinyali haline gelir. Çok düşük veya çok yüksek fiyatlandırma, ilk satışı zorlaştırabilir.',
+        heading: 'Etsy arama sistemi yeni mağazaları nasıl değerlendirir?',
+        body: 'Etsy, alıcının arama sorgusuyla listeleme bilgilerinin ne kadar uyumlu olduğuna bakar. Başlık, etiketler, kategori, özellikler, açıklama, görseller ve kullanıcı davranışları görünürlüğü etkileyebilir; kesin bir algoritma formülü yoktur ve bu mantık zamanla değişebilir.',
       },
       {
-        heading: 'GloventGlobal nasıl yardımcı olur?',
-        body: 'Etsy Marka Sistemi kapsamında ürün, görsel dil, başlık/SEO yapısı ve fiyat konumlandırmasını birlikte çalışan bir sisteme dönüştürüyoruz.',
+        heading: 'İlk satış için ürün seçimi neden önemlidir?',
+        body: '- Her ürün Etsy için uygun değildir\n- Niş ürün daha avantajlı olabilir\n- Hediye, kişiselleştirme, el yapımı, tasarım ve özel kullanım alanları güçlü olabilir\n- Çok genel ürünlerde rekabet yüksektir\n- İlk ürünler test edilebilir olmalı',
       },
+      {
+        heading: 'Etsy SEO’da ilk yapılması gerekenler',
+        body: '- Alıcının kullandığı kelimeleri düşünmek\n- Başlığı okunabilir ve arama niyetine uygun yazmak\n- 13 etiketi mantıklı kullanmak\n- Kategori ve özellikleri eksiksiz doldurmak\n- Açıklamada ürünün ne olduğunu, kime uygun olduğunu ve nasıl kullanılacağını net anlatmak\n- Anahtar kelime doldurma yerine doğal açıklama kullanmak',
+      },
+      {
+        heading: 'Ürün fotoğrafları ilk satışı nasıl etkiler?',
+        body: '- İlk fotoğraf tıklama kararını etkiler\n- Ürün net anlaşılmalı\n- Ölçek / kullanım / detay görselleri önemli\n- Arka plan ürünle yarışmamalı\n- Güven veren ve gerçekçi fotoğraf dili kullanılmalı\n- Yapay zeka arka plan kullanılıyorsa ürün gerçekliği bozulmamalı',
+      },
+      {
+        heading: 'Fiyat, kargo ve güven algısı',
+        body: '- Yeni mağazada müşteri risk algısı daha yüksektir\n- Fiyat çok yüksek veya çok düşük görünmemeli\n- Kargo süresi ve maliyeti net olmalı\n- Mağaza hakkında bölümü doldurulmalı\n- Politika ve profil alanları eksik bırakılmamalı',
+      },
+      {
+        heading: 'Etsy reklamları ilk satış için gerekli mi?',
+        body: 'Reklam bazı ürünlerde görünürlük sağlayabilir ama zayıf listelemeyi kurtarmaz. Önce ürün sayfası, fotoğraf, SEO ve fiyat yapısı düzeltilmeli; sonra düşük bütçeyle test mantığıyla reklam kullanılabilir.',
+      },
+      {
+        heading: 'Etsy’de ilk 30 gün nasıl planlanmalı?',
+        body: '1. hafta: mağaza profili, politika, ilk ürünler\n2. hafta: başlık, etiket, fotoğraf kontrolü\n3. hafta: görüntülenme ve favori verilerini analiz etme\n4. hafta: düşük performanslı listelemeleri iyileştirme, gerekirse reklam testi',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'Etsy’de en sık hata, mağazayı açıp ürün yüklemeyi satış için yeterli sanmaktır. Asıl mesele ürün, arama niyeti, görsel kalite, güven, fiyat ve trafik sisteminin birlikte kurulmasıdır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarını yalnızca ürün yükleme alanı olarak değil; ürün seçimi, görsel dil, SEO, fiyatlandırma, reklam ve operasyon adımlarının birlikte çalıştığı bir marka sistemi olarak ele alır.',
+      },
+    ],
+    comparison: {
+      heading: 'Yeni Etsy mağazasında organik başlangıç mı, reklamlı başlangıç mı?',
+      headers: ['Kriter', 'Organik Başlangıç', 'Reklamlı Başlangıç'],
+      rows: [
+        { criterion: 'Başlangıç maliyeti', individual: 'Daha düşük', company: 'Daha yüksek' },
+        { criterion: 'Öğrenme', individual: 'Daha doğal veri sağlar', company: 'Daha hızlı test verisi sağlar' },
+        { criterion: 'Risk', individual: 'Daha kontrollü', company: 'Zayıf listelemede bütçe boşa gidebilir' },
+        { criterion: 'Hız', individual: 'Daha yavaş', company: 'Daha hızlı görünürlük sağlayabilir' },
+        { criterion: 'Uygun kullanım', individual: 'Mağaza ve listeleme temeli kurmak', company: 'Hazır listelemeleri test etmek' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy’de ilk satış öncesi kontrol listesi',
+      items: [
+        'Ürün Etsy müşteri kitlesine uygun mu?',
+        'Başlık alıcının arama niyetine göre yazıldı mı?',
+        '13 etiket mantıklı şekilde kullanıldı mı?',
+        'Kategori ve özellikler eksiksiz mi?',
+        'İlk fotoğraf tıklama alabilecek kadar güçlü mü?',
+        'Ürün açıklaması net ve güven verici mi?',
+        'Fiyat ve kargo müşteriye anlaşılır görünüyor mu?',
+        'Mağaza profili ve politikalar dolduruldu mu?',
+        'İlk 30 gün için optimizasyon planı var mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy’de ilk satış ne kadar sürede gelir?',
+          answer:
+            'Bu süre üründen ürüne, kategoriye ve rekabet yoğunluğuna göre değişir; kesin bir süre vermek mümkün değildir. Doğru ürün, listeleme kalitesi ve mağaza güveni birlikte kurulduğunda süreç genellikle daha öngörülebilir hale gelir.',
+        },
+        {
+          question: 'Etsy’de satış almak için reklam şart mı?',
+          answer:
+            'Reklam şart değildir; öncelik ürün sayfası, fotoğraf, SEO ve fiyat yapısının doğru kurulmasıdır. Bu temel sağlandıktan sonra düşük bütçeli reklam testleri görünürlüğü destekleyebilir.',
+        },
+        {
+          question: 'Etsy SEO’da en önemli alanlar nelerdir?',
+          answer:
+            'Başlık, etiketler, kategori ve özellikler alıcının arama niyetiyle uyumlu olmalıdır. Açıklama da anahtar kelime doldurma yerine ürünü doğal bir dille anlatmalıdır.',
+        },
+        {
+          question: 'Yeni Etsy mağazasında kaç ürünle başlamak gerekir?',
+          answer:
+            'Kesin bir sayı yoktur; az sayıda ama doğru seçilmiş 5-10 ürünle başlamak çoğu zaman daha yönetilebilir bir test süreci sağlar. Önemli olan ürünlerin mağaza kimliğiyle ve hedef müşteriyle uyumlu olmasıdır.',
+        },
+        {
+          question: 'Etsy’de ürün fotoğrafları satışları etkiler mi?',
+          answer:
+            'Evet, ilk fotoğraf tıklama kararını doğrudan etkiler ve ürünün net, güven veren şekilde anlatılması önemlidir. Zayıf veya belirsiz görseller, diğer her şey doğru olsa bile satışı zorlaştırabilir.',
+        },
+        {
+          question: 'Etsy mağazam görüntülenme alıyor ama satış almıyorsa ne yapmalıyım?',
+          answer:
+            'Bu durumda genellikle fotoğraf, açıklama, fiyat veya mağaza güveni alanlarından biri alıcıyı satın almaya ikna edemiyordur. Listelemeleri tek tek gözden geçirip bu alanları güçlendirmek mantıklı bir ilk adımdır.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürünlerinizin Etsy müşteri kitlesine uygun olup olmadığını değerlendirin',
+      'En güçlü 5-10 ürünle mağazanızı sade şekilde başlatın',
+      'Başlık, etiket, kategori ve açıklamaları arama niyetine göre düzenleyin',
+      'Ürün fotoğraflarınızı güven ve tıklama odaklı hazırlayın',
+      'İlk trafik ve optimizasyon planınızı oluşturun',
     ],
   },
 
