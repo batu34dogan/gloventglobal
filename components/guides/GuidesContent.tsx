@@ -174,7 +174,7 @@ export default function GuidesContent() {
                 <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.06] pt-4">
                   {relatedService && (
                     <span className="text-[11px] font-medium uppercase tracking-[0.04em] text-blue-300/70">
-                      İlgili: {relatedService.eyebrow}
+                      İlgili Sistem: {relatedService.eyebrow}
                     </span>
                   )}
                   <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-300/90">

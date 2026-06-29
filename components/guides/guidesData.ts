@@ -21,6 +21,9 @@ export type Guide = {
   author?: string;
   summary?: string;
   quickAnswer?: string;
+  whoShouldRead?: string[];
+  expertNote?: string;
+  nextSteps?: string[];
   sections: GuideSection[];
 };
 
@@ -42,6 +45,21 @@ export const guides: Record<string, Guide> = {
       'Amazon’da satış yapmak için her durumda şirket zorunlu olmayabilir. Ancak sürdürülebilir satış hedefleyen markalar için şirket, vergi, lojistik, ödeme ve operasyon planlaması en baştan düşünülmelidir. Bu rehber hangi durumda bireysel başlangıcın, hangi durumda şirketli yapının daha doğru olabileceğini açıklar.',
     quickAnswer:
       'Amazon’da bazı pazarlarda bireysel satıcı hesabı açmak mümkün olabilir. Ancak ciddi, sürdürülebilir ve ölçeklenebilir satış yapmak isteyen işletmeler için şirket, vergi, fatura, ödeme alma, lojistik ve marka yönetimi birlikte planlanmalıdır.',
+    whoShouldRead: [
+      'Amazon’da satışa başlamayı düşünenler',
+      'Şirket kurmadan önce süreci anlamak isteyenler',
+      'Türkiye’den global pazarlara açılmak isteyen üretici ve markalar',
+      'Bireysel başlangıç ile şirketli satış arasındaki farkı öğrenmek isteyenler',
+    ],
+    expertNote:
+      'Amazon’da bireysel başlangıç bazı durumlarda mümkün olabilir. Ancak uzun vadeli marka oluşturmak, düzenli reklam yönetmek, fatura/vergi düzenini sağlamak ve operasyonu ölçeklemek isteyen işletmeler için şirketli yapı çoğu senaryoda daha sağlıklı bir temel oluşturur.',
+    nextSteps: [
+      'Ürün ve pazar uygunluğunu değerlendirin',
+      'Kârlılık ve operasyon modelinizi netleştirin',
+      'Listeleme, reklam ve lojistik planınızı hazırlayın',
+      'Amazon Global Satış Sistemi hizmetini inceleyin',
+      'Ücretsiz analiz ile başlangıç seviyenizi değerlendirin',
+    ],
     sections: [
       {
         heading: 'Bu soruyu neden soruyorsunuz?',
@@ -103,6 +121,11 @@ export const guides: Record<string, Guide> = {
       'Etsy’de ilk satışı almak genellikle teknik bir sorun değil; görsel kalite, başlık/SEO uyumu ve fiyat algısı sorunudur. Bu rehber, yeni açılan bir Etsy mağazasının ilk satışını geciktiren en yaygın nedenleri ve hızlandıran temel adımları özetler.',
     quickAnswer:
       'Etsy’de ilk satışı geciktiren en yaygın neden, ürün fotoğrafı ve başlık kalitesine yeterince yatırım yapılmamasıdır. Doğru kategori, anahtar kelime ve fiyat dengesi kurulduğunda ilk satış genellikle daha hızlı gelir.',
+    whoShouldRead: [
+      'Etsy’de yeni mağaza açan veya açacak marka sahipleri',
+      'İlk satışını almakta zorlanan Etsy satıcıları',
+      'Ürün fotoğrafı ve başlık stratejisini güçlendirmek isteyenler',
+    ],
     sections: [
       {
         heading: 'İlk satışı geciktiren en yaygın hata',
@@ -140,6 +163,11 @@ export const guides: Record<string, Guide> = {
       'Shopify ve Etsy birbirinin yerine geçen değil, farklı ihtiyaçlara hizmet eden iki satış modelidir. Bu rehber, hangi işletme için hangisinin daha mantıklı olduğunu ve ikisinin birlikte nasıl kullanılabileceğini özetler.',
     quickAnswer:
       'Hazır bir alıcı kitlesine ihtiyaç duyan markalar için Etsy, kendi marka varlığını ve müşteri verisini kontrol etmek isteyen markalar için Shopify genellikle daha mantıklıdır. Çoğu marka için en sürdürülebilir yaklaşım, ikisini birlikte ve aşamalı olarak kullanmaktır.',
+    whoShouldRead: [
+      'İlk satış kanalını seçmeye çalışan marka sahipleri',
+      'Etsy ile Shopify arasında kararsız kalan markalar',
+      'Uzun vadeli marka altyapısı kurmak isteyenler',
+    ],
     sections: [
       {
         heading: 'Etsy ne zaman daha mantıklı?',
@@ -177,6 +205,11 @@ export const guides: Record<string, Guide> = {
       'Global pazara açılmak isteyen Türkiye merkezli markaların ilk olarak hangi soruları cevaplaması, hangi kararları önce vermesi gerektiğini özetleyen bu rehber; pazar seçimi, operasyon hazırlığı ve kanal stratejisini bir araya getirir.',
     quickAnswer:
       'Doğru başlangıç noktası önce platform değil, hedef pazar ve müşteri seçimidir. Talep ve rekabet analizi yapılmadan seçilen kanal, doğru olsa bile beklenen sonucu vermeyebilir.',
+    whoShouldRead: [
+      'Yurtdışına satış yapmayı planlayan Türkiye merkezli üretici ve markalar',
+      'Hangi pazardan başlayacağını netleştirmek isteyenler',
+      'Global satış operasyonunu önceden planlamak isteyenler',
+    ],
     sections: [
       {
         heading: 'Önce pazar, sonra kanal',
@@ -214,6 +247,11 @@ export const guides: Record<string, Guide> = {
       'Toptan satış yapan markaların PDF katalog ve e-posta trafiğinden, ölçülebilir bir dijital showroom yapısına geçmesinin neden önemli olduğunu özetleyen bu rehber; teklif takibi, müşteri grupları ve satış görünürlüğü konularına odaklanır.',
     quickAnswer:
       'PDF katalog ve e-posta üzerinden yürüyen bir toptan satış süreci, hangi müşterinin hangi ürüne ilgi gösterdiğini izlemeyi zorlaştırır. Dijital showroom, ürün sunumu ve teklif sürecini tek bir görünür sisteme dönüştürür.',
+    whoShouldRead: [
+      'Toptan satış yapan üretici ve distribütör firmalar',
+      'PDF katalog ve e-posta ile çalışmaktan sıkılan satış ekipleri',
+      'Teklif sürecini dijitalleştirmek isteyen markalar',
+    ],
     sections: [
       {
         heading: 'Klasik PDF katalogun sınırı',
@@ -251,6 +289,11 @@ export const guides: Record<string, Guide> = {
       '"Yapay zeka kullanıyoruz" demek yeterli değildir. Bu rehber, e-ticarette yapay zekanın gerçek anlamda değer ürettiği somut kullanım alanlarını; içerik üretimi, müşteri iletişimi ve raporlama başlıkları üzerinden özetler.',
     quickAnswer:
       'E-ticarette yapay zeka en çok ürün/içerik üretimi, müşteri iletişimi ve raporlama / karar desteği alanlarında gerçek değer üretir. Asıl fark, yapay zekanın kontrol ve onay yapısıyla satış sistemine entegre edilmesidir.',
+    whoShouldRead: [
+      'Operasyonunu ve içerik süreçlerini hızlandırmak isteyen e-ticaret markaları',
+      'Yapay zekayı nereden başlayarak kullanacağını netleştirmek isteyenler',
+      'İçerik ve raporlama süreçlerini sistemli hale getirmek isteyenler',
+    ],
     sections: [
       {
         heading: 'Ürün ve içerik üretiminde',

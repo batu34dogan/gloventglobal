@@ -99,6 +99,31 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
         </div>
       )}
 
+      {/* ============ KİMLER OKUMALI? ============ */}
+      {guide.whoShouldRead && guide.whoShouldRead.length > 0 && (
+        <div className="relative mx-auto mt-5 max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] p-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">Kimler Okumalı?</p>
+          <ul className="mt-3 space-y-2">
+            {guide.whoShouldRead.map((item) => (
+              <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-blue-100/80 sm:text-base">
+                <span aria-hidden="true" className="mt-0.5 flex-shrink-0 text-blue-400">
+                  ✓
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* ============ UZMAN NOTU ============ */}
+      {guide.expertNote && (
+        <div className="relative mx-auto mt-5 max-w-2xl rounded-2xl border border-cyan-400/30 bg-cyan-500/[0.05] p-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cyan-300/85">Uzman Notu</p>
+          <p className="mt-2.5 text-sm leading-relaxed text-blue-100/85 sm:text-base">{guide.expertNote}</p>
+        </div>
+      )}
+
       {/* ============ İÇİNDEKİLER (sade) ============ */}
       <div className="relative mx-auto mt-10 max-w-2xl rounded-xl border border-white/[0.08] bg-white/[0.03] p-5">
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/75">Bu Rehberde</p>
@@ -130,6 +155,32 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
           // hissi veren, tik işaretli bir kutu içinde gösterilir. Diğer bölümler ve diğer
           // rehberler bu koşula girmediği için eskisi gibi düz paragraf olarak kalır.
           const isChecklist = section.heading.toLowerCase().includes('kontrol listesi');
+          const isFaq = section.heading.toLowerCase().includes('sık sorulan');
+
+          if (isFaq) {
+            // Soru-cevap çiftleri "\n\n" ile ayrılmış, her çift "Soru\nCevap" formatında.
+            const pairs = section.body
+              .split('\n\n')
+              .map((pair) => {
+                const [question, ...rest] = pair.split('\n');
+                return { question: question?.trim(), answer: rest.join(' ').trim() };
+              })
+              .filter((p) => p.question && p.answer);
+
+            return (
+              <div key={section.heading} id={slugify(section.heading)}>
+                <h2 className="text-xl font-semibold text-white sm:text-2xl">{section.heading}</h2>
+                <div className="mt-4 space-y-3">
+                  {pairs.map((pair) => (
+                    <div key={pair.question} className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+                      <p className="text-sm font-semibold text-white sm:text-base">{pair.question}</p>
+                      <p className="mt-1.5 text-sm leading-relaxed text-blue-100/75">{pair.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          }
 
           if (isChecklist) {
             const items = section.body
@@ -203,6 +254,26 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
                   Rehberi Oku <span aria-hidden="true">→</span>
                 </span>
               </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ============ BİR SONRAKİ ADIM ============ */}
+      {guide.nextSteps && guide.nextSteps.length > 0 && (
+        <div className="relative mx-auto mt-10 max-w-2xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">Bir Sonraki Adım</p>
+          <div className="mt-4 space-y-3">
+            {guide.nextSteps.map((step, index) => (
+              <div
+                key={step}
+                className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.035] p-4"
+              >
+                <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300">
+                  {index + 1}
+                </span>
+                <p className="mt-0.5 text-sm leading-relaxed text-blue-100/85 sm:text-base">{step}</p>
+              </div>
             ))}
           </div>
         </div>
