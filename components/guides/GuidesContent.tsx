@@ -99,8 +99,8 @@ export default function GuidesContent() {
               'delay-[300ms]',
             )}`}
           >
-            Amazon, Etsy, Shopify, B2B, global satış ve yapay zeka konularında gerçekten sorulan sorulara
-            cevap veren kısa ve uygulanabilir rehberler.
+            E-ticaret, global satış, B2B, yapay zeka, otomasyon, operasyon ve pazarlama konularında
+            gerçekten sorulan sorulara cevap veren uygulanabilir rehberler.
           </p>
         </div>
       </section>
