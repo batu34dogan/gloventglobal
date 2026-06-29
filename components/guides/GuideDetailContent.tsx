@@ -116,14 +116,6 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
         </div>
       )}
 
-      {/* ============ UZMAN NOTU ============ */}
-      {guide.expertNote && (
-        <div className="relative mx-auto mt-5 max-w-2xl rounded-2xl border border-cyan-400/30 bg-cyan-500/[0.05] p-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cyan-300/85">Uzman Notu</p>
-          <p className="mt-2.5 text-sm leading-relaxed text-blue-100/85 sm:text-base">{guide.expertNote}</p>
-        </div>
-      )}
-
       {/* ============ İÇİNDEKİLER (sade) ============ */}
       <div className="relative mx-auto mt-10 max-w-2xl rounded-xl border border-white/[0.08] bg-white/[0.03] p-5">
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/75">Bu Rehberde</p>
@@ -210,12 +202,87 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
             );
           }
 
-          return (
+          const isComparisonTable = section.heading.toLowerCase().includes('bireysel başlamak mı, şirketle başlamak mı');
+
+          if (isComparisonTable) {
+            // Satırlar "Kriter — Bireysel Başlangıç — Şirketli Başlangıç" formatında, em-dash
+            // ile ayrılmış. İlk satır başlık satırı, kalanı veri satırları.
+            const rows = section.body
+              .split('\n')
+              .map((line) => line.split(' — ').map((cell) => cell.trim()))
+              .filter((cells) => cells.length === 3);
+            const [, ...dataRows] = rows;
+
+            return (
+              <div key={section.heading} id={slugify(section.heading)}>
+                <h2 className="text-xl font-semibold text-white sm:text-2xl">{section.heading}</h2>
+
+                {/* Desktop: gerçek tablo */}
+                <div className="mt-4 hidden overflow-hidden rounded-2xl border border-white/[0.08] sm:block">
+                  <table className="w-full text-left text-sm">
+                    <thead>
+                      <tr className="bg-white/[0.04] text-[11px] font-semibold uppercase tracking-[0.04em] text-blue-300/80">
+                        <th className="px-4 py-3">Kriter</th>
+                        <th className="px-4 py-3">Bireysel Başlangıç</th>
+                        <th className="px-4 py-3">Şirketli Başlangıç</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {dataRows.map((cells, i) => (
+                        <tr key={cells[0]} className={i % 2 === 0 ? 'bg-white/[0.015]' : ''}>
+                          <td className="px-4 py-3 font-medium text-white">{cells[0]}</td>
+                          <td className="px-4 py-3 text-blue-100/75">{cells[1]}</td>
+                          <td className="px-4 py-3 text-blue-100/75">{cells[2]}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Mobil: her kriter ayrı kart, taşma yapmaz */}
+                <div className="mt-4 space-y-3 sm:hidden">
+                  {dataRows.map((cells) => (
+                    <div key={cells[0]} className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-4">
+                      <p className="text-sm font-semibold text-white">{cells[0]}</p>
+                      <div className="mt-2.5 grid grid-cols-2 gap-3 text-xs">
+                        <div>
+                          <p className="font-semibold uppercase tracking-[0.03em] text-blue-300/70">Bireysel</p>
+                          <p className="mt-1 text-blue-100/75">{cells[1]}</p>
+                        </div>
+                        <div>
+                          <p className="font-semibold uppercase tracking-[0.03em] text-blue-300/70">Şirketli</p>
+                          <p className="mt-1 text-blue-100/75">{cells[2]}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+
+          const sectionNode = (
             <div key={section.heading} id={slugify(section.heading)}>
               <h2 className="text-xl font-semibold text-white sm:text-2xl">{section.heading}</h2>
               <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-blue-100/75 sm:text-base">{section.body}</p>
             </div>
           );
+
+          // Uzman Notu, üst bölümden kaldırıldı — artık "Profesyonel satış için şirket neden
+          // önemlidir?" bölümünün hemen ardına, içeriğin doğal akışı içinde yerleşiyor.
+          if (section.heading === 'Profesyonel satış için şirket neden önemlidir?' && guide.expertNote) {
+            return (
+              <div key={section.heading}>
+                {sectionNode}
+                <div className="mt-6 rounded-2xl border border-cyan-400/30 bg-cyan-500/[0.05] p-6">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cyan-300/85">Uzman Notu</p>
+                  <p className="mt-2.5 text-sm leading-relaxed text-blue-100/85 sm:text-base">{guide.expertNote}</p>
+                </div>
+              </div>
+            );
+          }
+
+          return sectionNode;
         })}
       </article>
 
@@ -263,18 +330,22 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
       {guide.nextSteps && guide.nextSteps.length > 0 && (
         <div className="relative mx-auto mt-10 max-w-2xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">Bir Sonraki Adım</p>
-          <div className="mt-4 space-y-3">
-            {guide.nextSteps.map((step, index) => (
-              <div
-                key={step}
-                className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.035] p-4"
-              >
-                <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300">
-                  {index + 1}
-                </span>
-                <p className="mt-0.5 text-sm leading-relaxed text-blue-100/85 sm:text-base">{step}</p>
-              </div>
-            ))}
+          <div className="relative mt-4">
+            {/* Adımları birbirine bağlayan dikey çizgi — sade bir yol haritası hissi verir. */}
+            <span
+              aria-hidden="true"
+              className="absolute left-[13px] top-2 bottom-2 w-px bg-gradient-to-b from-blue-400/50 via-blue-400/20 to-transparent"
+            />
+            <div className="space-y-5">
+              {guide.nextSteps.map((step, index) => (
+                <div key={step} className="relative flex items-start gap-3">
+                  <span className="relative z-10 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-blue-400/45 bg-[#0b1322] text-xs font-semibold text-blue-300">
+                    {index + 1}
+                  </span>
+                  <p className="mt-0.5 text-sm leading-relaxed text-blue-100/85 sm:text-base">{step}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
