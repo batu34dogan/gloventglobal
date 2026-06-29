@@ -1720,4 +1720,162 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Etsy tag ve listeleme yapınızı birlikte değerlendirin',
     ],
   },
+
+  'etsy-basligi-nasil-yazilir': {
+    title: 'Etsy Başlığı Nasıl Yazılır?',
+    slug: 'etsy-basligi-nasil-yazilir',
+    excerpt:
+      'Etsy ürün başlığını anahtar kelime, okunabilirlik, ürün tanımı ve müşteri arama niyeti dengesiyle nasıl yazacağınızı açıklıyoruz.',
+    category: 'Etsy',
+    targetAudience: 'Etsy ürün başlığı yazarken zorlanan satıcılar',
+    searchIntent: 'etsy başlığı nasıl yazılır, etsy ürün başlığı nasıl olmalı, etsy title nasıl yazılır, etsy seo başlık nasıl yapılır, etsy ürün başlığı örnekleri, etsy başlıkta anahtar kelime nasıl kullanılır, etsy başlık ve tag ilişkisi nedir, etsy listing title nasıl optimize edilir',
+    relatedServiceSlug: 'etsy',
+    readTime: '5 dk',
+    publishedAt: '2026-02-17',
+    order: 12,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy ürün başlığı, müşterinin ürünü arama sonuçlarında ilk gördüğü alanlardan biridir. Doğru başlık yalnızca anahtar kelime içermekle kalmaz; ürünün ne olduğunu, kime hitap ettiğini, hangi kullanım amacına uygun olduğunu ve neden tıklanmaya değer olduğunu net şekilde anlatır. Bu rehber, Etsy başlığı yazarken SEO ve okunabilirlik dengesinin nasıl kurulabileceğini açıklar.',
+    quickAnswer:
+      'Etsy başlığı yazarken ürünün ne olduğu başta anlaşılmalı, ana arama niyeti doğal şekilde kullanılmalı ve başlık okunabilir kalmalıdır. Anahtar kelime doldurmak yerine ürün tipi, malzeme, kullanım alanı, stil, hedef müşteri ve hediye niyeti dengeli şekilde verilmelidir.',
+    whoShouldRead: [
+      'Etsy ürün başlığı yazarken zorlanan satıcılar',
+      'Etsy SEO çalışması yapmak isteyen mağaza sahipleri',
+      'Ürünleri görüntülenme almayan veya yanlış aramalarda görünenler',
+      'Başlık ve tag uyumunu iyileştirmek isteyenler',
+      'El yapımı, deri, takı, aksesuar, dijital ürün veya tasarım ürünleri satanlar',
+      'Etsy’de organik görünürlüğünü artırmak isteyen markalar',
+    ],
+    expertNote:
+      'Etsy başlığında en sık yapılan hata, başlığı anahtar kelime listesine çevirmektir. Güçlü bir Etsy başlığı, ürünü net tanıtırken ana arama niyetini doğal biçimde taşır. Başlık hem Etsy araması hem de müşterinin ürünü hızlı anlaması için birlikte düşünülmelidir.',
+    expertNoteAfterHeading: 'Etsy başlığında anahtar kelime nasıl kullanılmalı?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran satıcılar genellikle ürün başlığına hangi kelimeleri yazacağını bilmez, rakip başlıklarını kopyalar veya başlığı anahtar kelime listesine çevirir. Etsy başlığı sadece SEO alanı değil, müşterinin ürünü ilk anlamaya çalıştığı alandır.',
+      },
+      {
+        heading: 'Etsy başlığı nedir?',
+        body: '- Etsy ürün listelemesinde ürünün arama ve kart görünümünde öne çıkan başlık alanı\n- Ürünün ne olduğunu müşteriye ve arama sistemine anlatması\n- Tag, açıklama, kategori ve fotoğrafla birlikte çalışması\n- Sadece anahtar kelime değil, net ürün tanımı olması gerektiği',
+      },
+      {
+        heading: 'Etsy başlığı ne işe yarar?',
+        body: '- Ürünün ne olduğunu hızlı anlatır\n- Ana arama niyetini destekler\n- Müşterinin arama sonucunda ürünü anlamasına yardımcı olur\n- Tıklanma ihtimalini etkileyebilir\n- Tag ve açıklama alanlarıyla birlikte Etsy SEO yapısının parçasıdır\n- Ürünün kullanım alanı, stil veya hedef kişisini gösterebilir',
+      },
+      {
+        heading: 'Örnek Etsy Başlık Senaryosu',
+        body: 'Örnek senaryo: Deri EDC organizer satan bir Etsy mağazası, ürün başlığını yalnızca genel kelimelerle doldurmak yerine ürün tipi, kullanım amacı, malzeme, hedef kişi ve hediye niyetini dengeli şekilde anlatabilir. Bu senaryo satış garantisi değil, Etsy başlığını daha okunabilir ve arama niyetine uygun hale getirmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Etsy başlığı yazarken hangi bilgiler düşünülmeli?',
+        body: '- Ürün tipi\n- Ana arama niyeti\n- Malzeme\n- Kullanım alanı\n- Hedef müşteri\n- Hediye niyeti\n- Stil\n- Renk veya ölçü\n- Özel gün\n- Ürünü ayıran özellik',
+      },
+      {
+        heading: 'Etsy başlığı nasıl yazılmalı?',
+        body: '- Ürünün ne olduğu başta anlaşılmalı\n- Ana arama niyeti doğal şekilde kullanılmalı\n- Okunabilirlik korunmalı\n- Anahtar kelime tekrarından kaçınılmalı\n- Başlık ürünle gerçekten alakalı olmalı\n- Üründe olmayan özellik başlığa eklenmemeli\n- Tag ve açıklamayla uyumlu olmalı',
+      },
+      {
+        heading: 'Etsy başlığında anahtar kelime nasıl kullanılmalı?',
+        body: 'Anahtar kelime başlığın doğal bir parçası olmalıdır. Ürünün ana tanımı ve müşteri arama niyeti başlıkta yer alabilir; ancak başlığı sadece kelime listesine çevirmek kullanıcı deneyimini zayıflatabilir. Amaç hem arama sistemine hem müşteriye net bilgi vermektir.',
+      },
+      {
+        heading: 'Etsy başlık ve tag ilişkisi nasıl olmalı?',
+        body: 'Başlık ana ürün kimliğini ve ana arama niyetini taşır. Tag alanı ise başlığı destekleyen farklı müşteri aramalarını kapsar. Başlık ve tag birebir aynı olmak zorunda değildir; ama birbirinden tamamen kopuk olmamalıdır.',
+      },
+      {
+        heading: 'Etsy başlık örnekleri nasıl düşünülmeli?',
+        body: 'Bir deri EDC organizer için başlık bileşenleri:\n- ürün tipi: Leather EDC Organizer\n- kullanım alanı: Everyday Carry Pouch\n- kullanım nesnesi: Knife Flashlight Pen Holder\n- hedef kişi: Gift for Men\n- stil: Minimalist Leather Tool Wallet\n\nBu örnekler kopyalanacak kesin bir başlık değil, başlık düşünme mantığını göstermek için verilmiştir.',
+      },
+      {
+        heading: 'Etsy başlığı yazarken en sık yapılan hatalar',
+        body: '- Başlığı anahtar kelime listesine çevirmek\n- Rakip başlıklarını direkt kopyalamak\n- Ürünle ilgisiz kelimeler kullanmak\n- Üründe olmayan özellikleri yazmak\n- Başlık ve tag alanını tamamen kopuk kurgulamak\n- Okunabilirliği önemsememek\n- Her ürüne benzer başlık yapısı yazmak\n- Başlığı hiç test etmeden uzun süre aynı bırakmak',
+      },
+      {
+        heading: 'İlk 30 gün Etsy başlık planı',
+        body: '1. hafta: en güçlü 10 ürünün ana arama niyetlerini belirleme\n2. hafta: ürün tipi, kullanım alanı, malzeme ve hedef müşteri bilgileriyle başlıkları düzenleme\n3. hafta: tag, açıklama, kategori ve fotoğrafla başlık uyumunu kontrol etme\n4. hafta: görüntülenme, favori, tıklanma ve satış verilerine göre iyileştirme notları çıkarma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Etsy başlığını yalnızca SEO alanı gibi görmektir. Başlık aynı zamanda müşterinin ürünü ilk anladığı yerdir. Bu yüzden başlık hem arama niyetine hem de okunabilirliğe hizmet etmelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarında ürün başlığı, tag yapısı, açıklama, kategori, fotoğraf ve mağaza güvenini birlikte analiz ederek daha sistemli bir Etsy SEO ve listeleme optimizasyonu süreci oluşturur.',
+      },
+    ],
+    comparison: {
+      heading: 'Anahtar Kelime Listesi mi, Okunabilir Etsy Başlığı mı?',
+      headers: ['Kriter', 'Anahtar Kelime Listesi', 'Okunabilir Etsy Başlığı'],
+      rows: [
+        { criterion: 'Ürün tanımı', individual: 'Ürünün ne olduğunu net anlatmadan çok fazla kelime kullanır', company: 'Ürün tipini ve ana arama niyetini açık şekilde verir' },
+        { criterion: 'Müşteri deneyimi', individual: 'Müşterinin ürünü anlamasını zorlaştırabilir', company: 'Ürünün ne olduğunu hızlı kavratır' },
+        { criterion: 'SEO uyumu', individual: 'Anahtar kelime tekrarına dayanır', company: 'Ana arama niyetini doğal biçimde taşır' },
+        { criterion: 'Tag ilişkisi', individual: 'Tag alanıyla kopuk veya tekrar eden yapı kurabilir', company: 'Tag alanını destekleyen net bir ana çerçeve oluşturur' },
+        { criterion: 'Dönüşüm', individual: 'Tıklama alsa bile güven ve netlik zayıf kalabilir', company: 'Ürünü doğru anlatıp tıklama ve karar sürecini destekler' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy başlığı yazmadan önce kontrol listesi',
+      items: [
+        'Ürünün ana arama niyeti belli mi?',
+        'Başlığın ilk kısmında ürünün ne olduğu anlaşılıyor mu?',
+        'Anahtar kelimeler doğal şekilde kullanıldı mı?',
+        'Ürün tipi, kullanım alanı, malzeme veya hedef kişi dengeli verildi mi?',
+        'Başlık tag ve açıklamayla uyumlu mu?',
+        'Üründe olmayan özellik yazılmadı mı?',
+        'Okunabilirlik korunuyor mu?',
+        'Rakip başlığı direkt kopyalanmadı mı?',
+        'İlk 30 gün için veri takip planı var mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy başlığı nasıl yazılır?',
+          answer:
+            'Ürünün ne olduğu başta net anlaşılmalı, ana arama niyeti doğal şekilde kullanılmalı ve okunabilirlik korunmalıdır. Anahtar kelime doldurmak yerine ürün tipi, malzeme ve kullanım alanı dengeli şekilde verilmelidir.',
+        },
+        {
+          question: 'Etsy title SEO için önemli mi?',
+          answer:
+            'Evet, başlık tag, açıklama ve kategoriyle birlikte Etsy SEO yapısının önemli bir parçasıdır. Ancak başlık tek başına yeterli değildir, diğer listeleme alanlarıyla birlikte çalışması gerekir.',
+        },
+        {
+          question: 'Etsy başlığına hangi kelimeler yazılmalı?',
+          answer:
+            'Ürün tipi, ana arama niyeti, malzeme, kullanım alanı ve hedef kişi gibi bilgiler dengeli şekilde kullanılabilir. Üründe olmayan özelliklerin başlığa eklenmemesi önemlidir.',
+        },
+        {
+          question: 'Etsy başlığı ve tag aynı mı olmalı?',
+          answer:
+            'Aynı olmak zorunda değildir; başlık ana ürün kimliğini taşırken tag farklı müşteri aramalarını destekler. Ancak ikisinin birbirinden tamamen kopuk olmaması önerilir.',
+        },
+        {
+          question: 'Etsy başlığında anahtar kelime tekrar edilmeli mi?',
+          answer:
+            'Gereksiz tekrar okunabilirliği zayıflatabilir ve müşteri deneyimini olumsuz etkileyebilir. Anahtar kelimenin başlıkta doğal ve net şekilde geçmesi genellikle daha sağlıklıdır.',
+        },
+        {
+          question: 'Etsy başlığı kaç karakter olmalı?',
+          answer:
+            'Etsy’nin sunduğu başlık karakter limiti zamanla değişebilir; güncel sınır Etsy’nin kendi listeleme ekranından kontrol edilmelidir. Önemli olan karakter sayısından çok, başlığın net ve okunabilir olmasıdır.',
+        },
+        {
+          question: 'Etsy başlığı ne zaman değiştirilmelidir?',
+          answer:
+            'Görüntülenme, favori ve tıklanma verileri düzenli izlenip performansı düşük görülen başlıklar gözden geçirilebilir. Kesin bir değiştirme periyodu yoktur, bu karar ürünün ve verinin durumuna göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Her ürün için ana arama niyetini belirleyin',
+      'Başlığın ilk kısmında ürünün ne olduğunu net anlatın',
+      'Tag, açıklama ve kategori alanlarıyla başlığı uyumlu hale getirin',
+      'Okunabilirliği bozan anahtar kelime tekrarlarından kaçının',
+      'Ücretsiz analiz ile Etsy başlık ve listeleme yapınızı birlikte değerlendirin',
+    ],
+  },
 };
