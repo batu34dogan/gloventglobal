@@ -177,6 +177,10 @@ export const guides: Record<string, Guide> = {
         body: '- Hedef pazar seçimi\n- Ürün uygunluğu\n- Rekabet analizi\n- Kargo / FBA / FBM kararı\n- Ürün listeleme\n- Reklam bütçesi\n- Kârlılık hesabı\n- Operasyon yönetimi\n- İade ve müşteri hizmetleri',
       },
       {
+        heading: 'Örnek Başlangıç Senaryosu',
+        body: 'Örnek senaryo: Amazon’a yeni başlayacak bir üretici, önce 5-10 ürün fikrini pazar ve rekabet açısından değerlendirir. Kârlılık, kargo modeli, listeleme ihtiyacı ve reklam bütçesi netleşmeden doğrudan stok yatırımı yapmak yerine, ürün uygunluğunu ve operasyon kapasitesini analiz ederek ilerler. İlk 30 gün genellikle bu hazırlık ve analiz dönemine ayrılır; bu süreçte ürün, pazar, kârlılık, lojistik ve reklam olmak üzere 5 temel alan birlikte değerlendirilir. Bu senaryo bir satış garantisi değil, daha kontrollü başlangıç planı örneğidir.',
+      },
+      {
         heading: 'En sık yapılan hata',
         body: 'Amazon’a sadece bir hesap açma işi gibi bakmak en sık yapılan hatadır. Asıl mesele; ürün, pazar, fiyat, lojistik, listeleme, reklam ve operasyon sisteminin birlikte kurulmasıdır.',
       },
@@ -251,6 +255,10 @@ export const guides: Record<string, Guide> = {
       {
         heading: 'Etsy’de ilk 30 gün nasıl planlanmalı?',
         body: '1. hafta: mağaza profili, politika, ilk ürünler\n2. hafta: başlık, etiket, fotoğraf kontrolü\n3. hafta: görüntülenme ve favori verilerini analiz etme\n4. hafta: düşük performanslı listelemeleri iyileştirme, gerekirse reklam testi',
+      },
+      {
+        heading: 'Örnek Başlangıç Senaryosu',
+        body: 'Örnek senaryo: Yeni açılan bir Etsy mağazası, ilk etapta 10 güçlü ürünle başlayabilir. Her ürün için net başlık, doğru kategori, mantıklı etiketler, 8-10 kaliteli görsel ve güven veren açıklama hazırlanır. İlk 30 gün boyunca görüntülenme, favori ve tıklama verileri takip edilerek düşük performanslı listelemeler iyileştirilir. Bu süreçte ürün, SEO, fotoğraf, fiyat ve mağaza güveni olmak üzere 5 temel alan birlikte değerlendirilir. Bu senaryo bir satış garantisi değil, daha kontrollü başlangıç planı örneğidir.',
       },
       {
         heading: 'En sık yapılan hata',
