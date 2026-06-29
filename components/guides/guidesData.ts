@@ -2036,4 +2036,166 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Etsy açıklama ve listeleme yapınızı birlikte değerlendirin',
     ],
   },
+
+  'etsy-fotograf-rehberi': {
+    title: 'Etsy Fotoğraf Rehberi',
+    slug: 'etsy-fotograf-rehberi',
+    excerpt:
+      'Etsy ürün fotoğraflarının yalnızca estetik değil; tıklanma, güven, ölçü anlatımı ve dönüşüm üzerindeki rolünü, ana görsel, detay ve ölçü görsellerinin nasıl hazırlanacağını açıklıyoruz.',
+    category: 'Etsy',
+    targetAudience: 'Etsy ürün fotoğraflarını nasıl hazırlayacağını bilmeyen satıcılar',
+    searchIntent: 'etsy fotoğraf nasıl olmalı, etsy ürün fotoğrafı nasıl çekilir, etsy fotoğraf rehberi, etsy ana fotoğraf nasıl olmalı, etsy ürün görselleri nasıl hazırlanır, etsy de ürün fotoğrafı satışa etki eder mi, etsy için kaç fotoğraf yüklenmeli, etsy ürün fotoğrafında yapay zeka kullanılır mı',
+    relatedServiceSlug: 'etsy',
+    readTime: '5 dk',
+    publishedAt: '2026-02-23',
+    order: 14,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy ürün fotoğrafları, müşterinin ürünü arama sonuçlarında fark etmesini, ürün detaylarını anlamasını ve satın alma kararına yaklaşmasını sağlayan en önemli listeleme alanlarından biridir. Doğru fotoğraf yapısı; ana görsel, detay görselleri, ölçü anlatımı, kullanım senaryosu, paketleme ve güven unsurlarını birlikte sunar. Bu rehber, Etsy ürün fotoğraflarının nasıl daha profesyonel ve dönüşüm odaklı hazırlanabileceğini açıklar.',
+    quickAnswer:
+      'Etsy ürün fotoğrafları net, gerçekçi, ürünü doğru gösteren ve müşterinin sorularını görsel olarak cevaplayan yapıda olmalıdır. Ana fotoğraf ürünü hızlı anlaşılır şekilde göstermeli; diğer görseller ölçü, detay, kullanım, paketleme ve farklı açıları desteklemelidir. Fotoğraf tek başına satış garantisi vermez, ancak güven ve tıklanma üzerinde güçlü rol oynar.',
+    whoShouldRead: [
+      'Etsy ürün fotoğraflarını nasıl hazırlayacağını bilmeyen satıcılar',
+      'Etsy’de görüntülenme alıp tıklama veya satış alamayan mağaza sahipleri',
+      'Ana fotoğraf, detay görseli ve ölçü görseli hazırlamak isteyenler',
+      'El yapımı, deri, takı, aksesuar, dijital ürün veya tasarım ürünleri satanlar',
+      'Yapay zeka destekli arka plan veya sahne kullanmak isteyen ama ürün gerçekliğini korumak isteyenler',
+      'Etsy mağaza güvenini görsellerle artırmak isteyen markalar',
+    ],
+    expertNote:
+      'Etsy’de fotoğraf yalnızca ürünü güzel göstermek için kullanılmaz. Güçlü bir fotoğraf seti, müşterinin “Bu ürün ne?”, “Boyutu nasıl?”, “Nasıl kullanılır?”, “Bana uygun mu?” ve “Güvenebilir miyim?” sorularına görsel olarak cevap verir. Bu yüzden fotoğraf stratejisi, SEO ve açıklama kadar önemlidir.',
+    expertNoteAfterHeading: 'Etsy ürün fotoğraf setinde hangi görseller olmalı?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran satıcılar genellikle ürün fotoğraflarının yeterince tıklama almadığını, ürünün ekranda iyi görünmediğini, ölçü veya detayları anlatamadığını ya da arka plan ve ana görsel konusunda kararsız kaldığını fark eder. Etsy’de fotoğraf sadece güzel görünmek değil, ürünü doğru anlatmak ve güven oluşturmak için kullanılır.',
+      },
+      {
+        heading: 'Etsy ürün fotoğrafı neden önemlidir?',
+        body: '- Müşterinin ürünü ilk gördüğü alanlardan biri olması\n- Arama sonucunda tıklanma kararını etkileyebilmesi\n- Ürünün kalitesi, boyutu, rengi ve kullanımını anlatması\n- Başlık ve açıklamada anlatılan bilgileri görsel olarak desteklemesi\n- Mağaza güveni ve profesyonel algı oluşturması',
+      },
+      {
+        heading: 'Etsy fotoğrafları ne işe yarar?',
+        body: '- Ürünün ne olduğunu hızlı anlatır\n- Ürün detaylarını ve kullanım alanını gösterir\n- Ölçü, renk, malzeme ve doku algısını destekler\n- Müşterinin ürünü hayal etmesini kolaylaştırır\n- Ürün açıklamasındaki bilgileri görsel olarak tamamlar\n- Satın alma kararındaki belirsizlikleri azaltabilir',
+      },
+      {
+        heading: 'Örnek Etsy Fotoğraf Senaryosu',
+        body: 'Örnek senaryo: Deri EDC organizer satan bir Etsy mağazası, ana fotoğrafta ürünü sade ve net şekilde gösterir. Sonraki görsellerde ürünün ölçüsünü, cep detaylarını, içine hangi eşyaların sığabileceğini, elde veya masada kullanımını, paketleme şeklini ve renk varyasyonlarını anlatabilir. Bu senaryo satış garantisi değil, müşterinin ürünü daha iyi anlamasını sağlamak için örnek bir fotoğraf seti yaklaşımıdır.',
+      },
+      {
+        heading: 'Etsy’de ana fotoğraf nasıl olmalı?',
+        body: '- Ürün net görünmeli\n- Arka plan ürünü bastırmamalı\n- Ürün rengi ve formu gerçekçi görünmeli\n- Ana görselde ürün hızlı anlaşılmalı\n- Çok fazla obje veya karmaşa olmamalı\n- Müşteri ürünü arama sonucunda küçük ekranda da seçebilmeli',
+      },
+      {
+        heading: 'Etsy ürün fotoğraf setinde hangi görseller olmalı?',
+        body: '- Ana ürün fotoğrafı\n- Yakın detay fotoğrafı\n- Ölçü gösteren görsel\n- Kullanım senaryosu\n- Elde veya ortamda kullanım\n- Paketleme görseli\n- Varyasyon / renk görseli\n- Malzeme ve doku detayı\n- Hediye kullanım senaryosu\n- Ürünle birlikte gelen parçalar varsa içerik görseli',
+      },
+      {
+        heading: 'Etsy ölçü görseli neden önemlidir?',
+        body: 'Müşteri ürünü ekrandan incelerken boyutu her zaman doğru algılayamayabilir. Ölçü görseli, ürünün gerçek boyutunu ve kullanım alanını daha net anlatır. Özellikle takı, aksesuar, deri ürün, dekorasyon ve kişiselleştirilmiş ürünlerde ölçü bilgisi güven açısından önemlidir.',
+      },
+      {
+        heading: 'Etsy fotoğrafları ve açıklama ilişkisi nasıl olmalı?',
+        body: 'Fotoğraf ürünü gösterir, açıklama ise detayları tamamlar. Fotoğrafta görülen ölçü, renk, malzeme veya kullanım detayı açıklamada da desteklenmelidir. Görsel ve açıklama birbirini tutmazsa müşteri güveni zayıflayabilir.',
+      },
+      {
+        heading: 'Etsy ürün fotoğrafında arka plan nasıl seçilmeli?',
+        body: '- Arka plan ürünü ön plana çıkarmalı\n- Çok karmaşık sahnelerden kaçınılmalı\n- Ürün kategorisine uygun atmosfer seçilmeli\n- Renkler ürünün gerçek rengini bozmayacak şekilde kullanılmalı\n- Tüm ürünlerde benzer görsel dil kullanmak mağaza bütünlüğünü artırabilir\n- Ana fotoğraf sade, destek görseller daha atmosferik olabilir',
+      },
+      {
+        heading: 'Etsy’de yapay zeka ile ürün fotoğrafı kullanılabilir mi?',
+        body: 'Yapay zeka; arka plan, konsept, sahne fikri veya destek görsel üretiminde kullanılabilir. Ancak gerçek ürünün rengi, formu, dokusu, ölçüsü, dikişi, taşı, malzemesi veya detayları değiştirilmemelidir. Etsy’de yanıltıcı görsel kullanımı müşteri güvenine zarar verebilir. Ana hedef ürünü olduğundan farklı göstermek değil, ürünü daha profesyonel sunmaktır.',
+      },
+      {
+        heading: 'Etsy fotoğrafı hazırlarken en sık yapılan hatalar',
+        body: '- Ana görselin karışık olması\n- Ürünün gerçek renginin bozulması\n- Ölçü bilgisinin görselde veya açıklamada olmaması\n- Detay fotoğraflarının eksik olması\n- Yapay zeka ile ürün formunu değiştirmek\n- Tüm ürünlerde tutarsız görsel dil kullanmak\n- Arka planın üründen daha fazla dikkat çekmesi\n- Paketleme, kullanım ve varyasyon bilgilerini göstermemek',
+      },
+      {
+        heading: 'İlk 30 gün Etsy fotoğraf planı',
+        body: '1. hafta: en güçlü 10 ürünün mevcut fotoğraf setini kontrol etme\n2. hafta: ana fotoğraf, detay ve ölçü görsellerini düzenleme\n3. hafta: kullanım senaryosu, paketleme ve varyasyon görsellerini ekleme\n4. hafta: görüntülenme, tıklanma, favori ve satış verilerine göre hangi fotoğrafların daha iyi çalıştığını değerlendirme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Etsy fotoğrafını sadece estetik bir görsel olarak düşünmektir. Fotoğraf aynı zamanda ürün bilgisini, ölçüyü, güveni ve kullanım senaryosunu anlatır. Bu yüzden fotoğraf seti başlık, tag ve açıklamayla birlikte planlanmalıdır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarında ürün fotoğraf seti, ana görsel, detay görseli, ölçü anlatımı, açıklama, başlık, tag ve mağaza güvenini birlikte analiz ederek daha sistemli bir Etsy listeleme optimizasyonu süreci oluşturur.',
+      },
+    ],
+    comparison: {
+      heading: 'Sadece Güzel Fotoğraf mı, Dönüşüm Odaklı Etsy Fotoğraf Seti mi?',
+      headers: ['Kriter', 'Sadece Güzel Fotoğraf', 'Dönüşüm Odaklı Fotoğraf Seti'],
+      rows: [
+        { criterion: 'Ana görsel', individual: 'Estetik görünür ama ürün net anlaşılmayabilir', company: 'Ürünü sade, net ve tıklanabilir şekilde gösterir' },
+        { criterion: 'Detay anlatımı', individual: 'Ürün detayları eksik kalabilir', company: 'Doku, malzeme, ölçü ve kullanım detaylarını gösterir' },
+        { criterion: 'Güven', individual: 'Profesyonel görünür ama bilgi eksikliği bırakabilir', company: 'Müşterinin sorularını görsel olarak cevaplar' },
+        { criterion: 'Yapay zeka kullanımı', individual: 'Ürünü olduğundan farklı gösterebilir', company: 'Ürün gerçekliğini koruyarak sahne ve sunumu iyileştirir' },
+        { criterion: 'Satın alma kararı', individual: 'İlgi çekebilir ama kararı desteklemeyebilir', company: 'Ürün algısı, güven ve satın alma kararını destekler' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy fotoğrafı hazırlamadan önce kontrol listesi',
+      items: [
+        'Ana fotoğraf ürünü net gösteriyor mu?',
+        'Ürün rengi gerçekçi görünüyor mu?',
+        'Ölçü bilgisi görsel veya açıklamada destekleniyor mu?',
+        'Yakın detay fotoğrafları var mı?',
+        'Kullanım senaryosu gösteriliyor mu?',
+        'Paketleme veya hediye sunumu anlatılıyor mu?',
+        'Varyasyon veya renk seçenekleri net mi?',
+        'Arka plan ürünü bastırıyor mu?',
+        'Yapay zeka kullanıldıysa ürün gerçekliği korunuyor mu?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy fotoğrafı nasıl olmalı?',
+          answer:
+            'Net, gerçekçi ve ürünü doğru gösteren yapıda olmalıdır; ana fotoğraf ürünü hızlı anlaşılır şekilde göstermeli, diğer görseller ölçü, detay ve kullanım bilgisini desteklemelidir. Fotoğraf seti başlık ve açıklamayla uyumlu olmalıdır.',
+        },
+        {
+          question: 'Etsy ana fotoğraf nasıl seçilmeli?',
+          answer:
+            'Ana fotoğraf, ürünü sade, net ve karmaşadan uzak şekilde göstermelidir; küçük ekranda da seçilebilir olması önemlidir. Arka plan ürünü bastırmamalı, ürünün gerçek rengi ve formu korunmalıdır.',
+        },
+        {
+          question: 'Etsy için kaç fotoğraf yüklenmeli?',
+          answer:
+            'Etsy’nin sunduğu fotoğraf sayısı limiti zamanla değişebilir; güncel sınır Etsy’nin kendi listeleme ekranından kontrol edilmelidir. Önemli olan sayıdan çok, ana görsel, detay, ölçü ve kullanım gibi farklı bilgileri kapsayan bir set oluşturmaktır.',
+        },
+        {
+          question: 'Etsy ölçü görseli gerekli mi?',
+          answer:
+            'Zorunlu olmasa da özellikle takı, aksesuar veya deri ürün gibi kategorilerde güven açısından önemlidir. Müşteri ürünün gerçek boyutunu ekrandan her zaman doğru algılayamayabilir.',
+        },
+        {
+          question: 'Etsy fotoğraflarında yapay zeka kullanılabilir mi?',
+          answer:
+            'Arka plan, sahne veya konsept fikri için kullanılabilir, ancak ürünün gerçek rengi, formu, dokusu ve detayları değiştirilmemelidir. Yanıltıcı görsel kullanımı müşteri güvenine zarar verebilir.',
+        },
+        {
+          question: 'Etsy fotoğrafları satışa etki eder mi?',
+          answer:
+            'Fotoğraf tek başına bir satış garantisi sağlamaz, ancak tıklanma ve güven üzerinde güçlü bir etkiye sahiptir. Diğer listeleme unsurlarıyla birlikte çalıştığında satın alma kararını destekleyebilir.',
+        },
+        {
+          question: 'Etsy ürün fotoğrafları ne zaman güncellenmelidir?',
+          answer:
+            'Görüntülenme, tıklanma ve satış verileri düzenli izlenip performansı düşük görülen fotoğraflar gözden geçirilebilir. Kesin bir güncelleme periyodu yoktur, bu karar ürünün ve verinin durumuna göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'En güçlü ürünlerinizin mevcut fotoğraf setini kontrol edin',
+      'Ana fotoğrafın ürünü hızlı ve net anlattığından emin olun',
+      'Ölçü, detay, kullanım ve paketleme görsellerini tamamlayın',
+      'Fotoğrafların başlık, açıklama ve ürün gerçekliğiyle uyumlu olup olmadığını kontrol edin',
+      'Ücretsiz analiz ile Etsy fotoğraf ve listeleme yapınızı birlikte değerlendirin',
+    ],
+  },
 };
