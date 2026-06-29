@@ -15,6 +15,12 @@ export type Guide = {
   relatedServiceSlug: string;
   readTime: string;
   publishedAt: string;
+  // Aşağıdaki 4 alan opsiyonel — henüz doldurulmamış rehberlerde (diğer 5 rehber) hiç görünmez,
+  // sayfa bu alanlar olmadan da eskisi gibi çalışır.
+  updatedAt?: string;
+  author?: string;
+  summary?: string;
+  quickAnswer?: string;
   sections: GuideSection[];
 };
 
@@ -30,11 +36,13 @@ export const guides: Record<string, Guide> = {
     relatedServiceSlug: 'amazon',
     readTime: '4 dk',
     publishedAt: '2026-01-15',
+    updatedAt: 'Haziran 2026',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon’da satış yapmak için her durumda şirket zorunlu olmayabilir. Ancak sürdürülebilir satış hedefleyen markalar için şirket, vergi, lojistik, ödeme ve operasyon planlaması en baştan düşünülmelidir. Bu rehber hangi durumda bireysel başlangıcın, hangi durumda şirketli yapının daha doğru olabileceğini açıklar.',
+    quickAnswer:
+      'Amazon’da bazı pazarlarda bireysel satıcı hesabı açmak mümkün olabilir. Ancak ciddi, sürdürülebilir ve ölçeklenebilir satış yapmak isteyen işletmeler için şirket, vergi, fatura, ödeme alma, lojistik ve marka yönetimi birlikte planlanmalıdır.',
     sections: [
-      {
-        heading: 'Kısa cevap',
-        body: 'Amazon’da bazı pazarlarda bireysel satıcı hesabı açmak mümkün olabilir. Ancak ciddi, sürdürülebilir ve ölçeklenebilir satış yapmak isteyen markalar için şirket, vergi, fatura, ödeme, lojistik ve marka yönetimi en baştan planlanmalıdır.\n\nGüncel gereklilikler, başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
-      },
       {
         heading: 'Bu soruyu neden soruyorsunuz?',
         body: 'Amazon’a başlamadan önce bu soruyu soran kişiler genellikle maliyet, şirket kurma zorunluluğu, vergi, ödeme alma, fatura düzeni, kargo ve olası riskleri anlamaya çalışır. Bu rehber, bu soruları netleştirmek için hazırlandı.',
@@ -73,7 +81,7 @@ export const guides: Record<string, Guide> = {
       },
       {
         heading: 'Sık Sorulan Sorular',
-        body: 'Amazon’da satış yapmak için şirket zorunlu mu?\nÇoğu pazarda kesin bir zorunluluk olmasa da ciddi ve sürdürülebilir satış için şirket yapısı önerilir; güncel gereklilik başvuru yapılacak pazara göre değişebilir.\n\nAmazon’da bireysel hesapla satış yapılabilir mi?\nBazı pazarlarda evet, ancak hesap türü ve istenen belgeler ülkeye göre değişebilir.\n\nTürkiye’den Amazon’da satış yapmak için ne gerekir?\nHedef pazar seçimi, ürün uygunluğu, lojistik modeli ve gerekli belgelerin başvuru yapılacak pazara göre netleştirilmesi gerekir.\n\nAmazon’da şirket kurmadan başlamak mantıklı mı?\nKüçük ölçekli bir test veya doğrulama aşaması için mantıklı olabilir; ölçeklenmek istendiğinde şirketleşme genellikle gerekli hale gelir.\n\nAmazon’da satışa başlamak için en önemli hazırlık nedir?\nÜrün, pazar ve kârlılık analizinin; listeleme, reklam ve operasyon planıyla birlikte yapılmasıdır.\n\nAmazon FBA için şirket gerekir mi?\nFBA programına katılım şartları pazara göre değişebilir; güncel gereklilikler başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
+        body: 'Amazon’da satış yapmak için şirket zorunlu mu?\nÇoğu pazarda kesin bir zorunluluk yoktur ve bazı durumlarda bireysel başlangıç mümkün olabilir. Ancak ciddi, düzenli ve sürdürülebilir satış hedefleyen markalar için şirket yapısı genellikle daha sağlıklı bir temel sağlar. Güncel gereklilik, başvuru yapılacak pazara ve hesap türüne göre değişebilir.\n\nAmazon’da bireysel hesapla satış yapılabilir mi?\nBazı pazarlarda bireysel hesapla satışa başlamak mümkün olabilir. Ancak istenen belgeler ve hesap türü, satış yapılacak ülkeye ve ürün kategorisine göre farklılık gösterebilir. Başvuru öncesinde ilgili pazarın güncel şartlarının kontrol edilmesi önemlidir.\n\nTürkiye’den Amazon’da satış yapmak için ne gerekir?\nHedef pazar seçimi, ürün uygunluğu, lojistik modeli ve gerekli belgelerin netleştirilmesi gerekir. Bu adımlar; başvuru yapılacak Amazon pazarına, ürün kategorisine ve hesap türüne göre değişebileceği için önceden araştırılmalıdır. Kârlılık ve operasyon planı da bu aşamada birlikte değerlendirilmelidir.\n\nAmazon’da şirket kurmadan başlamak mantıklı mı?\nKüçük ölçekli bir pazar testi veya ürün fikrini doğrulama aşamasında mantıklı bir seçenek olabilir. Ancak satış hacmi ve hedefler büyüdükçe; fatura, vergi ve tedarikçi ilişkileri için şirketleşme genellikle gerekli hale gelir. Bu karar, ürün kategorisi ve hedef pazara göre de değişebilir.\n\nAmazon’da satışa başlamak için en önemli hazırlık nedir?\nÜrün, pazar ve kârlılık analizinin; listeleme, reklam ve operasyon planıyla birlikte yapılması en önemli hazırlıktır. Bu unsurlardan biri eksik kaldığında satış süreci dengesiz ilerleyebilir. Hazırlık adımları, hedeflenen pazara ve ürün grubuna göre küçük farklılıklar gösterebilir.\n\nAmazon FBA için şirket gerekir mi?\nFBA programına katılım şartları pazara, ürün kategorisine ve hesap türüne göre değişebilir; bazı durumlarda kesin bir şirket şartı aranmayabilir. Yine de düzenli stok, lojistik ve finansal takip gerektiren bir model olduğu için kurumsal bir yapı çoğu zaman süreci kolaylaştırır. Güncel gereklilikler başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
       },
     ],
   },
