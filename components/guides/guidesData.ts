@@ -490,7 +490,7 @@ export const guides: Record<string, Guide> = {
       'Global pazara açılmak isteyen Türkiye merkezli markaların ilk olarak hangi soruları cevaplaması, hangi kararları önce vermesi gerektiğini özetliyoruz.',
     category: 'Global Satış',
     targetAudience: 'Yurtdışına satış yapmayı planlayan Türkiye merkezli üretici ve markalar',
-    searchIntent: 'yurtdışına ürün satmak nereden başlanır, global pazara açılma',
+    searchIntent: 'türkiye’den yurtdışına ürün satmak, yurtdışına ürün satmak için nereden başlamalı, internetten yurtdışına satış nasıl yapılır, türkiye’den avrupa’ya ürün satmak, yurtdışına satış için şirket gerekir mi, global pazara nasıl açılırım, ihracata başlamak için ne gerekir, amazon etsy shopify ile yurtdışına satış',
     relatedServiceSlug: 'global-pazara-giris-stratejisi',
     readTime: '5 dk',
     publishedAt: '2026-01-24',
@@ -499,31 +499,136 @@ export const guides: Record<string, Guide> = {
     updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
-      'Global pazara açılmak isteyen Türkiye merkezli markaların ilk olarak hangi soruları cevaplaması, hangi kararları önce vermesi gerektiğini özetleyen bu rehber; pazar seçimi, operasyon hazırlığı ve kanal stratejisini bir araya getirir.',
+      'Türkiye’den yurtdışına ürün satmak isteyen markalar için ilk adım, hangi ülkeye ve hangi satış kanalıyla açılacağını netleştirmektir. Ürün uygunluğu, pazar talebi, lojistik, ödeme, fiyatlandırma, gümrük ve dijital satış altyapısı birlikte planlanmadan global satış sürdürülebilir hale gelmez. Bu rehber, yurtdışına satışa başlamak isteyen işletmeler için temel yol haritasını açıklar.',
     quickAnswer:
-      'Doğru başlangıç noktası önce platform değil, hedef pazar ve müşteri seçimidir. Talep ve rekabet analizi yapılmadan seçilen kanal, doğru olsa bile beklenen sonucu vermeyebilir.',
+      'Türkiye’den yurtdışına ürün satmaya başlamak için önce ürününüzün hangi pazarda talep görebileceğini, hangi kanalın daha uygun olduğunu ve operasyonu nasıl yöneteceğinizi belirlemelisiniz. Amazon, Etsy, Shopify, B2B satış veya sosyal medya kanalları farklı modellerdir; doğru seçim ürün tipi, bütçe, hedef ülke ve marka hedeflerine göre yapılmalıdır.',
     whoShouldRead: [
-      'Yurtdışına satış yapmayı planlayan Türkiye merkezli üretici ve markalar',
-      'Hangi pazardan başlayacağını netleştirmek isteyenler',
-      'Global satış operasyonunu önceden planlamak isteyenler',
+      'Türkiye’den yurtdışına ürün satmak isteyen üreticiler',
+      'E-ticaretle global pazara açılmak isteyen markalar',
+      'Amazon, Etsy veya Shopify üzerinden yurtdışı satış düşünen işletmeler',
+      'İhracata nereden başlayacağını bilmeyen KOBİ’ler',
+      'Ürününü global pazarda test etmek isteyen girişimciler',
     ],
+    expertNote:
+      'Yurtdışına satışta en sık hata, süreci sadece “mağaza açmak” veya “ürün göndermek” olarak görmektir. Global satış; ürün seçimi, pazar doğrulama, kanal stratejisi, lojistik, fiyatlandırma, ödeme, içerik ve müşteri operasyonunun birlikte çalıştığı bir sistem olarak ele alınmalıdır.',
+    expertNoteAfterHeading: 'Lojistik, ödeme ve fiyatlandırma nasıl planlanmalı?',
     sections: [
       {
-        heading: 'Önce pazar, sonra kanal',
-        body: 'Çoğu marka ilk olarak "hangi platform" sorusuyla başlar; ama doğru sıralama önce "hangi ülke ve hangi müşteri" sorusunu cevaplamaktır. Talep ve rekabet analizi yapılmadan seçilen kanal, doğru olsa bile sonuç vermeyebilir.',
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran işletmeler genellikle ürününü yurtdışına satmak ister ama hangi ülke, hangi kanal, hangi lojistik modeli ve hangi başlangıç adımıyla ilerleyeceğini bilmez. Yurtdışına satış sadece ürün göndermek değil, kanal ve operasyon sistemi kurmaktır.',
       },
       {
-        heading: 'Operasyon hazırlığı gözden kaçırılmamalı',
-        body: 'Kargo, gümrük, iade ve müşteri iletişimi gibi operasyonel detaylar, global satışta ürün veya fiyattan önce markanın sürdürülebilirliğini belirleyen unsurlardır.',
+        heading: 'Türkiye’den yurtdışına ürün satmak mümkün mü?',
+        body: 'Evet, doğru ürün, doğru pazar ve doğru satış kanalıyla mümkündür. Ancak her ürün her pazarda aynı şekilde satılamaz. Ürün uygunluğu, fiyat rekabeti, kargo maliyeti, yasal gereklilikler ve müşteri beklentileri birlikte değerlendirilmelidir.',
       },
       {
-        heading: 'Tek kanal değil, sistem yaklaşımı',
-        body: 'Amazon EU, Amazon US, Etsy, Shopify veya B2B Showroom arasından markaya en uygun başlangıç noktası, ürün grubuna ve hedef pazara göre değişir.',
+        heading: 'Yurtdışına satışa başlamadan önce hangi sorular cevaplanmalı?',
+        body: '- Ürün hangi ülkede talep görebilir?\n- Ürün B2C mi B2B mi daha uygun?\n- Pazaryeri mi, kendi site mi, toptan satış mı daha mantıklı?\n- Kargo ve iade süreci yönetilebilir mi?\n- Fiyatlandırma yurtdışı maliyetleri karşılıyor mu?\n- Ürün açıklaması, görseller ve marka dili global pazara uygun mu?',
       },
       {
-        heading: 'GloventGlobal nasıl yardımcı olur?',
-        body: 'Global Büyüme Stratejisi kapsamında doğru ülke, kanal, fiyat ve operasyon hazırlığını birlikte değerlendirip ilk 12 aylık uygulanabilir bir büyüme planı oluşturuyoruz.',
+        heading: 'Örnek Başlangıç Senaryosu',
+        body: 'Örnek senaryo: Türkiye’de üretim yapan bir marka, yurtdışına açılmadan önce 10 ürününü hedef pazar, fiyat, kargo maliyeti ve rekabet açısından değerlendirir. Daha sonra ürün tipine göre Amazon, Etsy, Shopify veya B2B kanalından hangisinin daha uygun olduğunu belirler. Bu senaryo satış garantisi değil, global pazara daha kontrollü başlamak için örnek bir planlama yaklaşımıdır.',
       },
+      {
+        heading: 'Hangi satış kanalıyla başlamalı?',
+        body: '- Amazon: daha büyük pazar ve rekabet\n- Etsy: niş, el yapımı, tasarım ve butik ürünler\n- Shopify: kendi marka mağazası\n- B2B: toptan satış, bayi, distribütör ve kurumsal alıcılar\n- Sosyal medya: destekleyici trafik ve marka bilinirliği',
+      },
+      {
+        heading: 'Pazar seçimi neden ilk adımdır?',
+        body: 'Yanlış pazara doğru ürünle girmek bile satış üretmeyebilir. Hedef ülke seçilirken talep, rekabet, fiyat seviyesi, kargo maliyeti, dil, tüketici alışkanlığı ve platform yaygınlığı değerlendirilmelidir.',
+      },
+      {
+        heading: 'Ürün uygunluğu nasıl değerlendirilir?',
+        body: '- Ürün hafif ve gönderilebilir mi?\n- Kırılma, bozulma veya iade riski var mı?\n- Hedef pazarda benzer ürünler satılıyor mu?\n- Ürünün fiyatı kargo sonrası rekabetçi kalıyor mu?\n- Ürün açıklaması ve görselleri global müşteriye güven veriyor mu?',
+      },
+      {
+        heading: 'Lojistik, ödeme ve fiyatlandırma nasıl planlanmalı?',
+        body: '- Kargo maliyeti\n- Teslimat süresi\n- İade yönetimi\n- Ödeme alma\n- Komisyonlar\n- Reklam bütçesi\n- Gümrük ve vergi gereklilikleri için uzman kontrolü',
+      },
+      {
+        heading: 'Yeni başlayanlar için ilk 30 gün planı',
+        body: '1. hafta: ürün ve pazar ön analizi\n2. hafta: satış kanalı kararı\n3. hafta: listeleme, görsel ve fiyatlandırma hazırlığı\n4. hafta: test yayını, veri takibi ve iyileştirme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, yurtdışına satışa sadece “ürünü bir platforma yüklemek” olarak bakmaktır. Asıl mesele ürünün hedef pazarda doğru konumlandırılması, kârlı fiyatlandırılması, güven veren içerikle sunulması ve sürdürülebilir operasyonla desteklenmesidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, markanın ürün yapısını, hedef pazarını, satış kanalını, operasyon kapasitesini ve global büyüme hedefini analiz ederek yurtdışı satış için en doğru başlangıç sistemini kurmaya yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Yurtdışına Satışta Kanal Karşılaştırması',
+      headers: ['Kanal', 'Avantaj', 'Dikkat Edilmesi Gereken'],
+      rows: [
+        { criterion: 'Amazon', individual: 'Geniş müşteri kitlesi ve güçlü pazaryeri altyapısı', company: 'Yoğun rekabet, komisyonlar ve operasyon disiplini' },
+        { criterion: 'Etsy', individual: 'Niş, el yapımı, tasarım ve butik ürünler için uygun yapı', company: 'Ürün fotoğrafı, SEO ve mağaza güveni kritik' },
+        { criterion: 'Shopify', individual: 'Marka kontrolü ve müşteri deneyimi daha güçlü', company: 'Trafiği marka kendi oluşturmalıdır' },
+        { criterion: 'B2B', individual: 'Toptan satış, bayi ve kurumsal alıcı ilişkileri kurulabilir', company: 'Güven, katalog, teklif ve iletişim sistemi gerekir' },
+        { criterion: 'Sosyal Medya', individual: 'Marka bilinirliği ve trafik desteği sağlar', company: 'Tek başına satış sistemi yerine destekleyici kanal olarak düşünülmelidir' },
+      ],
+    },
+    checklist: {
+      heading: 'Yurtdışına satışa başlamadan önce kontrol listesi',
+      items: [
+        'Ürününüz hedef pazara uygun mu?',
+        'Hangi ülke veya bölgeye açılacağınız belli mi?',
+        'Satış kanalı seçildi mi?',
+        'Kargo ve iade süreci planlandı mı?',
+        'Fiyatlandırma tüm maliyetleri karşılıyor mu?',
+        'Ürün görselleri ve açıklamaları global müşteriye uygun mu?',
+        'Ödeme ve tahsilat yöntemi net mi?',
+        'Gümrük/vergi gereklilikleri uzmanla kontrol edildi mi?',
+        'İlk 30 gün test ve iyileştirme planı hazır mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Türkiye’den yurtdışına ürün satmak için şirket gerekir mi?',
+          answer:
+            'Çoğu satış kanalı ve model için kurumsal bir yapı genellikle gereklidir, ancak bu ülkeye, ürün kategorisine ve satış hacmine göre değişebilir. Net gereklilikler için ilgili mevzuat ve uzman görüşü kontrol edilmelidir.',
+        },
+        {
+          question: 'Yurtdışına satışa Amazon ile mi Etsy ile mi başlanmalı?',
+          answer:
+            'Bu, ürün tipinize ve hedef pazarınıza göre değişir; Amazon daha geniş bir pazar sunarken Etsy niş ve el yapımı ürünler için daha uygun olabilir. Kesin bir doğru cevap yoktur, ürün ve hedef müşteriye göre karar verilmelidir.',
+        },
+        {
+          question: 'Shopify ile yurtdışına satış yapılabilir mi?',
+          answer:
+            'Evet, Shopify kendi marka mağazanızı kurarak global satış yapmanıza imkan verir. Ancak trafiği büyük ölçüde markanın kendisi oluşturmalıdır, bu yüzden reklam veya içerik stratejisi gerekir.',
+        },
+        {
+          question: 'Hangi ürünler yurtdışına satış için daha uygundur?',
+          answer:
+            'Hafif, gönderilebilir, kırılma veya iade riski düşük ve hedef pazarda talep gören ürünler genellikle daha avantajlıdır. Her ürün her pazarda aynı şekilde satılmayabilir, bu yüzden ürün-pazar uygunluğu önceden değerlendirilmelidir.',
+        },
+        {
+          question: 'Yurtdışına satışta kargo nasıl planlanmalı?',
+          answer:
+            'Kargo maliyeti, teslimat süresi ve iade süreci fiyatlandırmayla birlikte değerlendirilmelidir. Bu detaylar ülkeye ve taşıyıcıya göre değişebileceği için önceden araştırılması önemlidir.',
+        },
+        {
+          question: 'Global satışa başlamak için en önemli adım nedir?',
+          answer:
+            'Ürün, pazar ve satış kanalı kararının operasyon planıyla birlikte netleştirilmesi en önemli adımdır. Bu adımlardan biri eksik kaldığında süreç dengesiz ilerleyebilir.',
+        },
+        {
+          question: 'B2B yurtdışı satış ile pazaryeri satışı arasındaki fark nedir?',
+          answer:
+            'B2B satışta toptan, bayi ve kurumsal alıcı ilişkileri kurulurken, pazaryeri satışında bireysel son kullanıcıya doğrudan satış yapılır. İkisi farklı operasyon ve içerik yaklaşımı gerektirir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürününüzün hedef pazara uygunluğunu değerlendirin',
+      'Hangi ülke ve satış kanalının daha mantıklı olduğunu belirleyin',
+      'Fiyat, kargo, vergi ve operasyon maliyetlerini hesaplayın',
+      'Amazon, Etsy, Shopify veya B2B modelinden hangisinin uygun olduğunu seçin',
+      'Ücretsiz analiz ile global satışa hazır olup olmadığınızı değerlendirin',
     ],
   },
 
