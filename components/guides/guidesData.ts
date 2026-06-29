@@ -932,4 +932,157 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile markanız için doğru AI entegrasyon alanlarını değerlendirin',
     ],
   },
+
+  'e-ticaret-otomasyonu-nedir-ve-nasil-kurulur': {
+    title: 'E-Ticaret Otomasyonu Nedir ve Nasıl Kurulur?',
+    slug: 'e-ticaret-otomasyonu-nedir-ve-nasil-kurulur',
+    excerpt:
+      'E-ticaret operasyonunda tekrar eden lead, sipariş, iletişim ve raporlama işlerinin otomasyonla nasıl daha düzenli hale getirilebileceğini açıklıyoruz.',
+    category: 'Otomasyon',
+    targetAudience: 'E-ticaret operasyonunda manuel işleri azaltmak isteyen işletmeler',
+    searchIntent: 'e-ticaret otomasyonu nedir, e-ticaret otomasyonu nasıl kurulur, sipariş otomasyonu nasıl yapılır, lead takip otomasyonu nedir, whatsapp otomasyonu e-ticarette nasıl kullanılır, crm otomasyonu nasıl kurulur, n8n e-ticarette nasıl kullanılır',
+    relatedServiceSlug: 'otomasyon-n8n',
+    readTime: '5 dk',
+    publishedAt: '2026-02-02',
+    order: 7,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'E-ticaret otomasyonu, tekrar eden operasyon, iletişim, lead takibi, raporlama ve müşteri süreçlerinin belirli kurallarla daha düzenli çalışmasını sağlayan sistemdir. Doğru kurgulandığında ekiplerin manuel iş yükünü azaltır, verileri daha takip edilebilir hale getirir ve satış süreçlerinin daha kontrollü yönetilmesine yardımcı olur. Bu rehber, e-ticaret otomasyonunun ne olduğunu ve nasıl kurulabileceğini açıklar.',
+    quickAnswer:
+      'E-ticaret otomasyonu; form, sipariş, müşteri mesajı, e-posta, WhatsApp, CRM, raporlama ve görev takip gibi tekrar eden süreçlerin belirli kurallarla otomatik çalışmasını sağlar. Ancak otomasyon tek başına satış sistemi değildir; doğru veri, net süreç, insan kontrolü ve düzenli optimizasyonla birlikte değer üretir.',
+    whoShouldRead: [
+      'E-ticaret operasyonunda manuel işleri azaltmak isteyen işletmeler',
+      'Amazon, Etsy, Shopify veya kendi sitesinde satış yapan markalar',
+      'Lead, müşteri, sipariş ve teklif süreçlerini daha düzenli takip etmek isteyen ekipler',
+      'WhatsApp, e-posta, CRM veya Google Sheets süreçlerini otomatikleştirmek isteyenler',
+      'Yapay zeka ve otomasyonu satış sistemine entegre etmek isteyen işletmeler',
+    ],
+    expertNote:
+      'E-ticaret otomasyonunda en kritik nokta araç seçimi değil, iş akışının doğru tasarlanmasıdır. Süreç net değilse n8n, Make, Zapier veya CRM sistemleri yalnızca dağınıklığı daha hızlı hale getirir. Önce süreç, sonra otomasyon kurulmalıdır.',
+    expertNoteAfterHeading: 'n8n, Make ve Zapier arasındaki temel fark nedir?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran işletmeler genellikle tekrar eden işleri azaltmak, müşteri takibini düzenlemek, satış fırsatlarını kaçırmamak ve e-ticaret operasyonunu daha ölçülebilir hale getirmek ister. Otomasyon yalnızca teknik bir araç değil, iş akışı ve süreç yönetimidir.',
+      },
+      {
+        heading: 'E-ticaret otomasyonu nedir?',
+        body: '- Tekrar eden işlerin belirli kurallarla otomatik çalışması\n- Form, sipariş, müşteri, e-posta, WhatsApp, CRM ve raporlama süreçlerinin bağlanması\n- Manuel takibi azaltması\n- Süreçlerin daha ölçülebilir hale gelmesi\n- Satış ve operasyon ekiplerini desteklemesi',
+      },
+      {
+        heading: 'E-ticaret otomasyonu ne işe yarar?',
+        body: '- Lead takibini düzenler\n- Müşteri iletişimini hızlandırır\n- Sipariş ve operasyon süreçlerini takip edilebilir hale getirir\n- E-posta ve WhatsApp akışlarını standartlaştırır\n- Raporlama süreçlerini kolaylaştırır\n- Ekip içi görev takibini düzenler',
+      },
+      {
+        heading: 'Örnek Otomasyon Senaryosu',
+        body: 'Örnek senaryo: Bir e-ticaret markası, web sitesinden gelen ücretsiz analiz formunu otomatik olarak Google Sheets’e kaydedebilir, satış ekibine e-posta bildirimi gönderebilir ve müşteriye otomatik bilgilendirme maili iletebilir. Bu senaryo satış garantisi değil, manuel lead takibini daha düzenli hale getirmek için örnek bir otomasyon yaklaşımıdır.',
+      },
+      {
+        heading: 'E-ticarette hangi süreçler otomatikleştirilebilir?',
+        body: '- Lead ve form takibi\n- E-posta bilgilendirmeleri\n- WhatsApp yönlendirmeleri\n- CRM kayıtları\n- Sipariş bildirimleri\n- Stok ve ürün raporları\n- Reklam ve satış raporları\n- Görev ve takip listeleri\n- Müşteri segmentasyonu',
+      },
+      {
+        heading: 'Otomasyon kurmadan önce hangi sorular cevaplanmalı?',
+        body: '- Hangi süreçte zaman kaybediliyor?\n- Hangi veri nereden geliyor?\n- Hangi kişi veya ekip bu veriyi kullanıyor?\n- Müşteriye hangi mesaj ne zaman gitmeli?\n- Hangi işlem otomatik, hangisi manuel kalmalı?\n- Hatalı veri geldiğinde süreç ne yapmalı?\n- Raporlama hangi periyotla yapılmalı?',
+      },
+      {
+        heading: 'E-ticaret otomasyonu hangi araçlarla kurulabilir?',
+        body: '- n8n\n- Make\n- Zapier\n- CRM sistemleri\n- Google Sheets\n- E-posta servisleri\n- WhatsApp Business çözümleri\n- Shopify / WooCommerce / pazaryeri entegrasyonları\n\nKesin bir araç önerisi veya garanti yoktur; seçim işletmenin ihtiyacına göre yapılmalıdır.',
+      },
+      {
+        heading: 'n8n, Make ve Zapier arasındaki temel fark nedir?',
+        body: '- Zapier: daha basit kullanım ve hızlı bağlantılar\n- Make: görsel akış ve esnek senaryolar\n- n8n: daha teknik ama esnek ve özelleştirilebilir yapı\n\nKesin bir “en iyisi budur” cevabı yoktur; ihtiyaca göre değişir.',
+      },
+      {
+        heading: 'Yapay zeka ve otomasyon birlikte nasıl çalışır?',
+        body: 'Otomasyon veriyi taşır, süreci tetikler ve akışı yönetir. Yapay zeka ise içerik üretimi, özetleme, sınıflandırma, öneri üretme veya karar destek aşamasında kullanılabilir.\nÖrnekler:\n- Lead formunu analiz edip satış önceliği vermek\n- Müşteri mesajını özetlemek\n- Ürün performans raporunu yorumlamak\n- E-posta taslağı oluşturmak\n- Satış ekibine aksiyon önerisi üretmek',
+      },
+      {
+        heading: 'İlk 30 gün e-ticaret otomasyonu planı',
+        body: '1. hafta: tekrar eden süreçleri ve veri kaynaklarını belirleme\n2. hafta: lead, sipariş veya raporlama için bir pilot akış seçme\n3. hafta: küçük bir otomasyon kurup test etme\n4. hafta: hataları kontrol edip kalıcı iş akışına dönüştürme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, otomasyona araç seçerek başlamaktır. Asıl başlangıç noktası, işletmenin hangi süreci neden otomatikleştirmek istediğini netleştirmesidir. Süreç net değilse otomasyon hatalı veriyi, yanlış mesajı veya eksik takibi daha hızlı hale getirebilir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, e-ticaret markalarının satış, lead, müşteri iletişimi, raporlama ve operasyon süreçlerini analiz ederek otomasyona uygun alanları belirler. Ardından markanın mevcut altyapısına uygun, ölçülebilir ve insan kontrolünü koruyan otomasyon akışları tasarlar.',
+      },
+    ],
+    comparison: {
+      heading: 'Basit Otomasyon mu, Sistemli Otomasyon mu?',
+      headers: ['Kriter', 'Basit Otomasyon', 'Sistemli Otomasyon'],
+      rows: [
+        { criterion: 'Lead takibi', individual: 'Form geldiğinde e-posta bildirimi gönderir', company: 'Lead’i kaydeder, sınıflandırır, ekibe bildirir ve takip süreci başlatır' },
+        { criterion: 'Müşteri iletişimi', individual: 'Otomatik e-posta gönderir', company: 'Müşteri segmentine göre farklı mesaj ve takip akışı oluşturur' },
+        { criterion: 'Raporlama', individual: 'Veriyi tabloya aktarır', company: 'Veriyi özetler, yorumlar ve aksiyon listesine dönüştürür' },
+        { criterion: 'Sipariş süreci', individual: 'Sipariş bildirimi oluşturur', company: 'Sipariş, stok, müşteri ve görev takibini birlikte yönetir' },
+        { criterion: 'Yapay zeka kullanımı', individual: 'Tek seferlik metin üretir', company: 'Sürece bağlı özet, sınıflandırma ve karar destek akışı kurar' },
+      ],
+    },
+    checklist: {
+      heading: 'E-ticaret otomasyonu kurmadan önce kontrol listesi',
+      items: [
+        'Tekrar eden süreçleriniz belli mi?',
+        'Hangi verinin nereden geldiği net mi?',
+        'Lead, sipariş veya müşteri takibi nasıl yapılıyor?',
+        'E-posta, WhatsApp, CRM veya tablo yapınız hazır mı?',
+        'Hangi adımlar otomatik, hangileri manuel kalacak?',
+        'Hatalı veya eksik veri senaryosu düşünüldü mü?',
+        'Otomasyon sonrası kim takip edecek?',
+        'İlk pilot akış seçildi mi?',
+        'Test ve iyileştirme planı hazır mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'E-ticaret otomasyonu nedir?',
+          answer:
+            'E-ticaret otomasyonu, tekrar eden form, sipariş, müşteri iletişimi ve raporlama gibi süreçlerin belirli kurallarla otomatik çalışmasını sağlayan sistemdir. Amaç, manuel iş yükünü azaltarak süreçleri daha düzenli ve takip edilebilir hale getirmektir.',
+        },
+        {
+          question: 'E-ticaret otomasyonu hangi işler için kullanılır?',
+          answer:
+            'Lead takibi, e-posta ve WhatsApp bildirimleri, CRM kayıtları, sipariş bildirimleri ve raporlama gibi tekrar eden işler için kullanılabilir. Hangi sürecin otomatikleştirileceği işletmenin ihtiyacına göre değişir.',
+        },
+        {
+          question: 'n8n e-ticarette kullanılabilir mi?',
+          answer:
+            'Evet, n8n form, sipariş, müşteri ve raporlama süreçlerini bağlamak için kullanılabilen teknik ama esnek bir otomasyon aracıdır. Kurulumu, işletmenin teknik kapasitesine ve ihtiyacına göre planlanmalıdır.',
+        },
+        {
+          question: 'Make ve Zapier e-ticaret için uygun mu?',
+          answer:
+            'Evet, ikisi de farklı sistemleri birbirine bağlamak için kullanılabilir; Zapier daha basit, Make daha görsel ve esnek bir yapı sunar. Hangisinin daha uygun olduğu işletmenin süreç karmaşıklığına göre değişir.',
+        },
+        {
+          question: 'Otomasyon satışları artırır mı?',
+          answer:
+            'Otomasyon doğrudan bir satış garantisi sağlamaz; tekrar eden işleri azaltarak ekiplerin daha stratejik işlere odaklanmasına yardımcı olur. Satış sonucu; ürün, pazar ve operasyonun bütünüyle ilişkilidir.',
+        },
+        {
+          question: 'Yapay zeka ile otomasyon aynı şey mi?',
+          answer:
+            'Hayır, otomasyon veriyi taşır ve süreci tetiklerken, yapay zeka içerik üretimi, özetleme veya karar destek gibi alanlarda kullanılır. İkisi birlikte çalıştığında daha güçlü bir sistem oluşturabilir.',
+        },
+        {
+          question: 'E-ticaret otomasyonuna nereden başlanmalı?',
+          answer:
+            'Önce hangi süreçte zaman kaybedildiğinin ve verinin nereden geldiğinin netleştirilmesi gerekir. Küçük bir pilot akışla başlamak, süreci araçtan önce netleştirmenin en güvenli yoludur.',
+        },
+      ],
+    },
+    nextSteps: [
+      'E-ticaret operasyonunuzdaki tekrar eden işleri listeleyin',
+      'Lead, sipariş, müşteri iletişimi ve raporlama süreçlerini haritalayın',
+      'Hangi adımların manuel, hangilerinin otomatik çalışacağını belirleyin',
+      'Küçük bir otomasyon akışıyla test yapın',
+      'Ücretsiz analiz ile markanız için doğru otomasyon alanlarını değerlendirin',
+    ],
+  },
 };
