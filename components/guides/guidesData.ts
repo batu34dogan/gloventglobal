@@ -2082,7 +2082,7 @@ export const guides: Record<string, Guide> = {
       },
       {
         heading: 'Örnek Etsy Fotoğraf Senaryosu',
-        body: 'Örnek senaryo: Deri EDC organizer satan bir Etsy mağazası, ana fotoğrafta ürünü sade ve net şekilde gösterir. Sonraki görsellerde ürünün ölçüsünü, cep detaylarını, içine hangi eşyaların sığabileceğini, elde veya masada kullanımını, paketleme şeklini ve renk varyasyonlarını anlatabilir. Bu senaryo satış garantisi değil, müşterinin ürünü daha iyi anlamasını sağlamak için örnek bir fotoğraf seti yaklaşımıdır.',
+        body: 'Örnek senaryo: Deri EDC organizer satan bir mağaza ana fotoğrafta ürünü sade ve net gösterebilir; bir takı mağazası ölçü ve kullanım görselleriyle ürünün boyutunu anlatabilir; kişiselleştirilmiş hediye satan bir mağaza paketleme ve hediye sunumunu gösterebilir; dijital ürün satan bir mağaza ise ürünün kullanım ekranlarını veya çıktı örneklerini paylaşabilir. Bu senaryo satış garantisi değil, Etsy fotoğraflarını farklı ürün gruplarında daha anlaşılır ve güven verici hale getirmek için örnek bir fotoğraf seti yaklaşımıdır.',
       },
       {
         heading: 'Etsy’de ana fotoğraf nasıl olmalı?',
@@ -2090,11 +2090,11 @@ export const guides: Record<string, Guide> = {
       },
       {
         heading: 'Etsy ürün fotoğraf setinde hangi görseller olmalı?',
-        body: '- Ana ürün fotoğrafı\n- Yakın detay fotoğrafı\n- Ölçü gösteren görsel\n- Kullanım senaryosu\n- Elde veya ortamda kullanım\n- Paketleme görseli\n- Varyasyon / renk görseli\n- Malzeme ve doku detayı\n- Hediye kullanım senaryosu\n- Ürünle birlikte gelen parçalar varsa içerik görseli',
+        body: '- Ana ürün fotoğrafı\n- Yakın detay fotoğrafı\n- Ölçü gösteren görsel\n- Kullanım senaryosu\n- Elde veya ortamda kullanım\n- Paketleme görseli\n- Varyasyon / renk görseli\n- Malzeme ve doku detayı\n- Hediye kullanım senaryosu\n- Ürünle birlikte gelen parçalar varsa içerik görseli\n\nÜrün grubuna göre bu listeye eklenebilecek görseller de değişir:\n- Dijital ürünlerde mockup, kullanım ekranı veya çıktı örneği\n- Takı ürünlerinde yakın detay ve ölçü algısı\n- Kişiselleştirilmiş ürünlerde isim/harf/renk varyasyonu\n- Dekoratif ürünlerde ortamda kullanım',
       },
       {
         heading: 'Etsy ölçü görseli neden önemlidir?',
-        body: 'Müşteri ürünü ekrandan incelerken boyutu her zaman doğru algılayamayabilir. Ölçü görseli, ürünün gerçek boyutunu ve kullanım alanını daha net anlatır. Özellikle takı, aksesuar, deri ürün, dekorasyon ve kişiselleştirilmiş ürünlerde ölçü bilgisi güven açısından önemlidir.',
+        body: 'Müşteri ürünü ekrandan incelerken boyutu her zaman doğru algılayamayabilir. Ölçü görseli, ürünün gerçek boyutunu ve kullanım alanını daha net anlatır. Özellikle takı, aksesuar, deri ürün, dekorasyon ve kişiselleştirilmiş ürünlerde ölçü bilgisi güven açısından önemlidir. Dijital ürünlerde ise ölçü yerine dosya içeriği, sayfa sayısı, kullanım formatı veya örnek çıktı gösterimi benzer bir rol oynayabilir.',
       },
       {
         heading: 'Etsy fotoğrafları ve açıklama ilişkisi nasıl olmalı?',
@@ -2106,7 +2106,7 @@ export const guides: Record<string, Guide> = {
       },
       {
         heading: 'Etsy’de yapay zeka ile ürün fotoğrafı kullanılabilir mi?',
-        body: 'Yapay zeka; arka plan, konsept, sahne fikri veya destek görsel üretiminde kullanılabilir. Ancak gerçek ürünün rengi, formu, dokusu, ölçüsü, dikişi, taşı, malzemesi veya detayları değiştirilmemelidir. Etsy’de yanıltıcı görsel kullanımı müşteri güvenine zarar verebilir. Ana hedef ürünü olduğundan farklı göstermek değil, ürünü daha profesyonel sunmaktır.',
+        body: 'Yapay zeka; arka plan, konsept, sahne fikri veya destek görsel üretiminde kullanılabilir. Ancak gerçek ürünün rengi, formu, dokusu, ölçüsü, dikişi, taşı, malzemesi veya detayları değiştirilmemelidir. Etsy’de yanıltıcı görsel kullanımı müşteri güvenine zarar verebilir. Ana hedef ürünü olduğundan farklı göstermek değil, ürünü daha profesyonel sunmaktır. Yapay zeka özellikle arka plan, sahne fikri veya mockup sunumu için destek olabilir; ancak fiziksel ürünlerde ürünün gerçek formu bozulmamalı, dijital ürünlerde de dosya içeriği olduğundan farklı gösterilmemelidir.',
       },
       {
         heading: 'Etsy fotoğrafı hazırlarken en sık yapılan hatalar',
