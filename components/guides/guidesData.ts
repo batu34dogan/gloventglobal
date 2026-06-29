@@ -639,7 +639,7 @@ export const guides: Record<string, Guide> = {
       'Toptan satış yapan markaların PDF katalog ve e-posta trafiğinden, ölçülebilir bir dijital showroom yapısına geçmesi neden önemlidir, bunu açıklıyoruz.',
     category: 'B2B',
     targetAudience: 'Toptan satış yapan üretici ve distribütör firmalar',
-    searchIntent: 'b2b dijital showroom nedir, toptan satış dijital katalog',
+    searchIntent: 'b2b dijital showroom nedir, dijital showroom ne işe yarar, toptan satışta dijital katalog nasıl kullanılır, b2b satış sistemi nasıl kurulur, dijital katalog mu web sitesi mi, bayi ve toptan müşteri sistemi nasıl kurulur, toptan ürünleri online göstermek mantıklı mı',
     relatedServiceSlug: 'b2b-dijital-showroom',
     readTime: '4 dk',
     publishedAt: '2026-01-27',
@@ -648,31 +648,136 @@ export const guides: Record<string, Guide> = {
     updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
-      'Toptan satış yapan markaların PDF katalog ve e-posta trafiğinden, ölçülebilir bir dijital showroom yapısına geçmesinin neden önemli olduğunu özetleyen bu rehber; teklif takibi, müşteri grupları ve satış görünürlüğü konularına odaklanır.',
+      'B2B dijital showroom, toptan satış yapan markaların ürünlerini ve koleksiyonlarını dijital ortamda profesyonel şekilde sunmasını sağlayan bir satış altyapısıdır. PDF katalog, WhatsApp mesajları veya dağınık ürün görselleri yerine; kategori, ürün, teklif, iletişim ve müşteri yönlendirme süreçlerini daha düzenli hale getirir. Bu rehber, dijital showroom’un toptan satışta neden önemli olduğunu açıklar.',
     quickAnswer:
-      'PDF katalog ve e-posta üzerinden yürüyen bir toptan satış süreci, hangi müşterinin hangi ürüne ilgi gösterdiğini izlemeyi zorlaştırır. Dijital showroom, ürün sunumu ve teklif sürecini tek bir görünür sisteme dönüştürür.',
+      'B2B dijital showroom, toptan alıcıların ürünleri online inceleyebilmesini, kategori bazlı gezebilmesini, teklif veya iletişim talebi oluşturabilmesini sağlayan dijital satış sistemidir. Toptan satış yapan markalar için daha düzenli ürün sunumu, daha hızlı müşteri bilgilendirme ve daha güçlü güven algısı oluşturur.',
     whoShouldRead: [
-      'Toptan satış yapan üretici ve distribütör firmalar',
-      'PDF katalog ve e-posta ile çalışmaktan sıkılan satış ekipleri',
-      'Teklif sürecini dijitalleştirmek isteyen markalar',
+      'Toptan satış yapan üretici ve markalar',
+      'Bayi, distribütör veya mağaza ağı kurmak isteyen işletmeler',
+      'Ürünlerini hâlâ PDF katalog veya WhatsApp görselleriyle sunan firmalar',
+      'B2B müşterilerine daha profesyonel ürün sunumu yapmak isteyenler',
+      'Dijital katalog veya online showroom kurmayı düşünen markalar',
     ],
+    expertNote:
+      'B2B dijital showroom yalnızca ürün görsellerinin yayınlandığı bir web sayfası değildir. Doğru kurgulandığında ürün kategorileri, koleksiyon yapısı, teklif akışı, müşteri yönlendirme ve satış ekibi operasyonu birlikte çalışır. Bu yüzden showroom, tasarım kadar satış süreciyle de düşünülmelidir.',
+    expertNoteAfterHeading: 'Dijital showroom satış ekibiyle nasıl çalışır?',
     sections: [
       {
-        heading: 'Klasik PDF katalogun sınırı',
-        body: 'PDF katalog ve e-posta üzerinden yürüyen bir toptan satış süreci, hangi müşterinin hangi ürüne ilgi gösterdiğini, teklifin hangi aşamada kaldığını izlemeyi neredeyse imkansız hale getirir.',
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran işletmeler genellikle ürünlerini toptan müşterilere daha profesyonel göstermek, bayi/distribütör ağı kurmak veya WhatsApp/PDF katalog trafiğini daha düzenli hale getirmek ister. Dijital showroom sadece bir web sayfası değil, B2B satış sürecini destekleyen bir altyapıdır.',
       },
       {
-        heading: 'Dijital showroom bunu nasıl değiştirir?',
-        body: 'Dijital showroom; ürün sunumu, teklif toplama, müşteri grupları ve özel fiyat yapılarını tek bir sistemde birleştirerek satış ekibinin neye, ne zaman odaklanması gerektiğini görünür hale getirir.',
+        heading: 'B2B dijital showroom nedir?',
+        body: '- Toptan ürünlerin dijital ortamda sergilenmesi\n- Kategori ve koleksiyon yapısı\n- Ürün detaylarının düzenli sunumu\n- Teklif veya iletişim talebi oluşturma\n- Satış ekibinin daha profesyonel sunum yapması',
       },
       {
-        heading: 'Sadece büyük firmalar için mi?',
-        body: 'Hayır. Az sayıda toptan müşterisi olan küçük bir üretici için de teklif sürecini ve müşteri takibini düzenli hale getirmek, satış kapanış oranını doğrudan etkiler.',
+        heading: 'B2B dijital showroom ne işe yarar?',
+        body: '- Ürün sunumunu düzenler\n- Müşterinin ürünleri daha kolay incelemesini sağlar\n- PDF katalog ve dağınık görsel trafiğini azaltır\n- Teklif sürecini daha takip edilebilir hale getirir\n- Marka güvenini artırır\n- Bayi ve distribütör görüşmelerinde profesyonel görünüm sağlar',
       },
       {
-        heading: 'GloventGlobal nasıl yardımcı olur?',
-        body: 'B2B Satış Sistemi kapsamında ürün sunumu, teklif akışı, müşteri grupları ve satış takibini birlikte çalışan bir yapıya dönüştürüyoruz.',
+        heading: 'Örnek Showroom Senaryosu',
+        body: 'Örnek senaryo: Toptan satış yapan bir marka, ilk etapta en güçlü 30 ürününü kategori, ürün görseli, kısa açıklama ve teklif talebi yapısıyla dijital showroom’a aktarabilir. Satış ekibi, müşterilere dağınık görseller göndermek yerine bu showroom üzerinden ürünleri gösterebilir ve talepleri daha düzenli takip edebilir. Bu senaryo satış garantisi değil, daha kontrollü ve profesyonel bir B2B sunum yaklaşımıdır.',
       },
+      {
+        heading: 'Dijital showroom ile klasik web sitesi arasındaki fark nedir?',
+        body: 'Klasik web sitesi genelde marka tanıtımı ve bilgi sunumu içindir. Dijital showroom ise ürünleri, kategorileri, koleksiyonları ve teklif sürecini B2B satış mantığıyla kurgular.',
+      },
+      {
+        heading: 'Toptan satış yapan firmalar için neden önemlidir?',
+        body: '- Toptan alıcılar hızlı ürün incelemek ister\n- Ürün çeşitliliği arttıkça manuel sunum zorlaşır\n- Satış ekibinin aynı ürünü tutarlı anlatması gerekir\n- Fiyat gizleme veya teklif sistemi gerekebilir\n- B2B müşteriler karar vermeden önce güvenilir dijital sunum görmek ister',
+      },
+      {
+        heading: 'B2B dijital showroom hangi sektörler için uygundur?',
+        body: '- Bijuteri ve aksesuar\n- Tekstil ve moda\n- Ev dekorasyon\n- Kozmetik\n- Hediyelik eşya\n- Endüstriyel ürünler\n- Toptan ürün grupları olan üreticiler\n\nHer sektör için kesin bir uygunluk garantisi yoktur; değerlendirme ürün yapısına göre yapılmalıdır.',
+      },
+      {
+        heading: 'B2B showroom kurmadan önce hangi bilgiler hazırlanmalı?',
+        body: '- Ürün kategorileri\n- Ürün görselleri\n- Kısa ürün açıklamaları\n- Minimum sipariş / teklif mantığı\n- İletişim akışı\n- Fiyat gösterilecek mi gizlenecek mi?\n- Bayi veya distribütör başvuru süreci\n- Stok ve koleksiyon yönetimi',
+      },
+      {
+        heading: 'Dijital showroom satış ekibiyle nasıl çalışır?',
+        body: 'Showroom, satış ekibinin yerine geçmek zorunda değildir. Doğru kurguda satış ekibinin müşteriye ürünleri daha hızlı göstermesini, doğru kategorilere yönlendirmesini ve talebi daha düzenli takip etmesini sağlar.',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, dijital showroom’u sadece “ürün fotoğraflarını siteye koymak” olarak görmektir. Asıl mesele ürün sunumu, kategori yapısı, teklif akışı, müşteri yönlendirme ve satış operasyonunun birlikte çalışmasıdır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, toptan satış yapan markaların ürün yapısını, müşteri tipini, satış ekibi sürecini ve dijital altyapı ihtiyacını analiz ederek B2B dijital showroom sistemini markaya özel şekilde kurgular.',
+      },
+    ],
+    comparison: {
+      heading: 'PDF Katalog mu, B2B Dijital Showroom mu?',
+      headers: ['Kriter', 'PDF Katalog', 'B2B Dijital Showroom'],
+      rows: [
+        { criterion: 'Ürün güncelleme', individual: 'Güncelleme zordur, yeni dosya gerekir', company: 'Ürünler daha kolay güncellenebilir' },
+        { criterion: 'Müşteri deneyimi', individual: 'Müşteri ürünü aramakta zorlanabilir', company: 'Kategori ve filtre yapısıyla daha kolay inceleme sağlar' },
+        { criterion: 'Teklif süreci', individual: 'Talep genelde manuel takip edilir', company: 'Teklif veya iletişim akışı daha düzenli kurulabilir' },
+        { criterion: 'Profesyonel algı', individual: 'Temel sunum sağlar', company: 'Daha modern ve güven veren bir yapı oluşturur' },
+        { criterion: 'Satış ekibi kullanımı', individual: 'Dosya gönderimiyle sınırlı kalabilir', company: 'Satış ekibi müşteriyi doğrudan ilgili ürün/kategoriye yönlendirebilir' },
+      ],
+    },
+    checklist: {
+      heading: 'B2B dijital showroom kurmadan önce kontrol listesi',
+      items: [
+        'Ürün kategorileriniz net mi?',
+        'En güçlü ürünleriniz seçildi mi?',
+        'Ürün görselleri dijital sunuma uygun mu?',
+        'Ürün açıklamaları kısa ve anlaşılır mı?',
+        'Fiyat gösterilecek mi, teklif üzerinden mi ilerleyecek?',
+        'Müşteri iletişim ve teklif akışı belli mi?',
+        'Bayi veya distribütör başvuru süreci var mı?',
+        'Satış ekibi showroom’u nasıl kullanacak?',
+        'Showroom sonrası lead takibi nasıl yapılacak?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'B2B dijital showroom nedir?',
+          answer:
+            'B2B dijital showroom, toptan satış yapan markaların ürünlerini, kategorilerini ve teklif süreçlerini dijital ortamda profesyonel şekilde sunmasını sağlayan bir sistemdir. Amaç, bayi, distribütör ve kurumsal alıcıların ürünleri kolayca incelemesini ve talep oluşturmasını sağlamaktır.',
+        },
+        {
+          question: 'Dijital showroom ile katalog arasındaki fark nedir?',
+          answer:
+            'PDF katalog statik bir dosyadır ve güncellenmesi zordur; dijital showroom ise ürünleri kategori ve filtre yapısıyla canlı olarak sunar. Showroom ayrıca teklif ve iletişim akışını daha düzenli takip edilebilir hale getirir.',
+        },
+        {
+          question: 'Toptan satış yapan firmalar için dijital showroom gerekli mi?',
+          answer:
+            'Kesin bir zorunluluk değildir, ancak ürün çeşitliliği arttıkça manuel sunum ve takip zorlaşır. Bu noktada dijital showroom, ürün sunumu ve teklif sürecini düzenli hale getirmede yardımcı olabilir.',
+        },
+        {
+          question: 'B2B showroom’da fiyatlar görünmeli mi?',
+          answer:
+            'Bu, markanın satış modeline göre değişir; bazı markalar fiyatı doğrudan gösterirken bazıları teklif sistemi üzerinden ilerler. Her iki yaklaşım da doğru kurgulandığında çalışabilir.',
+        },
+        {
+          question: 'Dijital showroom satış ekibinin yerine geçer mi?',
+          answer:
+            'Hayır, showroom satış ekibinin yerine geçmek zorunda değildir. Doğru kurguda satış ekibinin müşteriye ürünleri daha hızlı göstermesini ve talebi daha düzenli takip etmesini sağlar.',
+        },
+        {
+          question: 'Hangi sektörler dijital showroom kullanabilir?',
+          answer:
+            'Bijuteri, tekstil, dekorasyon, kozmetik, hediyelik eşya gibi toptan ürün grubuna sahip birçok sektör için uygun olabilir. Ancak her sektör için uygunluk, ürün yapısına göre ayrıca değerlendirilmelidir.',
+        },
+        {
+          question: 'Dijital showroom kurmak için önce ne hazırlanmalı?',
+          answer:
+            'Ürün kategorileri, görseller, kısa açıklamalar ve teklif/iletişim akışının netleştirilmesi gerekir. Fiyat gösterimi ve bayi başvuru süreci gibi kararlar da önceden planlanmalıdır.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürün kategorilerinizi ve koleksiyon yapınızı netleştirin',
+      'Toptan müşterilerinizin hangi bilgilere ihtiyaç duyduğunu belirleyin',
+      'Ürün görselleri, açıklamalar ve teklif akışını düzenleyin',
+      'Dijital showroom’un web sitesi, WhatsApp ve satış ekibiyle nasıl çalışacağını planlayın',
+      'Ücretsiz analiz ile B2B dijital satış yapınızın hazır olup olmadığını değerlendirin',
     ],
   },
 
