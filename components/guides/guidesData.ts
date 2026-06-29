@@ -1878,4 +1878,162 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Etsy başlık ve listeleme yapınızı birlikte değerlendirin',
     ],
   },
+
+  'etsy-urun-aciklamasi-nasil-yazilir': {
+    title: 'Etsy Ürün Açıklaması Nasıl Yazılır?',
+    slug: 'etsy-urun-aciklamasi-nasil-yazilir',
+    excerpt:
+      'Etsy ürün açıklamasını yalnızca SEO için değil; müşteriye güven vermek, ölçü/malzeme/kargo bilgisini net anlatmak ve satın alma kararını desteklemek için nasıl yazacağınızı açıklıyoruz.',
+    category: 'Etsy',
+    targetAudience: 'Etsy ürün açıklamasına ne yazacağını bilmeyen satıcılar',
+    searchIntent: 'etsy ürün açıklaması nasıl yazılır, etsy description nasıl yazılır, etsy açıklama seo için önemli mi, etsy ürün açıklamasına ne yazılır, etsy ürün açıklaması örnekleri, etsy listing description nasıl optimize edilir, etsy açıklamasında ölçü ve malzeme nasıl yazılır, etsy açıklaması güven vermek için nasıl hazırlanır',
+    relatedServiceSlug: 'etsy',
+    readTime: '5 dk',
+    publishedAt: '2026-02-20',
+    order: 13,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy ürün açıklaması, müşterinin ürünü satın almadan önce ihtiyaç duyduğu bilgileri net şekilde gördüğü alandır. Doğru açıklama; ürünün ne olduğunu, ölçüsünü, malzemesini, kullanım alanını, bakım bilgisini, kargo ve iade detaylarını anlaşılır şekilde sunar. Bu rehber, Etsy ürün açıklamasının SEO, güven ve dönüşüm açısından nasıl hazırlanabileceğini açıklar.',
+    quickAnswer:
+      'Etsy ürün açıklaması yazarken ürünün ne olduğu, kim için uygun olduğu, ölçüleri, malzemesi, kullanım alanı, bakım bilgisi, kargo süreci ve varsa kişiselleştirme detayları net şekilde anlatılmalıdır. Açıklama sadece anahtar kelime için değil, müşterinin satın alma kararını kolaylaştırmak için hazırlanmalıdır.',
+    whoShouldRead: [
+      'Etsy ürün açıklamasına ne yazacağını bilmeyen satıcılar',
+      'Etsy SEO ve listeleme optimizasyonu yapmak isteyen mağaza sahipleri',
+      'Görüntülenme alıp satışa dönüştüremeyen ürünleri olanlar',
+      'Ürün ölçüsü, malzeme, kargo ve kullanım bilgilerini daha net anlatmak isteyenler',
+      'El yapımı, deri, takı, aksesuar, dijital ürün veya tasarım ürünleri satanlar',
+      'Etsy’de mağaza güvenini artırmak isteyen markalar',
+    ],
+    expertNote:
+      'Etsy açıklamasında en sık yapılan hata, açıklamayı ya çok kısa bırakmak ya da sadece anahtar kelimeyle doldurmaktır. Güçlü bir açıklama, ürün bilgilerini açık verir, müşterinin sorularını önceden cevaplar ve başlık, tag, fotoğraf ve fiyatla birlikte güven oluşturan bir listeleme yapısı kurar.',
+    expertNoteAfterHeading: 'Etsy açıklamasında anahtar kelime nasıl kullanılmalı?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran satıcılar genellikle ürün açıklamasını çok kısa yazar, sadece anahtar kelime ekler veya müşterinin satın almadan önce ihtiyaç duyduğu bilgileri eksik bırakır. Etsy ürün açıklaması sadece SEO alanı değil, müşterinin karar verme alanıdır.',
+      },
+      {
+        heading: 'Etsy ürün açıklaması nedir?',
+        body: '- Etsy listelemesinde ürünün detaylarının anlatıldığı alan\n- Ürün ölçüsü, malzeme, kullanım, bakım, kargo ve kişiselleştirme bilgisini sunması\n- Başlık, tag, kategori ve fotoğrafla birlikte çalışması\n- Müşterinin aklındaki soruları önceden cevaplaması gerektiği',
+      },
+      {
+        heading: 'Etsy ürün açıklaması ne işe yarar?',
+        body: '- Ürünün detaylarını netleştirir\n- Müşterinin güven duymasına yardımcı olur\n- Ölçü, malzeme, renk, kullanım ve kargo gibi bilgileri açıklar\n- Ürün fotoğraflarında görünmeyen detayları tamamlar\n- Satın alma kararındaki belirsizlikleri azaltabilir\n- Etsy SEO yapısını başlık ve tag ile birlikte destekler',
+      },
+      {
+        heading: 'Örnek Etsy Açıklama Senaryosu',
+        body: 'Örnek senaryo: Deri EDC organizer satan bir Etsy mağazası, ürün açıklamasında yalnızca ürün adını tekrar etmek yerine ölçü, malzeme, hangi eşyalar için uygun olduğu, kullanım senaryosu, bakım bilgisi, kargo süreci ve hediye kullanım ihtimalini net şekilde anlatabilir. Bu senaryo satış garantisi değil, Etsy açıklamasını daha güven verici ve anlaşılır hale getirmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Etsy açıklamasında hangi bilgiler olmalı?',
+        body: '- Ürün kısa tanımı\n- Ölçüler\n- Malzeme\n- Renk ve varyasyon bilgisi\n- Kullanım alanı\n- Kimler için uygun olduğu\n- Hediye kullanım senaryosu\n- Bakım talimatı\n- Kargo ve hazırlık süresi\n- İade / değişim notu\n- Kişiselleştirme varsa nasıl yapılacağı',
+      },
+      {
+        heading: 'Etsy açıklaması nasıl yazılmalı?',
+        body: '- İlk bölümde ürün net tanıtılmalı\n- Uzun ve karışık paragraflardan kaçınılmalı\n- Ölçü, malzeme ve kullanım bilgisi açık yazılmalı\n- Müşterinin en çok soracağı sorular cevaplanmalı\n- Anahtar kelimeler doğal şekilde kullanılmalı\n- Üründe olmayan özellikler yazılmamalı\n- Fotoğraf, başlık ve tag ile uyum korunmalı',
+      },
+      {
+        heading: 'Etsy açıklamasında anahtar kelime nasıl kullanılmalı?',
+        body: 'Anahtar kelimeler açıklama içinde doğal şekilde yer alabilir. Ancak açıklama yalnızca SEO için değil, müşteriye ürün hakkında güven vermek için yazılmalıdır. Anahtar kelime tekrarları okunabilirliği bozuyorsa açıklama zayıflar.',
+      },
+      {
+        heading: 'Etsy açıklaması ve fotoğraf ilişkisi neden önemlidir?',
+        body: 'Fotoğraflar ürünü gösterir, açıklama ise ürünü anlatır. Ölçü, malzeme, kullanım alanı, paket içeriği ve bakım gibi bilgiler açıklamada netleşmelidir. Fotoğraf ve açıklama birbirini desteklemediğinde müşteri kararsız kalabilir.',
+      },
+      {
+        heading: 'Etsy açıklaması örnekleri nasıl düşünülmeli?',
+        body: 'Bir deri EDC organizer açıklamasında şu alanlar düşünülebilir:\n- Ürün ne işe yarar?\n- Hangi eşyalar için uygundur?\n- Ölçüleri nedir?\n- Hangi malzemeden yapılmıştır?\n- Günlük kullanımda nasıl taşınır?\n- Hediye olarak kime uygun olabilir?\n- Kargo ve hazırlık süreci nasıldır?\n\nBu örnekler kopyalanacak kesin bir açıklama değil, açıklama düşünme mantığını göstermek için verilmiştir.',
+      },
+      {
+        heading: 'Etsy açıklaması yazarken en sık yapılan hatalar',
+        body: '- Açıklamayı çok kısa bırakmak\n- Sadece anahtar kelime yazmak\n- Ölçü, malzeme ve kargo bilgisini eksik vermek\n- Fotoğrafta görünen ama açıklamada anlatılmayan detayları atlamak\n- Üründe olmayan özellikleri yazmak\n- Müşterinin sorularını önceden cevaplamamak\n- Tüm ürünlere aynı açıklama şablonunu kopyalamak\n- Açıklamayı güncellemeden bırakmak',
+      },
+      {
+        heading: 'İlk 30 gün Etsy açıklama planı',
+        body: '1. hafta: en güçlü 10 ürünün açıklamalarını kontrol etme\n2. hafta: ölçü, malzeme, kullanım, bakım ve kargo bilgilerini düzenleme\n3. hafta: başlık, tag, fotoğraf ve açıklama uyumunu kontrol etme\n4. hafta: müşteri soruları, favori, görüntülenme ve satış verilerine göre iyileştirme notları çıkarma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Etsy açıklamasını sadece SEO metni gibi görmektir. Açıklama aynı zamanda müşterinin “Bu ürün bana uygun mu?” sorusuna cevap verdiği alandır. Bu yüzden açıklama hem arama niyetine hem de satın alma kararına hizmet etmelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarında ürün açıklaması, başlık, tag, kategori, fotoğraf, fiyatlandırma ve mağaza güvenini birlikte analiz ederek daha sistemli bir Etsy listeleme optimizasyonu süreci oluşturur.',
+      },
+    ],
+    comparison: {
+      heading: 'Kısa Açıklama mı, Güven Veren Etsy Açıklaması mı?',
+      headers: ['Kriter', 'Kısa Açıklama', 'Güven Veren Etsy Açıklaması'],
+      rows: [
+        { criterion: 'Ürün bilgisi', individual: 'Ürün hakkında sınırlı bilgi verir', company: 'Ürünün ne olduğunu, nasıl kullanılacağını ve detaylarını açıklar' },
+        { criterion: 'Müşteri soruları', individual: 'Müşterinin aklındaki soruları cevaplamayabilir', company: 'Ölçü, malzeme, kargo, bakım ve kullanım gibi soruları önceden yanıtlar' },
+        { criterion: 'SEO uyumu', individual: 'Anahtar kelimeyi ya hiç kullanmaz ya da yapay şekilde kullanır', company: 'Anahtar kelimeleri doğal ve okunabilir şekilde taşır' },
+        { criterion: 'Fotoğraf uyumu', individual: 'Fotoğrafta görünen detayları açıklamayabilir', company: 'Fotoğrafı destekleyen detay bilgileri sunar' },
+        { criterion: 'Dönüşüm', individual: 'Müşteri kararını zorlaştırabilir', company: 'Güven, netlik ve satın alma kararını destekler' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy açıklaması yazmadan önce kontrol listesi',
+      items: [
+        'Ürün ilk cümlede net anlaşılıyor mu?',
+        'Ölçü bilgisi açık yazıldı mı?',
+        'Malzeme ve renk bilgisi net mi?',
+        'Kullanım alanı anlatıldı mı?',
+        'Hediye veya hedef kişi bilgisi uygun şekilde verildi mi?',
+        'Bakım talimatı gerekiyorsa eklendi mi?',
+        'Kargo ve hazırlık süreci açık mı?',
+        'Başlık, tag ve fotoğraflarla açıklama uyumlu mu?',
+        'Müşterinin sorabileceği temel sorular cevaplandı mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy ürün açıklaması nasıl yazılır?',
+          answer:
+            'Ürün ilk cümlede net tanıtılmalı, ardından ölçü, malzeme, kullanım alanı, bakım ve kargo bilgileri açık şekilde verilmelidir. Anahtar kelimeler doğal şekilde kullanılmalı, açıklama uzun ve karışık paragraflardan kaçınmalıdır.',
+        },
+        {
+          question: 'Etsy açıklaması SEO için önemli mi?',
+          answer:
+            'Evet, açıklama başlık ve tag ile birlikte Etsy SEO yapısının bir parçasıdır. Ancak açıklamanın asıl amacı sadece SEO değil, müşterinin satın alma kararını kolaylaştırmaktır.',
+        },
+        {
+          question: 'Etsy description kaç kelime olmalı?',
+          answer:
+            'Kesin bir kelime sayısı yoktur; önemli olan müşterinin sorabileceği temel soruların net şekilde cevaplanmasıdır. Çok kısa açıklamalar genellikle yeterli bilgi vermez, gereksiz uzun ve dağınık açıklamalar da okunabilirliği zayıflatabilir.',
+        },
+        {
+          question: 'Etsy açıklamasında hangi bilgiler olmalı?',
+          answer:
+            'Ürün tanımı, ölçü, malzeme, kullanım alanı, bakım talimatı, kargo süreci ve varsa kişiselleştirme bilgisi yer almalıdır. Bu bilgiler müşterinin satın almadan önce ihtiyaç duyduğu soruları önceden cevaplar.',
+        },
+        {
+          question: 'Etsy açıklamasına anahtar kelime eklenmeli mi?',
+          answer:
+            'Evet, anahtar kelimeler açıklama içinde doğal şekilde yer alabilir. Ancak açıklamanın öncelikli amacı müşteriye güven vermek olduğu için kelime tekrarı okunabilirliği bozmamalıdır.',
+        },
+        {
+          question: 'Etsy ürün açıklaması satışa etki eder mi?',
+          answer:
+            'Açıklama tek başına bir satış garantisi sağlamaz, ancak müşterinin karar verme sürecini doğrudan etkileyebilir. Net ve güven veren bir açıklama, diğer listeleme unsurlarıyla birlikte satın alma kararını destekleyebilir.',
+        },
+        {
+          question: 'Etsy açıklaması ne zaman güncellenmelidir?',
+          answer:
+            'Görüntülenme, favori ve satış verileri düzenli izlenip performansı düşük görülen açıklamalar gözden geçirilebilir. Kesin bir güncelleme periyodu yoktur, bu karar ürünün ve verinin durumuna göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Her ürün için müşterinin satın almadan önce soracağı soruları listeleyin',
+      'Ölçü, malzeme, kullanım alanı, bakım, kargo ve iade bilgilerini netleştirin',
+      'Açıklamayı okunabilir başlıklar veya kısa paragraflarla düzenleyin',
+      'Başlık, tag ve fotoğraflarla açıklamanın uyumlu olup olmadığını kontrol edin',
+      'Ücretsiz analiz ile Etsy açıklama ve listeleme yapınızı birlikte değerlendirin',
+    ],
+  },
 };
