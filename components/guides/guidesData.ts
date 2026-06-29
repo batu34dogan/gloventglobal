@@ -2360,4 +2360,166 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Etsy reklam ve listeleme yapınızı birlikte değerlendirin',
     ],
   },
+
+  'etsy-kargo-rehberi': {
+    title: 'Etsy Kargo Rehberi',
+    slug: 'etsy-kargo-rehberi',
+    excerpt:
+      'Etsy kargo ayarlarını, ücretsiz kargo mantığını, uluslararası gönderim sürecini ve teslimat/iade politikasını fiyatlandırma ve müşteri güveniyle birlikte nasıl planlayacağınızı açıklıyoruz.',
+    category: 'Etsy',
+    targetAudience: 'Etsy’de kargo ayarlarını nasıl yapacağını bilmeyen satıcılar',
+    searchIntent: 'etsy kargo nasıl ayarlanır, etsy kargo profili nasıl oluşturulur, etsy ücretsiz kargo mantıklı mı, etsy uluslararası kargo nasıl yapılır, etsy türkiye den yurtdışına kargo nasıl gönderilir, etsy kargo ücreti nasıl belirlenir, etsy teslimat süresi nasıl yazılır, etsy iade ve kargo politikası nasıl yazılır',
+    relatedServiceSlug: 'etsy',
+    readTime: '5 dk',
+    publishedAt: '2026-03-01',
+    order: 16,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy’de kargo süreci, yalnızca ürün gönderimi değil; fiyatlandırma, teslimat süresi, müşteri güveni, mağaza politikaları ve satış sonrası deneyimin önemli bir parçasıdır. Doğru kargo yapısı, ürünün maliyetini ve müşterinin satın alma kararını doğrudan etkileyebilir. Bu rehber, Etsy kargo ayarlarının ve uluslararası gönderim sürecinin nasıl daha kontrollü planlanabileceğini açıklar.',
+    quickAnswer:
+      'Etsy kargo ayarları yapılırken ürünün ağırlığı, ölçüsü, hedef ülke, teslimat süresi, kargo maliyeti, ücretsiz kargo stratejisi, iade politikası ve müşteri bilgilendirmesi birlikte düşünülmelidir. Kargo yalnızca teknik bir ayar değil, fiyatlandırma ve müşteri güveniyle birlikte çalışan bir satış unsurudur.',
+    whoShouldRead: [
+      'Etsy’de kargo ayarlarını nasıl yapacağını bilmeyen satıcılar',
+      'Türkiye’den yurtdışına ürün göndermek isteyen Etsy mağazaları',
+      'Ücretsiz kargo veya ücretli kargo arasında karar veremeyenler',
+      'Kargo maliyetini ürün fiyatına nasıl yansıtacağını düşünenler',
+      'Teslimat süresi, iade ve müşteri bilgilendirmesini netleştirmek isteyenler',
+      'El yapımı, takı, deri, aksesuar, dekoratif ürün, kişiselleştirilmiş ürün veya dijital olmayan fiziksel ürün satanlar',
+    ],
+    expertNote:
+      'Etsy’de kargo sürecinde en sık yapılan hata, kargo maliyetini ürün fiyatından ayrı düşünmektir. Müşteri toplam fiyatı, teslimat süresini ve güven duygusunu birlikte değerlendirir. Bu yüzden kargo stratejisi, ürün fiyatlandırması ve mağaza politikalarıyla birlikte planlanmalıdır.',
+    expertNoteAfterHeading: 'Kargo maliyeti ürün fiyatına nasıl yansıtılmalı?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran satıcılar genellikle Etsy’de kargo ayarlarını nasıl yapacağını, ücretsiz kargonun mantıklı olup olmadığını, Türkiye’den yurtdışına gönderim sürecinde nelere dikkat etmesi gerektiğini veya müşteriye teslimat süresini nasıl anlatacağını bilmez. Kargo sadece gönderim değil, satış deneyiminin önemli bir parçasıdır.',
+      },
+      {
+        heading: 'Etsy kargo süreci nedir?',
+        body: '- Ürünün hazırlanmasından müşteriye teslim edilmesine kadar olan süreç\n- Kargo profili, gönderim ülkesi, teslimat süresi, ücret ve iade politikasıyla birlikte düşünülmesi\n- Ürün fiyatlandırması ve müşteri güveniyle ilişkili olması\n- Fiziksel ürünlerde satın alma kararını etkileyebilmesi',
+      },
+      {
+        heading: 'Etsy kargo süreci ne işe yarar?',
+        body: '- Müşteriye teslimat beklentisi verir\n- Toplam fiyat algısını etkiler\n- Mağaza güvenini destekler\n- İade ve müşteri iletişimini daha düzenli hale getirir\n- Uluslararası satışta operasyon planlamasına yardımcı olur\n- Ürün fiyatlandırmasıyla birlikte kârlılığı etkiler',
+      },
+      {
+        heading: 'Örnek Etsy Kargo Senaryosu',
+        body: 'Örnek senaryo: Türkiye’den Etsy üzerinden takı, deri aksesuar veya kişiselleştirilmiş hediye satan bir mağaza, ilk etapta ürünlerin ağırlık ve ölçülerini netleştirir. Daha sonra hedef ülkeler için kargo maliyeti, tahmini teslimat süresi, paketleme standardı ve iade politikasını birlikte planlar. Bu senaryo satış garantisi değil, Etsy kargo sürecini daha kontrollü yönetmek için örnek bir başlangıç yaklaşımıdır.',
+      },
+      {
+        heading: 'Etsy kargo ayarlarında hangi bilgiler düşünülmeli?',
+        body: '- Ürün ağırlığı\n- Ürün ölçüsü\n- Paketleme ölçüsü\n- Hedef ülke\n- Kargo firması veya gönderim yöntemi\n- Tahmini teslimat süresi\n- Kargo ücreti\n- Ücretsiz kargo stratejisi\n- İade politikası\n- Gümrük ve vergi ihtimali',
+      },
+      {
+        heading: 'Etsy kargo profili nasıl planlanmalı?',
+        body: '- Benzer ürünler için aynı kargo mantığı kurulabilir\n- Ağırlık ve ölçü farklıysa ayrı kargo yaklaşımı gerekebilir\n- Hedef ülkelere göre maliyet değişebilir\n- Hazırlık süresi ve teslimat süresi net yazılmalıdır\n- Müşteriye belirsiz veya yanıltıcı süre verilmemelidir',
+      },
+      {
+        heading: 'Etsy’de ücretsiz kargo mantıklı mı?',
+        body: 'Ücretsiz kargo bazı ürünlerde müşteri algısını güçlendirebilir; ancak maliyet ürün fiyatına doğru yansıtılmazsa kârlılık azalabilir. Ücretsiz kargo kararı ürün fiyatı, hedef pazar, rekabet, kâr marjı ve kargo maliyetine göre değerlendirilmelidir. Her mağaza için tek doğru seçenek yoktur.',
+      },
+      {
+        heading: 'Kargo maliyeti ürün fiyatına nasıl yansıtılmalı?',
+        body: 'Kargo maliyeti ayrı ücret olarak gösterilebilir veya ürün fiyatına dahil edilebilir. Her iki yöntemde de toplam müşteri maliyeti, rekabet seviyesi ve kâr marjı birlikte hesaplanmalıdır. Yanlış fiyatlandırma, satış olsa bile kârlılığı zayıflatabilir.',
+      },
+      {
+        heading: 'Türkiye’den yurtdışına Etsy kargosu gönderirken nelere dikkat edilmeli?',
+        body: '- Ürün kategorisi\n- Paketleme dayanıklılığı\n- Hedef ülke\n- Tahmini teslimat süresi\n- Takip numarası\n- Gümrük ve vergi ihtimali\n- İade süreci\n- Müşteri bilgilendirmesi\n\nKargo firması seçimi ürün ve ülkeye göre değişebilir.',
+      },
+      {
+        heading: 'Etsy kargo ve iade politikası nasıl yazılmalı?',
+        body: 'Kargo ve iade politikası müşterinin satın almadan önce görebileceği kadar açık olmalıdır. Hazırlık süresi, tahmini teslimat, iade kabul şartları, kişiselleştirilmiş ürünlerde iade durumu ve gecikme ihtimalleri net şekilde anlatılmalıdır. Kesin hukuki tavsiye değildir; ülke ve ürün tipine göre değişebilir.',
+      },
+      {
+        heading: 'Etsy kargo sürecinde en sık yapılan hatalar',
+        body: '- Kargo maliyetini ürün fiyatından ayrı düşünmek\n- Teslimat süresini gerçekçi yazmamak\n- Paketleme maliyetini hesaba katmamak\n- İade sürecini net belirtmemek\n- Takip numarası veya müşteri bilgilendirmesini ihmal etmek\n- Ücretsiz kargoyu kârlılık hesabı yapmadan kullanmak\n- Her ülkeye aynı kargo mantığıyla yaklaşmak\n- Gümrük/vergi ihtimalini yok saymak',
+      },
+      {
+        heading: 'İlk 30 gün Etsy kargo planı',
+        body: '1. hafta: ürün ağırlığı, ölçü ve paketleme bilgilerini netleştirme\n2. hafta: hedef ülkeler ve kargo maliyetlerini karşılaştırma\n3. hafta: kargo profili, teslimat süresi ve iade politikasını düzenleme\n4. hafta: sipariş, teslimat, müşteri soruları ve iade verilerine göre iyileştirme notları çıkarma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Etsy kargosunu yalnızca “müşteriye ürünü göndermek” olarak görmektir. Kargo süreci; fiyatlandırma, kârlılık, müşteri güveni, teslimat beklentisi, iade ve mağaza politikalarıyla birlikte düşünülmelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarında ürün ağırlığı, ölçü, fiyatlandırma, kargo maliyeti, hedef ülke, teslimat süresi, iade politikası ve müşteri iletişimini birlikte analiz ederek daha sistemli bir Etsy kargo ve operasyon yapısı oluşturur.',
+      },
+    ],
+    comparison: {
+      heading: 'Plansız Kargo mu, Sistemli Etsy Kargo Yapısı mı?',
+      headers: ['Kriter', 'Plansız Kargo', 'Sistemli Etsy Kargo Yapısı'],
+      rows: [
+        { criterion: 'Fiyatlandırma', individual: 'Kargo maliyeti sonradan fark edilir', company: 'Kargo maliyeti ürün fiyatı ve kâr hesabıyla birlikte düşünülür' },
+        { criterion: 'Müşteri beklentisi', individual: 'Teslimat süresi belirsiz veya eksik yazılır', company: 'Hazırlık ve teslimat süresi daha net anlatılır' },
+        { criterion: 'Paketleme', individual: 'Paketleme maliyeti ve dayanıklılık ihmal edilebilir', company: 'Ürün tipi ve hedef ülkeye göre paketleme planlanır' },
+        { criterion: 'İade süreci', individual: 'İade şartları belirsiz kalır', company: 'İade ve değişim politikası önceden netleştirilir' },
+        { criterion: 'Kârlılık', individual: 'Satış olsa bile kargo maliyeti kârı azaltabilir', company: 'Toplam maliyet ve kâr marjı birlikte hesaplanır' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy kargo ayarlarını yapmadan önce kontrol listesi',
+      items: [
+        'Ürün ağırlığı ve ölçüsü belli mi?',
+        'Paketleme ölçüsü ve maliyeti hesaplandı mı?',
+        'Hangi ülkelere gönderim yapılacağı net mi?',
+        'Kargo maliyeti ürün fiyatıyla birlikte hesaplandı mı?',
+        'Ücretsiz kargo kullanılacaksa kârlılık kontrol edildi mi?',
+        'Hazırlık ve teslimat süresi gerçekçi mi?',
+        'İade ve değişim politikası açık mı?',
+        'Müşteriye takip bilgisi verilecek mi?',
+        'Gümrük/vergi ihtimali müşteriye uygun şekilde anlatıldı mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy kargo nasıl ayarlanır?',
+          answer:
+            'Ürün ağırlığı, ölçüsü, hedef ülke, teslimat süresi ve kargo ücreti birlikte belirlenerek kargo profili oluşturulur. Bu ayarlar ürünün paketleme şekline ve gönderim yöntemine göre değişebilir.',
+        },
+        {
+          question: 'Etsy’de ücretsiz kargo mantıklı mı?',
+          answer:
+            'Kesin bir doğru cevap yoktur; ücretsiz kargo müşteri algısını güçlendirebilir ama maliyet ürün fiyatına doğru yansıtılmazsa kârlılığı azaltabilir. Karar, ürün fiyatı, rekabet ve kâr marjına göre değerlendirilmelidir.',
+        },
+        {
+          question: 'Etsy kargo ücreti nasıl belirlenir?',
+          answer:
+            'Ürün ağırlığı, ölçüsü, paketleme ve hedef ülkeye göre değişen kargo maliyeti, ürün fiyatına veya ayrı bir kargo ücretine yansıtılabilir. Her iki yöntemde de toplam müşteri maliyeti ve kâr marjı birlikte hesaplanmalıdır.',
+        },
+        {
+          question: 'Türkiye’den yurtdışına Etsy kargosu nasıl gönderilir?',
+          answer:
+            'Ürün kategorisi, paketleme dayanıklılığı, hedef ülke ve teslimat süresi gibi unsurlar birlikte planlanmalıdır. Gümrük ve vergi uygulamaları ülkeye göre değişebileceği için bu konuda güncel kaynaklardan veya uzmandan teyit alınması önerilir.',
+        },
+        {
+          question: 'Etsy teslimat süresi nasıl yazılmalı?',
+          answer:
+            'Teslimat süresi, hazırlık süresi ve kargo firmasının tahmini süresi birlikte değerlendirilerek gerçekçi şekilde yazılmalıdır. Belirsiz veya yanıltıcı süre verilmesi müşteri güvenini zayıflatabilir.',
+        },
+        {
+          question: 'Etsy iade ve kargo politikası nasıl hazırlanmalı?',
+          answer:
+            'İade kabul şartları, kişiselleştirilmiş ürünlerde iade durumu ve gecikme ihtimalleri müşterinin satın almadan önce görebileceği şekilde açık yazılmalıdır. Kesin hukuki gereklilikler ülke ve ürün tipine göre değişebileceği için ayrıca kontrol edilmelidir.',
+        },
+        {
+          question: 'Etsy kargo maliyeti ürün fiyatına dahil edilmeli mi?',
+          answer:
+            'Bu, mağazanın stratejisine bağlıdır; maliyet ürün fiyatına dahil edilebilir veya ayrı bir kargo ücreti olarak gösterilebilir. Önemli olan, hangi yöntem seçilirse seçilsin toplam maliyetin ve kâr marjının doğru hesaplanmasıdır.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürünlerinizin ağırlık, ölçü ve paketleme yapısını netleştirin',
+      'Hangi ülkelere gönderim yapacağınızı belirleyin',
+      'Kargo maliyetini ürün fiyatı ve kâr hesabıyla birlikte değerlendirin',
+      'Teslimat süresi, iade ve kargo politikasını müşteriye açık şekilde yazın',
+      'Ücretsiz analiz ile Etsy kargo ve fiyatlandırma yapınızı birlikte değerlendirin',
+    ],
+  },
 };
