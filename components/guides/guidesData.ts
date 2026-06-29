@@ -2684,4 +2684,166 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Etsy mağazanızın politika, listeleme ve güven yapısını birlikte değerlendirin',
     ],
   },
+
+  'amazon-fba-nedir': {
+    title: 'Amazon FBA Nedir?',
+    slug: 'amazon-fba-nedir',
+    excerpt:
+      'Amazon FBA’nın ne olduğunu, nasıl çalıştığını, kimler için uygun olabileceğini ve hangi maliyet/risklerin planlanması gerektiğini açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon FBA sisteminin nasıl çalıştığını öğrenmek isteyen satıcılar',
+    searchIntent: 'amazon fba nedir, amazon fba nasıl çalışır, amazon fba avantajları nelerdir, amazon fba dezavantajları nelerdir, amazon fba yapmak için şirket gerekir mi, amazon fba maliyetleri nelerdir, amazon fba mı fbm mi, amazon fba ya nasıl başlanır',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-07',
+    order: 18,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon FBA, satıcıların ürünlerini Amazon depolarına gönderdiği; depolama, paketleme, kargo ve bazı müşteri hizmetleri süreçlerinin Amazon tarafından yönetildiği satış modelidir. FBA, lojistik yükü azaltabilir ve Prime müşterilerine erişim sağlayabilir; ancak stok maliyeti, depo ücretleri, iade süreci, ürün seçimi ve nakit akışı dikkatle planlanmalıdır. Bu rehber, Amazon FBA’nın ne olduğunu ve kimler için uygun olabileceğini açıklar.',
+    quickAnswer:
+      'Amazon FBA, “Fulfillment by Amazon” anlamına gelir. Satıcı ürünlerini Amazon’un depolarına gönderir; sipariş geldiğinde Amazon ürünü müşteriye hazırlar, paketler ve gönderir. FBA lojistik kolaylık sağlayabilir; ancak doğru ürün seçimi, maliyet hesabı, stok planı ve operasyon disiplini olmadan tek başına satış garantisi vermez.',
+    whoShouldRead: [
+      'Amazon’da satışa başlamak isteyenler',
+      'FBA sisteminin nasıl çalıştığını öğrenmek isteyen satıcılar',
+      'Amazon FBA mı FBM mi kararını vermeye çalışanlar',
+      'Ürününü Amazon depolarına göndermeden önce maliyetleri anlamak isteyenler',
+      'Global pazarda Amazon üzerinden satış yapmak isteyen üretici ve markalar',
+      'Private Label veya Wholesale modeli düşünen işletmeler',
+    ],
+    expertNote:
+      'Amazon FBA’da en sık yapılan hata, sistemi yalnızca “ürünü depoya gönder ve satış bekle” şeklinde düşünmektir. FBA lojistik süreci kolaylaştırabilir; ancak ürün araştırması, kârlılık hesabı, stok yönetimi, listeleme kalitesi, reklam planı ve iade yönetimi birlikte düşünülmediğinde ciddi maliyet riski oluşabilir.',
+    expertNoteAfterHeading: 'Amazon FBA’nın dezavantajları nelerdir?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da satış yapmak ister ama ürünleri kendisinin mi göndereceğini yoksa Amazon deposunu mu kullanacağını bilmez. FBA lojistik kolaylık sağlayan bir modeldir; ancak ürün seçimi, maliyet, stok ve operasyon planı olmadan tek başına başarı sistemi değildir.',
+      },
+      {
+        heading: 'Amazon FBA nedir?',
+        body: '- Fulfillment by Amazon anlamına geldiği\n- Satıcının ürünleri Amazon depolarına göndermesi\n- Sipariş geldiğinde hazırlama, paketleme ve gönderim süreçlerinin Amazon tarafından yürütülmesi\n- Bazı müşteri hizmetleri ve iade süreçlerinde Amazon’un rol alabilmesi\n- Satıcının yine ürün, listeleme, stok, fiyatlandırma ve reklamdan sorumlu olduğu',
+      },
+      {
+        heading: 'Amazon FBA nasıl çalışır?',
+        body: '- Satıcı ürün seçer\n- Amazon Seller Central’da listeleme oluşturur\n- Ürünleri Amazon’un belirlediği kurallara uygun hazırlar\n- Ürünler Amazon depolarına gönderilir\n- Sipariş geldiğinde Amazon ürünü müşteriye gönderir\n- Satıcı stok, fiyat, reklam ve performans takibini sürdürür',
+      },
+      {
+        heading: 'Örnek Amazon FBA Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satışa başlamak isteyen bir marka, ilk etapta 10 ürün fikrini boyut, ağırlık, rekabet, tahmini satış potansiyeli, kargo maliyeti ve FBA’ya uygunluk açısından değerlendirir. Daha sonra yalnızca güçlü görünen ürünler için maliyet, stok ve listeleme hazırlığı yapar. Bu senaryo satış garantisi değil, Amazon FBA’ya daha kontrollü başlamak için örnek bir değerlendirme yaklaşımıdır.',
+      },
+      {
+        heading: 'Amazon FBA ne işe yarar?',
+        body: '- Lojistik yükü azaltabilir\n- Amazon’un teslimat altyapısından yararlanmayı sağlar\n- Prime müşterilerine erişim sağlayabilir\n- Sipariş hazırlama ve kargo sürecini kolaylaştırabilir\n- Ancak ürün seçimi, stok ve maliyet planı zayıfsa riskleri ortadan kaldırmaz',
+      },
+      {
+        heading: 'Amazon FBA kimler için uygundur?',
+        body: '- Belirli stokla satış yapabilecek markalar\n- Ürün maliyetini ve kâr marjını hesaplayabilen satıcılar\n- Lojistik sürecini Amazon depoları üzerinden yönetmek isteyenler\n- Private Label veya Wholesale modeli düşünenler\n- Ürün boyutu, ağırlığı ve iade riski FBA’ya uygun olan işletmeler',
+      },
+      {
+        heading: 'Amazon FBA’nın avantajları nelerdir?',
+        body: '- Lojistik kolaylık\n- Hızlı teslimat potansiyeli\n- Prime uygunluğu ihtimali\n- Sipariş hazırlama yükünün azalması\n- Ölçeklenebilir operasyon\n- Müşteri güveni üzerinde olumlu etki oluşturabilmesi',
+      },
+      {
+        heading: 'Amazon FBA’nın dezavantajları nelerdir?',
+        body: '- Depolama ve operasyon maliyetleri olabilir\n- Uzun süre satılmayan stok maliyet oluşturabilir\n- İade ve müşteri deneyimi dikkatle takip edilmelidir\n- Ürün Amazon deposuna girdikten sonra stok yönetimi daha disiplinli yapılmalıdır\n- Hazırlık ve etiketleme kurallarına uyulmalıdır\n- Yanlış ürün seçimi maliyet riskini artırabilir',
+      },
+      {
+        heading: 'Amazon FBA maliyetleri nasıl düşünülmeli?',
+        body: 'Amazon FBA maliyetleri kategori, ürün boyutu, ağırlık, depo süresi, satış ülkesi ve Amazon’un güncel ücret yapısına göre değişebilir. Bu nedenle kesin rakam vermek yerine maliyet mantığı anlatılmalıdır.\n\n- Ürün maliyeti\n- Amazon komisyonları\n- FBA işlem ücretleri\n- Depolama ücretleri\n- Kargo ve lojistik maliyeti\n- Reklam maliyeti\n- İade ve hasar riski\n- Vergi/gümrük/uyum süreçleri için uzman kontrolü',
+      },
+      {
+        heading: 'Amazon FBA mı FBM mi?',
+        body: 'FBA’da lojistik Amazon depoları üzerinden yürür. FBM’de satıcı siparişleri kendi gönderir veya kendi lojistik yapısıyla yönetir. Hangisinin daha uygun olduğu ürün tipi, stok yapısı, maliyet, satış hacmi, ülke ve operasyon kapasitesine göre değişir.',
+      },
+      {
+        heading: 'Amazon FBA’ya başlamadan önce hangi sorular cevaplanmalı?',
+        body: '- Ürün FBA’ya uygun mu?\n- Ürün boyutu ve ağırlığı maliyet açısından mantıklı mı?\n- Kâr marjı tüm masrafları karşılıyor mu?\n- Ürün rekabeti yönetilebilir mi?\n- Stok ne kadar gönderilecek?\n- Ürün iade riski taşıyor mu?\n- Listeleme, görsel ve reklam planı hazır mı?\n- Satış ülkesi ve vergi/gümrük gereklilikleri kontrol edildi mi?',
+      },
+      {
+        heading: 'İlk 30 gün Amazon FBA hazırlık planı',
+        body: '1. hafta: ürün fikirleri ve kategori ön analizi\n2. hafta: maliyet, kâr marjı, boyut ve ağırlık kontrolü\n3. hafta: listeleme, görsel, fiyatlandırma ve stok planı hazırlığı\n4. hafta: FBA gönderim planı, reklam ve performans takip sistemi oluşturma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon FBA’yı satış garantisi gibi görmektir. FBA yalnızca lojistik modeldir; ürün yanlış seçildiyse, listeleme zayıfsa, maliyet hesabı eksikse veya reklam planı yoksa FBA tek başına sürdürülebilir satış sağlamaz.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapmak isteyen markaların ürün yapısını, FBA uygunluğunu, maliyetlerini, listeleme kalitesini, rekabet durumunu ve global satış hedefini birlikte analiz ederek daha kontrollü bir Amazon FBA başlangıç sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Amazon FBA mı, Kendi Gönderim Modeli mi?',
+      headers: ['Kriter', 'Amazon FBA', 'Kendi Gönderim Modeli'],
+      rows: [
+        { criterion: 'Lojistik', individual: 'Amazon depoları ve gönderim altyapısı kullanılır', company: 'Sipariş gönderimi satıcı veya kendi lojistik yapısı tarafından yönetilir' },
+        { criterion: 'Stok yönetimi', individual: 'Stok Amazon depolarında tutulur', company: 'Stok satıcının kendi deposunda veya tedarik yapısında kalır' },
+        { criterion: 'Maliyet', individual: 'FBA işlem ve depolama maliyetleri dikkate alınmalıdır', company: 'Kargo, paketleme ve operasyon maliyeti satıcı tarafından yönetilir' },
+        { criterion: 'Operasyon', individual: 'Sipariş hazırlama yükü azalabilir', company: 'Satıcı operasyon üzerinde daha fazla kontrol sahibidir' },
+        { criterion: 'Uygunluk', individual: 'Stoklu, hızlı teslimata uygun ve maliyet hesabı net ürünler için daha mantıklı olabilir', company: 'Düşük hacimli, özel paketlemeli veya farklı lojistik ihtiyacı olan ürünlerde değerlendirilebilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon FBA’ya başlamadan önce kontrol listesi',
+      items: [
+        'Ürün FBA için uygun mu?',
+        'Ürün boyutu ve ağırlığı maliyet açısından kontrol edildi mi?',
+        'Kâr marjı tüm Amazon maliyetlerini karşılıyor mu?',
+        'FBA ücretleri güncel kaynaklardan kontrol edildi mi?',
+        'Stok miktarı planlandı mı?',
+        'Ürün listelemesi, görselleri ve açıklaması hazır mı?',
+        'İade ve hasar riski düşünüldü mü?',
+        'Reklam ve lansman planı var mı?',
+        'Vergi/gümrük/uyum süreçleri uzmanla kontrol edildi mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon FBA nedir?',
+          answer:
+            'Amazon FBA (Fulfillment by Amazon), satıcının ürünlerini Amazon depolarına gönderdiği ve sipariş geldiğinde hazırlama, paketleme ve gönderim süreçlerinin Amazon tarafından yürütüldüğü bir satış modelidir. Satıcı yine ürün, listeleme, fiyatlandırma ve reklamdan sorumludur.',
+        },
+        {
+          question: 'Amazon FBA nasıl çalışır?',
+          answer:
+            'Satıcı ürün seçip listeleme oluşturur, ürünleri Amazon’un kurallarına uygun şekilde hazırlayıp depolarına gönderir. Sipariş geldiğinde Amazon ürünü müşteriye gönderir, satıcı ise stok, fiyat ve reklam takibini sürdürür.',
+        },
+        {
+          question: 'Amazon FBA ile satış yapmak mantıklı mı?',
+          answer:
+            'Bu, ürün tipine, maliyet hesabına ve operasyon kapasitesine göre değişir; kesin bir doğru cevap yoktur. FBA lojistik kolaylık sağlayabilir, ancak ürün seçimi ve maliyet planı zayıfsa riskleri ortadan kaldırmaz.',
+        },
+        {
+          question: 'Amazon FBA için şirket gerekir mi?',
+          answer:
+            'Bu konu, satış yapılacak pazara ve hesap türüne göre değişebilir; kesin bir gereklilik genellemesi yapılamaz. Güncel gereklilikler başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
+        },
+        {
+          question: 'Amazon FBA maliyetleri nelerdir?',
+          answer:
+            'Ürün maliyeti, Amazon komisyonları, FBA işlem ve depolama ücretleri, kargo ve reklam maliyeti gibi kalemler birlikte değerlendirilmelidir. Güncel ücret rakamları kategori, boyut ve zamana göre değişebileceği için Amazon’un güncel kaynaklarından kontrol edilmelidir.',
+        },
+        {
+          question: 'Amazon FBA mı FBM mi daha iyi?',
+          answer:
+            'Kesin bir doğru cevap yoktur; FBA lojistiği Amazon depoları üzerinden yürütürken FBM’de satıcı kendi gönderim sürecini yönetir. Hangisinin daha uygun olduğu ürün tipi, stok yapısı ve operasyon kapasitesine göre değişir.',
+        },
+        {
+          question: 'Amazon FBA’ya başlamak için ne yapılmalı?',
+          answer:
+            'Ürün uygunluğu, maliyet ve kâr marjı hesabı, stok planı ve listeleme hazırlığının birlikte değerlendirilmesi gerekir. Vergi/gümrük ve uyum süreçleri için güncel kaynaklardan veya uzmandan teyit alınması önerilir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Amazon’da satmak istediğiniz ürünleri belirleyin',
+      'Ürün boyutu, ağırlığı, kategori rekabeti ve kâr marjını kontrol edin',
+      'FBA maliyetlerini genel mantığıyla hesaplayın',
+      'FBA mı FBM mi daha uygun olduğunu değerlendirin',
+      'Ücretsiz analiz ile Amazon FBA’ya hazır olup olmadığınızı birlikte değerlendirin',
+    ],
+  },
 };
