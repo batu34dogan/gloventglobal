@@ -42,7 +42,7 @@ function TitleGlow() {
 
 // Filtre listesi bilerek sabit tutuldu (veri kategorilerinden otomatik türetilmedi) — 6 rehberin
 // her biri tam olarak bu 6 kategoriden birine ait, "Hepsi" ile birlikte 7 seçenek.
-const CATEGORY_FILTERS = ['Hepsi', 'Amazon', 'Etsy', 'Shopify', 'B2B', 'Yapay Zeka', 'Global Satış'];
+const CATEGORY_FILTERS = ['Hepsi', 'Amazon', 'Etsy', 'Shopify', 'Global Satış', 'B2B', 'Yapay Zeka', 'Otomasyon', 'Operasyon', 'Pazarlama'];
 
 export default function GuidesContent() {
   const [mounted, setMounted] = useState(false);
