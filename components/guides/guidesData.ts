@@ -2198,4 +2198,166 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Etsy fotoğraf ve listeleme yapınızı birlikte değerlendirin',
     ],
   },
+
+  'etsy-reklamlari-nasil-calisir': {
+    title: 'Etsy Reklamları Nasıl Çalışır?',
+    slug: 'etsy-reklamlari-nasil-calisir',
+    excerpt:
+      'Etsy Ads kullanmak isteyen satıcılar için reklam bütçesinin nasıl yönetileceğini, hangi ürünlerin reklama açılacağını ve reklam performansının nasıl yorumlanacağını açıklıyoruz.',
+    category: 'Etsy',
+    targetAudience: 'Etsy reklamı vermek isteyen ama bütçe ve ürün seçimini nasıl yöneteceğini bilmeyen satıcılar',
+    searchIntent: 'etsy reklamları nasıl çalışır, etsy ads nedir, etsy reklam verilir mi, etsy reklam bütçesi nasıl belirlenir, etsy ads işe yarar mı, etsy reklam performansı nasıl okunur, etsy reklamlarında tıklama var satış yok neden, etsy reklamları nasıl optimize edilir',
+    relatedServiceSlug: 'etsy',
+    readTime: '5 dk',
+    publishedAt: '2026-02-26',
+    order: 15,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy reklamları, ürünlerin Etsy içinde daha fazla görünürlük almasına yardımcı olabilen ücretli tanıtım sistemidir. Ancak reklam tek başına satış garantisi vermez; ürün fotoğrafı, başlık, tag, açıklama, fiyat, kargo, mağaza güveni ve dönüşüm yapısı güçlü değilse reklam bütçesi verimli kullanılmayabilir. Bu rehber, Etsy Ads’in nasıl çalıştığını ve reklam öncesi hangi alanların kontrol edilmesi gerektiğini açıklar.',
+    quickAnswer:
+      'Etsy Ads, seçilen ürünlerin Etsy içinde daha fazla görünürlük almasını sağlayan reklam sistemidir. Reklama başlamadan önce ürünün ana fotoğrafı, başlığı, tag yapısı, açıklaması, fiyatı, kargo bilgisi ve mağaza güveni kontrol edilmelidir. Reklam sonuçları ürün, kategori, rekabet, bütçe ve listeleme kalitesine göre değişir.',
+    whoShouldRead: [
+      'Etsy reklamı vermek isteyen satıcılar',
+      'Etsy Ads açıp tıklama aldığı halde satış alamayan mağaza sahipleri',
+      'Hangi ürünleri reklama açacağını bilmeyenler',
+      'Reklam bütçesini kontrollü kullanmak isteyenler',
+      'Etsy SEO, fotoğraf ve listeleme yapısını reklamla birlikte değerlendirmek isteyenler',
+      'El yapımı, deri, takı, aksesuar, dijital ürün veya tasarım ürünleri satan Etsy mağazaları',
+    ],
+    expertNote:
+      'Etsy reklamlarında en sık yapılan hata, zayıf listelemeyi reklamla kurtarmaya çalışmaktır. Reklam görünürlük sağlayabilir; ancak ürün fotoğrafı, başlık, tag, açıklama, fiyat, kargo ve mağaza güveni zayıfsa tıklama satışa dönüşmeyebilir. Önce listeleme kalitesi, sonra reklam düşünülmelidir.',
+    expertNoteAfterHeading: 'Etsy reklamları SEO yerine geçer mi?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran satıcılar genellikle Etsy Ads açmak ister ama bütçeyi nasıl belirleyeceğini, hangi ürünleri reklama açacağını veya tıklama aldığı halde neden satış alamadığını bilmez. Etsy reklamları tek başına satış sistemi değil, güçlü listelemeleri daha görünür hale getiren destekleyici bir araçtır.',
+      },
+      {
+        heading: 'Etsy Ads nedir?',
+        body: '- Etsy içinde ürünlere daha fazla görünürlük kazandırmayı amaçlayan reklam sistemi\n- Satıcının seçtiği ürünleri reklamla öne çıkarabilmesi\n- Reklamın ürün listeleme kalitesiyle birlikte değerlendirilmesi gerektiği\n- Tek başına satış garantisi olmadığı',
+      },
+      {
+        heading: 'Etsy reklamları ne işe yarar?',
+        body: '- Ürünlerin daha fazla görüntülenmesine yardımcı olabilir\n- Yeni ürünleri test etmeyi kolaylaştırabilir\n- Hangi ürünlerin daha fazla ilgi gördüğünü anlamaya destek olur\n- Listeleme kalitesini test etmek için veri sağlar\n- Organik SEO çalışmasını destekleyici rol oynayabilir\n- Reklam verisinin satış, tıklama ve favoriyle birlikte okunması gerekir',
+      },
+      {
+        heading: 'Örnek Etsy Reklam Senaryosu',
+        body: 'Örnek senaryo: Etsy’de takı, deri aksesuar veya kişiselleştirilmiş hediye satan bir mağaza, tüm ürünleri reklama açmak yerine ilk etapta fotoğrafı güçlü, başlığı net, fiyatı rekabetçi ve açıklaması tamamlanmış 10 ürünü küçük bütçeyle test edebilir. Bu senaryo satış garantisi değil, Etsy reklamlarını daha kontrollü ve veri odaklı değerlendirmek için örnek bir başlangıç yaklaşımıdır.',
+      },
+      {
+        heading: 'Etsy reklamı açmadan önce hangi alanlar kontrol edilmeli?',
+        body: '- Ana fotoğraf\n- Ürün başlığı\n- Tag yapısı\n- Ürün açıklaması\n- Fiyat\n- Kargo bilgisi\n- Mağaza güveni\n- Stok ve varyasyonlar\n- Ürün rekabeti\n- Hedef müşteri niyeti',
+      },
+      {
+        heading: 'Etsy reklamlarında hangi ürünler seçilmeli?',
+        body: '- Fotoğrafı güçlü ürünler\n- Başlık ve tag yapısı tamamlanmış ürünler\n- Fiyatı ve kargo bilgisi net ürünler\n- Hedef müşterisi belli ürünler\n- Mağazanın güçlü kategorilerini temsil eden ürünler\n- Daha önce favori, görüntülenme veya organik ilgi almış ürünler\n\nTüm ürünleri aynı anda reklama açmak veriyi okumayı zorlaştırabilir.',
+      },
+      {
+        heading: 'Etsy reklam bütçesi nasıl düşünülmeli?',
+        body: 'Bütçe ürün sayısı, mağaza yaşı, kategori rekabeti, hedef ülke ve test amacına göre değişir. Yeni başlayanlar için amaç önce satış garantisi beklemek değil, hangi ürünlerin gösterim, tıklama ve ilgi ürettiğini anlamak olmalıdır. Kesin bir bütçe veya satış vaadi yoktur.',
+      },
+      {
+        heading: 'Etsy reklam performansı nasıl okunmalı?',
+        body: '- Görüntülenme\n- Tıklama\n- Favori\n- Sepete ekleme\n- Satış\n- Harcama\n- Dönüşüm oranı\n\nÜrünün organik performansıyla reklam performansının birlikte değerlendirilmesi, tek bir gün yerine daha anlamlı bir veri aralığıyla bakılması gerekir.',
+      },
+      {
+        heading: 'Tıklama var ama satış yoksa ne düşünülmeli?',
+        body: 'Tıklama olup satış gelmiyorsa sorun reklamda değil, listeleme veya teklif yapısında olabilir. Fotoğraf, fiyat, kargo, açıklama, güven, ürün uyumu, rekabet ve müşteri beklentisi birlikte kontrol edilmelidir. Satış gelmemesi tek başına reklamın tamamen başarısız olduğu anlamına gelmeyebilir.',
+      },
+      {
+        heading: 'Etsy reklamları SEO yerine geçer mi?',
+        body: 'Hayır. Etsy reklamları görünürlüğü destekleyebilir ama SEO’nun yerine geçmez. Başlık, tag, açıklama, kategori, fotoğraf ve mağaza güveni güçlü değilse reklam bütçesi daha verimsiz kullanılabilir. SEO ve reklam birlikte düşünülmelidir.',
+      },
+      {
+        heading: 'Etsy reklamlarında en sık yapılan hatalar',
+        body: '- Zayıf fotoğraflı ürünleri reklama açmak\n- Başlık ve tag düzenlemeden reklam vermek\n- Tüm ürünleri aynı anda reklama açmak\n- Çok kısa sürede sonuç beklemek\n- Sadece tıklamaya bakıp dönüşümü incelememek\n- Fiyat ve kargo bilgisini kontrol etmemek\n- Reklam verisini düzenli takip etmemek\n- Reklamı SEO’nun yerine koymak',
+      },
+      {
+        heading: 'İlk 30 gün Etsy reklam planı',
+        body: '1. hafta: reklam verilecek 10 güçlü ürünü seçme\n2. hafta: fotoğraf, başlık, tag, açıklama, fiyat ve kargo bilgilerini kontrol etme\n3. hafta: küçük bütçeyle reklam testi başlatma ve görüntülenme/tıklama/favori verilerini izleme\n4. hafta: satış, tıklama ve favori verilerine göre ürün bazlı iyileştirme planı çıkarma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Etsy reklamlarını listeleme kalitesinden bağımsız düşünmektir. Reklam görünürlük sağlayabilir; ancak ürün sayfası güven vermiyorsa, fotoğraf zayıfsa veya fiyat/kargo bilgisi net değilse tıklama satışa dönüşmeyebilir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarında reklam verilecek ürünleri, listeleme kalitesini, başlık ve tag yapısını, fotoğraf setini, fiyat ve kargo bilgisini birlikte analiz ederek daha kontrollü bir Etsy Ads ve listeleme optimizasyonu süreci oluşturur.',
+      },
+    ],
+    comparison: {
+      heading: 'Kontrolsüz Reklam mı, Veri Odaklı Etsy Ads Sistemi mi?',
+      headers: ['Kriter', 'Kontrolsüz Reklam', 'Veri Odaklı Etsy Ads Sistemi'],
+      rows: [
+        { criterion: 'Ürün seçimi', individual: 'Tüm ürünleri aynı anda reklama açar', company: 'Önce güçlü ve hazır ürünleri test eder' },
+        { criterion: 'Listeleme kalitesi', individual: 'Fotoğraf, başlık ve açıklama eksik olsa da reklam verir', company: 'Reklamdan önce listeleme kalitesini kontrol eder' },
+        { criterion: 'Bütçe yaklaşımı', individual: 'Satış garantisi beklentisiyle bütçe harcar', company: 'Bütçeyi test, öğrenme ve optimizasyon için kullanır' },
+        { criterion: 'Performans okuma', individual: 'Sadece satış olup olmadığına bakar', company: 'Görüntülenme, tıklama, favori, satış ve dönüşümü birlikte okur' },
+        { criterion: 'SEO ilişkisi', individual: 'Reklamı SEO’nun yerine koyar', company: 'SEO, fotoğraf ve reklamı birlikte değerlendirir' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy reklamı açmadan önce kontrol listesi',
+      items: [
+        'Reklama açılacak ürünler seçildi mi?',
+        'Ana fotoğraf tıklama için güçlü mü?',
+        'Başlık ürünün ne olduğunu net anlatıyor mu?',
+        'Tag yapısı ürünle ve arama niyetiyle uyumlu mu?',
+        'Açıklamada ölçü, malzeme, kullanım ve kargo bilgisi var mı?',
+        'Fiyat ve kargo bilgisi müşteri için net mi?',
+        'Mağaza profili, politikalar ve güven alanları tamam mı?',
+        'Reklam bütçesi test amacıyla planlandı mı?',
+        'İlk 30 gün için veri takip planı hazır mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy Ads nedir?',
+          answer:
+            'Etsy Ads, satıcının seçtiği ürünlerin Etsy içinde daha fazla görünürlük kazanmasını sağlayan ücretli reklam sistemidir. Reklam tek başına bir satış garantisi sunmaz, listeleme kalitesiyle birlikte değerlendirilmesi gerekir.',
+        },
+        {
+          question: 'Etsy reklamları satış getirir mi?',
+          answer:
+            'Reklam görünürlük sağlayarak satışa dolaylı katkı sunabilir, ancak kesin bir satış garantisi vermez. Sonuç, ürün fotoğrafı, fiyat, açıklama ve mağaza güveni gibi listeleme unsurlarına bağlıdır.',
+        },
+        {
+          question: 'Etsy reklam bütçesi nasıl belirlenir?',
+          answer:
+            'Bütçe; ürün sayısı, kategori rekabeti, hedef ülke ve test amacına göre değişir, kesin bir rakam önerilemez. Yeni başlayanlar için amaç önce hangi ürünlerin ilgi gördüğünü anlamak olmalıdır.',
+        },
+        {
+          question: 'Etsy reklamlarında hangi ürünler seçilmeli?',
+          answer:
+            'Fotoğrafı güçlü, başlık ve tag yapısı tamamlanmış, fiyat ve kargo bilgisi net ürünler reklam için daha uygun bir başlangıç noktasıdır. Tüm ürünleri aynı anda reklama açmak veriyi okumayı zorlaştırabilir.',
+        },
+        {
+          question: 'Etsy reklamı açmadan önce ne yapılmalı?',
+          answer:
+            'Ana fotoğraf, başlık, tag, açıklama, fiyat ve kargo bilgisi gibi listeleme unsurlarının kontrol edilmesi gerekir. Zayıf bir listeleme, reklam bütçesinin verimli kullanılmasını zorlaştırabilir.',
+        },
+        {
+          question: 'Etsy Ads SEO yerine geçer mi?',
+          answer:
+            'Hayır, reklam görünürlüğü destekleyebilir ama SEO’nun yerine geçmez. Başlık, tag, açıklama ve fotoğraf güçlü değilse reklam bütçesi daha verimsiz kullanılabilir.',
+        },
+        {
+          question: 'Etsy reklamlarında tıklama var satış yoksa ne yapılmalı?',
+          answer:
+            'Bu durumda sorun genellikle reklamda değil, listeleme veya teklif yapısındadır; fotoğraf, fiyat, açıklama ve güven unsurları yeniden kontrol edilmelidir. Tek bir veri noktasına bakmak yerine daha anlamlı bir veri aralığı değerlendirilmelidir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Reklama açmadan önce en güçlü ürünlerinizi belirleyin',
+      'Her ürünün fotoğraf, başlık, tag, açıklama ve fiyat yapısını kontrol edin',
+      'Küçük bütçeyle test ederek hangi ürünlerin veri ürettiğini izleyin',
+      'Tıklama, görüntülenme, favori ve satış verilerini birlikte değerlendirin',
+      'Ücretsiz analiz ile Etsy reklam ve listeleme yapınızı birlikte değerlendirin',
+    ],
+  },
 };
