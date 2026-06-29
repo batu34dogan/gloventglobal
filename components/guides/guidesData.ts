@@ -1400,4 +1400,166 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile e-ticaret pazarlama sisteminizin hangi alanlarda güçlendirilebileceğini değerlendirin',
     ],
   },
+
+  'etsy-seo-rehberi': {
+    title: 'Etsy SEO Rehberi',
+    slug: 'etsy-seo-rehberi',
+    excerpt:
+      'Etsy mağazanızda ürünlerinizi daha görünür hale getirmek için başlık, tag, açıklama, kategori, fotoğraf ve mağaza güveninin SEO için nasıl birlikte çalıştığını açıklıyoruz.',
+    category: 'Etsy',
+    targetAudience: 'Etsy mağazasında ürünleri görünmeyen veya görüntülenme alıp satış alamayan satıcılar',
+    searchIntent: 'etsy seo nedir, etsy seo nasıl yapılır, etsy de ürün nasıl öne çıkar, etsy tag nasıl yazılır, etsy başlığı nasıl yazılır, etsy açıklaması seo için önemli mi, etsy listing optimizasyonu nasıl yapılır, etsy mağaza trafiği nasıl artırılır',
+    relatedServiceSlug: 'etsy',
+    readTime: '5 dk',
+    publishedAt: '2026-02-11',
+    order: 10,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy SEO, ürünlerin Etsy arama sonuçlarında daha doğru müşterilere ulaşmasını sağlamak için başlık, tag, açıklama, kategori, görsel, fiyat, mağaza güveni ve dönüşüm verilerinin birlikte optimize edilmesidir. Sadece anahtar kelime eklemek yeterli değildir; ürünün ne olduğu, kime hitap ettiği ve neden satın alınması gerektiği net şekilde anlatılmalıdır. Bu rehber, Etsy SEO’nun temel mantığını ve nasıl uygulanabileceğini açıklar.',
+    quickAnswer:
+      'Etsy SEO; ürün başlığı, tag, kategori, açıklama, görsel ve mağaza güveni gibi alanları doğru arama niyetine göre düzenleme sürecidir. Amaç sadece daha fazla görüntülenme almak değil, doğru müşterinin ürünü bulmasını ve satın alma kararına yaklaşmasını sağlamaktır.',
+    whoShouldRead: [
+      'Etsy mağazasında ürünleri görünmeyen satıcılar',
+      'Yeni Etsy mağazası açanlar',
+      'Etsy’de ilk satışını almak isteyenler',
+      'Ürün başlığı, tag ve açıklama yazarken zorlananlar',
+      'Etsy trafiğini organik olarak artırmak isteyen markalar',
+      'El yapımı, deri, takı, aksesuar, dijital ürün veya tasarım ürünleri satanlar',
+    ],
+    expertNote:
+      'Etsy SEO’da en sık yapılan hata, başlık ve tag alanlarını yalnızca anahtar kelimeyle doldurmaktır. Etsy’de güçlü bir listeleme; doğru anahtar kelime, net ürün tanımı, güven veren fotoğraf, anlaşılır açıklama, doğru fiyatlandırma ve mağaza güveninin birlikte çalışmasıyla performans üretir.',
+    expertNoteAfterHeading: 'Etsy tag nasıl seçilmeli?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran satıcılar genellikle ürünlerinin Etsy’de görünmediğini, görüntülenme aldığını ama satış alamadığını veya başlık/tag/açıklama alanlarında ne yazacağını bilmediğini fark eder. Etsy SEO sadece kelime eklemek değil, ürünün doğru müşteriye doğru şekilde sunulmasıdır.',
+      },
+      {
+        heading: 'Etsy SEO nedir?',
+        body: '- Etsy mağazasındaki ürünlerin arama sonuçlarında doğru müşterilere ulaşması için yapılan optimizasyon\n- Başlık, tag, açıklama, kategori, fotoğraf ve mağaza güveniyle birlikte çalışması\n- Sadece görüntülenme değil, tıklama ve dönüşüm için de önemli olması\n- Ürün ne kadar net anlatılırsa doğru müşteriye ulaşma ihtimalinin artması',
+      },
+      {
+        heading: 'Etsy SEO ne işe yarar?',
+        body: '- Ürünün doğru aramalarda görünmesine yardımcı olur\n- Müşterinin ürünü daha kolay anlamasını sağlar\n- Tıklanma ihtimalini artırabilir\n- Listeleme kalitesini güçlendirir\n- Mağaza güveni ve ürün sunumuyla birlikte satış ihtimalini destekler\n- Reklamdan önce organik temel oluşturur',
+      },
+      {
+        heading: 'Örnek Etsy SEO Senaryosu',
+        body: 'Örnek senaryo: Deri aksesuar satan bir Etsy mağazası, ilk etapta en güçlü 10 ürününü seçerek her ürün için ana arama niyetini belirler. Ürün başlığı, tag, açıklama, kategori ve fotoğraflar aynı müşteri niyetine göre düzenlenir. Bu senaryo satış garantisi değil, Etsy SEO çalışmalarına daha kontrollü başlamak için örnek bir listeleme yaklaşımıdır.',
+      },
+      {
+        heading: 'Etsy SEO hangi alanlardan oluşur?',
+        body: '- Ürün başlığı\n- Etsy tag alanı\n- Ürün açıklaması\n- Kategori ve attribute seçimi\n- Ürün fotoğrafları\n- Fiyat ve kargo bilgisi\n- Mağaza güveni\n- Favori, görüntülenme ve dönüşüm sinyalleri',
+      },
+      {
+        heading: 'Etsy başlığı SEO için nasıl yazılmalı?',
+        body: '- Ürünün ne olduğu başta anlaşılmalı\n- Ana arama niyeti başlıkta yer almalı\n- Anahtar kelime doldurma yapılmamalı\n- Okunabilirlik korunmalı\n- Ürünün kullanım amacı, stil, malzeme veya hedef kitle bilgisi dengeli kullanılmalı',
+      },
+      {
+        heading: 'Etsy tag nasıl seçilmeli?',
+        body: '- Tag’ler ürünün ne olduğunu ve hangi arama niyetlerine cevap verdiğini göstermeli\n- Aynı kelimeyi gereksiz tekrar etmek yerine farklı müşteri aramalarını kapsamalı\n- Uzun kuyruklu arama ifadeleri düşünülmeli\n- Hediye, kullanım alanı, stil, malzeme, hedef kişi gibi niyetler değerlendirilmeli\n- Tag’lerin başlıkla tamamen kopuk olmaması gerekir',
+      },
+      {
+        heading: 'Etsy açıklaması SEO için önemli mi?',
+        body: 'Açıklama sadece SEO için değil, müşterinin karar vermesi için de önemlidir. Ürün ölçüsü, malzeme, kullanım alanı, bakım, kargo, hediye kullanım senaryosu ve güven veren bilgiler açıklamada net olmalıdır.',
+      },
+      {
+        heading: 'Etsy fotoğrafları SEO’ya dolaylı olarak nasıl etki eder?',
+        body: 'Fotoğraflar doğrudan anahtar kelime alanı değildir; ancak tıklanma, ürün algısı, güven ve satın alma kararında güçlü etkiye sahiptir. Etsy’de iyi SEO, zayıf fotoğrafla sınırlı kalabilir.',
+      },
+      {
+        heading: 'Etsy’de kategori ve attribute seçimi neden önemlidir?',
+        body: 'Kategori ve ürün özellikleri, Etsy’nin ürünü daha doğru sınıflandırmasına yardımcı olur. Renk, malzeme, kullanım alanı, hedef kişi ve ürün tipi gibi alanlar doğru seçilmelidir.',
+      },
+      {
+        heading: 'Etsy SEO’da en sık yapılan hatalar',
+        body: '- Başlığı anahtar kelime listesine çevirmek\n- Tag’leri rastgele doldurmak\n- Ürünü açıklamada net anlatmamak\n- Fotoğrafları zayıf bırakmak\n- Kargo, ölçü ve malzeme bilgisini eksik vermek\n- Rakiplerden kelime kopyalamak\n- Her ürüne aynı tag yapısını uygulamak\n- SEO’yu tek seferlik işlem sanmak',
+      },
+      {
+        heading: 'İlk 30 gün Etsy SEO planı',
+        body: '1. hafta: en güçlü 10 ürünü ve ana arama niyetlerini belirleme\n2. hafta: başlık, tag, kategori ve açıklamaları düzenleme\n3. hafta: fotoğraf, fiyat, kargo ve mağaza güvenini kontrol etme\n4. hafta: görüntülenme, favori, tıklanma ve satış verilerini izleyip iyileştirme planı çıkarma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Etsy SEO’yu yalnızca tag yazmak olarak görmektir. Tag önemlidir; ancak başlık, açıklama, kategori, fotoğraf, fiyat, kargo, mağaza güveni ve müşteri deneyimi birlikte değerlendirilmediğinde SEO çalışması eksik kalır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarının ürün yapısını, başlık ve tag kullanımını, açıklama dilini, fotoğraf kalitesini, mağaza güvenini ve rekabet durumunu analiz ederek daha sistemli bir Etsy SEO ve listeleme optimizasyonu süreci oluşturur.',
+      },
+    ],
+    comparison: {
+      heading: 'Anahtar Kelime Doldurma mı, Etsy SEO Sistemi mi?',
+      headers: ['Kriter', 'Anahtar Kelime Doldurma', 'Etsy SEO Sistemi'],
+      rows: [
+        { criterion: 'Başlık', individual: 'Ürünü anlatmadan çok fazla kelime kullanır', company: 'Ürünü net tanıtır ve ana arama niyetini doğal şekilde içerir' },
+        { criterion: 'Tag', individual: 'Benzer kelimeleri rastgele tekrar eder', company: 'Farklı müşteri aramalarını ve kullanım niyetlerini kapsar' },
+        { criterion: 'Açıklama', individual: 'SEO için yazılır ama müşteri kararına yardımcı olmaz', company: 'Ürün bilgisi, kullanım alanı, ölçü, malzeme ve güven unsurlarını açıklar' },
+        { criterion: 'Fotoğraf', individual: 'Görsel kalitesini dikkate almaz', company: 'Tıklama ve güven için fotoğraf kalitesini SEO’nun parçası olarak görür' },
+        { criterion: 'Sonuç takibi', individual: 'Yayına alıp beklemeye dayanır', company: 'Görüntülenme, favori, tıklama ve satış verilerine göre iyileştirilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy SEO’ya başlamadan önce kontrol listesi',
+      items: [
+        'Ürünün ana arama niyeti belli mi?',
+        'Başlık ürünün ne olduğunu net anlatıyor mu?',
+        'Tag’ler farklı müşteri aramalarını kapsıyor mu?',
+        'Açıklamada ölçü, malzeme, kullanım ve kargo bilgisi var mı?',
+        'Kategori ve attribute alanları doğru seçildi mi?',
+        'Fotoğraflar tıklama ve güven için yeterli mi?',
+        'Fiyat ve kargo bilgisi müşteri için net mi?',
+        'Mağaza profili, About bölümü ve politikalar güven veriyor mu?',
+        'İlk 30 gün için veri takip planı hazır mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy SEO nedir?',
+          answer:
+            'Etsy SEO, ürünlerin Etsy arama sonuçlarında doğru müşterilere ulaşması için başlık, tag, açıklama, kategori ve fotoğraf gibi alanların optimize edilmesidir. Amaç sadece görünürlük değil, doğru müşterinin ürünü bulup satın alma kararına yaklaşmasıdır.',
+        },
+        {
+          question: 'Etsy SEO nasıl yapılır?',
+          answer:
+            'Ürünün ana arama niyeti belirlenip başlık, tag, kategori, açıklama ve fotoğrafların bu niyete göre düzenlenmesiyle yapılır. Süreç tek seferlik değildir, görüntülenme ve satış verilerine göre düzenli iyileştirme gerektirir.',
+        },
+        {
+          question: 'Etsy tag yazmak SEO için yeterli mi?',
+          answer:
+            'Hayır, tag tek başına yeterli değildir; başlık, açıklama, kategori, fotoğraf ve mağaza güveniyle birlikte çalışması gerekir. Sadece tag doldurmak, ürünü net anlatmayan bir listeleme bırakabilir.',
+        },
+        {
+          question: 'Etsy başlığı nasıl yazılmalı?',
+          answer:
+            'Başlıkta ürünün ne olduğu net anlaşılmalı ve ana arama niyeti doğal şekilde yer almalıdır. Anahtar kelime doldurma yerine okunabilirlik ve ürün tanımı önceliklendirilmelidir.',
+        },
+        {
+          question: 'Etsy açıklaması SEO’ya etki eder mi?',
+          answer:
+            'Açıklama hem SEO hem de müşteri kararı için önemlidir; ürün ölçüsü, malzeme, kullanım alanı ve güven veren bilgiler net olmalıdır. Sadece anahtar kelime için yazılan açıklamalar müşteri kararına yardımcı olmayabilir.',
+        },
+        {
+          question: 'Etsy fotoğrafları SEO için önemli mi?',
+          answer:
+            'Fotoğraflar doğrudan bir anahtar kelime alanı değildir, ancak tıklanma, ürün algısı ve güven üzerinde güçlü etkiye sahiptir. İyi bir SEO çalışması zayıf fotoğrafla sınırlı kalabilir.',
+        },
+        {
+          question: 'Etsy SEO sonuçları ne kadar sürede görülür?',
+          answer:
+            'Bu süre üründen ürüne, kategoriye ve rekabete göre değişir; kesin bir süre vermek mümkün değildir. Düzenli optimizasyon ve veri takibi genellikle süreci daha öngörülebilir hale getirir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'En güçlü ürünlerinizi belirleyin',
+      'Her ürün için ana arama niyetini çıkarın',
+      'Başlık, tag, kategori ve açıklama alanlarını aynı stratejiye göre düzenleyin',
+      'Ürün fotoğraflarınızın tıklama ve güven açısından yeterli olup olmadığını kontrol edin',
+      'Ücretsiz analiz ile Etsy mağazanızın SEO ve listeleme yapısını değerlendirin',
+    ],
+  },
 };
