@@ -60,7 +60,7 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
         {guide.sections.map((section) => (
           <div key={section.heading} id={slugify(section.heading)}>
             <h2 className="text-xl font-semibold text-white sm:text-2xl">{section.heading}</h2>
-            <p className="mt-3 text-sm leading-relaxed text-blue-100/75 sm:text-base">{section.body}</p>
+            <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-blue-100/75 sm:text-base">{section.body}</p>
           </div>
         ))}
       </article>

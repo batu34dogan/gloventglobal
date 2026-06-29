@@ -33,19 +33,47 @@ export const guides: Record<string, Guide> = {
     sections: [
       {
         heading: 'Kısa cevap',
-        body: 'Amazon, bireysel satıcı hesabına da izin verir; ancak düzenli, ölçeklenebilir ve markalı bir satış için bir şirket yapısı (şahıs veya limited) hem vergi hem de kurumsal güvenilirlik açısından avantaj sağlar.',
+        body: 'Amazon’da bazı pazarlarda bireysel satıcı hesabı açmak mümkün olabilir. Ancak ciddi, sürdürülebilir ve ölçeklenebilir satış yapmak isteyen markalar için şirket, vergi, fatura, ödeme, lojistik ve marka yönetimi en baştan planlanmalıdır.\n\nGüncel gereklilikler, başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
       },
       {
-        heading: 'Hangi durumda şahıs şirketi yeterli olabilir?',
-        body: 'Küçük hacimli, tek kategori ürünle başlayan ve süreci test eden markalar için şahıs şirketi başlangıç için yeterli olabilir. Bu modelde muhasebe ve vergi yükümlülükleri daha basittir.',
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Amazon’a başlamadan önce bu soruyu soran kişiler genellikle maliyet, şirket kurma zorunluluğu, vergi, ödeme alma, fatura düzeni, kargo ve olası riskleri anlamaya çalışır. Bu rehber, bu soruları netleştirmek için hazırlandı.',
       },
       {
-        heading: 'Ne zaman daha kurumsal bir yapı gerekir?',
-        body: 'Birden fazla pazaryeri, birden fazla kategori veya yüksek hacimli satış planlanıyorsa; marka tescili, FBA stok yönetimi ve kurumsal faturalandırma gibi süreçler için limited şirket yapısı daha sürdürülebilir olur.',
+        heading: 'Amazon’da bireysel satıcı hesabı açılabilir mi?',
+        body: 'Bazı pazarlarda bireysel hesap açmak mümkün olabilir. Ancak istenen belgeler, hesap türü ve satış yapılacak ülkeye göre değişebilir; güncel gereklilikler başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
       },
       {
-        heading: 'GloventGlobal nasıl yardımcı olur?',
-        body: 'Şirket yapısı bir muhasebe/hukuk kararıdır; ancak doğru kategori, listeleme, reklam ve operasyon sistemini bu yapının üzerine doğru şekilde kurmak GloventGlobal’ın işidir.',
+        heading: 'Şirket olmadan Amazon’da satış yapmak ne zaman mantıklı olabilir?',
+        body: 'Bazı durumlarda şirketsiz başlamak makul bir seçenek olabilir:\n- Küçük çaplı bir pazar testi yapmak\n- Ürün fikrini doğrulamak\n- Düşük hacimli bir başlangıç yapmak\n- Operasyonu öğrenmek\n\nAncak uzun vadeli marka oluşturma, düzenli satış, reklam, fatura, ödeme ve tedarikçi ilişkileri için şirketleşme çoğu zaman daha sağlıklı bir yapıdır.',
+      },
+      {
+        heading: 'Profesyonel satış için şirket neden önemlidir?',
+        body: '- Fatura ve vergi düzeni\n- Ödeme alma süreçleri\n- Tedarikçi ve marka ilişkileri\n- Lojistik / gümrük süreçleri\n- Reklam ve ölçekleme\n- Finansal takip\n- Marka güvenilirliği',
+      },
+      {
+        heading: 'Türkiye’den Amazon’da satış yaparken hangi konular planlanmalı?',
+        body: '- Hedef pazar seçimi\n- Ürün uygunluğu\n- Rekabet analizi\n- Kargo / FBA / FBM kararı\n- Ürün listeleme\n- Reklam bütçesi\n- Kârlılık hesabı\n- Operasyon yönetimi\n- İade ve müşteri hizmetleri',
+      },
+      {
+        heading: 'Bireysel başlamak mı, şirketle başlamak mı?',
+        body: 'Kriter — Bireysel Başlangıç — Şirketli Başlangıç\nBaşlangıç maliyeti — Daha düşük — Daha yüksek\nGüvenilirlik — Sınırlı — Daha güçlü\nÖlçekleme — Zorlaşabilir — Daha kolay\nFatura / vergi düzeni — Basit — Kurumsal\nMarka oluşturma — Sınırlı — Uygun\nUzun vadeli operasyon — Zorlaşabilir — Sürdürülebilir',
+      },
+      {
+        heading: 'Amazon’da satışa başlamadan önce kontrol listesi',
+        body: '✓ Satılacak ürün belirlendi mi?\n✓ Hedef pazar seçildi mi?\n✓ Rakip ve fiyat analizi yapıldı mı?\n✓ Ürün kârlılığı hesaplandı mı?\n✓ Kargo / FBA / FBM modeli seçildi mi?\n✓ Gerekli belgeler kontrol edildi mi?\n✓ Listeleme ve görsel stratejisi hazır mı?\n✓ Reklam bütçesi planlandı mı?\n✓ Operasyon takibi nasıl yapılacak?',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'Amazon’a sadece bir hesap açma işi gibi bakmak en sık yapılan hatadır. Asıl mesele; ürün, pazar, fiyat, lojistik, listeleme, reklam ve operasyon sisteminin birlikte kurulmasıdır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal; ürün, pazar, şirketleşme ihtiyacı, listeleme, reklam, lojistik ve operasyon adımlarını birlikte değerlendirerek Amazon satış sürecini bir sisteme dönüştürür. Amazon’da satışa başlamadan önce ürününüzü, hedef pazarınızı ve mevcut hazırlık seviyenizi birlikte değerlendirebiliriz.',
+      },
+      {
+        heading: 'Sık Sorulan Sorular',
+        body: 'Amazon’da satış yapmak için şirket zorunlu mu?\nÇoğu pazarda kesin bir zorunluluk olmasa da ciddi ve sürdürülebilir satış için şirket yapısı önerilir; güncel gereklilik başvuru yapılacak pazara göre değişebilir.\n\nAmazon’da bireysel hesapla satış yapılabilir mi?\nBazı pazarlarda evet, ancak hesap türü ve istenen belgeler ülkeye göre değişebilir.\n\nTürkiye’den Amazon’da satış yapmak için ne gerekir?\nHedef pazar seçimi, ürün uygunluğu, lojistik modeli ve gerekli belgelerin başvuru yapılacak pazara göre netleştirilmesi gerekir.\n\nAmazon’da şirket kurmadan başlamak mantıklı mı?\nKüçük ölçekli bir test veya doğrulama aşaması için mantıklı olabilir; ölçeklenmek istendiğinde şirketleşme genellikle gerekli hale gelir.\n\nAmazon’da satışa başlamak için en önemli hazırlık nedir?\nÜrün, pazar ve kârlılık analizinin; listeleme, reklam ve operasyon planıyla birlikte yapılmasıdır.\n\nAmazon FBA için şirket gerekir mi?\nFBA programına katılım şartları pazara göre değişebilir; güncel gereklilikler başvuru yapılacak Amazon pazarına göre kontrol edilmelidir.',
       },
     ],
   },
