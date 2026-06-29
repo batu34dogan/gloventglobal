@@ -1562,4 +1562,162 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Etsy mağazanızın SEO ve listeleme yapısını değerlendirin',
     ],
   },
+
+  'etsy-tag-nasil-yazilir': {
+    title: 'Etsy Tag Nasıl Yazılır?',
+    slug: 'etsy-tag-nasil-yazilir',
+    excerpt:
+      'Etsy ürünlerinde tag alanını ürün tipi, kullanım alanı, hediye niyeti, malzeme ve stil gibi farklı müşteri arama niyetlerine göre nasıl kuracağınızı açıklıyoruz.',
+    category: 'Etsy',
+    targetAudience: 'Etsy ürünlerinde hangi tagleri yazacağını bilmeyen satıcılar',
+    searchIntent: 'etsy tag nasıl yazılır, etsy tag nedir, etsy tag örnekleri, etsy ürün tag nasıl seçilir, etsy de hangi tagler kullanılmalı, etsy seo tag nasıl yapılır, etsy tag ve başlık ilişkisi nedir, etsy long tail keyword nasıl bulunur',
+    relatedServiceSlug: 'etsy',
+    readTime: '5 dk',
+    publishedAt: '2026-02-14',
+    order: 11,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Etsy tag alanı, ürünün hangi aramalarda görünebileceğini destekleyen önemli listeleme alanlarından biridir. Doğru tag kullanımı yalnızca popüler kelimeleri yazmak değil; ürün tipi, kullanım amacı, malzeme, stil, hedef müşteri ve hediye niyeti gibi farklı arama davranışlarını birlikte düşünmektir. Bu rehber, Etsy tag yazımının temel mantığını ve nasıl daha sistemli yapılabileceğini açıklar.',
+    quickAnswer:
+      'Etsy tag yazarken ürünün ne olduğunu, kim için olduğunu, hangi amaçla kullanılacağını, hangi malzeme veya stile sahip olduğunu ve hangi hediye ya da kullanım niyetine cevap verdiğini düşünmek gerekir. Aynı kelimeyi tekrar etmek yerine farklı müşteri aramalarını kapsayan doğal ve alakalı tag yapısı kurulmalıdır.',
+    whoShouldRead: [
+      'Etsy ürünlerinde hangi tagleri yazacağını bilmeyen satıcılar',
+      'Etsy SEO çalışması yapmak isteyen mağaza sahipleri',
+      'Görüntülenme alamayan veya yanlış aramalarda görünen ürünleri olanlar',
+      'Başlık ve tag uyumunu iyileştirmek isteyenler',
+      'El yapımı, deri, takı, aksesuar, dijital ürün veya tasarım ürünleri satanlar',
+      'Etsy’de organik görünürlüğünü artırmak isteyen markalar',
+    ],
+    expertNote:
+      'Etsy tag yazarken en sık yapılan hata, çok genel ve birbirini tekrar eden kelimeler kullanmaktır. Güçlü bir tag stratejisi, ürünün ana arama niyetini korurken farklı müşteri aramalarını, kullanım senaryolarını ve satın alma motivasyonlarını kapsamalıdır.',
+    expertNoteAfterHeading: 'Etsy tag seçimi nasıl yapılmalı?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran satıcılar genellikle ürünlerini yüklerken tag alanına ne yazacağını bilmez, rakiplerden kelime kopyalar veya aynı tagleri tüm ürünlerde tekrar eder. Etsy tag yazımı sadece kelime seçmek değil, müşterinin ürünü nasıl arayacağını anlamaktır.',
+      },
+      {
+        heading: 'Etsy tag nedir?',
+        body: '- Etsy ürün listelemelerinde kullanılan arama destek alanı\n- Ürünün hangi arama niyetleriyle ilişkilendirilebileceğini göstermesi\n- Başlık, kategori, açıklama ve attribute alanlarıyla birlikte çalışması\n- Sadece popüler kelimelerden değil, alakalı müşteri aramalarından oluşması gerektiği',
+      },
+      {
+        heading: 'Etsy tag ne işe yarar?',
+        body: '- Ürünün doğru aramalarda görünmesine yardımcı olur\n- Farklı müşteri arama niyetlerini kapsar\n- Ürün tipini, kullanım alanını, malzemeyi ve hedef müşteriyi anlatır\n- Başlıkta yer verilemeyen bazı arama niyetlerini destekler\n- Etsy SEO’nun tek parçası değil, önemli bir destek alanıdır',
+      },
+      {
+        heading: 'Örnek Etsy Tag Senaryosu',
+        body: 'Örnek senaryo: Deri EDC organizer satan bir Etsy mağazası, ürünü yalnızca “leather wallet” gibi genel kelimelerle değil; ürün tipi, kullanım amacı, hedef kişi, malzeme ve hediye niyeti üzerinden farklı tag gruplarıyla tanımlayabilir. Bu senaryo satış garantisi değil, tag alanını daha kontrollü ve müşteri niyetine uygun kullanmak için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Etsy tag yazarken hangi niyetler düşünülmeli?',
+        body: '- Ürün tipi\n- Kullanım alanı\n- Hedef müşteri\n- Hediye niyeti\n- Malzeme\n- Stil\n- Renk\n- Özel gün\n- Problem / ihtiyaç\n- Ürün kategorisi',
+      },
+      {
+        heading: 'Etsy tag seçimi nasıl yapılmalı?',
+        body: '- Önce ürünün ana arama niyeti belirlenmeli\n- Çok genel kelimelerle sınırlı kalınmamalı\n- Uzun kuyruklu ifadeler düşünülmeli\n- Aynı kelime gereksiz tekrar edilmemeli\n- Başlıkla tamamen kopuk tag kullanılmamalı\n- Üründe olmayan özellik tag olarak yazılmamalı\n- Her ürüne aynı tag seti kopyalanmamalı',
+      },
+      {
+        heading: 'Uzun kuyruklu Etsy tagleri neden önemlidir?',
+        body: 'Genel kelimeler çok aranabilir ama rekabetli olabilir. Daha spesifik uzun kuyruklu ifadeler, ürünü arayan daha net niyetli müşterilere ulaşmayı destekleyebilir. Ancak uzun kuyruklu tagler de ürünle gerçekten alakalı olmalıdır.',
+      },
+      {
+        heading: 'Etsy tag ve başlık ilişkisi nasıl olmalı?',
+        body: 'Başlık ürünün ana kimliğini ve ana arama niyetini taşımalıdır. Tag alanı ise başlığı destekleyen farklı müşteri aramalarını kapsamalıdır. Başlık ve tag tamamen aynı olmak zorunda değildir; ancak birbirinden kopuk da olmamalıdır.',
+      },
+      {
+        heading: 'Etsy tag örnekleri nasıl düşünülmeli?',
+        body: 'Bir deri organizer için tag grupları:\n- ürün tipi: leather organizer, edc organizer\n- kullanım alanı: pocket organizer, everyday carry\n- hedef kişi: gift for men, dad gift\n- malzeme/stil: leather pouch, minimalist wallet\n- kullanım nesnesi: knife holder, pen holder\n\nBu örnekler kopyalanacak kesin bir tag listesi değil, tag düşünme mantığını göstermek için verilmiştir.',
+      },
+      {
+        heading: 'Etsy tag yazarken en sık yapılan hatalar',
+        body: '- Aynı kelimeyi sürekli tekrar etmek\n- Ürünle ilgisiz popüler kelimeler kullanmak\n- Rakip taglerini direkt kopyalamak\n- Tüm ürünlere aynı tag setini yazmak\n- Çok genel kelimelerle sınırlı kalmak\n- Üründe olmayan malzeme, renk veya kullanım alanı eklemek\n- Tagleri düzenleyip veriyi takip etmemek',
+      },
+      {
+        heading: 'İlk 30 gün Etsy tag planı',
+        body: '1. hafta: en güçlü 10 ürünün ana arama niyetlerini belirleme\n2. hafta: ürün tipi, kullanım alanı, hedef müşteri ve malzeme taglerini düzenleme\n3. hafta: başlık, açıklama ve fotoğrafla tag uyumunu kontrol etme\n4. hafta: görüntülenme, favori, tıklanma ve satış verilerine göre iyileştirme notları çıkarma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Etsy tag alanını rastgele kelime listesi gibi kullanmaktır. Tag stratejisi, ürünün ne olduğunu, kime hitap ettiğini, hangi ihtiyaca cevap verdiğini ve müşterinin ürünü nasıl arayabileceğini birlikte düşünmelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Etsy mağazalarında ürün başlığı, tag yapısı, açıklama, kategori, fotoğraf ve mağaza güvenini birlikte analiz ederek daha sistemli bir Etsy SEO ve listeleme optimizasyonu süreci oluşturur.',
+      },
+    ],
+    comparison: {
+      heading: 'Rastgele Tag mi, Niyet Odaklı Etsy Tag Sistemi mi?',
+      headers: ['Kriter', 'Rastgele Tag', 'Niyet Odaklı Tag'],
+      rows: [
+        { criterion: 'Ürün tanımı', individual: 'Ürünü net anlatmayan genel kelimeler kullanır', company: 'Ürün tipi ve ana arama niyetini açıkça destekler' },
+        { criterion: 'Müşteri araması', individual: 'Müşterinin ürünü nasıl aradığını dikkate almaz', company: 'Farklı müşteri arama senaryolarını kapsar' },
+        { criterion: 'Başlık uyumu', individual: 'Başlıkla kopuk kelimeler içerebilir', company: 'Başlığı destekleyen ama farklı niyetleri de kapsayan yapı kurar' },
+        { criterion: 'Ürün gerçekliği', individual: 'Üründe olmayan özellikleri ekleyebilir', company: 'Sadece ürünle gerçekten alakalı özellikleri kullanır' },
+        { criterion: 'Veri takibi', individual: 'Yayına alıp beklemeye dayanır', company: 'Görüntülenme, favori, tıklama ve satış verilerine göre iyileştirilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Etsy tag yazmadan önce kontrol listesi',
+      items: [
+        'Ürünün ana arama niyeti belli mi?',
+        'Ürün tipi taglerde net geçiyor mu?',
+        'Kullanım alanı düşünülmüş mü?',
+        'Hedef müşteri veya hediye niyeti değerlendirildi mi?',
+        'Malzeme, renk, stil veya özel gün bilgileri ürünle uyumlu mu?',
+        'Tagler başlıkla tamamen kopuk değil mi?',
+        'Üründe olmayan özellikler tag olarak yazılmadı mı?',
+        'Aynı tag seti tüm ürünlere kopyalanmadı mı?',
+        'İlk 30 gün için veri takip planı var mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Etsy tag nedir?',
+          answer:
+            'Etsy tag, ürün listelemelerinde kullanılan ve ürünün hangi arama niyetleriyle ilişkilendirilebileceğini gösteren bir arama destek alanıdır. Başlık, kategori ve açıklama ile birlikte çalışarak ürünün doğru aramalarda görünmesine yardımcı olur.',
+        },
+        {
+          question: 'Etsy tag nasıl yazılır?',
+          answer:
+            'Önce ürünün ana arama niyeti belirlenir, ardından ürün tipi, kullanım alanı, malzeme, stil ve hedef müşteri gibi farklı niyetler tag olarak eklenir. Aynı kelimenin tekrar edilmesi yerine çeşitli müşteri aramalarının kapsanması önemlidir.',
+        },
+        {
+          question: 'Etsy tag yazmak satış getirir mi?',
+          answer:
+            'Tag tek başına bir satış garantisi sağlamaz; başlık, açıklama, fotoğraf, fiyat ve mağaza güveniyle birlikte çalıştığında listelemenin genel kalitesine katkı sağlar. Sonuç, ürün ve rekabet durumuna göre değişir.',
+        },
+        {
+          question: 'Etsy tag ve başlık aynı mı olmalı?',
+          answer:
+            'Aynı olmak zorunda değildir; başlık ürünün ana kimliğini taşırken tag alanı farklı müşteri aramalarını destekler. Ancak ikisinin birbirinden tamamen kopuk olmaması önerilir.',
+        },
+        {
+          question: 'Etsy’de kaç tag kullanılmalı?',
+          answer:
+            'Etsy’nin sunduğu tag alanı sayısı zamanla değişebilir; güncel limit Etsy’nin kendi listeleme ekranından kontrol edilmelidir. Önemli olan sayıdan çok, her tag’in gerçekten alakalı bir arama niyetini karşılamasıdır.',
+        },
+        {
+          question: 'Etsy tag örnekleri kopyalanmalı mı?',
+          answer:
+            'Hayır, başka ürünlerden veya rakiplerden kopyalanan tagler genellikle ürünle tam uyuşmayabilir. Her ürün için tag, o ürünün gerçek özelliklerine ve arama niyetine göre ayrı düşünülmelidir.',
+        },
+        {
+          question: 'Etsy tagleri ne zaman değiştirilmelidir?',
+          answer:
+            'Görüntülenme, favori ve satış verileri düzenli izlenip performansı düşük görülen tagler gözden geçirilebilir. Kesin bir değiştirme periyodu yoktur, bu karar ürünün ve verinin durumuna göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Her ürün için ana arama niyetini belirleyin',
+      'Ürün tipi, malzeme, stil, kullanım alanı ve hedef müşteri etrafında tag fikirleri çıkarın',
+      'Başlık ve tag alanlarının birbiriyle uyumlu olup olmadığını kontrol edin',
+      'Aynı tag yapısını tüm ürünlere kopyalamayın',
+      'Ücretsiz analiz ile Etsy tag ve listeleme yapınızı birlikte değerlendirin',
+    ],
+  },
 };
