@@ -1,3 +1,5 @@
+const siteLinks = [{ label: 'Rehberler', href: '/rehberler' }];
+
 const legalLinks = [
   { label: 'KVKK', href: '/kvkk' },
   { label: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
@@ -11,7 +13,7 @@ export default function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 sm:flex-row">
         <p className="text-xs text-blue-100/40">© {new Date().getFullYear()} GloventGlobal</p>
         <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-          {legalLinks.map((link) => (
+          {[...siteLinks, ...legalLinks].map((link) => (
             <a
               key={link.href}
               href={link.href}

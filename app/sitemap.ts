@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { guides } from "@/components/guides/guidesData";
 
 const baseUrl = "https://gloventglobal.com";
 
@@ -29,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/nasil-calisiyoruz`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/iletisim`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/analiz`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/rehberler`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/kvkk`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/gizlilik-politikasi`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/cerez-politikasi`, changeFrequency: "yearly", priority: 0.3 },
@@ -41,5 +43,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages];
+  const guidePages: MetadataRoute.Sitemap = Object.keys(guides).map((slug) => ({
+    url: `${baseUrl}/rehberler/${slug}`,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...servicePages, ...guidePages];
 }
