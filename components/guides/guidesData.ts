@@ -345,7 +345,7 @@ export const guides: Record<string, Guide> = {
       'Shopify ve Etsy birbirinin yerine geçen değil, farklı ihtiyaçlara hizmet eden iki farklı satış modelidir. Hangi işletme için hangisinin daha mantıklı olduğunu karşılaştırıyoruz.',
     category: 'Shopify',
     targetAudience: 'İlk satış kanalını seçmeye çalışan marka sahipleri',
-    searchIntent: 'shopify mı etsy mi, shopify etsy farkı, hangisi daha karlı',
+    searchIntent: 'shopify mı etsy mi, etsy mi kendi web sitesi mi, shopify mı pazaryeri mi, yeni başlayanlar için etsy mi shopify mı daha iyi, etsy’den shopify’a geçilmeli mi, marka kurmak için shopify mı etsy mi, global satış için etsy mi shopify mı',
     relatedServiceSlug: 'shopify',
     readTime: '5 dk',
     publishedAt: '2026-01-21',
@@ -354,31 +354,132 @@ export const guides: Record<string, Guide> = {
     updatedAtISO: '2026-06-01',
     author: 'GloventGlobal Global Commerce Team',
     summary:
-      'Shopify ve Etsy birbirinin yerine geçen değil, farklı ihtiyaçlara hizmet eden iki satış modelidir. Bu rehber, hangi işletme için hangisinin daha mantıklı olduğunu ve ikisinin birlikte nasıl kullanılabileceğini özetler.',
+      'Shopify ve Etsy farklı amaçlara hizmet eder. Etsy, hazır pazaryeri trafiği ve niş ürün keşfiyle başlangıç için avantajlı olabilirken; Shopify, marka kontrolü, müşteri verisi, mağaza deneyimi ve uzun vadeli büyüme için daha güçlü bir yapı sunar. Bu rehber, hangi işletme için hangi kanalın daha mantıklı olduğunu karar kriterleriyle açıklar.',
     quickAnswer:
-      'Hazır bir alıcı kitlesine ihtiyaç duyan markalar için Etsy, kendi marka varlığını ve müşteri verisini kontrol etmek isteyen markalar için Shopify genellikle daha mantıklıdır. Çoğu marka için en sürdürülebilir yaklaşım, ikisini birlikte ve aşamalı olarak kullanmaktır.',
+      'Yeni başlayan ve ürün talebini test etmek isteyen markalar için Etsy daha hızlı bir başlangıç kanalı olabilir. Kendi markasını kurmak, müşteri verisini yönetmek, mağaza deneyimini kontrol etmek ve uzun vadeli büyüme sistemi oluşturmak isteyen işletmeler için Shopify daha stratejik bir tercih olabilir.',
     whoShouldRead: [
-      'İlk satış kanalını seçmeye çalışan marka sahipleri',
-      'Etsy ile Shopify arasında kararsız kalan markalar',
-      'Uzun vadeli marka altyapısı kurmak isteyenler',
+      'Etsy ile Shopify arasında karar veremeyenler',
+      'Kendi markası için e-ticaret altyapısı kurmak isteyenler',
+      'Etsy’de satış yapıp Shopify’a geçmeyi düşünenler',
+      'Pazaryeri mi kendi web sitesi mi daha mantıklı diye araştıran işletmeler',
+      'Global satış için doğru kanal stratejisi arayan markalar',
     ],
+    expertNote:
+      'Etsy ve Shopify birbirinin alternatifi olmak zorunda değildir. Birçok marka Etsy’yi ürün ve pazar talebini test etmek için, Shopify’ı ise uzun vadeli marka mağazası ve müşteri ilişkisi kurmak için birlikte kullanabilir.',
+    expertNoteAfterHeading: 'Etsy ve Shopify birlikte kullanılabilir mi?',
     sections: [
       {
-        heading: 'Etsy ne zaman daha mantıklı?',
-        body: 'El yapımı, niş, koleksiyon temelli veya hazır bir alıcı kitlesine ihtiyaç duyan markalar için Etsy, kendi trafiğini kendisi getiren bir pazaryeri olduğu için daha hızlı bir başlangıç noktası olabilir.',
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle e-ticarete başlamak, yurtdışına satış yapmak veya markasını büyütmek ister. Etsy ve Shopify aynı işi yapmaz; biri pazaryeri, diğeri kendi marka mağazası altyapısıdır ve doğru seçim işletmenin ihtiyacına göre değişir.',
       },
       {
-        heading: 'Shopify ne zaman daha mantıklı?',
-        body: 'Markasını bağımsız bir dijital ticaret sistemi üzerinde büyütmek, kendi müşteri verisini toplamak ve uzun vadede reklam/CRM süreçlerini tam kontrol etmek isteyen markalar için Shopify daha sürdürülebilir bir altyapıdır.',
+        heading: 'Shopify ve Etsy arasındaki temel fark nedir?',
+        body: '- Etsy bir pazaryeridir\n- Shopify kendi e-ticaret mağazanızı kurmanızı sağlar\n- Etsy’de hazır trafik olabilir ama rekabet ve platform kuralları vardır\n- Shopify’da kontrol daha fazladır ama trafiği sizin getirmeniz gerekir',
       },
       {
-        heading: 'İkisi birlikte de kullanılabilir mi?',
-        body: 'Evet. Çoğu marka için doğru yaklaşım, Etsy’de mevcut talebi değerlendirirken Shopify’da uzun vadeli marka varlığını paralel olarak inşa etmektir.',
+        heading: 'Örnek Karar Senaryosu',
+        body: 'Örnek senaryo: El yapımı veya niş ürünleri olan yeni bir marka, ilk etapta 10 güçlü ürünle Etsy’de talep testi yapabilir. En çok görüntülenen, favori alan veya dönüşüm potansiyeli gösteren ürünler belirlendikten sonra, Shopify tarafında daha kurumsal bir marka mağazası planlanabilir. Bu senaryo satış garantisi değil, daha kontrollü kanal seçimi için örnek bir başlangıç yaklaşımıdır.',
       },
       {
-        heading: 'GloventGlobal nasıl yardımcı olur?',
-        body: 'Markanın ürün yapısına ve hedeflerine göre doğru kanal önceliğini birlikte belirliyor, Shopify Commerce Sistemi’ni markaya özel kurguluyoruz.',
+        heading: 'Etsy hangi işletmeler için daha mantıklı olabilir?',
+        body: '- El yapımı, tasarım, niş ve kişiselleştirilebilir ürünler\n- Yeni başlayan ve talep test etmek isteyen markalar\n- Pazaryeri trafiğinden yararlanmak isteyenler\n- Kendi web sitesi trafiği olmayan işletmeler\n- Küçük ürün portföyüyle başlamak isteyenler',
       },
+      {
+        heading: 'Shopify hangi işletmeler için daha mantıklı olabilir?',
+        body: '- Marka kontrolü isteyen işletmeler\n- Kendi müşteri verisini yönetmek isteyenler\n- Uzun vadeli marka mağazası kurmak isteyenler\n- Reklam, SEO, e-posta ve içerik trafiği oluşturabilecek markalar\n- B2B veya özel ürün sunumu isteyen işletmeler',
+      },
+      {
+        heading: 'Etsy mi Shopify mı? 5 karar kriteri',
+        body: '- Ürün tipi: El yapımı, niş veya kişiselleştirilebilir ürünler Etsy’ye; kurumsal/çeşitli ürün grupları Shopify’a daha uygun olabilir\n- Bütçe: Trafiği kendiniz oluşturacaksanız reklam/SEO bütçesi gerekir; Etsy’de bu daha sınırlı olabilir\n- Marka hedefi: Uzun vadeli marka kimliği hedefliyorsanız Shopify; hızlı talep testi istiyorsanız Etsy öne çıkabilir\n- Trafik kaynağı: Kendi trafiğiniz yoksa Etsy’nin pazaryeri trafiği avantaj sağlayabilir\n- Operasyon kapasitesi: İki kanalı birlikte yönetmek ek operasyon kapasitesi gerektirir',
+      },
+      {
+        heading: 'Yeni başlayanlar için hangisi daha doğru?',
+        body: 'Eğer marka henüz ürün talebini test etmediyse Etsy daha hızlı geri bildirim sağlayabilir. Eğer marka kimliği, müşteri deneyimi ve uzun vadeli büyüme hedefi daha netse Shopify daha doğru altyapı olabilir.',
+      },
+      {
+        heading: 'Etsy ve Shopify birlikte kullanılabilir mi?',
+        body: 'Evet, bazı işletmeler için birlikte kullanmak mantıklı olabilir.\nEtsy → keşif ve talep testi\nShopify → marka mağazası, müşteri ilişkisi, uzun vadeli büyüme\nAncak iki kanalı aynı anda yönetmek operasyon kapasitesi gerektirir.',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Shopify’ı sadece “site açmak”, Etsy’yi ise sadece “ürün yüklemek” olarak görmektir. Asıl mesele doğru ürünü doğru kanalda, doğru trafik ve operasyon sistemiyle konumlandırmaktır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, markanın ürün yapısını, hedef pazarını, satış kanalını, operasyon kapasitesini ve büyüme hedefini analiz ederek Etsy, Shopify veya hibrit kanal yapısının hangisinin daha doğru olduğunu belirlemeye yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Etsy mi Shopify mı? Kanal Karşılaştırması',
+      headers: ['Kriter', 'Etsy', 'Shopify'],
+      rows: [
+        { criterion: 'Trafik', individual: 'Hazır pazaryeri trafiğinden faydalanabilir', company: 'Trafiği marka kendi oluşturmalıdır' },
+        { criterion: 'Marka kontrolü', individual: 'Platform sınırları vardır', company: 'Kontrol daha yüksektir' },
+        { criterion: 'Başlangıç kolaylığı', individual: 'Daha hızlı başlayabilir', company: 'Kurulum ve yapılandırma gerektirir' },
+        { criterion: 'Müşteri verisi', individual: 'Daha sınırlıdır', company: 'Daha fazla kontrol sağlar' },
+        { criterion: 'Uzun vadeli büyüme', individual: 'Pazaryeri içinde büyüme sağlar', company: 'Marka varlığı oluşturmaya daha uygundur' },
+        { criterion: 'Operasyon', individual: 'Listeleme ve pazaryeri yönetimi önemlidir', company: 'Site, trafik, ödeme, dönüşüm ve müşteri yönetimi birlikte gerekir' },
+      ],
+    },
+    checklist: {
+      heading: 'Shopify mı Etsy mi karar vermeden önce kontrol listesi',
+      items: [
+        'Ürününüz Etsy müşteri kitlesine uygun mu?',
+        'Kendi markanızı uzun vadede büyütmek istiyor musunuz?',
+        'Trafiği kendiniz getirebilecek bütçe veya içerik planınız var mı?',
+        'Ürün portföyünüz test aşamasında mı, olgun mu?',
+        'Görsel, açıklama ve kategori sisteminiz hazır mı?',
+        'Reklam ve operasyon takibi yapabilecek misiniz?',
+        'Müşteri verisini ve tekrar satışları yönetmek istiyor musunuz?',
+        'Hangi kanalın önce test edileceği net mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Yeni başlayanlar için Shopify mı Etsy mi daha iyi?',
+          answer:
+            'Bu, ürün tipinize ve test etmek istediğiniz talebe göre değişir. Hazır bir alıcı kitlesine ihtiyaç duyuyorsanız Etsy, kendi marka altyapınızı kurmak istiyorsanız Shopify daha uygun bir başlangıç noktası olabilir.',
+        },
+        {
+          question: 'Etsy’de satış yaparken Shopify mağazası açmak mantıklı mı?',
+          answer:
+            'Evet, birçok marka için bu hibrit yaklaşım mantıklı olabilir. Etsy talep testi ve keşif sağlarken, Shopify uzun vadeli marka mağazası ve müşteri ilişkisi kurmaya yardımcı olur.',
+        },
+        {
+          question: 'Shopify’da satış almak Etsy’den daha mı zor?',
+          answer:
+            'Zor olmaktan çok farklı bir çalışma gerektirir; Shopify’da trafiği markanın kendisi oluşturmalıdır. Etsy’de ise platformun hazır trafiğinden bir ölçüde faydalanmak mümkündür.',
+        },
+        {
+          question: 'Etsy hazır trafik sağlar mı?',
+          answer:
+            'Etsy pazaryeri içi arama trafiğinden faydalanma imkanı sunar, ancak bu trafik rekabet ve platform kurallarına bağlı olarak değişebilir. Görünürlük garanti edilmez, doğru listeleme ve ürün uyumu önemlidir.',
+        },
+        {
+          question: 'Shopify için reklam bütçesi gerekir mi?',
+          answer:
+            'Kesin bir zorunluluk değildir, ancak Shopify’da trafiği büyük ölçüde marka kendisi oluşturduğu için reklam, SEO veya içerik genellikle gereklidir. Bütçe ihtiyacı; ürün, hedef pazar ve büyüme hızına göre değişir.',
+        },
+        {
+          question: 'Hangi ürünler Etsy için daha uygundur?',
+          answer:
+            'El yapımı, tasarım, niş ve kişiselleştirilebilir ürünler Etsy’de genellikle daha avantajlı olabilir. Çok genel veya yüksek rekabetli ürün gruplarında görünürlük daha zor olabilir.',
+        },
+        {
+          question: 'Marka kurmak için Shopify daha mı avantajlı?',
+          answer:
+            'Marka kontrolü, müşteri verisi ve mağaza deneyimi açısından Shopify genellikle daha avantajlı bir altyapı sunar. Ancak bu avantajın gerçekleşmesi, trafik ve operasyon yatırımının da yapılmasına bağlıdır.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürün tipinizi ve hedef müşterinizi netleştirin',
+      'Kısa vadede trafik mi, uzun vadede marka kontrolü mü öncelikli karar verin',
+      'Etsy’de ürün talebi test edilecekse başlangıç ürünlerinizi seçin',
+      'Shopify kurulacaksa marka, kategori ve dönüşüm altyapısını planlayın',
+      'Ücretsiz analiz ile işletmeniz için doğru kanal yapısını değerlendirin',
     ],
   },
 
