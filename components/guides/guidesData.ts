@@ -4083,4 +4083,202 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon Private Label fikrinizi birlikte değerlendirelim',
     ],
   },
+
+  'amazon-wholesale-nedir': {
+    title: 'Amazon Wholesale Nedir?',
+    slug: 'amazon-wholesale-nedir',
+    excerpt:
+      'Amazon Wholesale modelinin ne olduğunu, Private Label’dan farkını, Buy Box, tedarik, fiyat rekabeti ve kâr marjı açısından nasıl değerlendirileceğini açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da markalı ürünleri toptan alıp satmayı düşünen satıcılar',
+    searchIntent: 'amazon wholesale nedir, amazon wholesale nasıl yapılır, amazon da toptan ürün satışı nedir, amazon wholesale avantajları nelerdir, amazon wholesale dezavantajları nelerdir, amazon wholesale için ne gerekir, private label mı wholesale mi, amazon buy box nedir',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-28',
+    order: 25,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon Wholesale, satıcının mevcut markalı ürünleri üretici, distribütör veya yetkili tedarikçilerden toptan alarak Amazon’da satmasıdır. Bu model ürün geliştirme yükünü azaltabilir; ancak tedarikçi ilişkisi, marka izinleri, Buy Box rekabeti, fiyat baskısı, stok, kâr marjı ve operasyon yönetimi dikkatle planlanmalıdır. Wholesale satış garantisi vermez; doğru ürün, doğru tedarik ve doğru maliyet hesabı gerektirir.',
+    quickAnswer:
+      'Amazon Wholesale, mevcut markalı ürünleri toptan satın alıp Amazon’da satma modelidir. Private Label’da satıcı kendi markasını oluştururken, Wholesale’da satıcı genellikle mevcut markaların ürünlerini satar. Wholesale ürün geliştirme sürecini azaltabilir; ancak Buy Box rekabeti, tedarikçi güvenilirliği, fiyat baskısı ve kâr marjı dikkatle yönetilmelidir.',
+    whoShouldRead: [
+      'Amazon’da markalı ürünleri toptan alıp satmayı düşünenler',
+      'Private Label ve Wholesale arasındaki farkı anlamak isteyenler',
+      'Üretici, distribütör veya toptancı ilişkisi kurabilecek işletmeler',
+      'Amazon’da mevcut talebi olan ürünlerle satış yapmak isteyen satıcılar',
+      'Buy Box, fiyat rekabeti ve kâr marjı mantığını öğrenmek isteyenler',
+      'Türkiye’den global pazara toptan ürün portföyüyle açılmak isteyen firmalar',
+    ],
+    expertNote:
+      'Amazon Wholesale’da en sık yapılan hata, yalnızca “markalı ürün zaten satıyor” diye ürüne girmektir. Ürün talep görüyor olabilir; ancak Buy Box rekabeti, fiyat baskısı, komisyonlar, lojistik, reklam, stok ve tedarik koşulları doğru analiz edilmezse kârlılık çok hızlı zayıflayabilir.',
+    expertNoteAfterHeading: 'Amazon Buy Box Wholesale için neden önemlidir?',
+    keyTakeaway:
+      'Wholesale modeli ürün geliştirme yükünü azaltabilir; ancak kontrolün tamamı satıcıda değildir. Marka, tedarikçi, fiyat rekabeti, Buy Box, stok ve kâr marjı birlikte yönetilmediğinde yüksek satış hacmi bile sürdürülebilir kârlılık anlamına gelmeyebilir.',
+    nextReadingSlugs: [
+      'amazon-private-label-nedir',
+      'amazon-komisyonlari-ve-maliyetler',
+      'amazonda-urun-arastirmasi-nasil-yapilir',
+      'amazon-fba-nedir',
+      'amazon-listing-nasil-hazirlanir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da kendi markasını üretmeden, mevcut markalı ürünleri toptan alarak satmak ister. Wholesale modeli ürün geliştirme yükünü azaltabilir; ancak tedarik, marka izni, Buy Box rekabeti, fiyat baskısı, stok ve maliyet hesabı gerektirir ve satış garantisi vermez.',
+      },
+      {
+        heading: 'Amazon Wholesale nedir?',
+        body: '- Satıcının mevcut markalı ürünleri toptan alıp Amazon’da satması\n- Ürünlerin genellikle üretici, distribütör veya yetkili tedarikçilerden temin edildiği\n- Satıcının kendi markasını oluşturmak zorunda olmadığı\n- Ancak fiyat, stok, Buy Box, tedarik ve operasyon süreçlerinden sorumlu olduğu\n- Wholesale’ın satış garantisi değil, tedarik ve operasyon modeli olduğu',
+      },
+      {
+        heading: 'Amazon Wholesale kimler için uygundur?',
+        body: '- Güvenilir tedarikçi veya distribütör ilişkisi kurabilecek satıcılar\n- Mevcut markalı ürünlerle Amazon’da satış yapmak isteyenler\n- Ürün geliştirme yerine ürün seçimi ve operasyon yönetimine odaklanmak isteyen işletmeler\n- Kâr marjı, Buy Box ve stok takibini düzenli yapabilecek satıcılar\n- FBA veya FBM operasyonunu yönetebilecek markalar\n- Toptan ürün portföyünü global pazara taşımak isteyen firmalar',
+      },
+      {
+        heading: 'Amazon Wholesale nasıl yapılır?',
+        body: '- Ürün ve kategori fırsatları araştırılır\n- Marka, distribütör veya tedarikçi kaynakları değerlendirilir\n- Ürünlerin Amazon’daki talep ve rekabet durumu incelenir\n- Buy Box, fiyat, yorum ve satıcı rekabeti analiz edilir\n- Komisyon, lojistik, reklam ve stok maliyetleri hesaplanır\n- FBA veya FBM operasyon modeli seçilir\n- Ürün portföyü test edilir\n- Performans verileri düzenli takip edilir',
+      },
+      {
+        heading: 'Amazon Wholesale hazırlık akışı',
+        body: 'Ürün / marka fikri\n↓\nTedarikçi araştırması\n↓\nAmazon talep ve rekabet analizi\n↓\nBuy Box ve fiyat kontrolü\n↓\nMaliyet ve kârlılık hesabı\n↓\nFBA / FBM operasyon planı\n↓\nStok ve test süreci\n↓\nPerformans takibi\n\nWholesale süreci yalnızca toptan ürün bulmak değildir. Ürün, tedarikçi, fiyat, Buy Box, maliyet, stok ve operasyon birlikte değerlendirilmelidir.',
+      },
+      {
+        heading: 'Örnek Amazon Wholesale Senaryosu',
+        body: 'Örnek senaryo: Amazon Wholesale modeliyle satış yapmak isteyen bir işletme, ilk aşamada 10 markalı ürünü talep, fiyat rekabeti, Buy Box durumu, yorum seviyesi, tedarik maliyeti, Amazon komisyonu, FBA/FBM lojistik uygunluğu ve stok riski açısından değerlendirir. Daha sonra yalnızca güçlü görünen 2–3 ürün için tedarik, maliyet ve satış planı hazırlar. Bu senaryo satış garantisi değil, Wholesale sürecini daha kontrollü değerlendirmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon Wholesale için ne gerekir?',
+        body: '- Güvenilir tedarikçi veya distribütör kaynağı\n- Ürün talep ve rekabet analizi\n- Marka / ürün satış uygunluğu kontrolü\n- Buy Box ve fiyat rekabeti analizi\n- Amazon komisyon ve maliyet hesabı\n- FBA/FBM lojistik planı\n- Stok ve nakit akışı yönetimi\n- Ürün takip ve performans sistemi\n- Gerekirse marka izni, sertifika, uyum, vergi/gümrük konularında uzman kontrolü',
+      },
+      {
+        heading: 'Wholesale ürün nasıl bulunur?',
+        body: '- Sadece popüler markalara bakılmaması gerektiği\n- Ürünün Amazon’daki mevcut talebinin incelenmesi\n- Buy Box rekabetinin ve satıcı sayısının değerlendirilmesi\n- Tedarik fiyatı ile Amazon satış fiyatı arasındaki gerçek marjın hesaplanması\n- Lojistik, komisyon, reklam ve iade riskinin kontrol edilmesi\n- Tedarikçi güvenilirliği ve ürün devamlılığının önem taşıdığı',
+      },
+      {
+        heading: 'Amazon Wholesale avantajları nelerdir?',
+        body: '- Mevcut markalı ürünlerle satış yapma imkanı\n- Ürün geliştirme sürecinin daha sınırlı olması\n- Talebi var olan ürünleri analiz etme fırsatı\n- Doğru tedarik ve maliyetle daha hızlı ürün portföyü oluşturma ihtimali\n- Private Label’a göre bazı ürünlerde daha az marka geliştirme yükü\n- Portföy bazlı satış yapma imkanı',
+      },
+      {
+        heading: 'Amazon Wholesale dezavantajları nelerdir?',
+        body: '- Buy Box rekabeti olabilir\n- Fiyat baskısı kâr marjını düşürebilir\n- Tedarikçi devamlılığı kritik olabilir\n- Marka izinleri veya kategori kısıtları olabilir\n- Aynı ürünü çok sayıda satıcı satıyor olabilir\n- Reklam, komisyon, lojistik ve stok maliyetleri kârlılığı etkileyebilir\n- Ürün üzerinde marka ve sunum kontrolü Private Label’a göre daha sınırlıdır',
+      },
+      {
+        heading: 'Private Label / Wholesale / Reselling farkı nedir?',
+        body: '- Private Label: Satıcı kendi markasıyla ürün satar\n- Wholesale: Satıcı mevcut markalı ürünleri toptan alıp satar\n- Reselling: Satıcı ürünleri farklı kaynaklardan alıp yeniden satar',
+      },
+      {
+        heading: 'Private Label, Wholesale ve Reselling kısa karşılaştırma',
+        body: 'Private Label\nKontrol: Marka, listing, ambalaj ve ürün sunumu üzerinde daha fazla kontrol\nRisk: Ürün geliştirme, stok, reklam ve marka riski satıcıdadır\nKimler için: Kendi markasını uzun vadeli kurmak isteyenler\n\nWholesale\nKontrol: Mevcut markanın ürün ve fiyat yapısına daha bağlıdır\nRisk: Tedarik, Buy Box, rekabet ve marj baskısı olabilir\nKimler için: Mevcut markalı ürünleri toptan alıp satmak isteyenler\n\nReselling\nKontrol: Daha sınırlı kontrol\nRisk: Ürün kaynağı, fiyat rekabeti ve sürdürülebilirlik riski olabilir\nKimler için: Daha kısa vadeli al-sat fırsatlarını değerlendirenler',
+      },
+      {
+        heading: 'Amazon Buy Box Wholesale için neden önemlidir?',
+        body: '- Aynı ürünü birden fazla satıcı satabiliyorsa Buy Box görünürlüğü önem kazanabilir\n- Buy Box dinamikleri fiyat, stok, teslimat, satıcı performansı ve müşteri deneyimi gibi unsurlardan etkilenebilir\n- Kesin bir Buy Box kazanma formülü yoktur\n- Wholesale modelinde Buy Box rekabeti kârlılığı doğrudan etkileyebilir\n- Buy Box analiz edilmeden ürün seçimi riskli olabilir',
+      },
+      {
+        heading: 'Amazon Wholesale maliyetleri nasıl düşünülmeli?',
+        body: '- Ürün tedarik maliyeti\n- Amazon komisyonları\n- FBA/FBM lojistik giderleri\n- Kargo ve depolama maliyeti\n- Reklam ve görünürlük bütçesi\n- İade, hasar ve stok riski\n- Yazılım, takip ve operasyon giderleri\n- Marka izni, sertifika, uyum, vergi/gümrük konularında uzman kontrolü',
+      },
+      {
+        heading: 'Wholesale modelinde tedarikçi seçimi neden önemlidir?',
+        body: '- Ürün devamlılığı\n- Fiyat istikrarı\n- Orijinal ürün ve güvenilir kaynak riski\n- Teslimat süresi\n- Minimum sipariş koşulları\n- İade ve hasar süreci\n- Tedarikçinin Amazon satışına uygun belge veya iş modeline izin verip vermediğinin kontrol edilmesi',
+      },
+      {
+        heading: 'Amazon Wholesale’da en sık yapılan hatalar nelerdir?',
+        body: '- Yalnızca satış hacmine bakmak\n- Buy Box rekabetini hafife almak\n- Tedarik fiyatı ile gerçek kârı karıştırmak\n- Komisyon ve lojistik maliyetlerini eksik hesaplamak\n- Marka izni veya kategori kısıtlarını kontrol etmemek\n- Aynı üründe çok fazla satıcı rekabetini göz ardı etmek\n- Stok riskini ve fiyat düşüşlerini hesaba katmamak\n- Ürün devamlılığı olmayan tedarikçilere güvenmek',
+      },
+      {
+        heading: 'İlk 30 gün Amazon Wholesale hazırlık planı',
+        body: '1. hafta: ürün, marka ve kategori fırsatlarını araştırma\n2. hafta: tedarikçi, fiyat, Buy Box ve satıcı rekabetini analiz etme\n3. hafta: komisyon, lojistik, reklam ve stok maliyetlerini hesaplama\n4. hafta: test edilecek ürünleri seçme ve FBA/FBM operasyon planı hazırlama',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon Wholesale modelini “markalı ürün zaten satıyor, ben de satarım” şeklinde düşünmektir. Wholesale’da asıl kritik alanlar ürün talebi kadar Buy Box rekabeti, tedarik fiyatı, kâr marjı, stok ve operasyon yönetimidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon Wholesale modeliyle satış yapmak isteyen markaların ürün portföyünü, tedarikçi yapısını, Buy Box rekabetini, fiyat ve kâr marjını, FBA/FBM lojistik modelini, stok riskini ve operasyon kapasitesini birlikte analiz ederek daha kontrollü bir global satış sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Plansız Wholesale mı, Sistemli Ürün Portföyü mü?',
+      headers: ['Kriter', 'Plansız Wholesale', 'Sistemli Ürün Portföyü'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Ürün genelde popülerlik veya hızlı satış algısıyla seçilir', company: 'Ürün talep, tedarik, fiyat, Buy Box ve maliyet üzerinden değerlendirilir' },
+        { criterion: 'Tedarik', individual: 'Tedarikçi güvenilirliği ve devamlılığı zayıf kalabilir', company: 'Tedarikçi, belge, fiyat istikrarı ve ürün devamlılığı kontrol edilir' },
+        { criterion: 'Kârlılık', individual: 'Satış fiyatı ile tedarik fiyatı karşılaştırılır', company: 'Komisyon, lojistik, reklam, iade ve stok maliyeti birlikte hesaplanır' },
+        { criterion: 'Rekabet', individual: 'Buy Box ve satıcı rekabeti yeterince analiz edilmez', company: 'Satıcı sayısı, fiyat baskısı ve teslimat avantajı birlikte incelenir' },
+        { criterion: 'Sonuç', individual: 'Kâr marjı ve stok riski artabilir', company: 'Daha kontrollü ürün seçimi ve operasyon planı kurulabilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon Wholesale kontrol listesi',
+      items: [
+        'Ürünün Amazon’daki talebi kontrol edildi mi?',
+        'Satıcı sayısı ve Buy Box rekabeti analiz edildi mi?',
+        'Tedarikçi güvenilirliği değerlendirildi mi?',
+        'Marka, kategori veya satış uygunluğu kontrol edildi mi?',
+        'Tedarik fiyatı ve Amazon satış fiyatı karşılaştırıldı mı?',
+        'Amazon komisyonları ve lojistik maliyetleri hesaplandı mı?',
+        'FBA/FBM modeli seçildi mi?',
+        'Reklam ve görünürlük ihtiyacı düşünüldü mü?',
+        'Stok ve fiyat düşüşü riski değerlendirildi mi?',
+        'Gerçek net kâr senaryosu çıkarıldı mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon Wholesale nedir?',
+          answer:
+            'Amazon Wholesale, satıcının mevcut markalı ürünleri üretici, distribütör veya yetkili tedarikçilerden toptan alarak Amazon’da satmasıdır. Satıcı kendi markasını oluşturmaz, ürün geliştirme yükü Private Label’a göre daha sınırlı olabilir.',
+        },
+        {
+          question: 'Amazon Wholesale nasıl yapılır?',
+          answer:
+            'Ürün ve kategori fırsatları araştırılır, tedarikçi kaynakları değerlendirilir, talep ve Buy Box rekabeti analiz edilir; ardından maliyet hesabı ve operasyon planı hazırlanır. Süreç düzenli takip ve test gerektirir.',
+        },
+        {
+          question: 'Amazon Wholesale için ne gerekir?',
+          answer:
+            'Güvenilir tedarikçi ilişkisi, ürün talep analizi, Buy Box ve fiyat rekabeti değerlendirmesi, maliyet hesabı ve FBA/FBM operasyon planı gerekir. Bazı durumlarda marka izni veya kategori onayı da gerekebilir.',
+        },
+        {
+          question: 'Amazon Wholesale avantajları nelerdir?',
+          answer:
+            'Mevcut markalı ürünlerle satış yapma imkanı ve daha sınırlı ürün geliştirme yükü gibi avantajlar sunabilir. Talebi olan ürünleri analiz ederek daha hızlı bir portföy oluşturma ihtimali vardır.',
+        },
+        {
+          question: 'Amazon Wholesale dezavantajları nelerdir?',
+          answer:
+            'Buy Box rekabeti, fiyat baskısı, tedarikçi devamlılığı ve marka izinleri gibi riskler taşıyabilir. Aynı ürünü çok sayıda satıcı sattığında kâr marjı zayıflayabilir.',
+        },
+        {
+          question: 'Private Label mı Wholesale mi?',
+          answer:
+            'Kesin bir doğru cevap yoktur; Private Label kendi marka kontrolü isteyenler için, Wholesale ise mevcut markalı ürünlerle hızlı portföy oluşturmak isteyenler için daha uygun olabilir. Karar, hedef ve operasyon kapasitesine göre değişir.',
+        },
+        {
+          question: 'Amazon Buy Box Wholesale için neden önemlidir?',
+          answer:
+            'Aynı ürünü birden fazla satıcı sattığında Buy Box görünürlüğü satışları doğrudan etkileyebilir. Buy Box dinamikleri fiyat, stok ve satıcı performansı gibi unsurlardan etkilenir; kesin bir kazanma formülü yoktur.',
+        },
+        {
+          question: 'Amazon Wholesale satış garantisi verir mi?',
+          answer:
+            'Hayır, Wholesale bir satış garantisi değildir; tedarik, fiyat, Buy Box, stok ve operasyon yönetiminin birlikte doğru kurulmasına bağlıdır. Sonuç ürün ve pazara göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Wholesale için uygun ürün ve marka portföyünü belirleyin',
+      'Tedarikçi, distribütör veya marka izinlerini dikkatle değerlendirin',
+      'Buy Box, fiyat rekabeti, yorum seviyesi ve satış hacmini analiz edin',
+      'Amazon komisyonları, lojistik, reklam ve stok maliyetlerini hesaplayın',
+      'FBA/FBM operasyon modelini seçin',
+      'Ücretsiz analiz ile Amazon Wholesale ürün portföyünüzü birlikte değerlendirelim',
+    ],
+  },
 };
