@@ -3889,4 +3889,198 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon maliyet ve kârlılık yapınızı birlikte değerlendirelim',
     ],
   },
+
+  'amazon-private-label-nedir': {
+    title: 'Amazon Private Label Nedir?',
+    slug: 'amazon-private-label-nedir',
+    excerpt:
+      'Amazon Private Label modelinin ne olduğunu, nasıl çalıştığını, kimler için uygun olduğunu ve hangi riskleri taşıdığını; ürün, marka, tedarik ve operasyon açısından açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da kendi markasıyla satış yapmak isteyen satıcılar',
+    searchIntent: 'amazon private label nedir, amazon private label nasıl yapılır, private label ürün nedir, amazon da kendi markamla satış nasıl yapılır, amazon private label avantajları nelerdir, amazon private label dezavantajları nelerdir, amazon private label için ne gerekir, private label mı wholesale mi',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-25',
+    order: 24,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon Private Label, satıcının kendi markasıyla ürün geliştirip veya mevcut bir ürünü markalaştırıp Amazon’da satışa sunmasıdır. Bu model ürün araştırması, tedarik, marka konumlandırması, kalite kontrol, maliyet hesabı, listing, reklam, stok ve operasyon yönetimi gerektirir. Private Label yüksek kontrol sağlayabilir; ancak yanlış ürün seçimi, zayıf tedarik, yüksek reklam maliyeti ve stok riski nedeniyle dikkatli planlanmalıdır.',
+    quickAnswer:
+      'Amazon Private Label, bir ürünü kendi marka adınızla Amazon’da satma modelidir. Satıcı ürünü seçer, tedarik eder veya geliştirir, marka kimliği oluşturur, listing hazırlar ve satış sürecini yönetir. Private Label marka değeri oluşturma fırsatı sunabilir; ancak satış garantisi değildir ve ürün, maliyet, tedarik, reklam ve stok planı doğru kurulmadığında ciddi risk taşıyabilir.',
+    whoShouldRead: [
+      'Amazon’da kendi markasıyla satış yapmak isteyenler',
+      'Private Label modeliyle ürün geliştirmeyi düşünen işletmeler',
+      'Ürün araştırması sonrası marka kurma aşamasına geçmek isteyen satıcılar',
+      'FBA veya FBM ile markalı ürün satmayı planlayanlar',
+      'Wholesale ve Private Label arasındaki farkı anlamak isteyenler',
+      'Türkiye’den global pazara kendi ürünüyle açılmak isteyen üretici ve markalar',
+    ],
+    expertNote:
+      'Amazon Private Label’da en sık yapılan hata, yalnızca ürün üzerine marka basmayı marka oluşturmak sanmaktır. Gerçek Private Label süreci; ürün farklılaştırması, kalite kontrol, ambalaj, müşteri ihtiyacı, fiyatlandırma, listing, reklam, yorum stratejisi ve stok yönetiminin birlikte planlanmasını gerektirir.',
+    expertNoteAfterHeading: 'Amazon Private Label’da marka neden önemlidir?',
+    keyTakeaway:
+      'Private Label, Amazon’da en fazla kontrol sağlayan modellerden biri olabilir; ancak aynı zamanda ürün, marka, tedarik, stok ve reklam riskini de satıcının üzerine alır. Bu nedenle Private Label’a başlamadan önce ürün araştırması, maliyet hesabı ve operasyon planı birlikte yapılmalıdır.',
+    nextReadingSlugs: [
+      'amazonda-urun-arastirmasi-nasil-yapilir',
+      'amazon-listing-nasil-hazirlanir',
+      'amazon-komisyonlari-ve-maliyetler',
+      'amazon-fba-nedir',
+      'amazon-ppc-nasil-calisir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da kendi markasıyla satış yapmak ister ama Private Label modelinin sadece ürüne logo koymak olmadığını bilmez. Private Label; ürün seçimi, marka, tedarik, kalite, maliyet, listing, reklam ve stok yönetimini birlikte gerektirir ve satış garantisi vermez.',
+      },
+      {
+        heading: 'Amazon Private Label nedir?',
+        body: '- Satıcının kendi markasıyla ürün satması\n- Ürünün mevcut bir üründen geliştirilebileceği veya farklılaştırılabileceği\n- Marka adı, ambalaj, ürün sunumu ve listing yapısının satıcı tarafından planlandığı\n- Private Label’ın marka kontrolü sağladığı\n- Ancak ürün, tedarik, stok ve reklam risklerinin de satıcıda olduğu',
+      },
+      {
+        heading: 'Amazon Private Label kimler için uygundur?',
+        body: '- Kendi markasını oluşturmak isteyen satıcılar\n- Ürün geliştirme veya ürün farklılaştırma yapabilecek işletmeler\n- Stok, tedarik ve kalite kontrol sürecini yönetebilecek markalar\n- Reklam ve lansman bütçesini planlayabilen satıcılar\n- Uzun vadeli marka değeri oluşturmak isteyen girişimciler\n- Üretici olup ürününü global pazarda kendi markasıyla satmak isteyen firmalar',
+      },
+      {
+        heading: 'Amazon Private Label nasıl yapılır?',
+        body: '- Ürün fikri belirlenir\n- Pazar ve rekabet araştırması yapılır\n- Ürün farklılaştırma noktası seçilir\n- Tedarikçi ve kalite süreci değerlendirilir\n- Marka adı, ambalaj ve ürün sunumu planlanır\n- Maliyet ve kârlılık hesabı yapılır\n- Amazon listing hazırlanır\n- FBA/FBM lojistik modeli seçilir\n- Reklam ve lansman planı oluşturulur\n- Performans verileri takip edilir',
+      },
+      {
+        heading: 'Amazon Private Label hazırlık akışı',
+        body: 'Ürün fikri\n↓\nPazar ve rekabet analizi\n↓\nÜrün farklılaştırma\n↓\nTedarikçi / kalite kontrol\n↓\nMarka ve ambalaj\n↓\nMaliyet ve kârlılık hesabı\n↓\nListing ve görsel hazırlığı\n↓\nLansman / reklam / stok takibi\n\nPrivate Label süreci yalnızca ürün bulmak veya logo eklemek değildir. Ürün, marka, tedarik, maliyet, listing, reklam ve stok planı birlikte kurulmalıdır.',
+      },
+      {
+        heading: 'Örnek Amazon Private Label Senaryosu',
+        body: 'Örnek senaryo: Amazon’da kendi markasıyla satış yapmak isteyen bir işletme, ilk aşamada 10 ürün fikrini talep, rekabet, yorum seviyesi, fiyat aralığı, tedarik maliyeti, ürün farklılaştırma imkanı, lojistik uygunluk ve reklam ihtiyacı açısından değerlendirir. Daha sonra yalnızca güçlü görünen 2–3 ürün için tedarikçi, ambalaj, marka, listing ve lansman planı hazırlar. Bu senaryo satış garantisi değil, Private Label sürecini daha kontrollü değerlendirmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon Private Label için ne gerekir?',
+        body: '- Ürün araştırması\n- Tedarikçi ve kalite kontrol süreci\n- Marka adı ve marka konumlandırması\n- Ambalaj ve ürün sunumu\n- Maliyet ve kârlılık hesabı\n- Amazon listing ve görsel hazırlığı\n- FBA/FBM lojistik planı\n- Reklam ve lansman bütçesi\n- Stok ve iade yönetimi\n- Gerekirse marka/sertifika/uyum konularında uzman kontrolü',
+      },
+      {
+        heading: 'Private Label ürün nasıl bulunur?',
+        body: '- Sadece çok satan ürünlere bakılmaması gerektiği\n- Talep, rekabet, yorum bariyeri ve fiyat aralığına bakılması\n- Ürün farklılaştırma imkanı aranması\n- Lojistik ve tedarik maliyetlerinin kontrol edilmesi\n- Ürünün marka hikayesi ve müşteri ihtiyacıyla bağlanması\n- Ürün seçimi satış garantisi değildir',
+      },
+      {
+        heading: 'Amazon Private Label avantajları nelerdir?',
+        body: '- Marka kontrolü\n- Ürün sunumunu ve farklılaşmayı yönetme\n- Uzun vadeli marka değeri oluşturma ihtimali\n- Listing, görsel ve fiyatlandırma üzerinde daha fazla kontrol\n- Ürün portföyü geliştirme imkanı\n- Rakiplerden ayrışma fırsatı',
+      },
+      {
+        heading: 'Amazon Private Label dezavantajları nelerdir?',
+        body: '- Ürün geliştirme ve stok maliyeti olabilir\n- Tedarikçi ve kalite riski oluşabilir\n- Reklam ve lansman bütçesi gerekebilir\n- Yanlış ürün seçimi stok riskine dönüşebilir\n- Marka oluşturmak zaman alabilir\n- Yorum ve güven oluşturmak başlangıçta zor olabilir\n- Operasyon takibi güçlü olmalıdır',
+      },
+      {
+        heading: 'Private Label / Wholesale / Reselling farkı nedir?',
+        body: '- Private Label: Satıcı kendi markasıyla ürün satar\n- Wholesale: Satıcı mevcut markalı ürünleri toptan alıp satar\n- Reselling: Satıcı ürünleri farklı kaynaklardan alıp yeniden satar',
+      },
+      {
+        heading: 'Private Label, Wholesale ve Reselling kısa karşılaştırma',
+        body: 'Private Label\nKontrol: Marka, listing, ambalaj ve ürün sunumu üzerinde daha fazla kontrol\nRisk: Ürün geliştirme, stok, reklam ve marka riski satıcıdadır\nKimler için: Kendi markasını uzun vadeli kurmak isteyenler\n\nWholesale\nKontrol: Mevcut markanın ürün ve fiyat yapısına daha bağlıdır\nRisk: Tedarik, Buy Box, rekabet ve marj baskısı olabilir\nKimler için: Mevcut markalı ürünleri toptan alıp satmak isteyenler\n\nReselling\nKontrol: Daha sınırlı kontrol\nRisk: Ürün kaynağı, fiyat rekabeti ve sürdürülebilirlik riski olabilir\nKimler için: Daha kısa vadeli al-sat fırsatlarını değerlendirenler',
+      },
+      {
+        heading: 'Amazon Private Label maliyetleri nasıl düşünülmeli?',
+        body: '- Ürün geliştirme veya tedarik maliyeti\n- Numune ve kalite kontrol maliyeti\n- Ambalaj ve marka çalışması\n- Amazon komisyonları\n- FBA/FBM lojistik giderleri\n- Reklam ve lansman bütçesi\n- Görsel, içerik ve listing hazırlığı\n- Stok ve iade riski\n- Uyum, sertifika, marka ve vergi/gümrük konularında uzman kontrolü',
+      },
+      {
+        heading: 'Amazon Private Label’da marka neden önemlidir?',
+        body: '- Ürün farklılaştırması sağlar\n- Müşteri güveni oluşturabilir\n- Listing ve görsel dilini güçlendirir\n- Uzun vadeli portföy kurmayı kolaylaştırabilir\n- Ancak marka tek başına satış garantisi değildir\n- Ürün kalitesi ve müşteri deneyimiyle desteklenmelidir',
+      },
+      {
+        heading: 'Amazon Private Label’da en sık yapılan hatalar nelerdir?',
+        body: '- Sadece logo eklemeyi marka sanmak\n- Ürün araştırmasını yüzeysel yapmak\n- Rekabet ve yorum bariyerini hafife almak\n- Tedarikçi ve kalite kontrolünü zayıf bırakmak\n- Reklam bütçesini hesaba katmamak\n- Listing ve görsel hazırlığını sonradan düşünmek\n- Çok fazla stokla kontrolsüz başlamak\n- Ürün farklılaştırması yapmadan pazara girmek',
+      },
+      {
+        heading: 'İlk 30 gün Amazon Private Label hazırlık planı',
+        body: '1. hafta: ürün fikirleri, pazar ve rekabet ön analizi\n2. hafta: ürün farklılaştırma, tedarikçi ve maliyet kontrolü\n3. hafta: marka, ambalaj, listing ve görsel planı\n4. hafta: FBA/FBM, reklam, stok ve lansman sistemi hazırlığı',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon Private Label’ı “ürüne logo koyup satmak” olarak düşünmektir. Private Label ancak ürün araştırması, farklılaştırma, kalite, marka, listing, reklam ve stok planı birlikte kurulduğunda anlamlı bir satış sistemi haline gelebilir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon Private Label modeliyle satış yapmak isteyen markaların ürün fikirlerini, rekabet seviyesini, tedarik ve kalite sürecini, marka konumlandırmasını, maliyet yapısını, listing stratejisini, reklam planını ve stok riskini birlikte analiz ederek daha kontrollü bir global satış sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Plansız Private Label mı, Sistemli Marka Kurulumu mu?',
+      headers: ['Kriter', 'Plansız Private Label', 'Sistemli Marka Kurulumu'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Ürün genelde trend veya kişisel beğeniyle seçilir', company: 'Ürün talep, rekabet, maliyet ve farklılaşma üzerinden değerlendirilir' },
+        { criterion: 'Marka', individual: 'Sadece logo ve ambalaj düşünülür', company: 'Marka konumu, müşteri ihtiyacı ve ürün faydası birlikte planlanır' },
+        { criterion: 'Tedarik', individual: 'Tedarikçi ve kalite süreci sonradan sorun olabilir', company: 'Numune, kalite, maliyet ve teslimat süreci baştan kontrol edilir' },
+        { criterion: 'Listing', individual: 'Ürün sayfası satışa yakın zamanda hazırlanır', company: 'Listing, görsel, açıklama ve reklam öncesi yapı birlikte planlanır' },
+        { criterion: 'Sonuç', individual: 'Stok, reklam ve kalite riski artabilir', company: 'Daha kontrollü test ve lansman süreci kurulabilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon Private Label kontrol listesi',
+      items: [
+        'Ürün talebi ve rekabet seviyesi analiz edildi mi?',
+        'Ürün farklılaştırma noktası belirlendi mi?',
+        'Tedarikçi ve kalite süreci kontrol edildi mi?',
+        'Marka adı, ambalaj ve ürün sunumu planlandı mı?',
+        'Maliyet ve kârlılık hesabı yapıldı mı?',
+        'FBA/FBM lojistik modeli değerlendirildi mi?',
+        'Listing, görsel ve açıklama yapısı hazırlandı mı?',
+        'Reklam ve lansman bütçesi düşünüldü mü?',
+        'Stok miktarı kontrollü planlandı mı?',
+        'Gerekli sertifika, marka, uyum, vergi/gümrük konuları uzmanla kontrol edildi mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon Private Label nedir?',
+          answer:
+            'Amazon Private Label, satıcının kendi markasıyla ürün geliştirip veya markalaştırıp Amazon’da satışa sunmasıdır. Ürün, marka, tedarik, listing, reklam ve stok yönetimini birlikte gerektiren bir modeldir.',
+        },
+        {
+          question: 'Amazon Private Label nasıl yapılır?',
+          answer:
+            'Ürün fikri belirlenip pazar ve rekabet araştırması yapılır; ardından tedarikçi, marka, ambalaj, listing ve reklam planı birlikte hazırlanır. Süreç tek seferlik bir işlem değil, birden fazla adımı kapsayan bir sistemdir.',
+        },
+        {
+          question: 'Private Label ürün nasıl bulunur?',
+          answer:
+            'Sadece çok satan ürünlere değil; talep, rekabet, yorum bariyeri, fiyat aralığı ve farklılaştırma imkanına bakılarak seçilir. Ürün seçimi tek başına bir satış garantisi değildir.',
+        },
+        {
+          question: 'Amazon Private Label avantajları nelerdir?',
+          answer:
+            'Marka kontrolü, ürün sunumu üzerinde daha fazla söz hakkı ve uzun vadeli marka değeri oluşturma ihtimali gibi avantajlar sunabilir. Ancak bu avantajlar doğru planlama ile gerçekleşebilir.',
+        },
+        {
+          question: 'Amazon Private Label dezavantajları nelerdir?',
+          answer:
+            'Ürün geliştirme, stok, tedarikçi ve reklam riski satıcının üzerindedir; marka oluşturmak zaman alabilir. Yanlış ürün seçimi veya zayıf planlama stok riskine dönüşebilir.',
+        },
+        {
+          question: 'Private Label için marka tescili gerekir mi?',
+          answer:
+            'Bu konu ülkeye, platforma ve satış modeline göre değişebilir; kesin bir gereklilik genellemesi yapılamaz. Marka tescili ve uyum konularında güncel kaynaklardan veya uzmandan teyit alınması önerilir.',
+        },
+        {
+          question: 'Private Label mı Wholesale mi?',
+          answer:
+            'Kesin bir doğru cevap yoktur; Private Label kendi marka kontrolü isteyenler için, Wholesale ise mevcut markalı ürünleri toptan satmak isteyenler için daha uygun olabilir. Karar, hedef ve operasyon kapasitesine göre değişir.',
+        },
+        {
+          question: 'Amazon Private Label satış garantisi verir mi?',
+          answer:
+            'Hayır, Private Label bir satış garantisi değildir; ürün, tedarik, marka, listing, reklam ve stok planının birlikte doğru kurulmasına bağlıdır. Sonuç ürün ve pazara göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Private Label için uygun ürün fikirlerini belirleyin',
+      'Talep, rekabet, yorum bariyeri ve kâr marjını analiz edin',
+      'Tedarikçi, kalite, ambalaj ve marka konumlandırmasını planlayın',
+      'Amazon listing, görsel, fiyat ve reklam yapısını hazırlayın',
+      'Stok, FBA/FBM, iade ve operasyon risklerini hesaplayın',
+      'Ücretsiz analiz ile Amazon Private Label fikrinizi birlikte değerlendirelim',
+    ],
+  },
 };
