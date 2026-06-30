@@ -4475,4 +4475,194 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon keyword ve listing yapınızı birlikte değerlendirelim',
     ],
   },
+
+  'amazon-a-plus-content-nedir': {
+    title: 'Amazon A+ Content Nedir?',
+    slug: 'amazon-a-plus-content-nedir',
+    excerpt:
+      'Amazon A+ Content’in ne olduğunu, standart listing’den farkını, hangi modüllerden oluştuğunu ve dönüşüm üzerindeki rolünü; marka güveni ve ürün anlatımı açısından açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da kendi markasıyla satış yapan ve ürün sayfasını güçlendirmek isteyen satıcılar',
+    searchIntent: 'amazon a+ content nedir, amazon a+ content nasıl yapılır, amazon a+ content ne işe yarar, amazon a+ content satışa etkisi nedir, amazon a+ content için marka kaydı gerekir mi, amazon listing ve a+ content farkı nedir, amazon enhanced brand content nedir, amazon a+ content hazırlarken nelere dikkat edilmeli',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-03',
+    order: 27,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon A+ Content, markaların ürün detay sayfasında standart açıklamanın ötesine geçerek görsel, metin, karşılaştırma ve marka hikayesiyle ürünü daha güçlü anlatmasını sağlayan içerik alanıdır. A+ Content, müşteri güvenini ve ürün anlaşılabilirliğini destekleyebilir; ancak satış garantisi değildir. Başarılı olması için ürün, listing, görseller, fiyat, yorum, reklam ve marka güveni birlikte çalışmalıdır.',
+    quickAnswer:
+      'Amazon A+ Content, ürün sayfasında daha zengin görsel ve metin modülleriyle ürünün faydasını, kullanım alanını, marka hikayesini ve farklılaşma noktalarını anlatmaya yarayan içerik yapısıdır. Standart açıklamaya göre daha görsel ve marka odaklıdır. Doğru kullanıldığında dönüşüm potansiyelini destekleyebilir; ancak tek başına satış garantisi vermez.',
+    whoShouldRead: [
+      'Amazon’da kendi markasıyla satış yapan satıcılar',
+      'Private Label ürünlerini daha profesyonel sunmak isteyen markalar',
+      'Mevcut listing açıklamasını güçlendirmek isteyen işletmeler',
+      'Amazon reklamı açmadan önce ürün sayfasını daha güvenilir hale getirmek isteyenler',
+      'Marka hikayesi, kullanım senaryosu ve ürün farkını daha net anlatmak isteyenler',
+      'Amazon’da görsel içerik ve dönüşüm mantığını anlamak isteyen satıcılar',
+    ],
+    expertNote:
+      'Amazon A+ Content’te en sık yapılan hata, alanı yalnızca güzel görsel koyma yeri olarak düşünmektir. A+ Content’in asıl değeri; müşterinin karar vermeden önce sorduğu soruları cevaplamak, ürün faydasını netleştirmek, kullanım senaryosunu göstermek ve markaya güven oluşturmaktır.',
+    expertNoteAfterHeading: 'A+ Content satışa etki eder mi?',
+    keyTakeaway:
+      'A+ Content güçlü bir ürün anlatımı sağlar; ancak zayıf ürün, kötü fiyat, yetersiz görsel, düşük güven veya yanlış trafik sorununu tek başına çözmez. A+ Content, listing, PPC, ürün araştırması ve marka konumlandırmasıyla birlikte çalıştığında daha anlamlı hale gelir.',
+    nextReadingSlugs: [
+      'amazon-listing-nasil-hazirlanir',
+      'amazon-anahtar-kelime-arastirmasi-nasil-yapilir',
+      'amazon-private-label-nedir',
+      'amazon-ppc-nasil-calisir',
+      'amazon-komisyonlari-ve-maliyetler',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da ürün sayfasını daha profesyonel göstermek, marka güveni oluşturmak ve ürün anlatımını güçlendirmek ister. A+ Content standart açıklamadan daha zengin bir içerik alanıdır; ancak tek başına satış garantisi vermez.',
+      },
+      {
+        heading: 'Amazon A+ Content nedir?',
+        body: '- Ürün detay sayfasında gelişmiş görsel ve metin alanlarıyla ürün anlatımı yapılmasını sağlayan içerik yapısı\n- Standart açıklamadan daha görsel ve marka odaklı olduğu\n- Ürün faydası, kullanım senaryosu, marka hikayesi ve karşılaştırma alanlarında kullanılabileceği\n- Müşterinin ürünü daha iyi anlamasına yardımcı olabileceği\n- Satış garantisi olmadığı',
+      },
+      {
+        heading: 'Amazon A+ Content kimler için uygundur?',
+        body: '- Private Label markalar\n- Marka hikayesi olan işletmeler\n- Ürün faydasını görselle anlatmak isteyen satıcılar\n- Reklam trafiğini daha güçlü ürün sayfasına yönlendirmek isteyenler\n- Farklı ürün serilerini karşılaştırmak isteyen markalar\n- Standart açıklamayla ürünü yeterince anlatamayan satıcılar',
+      },
+      {
+        heading: 'Amazon A+ Content ne işe yarar?',
+        body: '- Ürünün faydasını daha net anlatabilir\n- Müşterinin sorularını görsel olarak cevaplayabilir\n- Marka güvenini destekleyebilir\n- Ürünün kullanım alanını ve farkını gösterebilir\n- Standart açıklamayı daha profesyonel hale getirebilir\n- Reklamdan gelen trafiğin ürünü daha iyi anlamasına yardımcı olabilir\n- Ancak fiyat, yorum, görsel kalite ve ürün uygunluğu zayıfsa tek başına yeterli olmayabilir',
+      },
+      {
+        heading: 'Amazon A+ Content nasıl hazırlanır?',
+        body: '- Ürün ve müşteri ihtiyacı analiz edilir\n- Ana fayda ve farklılaşma noktası belirlenir\n- Müşteri soruları çıkarılır\n- Görsel modül yapısı planlanır\n- Marka hikayesi ve ürün anlatımı hazırlanır\n- Teknik detay, kullanım alanı ve karşılaştırma bölümleri düzenlenir\n- Yayın sonrası dönüşüm, reklam ve müşteri davranışı takip edilir',
+      },
+      {
+        heading: 'Amazon A+ Content hazırlık akışı',
+        body: 'Ürün faydası\n↓\nMüşteri soruları\n↓\nKullanım senaryosu\n↓\nGörsel hikaye\n↓\nMarka anlatımı\n↓\nKarşılaştırma / teknik detay\n↓\nYayın ve performans takibi\n\nA+ Content hazırlığı yalnızca tasarım çalışması değildir. Ürün faydası, müşteri soruları, marka dili, görsel akış ve satış sayfası mantığı birlikte planlanmalıdır.',
+      },
+      {
+        heading: 'Örnek Amazon A+ Content Senaryosu',
+        body: 'Örnek senaryo: Amazon’da Private Label bir ürün satan marka, A+ Content hazırlarken önce müşterinin ürünle ilgili en sık merak ettiği soruları belirler. Ardından ürünün ana faydasını, kullanım senaryosunu, ölçü veya teknik detaylarını, marka hikayesini ve rakiplerden ayrışan özelliklerini görsel modüllerle anlatır. Bu senaryo satış garantisi değil, A+ Content’i daha sistemli planlamak için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'A+ Content ile standart listing farkı nedir?',
+        body: '- Standart listing başlık, görsel, bullet point ve açıklama üzerinden ürünü anlatır\n- A+ Content daha gelişmiş görsel modüllerle ürün ve marka anlatımı sağlar\n- Listing arama görünürlüğü ve temel ürün bilgisi için kritiktir\n- A+ Content müşterinin karar sürecini destekleyen ek anlatım alanı olabilir\n- İkisi birbirinin yerine geçmez, birlikte düşünülmelidir',
+      },
+      {
+        heading: 'A+ Content ve standart listing kısa karşılaştırma',
+        body: 'Standart Listing\nAna rol: Ürünü tanımlamak, arama görünürlüğü ve temel bilgiyi sağlamak\nİçerik yapısı: Başlık, görsel, bullet point, açıklama, fiyat ve kargo\nDikkat edilmesi gereken: Anahtar kelime, okunabilirlik ve temel ürün netliği\n\nA+ Content\nAna rol: Ürünü ve markayı daha görsel, açıklayıcı ve ikna edici anlatmak\nİçerik yapısı: Görsel modüller, marka hikayesi, kullanım senaryosu, karşılaştırma alanları\nDikkat edilmesi gereken: Müşteri sorularını cevaplamak ve ürün faydasını netleştirmek',
+      },
+      {
+        heading: 'Amazon A+ Content için marka kaydı gerekir mi?',
+        body: 'Amazon’da A+ Content erişimi genellikle marka ve hesap uygunluğu ile ilişkili olabilir. Brand Registry veya benzer marka uygunluk süreçleri ülke ve zamana göre değişebilir. Satıcıların güncel koşulları Amazon Seller Central veya resmi Amazon kaynaklarından kontrol etmesi gerekir.',
+      },
+      {
+        heading: 'Amazon A+ Content’te hangi bölümler kullanılabilir?',
+        body: '- Ürün faydası modülü\n- Kullanım senaryosu\n- Teknik detay veya ölçü anlatımı\n- Marka hikayesi\n- Ürün karşılaştırması\n- Sık sorulan sorulara cevap veren görsel anlatım\n- Paket içeriği veya ürün serisi açıklaması',
+      },
+      {
+        heading: 'Amazon A+ Content görselleri nasıl olmalı?',
+        body: '- Ürünü doğru ve yanıltmadan göstermeli\n- Kullanım alanı net anlaşılmalı\n- Yazılar okunabilir olmalı\n- Görsel hiyerarşi sade olmalı\n- Ürün özellikleri abartılmamalı\n- Yapay zeka veya mockup kullanılırsa ürün gerçeği değiştirilmemeli\n- Marka diliyle tutarlı olmalı',
+      },
+      {
+        heading: 'A+ Content satışa etki eder mi?',
+        body: 'A+ Content satışa katkı sağlayabilir; çünkü kullanıcı ürün faydasını daha iyi anlayabilir ve marka güveni artabilir. Ancak satış; fiyat, ürün kalitesi, yorum, kargo, görseller, listing, reklam trafiği ve rekabetle birlikte oluşur. A+ Content tek başına satış garantisi değildir.',
+      },
+      {
+        heading: 'Amazon A+ Content hazırlarken en sık yapılan hatalar nelerdir?',
+        body: '- Sadece güzel tasarıma odaklanmak\n- Müşteri sorularını cevaplamamak\n- Ürün faydasını net anlatmamak\n- Çok fazla metin kullanmak\n- Görselleri karmaşık hazırlamak\n- Ürün gerçeğini abartmak\n- Listing, PPC ve ürün araştırmasıyla bağlantı kurmamak\n- Marka hikayesini üründen kopuk anlatmak',
+      },
+      {
+        heading: 'İlk 30 gün Amazon A+ Content hazırlık planı',
+        body: '1. hafta: ürün faydası, müşteri soruları ve rakip A+ örneklerini analiz etme\n2. hafta: modül yapısı, görsel akış ve metinleri planlama\n3. hafta: tasarım, marka hikayesi ve ürün karşılaştırma alanlarını hazırlama\n4. hafta: yayın sonrası performans, reklam ve dönüşüm verilerini takip etme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, A+ Content’i yalnızca “sayfayı güzel gösteren tasarım alanı” olarak görmektir. A+ Content’in asıl görevi ürün faydasını, kullanım alanını, marka güvenini ve müşteri karar sürecini daha net anlatmaktır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapan markaların ürün faydasını, müşteri sorularını, marka dilini, görsel hikayesini, listing yapısını, reklam trafiğini ve dönüşüm hedefini birlikte analiz ederek daha sistemli bir Amazon A+ Content yapısı oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Güzel Tasarım mı, Sistemli A+ Content mi?',
+      headers: ['Kriter', 'Güzel Tasarım', 'Sistemli A+ Content'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Öncelik görsel estetik olabilir', company: 'Önce ürün faydası, müşteri soruları ve karar süreci analiz edilir' },
+        { criterion: 'İçerik', individual: 'Görseller iyi görünür ama bilgi eksik kalabilir', company: 'Görseller ürün faydası ve kullanım senaryosunu anlatır' },
+        { criterion: 'Marka', individual: 'Marka hikayesi üründen kopuk kalabilir', company: 'Marka anlatımı ürün güveniyle ilişkilendirilir' },
+        { criterion: 'Dönüşüm', individual: 'Kullanıcı soruları cevapsız kalabilir', company: 'Satın alma öncesi soru ve itirazlar azaltılmaya çalışılır' },
+        { criterion: 'Sonuç', individual: 'Sayfa estetik görünür ama karar sürecini zayıf destekleyebilir', company: 'Ürün anlatımı, marka güveni ve dönüşüm potansiyeli birlikte desteklenir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon A+ Content kontrol listesi',
+      items: [
+        'Ürünün ana faydası net mi?',
+        'Müşterinin satın alma öncesi soruları belirlendi mi?',
+        'Kullanım senaryoları görsel olarak anlatılıyor mu?',
+        'Marka hikayesi ürünle bağlantılı mı?',
+        'Teknik detay veya ölçüler gerekiyorsa net verildi mi?',
+        'Görseller ürünü yanıltmadan gösteriyor mu?',
+        'Metinler kısa ve okunabilir mi?',
+        'A+ Content listing ve PPC yapısıyla uyumlu mu?',
+        'Ürün serisi veya karşılaştırma alanı gerekiyorsa planlandı mı?',
+        'Yayın sonrası performans takibi yapılacak mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon A+ Content nedir?',
+          answer:
+            'Amazon A+ Content, ürün detay sayfasında gelişmiş görsel ve metin modülleriyle ürün ve marka anlatımı yapılmasını sağlayan içerik yapısıdır. Standart açıklamadan daha görsel ve marka odaklıdır.',
+        },
+        {
+          question: 'Amazon A+ Content ne işe yarar?',
+          answer:
+            'Ürün faydasını daha net anlatmaya, müşteri sorularını görsel olarak cevaplamaya ve marka güvenini desteklemeye yardımcı olabilir. Ancak fiyat, yorum ve ürün uygunluğu zayıfsa tek başına yeterli olmayabilir.',
+        },
+        {
+          question: 'Amazon A+ Content nasıl hazırlanır?',
+          answer:
+            'Ürün ve müşteri ihtiyacı analiz edilir, ana fayda ve farklılaşma noktası belirlenir; ardından görsel modül yapısı ve marka hikayesi hazırlanır. Süreç yayın sonrasında performans takibiyle devam eder.',
+        },
+        {
+          question: 'A+ Content satışları artırır mı?',
+          answer:
+            'A+ Content satışa katkı sağlayabilir ama kesin bir satış garantisi vermez. Sonuç; fiyat, ürün kalitesi, yorum, görseller ve reklam trafiğiyle birlikte şekillenir.',
+        },
+        {
+          question: 'Amazon A+ Content kimler için uygundur?',
+          answer:
+            'Private Label markalar, marka hikayesi olan işletmeler ve ürün faydasını görselle anlatmak isteyen satıcılar için uygun olabilir. Standart açıklamayla ürünü yeterince anlatamayan markalar için de faydalı olabilir.',
+        },
+        {
+          question: 'A+ Content için marka kaydı gerekir mi?',
+          answer:
+            'A+ Content erişimi genellikle marka ve hesap uygunluğuyla ilişkilidir; bu süreçler ülke ve zamana göre değişebilir. Güncel koşullar Amazon Seller Central veya resmi Amazon kaynaklarından kontrol edilmelidir.',
+        },
+        {
+          question: 'A+ Content ile standart listing farkı nedir?',
+          answer:
+            'Standart listing ürünü tanımlamak ve arama görünürlüğü sağlamak için kritiktir; A+ Content ise daha gelişmiş görsel modüllerle ürün ve marka anlatımını destekler. İkisi birbirinin yerine geçmez, birlikte çalışır.',
+        },
+        {
+          question: 'Amazon A+ Content’te nelere dikkat edilmeli?',
+          answer:
+            'Müşteri sorularının cevaplanması, ürün faydasının net anlatılması ve görsellerin ürünü yanıltmadan göstermesi önemlidir. Sadece estetik tasarıma odaklanmak, içeriğin asıl amacını zayıflatabilir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürünün ana faydasını ve müşteri sorularını belirleyin',
+      'A+ Content için görsel hikaye ve modül yapısını planlayın',
+      'Ürün özelliklerini müşteri faydasıyla ilişkilendirin',
+      'Marka hikayesi, kullanım alanı ve karşılaştırma bölümlerini hazırlayın',
+      'Listing, fiyat, yorum ve PPC yapısıyla birlikte değerlendirin',
+      'Ücretsiz analiz ile Amazon A+ Content ve ürün sayfası yapınızı birlikte değerlendirelim',
+    ],
+  },
 };
