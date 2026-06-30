@@ -3500,4 +3500,203 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon’a uygun ürünlerinizi birlikte değerlendirelim',
     ],
   },
+
+  'amazon-listing-nasil-hazirlanir': {
+    title: 'Amazon Listing Nasıl Hazırlanır?',
+    slug: 'amazon-listing-nasil-hazirlanir',
+    excerpt:
+      'Amazon ürün listelemesini; başlık, görsel, bullet point, açıklama, anahtar kelime, fiyat ve güven unsurlarıyla nasıl sistemli şekilde hazırlayacağınızı açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da ilk ürününü listeleyecek veya mevcut listing’ini iyileştirmek isteyen satıcılar',
+    searchIntent: 'amazon listing nasıl hazırlanır, amazon ürün listeleme nasıl yapılır, amazon listing optimizasyonu nedir, amazon ürün başlığı nasıl yazılır, amazon bullet point nasıl yazılır, amazon seo nasıl yapılır, amazon listing satışa etkisi nedir, amazon da ürün sayfası nasıl hazırlanır',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-19',
+    order: 22,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon listing, ürünün Amazon’da müşteriye ve arama sistemine nasıl sunulduğunu belirleyen ürün sayfasıdır. Başlık, ana görsel, ek görseller, bullet point’ler, açıklama, fiyat, varyasyonlar, anahtar kelimeler, kargo modeli ve güven unsurları birlikte çalışır. Güçlü bir listing satış garantisi vermez; ancak ürünün anlaşılmasını, reklam performansını ve dönüşüm potansiyelini doğrudan etkileyebilir.',
+    quickAnswer:
+      'Amazon listing hazırlarken ürünün ne olduğu, kime hitap ettiği, hangi problemi çözdüğü ve rakiplerden nasıl ayrıştığı net anlatılmalıdır. Başlık, görseller, bullet point’ler, açıklama, anahtar kelimeler, fiyat ve güven unsurları birlikte hazırlanmalıdır. Listing yalnızca anahtar kelime doldurma işi değildir; kullanıcıyı satın alma kararına yaklaştıran ürün sunum sistemidir.',
+    whoShouldRead: [
+      'Amazon’da ilk ürününü listeleyecek satıcılar',
+      'Mevcut Amazon ürün sayfasını iyileştirmek isteyen markalar',
+      'Amazon reklamı açmadan önce listing kalitesini kontrol etmek isteyenler',
+      'Ürün görseli, başlık ve açıklama yapısını doğru kurmak isteyen işletmeler',
+      'Private Label veya Wholesale ürünlerini Amazon’a taşımak isteyenler',
+      'Amazon SEO ve dönüşüm mantığını birlikte anlamak isteyen satıcılar',
+    ],
+    expertNote:
+      'Amazon listing’de en sık yapılan hata, başlığı ve bullet point’leri sadece anahtar kelime doldurmak için kullanmaktır. Amazon’da ürün sayfası hem arama görünürlüğü hem de müşteri ikna süreci için çalışır. Kullanıcı ürünü hızlı anlamıyor, görseller güven vermiyor veya faydalar net anlatılmıyorsa trafik satışa dönüşmeyebilir.',
+    expertNoteAfterHeading: 'Amazon SEO listing içinde nasıl düşünülmeli?',
+    keyTakeaway:
+      'Amazon listing, yalnızca SEO alanı değildir; aynı zamanda satış sayfasıdır. Anahtar kelime görünürlük için önemlidir, fakat müşterinin satın alma kararı çoğu zaman görsel kalite, fiyat, yorum, ürün faydası, açıklık ve güven unsurlarının birlikte çalışmasına bağlıdır.',
+    nextReadingSlugs: [
+      'amazonda-urun-arastirmasi-nasil-yapilir',
+      'amazon-ppc-nasil-calisir',
+      'amazon-fba-nedir',
+      'amazon-fbm-mi-fba-mi',
+      'amazonda-satis-yapmak-icin-sirket-gerekir-mi',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da ürün yüklemek ister ama ürün sayfasının sadece form doldurmak olmadığını bilmez. Amazon listing arama görünürlüğü, müşteri güveni, ürün anlaşılabilirliği, reklam performansı ve dönüşüm potansiyeli açısından önemlidir; ancak tek başına satış garantisi vermez.',
+      },
+      {
+        heading: 'Amazon listing nedir?',
+        body: '- Amazon’daki ürün detay sayfası olduğu\n- Başlık, görsel, bullet point, açıklama, varyasyon, fiyat, kargo ve güven unsurlarını içerdiği\n- Kullanıcının ürünü anlamasını sağladığı\n- Amazon arama görünürlüğü ve reklam performansı için temel alanlardan biri olduğu\n- Sadece anahtar kelime yazma işi olmadığı',
+      },
+      {
+        heading: 'Amazon listing kimler için kritiktir?',
+        body: '- Amazon’da yeni ürün listeleyen satıcılar\n- PPC reklamına başlamadan önce ürün sayfasını güçlendirmek isteyenler\n- Ürün sayfasına trafik aldığı halde satışa dönüşüm alamayan markalar\n- Private Label ürününü rakiplerden ayrıştırmak isteyen işletmeler\n- Üretici olup ürününü global pazarda daha net anlatmak isteyen firmalar\n- Görsel, başlık ve açıklama yapısını profesyonelleştirmek isteyen satıcılar',
+      },
+      {
+        heading: 'Amazon listing neden önemlidir?',
+        body: '- Kullanıcının ürünü hızlı anlamasını sağlar\n- Arama görünürlüğüne katkı sağlayabilir\n- Reklamdan gelen trafiğin dönüşümünü etkileyebilir\n- Ürün faydasını ve kullanım alanını açıklar\n- Rakiplerden ayrışmaya yardımcı olur\n- Güven, fiyat ve görsel algısını etkiler\n- Zayıf listing reklam bütçesini boşa harcatabilir',
+      },
+      {
+        heading: 'Amazon listing nasıl hazırlanır?',
+        body: '- Ürün ve hedef müşteri netleştirilir\n- Rakip listing’ler incelenir\n- Anahtar kelime araştırması yapılır\n- Başlık yapısı hazırlanır\n- Ana görsel ve ek görseller planlanır\n- Bullet point’ler fayda odaklı yazılır\n- Açıklama ve gerekiyorsa A+ içerik planlanır\n- Fiyat, varyasyon, kargo ve güven unsurları kontrol edilir\n- Yayın sonrası performans verileri takip edilir',
+      },
+      {
+        heading: 'Amazon listing hazırlık akışı',
+        body: 'Ürün analizi\n↓\nHedef müşteri\n↓\nRakip incelemesi\n↓\nAnahtar kelime araştırması\n↓\nBaşlık ve bullet point\n↓\nGörsel planı\n↓\nFiyat / kargo / güven kontrolü\n↓\nYayın ve performans takibi\n\nAmazon listing hazırlığı tek seferlik metin yazımı değildir. Ürün, müşteri, rakip, anahtar kelime, görsel ve fiyat bilgisi birlikte planlandığında daha güçlü bir ürün sayfası oluşturulabilir.',
+      },
+      {
+        heading: 'Örnek Amazon Listing Hazırlama Senaryosu',
+        body: 'Örnek senaryo: Amazon’da yeni bir ürün listelemek isteyen bir marka, önce rakip ürünlerin başlık, görsel, fiyat, yorum ve açıklama yapılarını inceler. Ardından kendi ürününün ana faydasını, hedef müşterisini, kullanım alanını ve farklılaşma noktalarını belirler. Başlık, görseller, bullet point’ler ve açıklama bu bilgiler üzerine kurulur. Bu senaryo satış garantisi değil, Amazon listing hazırlığını daha kontrollü yapmak için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon listing bileşenleri nelerdir?',
+        body: 'Bir Amazon listing; başlık, ana görsel, ek görseller, bullet point’ler, açıklama, anahtar kelimeler ve fiyat/kargo/güven unsurlarından oluşur. Her bileşen farklı bir amaca hizmet eder, ama hepsi birbirini destekleyecek şekilde planlanmalıdır.',
+      },
+      {
+        heading: 'Amazon listing bileşenleri kısa tablo',
+        body: 'Başlık\nNe işe yarar: Ürünü arama ve kullanıcı açısından tanımlar\nDikkat edilmesi gereken: Anahtar kelime ve okunabilirlik dengesi korunmalı\n\nAna görsel\nNe işe yarar: İlk tıklama kararını etkileyebilir\nDikkat edilmesi gereken: Ürün net, temiz ve Amazon kurallarına uygun görünmeli\n\nEk görseller\nNe işe yarar: Kullanım, ölçü, fayda ve detayları anlatır\nDikkat edilmesi gereken: Müşterinin sorularını görsel olarak yanıtlamalı\n\nBullet point\nNe işe yarar: Ürün faydalarını hızlı anlatır\nDikkat edilmesi gereken: Sadece özellik değil, müşteri faydası yazılmalı\n\nAçıklama\nNe işe yarar: Ürünü daha detaylı anlatır\nDikkat edilmesi gereken: Gereksiz uzunluk yerine netlik tercih edilmeli\n\nAnahtar kelime\nNe işe yarar: Arama görünürlüğüne katkı sağlayabilir\nDikkat edilmesi gereken: Anahtar kelime doldurma yapılmamalı\n\nFiyat / kargo / güven\nNe işe yarar: Satın alma kararını etkiler\nDikkat edilmesi gereken: Rakiplerle ve müşteri beklentisiyle uyumlu olmalı',
+      },
+      {
+        heading: 'Amazon ürün başlığı nasıl yazılır?',
+        body: '- Başlık hem arama hem kullanıcı için yazılmalı\n- Ürünün ne olduğu hızlı anlaşılmalı\n- Ana anahtar kelime doğal şekilde kullanılmalı\n- Marka, ürün tipi, temel özellik ve kullanım alanı dengeli verilmelidir\n- Anahtar kelime doldurma ve okunmaz başlıklar güveni azaltabilir',
+      },
+      {
+        heading: 'Amazon bullet point nasıl yazılır?',
+        body: '- Bullet point’ler ürünün temel faydalarını anlatmalı\n- İlk satırlarda en güçlü faydalar verilmelidir\n- Teknik özellikler müşteri faydasına bağlanmalıdır\n- Kısa, net ve taranabilir olmalıdır\n- Gereksiz tekrar ve abartılı iddialardan kaçınılmalıdır',
+      },
+      {
+        heading: 'Amazon ürün açıklaması nasıl yazılır?',
+        body: '- Ürünün kullanım alanı, faydası, detayları ve bakım/uyum bilgileri açıklanabilir\n- Açıklama müşteri sorularını yanıtlamalıdır\n- Çok uzun ama zayıf metin yerine net ve düzenli yapı tercih edilmelidir\n- Kategoriye göre A+ Content veya marka içerikleri ayrıca değerlendirilebilir',
+      },
+      {
+        heading: 'Amazon ürün görselleri nasıl olmalı?',
+        body: '- Ana görsel ürünün net anlaşılmasını sağlamalı\n- Ek görseller kullanım, ölçü, detay, paket içeriği, karşılaştırma ve fayda anlatabilir\n- Görseller ürün gerçeğini yanıltmamalı\n- Yapay zeka veya mockup kullanılırsa ürün özellikleri değiştirilmemeli\n- Görsel kalitesi reklam performansını ve tıklama oranını etkileyebilir',
+      },
+      {
+        heading: 'Amazon SEO listing içinde nasıl düşünülmeli?',
+        body: 'Amazon SEO sadece anahtar kelime eklemek değildir. Başlık, bullet point, açıklama, backend search terms, kategori seçimi, müşteri davranışı, satış verisi ve ürün sayfası kalitesi birlikte düşünülmelidir.',
+      },
+      {
+        heading: 'Amazon listing hazırlamadan önce ne kontrol edilmeli?',
+        body: '- Ürün net tanımlandı mı?\n- Hedef müşteri belli mi?\n- Rakipler incelendi mi?\n- Anahtar kelime listesi hazır mı?\n- Başlık okunabilir mi?\n- Görseller ürünü yeterince anlatıyor mu?\n- Bullet point’ler fayda odaklı mı?\n- Açıklama müşteri sorularını yanıtlıyor mu?\n- Fiyat ve kargo yapısı rekabetçi mi?\n- Ürün satışa hazır stokta mı?',
+      },
+      {
+        heading: 'Amazon listing’de en sık yapılan hatalar nelerdir?',
+        body: '- Anahtar kelime doldurulmuş başlık yazmak\n- Görselleri yetersiz hazırlamak\n- Bullet point’lerde sadece teknik özellik yazmak\n- Müşteri faydasını anlatmamak\n- Rakip analizi yapmadan listing hazırlamak\n- Fiyat, yorum ve kargo etkisini görmezden gelmek\n- Reklam açmadan önce listing kalitesini kontrol etmemek\n- Ürün gerçekliğini yanıltan görsel veya iddia kullanmak',
+      },
+      {
+        heading: 'İlk 30 gün Amazon listing kontrol planı',
+        body: '1. hafta: rakip, anahtar kelime ve müşteri beklentisi analizi\n2. hafta: başlık, bullet point, açıklama ve görsel planı hazırlığı\n3. hafta: fiyat, kargo, stok ve güven unsurlarını kontrol etme\n4. hafta: yayın sonrası tıklama, dönüşüm, reklam ve arama terimi verilerini izleme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon listing’i sadece ürün yükleme ekranı olarak görmektir. Listing aslında ürünün satış sayfasıdır; müşteri ürünü anlamıyor, faydayı görmüyor veya güven duymuyorsa trafik satışa dönüşmeyebilir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapmak isteyen markaların ürünlerini, hedef müşterisini, rakiplerini, anahtar kelime yapısını, başlık ve açıklama dilini, görsel stratejisini, fiyat/kargo yapısını ve reklam öncesi listing kalitesini birlikte analiz ederek daha güçlü bir Amazon ürün sayfası sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Zayıf Amazon Listing mi, Sistemli Ürün Sayfası mı?',
+      headers: ['Kriter', 'Zayıf Listing', 'Sistemli Ürün Sayfası'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Ürün hızlıca yüklenir, strateji sınırlıdır', company: 'Ürün, müşteri, rakip ve anahtar kelime analiziyle hazırlanır' },
+        { criterion: 'Başlık', individual: 'Anahtar kelime doldurulmuş veya belirsiz olabilir', company: 'Hem okunabilir hem arama niyetine uygun başlık kullanılır' },
+        { criterion: 'Görseller', individual: 'Ürün yeterince anlatılmaz', company: 'Kullanım, detay, ölçü ve fayda görsellerle desteklenir' },
+        { criterion: 'Metin', individual: 'Teknik özellikler yazılır ama müşteri faydası zayıf kalır', company: 'Özellikler müşteri ihtiyacı ve faydayla bağlanır' },
+        { criterion: 'Reklam', individual: 'Reklam bütçesi dönüşüm alamadan harcanabilir', company: 'Reklam öncesi dönüşüm potansiyeli güçlendirilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon listing hazırlama kontrol listesi',
+      items: [
+        'Ürünün ana faydası net mi?',
+        'Hedef müşteri tanımlandı mı?',
+        'Rakip listing’ler incelendi mi?',
+        'Anahtar kelime listesi hazır mı?',
+        'Başlık okunabilir ve açıklayıcı mı?',
+        'Ana görsel ürünü net gösteriyor mu?',
+        'Ek görseller kullanım, ölçü ve faydayı anlatıyor mu?',
+        'Bullet point’ler müşteri faydasına göre yazıldı mı?',
+        'Açıklama müşteri sorularını yanıtlıyor mu?',
+        'Fiyat, kargo, stok ve güven unsurları kontrol edildi mi?',
+        'Reklam açmadan önce listing kalitesi değerlendirildi mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon listing nedir?',
+          answer:
+            'Amazon listing, ürünün başlık, görsel, bullet point, açıklama, fiyat ve güven unsurlarını içeren ürün detay sayfasıdır. Hem arama görünürlüğü hem de müşteri ikna sürecinde önemli bir rol oynar.',
+        },
+        {
+          question: 'Amazon listing nasıl hazırlanır?',
+          answer:
+            'Ürün ve hedef müşteri netleştirilir, rakipler incelenir, anahtar kelime araştırması yapılır; başlık, görsel, bullet point ve açıklama bu bilgiler üzerine kurulur. Fiyat, kargo ve güven unsurları da birlikte kontrol edilmelidir.',
+        },
+        {
+          question: 'Amazon ürün başlığı nasıl yazılır?',
+          answer:
+            'Başlıkta ürünün ne olduğu hızlı anlaşılmalı ve ana anahtar kelime doğal şekilde kullanılmalıdır. Anahtar kelime doldurma ve okunmaz başlıklar müşteri güvenini azaltabilir.',
+        },
+        {
+          question: 'Amazon bullet point nasıl yazılır?',
+          answer:
+            'Bullet point’ler ürünün temel faydalarını kısa ve taranabilir şekilde anlatmalıdır. Teknik özellikler, müşteri faydasına bağlanarak yazılmalıdır.',
+        },
+        {
+          question: 'Amazon ürün görselleri nasıl olmalı?',
+          answer:
+            'Ana görsel ürünü net göstermeli, ek görseller kullanım, ölçü ve detayları anlatmalıdır. Görseller ürün gerçeğini yanıltmamalı, yapay zeka kullanılsa bile ürün özellikleri değiştirilmemelidir.',
+        },
+        {
+          question: 'Amazon SEO listing içinde nasıl yapılır?',
+          answer:
+            'Amazon SEO yalnızca anahtar kelime eklemek değildir; başlık, bullet point, açıklama, kategori seçimi ve ürün sayfası kalitesi birlikte düşünülmelidir. Amazon algoritmasının kesin nasıl çalıştığına dair garanti edilebilir bir bilgi yoktur.',
+        },
+        {
+          question: 'Amazon listing satışları artırır mı?',
+          answer:
+            'Güçlü bir listing satışa katkı sağlayabilir ama kesin bir satış garantisi vermez. Sonuç; ürün, fiyat, rekabet ve reklam gibi diğer unsurlarla birlikte şekillenir.',
+        },
+        {
+          question: 'Amazon listing hazırlamadan önce ne kontrol edilmeli?',
+          answer:
+            'Ürün tanımı, hedef müşteri, rakip analizi, anahtar kelime listesi, görseller ve fiyat/kargo yapısının hazır olup olmadığı kontrol edilmelidir. Eksik bir listing, reklam bütçesinin verimsiz kullanılmasına yol açabilir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürününüzün temel faydasını ve hedef müşterisini netleştirin',
+      'Anahtar kelime ve rakip listing analizini yapın',
+      'Başlık, bullet point ve açıklama yapısını müşteri diliyle hazırlayın',
+      'Ana görsel ve ek görselleri satış kararını destekleyecek şekilde planlayın',
+      'Fiyat, varyasyon, kargo ve güven unsurlarını kontrol edin',
+      'Ücretsiz analiz ile Amazon listing yapınızı birlikte değerlendirelim',
+    ],
+  },
 };
