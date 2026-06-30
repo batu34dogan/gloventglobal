@@ -4898,6 +4898,7 @@ export const guides: Record<string, Guide> = {
       'amazon-fba-nedir',
       'amazon-fbm-mi-fba-mi',
       'amazon-ppc-nasil-calisir',
+      'amazon-listing-nasil-hazirlanir',
     ],
     sections: [
       {
@@ -4919,6 +4920,10 @@ export const guides: Record<string, Guide> = {
       {
         heading: 'Amazon Buy Box nasıl çalışır?',
         body: '- Amazon aynı ürün için birden fazla satıcının teklifini değerlendirebilir\n- Fiyat, stok, teslimat, satıcı performansı ve müşteri deneyimi gibi unsurlar etkili olabilir\n- FBA veya güçlü FBM operasyonu müşteri deneyimi açısından önemli olabilir\n- Amazon’un kesin değerlendirme formülü açıklanmadığı için garanti verilemez\n- Buy Box durumu zaman içinde değişebilir',
+      },
+      {
+        heading: 'Bir üründe birden fazla satıcı varsa Buy Box nasıl çalışır?',
+        body: 'Aynı ürün detay sayfasında birden fazla satıcı varsa Buy Box görünürlüğü zaman içinde değişebilir. Buy Box tek bir satıcıda sürekli kalmak zorunda değildir; fiyat, stok, teslimat, satıcı performansı, müşteri deneyimi ve rekabet durumuna göre farklı satıcılar farklı zamanlarda öne çıkabilir. Bu nedenle Buy Box, sabit bir hak gibi değil, düzenli takip edilmesi gereken dinamik bir satış alanı olarak düşünülmelidir.\n\nBu süreç Amazon’un güncel değerlendirme sistemlerine bağlıdır. Kesin formül, garanti veya sabit kazanma yöntemi verilmemelidir.',
       },
       {
         heading: 'Amazon Buy Box değerlendirme akışı',
