@@ -3166,6 +3166,10 @@ export const guides: Record<string, Guide> = {
         body: '- Satıcı reklam kampanyası oluşturur\n- Reklam verilecek ürün seçilir\n- Anahtar kelime veya hedefleme belirlenir\n- Günlük bütçe ve teklif mantığı ayarlanır\n- Kullanıcı reklama tıklarsa bütçeden harcama yapılır\n- Satıcı performans verilerini takip ederek kampanyayı optimize eder',
       },
       {
+        heading: 'Amazon PPC satışa nasıl etki eder?',
+        body: 'Reklam gösterimi\n↓\nTıklama\n↓\nÜrün sayfası ziyareti\n↓\nSatın alma kararı\n↓\nSatış verisi\n↓\nOrganik performans sinyalleri\n\nPPC doğrudan satış garantisi değildir. Reklam kullanıcıyı ürün sayfasına getirir; satışa dönüşüm ise listeleme kalitesi, fiyat, yorum, ürün ihtiyacı, stok ve güven unsurlarıyla birlikte oluşur.',
+      },
+      {
         heading: 'Örnek Amazon PPC Senaryosu',
         body: 'Örnek senaryo: Amazon’da yeni bir ürün listeleyen marka, ilk aşamada 10–20 temel anahtar kelimeyi belirleyerek düşük ve kontrollü bütçeyle reklam verisi toplamaya başlar. İlk günlerde amaç doğrudan yüksek satış beklemek değil; hangi arama terimlerinin tıklama aldığını, hangilerinin dönüşüm sağladığını ve hangi kelimelerin bütçe tükettiğini anlamaktır. Bu senaryo satış garantisi değil, Amazon PPC sürecine daha kontrollü başlamak için örnek bir yaklaşım sunar.',
       },
@@ -3176,6 +3180,10 @@ export const guides: Record<string, Guide> = {
       {
         heading: 'Amazon PPC kampanya türleri nelerdir?',
         body: '- Sponsored Products\n- Sponsored Brands\n- Sponsored Display',
+      },
+      {
+        heading: 'Amazon reklam türleri kısa karşılaştırma',
+        body: 'Sponsored Products\nNe işe yarar: Ürünleri arama sonuçlarında veya ürün detay alanlarında görünür hale getirebilir\nNe zaman kullanılır: Yeni ürün görünürlüğü, anahtar kelime testi ve satış verisi toplamak için\n\nSponsored Brands\nNe işe yarar: Marka ve ürün grubunu öne çıkarmaya yardımcı olabilir\nNe zaman kullanılır: Marka bilinirliği, mağaza trafiği ve ürün grubu tanıtımı için\n\nSponsored Display\nNe işe yarar: Ürün ve hedef kitle bazlı görünürlük sağlayabilir\nNe zaman kullanılır: Yeniden hedefleme, ürün keşfi ve ek görünürlük için\n\nHangi reklam türünün daha iyi olduğuna dair kesin bir sıralama yoktur; seçim ürüne, hedefe ve kampanya amacına göre değişir.',
       },
       {
         heading: 'Amazon PPC’de hangi metrikler takip edilmeli?',
@@ -3192,6 +3200,10 @@ export const guides: Record<string, Guide> = {
       {
         heading: 'Amazon PPC satış getirir mi?',
         body: 'Amazon PPC satışa katkı sağlayabilir ama satış garantisi değildir. Kullanıcı reklama tıklasa bile ürün sayfası güven vermiyorsa, fiyat rekabetçi değilse, görseller zayıfsa, yorum yoksa veya ürün ihtiyaca uymuyorsa satış gerçekleşmeyebilir. PPC trafik getirir; dönüşüm listeleme ve ürün gücüyle ilgilidir.',
+      },
+      {
+        heading: 'Amazon PPC kimler için uygundur?',
+        body: '- Amazon’da yeni ürün listeleyen ve görünürlük kazanmak isteyen satıcılar\n- Organik sıralama verisi toplamak isteyen markalar\n- Rekabetçi kategorilerde ürününü daha görünür yapmak isteyen işletmeler\n- Ürün sayfası, fiyat, stok ve kâr marjı reklam için hazır olan satıcılar\n- Reklam verisini düzenli takip edip optimize edebilecek operasyon yapısı olan markalar\n\nAmazon PPC, listelemesi hazır olmayan ürünler için ilk adım olmamalıdır. Reklamdan önce ürün sayfası, fiyat, görsel, stok ve kârlılık hesabı kontrol edilmelidir.',
       },
       {
         heading: 'Amazon PPC’ye başlamadan önce ne kontrol edilmeli?',
