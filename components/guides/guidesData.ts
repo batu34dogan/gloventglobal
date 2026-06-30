@@ -4665,4 +4665,198 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon A+ Content ve ürün sayfası yapınızı birlikte değerlendirelim',
     ],
   },
+
+  'amazon-brand-registry-nedir': {
+    title: 'Amazon Brand Registry Nedir?',
+    slug: 'amazon-brand-registry-nedir',
+    excerpt:
+      'Amazon Brand Registry’nin ne olduğunu, A+ Content, Amazon Store, Brand Analytics ve marka koruma süreçleriyle nasıl ilişkili olduğunu açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da kendi markasıyla satış yapan veya yapmayı planlayan satıcılar',
+    searchIntent: 'amazon brand registry nedir, amazon brand registry nasıl yapılır, amazon marka kaydı nedir, amazon brand registry ne işe yarar, amazon brand registry için ne gerekir, amazon brand registry avantajları nelerdir, amazon brand analytics nedir, amazon marka koruma nasıl yapılır',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-06',
+    order: 28,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon Brand Registry, markaların Amazon üzerinde marka kimliğini daha kontrollü yönetmesine yardımcı olan marka kayıt sistemidir. Brand Registry; A+ Content, Amazon Store, Brand Analytics, bazı marka reklam özellikleri ve marka koruma süreçleriyle ilişkili olabilir. Ancak satış garantisi vermez; marka tescili, ürün kalitesi, listing, reklam, stok ve operasyon yapısıyla birlikte düşünülmelidir.',
+    quickAnswer:
+      'Amazon Brand Registry, markaların Amazon’da kendi marka haklarını ve ürün sayfalarını daha kontrollü yönetebilmesi için kullanılan marka kayıt sistemidir. Marka sahipleri bu sistemle A+ Content, Amazon Store, Brand Analytics ve marka koruma araçlarına erişim sağlayabilir. Ancak erişim şartları ülke, marka durumu ve Amazon’un güncel politikalarına göre değişebilir.',
+    whoShouldRead: [
+      'Amazon’da kendi markasıyla satış yapmak isteyenler',
+      'Private Label modeliyle ürün geliştiren markalar',
+      'A+ Content veya Amazon Store kullanmak isteyen satıcılar',
+      'Amazon’da marka koruması ve ürün sayfası kontrolünü anlamak isteyenler',
+      'Brand Analytics ve marka odaklı reklam araçlarını merak edenler',
+      'Türkiye’den global pazara kendi markasıyla açılmak isteyen üretici ve işletmeler',
+    ],
+    expertNote:
+      'Amazon Brand Registry’de en sık yapılan hata, bu sistemi yalnızca “marka kaydı yaptırmak” olarak düşünmektir. Brand Registry’nin gerçek değeri; ürün sayfası kontrolü, marka içerikleri, A+ Content, mağaza yapısı, veri analizi ve marka koruma süreçleriyle birlikte kullanıldığında ortaya çıkar.',
+    expertNoteAfterHeading: 'Amazon Brand Registry marka koruma sağlar mı?',
+    keyTakeaway:
+      'Amazon Brand Registry satış garantisi değildir. Bu sistem markaya daha fazla kontrol ve bazı ek araçlara erişim sağlayabilir; fakat ürün kalitesi, listing, fiyat, reklam, stok, müşteri deneyimi ve operasyon zayıfsa tek başına başarılı bir Amazon sistemi oluşturmaz.',
+    nextReadingSlugs: [
+      'amazon-a-plus-content-nedir',
+      'amazon-private-label-nedir',
+      'amazon-listing-nasil-hazirlanir',
+      'amazon-anahtar-kelime-arastirmasi-nasil-yapilir',
+      'amazon-ppc-nasil-calisir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da kendi markasıyla satış yapmak, A+ Content kullanmak, Amazon Store açmak veya ürün sayfalarını daha kontrollü yönetmek ister. Brand Registry marka kontrolü ve ek Amazon araçlarıyla ilişkilidir; ancak tek başına satış garantisi veya hukuki koruma garantisi vermez.',
+      },
+      {
+        heading: 'Amazon Brand Registry nedir?',
+        body: '- Amazon’un marka sahipleri için sunduğu marka kayıt ve yönetim sistemi olduğu\n- Marka kimliğini ve ürün sayfalarını daha kontrollü yönetmeye yardımcı olabileceği\n- A+ Content, Amazon Store, Brand Analytics ve bazı marka araçlarıyla ilişkili olabileceği\n- Marka koruma süreçlerine destek sağlayabileceği\n- Ancak satış veya tam koruma garantisi vermediği',
+      },
+      {
+        heading: 'Amazon Brand Registry ne işe yarar?',
+        body: '- Marka içeriklerini daha sistemli yönetmeye yardımcı olabilir\n- A+ Content ve Amazon Store gibi alanlara erişim sağlayabilir\n- Ürün sayfaları üzerinde daha fazla kontrol sağlayabilir\n- Brand Analytics gibi veri alanlarıyla ilişkili olabilir\n- Marka ihlali veya yanlış içerik sorunlarında süreç yönetimini destekleyebilir\n- Ancak ürün, fiyat, stok, reklam ve müşteri deneyimi zayıfsa tek başına yeterli değildir',
+      },
+      {
+        heading: 'Amazon Brand Registry nasıl yapılır?',
+        body: '- Marka uygunluğu kontrol edilir\n- Marka tescili veya marka başvurusu gibi gereklilikler resmi kaynaklardan incelenir\n- Amazon Brand Registry başvuru süreci kontrol edilir\n- Marka, ürün ve hesap bilgileri hazırlanır\n- Amazon’un doğrulama süreci takip edilir\n- Onay sonrası A+ Content, Store, Brand Analytics ve marka içerikleri planlanır\n\nGüncel şartlar için Amazon’un resmi Brand Registry kaynaklarının kontrol edilmesi gerekir.',
+      },
+      {
+        heading: 'Amazon Brand Registry hazırlık akışı',
+        body: 'Marka konumu\n↓\nResmi uygunluk kontrolü\n↓\nBaşvuru hazırlığı\n↓\nAmazon doğrulama süreci\n↓\nA+ Content planı\n↓\nAmazon Store yapısı\n↓\nBrand Analytics ve reklam verisi\n↓\nMarka kontrol ve takip sistemi\n\nBrand Registry yalnızca başvuru adımı değildir. Marka içerikleri, ürün sayfaları, A+ Content, Store yapısı, reklam ve veri takibi birlikte planlandığında daha anlamlı hale gelir.',
+      },
+      {
+        heading: 'Örnek Amazon Brand Registry Senaryosu',
+        body: 'Örnek senaryo: Amazon’da Private Label ürünüyle satış yapmak isteyen bir marka, Brand Registry sürecini yalnızca kayıt işlemi olarak değil, ürün sayfası kontrolü, A+ Content, Amazon Store, marka anlatımı, reklam ve veri analiziyle birlikte planlar. Önce marka uygunluğunu ve resmi gereklilikleri kontrol eder, ardından ürün sayfalarını ve marka içeriklerini güçlendirir. Bu senaryo onay veya satış garantisi değil, Brand Registry sürecini daha sistemli düşünmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon Brand Registry için ne gerekir?',
+        body: '- Marka adı ve marka kimliği\n- Ürün ve kategori yapısı\n- Resmi marka uygunluğu veya marka tescil süreci kontrolü\n- Amazon satıcı hesabı ve marka bilgileri\n- Ürün sayfası, görsel ve içerik hazırlığı\n- A+ Content ve Store planı\n- Gerekirse marka tescili ve hukuki konularda uzman desteği\n\nGüncel gereklilikler Amazon Seller Central / Brand Registry resmi kaynaklarından kontrol edilmelidir.',
+      },
+      {
+        heading: 'Amazon Brand Registry kimler için uygundur?',
+        body: '- Private Label satıcıları\n- Kendi markasıyla ürün satan üreticiler\n- Amazon’da uzun vadeli marka değeri oluşturmak isteyen işletmeler\n- Ürün sayfası ve marka içeriklerini daha kontrollü yönetmek isteyenler\n- Amazon Store, A+ Content ve Brand Analytics gibi araçlardan yararlanmak isteyen markalar\n- Marka koruma ve içerik yönetimini daha sistemli yapmak isteyen işletmeler',
+      },
+      {
+        heading: 'Brand Registry, A+ Content ve Brand Analytics ilişkisi nedir?',
+        body: '- Brand Registry marka altyapısını oluşturur\n- A+ Content ürün sayfasında görsel ve metinle daha güçlü anlatım sağlar\n- Amazon Store markanın Amazon içindeki mağaza deneyimini destekler\n- Brand Analytics müşteri arama ve marka verilerini anlamaya yardımcı olabilir\n- Bu araçlar birlikte çalıştığında daha sistemli bir marka yönetimi kurulabilir',
+      },
+      {
+        heading: 'Brand Registry, A+ Content ve Brand Analytics kısa bağlantı tablosu',
+        body: 'Brand Registry\nAna rol: Markayı Amazon’da tanımlama ve marka araçlarına erişim sağlama\nNe için kullanılır: Marka kontrolü, içerik yönetimi ve marka koruma süreçleri\n\nA+ Content\nAna rol: Ürün sayfasını daha görsel ve açıklayıcı hale getirme\nNe için kullanılır: Ürün faydası, marka hikayesi, kullanım senaryosu ve karşılaştırma anlatımı\n\nAmazon Store\nAna rol: Marka için Amazon içinde mağaza deneyimi oluşturma\nNe için kullanılır: Ürün portföyü, marka hikayesi ve kategori yönlendirmesi\n\nBrand Analytics\nAna rol: Marka ve arama davranışlarını daha iyi anlamaya yardımcı olma\nNe için kullanılır: Arama terimleri, müşteri davranışı ve ürün/keyword stratejisi\n\nSponsored Brands\nAna rol: Marka odaklı reklam görünürlüğü sağlama\nNe için kullanılır: Marka bilinirliği, ürün grubu tanıtımı ve mağaza trafiği',
+      },
+      {
+        heading: 'Amazon Brand Registry avantajları nelerdir?',
+        body: '- Marka içerikleri üzerinde daha fazla kontrol sağlayabilir\n- A+ Content ve Amazon Store gibi alanları destekleyebilir\n- Brand Analytics gibi veri araçlarına erişim sağlayabilir\n- Marka koruma süreçlerinde destek sağlayabilir\n- Ürün portföyünü daha profesyonel sunmaya yardımcı olabilir\n- Reklam ve marka görünürlüğü için daha fazla alan açabilir',
+      },
+      {
+        heading: 'Amazon Brand Registry dezavantajları veya dikkat edilmesi gerekenler nelerdir?',
+        body: '- Başvuru ve uygunluk süreci zaman alabilir\n- Marka tescili veya resmi süreçler gerekebilir\n- Onay tek başına satış getirmez\n- A+ Content, Store ve marka sayfaları ayrıca içerik ve tasarım çalışması ister\n- Marka koruma süreçleri takip gerektirir\n- Ürün kalitesi, stok, fiyat ve reklam sistemi zayıfsa Brand Registry etkisi sınırlı kalabilir',
+      },
+      {
+        heading: 'Amazon Brand Registry olmadan A+ Content yapılır mı?',
+        body: 'A+ Content erişimi genellikle marka ve hesap uygunluğu ile bağlantılı olabilir. Amazon’un güncel uygunluk şartları değişebilir; bu konuda kesin bir güncel cevap verilemez. Satıcıların Amazon Seller Central veya resmi Brand Registry kaynaklarından güncel erişim durumunu kontrol etmesi gerekir.',
+      },
+      {
+        heading: 'Amazon Brand Registry marka koruma sağlar mı?',
+        body: 'Brand Registry marka koruma süreçlerine yardımcı olabilir; yanlış içerik, marka ihlali veya ürün sayfası kontrolü gibi alanlarda destek sağlayabilir. Ancak tam ve otomatik koruma garantisi vermez. Marka takibi, ürün sayfası kontrolü ve ihlal bildirim süreçleri düzenli yönetilmeli; gerekli durumlarda hukuki uzman desteği alınmalıdır.',
+      },
+      {
+        heading: 'Amazon Brand Registry’de en sık yapılan hatalar nelerdir?',
+        body: '- Brand Registry’yi satış garantisi sanmak\n- Marka tescili ve uygunluk süreçlerini kontrol etmeden plan yapmak\n- A+ Content ve Store içeriklerini sonradan düşünmek\n- Ürün sayfalarını güncellemeden marka kaydına güvenmek\n- Brand Analytics verilerini kullanmamak\n- Marka koruma süreçlerini takip etmemek\n- Listing, PPC ve stok yapısını marka sistemiyle birlikte düşünmemek',
+      },
+      {
+        heading: 'İlk 30 gün Amazon Brand Registry hazırlık planı',
+        body: '1. hafta: marka konumu, ürün portföyü ve resmi uygunluk kontrolü\n2. hafta: Brand Registry başvuru süreci ve gerekli bilgilerin hazırlanması\n3. hafta: A+ Content, Amazon Store ve ürün sayfası yapısının planlanması\n4. hafta: Brand Analytics, reklam ve marka takip sisteminin kurulması',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon Brand Registry’yi yalnızca “başvuru yapıp onay alma” süreci olarak görmektir. Brand Registry asıl değerini A+ Content, Amazon Store, Brand Analytics, listing kontrolü, reklam ve marka koruma süreçleriyle birlikte kullanıldığında gösterir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da kendi markasıyla satış yapmak isteyen işletmelerin marka konumunu, ürün portföyünü, Brand Registry hazırlığını, A+ Content yapısını, Amazon Store planını, Brand Analytics kullanımını, listing kalitesini ve reklam stratejisini birlikte analiz ederek daha kontrollü bir Amazon marka sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Sadece Marka Kaydı mı, Sistemli Amazon Marka Yapısı mı?',
+      headers: ['Kriter', 'Sadece Marka Kaydı', 'Sistemli Marka Yapısı'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Amaç yalnızca Brand Registry başvurusunu tamamlamaktır', company: 'Marka, ürün portföyü, listing, A+ Content ve Store birlikte planlanır' },
+        { criterion: 'İçerik', individual: 'Ürün sayfaları eski haliyle kalabilir', company: 'Ürün sayfaları marka dili, görseller ve A+ Content ile güçlendirilir' },
+        { criterion: 'Veri', individual: 'Brand Analytics veya reklam verileri sınırlı kullanılır', company: 'Arama, ürün ve reklam verileri stratejiye dahil edilir' },
+        { criterion: 'Koruma', individual: 'Marka koruma otomatik sanılır', company: 'Ürün sayfası, ihlal ve içerik takibi düzenli yapılır' },
+        { criterion: 'Sonuç', individual: 'Potansiyel araçlar kullanılmadan kalabilir', company: 'Brand Registry, Amazon marka büyüme sisteminin parçası haline gelir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon Brand Registry kontrol listesi',
+      items: [
+        'Marka konumunuz ve ürün portföyünüz net mi?',
+        'Marka uygunluğu ve resmi gereklilikler kontrol edildi mi?',
+        'Amazon Brand Registry resmi kaynakları incelendi mi?',
+        'Ürün sayfalarınız marka diline uygun mu?',
+        'A+ Content planınız hazır mı?',
+        'Amazon Store yapısı düşünüldü mü?',
+        'Brand Analytics ve reklam verilerini nasıl kullanacağınız planlandı mı?',
+        'Marka koruma ve içerik takip süreci oluşturuldu mu?',
+        'Listing, PPC, stok ve fiyat yapısı marka sistemiyle uyumlu mu?',
+        'Gerekirse marka tescili ve hukuki konular uzmanla kontrol edildi mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon Brand Registry nedir?',
+          answer:
+            'Amazon Brand Registry, markaların Amazon’da marka kimliğini ve ürün sayfalarını daha kontrollü yönetmesine yardımcı olan marka kayıt sistemidir. A+ Content, Amazon Store ve Brand Analytics gibi araçlara erişim sağlayabilir.',
+        },
+        {
+          question: 'Amazon Brand Registry ne işe yarar?',
+          answer:
+            'Marka içeriklerini daha sistemli yönetmeye, ürün sayfaları üzerinde daha fazla kontrol sağlamaya ve marka koruma süreçlerine destek olmaya yardımcı olabilir. Ancak ürün, fiyat ve reklam zayıfsa tek başına yeterli değildir.',
+        },
+        {
+          question: 'Amazon Brand Registry nasıl yapılır?',
+          answer:
+            'Marka uygunluğu ve resmi gereklilikler kontrol edilip Amazon Brand Registry başvuru süreci takip edilir. Onay sonrası A+ Content, Amazon Store ve Brand Analytics gibi araçlar planlanabilir; güncel süreç Amazon’un resmi kaynaklarından kontrol edilmelidir.',
+        },
+        {
+          question: 'Amazon Brand Registry için marka tescili gerekir mi?',
+          answer:
+            'Bu konu ülkeye ve Amazon’un güncel politikalarına göre değişebilir; kesin bir gereklilik genellemesi yapılamaz. Marka tescili ve hukuki konularda güncel kaynaklardan veya uzmandan teyit alınması önerilir.',
+        },
+        {
+          question: 'Amazon Brand Registry A+ Content ile ilişkili mi?',
+          answer:
+            'Evet, A+ Content erişimi genellikle marka ve hesap uygunluğuyla bağlantılıdır ve bu bağlamda Brand Registry ile ilişkilendirilebilir. Güncel erişim koşulları Amazon’un resmi kaynaklarından kontrol edilmelidir.',
+        },
+        {
+          question: 'Amazon Brand Registry marka koruma sağlar mı?',
+          answer:
+            'Brand Registry marka koruma süreçlerine destek sağlayabilir ama tam ve otomatik bir koruma garantisi vermez. Marka takibi ve ihlal bildirim süreçlerinin düzenli yönetilmesi, gerekirse hukuki destek alınması önerilir.',
+        },
+        {
+          question: 'Amazon Brand Registry satışları artırır mı?',
+          answer:
+            'Hayır, Brand Registry tek başına bir satış garantisi değildir; marka araçlarına erişim sağlar ama sonuç ürün, fiyat, listing ve reklam gibi unsurlarla birlikte şekillenir.',
+        },
+        {
+          question: 'Amazon Brand Registry kimler için uygundur?',
+          answer:
+            'Private Label satıcıları, kendi markasıyla ürün satan üreticiler ve Amazon Store/A+ Content gibi araçlardan yararlanmak isteyen markalar için uygun olabilir. Uzun vadeli marka değeri oluşturmak isteyen işletmeler için de faydalı olabilir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Markanızın Amazon’da nasıl konumlanacağını netleştirin',
+      'Marka tescili ve uygunluk şartlarını resmi kaynaklardan kontrol edin',
+      'Brand Registry’nin A+ Content, Store ve Brand Analytics ile nasıl kullanılacağını planlayın',
+      'Ürün sayfalarınızı, görsellerinizi ve marka anlatımınızı güçlendirin',
+      'PPC, listing ve ürün portföyüyle birlikte marka sisteminizi değerlendirin',
+      'Ücretsiz analiz ile Amazon marka yapınızı birlikte değerlendirelim',
+    ],
+  },
 };
