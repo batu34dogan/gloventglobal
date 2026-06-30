@@ -3306,4 +3306,190 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon reklam yapınızın doğru kurulup kurulmadığını birlikte değerlendirin',
     ],
   },
+
+  'amazonda-urun-arastirmasi-nasil-yapilir': {
+    title: 'Amazon’da Ürün Araştırması Nasıl Yapılır?',
+    slug: 'amazonda-urun-arastirmasi-nasil-yapilir',
+    excerpt:
+      'Amazon’da hangi ürünü seçeceğinizi, ürün araştırmasının nasıl yapılacağını ve hangi kriterlere bakmanız gerektiğini; talep, rekabet, maliyet ve lojistik açısından açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da satışa başlamadan önce ürün arayan satıcılar',
+    searchIntent: 'amazon da ürün araştırması nasıl yapılır, amazon ürün araştırması nedir, amazon da satılacak ürün nasıl bulunur, amazon fba ürün araştırması nasıl yapılır, amazon da hangi ürün satılır, amazon ürün seçimi nasıl yapılır, amazon da karlı ürün nasıl bulunur, amazon da yeni başlayanlar hangi ürünü seçmeli',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-16',
+    order: 21,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon’da ürün araştırması, yalnızca çok satan ürünleri bulmak değil; talep, rekabet, kâr marjı, tedarik, lojistik, reklam maliyeti, yorum seviyesi ve operasyon uygunluğunu birlikte değerlendirme sürecidir. Doğru ürün seçimi Amazon’da satış sürecinin temelidir; yanlış ürün seçimi ise reklam, stok, depo ve nakit akışı açısından ciddi risk oluşturabilir.',
+    quickAnswer:
+      'Amazon’da ürün araştırması; satılacak ürünün talebini, rekabet seviyesini, fiyat aralığını, kâr marjını, tedarik maliyetini, lojistik uygunluğunu ve reklam ihtiyacını analiz etme sürecidir. Amaç “kesin satacak ürün” bulmak değil, kontrollü şekilde test edilebilecek, maliyetleri hesaplanabilir ve operasyonu yönetilebilir ürünleri belirlemektir.',
+    whoShouldRead: [
+      'Amazon’da satışa başlamadan önce ürün arayan satıcılar',
+      'FBA veya FBM için doğru ürün seçmek isteyenler',
+      'Private Label veya Wholesale modeli düşünen işletmeler',
+      'Türkiye’den Amazon üzerinden yurtdışına satış yapmak isteyen üretici ve markalar',
+      'Ürün seçimi yaparken sadece satış hacmine bakmanın risklerini anlamak isteyenler',
+      'Reklam, stok ve lojistik maliyetlerini ürün araştırmasına dahil etmek isteyenler',
+    ],
+    expertNote:
+      'Amazon ürün araştırmasında en sık yapılan hata, yalnızca satış hacmi yüksek görünen ürünlere odaklanmaktır. Bir ürün çok satıyor olabilir; ancak rekabet seviyesi, yorum bariyeri, reklam maliyeti, tedarik fiyatı, iade riski veya lojistik yapısı zayıfsa yeni satıcı için kârlı ve sürdürülebilir olmayabilir.',
+    expertNoteAfterHeading: 'Amazon’da kârlı ürün nasıl düşünülmeli?',
+    keyTakeaway:
+      'Amazon’da ürün araştırması, ürün bulma işi değil, risk eleme sürecidir. Amaç en popüler ürünü seçmek değil; talebi olan, rekabeti yönetilebilir, maliyeti hesaplanabilir, lojistiği uygulanabilir ve test edilebilir ürünleri ayıklamaktır.',
+    nextReadingSlugs: [
+      'amazon-fba-nedir',
+      'amazon-fbm-mi-fba-mi',
+      'amazon-ppc-nasil-calisir',
+      'amazonda-satis-yapmak-icin-sirket-gerekir-mi',
+      'turkiyeden-yurtdisina-urun-satmak-icin-nereden-baslamali',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da satışa başlamak ister ama hangi ürünü seçeceğini bilmez. Ürün araştırması yalnızca “çok satan ürünü bulmak” değildir; talep, rekabet, kâr marjı, lojistik, reklam, stok ve operasyon uygunluğunu birlikte değerlendirme sürecidir.',
+      },
+      {
+        heading: 'Amazon ürün araştırması nedir?',
+        body: '- Satılacak ürün adaylarını analiz etme süreci\n- Talep ve rekabeti birlikte değerlendirme\n- Kâr marjı, tedarik, kargo, komisyon ve reklam maliyeti düşünme\n- FBA/FBM uygunluğunu kontrol etme\n- Amaç kesin kazandıracak ürün bulmak değil, riskleri azaltılmış ürün adayları belirlemek',
+      },
+      {
+        heading: 'Amazon ürün araştırması kimler için kritiktir?',
+        body: '- Amazon’a ilk kez ürün yükleyecek satıcılar\n- FBA’ya stok göndermeden önce ürün uygunluğunu kontrol etmek isteyenler\n- Reklam bütçesini boşa harcamak istemeyen markalar\n- Private Label ürün geliştirmek isteyen işletmeler\n- Wholesale ürün portföyünü Amazon’a taşımak isteyen firmalar\n- Üretici olup hangi ürününü global pazara çıkaracağını belirlemek isteyenler',
+      },
+      {
+        heading: 'Amazon ürün araştırması neden önemlidir?',
+        body: '- Yanlış ürün seçimi stok ve reklam maliyeti oluşturabilir\n- Rekabet seviyesi yüksek ürünlerde yeni satıcı zorlanabilir\n- Kâr marjı düşük ürünlerde reklam maliyeti kârlılığı bozabilir\n- Büyük, ağır veya kırılgan ürünlerde lojistik risk artabilir\n- Talebi olmayan ürünlerde listeleme ve reklam tek başına yeterli olmaz\n- Doğru ürün seçimi Amazon operasyonunun temelidir',
+      },
+      {
+        heading: 'Amazon’da satılacak ürün nasıl bulunur?',
+        body: '- Kategori ve alt kategori araştırması\n- Rakip ürün incelemesi\n- Talep sinyallerini gözlemleme\n- Fiyat aralığı analizi\n- Yorum ve rekabet seviyesi değerlendirme\n- Ürünün tedarik ve lojistik uygunluğunu kontrol etme\n- Ürünü sadece trend olduğu için seçmeme',
+      },
+      {
+        heading: 'Amazon ürün araştırması nasıl yapılır?',
+        body: '- Ürün fikirleri toplanır\n- Kategori ve pazar uygunluğu kontrol edilir\n- Rakipler incelenir\n- Fiyat ve kâr marjı hesaplanır\n- Ürün boyutu, ağırlığı ve kargo yapısı değerlendirilir\n- Reklam ihtiyacı ve rekabet seviyesi düşünülür\n- Ürünler elenir ve test edilebilir adaylar seçilir',
+      },
+      {
+        heading: 'Örnek Amazon Ürün Araştırması Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satışa başlamak isteyen bir marka, ilk etapta 10 ürün fikrini talep, rekabet, yorum sayısı, fiyat aralığı, boyut, ağırlık, tedarik maliyeti, kargo yapısı ve reklam ihtiyacı açısından değerlendirir. Bu ön elemeden sonra yalnızca güçlü görünen 2–3 ürün için daha detaylı maliyet, listeleme ve lansman planı hazırlanır. Bu senaryo satış garantisi değil, Amazon ürün araştırmasını daha kontrollü yapmak için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon ürün araştırmasında hangi kriterlere bakılır?',
+        body: '- Talep seviyesi\n- Rekabet seviyesi\n- Yorum sayısı ve yorum kalitesi\n- Fiyat aralığı\n- Kâr marjı\n- Ürün boyutu ve ağırlığı\n- Tedarik kolaylığı\n- FBA/FBM uygunluğu\n- Reklam ihtiyacı\n- İade ve hasar riski\n- Mevsimsellik\n- Marka ve farklılaşma potansiyeli',
+      },
+      {
+        heading: 'Amazon’da kârlı ürün nasıl düşünülmeli?',
+        body: 'Kârlı ürün yalnızca yüksek satış fiyatı olan ürün değildir. Ürün maliyeti, Amazon komisyonları, FBA/FBM lojistik giderleri, reklam maliyeti, iade riski, stok maliyeti ve operasyon giderleri birlikte düşünülmelidir.',
+      },
+      {
+        heading: 'Amazon’da rekabet nasıl değerlendirilir?',
+        body: '- Rakiplerin yorum sayısı\n- Başlık ve görsel kalitesi\n- Fiyat seviyesi\n- Marka gücü\n- Reklam yoğunluğu\n- Ürün farklılaştırma imkanı\n- Yeni satıcının bu pazarda görünürlük kazanıp kazanamayacağı\n\nÇok güçlü rakiplerin olduğu alanlarda maliyet riski artabilir.',
+      },
+      {
+        heading: 'FBA ürün araştırmasında nelere dikkat edilmeli?',
+        body: '- Ürün küçük ve standart paketlemeye uygun mu?\n- Ağırlık ve boyut FBA maliyetlerini artırıyor mu?\n- Ürün kırılgan veya iade riski yüksek mi?\n- Depoda uzun süre kalırsa maliyet oluşturur mu?\n- Stok miktarı kontrollü planlanabilir mi?\n- Ürün hazırlık ve etiketleme kurallarına uygun mu?',
+      },
+      {
+        heading: 'Yeni başlayanlar hangi ürünlerden uzak durmalı?',
+        body: '- Çok ağır veya hacimli ürünler\n- Aşırı rekabetli ve yorum bariyeri yüksek ürünler\n- Çok düşük kâr marjlı ürünler\n- Yüksek iade riski olan ürünler\n- Karmaşık teknik destek gerektiren ürünler\n- Regülasyon, sertifika veya özel uyum gerektirebilecek ürünler\n- Kolay kırılan veya hasar gören ürünler',
+      },
+      {
+        heading: 'Amazon ürün araştırmasında en sık yapılan hatalar nelerdir?',
+        body: '- Sadece çok satan ürünlere bakmak\n- Rekabeti hafife almak\n- Yorum bariyerini dikkate almamak\n- Kargo ve depo maliyetlerini hesaplamamak\n- Reklam maliyetini ürün kârlılığına dahil etmemek\n- Ürün farklılaştırması düşünmemek\n- Trend ürünlere plansız girmek\n- Stok riskini hesaba katmamak',
+      },
+      {
+        heading: 'İlk 30 gün Amazon ürün araştırma planı',
+        body: '1. hafta: ürün fikirleri ve kategori ön analizi\n2. hafta: rakip, fiyat, yorum ve rekabet kontrolü\n3. hafta: maliyet, tedarik, kargo ve FBA/FBM uygunluğu analizi\n4. hafta: en güçlü ürün adaylarını seçme ve test/lansman planı hazırlama',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon’da ürün araştırmasını “çok satan ürünü bulmak” sanmaktır. Doğru ürün araştırması, talebi olan ama rekabet, maliyet, lojistik, reklam ve operasyon açısından yönetilebilir ürünleri seçme sürecidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapmak isteyen markaların ürün fikirlerini, kategori uygunluğunu, rekabet seviyesini, FBA/FBM lojistik yapısını, tahmini maliyetlerini, listeleme gereksinimlerini ve reklam risklerini birlikte analiz ederek daha kontrollü bir Amazon ürün araştırma sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Tahmine Dayalı Ürün Seçimi mi, Sistemli Amazon Ürün Araştırması mı?',
+      headers: ['Kriter', 'Tahmine Dayalı Ürün Seçimi', 'Sistemli Ürün Araştırması'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Ürün genelde kişisel beğeni veya trend algısıyla seçilir', company: 'Ürün fikirleri talep, rekabet ve maliyet açısından ön elemeden geçirilir' },
+        { criterion: 'Rekabet', individual: 'Rakiplerin gücü yeterince analiz edilmeyebilir', company: 'Yorum, fiyat, görsel, marka ve reklam yoğunluğu birlikte incelenir' },
+        { criterion: 'Maliyet', individual: 'Kargo, depo, reklam ve iade maliyetleri geç fark edilir', company: 'Ürün seçilmeden önce ana maliyet kalemleri düşünülür' },
+        { criterion: 'Operasyon', individual: 'FBA/FBM uygunluğu sonradan değerlendirilir', company: 'Ürün boyutu, ağırlığı, paketleme ve stok yapısı baştan kontrol edilir' },
+        { criterion: 'Sonuç', individual: 'Stok, reklam ve nakit akışı riski artabilir', company: 'Daha kontrollü test edilebilir ürün adayları belirlenir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon ürün araştırması kontrol listesi',
+      items: [
+        'Ürün talebi kontrol edildi mi?',
+        'Rekabet seviyesi değerlendirildi mi?',
+        'Rakip yorum sayıları incelendi mi?',
+        'Fiyat aralığı ve kâr marjı hesaplandı mı?',
+        'Ürün boyutu ve ağırlığı kontrol edildi mi?',
+        'FBA/FBM uygunluğu değerlendirildi mi?',
+        'Kargo, depo ve reklam maliyetleri düşünüldü mü?',
+        'Ürün farklılaştırma imkanı var mı?',
+        'İade, hasar veya regülasyon riski incelendi mi?',
+        'Test edilebilir 2–3 güçlü ürün adayı seçildi mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon ürün araştırması nedir?',
+          answer:
+            'Amazon ürün araştırması, satılacak ürün adaylarını talep, rekabet, kâr marjı, lojistik ve reklam maliyeti açısından analiz etme sürecidir. Amaç kesin kazandıracak ürün bulmak değil, riskleri azaltılmış ürün adayları belirlemektir.',
+        },
+        {
+          question: 'Amazon’da satılacak ürün nasıl bulunur?',
+          answer:
+            'Kategori araştırması, rakip incelemesi, talep sinyalleri, fiyat aralığı ve tedarik/lojistik uygunluğu birlikte değerlendirilerek belirlenir. Ürünü sadece trend olduğu için seçmek risklidir.',
+        },
+        {
+          question: 'Amazon FBA ürün araştırması nasıl yapılır?',
+          answer:
+            'Ürünün boyutu, ağırlığı, kırılganlık ve iade riski gibi FBA’ya özgü kriterler genel ürün araştırması kriterlerine eklenmelidir. Depoda uzun süre kalma ihtimali ve hazırlık/etiketleme kuralları da göz önünde bulundurulmalıdır.',
+        },
+        {
+          question: 'Amazon’da kârlı ürün nasıl bulunur?',
+          answer:
+            'Kârlı ürün sadece yüksek fiyatlı ürün değildir; ürün maliyeti, komisyon, lojistik, reklam ve iade riski birlikte hesaplanmalıdır. Kesin bir kâr rakamı veya garanti verilemez, hesap ürüne göre değişir.',
+        },
+        {
+          question: 'Amazon ürün seçerken nelere dikkat edilmeli?',
+          answer:
+            'Talep, rekabet, yorum bariyeri, fiyat aralığı, kâr marjı, boyut/ağırlık ve tedarik kolaylığı birlikte değerlendirilmelidir. Tek bir kritere (örneğin sadece satış hacmine) bakmak risklidir.',
+        },
+        {
+          question: 'Yeni başlayanlar Amazon’da hangi ürünleri seçmeli?',
+          answer:
+            'Kesin bir öneri listesi yoktur; ancak çok ağır, aşırı rekabetli, düşük kâr marjlı veya yüksek iade riskli ürünlerden genellikle kaçınılması önerilir. Ürün seçimi işletmenin bütçesine ve kapasitesine göre değişir.',
+        },
+        {
+          question: 'Amazon ürün araştırmasında en sık yapılan hata nedir?',
+          answer:
+            'En sık hata, yalnızca çok satan ürünlere odaklanıp rekabet, maliyet ve lojistik faktörlerini göz ardı etmektir. Bu durum stok, reklam ve nakit akışı riskini artırabilir.',
+        },
+        {
+          question: 'Amazon’da ürün araştırması satış garantisi verir mi?',
+          answer:
+            'Hayır, ürün araştırması bir satış garantisi değildir; riskleri azaltmaya ve daha kontrollü karar vermeye yardımcı olan bir süreçtir. Sonuç; ürün, pazar ve operasyon yönetimine göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürün fikirlerinizi kategori, talep ve rekabet açısından ön elemeden geçirin',
+      'Boyut, ağırlık, kargo ve FBA/FBM uygunluğunu kontrol edin',
+      'Tedarik maliyeti, satış fiyatı, komisyon ve reklam riskini birlikte hesaplayın',
+      'Rakiplerin görsel, başlık, yorum ve fiyat yapısını analiz edin',
+      'En güçlü ürün adayları için test planı oluşturun',
+      'Ücretsiz analiz ile Amazon’a uygun ürünlerinizi birlikte değerlendirelim',
+    ],
+  },
 };
