@@ -5834,4 +5834,190 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon hesap sağlığı ve operasyon risklerinizi birlikte değerlendirelim',
     ],
   },
+
+  'amazon-hesabi-askiya-alinirsa-ne-yapilir': {
+    title: 'Amazon Hesabı Askıya Alınırsa Ne Yapılır?',
+    slug: 'amazon-hesabi-askiya-alinirsa-ne-yapilir',
+    excerpt:
+      'Amazon hesabı askıya alındığında panik yapmadan hangi alanların kontrol edilmesi, bildirimin nasıl okunması ve süreçle nasıl ilerlenmesi gerektiğini açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon hesabı askıya alınan veya Account Health uyarısı alan satıcılar',
+    searchIntent: 'amazon hesabı askıya alınırsa ne yapılır, amazon seller account suspended ne demek, amazon hesabım askıya alındı, amazon hesap askıya alma nedenleri, amazon appeal nasıl yazılır, amazon plan of action nedir, amazon hesabı nasıl geri açılır, amazon policy violation ne demek',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-24',
+    order: 34,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon hesabı askıya alındığında ilk yapılması gereken şey panik halinde rastgele itiraz göndermek değil; Amazon’un bildirimini, Account Health alanını, etkilenen ürünleri, performans verilerini, politika ihlali iddiasını ve istenen aksiyonları dikkatle incelemektir. Hesabın geri açılması garanti edilemez; süreç Amazon’un değerlendirmesine ve satıcının doğru, tutarlı ve belgeli yanıt vermesine bağlıdır.',
+    quickAnswer:
+      'Amazon hesabı askıya alınırsa önce Seller Central, Account Health ve Amazon’dan gelen performans bildirimi dikkatle okunmalıdır. Askıya alma nedeni, etkilenen ürünler, belge talepleri, politika ihlali veya performans sorunu netleştirilmeden itiraz gönderilmemelidir. Gerekirse tutarlı bir açıklama, kök neden analizi ve düzeltici aksiyon planı hazırlanmalıdır; ancak hesabın geri açılması garanti edilemez.',
+    whoShouldRead: [
+      'Amazon hesabı askıya alınan satıcılar',
+      'Account Health uyarısı alan işletmeler',
+      'Policy violation veya performans bildirimi gelen markalar',
+      'Amazon appeal veya Plan of Action hazırlamadan önce süreci anlamak isteyenler',
+      'Wholesale, Private Label, FBA veya FBM modeliyle satış yapan satıcılar',
+      'Amazon hesabı askıya alınmadan önce riskleri azaltmak isteyen işletmeler',
+    ],
+    expertNote:
+      'Amazon hesap askıya alma süreçlerinde en sık yapılan hata, bildirimi tam okumadan hızlı ve savunmacı bir itiraz göndermektir. Doğru yaklaşım; önce nedeni anlamak, etkilenen ürünleri belirlemek, kök nedeni analiz etmek, gerekli belgeleri hazırlamak ve aynı sorunun tekrar etmesini önleyecek operasyon düzeltmesini net şekilde açıklamaktır.',
+    expertNoteAfterHeading: 'Amazon appeal veya Plan of Action nedir?',
+    keyTakeaway:
+      'Amazon hesabı askıya alındığında amaç yalnızca “hesabı geri açtırmak” değil, Amazon’un işaret ettiği sorunun neden oluştuğunu anlamak ve tekrarını önleyecek sistemi kurmaktır. Eksik, panik halinde veya tutarsız itirazlar süreci zorlaştırabilir. Hesap geri açma garantisi verilmemelidir.',
+    nextReadingSlugs: [
+      'amazon-account-health-nedir',
+      'amazon-seller-central-nedir',
+      'amazon-seller-account-nasil-acilir',
+      'amazon-buy-box-nedir',
+      'amazon-fbm-mi-fba-mi',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle hesabının askıya alındığını, satışlarının durduğunu veya Account Health uyarısı aldığını fark eder. Bu durumda panik halinde işlem yapmak yerine Amazon’un bildirimini, Account Health alanını ve etkilenen ürün/siparişleri dikkatle incelemek önemlidir. Hesabın geri açılması garanti edilemez.',
+      },
+      {
+        heading: 'Amazon hesabı askıya alınması ne anlama gelir?',
+        body: '- Satıcı hesabının satış faaliyetlerinin kısmen veya tamamen sınırlandırılabileceği\n- Bunun performans, politika, ürün uygunluğu, belge, müşteri deneyimi veya başka değerlendirmelerle ilişkili olabileceği\n- Askıya alma durumunun hesap ve pazar yerine göre farklı sonuçlar doğurabileceği\n- Amazon’un bildirimlerinin ve Seller Central uyarılarının dikkatle okunması gerektiği\n- Kesin nedenin her zaman dışarıdan tahmin edilemeyeceği',
+      },
+      {
+        heading: 'Amazon hesabı askıya alınanlar için ilk kontrol alanları',
+        body: '- Amazon’dan gelen performans bildirimi veya e-posta\n- Seller Central içindeki Account Health alanı\n- Etkilenen ürünler, ASIN’ler veya siparişler\n- Politika ihlali, ürün uygunluğu veya belge talepleri\n- Müşteri şikayeti, iade, geç gönderim veya iptal sorunları\n- Fikri mülkiyet, marka veya içerik iddiaları\n- Daha önce gönderilen yanıtlar ve Amazon’un geri bildirimleri',
+      },
+      {
+        heading: 'Amazon hesabı neden askıya alınabilir?',
+        body: '- Politika ihlali iddiaları\n- Ürün uygunluğu veya belge eksikliği\n- Fikri mülkiyet / marka ihlali iddiaları\n- Müşteri şikayetleri\n- Geç gönderim, iptal veya sipariş performansı sorunları\n- Yanıltıcı ürün bilgisi veya uygunsuz listing içeriği\n- Ödeme, kimlik veya hesap doğrulama sorunları\n- Amazon’un güncel politikalarına göre farklı nedenler\n\nNedenler hesaba ve duruma göre değişebilir.',
+      },
+      {
+        heading: 'Amazon hesabı askıya alınırsa ne yapılmalı?',
+        body: '- Panik halinde hızlı itiraz gönderilmemeli\n- Amazon’dan gelen bildirim dikkatle okunmalı\n- Account Health alanı kontrol edilmeli\n- Etkilenen ürün, sipariş veya politika alanı belirlenmeli\n- Kök neden analiz edilmeli\n- Gerekli belge ve kanıtlar hazırlanmalı\n- Düzeltici ve önleyici aksiyonlar netleştirilmeli\n- Resmi Amazon süreci üzerinden yanıt verilmelidir',
+      },
+      {
+        heading: 'Amazon hesap askıya alma kontrol akışı',
+        body: 'Amazon bildirimi\n↓\nAccount Health kontrolü\n↓\nEtkilenen ürün / sipariş analizi\n↓\nAskıya alma nedeni\n↓\nKök neden analizi\n↓\nDüzeltici aksiyon\n↓\nÖnleyici aksiyon\n↓\nResmi yanıt / takip\n\nAskıya alma süreci yalnızca itiraz yazmak değildir. Amazon’un işaret ettiği sorunun neden oluştuğunu anlamak, düzeltmek ve tekrarını önleyecek sistemi kurmak gerekir.',
+      },
+      {
+        heading: 'Örnek Amazon Hesap Askıya Alma Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satış yapan bir işletme, hesabının askıya alındığını gördüğünde önce Seller Central’daki Account Health alanını ve Amazon’dan gelen performans bildirimini inceler. Etkilenen ürünleri, uyarının türünü, belge taleplerini ve operasyon geçmişini kontrol eder. Daha sonra kök nedeni, yapılan düzeltmeleri ve tekrarını önleyecek aksiyonları açık şekilde hazırlamaya çalışır. Bu senaryo hesap geri açma garantisi değil, askıya alma sürecini daha kontrollü yönetmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon appeal veya Plan of Action nedir?',
+        body: 'Amazon’a gönderilen açıklama, aksiyon planı veya itiraz süreci genel olarak bu şekilde adlandırılabilir. Kök neden, düzeltici aksiyon ve önleyici aksiyon mantığını içerir. Her durum kendine özel değerlendirilmelidir; hazır kopyala-yapıştır bir metin önerilmez. Bu süreç hesap açma veya itiraz kabulü garantisi vermez.',
+      },
+      {
+        heading: 'Askıya alma nedeni ve kontrol edilmesi gereken alanlar',
+        body: 'Politika ihlali\nNe kontrol edilmeli: Amazon bildirimi, ilgili politika, listing içeriği ve ürün bilgisi\nDikkat edilmesi gereken: Amazon’un güncel politika metinleri incelenmeli\n\nÜrün uygunluğu\nNe kontrol edilmeli: Ürün belgeleri, kategori gereklilikleri, güvenlik/uyum bilgileri\nDikkat edilmesi gereken: Gerekirse uzman desteği alınmalı\n\nFikri mülkiyet / marka iddiası\nNe kontrol edilmeli: Marka, telif, ürün kaynağı, fatura ve yetki belgeleri\nDikkat edilmesi gereken: Hukuki değerlendirme gerekebilir\n\nSipariş performansı\nNe kontrol edilmeli: Geç gönderim, iptal, teslimat sorunları, müşteri şikayetleri\nDikkat edilmesi gereken: FBA/FBM operasyon süreci düzeltilmeli\n\nBelge / kimlik doğrulama\nNe kontrol edilmeli: Hesap bilgileri, adres, kimlik, şirket/vergi ve ödeme bilgileri\nDikkat edilmesi gereken: Bilgilerin tutarlı olması gerekir\n\nYanıltıcı listing\nNe kontrol edilmeli: Başlık, görsel, açıklama, iddialar ve ürün gerçekliği\nDikkat edilmesi gereken: Ürün gerçeğiyle uyuşmayan içerikler risk oluşturabilir',
+      },
+      {
+        heading: 'Amazon’dan gelen bildirimi nasıl okumak gerekir?',
+        body: '- Bildirimdeki ana nedeni ve istenen aksiyonu ayırmak\n- Etkilenen ürün, ASIN veya siparişi belirlemek\n- Amazon’un istediği belge veya açıklamayı anlamak\n- Genel cevap vermek yerine bildirimdeki konuya odaklanmak\n- Aynı konuda daha önce yanıt verildiyse geçmiş cevapları kontrol etmek',
+      },
+      {
+        heading: 'Amazon hesabı askıya alındığında yeni hesap açmak doğru mu?',
+        body: 'Askıya alma nedeni çözülmeden yeni hesap açmaya çalışmak riskli olabilir. Bu rehber, Amazon politikalarını aşmaya yönelik herhangi bir tavsiye içermez; resmi süreçten ve mevcut hesap bildirimi üzerinden ilerlenmesi önerilir. Bu konuda kesin hukuki veya platform tavsiyesi verilmez; kullanıcıların resmi Amazon kaynaklarını kontrol etmesi gerekir.',
+      },
+      {
+        heading: 'Amazon hesabı askıya alınmadan önce nasıl önlem alınabilir?',
+        body: '- Account Health düzenli kontrol edilmeli\n- Listing içerikleri ürün gerçeğiyle uyumlu olmalı\n- Ürün belgeleri ve uygunluk süreçleri takip edilmeli\n- FBM gönderim performansı izlenmeli\n- Müşteri şikayetleri ve iadeler analiz edilmeli\n- Fatura, tedarik ve ürün kaynağı belgeleri düzenli tutulmalı\n- Amazon politika değişiklikleri takip edilmeli\n- Aynı hata tekrarını önleyecek operasyon sistemi kurulmalı',
+      },
+      {
+        heading: 'İlk 7 gün Amazon hesap askıya alma kontrol planı',
+        body: '1. gün: Amazon bildirimi ve Account Health alanını dikkatle inceleme\n2. gün: etkilenen ürün, sipariş, belge veya politika alanını belirleme\n3. gün: kök neden ve operasyon hatasını analiz etme\n4. gün: düzeltici aksiyonları ve gerekli belgeleri hazırlama\n5. gün: tekrarını önleyecek süreçleri yazılı hale getirme\n6. gün: resmi Amazon yanıtını kısa, net ve tutarlı hazırlama\n7. gün: yanıt sonrası takip ve operasyon kontrol planı oluşturma',
+      },
+      {
+        heading: 'Amazon hesap askıya alma sürecinde en sık yapılan hatalar nelerdir?',
+        body: '- Bildirimi tam okumadan itiraz göndermek\n- Savunmacı veya suçlayıcı dil kullanmak\n- Kök nedeni açıklamamak\n- Yalnızca “bir daha olmayacak” demek\n- Belgeleri eksik veya tutarsız göndermek\n- Aynı hatanın tekrarını önleyecek aksiyon yazmamak\n- Yeni hesap açmayı çözüm sanmak\n- Amazon’un resmi süreci dışında riskli yollar aramak',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon hesabı askıya alındığında panikle hızlı bir itiraz göndermektir. Doğru yaklaşım önce nedeni anlamak, sonra kök neden, düzeltici aksiyon ve önleyici aksiyonları tutarlı şekilde hazırlamaktır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon hesabı askıya alınan veya Account Health riski yaşayan markaların Amazon bildirimlerini, etkilenen ürünlerini, listing ve operasyon yapısını, belge ve tedarik süreçlerini, FBA/FBM performansını ve hesap sağlığı risklerini birlikte analiz ederek daha kontrollü bir aksiyon planı oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Panikle İtiraz mı, Sistemli Amazon Hesap Analizi mi?',
+      headers: ['Kriter', 'Panikle İtiraz', 'Sistemli Hesap Analizi'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Bildirim tam okunmadan hızlı cevap verilir', company: 'Önce uyarı, Account Health ve etkilenen ürünler incelenir' },
+        { criterion: 'Neden', individual: 'Sorunun kök nedeni net değildir', company: 'Politika, belge, performans veya ürün uygunluğu nedeni ayrıştırılır' },
+        { criterion: 'Aksiyon', individual: 'Genel ve savunmacı açıklama yapılabilir', company: 'Düzeltici ve önleyici aksiyonlar netleştirilir' },
+        { criterion: 'Risk', individual: 'Eksik veya tutarsız yanıt süreci zorlaştırabilir', company: 'Daha tutarlı ve belgeli yanıt hazırlanabilir' },
+        { criterion: 'Sonuç', individual: 'Hesap geri açma garantisi yine yoktur, risk artabilir', company: 'Süreç daha kontrollü yönetilir, ancak sonuç Amazon değerlendirmesine bağlıdır' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon hesabı askıya alındığında kontrol listesi',
+      items: [
+        'Amazon’dan gelen bildirim tam okundu mu?',
+        'Account Health alanı kontrol edildi mi?',
+        'Etkilenen ürün, ASIN veya sipariş belirlendi mi?',
+        'Askıya alma nedeni netleştirildi mi?',
+        'Kök neden analizi yapıldı mı?',
+        'Gerekli belge, fatura veya kanıtlar hazırlandı mı?',
+        'Düzeltici aksiyonlar belirlendi mi?',
+        'Önleyici aksiyonlar yazılı hale getirildi mi?',
+        'Yeni hesap veya politika aşma gibi riskli yollardan kaçınıldı mı?',
+        'Resmi Amazon süreci üzerinden takip planı oluşturuldu mu?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon hesabı neden askıya alınır?',
+          answer:
+            'Politika ihlali iddiaları, ürün uygunluğu sorunları, fikri mülkiyet iddiaları, müşteri şikayetleri veya sipariş performansı sorunları gibi birden fazla neden olabilir. Kesin neden hesaba ve duruma göre değişir.',
+        },
+        {
+          question: 'Amazon hesabı askıya alınırsa ne yapılmalı?',
+          answer:
+            'Önce Amazon’dan gelen bildirim ve Account Health alanı dikkatle incelenmeli, etkilenen ürün ve neden netleştirilmelidir. Kök neden analizi yapılıp düzeltici/önleyici aksiyonlar belgeyle desteklenerek resmi süreç üzerinden iletilmelidir.',
+        },
+        {
+          question: 'Amazon appeal nedir?',
+          answer:
+            'Amazon appeal, satıcının askıya alma nedenine karşı Amazon’a gönderdiği açıklama veya itiraz sürecidir. Hazır bir şablon yerine duruma özel, kök nedeni ve düzeltici aksiyonu açıklayan bir yanıt hazırlanması önerilir.',
+        },
+        {
+          question: 'Amazon Plan of Action nedir?',
+          answer:
+            'Plan of Action, sorunun nedenini, yapılan düzeltmeleri ve tekrarını önleyecek aksiyonları açıklayan bir aksiyon planıdır. Bu plan hesabın geri açılacağı garantisini vermez.',
+        },
+        {
+          question: 'Amazon hesabı kesin geri açılır mı?',
+          answer:
+            'Hayır, kesin bir geri açılma garantisi verilemez; sonuç Amazon’un değerlendirmesine, sunulan belgelere ve sürecin tutarlılığına bağlıdır. Sistemli bir yaklaşım süreci daha kontrollü hale getirebilir.',
+        },
+        {
+          question: 'Amazon hesabı askıya alındığında yeni hesap açılır mı?',
+          answer:
+            'Askıya alma nedeni çözülmeden yeni hesap açmaya çalışmak riskli olabilir ve önerilmez. Resmi süreçten ve mevcut hesap bildirimi üzerinden ilerlenmesi gerekir.',
+        },
+        {
+          question: 'Amazon Account Health uyarısı hesap askıya alma anlamına mı gelir?',
+          answer:
+            'Hayır, her Account Health uyarısı kesin bir askıya alma anlamına gelmez; ancak uyarılar erken fark edilip düzenli takip edilmelidir. Bağlam ve Amazon’un güncel değerlendirmesi önemlidir.',
+        },
+        {
+          question: 'Amazon hesabı askıya alınmaması için ne yapılmalı?',
+          answer:
+            'Account Health’in düzenli kontrol edilmesi, listing içeriklerinin ürün gerçeğiyle uyumlu olması ve sipariş/müşteri deneyimi performansının takip edilmesi önerilir. Kesin bir önleme garantisi verilemez.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Amazon’dan gelen bildirimi ve Account Health uyarılarını dikkatle okuyun',
+      'Askıya alma nedenini ve etkilenen ürünleri netleştirin',
+      'Kök neden, düzeltici aksiyon ve önleyici aksiyon planı hazırlayın',
+      'Gerekli belge, fatura, ürün uygunluk veya operasyon kanıtlarını kontrol edin',
+      'Panikle yeni hesap açmak veya politika aşmaya çalışmak yerine resmi süreçten ilerleyin',
+      'Ücretsiz analiz ile Amazon hesap sağlığı ve askıya alma riskinizi birlikte değerlendirelim',
+    ],
+  },
 };
