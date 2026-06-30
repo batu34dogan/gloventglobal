@@ -3372,12 +3372,20 @@ export const guides: Record<string, Guide> = {
         body: '- Ürün fikirleri toplanır\n- Kategori ve pazar uygunluğu kontrol edilir\n- Rakipler incelenir\n- Fiyat ve kâr marjı hesaplanır\n- Ürün boyutu, ağırlığı ve kargo yapısı değerlendirilir\n- Reklam ihtiyacı ve rekabet seviyesi düşünülür\n- Ürünler elenir ve test edilebilir adaylar seçilir',
       },
       {
+        heading: 'Amazon ürün araştırması nasıl bir akışla yapılmalı?',
+        body: 'Kategori seçimi\n↓\nTalep kontrolü\n↓\nRekabet analizi\n↓\nFiyat ve kâr marjı hesabı\n↓\nLojistik / FBA-FBM uygunluğu\n↓\nTedarik ve stok planı\n↓\nTest edilecek ürün adayları\n\nAmazon’da ürün araştırması tek bir veriye bakılarak yapılmaz. Talep, rekabet, maliyet, lojistik ve tedarik birlikte değerlendirildiğinde daha kontrollü ürün adayları belirlenebilir.',
+      },
+      {
         heading: 'Örnek Amazon Ürün Araştırması Senaryosu',
         body: 'Örnek senaryo: Amazon’da satışa başlamak isteyen bir marka, ilk etapta 10 ürün fikrini talep, rekabet, yorum sayısı, fiyat aralığı, boyut, ağırlık, tedarik maliyeti, kargo yapısı ve reklam ihtiyacı açısından değerlendirir. Bu ön elemeden sonra yalnızca güçlü görünen 2–3 ürün için daha detaylı maliyet, listeleme ve lansman planı hazırlanır. Bu senaryo satış garantisi değil, Amazon ürün araştırmasını daha kontrollü yapmak için örnek bir yaklaşımdır.',
       },
       {
         heading: 'Amazon ürün araştırmasında hangi kriterlere bakılır?',
         body: '- Talep seviyesi\n- Rekabet seviyesi\n- Yorum sayısı ve yorum kalitesi\n- Fiyat aralığı\n- Kâr marjı\n- Ürün boyutu ve ağırlığı\n- Tedarik kolaylığı\n- FBA/FBM uygunluğu\n- Reklam ihtiyacı\n- İade ve hasar riski\n- Mevsimsellik\n- Marka ve farklılaşma potansiyeli',
+      },
+      {
+        heading: 'Amazon ürün araştırmasında hangi araçlar kullanılabilir?',
+        body: '- Amazon arama sonuçları\n- Amazon Best Sellers / kategori sayfaları\n- Keepa\n- Helium 10\n- Jungle Scout\n- SellerSprite\n- Google Trends\n- Rakip ürün sayfaları\n- Reklam ve anahtar kelime verileri\n\nBu araçlar karar vermeye yardımcı olabilir; ancak hiçbir araç tek başına kesin ürün seçimi sağlamaz. Araçlardan gelen veriler maliyet, rekabet, tedarik, lojistik ve operasyon kapasitesiyle birlikte değerlendirilmelidir.',
       },
       {
         heading: 'Amazon’da kârlı ürün nasıl düşünülmeli?',
