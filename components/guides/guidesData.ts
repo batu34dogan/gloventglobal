@@ -2846,4 +2846,171 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon FBA’ya hazır olup olmadığınızı birlikte değerlendirin',
     ],
   },
+
+  'amazon-fbm-mi-fba-mi': {
+    title: 'Amazon FBM mi FBA mı?',
+    slug: 'amazon-fbm-mi-fba-mi',
+    excerpt:
+      'Amazon’da siparişleri Amazon deposu üzerinden mi (FBA) yoksa kendi lojistik yapınızla mı (FBM) yöneteceğinizi; ürün, maliyet, stok ve operasyon kapasitesine göre nasıl karar vereceğinizi açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da FBA mı FBM mi kararını vermeye çalışan satıcılar',
+    searchIntent: 'amazon fbm mi fba mı, amazon fba ve fbm farkı nedir, amazon fbm nedir, amazon fba mı daha iyi fbm mi, amazon da ürünleri kendim mi göndermeliyim, amazon yeni başlayanlar için fba mı fbm mi, amazon lojistik modeli nasıl seçilir, amazon fba dan fbm ye geçilir mi',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-10',
+    order: 19,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon’da FBA ve FBM, satıcının siparişleri nasıl yöneteceğini belirleyen iki farklı lojistik modelidir. FBA’da ürünler Amazon depolarına gönderilir ve siparişlerin hazırlanması, paketlenmesi ve gönderimi Amazon tarafından yönetilir. FBM’de ise satıcı siparişleri kendi deposu, tedarikçisi veya lojistik yapısıyla gönderir. Hangi modelin daha mantıklı olduğu ürün tipi, stok, maliyet, teslimat beklentisi, ülke ve operasyon kapasitesine göre değişir.',
+    quickAnswer:
+      'Amazon FBA, lojistiğin Amazon depoları üzerinden yönetildiği modeldir; FBM ise siparişlerin satıcı tarafından gönderildiği modeldir. FBA lojistik kolaylık ve Prime avantajı sağlayabilir; FBM ise stok ve gönderim üzerinde daha fazla kontrol sunabilir. Doğru seçim ürünün boyutu, ağırlığı, maliyeti, satış hacmi, iade riski ve satıcının operasyon gücüne göre yapılmalıdır.',
+    whoShouldRead: [
+      'Amazon’da satışa yeni başlayacak satıcılar',
+      'FBA mı FBM mi kararını vermeye çalışan markalar',
+      'Ürününü Amazon deposuna göndermeden önce maliyetleri anlamak isteyenler',
+      'Kendi kargo operasyonu olan işletmeler',
+      'Private Label, Wholesale veya çok kanallı satış modeli düşünenler',
+      'Global pazarda Amazon lojistik modelini doğru seçmek isteyen üretici ve markalar',
+    ],
+    expertNote:
+      'Amazon’da FBA mı FBM mi kararında en sık yapılan hata, sadece kargo maliyetine bakmaktır. Doğru karar; ürün boyutu, ağırlık, satış hızı, stok riski, iade oranı, müşteri beklentisi, teslimat süresi, depolama maliyeti ve operasyon kapasitesi birlikte değerlendirilerek verilmelidir.',
+    expertNoteAfterHeading: 'FBA ve FBM maliyetleri nasıl karşılaştırılmalı?',
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da satış yapmak ister ama siparişleri Amazon deposu üzerinden mi yoksa kendi lojistik yapısıyla mı yönetmesi gerektiğini bilmez. FBA ve FBM sadece bir kargo tercihi değil; maliyet, stok, teslimat, müşteri deneyimi ve operasyon kararıdır.',
+      },
+      {
+        heading: 'Amazon FBA nedir?',
+        body: '- Fulfillment by Amazon anlamına geldiği\n- Ürünlerin Amazon depolarına gönderildiği\n- Sipariş hazırlama, paketleme ve gönderimin Amazon tarafından yönetildiği\n- Satıcının yine ürün, listeleme, fiyat, stok, reklam ve performanstan sorumlu olduğu',
+      },
+      {
+        heading: 'Amazon FBM nedir?',
+        body: '- Fulfillment by Merchant anlamına geldiği\n- Siparişleri satıcının kendi deposu, tedarikçisi veya lojistik yapısıyla göndermesi\n- Satıcının paketleme, kargo, teslimat, müşteri iletişimi ve iade sürecinde daha fazla sorumluluk alması\n- Operasyon kontrolü sağlasa da daha fazla iş yükü getirebileceği',
+      },
+      {
+        heading: 'Amazon FBA ve FBM arasındaki fark nedir?',
+        body: '- FBA’da lojistik Amazon depoları üzerinden yürür\n- FBM’de lojistik satıcı tarafından yönetilir\n- FBA’da depolama ve işlem ücretleri dikkate alınır\n- FBM’de kargo, paketleme, teslimat ve müşteri deneyimi satıcı tarafından yönetilir\n- FBA ve FBM kararı ürün, maliyet, ülke ve operasyon kapasitesine göre değişir',
+      },
+      {
+        heading: 'Örnek FBA / FBM Karar Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satışa başlamak isteyen bir marka, 10 ürün fikrini boyut, ağırlık, tahmini satış hızı, kargo maliyeti, iade riski ve stok yönetimi açısından değerlendirir. Küçük, hızlı satma potansiyeli olan ve standart paketlenebilen ürünlerde FBA seçeneği daha dikkatli incelenebilir; özel paketleme veya düşük hacimli ürünlerde FBM modeli değerlendirilebilir. Bu senaryo kesin karar değil, FBA ve FBM arasında daha kontrollü düşünmek için örnek bir yaklaşım sunar.',
+      },
+      {
+        heading: 'Amazon FBA hangi durumlarda daha mantıklı olabilir?',
+        body: '- Ürün küçük, standart ve gönderime uygunsa\n- Stoklu satış planı varsa\n- Hızlı teslimat müşteri beklentisi için önemliyse\n- Satıcı lojistik operasyonunu Amazon’a devretmek istiyorsa\n- Kâr marjı FBA maliyetlerini karşılayabiliyorsa\n- Ürün iade ve hasar riski yönetilebilir seviyedeyse',
+      },
+      {
+        heading: 'Amazon FBM hangi durumlarda daha mantıklı olabilir?',
+        body: '- Satıcının kendi güçlü kargo/depo altyapısı varsa\n- Ürün özel paketleme gerektiriyorsa\n- Ürün düşük hacimli veya test aşamasındaysa\n- FBA depolama maliyeti riskli görünüyorsa\n- Satıcı stok ve teslimat üzerinde daha fazla kontrol istiyorsa\n- Ürün boyutu, ağırlığı veya iade riski FBA için dezavantaj oluşturuyorsa',
+      },
+      {
+        heading: 'Yeni başlayanlar için FBA mı FBM mi?',
+        body: 'Yeni başlayanlar için tek doğru model yoktur. FBA lojistik kolaylık sağlayabilir ama ürün ve maliyet hesabı doğru yapılmazsa risk oluşturabilir. FBM daha fazla kontrol sağlayabilir ama operasyon yükünü artırır. Başlangıç kararı ürün seçimi, bütçe, hedef ülke ve operasyon kapasitesine göre verilmelidir.',
+      },
+      {
+        heading: 'FBA ve FBM maliyetleri nasıl karşılaştırılmalı?',
+        body: 'Kesin ücret rakamı vermek doğru değildir. Amazon ücretleri ülkeye, kategoriye, ürün boyutuna, ağırlığa ve güncel politika/ücret yapısına göre değişebilir.\n\n- Ürün maliyeti\n- Amazon komisyonları\n- FBA işlem ve depolama maliyetleri\n- FBM kargo ve paketleme maliyetleri\n- İade ve hasar riski\n- Reklam maliyeti\n- Nakit akışı ve stok maliyeti\n- Vergi/gümrük/uyum süreçleri için uzman kontrolü',
+      },
+      {
+        heading: 'FBA ve FBM müşteri deneyimini nasıl etkiler?',
+        body: 'Teslimat süresi, takip bilgisi, paketleme kalitesi, iade süreci ve müşteri iletişimi müşteri deneyimini etkiler. FBA bu sürecin bir kısmını Amazon altyapısıyla yönetebilir. FBM’de bu alanların daha büyük kısmı satıcının sorumluluğunda olur.',
+      },
+      {
+        heading: 'FBA’dan FBM’ye veya FBM’den FBA’ya geçilebilir mi?',
+        body: 'Satıcılar ürün ve operasyon durumuna göre farklı dönemlerde FBA, FBM veya hibrit model kullanabilir. Ancak geçişlerde stok, listeleme, kargo süreci, teslimat beklentisi ve maliyet yapısı dikkatle kontrol edilmelidir. Plansız geçiş müşteri deneyimi ve kârlılığı etkileyebilir.',
+      },
+      {
+        heading: 'Amazon’da hibrit model mantıklı mı?',
+        body: 'Bazı satıcılar ürün bazında FBA ve FBM’i birlikte değerlendirebilir. Hızlı dönen ürünler için FBA, test edilen veya özel paketleme isteyen ürünler için FBM düşünülebilir. Ancak hibrit yapı daha fazla takip ve operasyon disiplini gerektirir.',
+      },
+      {
+        heading: 'İlk 30 gün FBA / FBM karar planı',
+        body: '1. hafta: ürünlerin boyut, ağırlık ve paketleme yapısını kontrol etme\n2. hafta: FBA ve FBM için maliyet kalemlerini ayrı ayrı çıkarma\n3. hafta: hedef pazar, teslimat beklentisi ve müşteri deneyimini değerlendirme\n4. hafta: en uygun ürünler için lojistik modeli seçip test planı hazırlama',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon’da FBA mı FBM mi kararını yalnızca “hangisi daha ucuz?” sorusuna indirgemektir. Doğru karar, ürünün satılabilirliği, maliyeti, stok riski, müşteri beklentisi ve satıcının operasyon gücü birlikte değerlendirilerek verilmelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapmak isteyen markaların ürün yapısını, hedef pazarını, FBA/FBM maliyetlerini, stok planını, teslimat beklentisini ve operasyon kapasitesini birlikte analiz ederek hangi lojistik modelin daha kontrollü ilerleyebileceğini belirlemeye yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Amazon FBA mı, FBM mi?',
+      headers: ['Kriter', 'FBA', 'FBM'],
+      rows: [
+        { criterion: 'Lojistik', individual: 'Amazon depoları ve gönderim altyapısı kullanılır', company: 'Sipariş gönderimi satıcı tarafından yönetilir' },
+        { criterion: 'Stok', individual: 'Stok Amazon depolarında tutulur', company: 'Stok satıcının kendi deposunda veya tedarik yapısında kalır' },
+        { criterion: 'Operasyon', individual: 'Sipariş hazırlama yükünü azaltabilir', company: 'Satıcı daha fazla operasyon sorumluluğu alır' },
+        { criterion: 'Maliyet', individual: 'FBA işlem ve depolama ücretleri dikkate alınır', company: 'Kargo, paketleme ve operasyon maliyetleri satıcı tarafından yönetilir' },
+        { criterion: 'Kontrol', individual: 'Teslimat sürecinin önemli kısmı Amazon altyapısına bağlıdır', company: 'Paketleme, gönderim ve müşteri deneyiminde satıcının kontrolü daha fazladır' },
+        { criterion: 'Uygunluk', individual: 'Stoklu, standart ve hızlı teslimata uygun ürünlerde değerlendirilebilir', company: 'Özel paketleme, düşük hacim, test veya farklı lojistik ihtiyacı olan ürünlerde değerlendirilebilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon FBA mı FBM mi kararından önce kontrol listesi',
+      items: [
+        'Ürün boyutu ve ağırlığı kontrol edildi mi?',
+        'Ürün standart paketlemeye uygun mu?',
+        'FBA maliyetleri güncel kaynaklardan kontrol edildi mi?',
+        'FBM için kargo ve paketleme kapasiteniz var mı?',
+        'Hedef pazarda teslimat beklentisi ne?',
+        'Ürün stok riski taşıyor mu?',
+        'İade ve hasar ihtimali değerlendirildi mi?',
+        'Kâr marjı her iki model için ayrı hesaplandı mı?',
+        'Hibrit model ürün bazında değerlendirildi mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon FBM nedir?',
+          answer:
+            'Amazon FBM (Fulfillment by Merchant), satıcının siparişleri kendi deposu, tedarikçisi veya lojistik yapısıyla gönderdiği modeldir. Satıcı paketleme, kargo, teslimat ve müşteri iletişiminde daha fazla sorumluluk alır.',
+        },
+        {
+          question: 'Amazon FBA ve FBM farkı nedir?',
+          answer:
+            'FBA’da lojistik Amazon depoları üzerinden yürürken, FBM’de lojistik satıcı tarafından yönetilir. Hangisinin daha uygun olduğu ürün tipi, maliyet, stok yapısı ve operasyon kapasitesine göre değişir.',
+        },
+        {
+          question: 'Amazon FBA mı FBM mi daha iyi?',
+          answer:
+            'Kesin bir doğru cevap yoktur; her iki model de farklı avantaj ve sorumluluklar getirir. Karar, ürünün boyutu, satış hızı, stok riski ve satıcının operasyon gücüne göre değerlendirilmelidir.',
+        },
+        {
+          question: 'Yeni başlayanlar için FBA mı FBM mi?',
+          answer:
+            'Yeni başlayanlar için tek doğru model yoktur; FBA lojistik kolaylık sağlayabilir ama maliyet hesabı doğru yapılmazsa risk oluşturabilir, FBM ise daha fazla kontrol sağlar ama operasyon yükünü artırır. Karar, ürün ve bütçeye göre verilmelidir.',
+        },
+        {
+          question: 'Amazon FBM ile satış yapmak mantıklı mı?',
+          answer:
+            'Bu, satıcının kendi kargo/depo altyapısına, ürün tipine ve stok kontrolü isteğine göre değişir. Özel paketleme gerektiren veya düşük hacimli ürünlerde FBM bazen daha mantıklı görünebilir.',
+        },
+        {
+          question: 'FBA’dan FBM’ye geçilebilir mi?',
+          answer:
+            'Evet, satıcılar ürün ve operasyon durumuna göre farklı dönemlerde model değiştirebilir. Ancak geçişlerde stok, listeleme, kargo süreci ve maliyet yapısının dikkatle kontrol edilmesi önerilir.',
+        },
+        {
+          question: 'Amazon’da hibrit lojistik modeli kullanılabilir mi?',
+          answer:
+            'Evet, bazı satıcılar ürün bazında FBA ve FBM’i birlikte değerlendirebilir. Ancak bu yapı daha fazla takip ve operasyon disiplini gerektirir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürününüzün boyut, ağırlık ve paketleme yapısını değerlendirin',
+      'FBA ve FBM için tahmini maliyet kalemlerini ayrı ayrı çıkarın',
+      'Kargo, stok, iade ve müşteri hizmetleri kapasitenizi kontrol edin',
+      'Hedef pazar ve teslimat beklentisine göre hangi modelin daha mantıklı olduğunu analiz edin',
+      'Ücretsiz analiz ile Amazon lojistik modelinizin FBA mı FBM mi olması gerektiğini birlikte değerlendirin',
+    ],
+  },
 };
