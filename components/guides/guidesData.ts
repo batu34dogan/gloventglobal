@@ -3112,4 +3112,186 @@ export const guides: Record<string, Guide> = {
       'e-ticarette-operasyon-sistemi-nasil-kurulur',
     ],
   },
+
+  'amazon-ppc-nasil-calisir': {
+    title: 'Amazon PPC Nasıl Çalışır?',
+    slug: 'amazon-ppc-nasil-calisir',
+    excerpt:
+      'Amazon PPC’nin ne olduğunu, nasıl çalıştığını, hangi metriklerin takip edilmesi gerektiğini ve reklam bütçesinin nasıl daha kontrollü yönetilebileceğini açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon reklamlarının nasıl çalıştığını öğrenmek isteyen satıcılar',
+    searchIntent: 'amazon ppc nedir, amazon ppc nasıl çalışır, amazon reklamları nasıl çalışır, amazon sponsored products nedir, amazon da reklam nasıl verilir, amazon ppc bütçesi nasıl belirlenir, amazon acos nedir, amazon roas nedir, amazon ppc kampanya türleri nelerdir, amazon reklamları satış getirir mi',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-13',
+    order: 20,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon PPC, satıcıların Amazon içinde ürünlerini daha görünür hale getirmek için tıklama başına ödeme yaptığı reklam modelidir. Sponsored Products gibi reklam türleriyle ürünler arama sonuçlarında veya ürün detay sayfalarında gösterilebilir. Ancak Amazon PPC tek başına satış garantisi değildir; listeleme kalitesi, ürün fiyatı, görseller, yorumlar, rekabet, anahtar kelime seçimi, bütçe ve stok durumu birlikte değerlendirilmelidir.',
+    quickAnswer:
+      'Amazon PPC, “pay-per-click” yani tıklama başına ödeme modelidir. Satıcı reklam kampanyası oluşturur, ürünleri belirli anahtar kelimeler veya hedeflemeler üzerinden görünür hale gelir ve kullanıcı reklama tıkladığında bütçeden harcama yapılır. PPC doğru yönetildiğinde görünürlük ve veri sağlayabilir; ancak zayıf listeleme, yanlış ürün seçimi veya kontrolsüz bütçe ile kârlılık riski oluşturabilir.',
+    whoShouldRead: [
+      'Amazon’da satış yapan veya satışa başlamayı planlayan satıcılar',
+      'Amazon reklamlarının nasıl çalıştığını öğrenmek isteyenler',
+      'PPC bütçesini daha kontrollü kullanmak isteyen markalar',
+      'ACOS, ROAS, CTR, CPC gibi metrikleri anlamak isteyenler',
+      'Ürün lansmanı, görünürlük ve satış verisi toplama sürecini planlayanlar',
+      'Amazon’da reklam açmadan önce listeleme kalitesini kontrol etmek isteyen işletmeler',
+    ],
+    expertNote:
+      'Amazon PPC’de en sık yapılan hata, reklamı satış garantisi gibi görmektir. Reklam yalnızca ürüne trafik getirir; satışa dönüşüm ise ürün fotoğrafı, başlık, fiyat, yorum sayısı, açıklama, rekabet ve güven unsurlarıyla birlikte oluşur. Bu yüzden reklamdan önce listeleme kalitesi ve kârlılık hesabı kontrol edilmelidir.',
+    expertNoteAfterHeading: 'ACOS ve ROAS ne anlama gelir?',
+    keyTakeaway:
+      'Amazon PPC zayıf bir listelemeyi tek başına kârlı hale getirmez. Fotoğraf, başlık, fiyat, açıklama, yorum, stok, kargo modeli ve ürün-pazar uyumu zayıfsa reklam bütçesi tıklama üretse bile satışa dönüşmeyebilir. Reklam bütçesi harcamadan önce ürün sayfası ve kârlılık hesabı birlikte değerlendirilmelidir.',
+    nextReadingSlugs: [
+      'amazon-fba-nedir',
+      'amazon-fbm-mi-fba-mi',
+      'amazonda-satis-yapmak-icin-sirket-gerekir-mi',
+      'turkiyeden-yurtdisina-urun-satmak-icin-nereden-baslamali',
+      'e-ticarette-dijital-pazarlama-nasil-yapilir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da ürünlerini daha görünür yapmak ister ama reklam bütçesinin nasıl harcanacağını, neyin ölçüleceğini ve PPC’nin satışa nasıl etki ettiğini bilmez. PPC reklamla trafik sağlayabilir; ancak listeleme kalitesi, ürün fiyatı, rekabet, yorumlar ve stok yapısı zayıfsa tek başına satış garantisi değildir.',
+      },
+      {
+        heading: 'Amazon PPC nedir?',
+        body: '- PPC’nin pay-per-click anlamına geldiği\n- Satıcının tıklama başına ödeme yaptığı\n- Reklamların Amazon arama sonuçlarında veya ürün detay sayfalarında görünebildiği\n- En bilinen yapılardan birinin Sponsored Products olduğu\n- PPC’nin görünürlük, veri toplama ve satış destekleme amacıyla kullanıldığı',
+      },
+      {
+        heading: 'Amazon PPC nasıl çalışır?',
+        body: '- Satıcı reklam kampanyası oluşturur\n- Reklam verilecek ürün seçilir\n- Anahtar kelime veya hedefleme belirlenir\n- Günlük bütçe ve teklif mantığı ayarlanır\n- Kullanıcı reklama tıklarsa bütçeden harcama yapılır\n- Satıcı performans verilerini takip ederek kampanyayı optimize eder',
+      },
+      {
+        heading: 'Örnek Amazon PPC Senaryosu',
+        body: 'Örnek senaryo: Amazon’da yeni bir ürün listeleyen marka, ilk aşamada 10–20 temel anahtar kelimeyi belirleyerek düşük ve kontrollü bütçeyle reklam verisi toplamaya başlar. İlk günlerde amaç doğrudan yüksek satış beklemek değil; hangi arama terimlerinin tıklama aldığını, hangilerinin dönüşüm sağladığını ve hangi kelimelerin bütçe tükettiğini anlamaktır. Bu senaryo satış garantisi değil, Amazon PPC sürecine daha kontrollü başlamak için örnek bir yaklaşım sunar.',
+      },
+      {
+        heading: 'Amazon reklamları ne işe yarar?',
+        body: '- Ürünün görünürlüğünü artırabilir\n- Yeni ürünlerde veri toplamaya yardımcı olabilir\n- Hangi kelimelerden trafik geldiğini gösterebilir\n- Rekabet yoğun kategorilerde görünürlük desteği sağlayabilir\n- Organik performansı anlamak için veri sunabilir\n- Ancak ürün zayıfsa reklam tek başına yeterli olmaz',
+      },
+      {
+        heading: 'Amazon PPC kampanya türleri nelerdir?',
+        body: '- Sponsored Products\n- Sponsored Brands\n- Sponsored Display',
+      },
+      {
+        heading: 'Amazon PPC’de hangi metrikler takip edilmeli?',
+        body: '- CTR: Reklamın gösterime göre tıklanma oranı\n- CPC: Bir tıklamanın ortalama maliyeti\n- ACOS: Reklam harcamasının reklama bağlı satışa oranı\n- ROAS: Reklam harcamasına karşı elde edilen satış oranı\n- Conversion Rate: Tıklayan kullanıcıların ne kadarının satın aldığı\n- Spend: Harcanan reklam bütçesi\n- Sales: Reklam kaynaklı satış\n- Search Terms: Reklamın hangi aramalarda harcama yaptığı',
+      },
+      {
+        heading: 'ACOS ve ROAS ne anlama gelir?',
+        body: 'ACOS, reklam harcaması / reklam satışları mantığıyla yorumlanır. ROAS ise reklam satışları / reklam harcaması mantığıyla yorumlanır. İyi veya kötü seviye; ürün marjı, kategori, kampanya amacı ve lansman dönemine göre değişir. Tek başına ACOS’a bakarak karar verilmemelidir.',
+      },
+      {
+        heading: 'Amazon PPC bütçesi nasıl düşünülmeli?',
+        body: '- Bütçe ürün fiyatı, kâr marjı, rekabet, hedef ülke ve kampanya amacına göre düşünülmeli\n- İlk aşamada amaç veri toplama olabilir\n- Kontrolsüz bütçe, zayıf listelemede hızlı zarar oluşturabilir\n- Günlük bütçe, teklif ve negatif kelime kontrolü birlikte yönetilmeli\n- Reklam bütçesi ürün kârlılığıyla birlikte hesaplanmalı',
+      },
+      {
+        heading: 'Amazon PPC satış getirir mi?',
+        body: 'Amazon PPC satışa katkı sağlayabilir ama satış garantisi değildir. Kullanıcı reklama tıklasa bile ürün sayfası güven vermiyorsa, fiyat rekabetçi değilse, görseller zayıfsa, yorum yoksa veya ürün ihtiyaca uymuyorsa satış gerçekleşmeyebilir. PPC trafik getirir; dönüşüm listeleme ve ürün gücüyle ilgilidir.',
+      },
+      {
+        heading: 'Amazon PPC’ye başlamadan önce ne kontrol edilmeli?',
+        body: '- Ürün başlığı yeterince açık mı?\n- Ana görsel güçlü mü?\n- Ürün açıklaması ve bullet point’ler net mi?\n- Fiyat rekabetçi mi?\n- Stok yeterli mi?\n- Kargo modeli net mi?\n- Ürün yorumları veya mağaza güveni yeterli mi?\n- Kâr marjı reklam harcamasını kaldırabiliyor mu?\n- Rakip ürünlerin görsel, fiyat ve yorum durumu analiz edildi mi?',
+      },
+      {
+        heading: 'Amazon PPC’de en sık yapılan hatalar nelerdir?',
+        body: '- Listeleme hazır olmadan reklam açmak\n- Tek kampanyaya fazla bütçe yüklemek\n- Arama terimlerini kontrol etmemek\n- Negatif kelime kullanmamak\n- ACOS’u ürün marjından bağımsız yorumlamak\n- Tüm ürünlere aynı reklam mantığını uygulamak\n- Reklamı sürekli açıp kapatarak veri birikimini bozmak\n- Satış gelmediğinde nedenini sadece reklama bağlamak',
+      },
+      {
+        heading: 'İlk 30 gün Amazon PPC kontrol planı',
+        body: '1. hafta: listeleme, anahtar kelime ve rakip analizi\n2. hafta: düşük ve kontrollü bütçeyle veri toplama\n3. hafta: arama terimleri, tıklama ve dönüşüm verilerini analiz etme\n4. hafta: gereksiz harcamaları azaltma, çalışan kelimeleri ayırma ve kampanya yapısını sadeleştirme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon PPC’yi “satış getiren buton” gibi görmektir. Reklam yalnızca görünürlük ve trafik sağlar; satışa dönüşüm için ürün, listeleme, fiyat, yorum, stok, kargo ve güven unsurlarının birlikte çalışması gerekir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da reklam vermek isteyen markaların ürün sayfasını, anahtar kelime yapısını, reklam bütçesini, kârlılık hesabını, kampanya mantığını ve optimizasyon sürecini birlikte analiz ederek daha kontrollü bir Amazon PPC sistemi kurulmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Kontrolsüz Amazon Reklamı mı, Sistemli PPC Yönetimi mi?',
+      headers: ['Kriter', 'Kontrolsüz Reklam', 'Sistemli PPC Yönetimi'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Listeleme hazır olmadan reklam açılabilir', company: 'Önce ürün sayfası, kâr marjı ve anahtar kelime yapısı kontrol edilir' },
+        { criterion: 'Bütçe', individual: 'Günlük bütçe rastgele belirlenir', company: 'Bütçe ürün marjı, hedef ve test planına göre düşünülür' },
+        { criterion: 'Veri', individual: 'Sadece harcama ve satışa bakılır', company: 'CTR, CPC, ACOS, ROAS, dönüşüm ve arama terimleri birlikte incelenir' },
+        { criterion: 'Optimizasyon', individual: 'Kampanyalar düzensiz açılıp kapatılır', company: 'Veriye göre kelime, teklif ve bütçe düzenlemesi yapılır' },
+        { criterion: 'Sonuç', individual: 'Bütçe hızlı tükenebilir', company: 'Reklam daha kontrollü öğrenme ve satış destek sistemi haline gelir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon PPC’ye başlamadan önce kontrol listesi',
+      items: [
+        'Ürün başlığı ve ana görsel yeterince güçlü mü?',
+        'Listeleme açıklaması ve bullet point’ler net mi?',
+        'Fiyat ve kargo yapısı rekabetçi mi?',
+        'Ürün stokta mı?',
+        'Kâr marjı reklam harcamasını kaldırıyor mu?',
+        'Anahtar kelime listesi hazır mı?',
+        'Kampanya amacı net mi?',
+        'Günlük bütçe kontrollü belirlendi mi?',
+        'Arama terimleri düzenli takip edilecek mi?',
+        'Negatif kelime ve optimizasyon planı var mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon PPC nedir?',
+          answer:
+            'Amazon PPC, satıcının tıklama başına ödeme yaptığı bir reklam modelidir; ürünler arama sonuçlarında veya ürün detay sayfalarında reklam olarak gösterilebilir. En bilinen kampanya türlerinden biri Sponsored Products’tır.',
+        },
+        {
+          question: 'Amazon PPC nasıl çalışır?',
+          answer:
+            'Satıcı kampanya oluşturur, ürün ve anahtar kelime/hedefleme seçer, günlük bütçe belirler; kullanıcı reklama tıkladığında bütçeden harcama yapılır. Performans verileri takip edilerek kampanya zamanla optimize edilir.',
+        },
+        {
+          question: 'Amazon reklamları satış getirir mi?',
+          answer:
+            'Reklam satışa katkı sağlayabilir ama kesin bir satış garantisi vermez. Ürün sayfası, fiyat, görseller ve yorumlar zayıfsa tıklama olsa bile satış gerçekleşmeyebilir.',
+        },
+        {
+          question: 'Amazon PPC bütçesi nasıl belirlenir?',
+          answer:
+            'Bütçe; ürün fiyatı, kâr marjı, rekabet, hedef ülke ve kampanya amacına göre değişir, kesin bir rakam önerilemez. İlk aşamada amaç genellikle veri toplamak olmalıdır.',
+        },
+        {
+          question: 'ACOS nedir?',
+          answer:
+            'ACOS, reklam harcamasının reklama bağlı satışa oranını gösteren bir metriktir. İyi veya kötü seviyesi ürün marjı, kategori ve kampanya amacına göre değişir; kategori bağımsız kesin bir hedef verilemez.',
+        },
+        {
+          question: 'ROAS nedir?',
+          answer:
+            'ROAS, reklam harcamasına karşı elde edilen satışın oranını gösteren bir metriktir. ACOS’un tersine yakın bir mantıkla okunur ve tek başına değil diğer metriklerle birlikte değerlendirilmelidir.',
+        },
+        {
+          question: 'Amazon PPC’ye başlamadan önce ne yapılmalı?',
+          answer:
+            'Ürün başlığı, görseller, açıklama, fiyat, stok ve kâr marjının reklam öncesi kontrol edilmesi gerekir. Zayıf bir listeleme, reklam bütçesinin verimli kullanılmasını zorlaştırabilir.',
+        },
+        {
+          question: 'Amazon PPC’de en sık yapılan hata nedir?',
+          answer:
+            'En sık hata, listeleme hazır olmadan reklam açmak veya ACOS’u ürün marjından bağımsız yorumlamaktır. Reklamı satış garantisi gibi görmek de sık karşılaşılan bir yanılgıdır.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürün listelemenizin reklam öncesi yeterli olup olmadığını kontrol edin',
+      'Anahtar kelime ve rakip görünürlüğünü analiz edin',
+      'Küçük ve kontrollü bütçeyle veri toplamaya başlayın',
+      'CTR, CPC, ACOS, ROAS ve dönüşüm oranlarını takip edin',
+      'Gereksiz harcamaları azaltmak için arama terimlerini düzenli inceleyin',
+      'Ücretsiz analiz ile Amazon reklam yapınızın doğru kurulup kurulmadığını birlikte değerlendirin',
+    ],
+  },
 };
