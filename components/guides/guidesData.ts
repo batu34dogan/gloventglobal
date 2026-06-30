@@ -6020,4 +6020,198 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon hesap sağlığı ve askıya alma riskinizi birlikte değerlendirelim',
     ],
   },
+
+  'amazon-envanter-yonetimi-nasil-yapilir': {
+    title: 'Amazon Envanter Yönetimi Nasıl Yapılır?',
+    slug: 'amazon-envanter-yonetimi-nasil-yapilir',
+    excerpt:
+      'Amazon’da FBA/FBM stok takibini; satış hızı, tedarik süresi, depolama maliyeti, nakit akışı, Buy Box ve Account Health ile birlikte nasıl yöneteceğinizi açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da aktif satış yapan ve stok yönetimini sistemli hale getirmek isteyen satıcılar',
+    searchIntent: 'amazon envanter yönetimi nasıl yapılır, amazon stok yönetimi nedir, amazon fba stok takibi nasıl yapılır, amazon fbm stok yönetimi nasıl yapılır, amazon da stok biterse ne olur, amazon fazla stok maliyeti nedir, amazon inventory management nedir, amazon buy box stokla ilişkili mi',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-27',
+    order: 35,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon envanter yönetimi, ürün stoklarının satış hızı, FBA/FBM modeli, tedarik süresi, depolama maliyeti, iade oranı, nakit akışı ve operasyon kapasitesiyle birlikte takip edilmesidir. Stok bitmesi satış ve görünürlük kaybı oluşturabilir; fazla stok ise depolama ve nakit akışı riski yaratabilir. Bu nedenle Amazon’da envanter yönetimi yalnızca stok sayısı değil, satış operasyonunun temel parçasıdır.',
+    quickAnswer:
+      'Amazon envanter yönetimi, ürünlerin ne kadar stokta olduğunu, ne kadar hızla satıldığını, ne zaman yeniden sipariş verilmesi gerektiğini ve FBA/FBM operasyonunun bu stok yapısına uygun olup olmadığını takip etme sürecidir. Amaç yalnızca stok bitmesini önlemek değil; fazla stok, depolama maliyeti, nakit akışı, Buy Box ve müşteri deneyimi risklerini birlikte yönetmektir.',
+    whoShouldRead: [
+      'Amazon’da aktif satış yapan satıcılar',
+      'FBA’ya stok gönderen veya göndermeyi planlayan işletmeler',
+      'FBM ile kendi stok ve kargo sürecini yöneten markalar',
+      'Stok bitmesi, fazla stok veya nakit akışı riski yaşayan satıcılar',
+      'Buy Box, teslimat ve Account Health performansını korumak isteyen işletmeler',
+      'Private Label veya Wholesale ürün portföyünü Amazon’da yöneten firmalar',
+    ],
+    expertNote:
+      'Amazon envanter yönetiminde en sık yapılan hata, stok yönetimini yalnızca “ürün var mı yok mu?” sorusuna indirgemektir. Doğru stok yönetimi; satış hızı, tedarik süresi, depolama maliyeti, reklam planı, sezon, iade oranı ve nakit akışıyla birlikte düşünülmelidir.',
+    expertNoteAfterHeading: 'Amazon envanter yönetimi ve Buy Box ilişkisi nedir?',
+    keyTakeaway:
+      'Amazon’da stok bitmesi kadar fazla stok da risklidir. Stok biterse satış, reklam ve görünürlük kaybı oluşabilir; fazla stok ise depolama, nakit akışı ve eskime riski yaratabilir. Envanter yönetimi bu iki uç arasında denge kurma sürecidir.',
+    nextReadingSlugs: [
+      'amazon-fba-nedir',
+      'amazon-fbm-mi-fba-mi',
+      'amazon-komisyonlari-ve-maliyetler',
+      'amazon-buy-box-nedir',
+      'amazon-seller-central-nedir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da stok bitmesi, fazla stok, FBA depolama maliyeti, FBM sipariş yetiştirme veya nakit akışı sorunlarını anlamaya çalışır. Envanter yönetimi yalnızca stok adedi değil; satış hızı, tedarik, reklam, lojistik, Buy Box, Account Health ve müşteri deneyimiyle bağlantılıdır.',
+      },
+      {
+        heading: 'Amazon envanter yönetimi nedir?',
+        body: '- Amazon’da satışa uygun ürün stoklarının takip edilmesi\n- FBA ve FBM stoklarının farklı yönetilebileceği\n- Stok bitmesi ve fazla stok risklerinin dengelenmesi gerektiği\n- Seller Central envanter alanlarının takipte kullanılabileceği\n- Envanter yönetiminin satış, reklam, lojistik ve nakit akışıyla bağlantılı olduğu',
+      },
+      {
+        heading: 'Amazon envanter yönetimi kimler için kritiktir?',
+        body: '- FBA depolarına ürün gönderen satıcılar\n- FBM ile kendi deposundan ürün gönderen işletmeler\n- Wholesale modelinde çok SKU yöneten satıcılar\n- Private Label ürünlerinde stok ve lansman planı yapan markalar\n- PPC reklamı açık olan ve stok kesintisi yaşamak istemeyen satıcılar\n- Sezonluk, hızlı dönen veya tedarik süresi uzun ürünler satan işletmeler',
+      },
+      {
+        heading: 'Amazon envanter yönetimi neden önemlidir?',
+        body: '- Stok bitmesi satış kaybına yol açabilir\n- Reklam açıkken stok bitmesi bütçe ve performans sorunları yaratabilir\n- Fazla stok depolama ve nakit akışı riski oluşturabilir\n- FBA depolarında ürün beklemesi maliyet yaratabilir\n- FBM’de yanlış stok bilgisi sipariş iptali ve müşteri deneyimi riski doğurabilir\n- Buy Box ve Account Health ile dolaylı ilişki kurulabilir',
+      },
+      {
+        heading: 'Amazon envanter yönetimi nasıl yapılır?',
+        body: '- Ürünlerin mevcut stok seviyesi takip edilir\n- Satış hızı ve sezonluk değişimler izlenir\n- Tedarik ve üretim süreleri hesaplanır\n- FBA/FBM operasyon modeli ayrı değerlendirilir\n- Reklam ve kampanya dönemleri stok planına dahil edilir\n- Yeniden sipariş noktası genel mantıkla belirlenir\n- Fazla stok ve nakit akışı riski kontrol edilir\n- Seller Central verileri düzenli incelenir',
+      },
+      {
+        heading: 'Amazon envanter takip akışı',
+        body: 'Mevcut stok\n↓\nSatış hızı\n↓\nTedarik süresi\n↓\nFBA / FBM operasyonu\n↓\nReklam ve kampanya etkisi\n↓\nYeniden sipariş planı\n↓\nFazla stok riski\n↓\nNakit akışı kontrolü\n\nAmazon envanter takibi yalnızca ürün saymak değildir. Stok seviyesi, satış hızı, tedarik süresi, reklam planı ve nakit akışı birlikte izlenmelidir.',
+      },
+      {
+        heading: 'Örnek Amazon Envanter Yönetimi Senaryosu',
+        body: 'Örnek senaryo: Amazon’da FBA ile satış yapan bir marka, ürün stokunu yalnızca mevcut adet üzerinden değil; günlük satış hızı, reklam planı, tedarik süresi, Amazon deposuna ulaşma süresi, iade oranı ve nakit akışıyla birlikte değerlendirir. Stok bitmeden önce yeniden sipariş planı yaparken fazla stok riskini de kontrol eder. Bu senaryo kesin stok formülü değil, Amazon envanter yönetimini daha kontrollü düşünmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'FBA stok yönetimi nasıl yapılır?',
+        body: '- FBA’da ürünlerin Amazon depolarına gönderildiği\n- Stok seviyesinin Seller Central’dan takip edilebileceği\n- Depolama maliyeti, stok yaşı ve satış hızı gibi alanların önemli olabileceği\n- Fazla stok ve uzun süre satılmayan ürünlerin maliyet riski oluşturabileceği\n- Amazon’un güncel FBA kurallarının ve stok limitlerinin kontrol edilmesi gerektiği',
+      },
+      {
+        heading: 'FBM stok yönetimi nasıl yapılır?',
+        body: '- FBM’de stok satıcının kendi deposunda veya tedarik yapısında olabilir\n- Stok bilgilerinin doğru tutulması gerekir\n- Stok yokken satış almak iptal ve müşteri deneyimi riski doğurabilir\n- Kargo ve teslimat süresi stok yönetimiyle birlikte planlanmalıdır\n- FBM operasyonu Account Health ile daha doğrudan ilişkilidir',
+      },
+      {
+        heading: 'Amazon’da stok bitmesi neye yol açabilir?',
+        body: '- Satış kaybı\n- Reklam performansı ve kampanya kesintisi\n- Organik görünürlükte zayıflama ihtimali\n- Müşteri güveni ve satın alma sürekliliği riski\n- Buy Box görünürlüğünde etkilenme ihtimali\n- Yeniden stok geldiğinde eski performansı yakalamanın zaman alabilmesi',
+      },
+      {
+        heading: 'Amazon’da fazla stok neden risklidir?',
+        body: '- Depolama maliyeti oluşturabilir\n- Nakit akışını zorlayabilir\n- Ürün eskime veya sezon kaçırma riski taşıyabilir\n- Fiyat indirme baskısı doğurabilir\n- Reklam ve kampanya bütçesini zorlayabilir\n- Yanlış ürün seçimi stok yüküne dönüşebilir',
+      },
+      {
+        heading: 'Amazon stok riski ve kontrol alanları kısa tablo',
+        body: 'Stok bitmesi\nNe kontrol edilmeli: Satış hızı, tedarik süresi, yeniden sipariş planı\nNeden önemlidir: Satış ve görünürlük kaybı oluşturabilir\n\nFazla stok\nNe kontrol edilmeli: Depolama süresi, satış hızı, nakit akışı\nNeden önemlidir: Maliyet ve sermaye riski yaratabilir\n\nFBA stok\nNe kontrol edilmeli: Depo durumu, satış hızı, gönderim planı\nNeden önemlidir: Amazon deposunda bekleyen ürün maliyet oluşturabilir\n\nFBM stok\nNe kontrol edilmeli: Kendi depo/adet bilgisi, kargo hazırlığı, sipariş yönetimi\nNeden önemlidir: Yanlış stok iptal ve müşteri deneyimi riski doğurabilir\n\nSezonluk ürün\nNe kontrol edilmeli: Talep dönemi, kampanya takvimi, tedarik süresi\nNeden önemlidir: Yanlış zamanlama stok yükü veya satış kaybı yaratabilir',
+      },
+      {
+        heading: 'Amazon envanter yönetimi ve reklam ilişkisi nedir?',
+        body: '- PPC açıkken stok seviyeleri düzenli takip edilmelidir\n- Stok bitmek üzereyken agresif reklam riskli olabilir\n- Stok yeterliyse reklam ve lansman planı daha kontrollü kurulabilir\n- PPC satış hızını etkileyebileceği için stok planına dahil edilmelidir',
+      },
+      {
+        heading: 'Amazon envanter yönetimi ve Buy Box ilişkisi nedir?',
+        body: '- Stok durumu Buy Box görünürlüğünü etkileyebilecek faktörlerden biri olabilir\n- Stokta olmayan veya teslimatı sorunlu ürünlerde satış görünürlüğü zayıflayabilir\n- Ancak Buy Box yalnızca stokla açıklanamaz\n- Fiyat, teslimat, satıcı performansı ve müşteri deneyimi de birlikte düşünülmelidir',
+      },
+      {
+        heading: 'Amazon envanter yönetiminde en sık yapılan hatalar nelerdir?',
+        body: '- Stok seviyesini düzenli takip etmemek\n- Tedarik süresini hafife almak\n- Reklam kampanyalarını stoktan bağımsız yönetmek\n- Fazla stok riskini hesaba katmamak\n- FBA depolama maliyetlerini geç fark etmek\n- FBM stok bilgisini güncel tutmamak\n- Sezonluk talep değişimini düşünmemek\n- Stokta bağlı kalan sermayeyi görmezden gelmek',
+      },
+      {
+        heading: 'İlk 30 gün Amazon envanter kontrol planı',
+        body: '1. hafta: mevcut stok, satış hızı ve ürün portföyünü analiz etme\n2. hafta: FBA/FBM stok yapısı, tedarik süresi ve gönderim planını kontrol etme\n3. hafta: reklam, kampanya ve sezon etkisini stok planına dahil etme\n4. hafta: yeniden sipariş, fazla stok ve nakit akışı kontrol rutini oluşturma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon envanter yönetimini yalnızca “stok bitmesin” diye düşünmektir. Doğru yönetim; stok bitmesi, fazla stok, depolama maliyeti, reklam planı ve nakit akışını birlikte dengelemelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapan markaların FBA/FBM stok yapısını, satış hızını, tedarik süresini, reklam planını, Buy Box görünürlüğünü, Account Health risklerini ve nakit akışını birlikte analiz ederek daha kontrollü bir Amazon envanter yönetimi sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Dağınık Stok Takibi mi, Sistemli Amazon Envanter Yönetimi mi?',
+      headers: ['Kriter', 'Dağınık Stok Takibi', 'Sistemli Envanter Yönetimi'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Ürün adedi yalnızca azaldığında fark edilir', company: 'Stok, satış hızı, tedarik ve reklam birlikte takip edilir' },
+        { criterion: 'FBA', individual: 'Depolama ve fazla stok maliyeti geç fark edilir', company: 'FBA stok yaşı, satış hızı ve maliyet birlikte değerlendirilir' },
+        { criterion: 'FBM', individual: 'Yanlış stok bilgisi sipariş iptali oluşturabilir', company: 'Kendi depo ve sipariş hazırlığı düzenli kontrol edilir' },
+        { criterion: 'Reklam', individual: 'PPC stoktan bağımsız çalışabilir', company: 'Reklam planı stok seviyesine göre yönetilir' },
+        { criterion: 'Sonuç', individual: 'Satış kaybı veya fazla stok riski artabilir', company: 'Stok, maliyet ve nakit akışı daha kontrollü yönetilebilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon envanter yönetimi kontrol listesi',
+      items: [
+        'Mevcut stok seviyeleri düzenli takip ediliyor mu?',
+        'Günlük/haftalık satış hızı analiz ediliyor mu?',
+        'Tedarik ve üretim süresi hesaba katıldı mı?',
+        'FBA ve FBM stokları ayrı ayrı değerlendiriliyor mu?',
+        'Yeniden sipariş noktası genel mantıkla belirlendi mi?',
+        'Fazla stok ve depolama maliyeti riski kontrol edildi mi?',
+        'PPC ve kampanya planı stokla uyumlu mu?',
+        'Sezonluk talep değişimleri düşünüldü mü?',
+        'Buy Box ve Account Health etkileri değerlendirildi mi?',
+        'Stokta bağlı kalan sermaye ve nakit akışı takip ediliyor mu?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon envanter yönetimi nedir?',
+          answer:
+            'Amazon envanter yönetimi, ürün stoklarının satış hızı, tedarik süresi, FBA/FBM modeli ve nakit akışıyla birlikte takip edilmesidir. Amaç hem stok bitmesini hem de fazla stoku önlemektir.',
+        },
+        {
+          question: 'Amazon FBA stok takibi nasıl yapılır?',
+          answer:
+            'FBA stokları Seller Central üzerinden takip edilir; depolama maliyeti, stok yaşı ve satış hızı gibi alanlar önemlidir. Amazon’un güncel FBA kuralları ve stok limitleri ayrıca kontrol edilmelidir.',
+        },
+        {
+          question: 'Amazon FBM stok yönetimi nasıl yapılır?',
+          answer:
+            'FBM’de stok bilgisi satıcı tarafından doğru ve güncel tutulmalıdır; stok yokken satış almak iptal ve müşteri deneyimi riski doğurabilir. Kargo ve teslimat süresi stok planıyla birlikte yönetilmelidir.',
+        },
+        {
+          question: 'Amazon’da stok biterse ne olur?',
+          answer:
+            'Stok bitmesi satış kaybına, reklam performansı kesintisine ve görünürlükte zayıflama ihtimaline yol açabilir. Yeniden stok geldiğinde eski performansı yakalamak zaman alabilir.',
+        },
+        {
+          question: 'Amazon’da fazla stok neden risklidir?',
+          answer:
+            'Fazla stok depolama maliyeti, nakit akışı baskısı ve ürün eskime riski yaratabilir. Bu durum fiyat indirme baskısına da yol açabilir.',
+        },
+        {
+          question: 'Amazon envanter yönetimi reklamları etkiler mi?',
+          answer:
+            'Evet, stok bitmek üzereyken agresif reklam yapmak riskli olabilir; PPC planı stok seviyesiyle birlikte yönetilmelidir. Stok yeterliyse reklam ve lansman planı daha kontrollü kurulabilir.',
+        },
+        {
+          question: 'Amazon envanter yönetimi Buy Box’ı etkiler mi?',
+          answer:
+            'Stok durumu Buy Box görünürlüğünü etkileyebilecek faktörlerden biri olabilir, ancak tek neden değildir. Fiyat, teslimat ve satıcı performansı da birlikte düşünülmelidir.',
+        },
+        {
+          question: 'Amazon envanter yönetimi satış garantisi verir mi?',
+          answer:
+            'Hayır, envanter yönetimi bir satış garantisi değildir; stok bitmesi ve fazla stok risklerini dengelemeye yardımcı olan bir operasyon disiplinidir. Sonuç ürün ve pazara göre değişir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürünlerin satış hızını ve stok seviyesini düzenli takip edin',
+      'FBA ve FBM stoklarını ayrı ayrı değerlendirin',
+      'Tedarik süresi, üretim süresi ve Amazon teslim sürecini planlayın',
+      'Fazla stok, stok bitmesi ve nakit akışı risklerini birlikte hesaplayın',
+      'Reklam, Buy Box ve Account Health etkilerini stok yönetimiyle birlikte düşünün',
+      'Ücretsiz analiz ile Amazon envanter ve operasyon yapınızı birlikte değerlendirelim',
+    ],
+  },
 };
