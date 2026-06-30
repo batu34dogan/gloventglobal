@@ -5260,4 +5260,194 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon Seller Central operasyonunuzu birlikte değerlendirelim',
     ],
   },
+
+  'amazon-seller-account-nasil-acilir': {
+    title: 'Amazon Seller Account Nasıl Açılır?',
+    slug: 'amazon-seller-account-nasil-acilir',
+    excerpt:
+      'Amazon satıcı hesabı açmadan önce hangi hazırlıkların gerektiğini, bireysel/profesyonel hesap farkını ve doğrulama sürecini; Türkiye’den hesap açma mantığıyla birlikte açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da satışa başlamak isteyen ve satıcı hesabı açmaya hazırlanan girişimciler',
+    searchIntent: 'amazon seller account nasıl açılır, amazon satıcı hesabı nasıl açılır, amazon da satış hesabı açmak için ne gerekir, türkiye den amazon satıcı hesabı açılır mı, amazon hesap açmak için şirket gerekir mi, amazon bireysel hesap mı profesyonel hesap mı, amazon satıcı hesabı doğrulama süreci nedir, amazon hesap açarken hangi belgeler gerekir',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-15',
+    order: 31,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon Seller Account, Amazon’da satış yapmak isteyen satıcıların ürün listeleme, stok, sipariş, reklam, ödeme, performans ve hesap sağlığı süreçlerini yönetebilmek için açtığı satıcı hesabıdır. Hesap açma süreci ülke, pazar yeri, hesap tipi, şirket yapısı, belge durumu ve Amazon’un güncel politikalarına göre değişebilir. Bu rehber, Amazon satıcı hesabı açmadan önce hangi hazırlıkların yapılması gerektiğini açıklar.',
+    quickAnswer:
+      'Amazon satıcı hesabı açmak için satıcının satış yapacağı pazar yerini, hesap tipini, şirket/vergi yapısını, ödeme bilgilerini, kimlik ve adres doğrulama belgelerini ve satış modelini hazırlaması gerekir. Gereklilikler ülkeye ve Amazon’un güncel politikalarına göre değişebilir. Bu nedenle hesap açmadan önce resmi Amazon kaynakları ve gerekiyorsa vergi/hukuk uzmanı kontrolü önemlidir.',
+    whoShouldRead: [
+      'Amazon’da satışa başlamak isteyen girişimciler',
+      'Türkiye’den Amazon’da satış hesabı açmayı düşünen işletmeler',
+      'Seller Central hesabı açmadan önce hazırlık yapmak isteyenler',
+      'Bireysel ve profesyonel hesap farkını anlamak isteyen satıcılar',
+      'Şirket, vergi, ödeme ve belge süreçlerini planlamak isteyenler',
+      'Amazon hesabı açtıktan sonra FBA, FBM, listing ve PPC sürecine geçmek isteyen markalar',
+    ],
+    expertNote:
+      'Amazon hesap açma sürecinde en sık yapılan hata, satış stratejisi ve operasyon planı olmadan yalnızca hesabı açmaya odaklanmaktır. Hesap açmak başlangıçtır; asıl önemli olan doğru ürün, doğru pazar, maliyet hesabı, listing, FBA/FBM modeli, reklam ve hesap sağlığı sistemini birlikte kurmaktır.',
+    expertNoteAfterHeading: 'Amazon hesap doğrulama süreci nasıl işler?',
+    keyTakeaway:
+      'Amazon satıcı hesabı açmak tek başına satış sistemi kurmak anlamına gelmez. Hesap açılmadan önce ürün, pazar yeri, şirket/vergi yapısı, ödeme altyapısı, belge doğruluğu, satış modeli ve operasyon planı birlikte düşünülmelidir.',
+    nextReadingSlugs: [
+      'amazon-seller-central-nedir',
+      'amazonda-satis-yapmak-icin-sirket-gerekir-mi',
+      'amazon-fba-nedir',
+      'amazon-fbm-mi-fba-mi',
+      'amazon-listing-nasil-hazirlanir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da satışa başlamak ister ama hesap açma, belge, şirket, ödeme, doğrulama ve operasyon hazırlığını nasıl yapacağını bilmez. Amazon satıcı hesabı açmak satış sisteminin ilk adımıdır; ancak ürün, maliyet, listing, lojistik ve reklam planı olmadan tek başına yeterli değildir.',
+      },
+      {
+        heading: 'Amazon Seller Account nedir?',
+        body: '- Amazon’da satış yapmak isteyen satıcıların açtığı satıcı hesabı olduğu\n- Seller Central paneline erişim sağladığı\n- Ürün listeleme, stok, sipariş, reklam, ödeme ve hesap sağlığı süreçleriyle bağlantılı olduğu\n- Bireysel veya profesyonel hesap seçeneklerinin pazar yerine göre değişebileceği\n- Hesap açmanın satış garantisi olmadığı',
+      },
+      {
+        heading: 'Amazon satıcı hesabı açmak kimler için kritiktir?',
+        body: '- Amazon’da ilk kez satışa başlayacak girişimciler\n- Türkiye’den yurtdışına ürün satmak isteyen üretici ve markalar\n- FBA veya FBM modeliyle Amazon operasyonu kuracak işletmeler\n- Private Label veya Wholesale modeli düşünen satıcılar\n- Şirket, ödeme, belge ve doğrulama süreçlerini planlamak isteyenler\n- Amazon hesabı açmadan önce ürün ve maliyet analizini tamamlamak isteyen firmalar',
+      },
+      {
+        heading: 'Amazon satıcı hesabı nasıl açılır?',
+        body: '- Satış yapılacak Amazon pazar yeri seçilir\n- Hesap tipi değerlendirilir\n- Şirket/vergi ve kimlik bilgileri hazırlanır\n- Ödeme yöntemi ve banka bilgileri kontrol edilir\n- Adres ve doğrulama bilgileri hazırlanır\n- Amazon’un başvuru ve doğrulama adımları takip edilir\n- Seller Central erişimi sonrası ürün, stok, listing ve operasyon yapısı hazırlanır\n\nAmazon’un güncel resmi kaynaklarının kontrol edilmesi gerekir.',
+      },
+      {
+        heading: 'Amazon hesap açma hazırlık akışı',
+        body: 'Pazar yeri seçimi\n↓\nHesap tipi\n↓\nŞirket / vergi yapısı\n↓\nKimlik ve adres bilgileri\n↓\nÖdeme ve banka hazırlığı\n↓\nAmazon doğrulama süreci\n↓\nSeller Central erişimi\n↓\nÜrün, listing ve operasyon hazırlığı\n\nAmazon hesabı açma süreci yalnızca form doldurmak değildir. Hesap bilgileri, belge uyumu, ödeme altyapısı, pazar seçimi ve satış operasyonu birlikte planlanmalıdır.',
+      },
+      {
+        heading: 'Örnek Amazon Seller Account Hazırlık Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satışa başlamak isteyen bir işletme, hesap açmadan önce satış yapacağı pazar yerini, şirket/vergi yapısını, ödeme bilgilerini, belge doğrulama sürecini, FBA/FBM modelini, ürün fikirlerini ve başlangıç maliyetlerini birlikte değerlendirir. Bu senaryo hesap onay garantisi değil, Amazon satıcı hesabı açma sürecine daha kontrollü hazırlanmak için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon satıcı hesabı açmak için ne gerekir?',
+        body: '- Kimlik ve iletişim bilgileri\n- Adres ve doğrulama bilgileri\n- Şirket/vergi bilgileri\n- Ödeme yöntemi ve banka bilgileri\n- Satış yapılacak pazar yeri bilgisi\n- Ürün ve kategori planı\n- FBA/FBM satış modeli\n- Gerekirse vergi, şirket ve hukuki konularda uzman desteği\n\nGereklilikler pazar yerine ve Amazon’un güncel politikalarına göre değişebilir.',
+      },
+      {
+        heading: 'Türkiye’den Amazon satıcı hesabı açılır mı?',
+        body: 'Türkiye’den Amazon’da satış yapmak isteyen işletmeler farklı Amazon pazar yerlerini değerlendirebilir. Şirket, vergi, ödeme, banka, adres ve doğrulama süreçleri pazar yerine göre değişebilir. Kesin bir uygunluk veya hesap açma garantisi verilemez; kullanıcıların resmi Amazon kaynaklarını ve gerektiğinde vergi/hukuk uzmanlarını kontrol etmesi gerekir.',
+      },
+      {
+        heading: 'Amazon hesabı açmak için şirket gerekir mi?',
+        body: 'Şirket gerekliliği satış yapılacak pazar yeri, iş modeli, vergi yapısı, ödeme altyapısı ve uzun vadeli hedefe göre değişebilir; herkes için tek bir cevap verilemez. Vergi ve şirket kuruluşu konusunda kesin tavsiye verilmez; detaylı değerlendirme ayrı bir rehberde ele alınmaktadır.',
+      },
+      {
+        heading: 'Bireysel hesap mı profesyonel hesap mı?',
+        body: 'Bireysel hesap bazı pazarlarda daha düşük hacimli veya başlangıç seviyesindeki satıcılar için düşünülebilir. Profesyonel hesap ise daha sistemli satış, reklam, raporlama ve operasyon ihtiyaçları için daha uygun olabilir. Hesap türleri, ücretler ve özellikler pazar yerine göre değişebilir.',
+      },
+      {
+        heading: 'Bireysel ve profesyonel Amazon satıcı hesabı kısa karşılaştırma',
+        body: 'Bireysel hesap\nAna rol: Daha sınırlı satış veya başlangıç seviyesi kullanım için değerlendirilebilir\nDikkat edilmesi gereken: Özellikler, ücretler ve limitler pazar yerine göre değişebilir\n\nProfesyonel hesap\nAna rol: Daha düzenli satış, reklam, raporlama ve operasyon yönetimi için değerlendirilebilir\nDikkat edilmesi gereken: Aylık ücret, erişim ve özellikler güncel Amazon şartlarına göre kontrol edilmelidir',
+      },
+      {
+        heading: 'Amazon hesap doğrulama süreci nasıl işler?',
+        body: 'Amazon hesap bilgilerini, kimlik/adres ve ödeme detaylarını doğrulayabilir. Bazı durumlarda ek belge, video doğrulama veya ek kontrol istenebilir. Doğrulama süreci ülke, pazar yeri ve hesap durumuna göre değişebilir; kesin süre, belge veya sonuç garantisi verilemez. Bilgilerin tutarlı ve doğru olması önemlidir.',
+      },
+      {
+        heading: 'Amazon Seller Central hesabı açıldıktan sonra ne yapılmalı?',
+        body: '- Seller Central paneli tanınmalı\n- Ürün, kategori ve listing hazırlığı yapılmalı\n- FBA/FBM modeli seçilmeli\n- Komisyon ve maliyet hesabı çıkarılmalı\n- PPC ve reklam planı düşünülmeli\n- Account Health ve performans takibi öğrenilmeli\n- İlk ürün yayına alınmadan önce operasyon kontrol listesi hazırlanmalı',
+      },
+      {
+        heading: 'Amazon hesap açarken en sık yapılan hatalar nelerdir?',
+        body: '- Belgeleri ve bilgileri tutarsız girmek\n- Satış pazar yerini plansız seçmek\n- Şirket/vergi konusunu sonradan düşünmek\n- Ödeme ve banka altyapısını kontrol etmemek\n- Ürün ve kategori planı olmadan hesap açmak\n- FBA/FBM modelini baştan düşünmemek\n- Amazon’un güncel kurallarını resmi kaynaklardan kontrol etmemek\n- Hesap açmayı satış garantisi gibi görmek',
+      },
+      {
+        heading: 'İlk 30 gün Amazon hesap açma ve başlangıç planı',
+        body: '1. hafta: pazar yeri, şirket/vergi ve ödeme altyapısını değerlendirme\n2. hafta: hesap tipi, belge hazırlığı ve resmi Amazon kaynaklarını kontrol etme\n3. hafta: Seller Central erişimi, ürün/listing ve FBA/FBM planını hazırlama\n4. hafta: maliyet, reklam, Account Health ve operasyon rutinini kurma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon satıcı hesabı açmayı satışa başlamakla aynı şey sanmaktır. Hesap açmak yalnızca başlangıçtır; sürdürülebilir satış için ürün araştırması, listing, maliyet, lojistik, reklam ve hesap sağlığı birlikte planlanmalıdır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satışa başlamak isteyen markaların pazar yeri seçimini, hesap açma hazırlığını, şirket/vergi ve ödeme altyapısı kontrolünü, Seller Central kurulum mantığını, ürün/listing hazırlığını, FBA/FBM modelini ve başlangıç operasyon planını birlikte analiz ederek daha kontrollü bir Amazon satış sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Plansız Hesap Açma mı, Sistemli Amazon Başlangıcı mı?',
+      headers: ['Kriter', 'Plansız Hesap Açma', 'Sistemli Amazon Başlangıcı'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Amaç yalnızca hesabı hızlıca açmaktır', company: 'Pazar, şirket/vergi, ödeme, ürün ve operasyon birlikte planlanır' },
+        { criterion: 'Belgeler', individual: 'Bilgiler sonradan düzeltilmeye çalışılır', company: 'Bilgi ve belgelerin tutarlılığı baştan kontrol edilir' },
+        { criterion: 'Ürün', individual: 'Hesap açılır ama ürün planı net değildir', company: 'Ürün araştırması ve listing hazırlığı hesap süreciyle birlikte ilerler' },
+        { criterion: 'Operasyon', individual: 'FBA/FBM, reklam ve maliyet planı sonradan düşünülür', company: 'Satış modeli, maliyet ve reklam planı önceden kurgulanır' },
+        { criterion: 'Sonuç', individual: 'Hesap açılsa bile satış sistemi eksik kalabilir', company: 'Hesap açma süreci daha kontrollü bir satış planına bağlanır' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon satıcı hesabı açma kontrol listesi',
+      items: [
+        'Satış yapılacak Amazon pazar yeri belirlendi mi?',
+        'Hesap tipi değerlendirildi mi?',
+        'Şirket/vergi yapısı kontrol edildi mi?',
+        'Kimlik, adres ve iletişim bilgileri tutarlı mı?',
+        'Ödeme ve banka bilgileri hazır mı?',
+        'Amazon’un güncel resmi hesap açma şartları kontrol edildi mi?',
+        'Ürün ve kategori planı hazır mı?',
+        'FBA/FBM modeli düşünüldü mü?',
+        'Maliyet ve reklam bütçesi planlandı mı?',
+        'Seller Central sonrası ilk 30 gün operasyon planı hazırlandı mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon Seller Account nedir?',
+          answer:
+            'Amazon Seller Account, satıcıların ürün listeleme, stok, sipariş, reklam, ödeme ve hesap sağlığı süreçlerini yönetebilmek için açtıkları satıcı hesabıdır. Seller Central paneline erişim bu hesap üzerinden sağlanır.',
+        },
+        {
+          question: 'Amazon satıcı hesabı nasıl açılır?',
+          answer:
+            'Satış yapılacak pazar yeri, hesap tipi, şirket/vergi ve kimlik bilgileri, ödeme yöntemi ve adres bilgileri hazırlanıp Amazon’un başvuru ve doğrulama adımları takip edilir. Kesin menü yolu veya süreç adımları için resmi Amazon kaynakları kontrol edilmelidir.',
+        },
+        {
+          question: 'Türkiye’den Amazon satıcı hesabı açılır mı?',
+          answer:
+            'Türkiye’den işletmeler farklı Amazon pazar yerlerini değerlendirebilir; ancak şirket, vergi, ödeme ve doğrulama süreçleri pazar yerine göre değişebilir. Kesin bir uygunluk garantisi verilemez, resmi kaynaklar ve uzman desteği önerilir.',
+        },
+        {
+          question: 'Amazon hesabı açmak için şirket gerekir mi?',
+          answer:
+            'Bu, satış yapılacak pazar yeri, iş modeli ve vergi yapısına göre değişebilir; herkes için tek bir cevap verilemez. Detaylı değerlendirme ayrı bir rehberde ele alınmaktadır.',
+        },
+        {
+          question: 'Amazon bireysel hesap mı profesyonel hesap mı?',
+          answer:
+            'Bireysel hesap düşük hacimli veya başlangıç seviyesi kullanım için, profesyonel hesap ise daha düzenli satış ve operasyon ihtiyaçları için değerlendirilebilir. Ücret ve özellikler pazar yerine göre değişebilir.',
+        },
+        {
+          question: 'Amazon hesap doğrulama süreci nasıl işler?',
+          answer:
+            'Amazon, kimlik, adres ve ödeme bilgilerini doğrulayabilir; bazı durumlarda ek belge veya video doğrulama istenebilir. Süreç ülke ve hesap durumuna göre değişebileceği için kesin bir süre veya sonuç garantisi verilemez.',
+        },
+        {
+          question: 'Amazon hesabı açıldıktan sonra ne yapılmalı?',
+          answer:
+            'Seller Central paneli tanınmalı, ürün/listing hazırlığı yapılmalı, FBA/FBM modeli seçilmeli ve maliyet/reklam planı oluşturulmalıdır. Account Health ve performans takibi de erken aşamada öğrenilmelidir.',
+        },
+        {
+          question: 'Amazon satıcı hesabı açmak satış garantisi verir mi?',
+          answer:
+            'Hayır, hesap açmak satışa başlamak için bir adımdır ama satış garantisi değildir. Sürdürülebilir satış; ürün, listing, maliyet, lojistik ve reklam planının birlikte kurulmasına bağlıdır.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Hangi Amazon pazar yerinde satış yapmak istediğinizi belirleyin',
+      'Şirket, vergi, ödeme ve adres bilgilerinizi kontrol edin',
+      'Gerekli belge ve doğrulama süreçlerini resmi kaynaklardan inceleyin',
+      'FBA mı FBM mi ilerleyeceğinizi planlayın',
+      'Ürün, listing, maliyet ve reklam hazırlığınızı hesap açma süreciyle birlikte düşünün',
+      'Ücretsiz analiz ile Amazon satıcı hesabı ve başlangıç planınızı birlikte değerlendirelim',
+    ],
+  },
 };
