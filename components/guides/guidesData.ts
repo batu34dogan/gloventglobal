@@ -55,6 +55,14 @@ export type Guide = {
   checklist?: Checklist;
   faq?: Faq;
   nextSteps?: string[];
+  // Geriye dönük içerik geliştirme fazı için eklenen opsiyonel alanlar — hiçbiri doluysa
+  // şablonda render edilir, boşsa hiç görünmez. Mevcut rehberlerin hiçbirini bozmaz.
+  keyTakeaway?: string;
+  audienceSplit?: { titleA: string; itemsA: string[]; titleB: string; itemsB: string[] };
+  decisionTree?: string[];
+  // Diğer rehberlerin slug'larına referans verir — "İlgili Rehberler" kartlarından ayrı,
+  // sade bir link listesi olarak render edilir.
+  nextReadingSlugs?: string[];
   sections: GuideSection[];
 };
 
@@ -480,6 +488,37 @@ export const guides: Record<string, Guide> = {
       'Etsy’de ürün talebi test edilecekse başlangıç ürünlerinizi seçin',
       'Shopify kurulacaksa marka, kategori ve dönüşüm altyapısını planlayın',
       'Ücretsiz analiz ile işletmeniz için doğru kanal yapısını değerlendirin',
+    ],
+    keyTakeaway:
+      'Etsy ve Shopify birbirinin doğrudan alternatifi olmak zorunda değildir. Bazı markalar Etsy’yi erken dönem görünürlük ve pazar testi için kullanırken, Shopify’ı uzun vadeli marka mağazası olarak konumlandırabilir. Doğru karar ürün tipi, bütçe, trafik kaynağı, marka hedefi ve operasyon kapasitesine göre verilmelidir.',
+    audienceSplit: {
+      titleA: 'Kimler Etsy seçmeli?',
+      itemsA: [
+        'Yeni başlayan ve pazaryeri trafiğinden faydalanmak isteyenler',
+        'El yapımı, tasarım, niş veya butik ürün satanlar',
+        'Kendi reklam trafiğini henüz oluşturamayanlar',
+        'Ürünlerini global pazarda test etmek isteyenler',
+      ],
+      titleB: 'Kimler Shopify seçmeli?',
+      itemsB: [
+        'Kendi marka mağazasını kurmak isteyenler',
+        'Trafik üretmek için reklam, SEO veya sosyal medya planı olanlar',
+        'Müşteri verisini ve marka deneyimini daha fazla kontrol etmek isteyenler',
+        'Uzun vadeli marka değeri oluşturmak isteyen işletmeler',
+      ],
+    },
+    decisionTree: [
+      'Hazır pazaryeri trafiği sizin için önemliyse → Etsy daha mantıklı olabilir',
+      'Kendi markanızı ve müşteri deneyiminizi kontrol etmek istiyorsanız → Shopify daha mantıklı olabilir',
+      'Reklam ve trafik bütçeniz yoksa → önce Etsy ile test düşünülebilir',
+      'Güçlü marka, içerik ve reklam planınız varsa → Shopify değerlendirilebilir',
+      'İki model de uygunsa → Etsy + Shopify birlikte planlanabilir',
+    ],
+    nextReadingSlugs: [
+      'etsyde-ilk-satis-nasil-alinir',
+      'etsy-seo-rehberi',
+      'turkiyeden-yurtdisina-urun-satmak-icin-nereden-baslamali',
+      'e-ticarette-dijital-pazarlama-nasil-yapilir',
     ],
   },
 
@@ -2359,6 +2398,15 @@ export const guides: Record<string, Guide> = {
       'Tıklama, görüntülenme, favori ve satış verilerini birlikte değerlendirin',
       'Ücretsiz analiz ile Etsy reklam ve listeleme yapınızı birlikte değerlendirin',
     ],
+    keyTakeaway:
+      'Etsy reklamları zayıf listelemeyi tek başına güçlendirmez. Fotoğraf, başlık, tag, açıklama, fiyat, kargo ve mağaza güveni eksikse reklam bütçesi tıklama üretse bile satışa dönüşmeyebilir. Reklamdan önce listeleme kalitesi kontrol edilmelidir.',
+    nextReadingSlugs: [
+      'etsy-seo-rehberi',
+      'etsy-fotograf-rehberi',
+      'etsy-tag-nasil-yazilir',
+      'etsy-basligi-nasil-yazilir',
+      'etsy-urun-aciklamasi-nasil-yazilir',
+    ],
   },
 
   'etsy-kargo-rehberi': {
@@ -2683,6 +2731,15 @@ export const guides: Record<string, Guide> = {
       'İtiraz gerekiyorsa kısa, net ve çözüm odaklı bir açıklama hazırlayın',
       'Ücretsiz analiz ile Etsy mağazanızın politika, listeleme ve güven yapısını birlikte değerlendirin',
     ],
+    keyTakeaway:
+      'Etsy hesabı askıya alındığında hızlı ve savunmacı itiraz göndermek yerine önce bildirimin nedeni, mağaza bilgileri, ödeme/kimlik doğrulama durumu, listeleme içerikleri ve politika riski dikkatle kontrol edilmelidir. Hesabın geri açılması Etsy’nin değerlendirmesine bağlıdır; kesin sonuç garantisi verilemez.',
+    nextReadingSlugs: [
+      'etsy-seo-rehberi',
+      'etsy-urun-aciklamasi-nasil-yazilir',
+      'etsy-fotograf-rehberi',
+      'etsy-kargo-rehberi',
+      'etsyde-ilk-satis-nasil-alinir',
+    ],
   },
 
   'amazon-fba-nedir': {
@@ -2844,6 +2901,15 @@ export const guides: Record<string, Guide> = {
       'FBA maliyetlerini genel mantığıyla hesaplayın',
       'FBA mı FBM mi daha uygun olduğunu değerlendirin',
       'Ücretsiz analiz ile Amazon FBA’ya hazır olup olmadığınızı birlikte değerlendirin',
+    ],
+    keyTakeaway:
+      'Amazon FBA bir satış garantisi değil, lojistik modelidir. Ürün seçimi, kârlılık hesabı, stok yönetimi, listeleme kalitesi ve reklam planı doğru kurulmadığında FBA maliyetli bir yapıya dönüşebilir. Bu nedenle FBA kararı ürün ve operasyon hesabıyla birlikte verilmelidir.',
+    nextReadingSlugs: [
+      'amazonda-satis-yapmak-icin-sirket-gerekir-mi',
+      'amazon-fbm-mi-fba-mi',
+      'turkiyeden-yurtdisina-urun-satmak-icin-nereden-baslamali',
+      'e-ticarette-operasyon-sistemi-nasil-kurulur',
+      'e-ticarette-yapay-zeka-gercekten-nerelerde-kullanilir',
     ],
   },
 

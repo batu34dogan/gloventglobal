@@ -274,6 +274,59 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
         </div>
       )}
 
+      {/* ============ BİLMENİZ GEREKEN (varsa) ============ */}
+      {guide.keyTakeaway && (
+        <div className="relative mx-auto mt-10 max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] p-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">Bilmeniz Gereken</p>
+          <p className="mt-2.5 text-sm leading-relaxed text-blue-100/80 sm:text-base">{guide.keyTakeaway}</p>
+        </div>
+      )}
+
+      {/* ============ KİMLER SEÇMELİ (audienceSplit, varsa) ============ */}
+      {guide.audienceSplit && (
+        <div className="relative mx-auto mt-5 max-w-2xl">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-blue-300/80">{guide.audienceSplit.titleA}</p>
+              <ul className="mt-3 space-y-2">
+                {guide.audienceSplit.itemsA.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-blue-100/80">
+                    <span aria-hidden="true" className="mt-0.5 flex-shrink-0 text-blue-400">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-blue-300/80">{guide.audienceSplit.titleB}</p>
+              <ul className="mt-3 space-y-2">
+                {guide.audienceSplit.itemsB.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-blue-100/80">
+                    <span aria-hidden="true" className="mt-0.5 flex-shrink-0 text-blue-400">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ============ BASİT KARAR AĞACI (decisionTree, varsa) ============ */}
+      {guide.decisionTree && guide.decisionTree.length > 0 && (
+        <div className="relative mx-auto mt-5 max-w-2xl rounded-2xl border border-blue-400/25 bg-blue-500/[0.05] p-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/85">Basit Karar Ağacı</p>
+          <ul className="mt-3 space-y-2">
+            {guide.decisionTree.map((step) => (
+              <li key={step} className="flex items-start gap-2.5 text-sm leading-relaxed text-blue-100/85">
+                <span aria-hidden="true" className="mt-0.5 flex-shrink-0 text-blue-300">→</span>
+                {step}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {/* ============ İLGİLİ HİZMETE YÖNLENDİRME ============ */}
       {relatedService && (
         <div className="relative mx-auto mt-12 max-w-2xl rounded-xl border border-blue-400/25 bg-blue-500/[0.06] p-6">
@@ -313,6 +366,33 @@ export default function GuideDetailContent({ guide }: { guide: Guide }) {
           </div>
         </div>
       )}
+
+      {/* ============ SONRAKİ OKUMA (varsa) ============
+          İlgili Rehberler'den ayrı: kart değil, sade bir link listesi. Veri odaklı — slug
+          guides objesinde gerçekten yoksa o satır otomatik atlanır (kırık link oluşmaz). */}
+      {guide.nextReadingSlugs && guide.nextReadingSlugs.length > 0 && (() => {
+        const nextReadingGuides = guide.nextReadingSlugs
+          .map((s) => guides[s])
+          .filter((g): g is Guide => Boolean(g));
+        if (nextReadingGuides.length === 0) return null;
+        return (
+          <div className="relative mx-auto mt-8 max-w-2xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">Sonraki Okuma</p>
+            <ul className="mt-3 space-y-2">
+              {nextReadingGuides.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={`/rehberler/${g.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm text-blue-100/75 underline-offset-2 hover:text-blue-200 hover:underline"
+                  >
+                    {g.title} <span aria-hidden="true">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })()}
 
       {/* ============ BİR SONRAKİ ADIM ============ */}
       {guide.nextSteps && guide.nextSteps.length > 0 && (
