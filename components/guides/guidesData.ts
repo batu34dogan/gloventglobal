@@ -3078,5 +3078,38 @@ export const guides: Record<string, Guide> = {
       'Hedef pazar ve teslimat beklentisine göre hangi modelin daha mantıklı olduğunu analiz edin',
       'Ücretsiz analiz ile Amazon lojistik modelinizin FBA mı FBM mi olması gerektiğini birlikte değerlendirin',
     ],
+    keyTakeaway:
+      'Amazon’da FBA ve FBM birbirinin mutlak alternatifi olmak zorunda değildir. Bazı satıcılar hızlı dönen ve standart paketlenebilen ürünlerde FBA’yı, özel paketleme gerektiren veya test aşamasındaki ürünlerde FBM’i tercih edebilir. Doğru model ürün tipi, stok yapısı, teslimat beklentisi, maliyet ve operasyon kapasitesine göre belirlenmelidir.',
+    audienceSplit: {
+      titleA: 'Kimler FBA seçmeli?',
+      itemsA: [
+        'Stoklu satış yapabilecek satıcılar',
+        'Standart paketlenebilen ürünleri olanlar',
+        'Lojistik yükünü Amazon depoları üzerinden yönetmek isteyenler',
+        'Hızlı teslimat ve Prime avantajını değerlendirmek isteyenler',
+        'FBA maliyetlerini karşılayabilecek kâr marjı olan ürünlere sahip olanlar',
+      ],
+      titleB: 'Kimler FBM seçmeli?',
+      itemsB: [
+        'Kendi depo veya kargo operasyonu olan işletmeler',
+        'Özel paketleme veya kişiselleştirme gerektiren ürünleri olanlar',
+        'Düşük hacimli veya test aşamasındaki ürünleri satanlar',
+        'Stok ve teslimat üzerinde daha fazla kontrol isteyenler',
+        'FBA depolama veya işlem maliyetleri riskli görünen ürünleri olanlar',
+      ],
+    },
+    decisionTree: [
+      'Ürün küçük, standart ve stoklu satışa uygun mu? → FBA değerlendirilebilir',
+      'Ürün özel paketleme veya kişiselleştirme gerektiriyor mu? → FBM daha mantıklı olabilir',
+      'Kendi kargo/depo operasyonunuz güçlü mü? → FBM değerlendirilebilir',
+      'Hızlı teslimat ve Amazon lojistik altyapısı sizin için kritik mi? → FBA değerlendirilebilir',
+      'Ürün bazında farklı ihtiyaçlar varsa → hibrit model düşünülebilir',
+    ],
+    nextReadingSlugs: [
+      'amazon-fba-nedir',
+      'amazonda-satis-yapmak-icin-sirket-gerekir-mi',
+      'turkiyeden-yurtdisina-urun-satmak-icin-nereden-baslamali',
+      'e-ticarette-operasyon-sistemi-nasil-kurulur',
+    ],
   },
 };
