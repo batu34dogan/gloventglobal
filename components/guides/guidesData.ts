@@ -4859,4 +4859,198 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon marka yapınızı birlikte değerlendirelim',
     ],
   },
+
+  'amazon-buy-box-nedir': {
+    title: 'Amazon Buy Box Nedir?',
+    slug: 'amazon-buy-box-nedir',
+    excerpt:
+      'Amazon Buy Box’ın ne olduğunu, neden önemli olduğunu, hangi faktörlerden etkilenebileceğini ve Wholesale, FBA/FBM modelleriyle ilişkisini açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da Wholesale veya rekabetçi kategorilerde satış yapan satıcılar',
+    searchIntent: 'amazon buy box nedir, amazon buy box nasıl kazanılır, amazon buy box neden önemlidir, amazon buy box kayboldu ne yapmalıyım, buy box fiyatla mı kazanılır, amazon buy box algoritması nasıl çalışır, amazon fba buy box etkiler mi, amazon fbm buy box alabilir mi',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-09',
+    order: 29,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon Buy Box, aynı ürün birden fazla satıcı tarafından satıldığında müşterinin “Sepete Ekle” veya satın alma alanında hangi satıcıdan alışveriş yapacağını etkileyen önemli görünürlük alanıdır. Buy Box; fiyat, stok, teslimat, satıcı performansı, lojistik modeli, müşteri deneyimi ve rekabet gibi faktörlerden etkilenebilir. Ancak Buy Box kazanımı garanti edilemez ve kesin bir formüle indirgenmemelidir.',
+    quickAnswer:
+      'Amazon Buy Box, ürün detay sayfasında müşterinin satın alma işlemini başlattığı ana satış alanıdır. Aynı ürünü birden fazla satıcı satıyorsa Buy Box’ta hangi satıcının öne çıkacağı Amazon’un performans, fiyat, stok, teslimat ve müşteri deneyimi gibi birçok sinyali değerlendirmesine bağlı olabilir. Buy Box özellikle Wholesale ve markalı ürün satışlarında kritik öneme sahiptir.',
+    whoShouldRead: [
+      'Amazon’da Wholesale modeliyle satış yapmak isteyenler',
+      'Aynı üründe birden fazla satıcının rekabet ettiği kategorilerde satış yapanlar',
+      'Buy Box kaybı yaşayan veya Buy Box mantığını anlamak isteyen satıcılar',
+      'FBA ve FBM’nin Buy Box üzerindeki etkisini merak edenler',
+      'Amazon’da fiyat, stok ve teslimat performansını daha doğru yönetmek isteyen işletmeler',
+      'Markalı ürün satışı yapan veya toptan ürün portföyünü Amazon’a taşımak isteyen firmalar',
+    ],
+    expertNote:
+      'Amazon Buy Box’ta en sık yapılan hata, konuyu yalnızca en düşük fiyatla ilişkilendirmektir. Fiyat önemli olabilir; ancak stok durumu, teslimat hızı, satıcı performansı, müşteri deneyimi, lojistik modeli ve rekabet yapısı birlikte düşünülmeden Buy Box stratejisi sağlıklı kurulamaz.',
+    expertNoteAfterHeading: 'Buy Box için fiyat nasıl düşünülmeli?',
+    keyTakeaway:
+      'Amazon Buy Box kesin bir formülle kazanılan sabit bir alan değildir. Düşük fiyat tek başına yeterli olmayabilir; satıcı performansı, stok, teslimat, müşteri deneyimi ve ürün rekabeti birlikte değerlendirilmelidir. Bu yüzden Buy Box stratejisi fiyat kırma değil, sistemli operasyon yönetimi olarak düşünülmelidir.',
+    nextReadingSlugs: [
+      'amazon-wholesale-nedir',
+      'amazon-komisyonlari-ve-maliyetler',
+      'amazon-fba-nedir',
+      'amazon-fbm-mi-fba-mi',
+      'amazon-ppc-nasil-calisir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da satış yaparken “Sepete Ekle” alanında neden kendi teklifinin görünmediğini veya Buy Box’ın satışa etkisini anlamaya çalışır. Buy Box özellikle aynı üründe birden fazla satıcı varsa önemlidir; ancak kesin bir kazanma formülü yoktur.',
+      },
+      {
+        heading: 'Amazon Buy Box nedir?',
+        body: '- Ürün detay sayfasında müşterinin satın alma işlemini başlattığı ana alan olduğu\n- Aynı ürünü birden fazla satıcı satıyorsa hangi teklifin öne çıktığını etkileyebileceği\n- Wholesale ve markalı ürün satışlarında kritik olabileceği\n- Buy Box’ın satış görünürlüğü ve dönüşüm üzerinde etkili olabileceği\n- Ancak Buy Box kazanımının garanti edilemeyeceği',
+      },
+      {
+        heading: 'Amazon Buy Box kimler için kritiktir?',
+        body: '- Wholesale modeliyle markalı ürün satan satıcılar\n- Aynı listing altında birden fazla satıcıyla rekabet eden işletmeler\n- FBA veya FBM lojistik modelinin satış görünürlüğüne etkisini analiz etmek isteyenler\n- Fiyat rekabeti ve kâr marjını birlikte yönetmesi gereken satıcılar\n- Stok, teslimat ve satıcı performansını düzenli takip eden markalar\n- Amazon’da sürdürülebilir satış operasyonu kurmak isteyen işletmeler',
+      },
+      {
+        heading: 'Amazon Buy Box neden önemlidir?',
+        body: '- Müşteri satın alma kararında ana görünürlük alanlarından biridir\n- Aynı listing altında birden fazla satıcı olduğunda satışın kime gideceğini etkileyebilir\n- Wholesale modelinde kârlılığı ve satış hacmini doğrudan etkileyebilir\n- Reklam, fiyat, stok ve operasyon planıyla bağlantılıdır\n- Buy Box kaybı satış görünürlüğünü azaltabilir\n- Ancak satış sadece Buy Box’a bağlı değildir; ürün, fiyat, yorum, trafik ve rekabet de önemlidir',
+      },
+      {
+        heading: 'Amazon Buy Box nasıl çalışır?',
+        body: '- Amazon aynı ürün için birden fazla satıcının teklifini değerlendirebilir\n- Fiyat, stok, teslimat, satıcı performansı ve müşteri deneyimi gibi unsurlar etkili olabilir\n- FBA veya güçlü FBM operasyonu müşteri deneyimi açısından önemli olabilir\n- Amazon’un kesin değerlendirme formülü açıklanmadığı için garanti verilemez\n- Buy Box durumu zaman içinde değişebilir',
+      },
+      {
+        heading: 'Amazon Buy Box değerlendirme akışı',
+        body: 'Ürün listing’i\n↓\nSatıcı teklifleri\n↓\nFiyat ve kargo\n↓\nStok durumu\n↓\nTeslimat performansı\n↓\nSatıcı performansı\n↓\nMüşteri deneyimi\n↓\nBuy Box görünürlüğü\n\nBuy Box değerlendirmesi tek bir kritere indirgenmemelidir. Fiyat önemli olsa da stok, teslimat, performans ve müşteri deneyimi birlikte düşünülmelidir.',
+      },
+      {
+        heading: 'Örnek Amazon Buy Box Senaryosu',
+        body: 'Örnek senaryo: Amazon Wholesale modeliyle satış yapan bir işletme, aynı ürünü satan diğer satıcıların fiyatını, stok durumunu, teslimat seçeneklerini, FBA/FBM yapılarını ve müşteri deneyimi sinyallerini inceler. Yalnızca fiyat düşürmek yerine stok sürekliliği, teslimat kalitesi, satıcı performansı ve gerçek kâr marjını birlikte değerlendirir. Bu senaryo Buy Box garantisi değil, Buy Box sürecini daha kontrollü düşünmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Buy Box’ı etkileyebilecek faktörler nelerdir?',
+        body: '- Fiyat ve kargo maliyeti\n- Stok durumu\n- Teslimat hızı ve güvenilirliği\n- Satıcı performansı\n- FBA/FBM lojistik modeli\n- Müşteri deneyimi\n- İade ve sipariş sorunları\n- Rekabet yoğunluğu',
+      },
+      {
+        heading: 'Amazon Buy Box faktörleri kısa tablo',
+        body: 'Fiyat\nNe anlama gelir: Ürünün satış fiyatı ve varsa kargo maliyeti\nNeden önemlidir: Müşteri kararı ve rekabet açısından etkili olabilir\n\nStok\nNe anlama gelir: Ürünün satın alınabilir durumda olması\nNeden önemlidir: Stok sürekliliği Buy Box görünürlüğünü etkileyebilir\n\nTeslimat\nNe anlama gelir: Ürünün müşteriye ne kadar hızlı ve güvenilir ulaşabileceği\nNeden önemlidir: Müşteri deneyimi açısından kritik olabilir\n\nSatıcı performansı\nNe anlama gelir: Sipariş, iptal, gecikme, müşteri memnuniyeti gibi operasyon sinyalleri\nNeden önemlidir: Amazon’un satıcı güvenilirliğini değerlendirmesinde etkili olabilir\n\nFBA / FBM modeli\nNe anlama gelir: Siparişin Amazon depolarından mı yoksa satıcı tarafından mı gönderildiği\nNeden önemlidir: Teslimat ve müşteri deneyimi üzerinde etkili olabilir\n\nRekabet\nNe anlama gelir: Aynı ürünü satan satıcı sayısı ve teklif kalitesi\nNeden önemlidir: Buy Box görünürlüğü satıcılar arasında değişebilir',
+      },
+      {
+        heading: 'Amazon FBA Buy Box’ı etkiler mi?',
+        body: '- FBA müşteri teslimat deneyimi ve operasyon standardı açısından avantaj sağlayabilir\n- Ancak FBA her zaman Buy Box garantisi vermez\n- Fiyat, stok, satıcı performansı ve rekabet yine önemlidir\n- FBA maliyeti ve kârlılık hesabı da birlikte düşünülmelidir',
+      },
+      {
+        heading: 'Amazon FBM Buy Box alabilir mi?',
+        body: '- FBM satıcılar da güçlü teslimat, stok ve performans yapısıyla rekabet edebilir\n- Ancak teslimat hızı, müşteri deneyimi ve operasyon güvenilirliği kritik hale gelir\n- FBM her zaman dezavantajlı veya Buy Box alamaz şeklinde kesin bir ifade doğru değildir\n- Ürün ve pazar koşullarına göre değerlendirilmelidir',
+      },
+      {
+        heading: 'Amazon Wholesale’da Buy Box neden önemlidir?',
+        body: '- Wholesale’da aynı markalı ürünü birden fazla satıcı satabilir\n- Buy Box satışı hangi satıcının alacağını etkileyebilir\n- Fiyat kırma kâr marjını zayıflatabilir\n- Buy Box stratejisi sadece en düşük fiyat değil, tedarik, stok, teslimat ve performans yönetimidir\n- Ürüne girmeden önce Buy Box rekabeti analiz edilmelidir',
+      },
+      {
+        heading: 'Buy Box kaybolursa ne kontrol edilmeli?',
+        body: '- Fiyat ve kargo maliyeti\n- Stok durumu\n- Teslimat süresi\n- FBA/FBM performansı\n- Satıcı performans göstergeleri\n- Account Health ve olası uyarılar\n- Rakip tekliflerin durumu\n- Ürün sayfası ve kategori uygunluğu\n- İade, iptal veya sipariş sorunları',
+      },
+      {
+        heading: 'Buy Box için fiyat nasıl düşünülmeli?',
+        body: '- Düşük fiyat tek başına çözüm değildir\n- Fiyat düşürmek kâr marjını zayıflatabilir\n- Fiyat, komisyon, lojistik, reklam ve tedarik maliyetiyle birlikte hesaplanmalıdır\n- Buy Box için fiyatlandırma stratejisi gerçek kârlılıkla birlikte kurulmalıdır\n- Otomatik repricing kullanılacaksa riskleri dikkatle izlenmelidir',
+      },
+      {
+        heading: 'Amazon Buy Box’ta en sık yapılan hatalar nelerdir?',
+        body: '- Sadece fiyat düşürmeye odaklanmak\n- Kâr marjını hesaba katmadan rekabete girmek\n- Stok sürekliliğini ihmal etmek\n- FBA/FBM teslimat performansını takip etmemek\n- Satıcı performansı ve Account Health’i görmezden gelmek\n- Buy Box kaybını tek nedene bağlamak\n- Wholesale ürün seçerken Buy Box rekabetini analiz etmemek',
+      },
+      {
+        heading: 'İlk 30 gün Amazon Buy Box kontrol planı',
+        body: '1. hafta: ürün, rakip satıcılar, fiyat ve Buy Box durumunu analiz etme\n2. hafta: stok, teslimat, FBA/FBM ve satıcı performansı kontrolü\n3. hafta: maliyet, kâr marjı, fiyat ve rekabet stratejisini değerlendirme\n4. hafta: Buy Box görünürlüğünü, satış verisini ve operasyon sinyallerini düzenli takip etme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon Buy Box’ı yalnızca en düşük fiyatla kazanılacak bir alan sanmaktır. Buy Box; fiyat, stok, teslimat, satıcı performansı, müşteri deneyimi ve rekabetin birlikte etkilediği dinamik bir satış alanıdır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapan markaların Buy Box rekabetini, fiyat yapısını, FBA/FBM lojistik modelini, stok yönetimini, satıcı performansını, kâr marjını ve Wholesale ürün portföyünü birlikte analiz ederek daha kontrollü bir Amazon satış operasyonu oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Fiyat Kırma mı, Sistemli Buy Box Yönetimi mi?',
+      headers: ['Kriter', 'Fiyat Kırma', 'Sistemli Buy Box Yönetimi'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Buy Box için sadece fiyat düşürülür', company: 'Fiyat, stok, teslimat, performans ve kâr birlikte değerlendirilir' },
+        { criterion: 'Kârlılık', individual: 'Satış gelse bile marj zayıflayabilir', company: 'Komisyon, lojistik, reklam ve tedarik maliyeti hesaba katılır' },
+        { criterion: 'Operasyon', individual: 'Stok ve teslimat performansı ikinci planda kalabilir', company: 'Stok sürekliliği ve müşteri deneyimi düzenli izlenir' },
+        { criterion: 'Rekabet', individual: 'Rakip fiyatlarına panikle cevap verilir', company: 'Rakip teklifleri, satıcı sayısı ve ürün yapısı birlikte analiz edilir' },
+        { criterion: 'Sonuç', individual: 'Kısa vadeli görünürlük için kârlılık riske girebilir', company: 'Buy Box, kâr ve operasyon birlikte yönetilmeye çalışılır' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon Buy Box kontrol listesi',
+      items: [
+        'Aynı ürünü satan rakip satıcılar incelendi mi?',
+        'Fiyat ve kargo maliyeti kontrol edildi mi?',
+        'Ürün stokta ve satın alınabilir durumda mı?',
+        'Teslimat süresi müşteri beklentisiyle uyumlu mu?',
+        'FBA/FBM operasyon performansı takip ediliyor mu?',
+        'Satıcı performansı ve Account Health kontrol edildi mi?',
+        'Kâr marjı fiyat rekabetine dayanıyor mu?',
+        'Buy Box kaybı tek nedene bağlanmadan analiz edildi mi?',
+        'Wholesale ürün seçerken Buy Box rekabeti değerlendirildi mi?',
+        'Fiyat değişiklikleri gerçek kârlılıkla birlikte yapılıyor mu?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon Buy Box nedir?',
+          answer:
+            'Amazon Buy Box, ürün detay sayfasında müşterinin satın alma işlemini başlattığı ana satış alanıdır. Aynı ürünü birden fazla satıcı satıyorsa, hangi teklifin öne çıkacağı çeşitli faktörlere bağlı olabilir.',
+        },
+        {
+          question: 'Amazon Buy Box neden önemlidir?',
+          answer:
+            'Müşteri satın alma kararında ana görünürlük alanlarından biridir ve özellikle Wholesale modelinde satış hacmini doğrudan etkileyebilir. Ancak satış yalnızca Buy Box’a bağlı değildir.',
+        },
+        {
+          question: 'Amazon Buy Box nasıl kazanılır?',
+          answer:
+            'Kesin bir formül yoktur; fiyat, stok, teslimat, satıcı performansı ve müşteri deneyimi gibi unsurlar birlikte etkili olabilir. Buy Box stratejisi sadece fiyat değil, sistemli operasyon yönetimi gerektirir.',
+        },
+        {
+          question: 'FBA Buy Box’ı etkiler mi?',
+          answer:
+            'FBA, teslimat deneyimi ve operasyon standardı açısından avantaj sağlayabilir ama Buy Box garantisi vermez. Fiyat, stok ve satıcı performansı yine önemlidir.',
+        },
+        {
+          question: 'FBM Buy Box alabilir mi?',
+          answer:
+            'Evet, FBM satıcılar da güçlü teslimat ve performans yapısıyla rekabet edebilir. FBM’nin her zaman dezavantajlı olduğu veya Buy Box alamayacağı şeklinde kesin bir ifade doğru değildir.',
+        },
+        {
+          question: 'Buy Box neden kaybolur?',
+          answer:
+            'Fiyat, stok, teslimat süresi, satıcı performansı veya rakip tekliflerindeki değişiklikler gibi birden fazla neden olabilir. Kayıp tek bir nedene bağlanmadan tüm operasyon kontrol edilmelidir.',
+        },
+        {
+          question: 'Buy Box için en düşük fiyat yeterli mi?',
+          answer:
+            'Hayır, düşük fiyat tek başına yeterli olmayabilir ve kâr marjını zayıflatabilir. Stok, teslimat, satıcı performansı ve müşteri deneyimi de birlikte değerlendirilmelidir.',
+        },
+        {
+          question: 'Amazon Buy Box satış garantisi verir mi?',
+          answer:
+            'Hayır, Buy Box bir satış garantisi değildir; görünürlüğü artırabilir ama satış sonucu ürün, fiyat, yorum ve rekabet gibi diğer unsurlarla birlikte şekillenir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Aynı üründe kaç satıcının rekabet ettiğini analiz edin',
+      'Fiyat, stok ve teslimat durumunuzu kontrol edin',
+      'FBA/FBM modelinizin müşteri deneyimine etkisini değerlendirin',
+      'Satıcı performansı ve Account Health alanlarınızı düzenli takip edin',
+      'Buy Box kaybını sadece fiyatla açıklamadan tüm operasyonu kontrol edin',
+      'Ücretsiz analiz ile Amazon Buy Box ve satış operasyonunuzu birlikte değerlendirelim',
+    ],
+  },
 };
