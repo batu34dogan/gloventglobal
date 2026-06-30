@@ -5450,4 +5450,198 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon satıcı hesabı ve başlangıç planınızı birlikte değerlendirelim',
     ],
   },
+
+  'amazon-brand-analytics-nedir': {
+    title: 'Amazon Brand Analytics Nedir?',
+    slug: 'amazon-brand-analytics-nedir',
+    excerpt:
+      'Amazon Brand Analytics’in ne olduğunu, hangi verileri anlamaya yardımcı olabileceğini ve keyword, listing, PPC ve A+ Content ile nasıl bağlantılı olduğunu açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da kendi markasıyla satış yapan veya Brand Registry sürecine hazırlanan satıcılar',
+    searchIntent: 'amazon brand analytics nedir, amazon brand analytics nasıl kullanılır, amazon brand analytics ne işe yarar, amazon brand analytics için brand registry gerekir mi, amazon arama terimi raporu nedir, amazon search query performance nedir, amazon brand analytics ile keyword nasıl analiz edilir, amazon brand analytics ve ppc ilişkisi nedir',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-18',
+    order: 32,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon Brand Analytics, marka sahiplerinin Amazon’daki müşteri arama davranışlarını, ürün görünürlüğünü, keyword fırsatlarını ve marka performansını daha iyi anlamasına yardımcı olabilen veri alanıdır. Brand Analytics; keyword araştırması, listing geliştirme, PPC optimizasyonu, A+ Content planı ve ürün portföyü kararları için destekleyici veri sağlayabilir. Ancak erişim ve rapor detayları hesap, ülke, marka uygunluğu ve Amazon’un güncel sistemlerine göre değişebilir.',
+    quickAnswer:
+      'Amazon Brand Analytics, Amazon’da marka sahiplerinin müşteri arama terimlerini, ürün performansını, rekabet sinyallerini ve marka görünürlüğünü analiz etmesine yardımcı olan veri alanıdır. Bu veriler listing, anahtar kelime, PPC, A+ Content ve ürün stratejisi için kullanılabilir. Ancak Brand Analytics tek başına satış garantisi vermez; veriler ürün, fiyat, stok, reklam ve operasyonla birlikte yorumlanmalıdır.',
+    whoShouldRead: [
+      'Amazon’da kendi markasıyla satış yapan işletmeler',
+      'Brand Registry sürecini tamamlamış veya hazırlanan markalar',
+      'Keyword, listing ve PPC kararlarını veriyle desteklemek isteyen satıcılar',
+      'A+ Content ve Amazon Store performansını daha sistemli düşünmek isteyenler',
+      'Ürün portföyü ve müşteri arama davranışını anlamak isteyen markalar',
+      'Amazon’da marka odaklı büyüme sistemi kurmak isteyen işletmeler',
+    ],
+    expertNote:
+      'Amazon Brand Analytics’te en sık yapılan hata, veriyi tek başına karar mekanizması gibi görmektir. Bir arama terimi yüksek görünürlük veya ilgi gösterebilir; ancak ürün uyumu, fiyat, yorum, stok, listing kalitesi ve reklam maliyeti birlikte değerlendirilmeden doğru karar vermek zorlaşır.',
+    expertNoteAfterHeading: 'Amazon arama terimi verileri nasıl yorumlanmalı?',
+    keyTakeaway:
+      'Amazon Brand Analytics bir cevap makinesi değil, karar destek alanıdır. Veriler hangi arama terimlerinin, ürünlerin veya müşteri davranışlarının önemli olabileceğini gösterir; ancak bu veriler listing, PPC, fiyat, stok, yorum ve marka stratejisiyle birlikte yorumlanmalıdır.',
+    nextReadingSlugs: [
+      'amazon-brand-registry-nedir',
+      'amazon-anahtar-kelime-arastirmasi-nasil-yapilir',
+      'amazon-ppc-nasil-calisir',
+      'amazon-listing-nasil-hazirlanir',
+      'amazon-a-plus-content-nedir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da marka sahibi olarak satış yapar veya Brand Registry sonrası hangi verileri kullanabileceğini anlamaya çalışır. Brand Analytics, müşteri arama davranışı, keyword, ürün performansı ve marka görünürlüğü açısından bir karar destek alanıdır; ancak tek başına satış garantisi vermez.',
+      },
+      {
+        heading: 'Amazon Brand Analytics nedir?',
+        body: '- Amazon’da uygun marka sahiplerinin erişebileceği veri ve analiz alanı olabileceği\n- Müşteri arama davranışları, ürün görünürlüğü ve marka performansı gibi konuları anlamaya yardımcı olabileceği\n- Keyword, listing, PPC ve ürün portföyü kararlarına destek verebileceği\n- Brand Registry ile ilişkili olabileceği\n- Erişim ve rapor detaylarının hesap ve ülkeye göre değişebileceği',
+      },
+      {
+        heading: 'Amazon Brand Analytics kimler için kritiktir?',
+        body: '- Brand Registry sahibi markalar\n- Private Label ürünlerini veriyle geliştirmek isteyen satıcılar\n- Amazon keyword araştırmasını gerçek arama davranışlarıyla desteklemek isteyenler\n- PPC kampanyalarını daha bilinçli optimize etmek isteyen markalar\n- Ürün portföyünü ve müşteri talebini daha doğru anlamak isteyen işletmeler\n- A+ Content, Amazon Store ve marka stratejisini veriye bağlamak isteyen firmalar',
+      },
+      {
+        heading: 'Amazon Brand Analytics ne işe yarar?',
+        body: '- Müşteri arama terimlerini anlamaya yardımcı olabilir\n- Keyword araştırmasını destekleyebilir\n- Listing ve A+ Content geliştirme kararlarına veri sağlayabilir\n- PPC kampanyalarında test edilecek kelimeleri belirlemeye yardımcı olabilir\n- Ürün portföyü ve kategori fırsatlarını anlamayı destekleyebilir\n- Marka görünürlüğünü ve müşteri davranışını daha iyi değerlendirmeye yardımcı olabilir',
+      },
+      {
+        heading: 'Amazon Brand Analytics nasıl kullanılır?',
+        body: '- Brand Registry ve hesap uygunluğu kontrol edilir\n- Marka ve ürün portföyü analiz edilir\n- Arama terimleri ve ürün görünürlüğü incelenir\n- Keyword listesi, listing ve PPC ile karşılaştırılır\n- A+ Content ve ürün sayfası müşteri niyetine göre güncellenir\n- Performans düzenli takip edilir\n\nAmazon arayüzü ve erişimler zaman içinde değişebileceği için kesin bir menü yolu veya rapor adı verilmemiştir.',
+      },
+      {
+        heading: 'Amazon Brand Analytics kullanım akışı',
+        body: 'Brand Registry / marka erişimi\n↓\nÜrün portföyü\n↓\nMüşteri arama terimleri\n↓\nKeyword fırsatları\n↓\nListing ve A+ Content güncellemesi\n↓\nPPC testleri\n↓\nSatış / görünürlük takibi\n↓\nStrateji güncellemesi\n\nBrand Analytics tek seferlik bakılacak bir rapor alanı değildir. Keyword, listing, reklam ve ürün portföyü kararları düzenli veri takibiyle birlikte geliştirilmelidir.',
+      },
+      {
+        heading: 'Örnek Amazon Brand Analytics Senaryosu',
+        body: 'Örnek senaryo: Amazon’da kendi markasıyla satış yapan bir işletme, Brand Analytics verilerini kullanarak müşterilerin ürün kategorisinde hangi arama terimlerini kullandığını, hangi ürünlerin daha fazla görünürlük aldığını ve hangi keyword’lerin PPC ile test edilebileceğini analiz eder. Daha sonra listing başlığı, bullet point, A+ Content ve reklam kampanyalarını bu verilerle birlikte günceller. Bu senaryo satış garantisi değil, Brand Analytics verisini daha kontrollü kullanmak için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Brand Analytics hangi alanlarda kullanılabilir?',
+        body: '- Keyword araştırması\n- Listing optimizasyonu\n- PPC kampanya planı\n- A+ Content ve ürün sayfası içerikleri\n- Ürün portföyü analizi\n- Marka görünürlüğü\n- Rakip ve kategori sinyallerini anlama\n- Müşteri arama niyeti analizi',
+      },
+      {
+        heading: 'Brand Analytics, PPC ve keyword ilişkisi nedir?',
+        body: '- Brand Analytics müşteri arama davranışını anlamaya yardımcı olabilir\n- Keyword araştırması bu verilerle desteklenebilir\n- PPC kampanyalarında test edilecek kelimeler daha kontrollü seçilebilir\n- PPC search term verileri Brand Analytics ile birlikte yorumlanabilir\n- Listing ve A+ Content müşteri niyetine göre güncellenebilir',
+      },
+      {
+        heading: 'Brand Analytics, PPC ve Keyword bağlantı tablosu',
+        body: 'Brand Analytics\nAna rol: Müşteri arama davranışı ve marka verilerini anlamaya yardımcı olur\nNasıl kullanılır: Keyword, ürün portföyü, listing ve içerik kararlarına destek verir\n\nKeyword Research\nAna rol: Ürünün hangi arama ifadeleriyle bulunabileceğini belirler\nNasıl kullanılır: Başlık, bullet point, açıklama, backend alanları ve PPC için kelime havuzu oluşturur\n\nAmazon PPC\nAna rol: Seçilen kelimeleri reklamla test etmeye ve görünürlük sağlamaya yardımcı olur\nNasıl kullanılır: Search term verileriyle çalışan ve çalışmayan kelimeler ayrıştırılır\n\nListing\nAna rol: Ürün sayfasında keyword ve müşteri faydasını birleştirir\nNasıl kullanılır: Arama niyetiyle uyumlu, okunabilir ve dönüşüm odaklı ürün anlatımı kurar\n\nA+ Content\nAna rol: Ürün faydasını ve marka hikayesini daha görsel anlatır\nNasıl kullanılır: Müşteri soruları, kullanım senaryoları ve ürün farkı Brand Analytics verileriyle desteklenebilir',
+      },
+      {
+        heading: 'Amazon Brand Analytics için Brand Registry gerekir mi?',
+        body: 'Brand Analytics erişimi genellikle marka uygunluğu ve Brand Registry ile ilişkili olabilir. Amazon’un güncel erişim şartları ülke ve hesap durumuna göre değişebilir; bu konuda kesin bir güncel şart verilemez. Satıcıların Amazon Seller Central veya resmi Amazon kaynaklarından güncel erişim durumunu kontrol etmesi gerekir.',
+      },
+      {
+        heading: 'Amazon arama terimi verileri nasıl yorumlanmalı?',
+        body: '- Sadece yüksek görünürlük veya yüksek arama ilgisine bakılmamalı\n- Ürün uyumu ve müşteri niyeti kontrol edilmeli\n- Rakiplerin güçlü olduğu kelimeler ayrıca değerlendirilmelidir\n- Long-tail kelimeler daha spesifik satın alma niyeti taşıyabilir\n- PPC verisiyle birlikte yorumlanmalıdır\n- Yanlış kelimeler reklam bütçesini boşa harcatabilir',
+      },
+      {
+        heading: 'Brand Analytics listing ve A+ Content’i nasıl etkiler?',
+        body: '- Müşteri arama terimleri başlık ve bullet point yapısını etkileyebilir\n- A+ Content müşteri sorularını daha iyi yanıtlayacak şekilde planlanabilir\n- Kullanım senaryoları, karşılaştırmalar ve ürün faydaları verilerle güçlendirilebilir\n- Ancak keyword doldurma veya gereksiz metin şişirme yapılmamalıdır',
+      },
+      {
+        heading: 'Brand Analytics ürün portföyü kararlarında nasıl kullanılır?',
+        body: '- Hangi ürün gruplarına ilgi olduğunu anlamaya yardımcı olabilir\n- Mevcut ürün portföyündeki zayıf/güçlü alanları değerlendirmeye destek olabilir\n- Yeni ürün araştırması için sinyal sağlayabilir\n- Ancak ürün kararı yalnızca Brand Analytics verisiyle verilmemelidir\n- Tedarik, maliyet, lojistik ve rekabet ayrıca incelenmelidir',
+      },
+      {
+        heading: 'Amazon Brand Analytics’te en sık yapılan hatalar nelerdir?',
+        body: '- Veriyi tek başına kesin karar gibi yorumlamak\n- Ürünle ilgisiz yüksek hacimli kelimelere odaklanmak\n- PPC search term verisini ayrı değerlendirmek\n- Listing ve A+ Content’i veriye göre güncellememek\n- Verileri düzenli takip etmemek\n- Sezon, kategori ve rekabet değişimini hesaba katmamak\n- Brand Analytics’i sadece rapor izleme alanı gibi kullanmak',
+      },
+      {
+        heading: 'İlk 30 gün Amazon Brand Analytics kontrol planı',
+        body: '1. hafta: Brand Registry erişimi, ürün portföyü ve mevcut listing yapısını kontrol etme\n2. hafta: arama terimleri, keyword fırsatları ve müşteri niyetini analiz etme\n3. hafta: listing, A+ Content ve PPC kampanyalarını veriyle karşılaştırma\n4. hafta: çalışan kelimeleri, zayıf içerik alanlarını ve yeni ürün fırsatlarını belirleme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Brand Analytics verisini tek başına “ne satmalıyım?” sorusunun cevabı gibi görmektir. Doğru yaklaşım; veriyi ürün uyumu, maliyet, rekabet, listing, reklam ve operasyon kapasitesiyle birlikte değerlendirmektir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da marka sahibi satıcıların Brand Analytics verilerini, keyword yapısını, listing ve A+ Content içeriklerini, PPC search term verilerini, ürün portföyünü ve marka büyüme hedeflerini birlikte analiz ederek daha kontrollü bir Amazon veri ve büyüme sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Rapor İzlemek mi, Veriye Dayalı Amazon Marka Yönetimi mi?',
+      headers: ['Kriter', 'Rapor İzlemek', 'Veriye Dayalı Marka Yönetimi'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Brand Analytics yalnızca veri ekranı olarak kullanılır', company: 'Arama terimleri, listing, PPC ve ürün portföyü birlikte analiz edilir' },
+        { criterion: 'Keyword', individual: 'Yüksek hacimli kelimeler tek başına önemli görülür', company: 'Kelimeler ürün uyumu ve müşteri niyetiyle birlikte değerlendirilir' },
+        { criterion: 'PPC', individual: 'Reklam verisi ayrı, marka verisi ayrı yorumlanır', company: 'PPC search term verileri Brand Analytics ile birlikte değerlendirilir' },
+        { criterion: 'İçerik', individual: 'Listing ve A+ Content güncellenmeden kalabilir', company: 'Ürün sayfası müşteri sorularına göre geliştirilir' },
+        { criterion: 'Sonuç', individual: 'Veri karar üretmeden kalabilir', company: 'Amazon büyüme sistemi veriye daha bağlı hale gelir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon Brand Analytics kontrol listesi',
+      items: [
+        'Brand Registry ve Brand Analytics erişiminiz kontrol edildi mi?',
+        'Ürün portföyünüz analiz edildi mi?',
+        'Müşteri arama terimleri incelendi mi?',
+        'Ana keyword ve long-tail keyword fırsatları ayrıldı mı?',
+        'PPC search term verileriyle karşılaştırma yapıldı mı?',
+        'Listing başlığı, bullet point ve açıklama veriye göre değerlendirildi mi?',
+        'A+ Content müşteri sorularına göre güncellendi mi?',
+        'Ürün portföyü ve yeni ürün fırsatları analiz edildi mi?',
+        'Veriler düzenli takip ediliyor mu?',
+        'Kararlar yalnızca tek rapora değil, maliyet, rekabet ve operasyonla birlikte alınıyor mu?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon Brand Analytics nedir?',
+          answer:
+            'Amazon Brand Analytics, marka sahiplerinin müşteri arama davranışlarını, ürün görünürlüğünü ve marka performansını anlamasına yardımcı olabilen bir veri alanıdır. Keyword, listing, PPC ve ürün portföyü kararlarına destek verebilir.',
+        },
+        {
+          question: 'Amazon Brand Analytics ne işe yarar?',
+          answer:
+            'Müşteri arama terimlerini anlamaya, keyword araştırmasını desteklemeye ve listing/A+ Content kararlarına veri sağlamaya yardımcı olabilir. Ancak veriler tek başına satış garantisi vermez.',
+        },
+        {
+          question: 'Amazon Brand Analytics nasıl kullanılır?',
+          answer:
+            'Brand Registry ve hesap uygunluğu kontrol edilip ürün portföyü ve arama terimleri analiz edilir; ardından keyword, listing ve PPC kararları bu verilerle karşılaştırılır. Süreç düzenli takip gerektirir.',
+        },
+        {
+          question: 'Brand Analytics için Brand Registry gerekir mi?',
+          answer:
+            'Brand Analytics erişimi genellikle marka uygunluğu ve Brand Registry ile ilişkilidir; ancak güncel şartlar ülke ve hesaba göre değişebilir. Güncel erişim durumu Amazon Seller Central kaynaklarından kontrol edilmelidir.',
+        },
+        {
+          question: 'Amazon Brand Analytics keyword araştırmasında nasıl kullanılır?',
+          answer:
+            'Müşteri arama terimlerini göstererek hangi kelimelerin ürünle uyumlu olabileceğini anlamaya yardımcı olur. Bu veriler başlık, bullet point ve PPC kelime havuzu oluştururken destekleyici olarak kullanılabilir.',
+        },
+        {
+          question: 'Amazon Brand Analytics PPC ile nasıl ilişkilidir?',
+          answer:
+            'Brand Analytics verileri, PPC kampanyalarında test edilecek kelimelerin daha bilinçli seçilmesine yardımcı olabilir. PPC search term verileri de Brand Analytics ile birlikte yorumlanabilir.',
+        },
+        {
+          question: 'Amazon Brand Analytics satış garantisi verir mi?',
+          answer:
+            'Hayır, Brand Analytics bir satış garantisi değildir; karar destek verisi sağlar. Sonuç; ürün, fiyat, listing, reklam ve operasyonla birlikte şekillenir.',
+        },
+        {
+          question: 'Amazon Brand Analytics hangi markalar için uygundur?',
+          answer:
+            'Brand Registry sahibi markalar, Private Label satıcıları ve keyword/listing/PPC kararlarını veriyle desteklemek isteyen işletmeler için uygun olabilir. Erişim ve uygunluk hesaba göre değişebilir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Brand Registry ve Brand Analytics erişiminizi kontrol edin',
+      'Ana ürünleriniz için müşteri arama terimlerini inceleyin',
+      'Keyword, listing ve PPC kararlarınızı aynı veri havuzunda değerlendirin',
+      'A+ Content ve ürün sayfası içeriklerini müşteri arama niyetine göre güncelleyin',
+      'Ürün portföyü, fiyat ve stok kararlarını verilerle birlikte takip edin',
+      'Ücretsiz analiz ile Amazon Brand Analytics, keyword ve PPC yapınızı birlikte değerlendirelim',
+    ],
+  },
 };
