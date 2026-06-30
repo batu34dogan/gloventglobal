@@ -4281,4 +4281,198 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon Wholesale ürün portföyünüzü birlikte değerlendirelim',
     ],
   },
+
+  'amazon-anahtar-kelime-arastirmasi-nasil-yapilir': {
+    title: 'Amazon Anahtar Kelime Araştırması Nasıl Yapılır?',
+    slug: 'amazon-anahtar-kelime-arastirmasi-nasil-yapilir',
+    excerpt:
+      'Amazon anahtar kelime araştırmasını; ürün uyumu, müşteri arama niyeti, rekabet ve PPC verisiyle birlikte nasıl yapacağınızı; listing ve reklam için doğru kelime seçimini açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da yeni ürün listeleyecek veya PPC kampanyası kuracak satıcılar',
+    searchIntent: 'amazon anahtar kelime araştırması nasıl yapılır, amazon keyword research nasıl yapılır, amazon seo anahtar kelime nasıl bulunur, amazon listing için keyword nasıl seçilir, amazon ppc keyword nasıl bulunur, amazon backend keyword nedir, amazon search terms nedir, amazon da long tail keyword nedir',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-31',
+    order: 26,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon anahtar kelime araştırması, ürünün müşteriler tarafından hangi arama ifadeleriyle bulunabileceğini anlamak için yapılan analiz sürecidir. Bu süreç yalnızca yüksek hacimli kelimeleri bulmak değildir; ürün uyumu, müşteri arama niyeti, rekabet seviyesi, listing yapısı ve PPC verileri birlikte değerlendirilmelidir. Doğru keyword yapısı listing görünürlüğüne ve reklam verimliliğine katkı sağlayabilir; ancak tek başına satış garantisi vermez.',
+    quickAnswer:
+      'Amazon anahtar kelime araştırması, müşterilerin ürünü Amazon’da hangi kelimelerle aradığını belirleme sürecidir. Ana kelimeler, uzun kuyruklu kelimeler, kullanım alanı ifadeleri, rakip kelimeleri ve PPC arama terimleri birlikte analiz edilir. Amaç sadece çok aranan kelimeyi bulmak değil, ürünle gerçekten uyumlu ve dönüşüm potansiyeli olan arama ifadelerini seçmektir.',
+    whoShouldRead: [
+      'Amazon’da yeni ürün listeleyecek satıcılar',
+      'Listing başlığı, bullet point ve açıklamasını hazırlayanlar',
+      'Amazon PPC kampanyası kurmadan önce keyword yapısını anlamak isteyenler',
+      'Ürün sayfası trafik almasına rağmen dönüşüm sorunu yaşayan markalar',
+      'Private Label veya Wholesale ürünleri için arama görünürlüğü planlayanlar',
+      'Amazon SEO mantığını doğru kurmak isteyen işletmeler',
+    ],
+    expertNote:
+      'Amazon keyword araştırmasında en sık yapılan hata, yalnızca yüksek hacimli kelimelere odaklanmaktır. Çok aranan bir kelime ürünle uyumlu değilse reklam bütçesini boşa harcayabilir veya listing’e yanlış trafik getirebilir. Daha doğru yaklaşım, ürünün ne olduğunu, kime hitap ettiğini ve hangi arama niyetiyle satın alınabileceğini birlikte değerlendirmektir.',
+    expertNoteAfterHeading: 'Amazon arama niyeti nasıl anlaşılır?',
+    keyTakeaway:
+      'Amazon’da anahtar kelime araştırması görünürlük kadar dönüşümle de ilgilidir. Yüksek hacimli ama ürünle zayıf ilişkili kelimeler trafik getirebilir; ancak doğru müşteri niyetini yakalamayan trafik satışa dönüşmeyebilir. Bu nedenle keyword seçimi ürün uyumu, listeleme kalitesi ve reklam verisiyle birlikte yapılmalıdır.',
+    nextReadingSlugs: [
+      'amazon-listing-nasil-hazirlanir',
+      'amazon-ppc-nasil-calisir',
+      'amazonda-urun-arastirmasi-nasil-yapilir',
+      'amazon-komisyonlari-ve-maliyetler',
+      'amazon-private-label-nedir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon listing veya reklam hazırlığı yapar ama hangi kelimeleri kullanması gerektiğini bilmez. Keyword araştırması sadece arama hacmi yüksek kelimeleri bulmak değildir; ürün uyumu, müşteri arama niyeti, rakip analizi, listing yapısı ve PPC verisiyle birlikte düşünülmelidir.',
+      },
+      {
+        heading: 'Amazon anahtar kelime araştırması nedir?',
+        body: '- Müşterilerin ürünü Amazon’da hangi kelimelerle aradığını anlama süreci\n- Listing, PPC ve SEO yapısını etkileyebileceği\n- Ana kelime, uzun kuyruklu kelime ve kullanım niyeti kelimelerinin ayrılması gerektiği\n- Amaç yalnızca görünürlük değil, doğru müşteriye ulaşmak olmalıdır\n- Keyword araştırmasının satış garantisi olmadığı',
+      },
+      {
+        heading: 'Amazon anahtar kelime araştırması kimler için kritiktir?',
+        body: '- Amazon listing hazırlayan satıcılar\n- PPC kampanyası kuracak markalar\n- Ürün başlığı ve bullet point yapısını optimize etmek isteyenler\n- Private Label ürününü pazara çıkaracak işletmeler\n- Wholesale ürünlerde doğru arama terimlerini bulmak isteyenler\n- Amazon’da organik görünürlük ve reklam verisini birlikte yönetmek isteyen satıcılar',
+      },
+      {
+        heading: 'Amazon anahtar kelime araştırması neden önemlidir?',
+        body: '- Ürünün doğru aramalarda görünmesine katkı sağlayabilir\n- Listing başlığı ve bullet point yapısını güçlendirebilir\n- PPC kampanyaları için başlangıç kelime havuzu oluşturur\n- Müşteri arama niyetini anlamaya yardımcı olur\n- Yanlış kelimeler reklam bütçesini boşa harcatabilir\n- Ürünle uyumsuz trafik dönüşüm sorununa yol açabilir',
+      },
+      {
+        heading: 'Amazon anahtar kelime araştırması nasıl yapılır?',
+        body: '- Ürünün ana kelimesi belirlenir\n- Müşteri problemi ve kullanım alanı çıkarılır\n- Amazon arama önerileri incelenir\n- Rakip listing’ler analiz edilir\n- Long-tail kelimeler ayrılır\n- PPC search term verileri takip edilir\n- Ürünle uyumsuz kelimeler elenir\n- Kelimeler listing alanlarına doğal şekilde yerleştirilir',
+      },
+      {
+        heading: 'Amazon anahtar kelime araştırma akışı',
+        body: 'Ürün analizi\n↓\nAna kelime\n↓\nMüşteri arama niyeti\n↓\nAmazon arama önerileri\n↓\nRakip listing analizi\n↓\nLong-tail keyword listesi\n↓\nPPC search term verisi\n↓\nListing yerleşimi ve takip\n\nAmazon keyword araştırması tek seferlik bir liste çıkarma işi değildir. Listing yayına alındıktan sonra reklam verisi, arama terimleri ve dönüşüm performansı düzenli takip edilmelidir.',
+      },
+      {
+        heading: 'Örnek Amazon Anahtar Kelime Araştırması Senaryosu',
+        body: 'Örnek senaryo: Amazon’da yeni bir ürün listelemek isteyen marka, ilk aşamada ürünün ana kelimesini, kullanım alanlarını, müşteri problemini, rakip ürünlerde kullanılan ifadeleri ve Amazon arama önerilerini inceler. Daha sonra 20–30 kelimelik geniş bir liste oluşturur; bu kelimeleri ürün uyumu, rekabet, kullanım niyeti ve PPC test potansiyeline göre daraltır. Bu senaryo satış garantisi değil, Amazon keyword araştırmasını daha kontrollü yapmak için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon keyword türleri nelerdir?',
+        body: '- Ana kelime\n- Long-tail keyword\n- Kullanım alanı kelimesi\n- Özellik kelimesi\n- Rakip/alternatif ürün kelimesi\n- PPC search term',
+      },
+      {
+        heading: 'Amazon keyword türleri kısa tablo',
+        body: 'Ana kelime\nNe anlama gelir: Ürünü doğrudan tanımlayan temel kelime\nNerede kullanılır: Başlık, bullet point ve ana listing yapısı\n\nLong-tail keyword\nNe anlama gelir: Daha spesifik ve uzun arama ifadesi\nNerede kullanılır: Bullet point, açıklama, PPC ve içerik planı\n\nKullanım alanı kelimesi\nNe anlama gelir: Ürünün hangi amaçla kullanıldığını anlatır\nNerede kullanılır: Görsel metinleri, bullet point ve açıklama\n\nÖzellik kelimesi\nNe anlama gelir: Ürünün malzeme, ölçü, renk, uyumluluk veya teknik özelliğini belirtir\nNerede kullanılır: Başlık, bullet point ve teknik açıklamalar\n\nRakip/alternatif kelime\nNe anlama gelir: Rakip ürünler veya alternatif çözümler üzerinden gelen arama niyeti\nNerede kullanılır: Dikkatli analiz, PPC testleri ve stratejik içerik\n\nPPC search term\nNe anlama gelir: Reklamlardan gerçek kullanıcı araması olarak gelen terimler\nNerede kullanılır: PPC optimizasyonu, negatif kelime ve listing geliştirme',
+      },
+      {
+        heading: 'Amazon listing için keyword nasıl seçilir?',
+        body: '- Ürünle en uyumlu ana kelimeler seçilmeli\n- Başlık okunabilir kalmalı\n- Bullet point’lerde fayda ve keyword dengesi kurulmalı\n- Açıklamada müşteri dili kullanılmalı\n- Backend search terms doğal destek alanı olarak düşünülmeli\n- Anahtar kelime doldurma yapılmamalı',
+      },
+      {
+        heading: 'Amazon PPC için keyword nasıl seçilir?',
+        body: '- İlk kampanyalarda ürünle doğrudan ilgili kelimelerden başlanabilir\n- Geniş kelimeler veri toplamak için kullanılabilir ama bütçe kontrolü gerekir\n- Long-tail kelimeler daha spesifik niyet taşıyabilir\n- PPC search term raporları düzenli incelenmelidir\n- Dönüşüm sağlamayan kelimeler kontrol edilmelidir\n- Negatif keyword mantığı ayrıca düşünülmelidir',
+      },
+      {
+        heading: 'Amazon backend keyword nedir?',
+        body: 'Backend keyword alanı, kullanıcının görmediği ama Amazon tarafından değerlendirilebilen arama terimleri alanıdır. Bu alanda gereksiz tekrar, yanıltıcı kelime veya ürünle alakasız ifade kullanılmamalıdır. Güncel karakter sınırı veya politika değişebileceği için Amazon’un güncel yönergeleri kontrol edilmelidir.',
+      },
+      {
+        heading: 'Amazon arama niyeti nasıl anlaşılır?',
+        body: '- Kullanıcının ürünü hangi problem veya ihtiyaçla aradığı\n- Bilgi araması mı satın alma niyeti mi olduğu\n- Ürünün kullanım alanı ve hedef müşteriyle kelime uyumu\n- “Ucuz”, “premium”, “for men”, “travel”, “replacement”, “compatible” gibi niyet sinyallerinin ürün tipine göre değişebileceği\n- Yanlış arama niyetinin reklam bütçesini boşa harcatabileceği',
+      },
+      {
+        heading: 'Amazon anahtar kelime araştırmasında hangi araçlar kullanılabilir?',
+        body: '- Amazon arama önerileri\n- Rakip ürün sayfaları\n- PPC search term raporları\n- Brand Analytics / erişim varsa\n- Helium 10\n- Jungle Scout\n- SellerSprite\n- DataDive\n- Keepa\n- Google Trends\n\nBu araçlar karar vermeye yardımcı olabilir; ancak hiçbir araç tek başına doğru keyword listesini garanti etmez. Araç verileri ürün uyumu, rekabet, listing kalitesi ve reklam performansıyla birlikte değerlendirilmelidir.',
+      },
+      {
+        heading: 'Amazon keyword araştırmasında en sık yapılan hatalar nelerdir?',
+        body: '- Sadece yüksek hacimli kelimelere odaklanmak\n- Ürünle alakasız kelimeleri kullanmak\n- Başlığı anahtar kelimeyle doldurmak\n- Long-tail kelimeleri göz ardı etmek\n- PPC search term verilerini incelememek\n- Rakip kelimelerini bağlamsız kopyalamak\n- Backend alanına alakasız kelime eklemek\n- Keyword listesini yayın sonrası güncellememek',
+      },
+      {
+        heading: 'İlk 30 gün Amazon keyword kontrol planı',
+        body: '1. hafta: ana kelime, rakip ve arama önerisi araştırması\n2. hafta: listing başlığı, bullet point ve açıklama keyword yerleşimi\n3. hafta: PPC testleriyle search term verisi toplama\n4. hafta: çalışan kelimeleri ayırma, zayıf kelimeleri eleme ve listing/PPC güncellemesi',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon keyword araştırmasını “en çok aranan kelimeyi bulmak” olarak düşünmektir. Doğru keyword yapısı, ürünle uyumlu, müşteri niyetini karşılayan ve listing ile PPC performansını birlikte destekleyen kelimelerden oluşmalıdır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapmak isteyen markaların ürün yapısını, hedef müşterisini, rakiplerini, arama niyetlerini, listing metinlerini ve PPC search term verilerini birlikte analiz ederek daha kontrollü bir Amazon keyword ve görünürlük sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Anahtar Kelime Doldurma mı, Sistemli Amazon Keyword Araştırması mı?',
+      headers: ['Kriter', 'Anahtar Kelime Doldurma', 'Sistemli Keyword Araştırması'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Çok aranan kelimeler rastgele listeye eklenir', company: 'Ürün, müşteri niyeti, rakip ve PPC verisi birlikte analiz edilir' },
+        { criterion: 'Başlık', individual: 'Başlık okunmaz ve güven zayıflayabilir', company: 'Başlık hem okunabilir hem arama niyetine uygun hazırlanır' },
+        { criterion: 'PPC', individual: 'Reklam bütçesi alakasız aramalara harcanabilir', company: 'Search term verileriyle çalışan kelimeler ayrıştırılır' },
+        { criterion: 'Dönüşüm', individual: 'Trafik gelse bile satışa dönüşmeyebilir', company: 'Daha uyumlu trafik ve daha net ürün anlatımı hedeflenir' },
+        { criterion: 'Sonuç', individual: 'Görünürlük ve güven zayıflayabilir', company: 'Listing ve PPC daha kontrollü şekilde geliştirilebilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon anahtar kelime araştırması kontrol listesi',
+      items: [
+        'Ürünün ana kelimesi belirlendi mi?',
+        'Müşteri arama niyeti analiz edildi mi?',
+        'Amazon arama önerileri incelendi mi?',
+        'Rakip listing’ler kontrol edildi mi?',
+        'Long-tail keyword listesi hazırlandı mı?',
+        'Kullanım alanı ve özellik kelimeleri ayrıldı mı?',
+        'PPC search term verileri takip edilecek mi?',
+        'Başlık okunabilir kalacak şekilde planlandı mı?',
+        'Bullet point ve açıklama keyword-fayda dengesiyle yazıldı mı?',
+        'Alakasız veya yanıltıcı kelimeler elendi mi?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon anahtar kelime araştırması nedir?',
+          answer:
+            'Amazon anahtar kelime araştırması, müşterilerin ürünü hangi kelimelerle aradığını belirleme sürecidir; listing, PPC ve SEO yapısını etkiler. Amaç yalnızca yüksek hacimli kelime bulmak değil, ürünle uyumlu arama niyetlerini yakalamaktır.',
+        },
+        {
+          question: 'Amazon keyword research nasıl yapılır?',
+          answer:
+            'Ürünün ana kelimesi belirlenir, Amazon arama önerileri ve rakip listing’ler incelenir, long-tail kelimeler ayrılır ve PPC search term verileri takip edilir. Süreç yayın sonrasında da düzenli olarak güncellenmelidir.',
+        },
+        {
+          question: 'Amazon listing için keyword nasıl seçilir?',
+          answer:
+            'Ürünle en uyumlu ana kelimeler seçilmeli, başlık okunabilir kalmalı ve bullet point’lerde fayda-keyword dengesi kurulmalıdır. Anahtar kelime doldurma yapılmamalıdır.',
+        },
+        {
+          question: 'Amazon PPC keyword nasıl bulunur?',
+          answer:
+            'İlk kampanyalarda ürünle doğrudan ilgili kelimelerden başlanabilir, geniş kelimeler veri toplamak için kullanılabilir. PPC search term raporları düzenli incelenerek çalışan ve çalışmayan kelimeler ayrıştırılmalıdır.',
+        },
+        {
+          question: 'Amazon backend keyword nedir?',
+          answer:
+            'Backend keyword, kullanıcının görmediği ama Amazon tarafından değerlendirilebilen arama terimleri alanıdır. Bu alana gereksiz tekrar veya ürünle alakasız ifadeler eklenmemelidir.',
+        },
+        {
+          question: 'Long-tail keyword Amazon’da neden önemlidir?',
+          answer:
+            'Long-tail kelimeler daha spesifik bir arama niyeti taşıdığı için bazen daha uyumlu trafik getirebilir. Ancak her ürün ve kategori için aynı etkiyi göstereceği garanti edilemez.',
+        },
+        {
+          question: 'Amazon keyword araştırmasında hangi araçlar kullanılır?',
+          answer:
+            'Amazon arama önerileri, rakip listing analizleri, PPC search term raporları ve Helium 10, Jungle Scout gibi üçüncü taraf araçlar kullanılabilir. Hiçbir araç tek başına doğru keyword listesini garanti etmez.',
+        },
+        {
+          question: 'Amazon anahtar kelime araştırması satış garantisi verir mi?',
+          answer:
+            'Hayır, keyword araştırması bir satış garantisi değildir; doğru kelimeler görünürlüğe ve dönüşüme katkı sağlayabilir ama listing kalitesi, fiyat ve diğer unsurlarla birlikte değerlendirilmelidir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürünün ana kullanım alanını ve hedef müşterisini netleştirin',
+      'Ana kelime, uzun kuyruklu kelime ve kullanım amacı kelimelerini ayırın',
+      'Rakip listing’leri ve Amazon arama önerilerini inceleyin',
+      'PPC arama terimlerinden gelen verileri düzenli analiz edin',
+      'Seçilen kelimeleri başlık, bullet point, açıklama ve backend alanlarına doğal şekilde yerleştirin',
+      'Ücretsiz analiz ile Amazon keyword ve listing yapınızı birlikte değerlendirelim',
+    ],
+  },
 };
