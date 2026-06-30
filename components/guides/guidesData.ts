@@ -5644,4 +5644,194 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon Brand Analytics, keyword ve PPC yapınızı birlikte değerlendirelim',
     ],
   },
+
+  'amazon-account-health-nedir': {
+    title: 'Amazon Account Health Nedir?',
+    slug: 'amazon-account-health-nedir',
+    excerpt:
+      'Amazon Account Health’in ne olduğunu, neden önemli olduğunu ve hesap sağlığı sorunlarının Buy Box, satış ve operasyon riskiyle nasıl bağlantılı olduğunu açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da aktif satış yapan veya satışa hazırlanan satıcılar',
+    searchIntent: 'amazon account health nedir, amazon hesap sağlığı nedir, amazon account health nasıl düzeltilir, amazon hesap sağlığı neden önemlidir, amazon account health uyarısı ne demek, amazon hesabım risk altında mı, amazon policy violation nedir, amazon buy box account health ilişkisi nedir',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-21',
+    order: 33,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon Account Health, satıcı hesabının performans, politika uygunluğu, operasyon kalitesi ve müşteri deneyimi açısından durumunu takip etmeye yardımcı olan hesap sağlığı alanıdır. Account Health; performans uyarıları, politika ihlalleri, sipariş sorunları, müşteri deneyimi ve hesap riskiyle ilişkili olabilir. Ancak ekranlar, metrikler ve uyarılar Amazon’un güncel sistemlerine göre değişebilir; bu nedenle düzenli kontrol edilmelidir.',
+    quickAnswer:
+      'Amazon Account Health, satıcı hesabınızın Amazon politikaları, müşteri deneyimi, sipariş performansı ve operasyon kalitesi açısından takip edildiği hesap sağlığı bölümüdür. Bu alan, olası ihlal veya performans sorunlarını erken fark etmenize yardımcı olabilir. Ancak Account Health’i yalnızca bir uyarı ekranı gibi değil, günlük Amazon operasyonunun kritik kontrol merkezi olarak düşünmek gerekir.',
+    whoShouldRead: [
+      'Amazon’da aktif satış yapan satıcılar',
+      'Seller Central panelini düzenli yönetmek isteyen işletmeler',
+      'Buy Box, hesap riski ve performans uyarılarını anlamak isteyenler',
+      'FBA veya FBM operasyonunda sipariş performansını takip eden satıcılar',
+      'Wholesale veya Private Label modeliyle Amazon’da satış yapan markalar',
+      'Amazon hesabı askıya alınmadan önce riskleri erken fark etmek isteyen işletmeler',
+    ],
+    expertNote:
+      'Amazon Account Health’te en sık yapılan hata, uyarılar gelene kadar bu alanı kontrol etmemektir. Hesap sağlığı yalnızca kriz anında bakılacak bir ekran değildir; stok, sipariş, iade, müşteri deneyimi, ürün uygunluğu ve politika riskleriyle birlikte düzenli takip edilmelidir.',
+    expertNoteAfterHeading: 'Account Health uyarısı gelirse ne yapılmalı?',
+    keyTakeaway:
+      'Amazon Account Health, hesabınızın kesin güvenli veya kesin riskli olduğunu tek başına söyleyen sabit bir puan sistemi gibi düşünülmemelidir. Bu alan; politika, performans ve operasyon sinyallerini takip etmek için kullanılır. Uyarıların bağlamı, satış modeli, ürün tipi ve Amazon’un güncel değerlendirmeleri birlikte incelenmelidir.',
+    nextReadingSlugs: [
+      'amazon-seller-central-nedir',
+      'amazon-seller-account-nasil-acilir',
+      'amazon-buy-box-nedir',
+      'amazon-fbm-mi-fba-mi',
+      'amazon-wholesale-nedir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon hesabının güvenli olup olmadığını, gelen uyarıların ne anlama geldiğini veya hesap askıya alınmadan önce ne yapması gerektiğini anlamaya çalışır. Account Health, Amazon operasyonunda erken uyarı ve kontrol alanıdır; ancak kesin güvenlik veya kapanma garantisi vermez.',
+      },
+      {
+        heading: 'Amazon Account Health nedir?',
+        body: '- Amazon satıcı hesabının politika, performans ve operasyon sağlığını takip etmeye yardımcı olan alan olduğu\n- Seller Central içinde takip edilebileceği\n- Uyarılar, performans sinyalleri, politika sorunları ve ürün uygunluğu gibi alanlarla ilişkili olabileceği\n- Hesap sağlığı, Buy Box ve operasyon performansıyla dolaylı bağlantılı olabileceği\n- Ekran ve metriklerin Amazon’un güncel sistemlerine göre değişebileceği',
+      },
+      {
+        heading: 'Amazon Account Health kimler için kritiktir?',
+        body: '- Amazon’da aktif satış yapan tüm satıcılar\n- FBM siparişlerini kendi yöneten işletmeler\n- Wholesale modelinde çok sayıda ürün ve marka ile çalışan satıcılar\n- Private Label ürünlerinde içerik, uygunluk ve müşteri deneyimi takip eden markalar\n- Buy Box görünürlüğünü ve satıcı performansını korumak isteyen işletmeler\n- Hesap askıya alma riskini erken fark etmek isteyen satıcılar',
+      },
+      {
+        heading: 'Amazon Account Health neden önemlidir?',
+        body: '- Olası politika ve performans sorunlarını erken fark etmeye yardımcı olabilir\n- Satıcı performansı ve müşteri deneyimi takibi için önemlidir\n- Buy Box görünürlüğü ve satış operasyonu üzerinde etkili olabilecek sinyallerle bağlantılı olabilir\n- Hesap askıya alma riskini yönetmek için düzenli kontrol gerektirir\n- FBM, Wholesale ve yüksek SKU’lu hesaplarda daha kritik hale gelebilir\n- Ancak tek başına satış veya hesap güvenliği garantisi değildir',
+      },
+      {
+        heading: 'Amazon Account Health nasıl takip edilir?',
+        body: '- Seller Central içindeki hesap sağlığı ve performans alanları düzenli kontrol edilir\n- Uyarıların türü, etkilenen ürünler ve Amazon bildirimleri incelenir\n- Sipariş, iade, geç gönderim, müşteri şikayeti ve ürün uygunluğu sinyalleri birlikte değerlendirilir\n- Kritik uyarılarda hızlı ama kontrollü aksiyon alınır\n- Gerekiyorsa resmi Amazon kaynakları ve uzman desteğiyle süreç değerlendirilir\n\nAmazon arayüzü ve metrikleri zamanla değişebileceği için kesin bir puan eşiği veya uyarı sonucu verilmemiştir.',
+      },
+      {
+        heading: 'Amazon Account Health takip akışı',
+        body: 'Seller Central kontrolü\n↓\nAccount Health uyarıları\n↓\nEtkilenen ürün / sipariş analizi\n↓\nPolitika veya performans nedeni\n↓\nGerekli belge / açıklama / aksiyon hazırlığı\n↓\nAmazon bildirimlerine uygun yanıt\n↓\nOperasyon düzeltmesi\n↓\nDüzenli takip\n\nAccount Health yönetimi yalnızca uyarıya cevap vermek değildir. Uyarının neden oluştuğunu anlamak, operasyonu düzeltmek ve aynı sorunun tekrarını önlemek gerekir.',
+      },
+      {
+        heading: 'Örnek Amazon Account Health Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satış yapan bir işletme, Seller Central’daki Account Health alanını haftalık değil, düzenli operasyon rutininin parçası olarak kontrol eder. Bir uyarı gördüğünde önce uyarının türünü, etkilenen ürünleri, sipariş geçmişini, müşteri deneyimi sinyallerini ve Amazon’un bildirim detaylarını inceler. Bu senaryo hesap güvenliği veya çözüm garantisi değil, Account Health sürecini daha kontrollü yönetmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Account Health hangi alanları kapsayabilir?',
+        body: '- Politika uygunluğu\n- Sipariş performansı\n- Müşteri deneyimi\n- Ürün uygunluğu\n- Fikri mülkiyet veya marka ihlali iddiaları\n- Hesap riski ve performans uyarıları\n- Belge veya bilgi doğrulama süreçleri',
+      },
+      {
+        heading: 'Amazon Account Health alanları kısa tablo',
+        body: 'Politika uygunluğu\nNe anlama gelir: Amazon satış politikalarına ve ürün kurallarına uyum\nNeden önemlidir: Politika ihlalleri hesap riski oluşturabilir\n\nSipariş performansı\nNe anlama gelir: Geç gönderim, iptal, teslimat ve sipariş sorunları\nNeden önemlidir: Müşteri deneyimi ve satıcı güvenilirliği açısından önemlidir\n\nMüşteri deneyimi\nNe anlama gelir: Şikayet, iade, memnuniyetsizlik veya ürün deneyimi sinyalleri\nNeden önemlidir: Hesap sağlığı ve satış performansını etkileyebilir\n\nÜrün uygunluğu\nNe anlama gelir: Ürün güvenliği, kategori uygunluğu veya belge gerekliliği gibi alanlar\nNeden önemlidir: Yanlış ürün veya eksik uygunluk riski hesap sorununa dönüşebilir\n\nFikri mülkiyet / marka iddiaları\nNe anlama gelir: Marka, telif veya içerik haklarıyla ilgili bildirimler\nNeden önemlidir: Ciddi politika ve hesap riski oluşturabilir\n\nHesap riski\nNe anlama gelir: Amazon’un hesabınızla ilgili genel performans veya politika sinyalleri\nNeden önemlidir: Erken fark edilmezse satış operasyonunu etkileyebilir',
+      },
+      {
+        heading: 'Account Health uyarısı gelirse ne yapılmalı?',
+        body: '- Önce uyarı türü ve Amazon bildirimi dikkatle okunmalı\n- Etkilenen ürün, sipariş veya politika alanı belirlenmeli\n- Panikle yanıt vermeden önce kanıt, belge ve açıklama hazırlanmalı\n- Aynı hatanın tekrarını önleyecek operasyon düzeltmesi düşünülmeli\n- Gerekiyorsa Amazon’un resmi süreçleri ve uzman desteği kontrol edilmeli\n- Kesin çözüm veya hesap açma garantisi verilmemeli',
+      },
+      {
+        heading: 'Amazon Account Health ve Buy Box ilişkisi nedir?',
+        body: '- Satıcı performansı, müşteri deneyimi ve operasyon kalitesi Buy Box görünürlüğüyle ilişkili olabilir\n- Account Health sorunları satış görünürlüğünü ve operasyon güvenini etkileyebilir\n- Ancak Buy Box için tek neden Account Health değildir\n- Fiyat, stok, teslimat ve rekabet de birlikte düşünülmelidir',
+      },
+      {
+        heading: 'Amazon Account Health ve FBM operasyonu neden bağlantılıdır?',
+        body: '- FBM’de sipariş hazırlama, kargo, teslimat ve müşteri iletişimi daha fazla satıcı sorumluluğundadır\n- Geç gönderim, iptal veya teslimat sorunları performansı etkileyebilir\n- FBM yapan satıcıların Account Health’i daha düzenli takip etmesi gerekir\n- FBA’da da ürün uygunluğu, iade, müşteri deneyimi ve stok sorunları takip edilmelidir',
+      },
+      {
+        heading: 'Amazon Account Health ve ürün uygunluğu nasıl düşünülmeli?',
+        body: '- Bazı ürünlerde kategori, güvenlik, belge veya uygunluk süreçleri gerekebilir\n- Yanlış kategori, yanıltıcı iddia, eksik belge veya riskli ürün içeriği hesap sağlığını etkileyebilir\n- Ürün uygunluğu ülke ve kategoriye göre değişebilir\n- Hukuki veya sertifika konusunda kesin tavsiye verilmez; resmi kaynak ve uzman kontrolü önerilir',
+      },
+      {
+        heading: 'Account Health sorunlarında en sık yapılan hatalar nelerdir?',
+        body: '- Uyarıları geç fark etmek\n- Amazon bildirimini tam okumadan yanıt vermek\n- Sorunun kök nedenini analiz etmemek\n- Aynı hatanın tekrarını önleyecek operasyon düzeltmesi yapmamak\n- Eksik veya tutarsız açıklama göndermek\n- Ürün uygunluğu ve belge süreçlerini hafife almak\n- Account Health’i sadece hesap kapanınca önemsemek\n- Panikle yeni işlem veya riskli değişiklik yapmak',
+      },
+      {
+        heading: 'İlk 30 gün Amazon Account Health kontrol planı',
+        body: '1. hafta: Seller Central ve Account Health alanlarını tanıma\n2. hafta: sipariş, stok, teslimat ve müşteri deneyimi sinyallerini kontrol etme\n3. hafta: ürün uygunluğu, listing iddiaları ve politika risklerini inceleme\n4. hafta: haftalık Account Health kontrol rutini ve aksiyon planı oluşturma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Account Health’i sadece hesap askıya alındığında kontrol etmektir. Hesap sağlığı; satış, stok, sipariş, müşteri deneyimi, politika ve ürün uygunluğu süreçleriyle birlikte düzenli takip edilmelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapan markaların Seller Central ve Account Health alanlarını, performans uyarılarını, ürün uygunluğu risklerini, FBA/FBM operasyonunu, Buy Box görünürlüğünü ve hesap sağlığı süreçlerini birlikte analiz ederek daha kontrollü bir Amazon operasyon sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Kriz Anında Kontrol mü, Düzenli Account Health Yönetimi mi?',
+      headers: ['Kriter', 'Kriz Anında Kontrol', 'Düzenli Yönetim'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Account Health sadece uyarı veya askıya alma durumunda açılır', company: 'Hesap sağlığı haftalık/düzenli operasyon rutininin parçasıdır' },
+        { criterion: 'Uyarılar', individual: 'Uyarılar geç fark edilebilir', company: 'Uyarılar erken incelenir ve kök neden analiz edilir' },
+        { criterion: 'Operasyon', individual: 'Sorun sadece yanıtla çözülmeye çalışılır', company: 'Sipariş, stok, teslimat ve ürün uygunluğu süreçleri düzeltilir' },
+        { criterion: 'Risk', individual: 'Aynı hata tekrar edebilir', company: 'Tekrarı önlemek için operasyon standardı oluşturulur' },
+        { criterion: 'Sonuç', individual: 'Hesap riski büyüyebilir', company: 'Hesap sağlığı daha kontrollü takip edilebilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon Account Health kontrol listesi',
+      items: [
+        'Account Health alanı düzenli kontrol ediliyor mu?',
+        'Amazon uyarıları tam olarak okunuyor mu?',
+        'Etkilenen ürün veya sipariş belirleniyor mu?',
+        'Sorunun kök nedeni analiz ediliyor mu?',
+        'Sipariş, stok ve teslimat performansı takip ediliyor mu?',
+        'Ürün uygunluğu ve politika riskleri kontrol ediliyor mu?',
+        'Buy Box, müşteri deneyimi ve Account Health birlikte değerlendiriliyor mu?',
+        'Gerekli belge veya açıklamalar tutarlı hazırlanıyor mu?',
+        'Aynı hatanın tekrarını önleyecek aksiyon alınıyor mu?',
+        'Haftalık hesap sağlığı rutini oluşturuldu mu?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon Account Health nedir?',
+          answer:
+            'Amazon Account Health, satıcı hesabının politika uygunluğu, performans ve müşteri deneyimi açısından durumunu takip etmeye yardımcı olan hesap sağlığı alanıdır. Seller Central içinde takip edilebilir.',
+        },
+        {
+          question: 'Amazon hesap sağlığı neden önemlidir?',
+          answer:
+            'Olası politika ve performans sorunlarını erken fark etmeye yardımcı olur ve Buy Box ile satış operasyonuyla dolaylı olarak ilişkilidir. Ancak tek başına satış veya hesap güvenliği garantisi vermez.',
+        },
+        {
+          question: 'Amazon Account Health uyarısı gelirse ne yapılmalı?',
+          answer:
+            'Önce uyarı türü ve Amazon bildirimi dikkatle okunmalı, etkilenen ürün veya sipariş belirlenmeli ve panikle yanıt vermeden önce belge/açıklama hazırlanmalıdır. Kesin çözüm veya hesap açma garantisi verilemez.',
+        },
+        {
+          question: 'Amazon Account Health nasıl düzeltilir?',
+          answer:
+            'Sorunun kök nedeni analiz edilip operasyon düzeltmesi yapılmalı ve gerekiyorsa Amazon’un resmi süreçleri ile uzman desteği değerlendirilmelidir. Kesin bir düzeltme garantisi verilemez.',
+        },
+        {
+          question: 'Account Health Buy Box’ı etkiler mi?',
+          answer:
+            'Satıcı performansı ve müşteri deneyimi Buy Box görünürlüğüyle ilişkili olabilir, ancak tek neden Account Health değildir. Fiyat, stok ve teslimat gibi faktörler de birlikte düşünülmelidir.',
+        },
+        {
+          question: 'Account Health hesabın askıya alınacağını gösterir mi?',
+          answer:
+            'Account Health, olası riskleri erken fark etmeye yardımcı olabilir ama kesin bir askıya alma göstergesi değildir. Uyarıların bağlamı ve Amazon’un güncel değerlendirmeleri birlikte incelenmelidir.',
+        },
+        {
+          question: 'Amazon policy violation nedir?',
+          answer:
+            'Amazon politika ihlali, satış kurallarına veya ürün politikalarına uyulmadığında ortaya çıkabilecek bir bildirim türüdür. Bu durum Account Health üzerinde olumsuz etki yaratabilir.',
+        },
+        {
+          question: 'Amazon Account Health satış garantisi verir mi?',
+          answer:
+            'Hayır, Account Health bir satış garantisi değildir; hesap sağlığını takip etmeye yardımcı olan bir kontrol alanıdır. Sonuç; operasyon kalitesi ve diğer satış unsurlarıyla birlikte şekillenir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Seller Central içindeki Account Health alanını düzenli kontrol edin',
+      'Performans, politika ve ürün uygunluğu uyarılarını ayrı ayrı değerlendirin',
+      'Sipariş, iade, geç gönderim ve müşteri deneyimi sinyallerini takip edin',
+      'Buy Box, stok ve lojistik performansını Account Health ile birlikte düşünün',
+      'Kritik uyarılarda acele işlem yapmak yerine önce sebebi netleştirin',
+      'Ücretsiz analiz ile Amazon hesap sağlığı ve operasyon risklerinizi birlikte değerlendirelim',
+    ],
+  },
 };
