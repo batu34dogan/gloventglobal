@@ -3699,4 +3699,194 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon listing yapınızı birlikte değerlendirelim',
     ],
   },
+
+  'amazon-komisyonlari-ve-maliyetler': {
+    title: 'Amazon Komisyonları ve Maliyetler',
+    slug: 'amazon-komisyonlari-ve-maliyetler',
+    excerpt:
+      'Amazon’da satış maliyetlerini; komisyon, FBA/FBM lojistik, reklam, kargo, iade, stok ve operasyon giderleriyle birlikte nasıl değerlendireceğinizi açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da satışa başlamadan önce bütçe ve kârlılık planlamak isteyen satıcılar',
+    searchIntent: 'amazon komisyonları nelerdir, amazon da satış maliyetleri nelerdir, amazon fba maliyetleri nelerdir, amazon da satış yapmak için ne kadar bütçe gerekir, amazon komisyon oranları nasıl hesaplanır, amazon da kârlılık nasıl hesaplanır, amazon reklam maliyeti nasıl düşünülmeli, amazon da gizli maliyetler nelerdir',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-03-22',
+    order: 23,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon’da satış maliyetleri yalnızca ürün maliyeti ve Amazon komisyonundan ibaret değildir. Satış modeli, kategori, ürün boyutu, ağırlık, FBA/FBM seçimi, kargo, depolama, reklam, iade, stok ve operasyon giderleri birlikte hesaplanmalıdır. Bu rehber Amazon’da satışa başlamadan önce maliyet kalemlerini nasıl düşünmeniz gerektiğini açıklar.',
+    quickAnswer:
+      'Amazon’da maliyet hesabı; ürün maliyeti, Amazon komisyonları, FBA veya FBM lojistik giderleri, reklam bütçesi, kargo, depolama, iade, vergi/gümrük/uyum süreçleri ve operasyon giderleri birlikte düşünülerek yapılmalıdır. Kesin maliyet ürün kategorisine, satış ülkesine, ürün boyutuna, ağırlığına ve güncel Amazon ücret yapısına göre değişir.',
+    whoShouldRead: [
+      'Amazon’da satışa başlamadan önce bütçe planlamak isteyenler',
+      'FBA veya FBM maliyetlerini anlamak isteyen satıcılar',
+      'Ürün kârlılığını doğru hesaplamak isteyen markalar',
+      'Reklam bütçesinin kâr marjına etkisini anlamak isteyenler',
+      'Private Label veya Wholesale modeli düşünen işletmeler',
+      'Türkiye’den Amazon üzerinden yurtdışına satış yapmak isteyen üreticiler',
+    ],
+    expertNote:
+      'Amazon’da en sık yapılan hata, yalnızca ürün alış maliyeti ve satış fiyatına bakarak kâr hesabı yapmaktır. Amazon komisyonları, lojistik, reklam, iade, depolama, stok finansmanı ve operasyon giderleri hesaba katılmadığında ürün çok satıyor gibi görünse bile gerçek kârlılık zayıf kalabilir.',
+    expertNoteAfterHeading: 'Amazon’da kârlılık nasıl hesaplanmalı?',
+    keyTakeaway:
+      'Amazon’da kârlılık, satış fiyatından ürün maliyetini çıkarmak kadar basit değildir. Reklam, lojistik, komisyon, iade, depolama ve stok maliyetleri birlikte hesaplanmadığında görünen kâr ile gerçek kâr birbirinden farklı olabilir.',
+    nextReadingSlugs: [
+      'amazonda-urun-arastirmasi-nasil-yapilir',
+      'amazon-listing-nasil-hazirlanir',
+      'amazon-ppc-nasil-calisir',
+      'amazon-fba-nedir',
+      'amazon-fbm-mi-fba-mi',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da satışa başlamadan önce ne kadar maliyetle karşılaşacağını öğrenmek ister. Amazon’da maliyet hesabı yalnızca ürün maliyeti veya komisyon oranı değildir; satış modeli, lojistik, reklam, stok, iade ve operasyon yapısıyla birlikte düşünülmelidir.',
+      },
+      {
+        heading: 'Amazon’da satış maliyetleri nelerdir?',
+        body: '- Ürün maliyeti\n- Amazon komisyonları\n- FBA veya FBM lojistik maliyetleri\n- Kargo ve depolama giderleri\n- Reklam maliyetleri\n- İade ve hasar riski\n- Stok maliyeti\n- Operasyon ve yazılım giderleri\n- Vergi/gümrük/uyum süreçleri için uzman kontrolü',
+      },
+      {
+        heading: 'Amazon maliyet hesabı kimler için kritiktir?',
+        body: '- Amazon’a ilk kez ürün yükleyecek satıcılar\n- FBA’ya stok göndermeden önce maliyet görmek isteyenler\n- Reklam bütçesi ayıracak markalar\n- Private Label ürün geliştiren işletmeler\n- Wholesale ürünleri Amazon’da satmak isteyen firmalar\n- Ürün fiyatlandırmasını kâr marjına göre yapmak isteyen satıcılar',
+      },
+      {
+        heading: 'Örnek Amazon Maliyet Hesabı Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satışa başlamak isteyen bir marka, bir ürün için yalnızca alış fiyatı ve satış fiyatına bakmak yerine ürün maliyeti, Amazon komisyonu, FBA/FBM lojistik gideri, reklam bütçesi, iade riski, depolama maliyeti ve stok finansmanını birlikte değerlendirir. Bu senaryo kesin kâr hesabı değil, Amazon’da maliyetleri daha kontrollü düşünmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon komisyonları nasıl düşünülmeli?',
+        body: 'Amazon komisyonları kategoriye, satış ülkesine ve ürün tipine göre değişebilir. Güncel oranların Amazon’un resmi kaynaklarından kontrol edilmesi gerekir. Komisyon, satış fiyatı üzerinden kârlılığı doğrudan etkiler; bu yüzden sadece satış fiyatına bakarak karar verilmemelidir.',
+      },
+      {
+        heading: 'Amazon FBA maliyetleri nelerdir?',
+        body: '- FBA işlem ücretleri\n- Depolama maliyetleri\n- Ürün boyutu ve ağırlığının maliyeti etkileyebileceği\n- Uzun süre satılmayan stokların maliyet riski oluşturabileceği\n- Hazırlık, etiketleme ve gönderim süreçlerinin ayrıca düşünülmesi gerektiği',
+      },
+      {
+        heading: 'Amazon FBM maliyetleri nelerdir?',
+        body: '- Satıcının kendi kargo, paketleme ve depo maliyetlerini yönetmesi\n- Teslimat süresi ve müşteri deneyiminin satıcı sorumluluğunda olması\n- Kargo anlaşmaları, paketleme maliyeti ve iade sürecinin hesaba katılması\n- FBM’nin her zaman daha ucuz veya daha kârlı olmayabileceği',
+      },
+      {
+        heading: 'Amazon reklam maliyeti nasıl düşünülmeli?',
+        body: '- PPC bütçesinin ürün kâr marjıyla birlikte hesaplanması gerektiği\n- Tıklama almanın satış garantisi olmadığı\n- ACOS ve ROAS’ın ürün marjı ve kampanya amacına göre yorumlanması gerektiği\n- Reklamın ürün araştırması, listing kalitesi ve fiyat yapısıyla birlikte düşünülmesi gerektiği',
+      },
+      {
+        heading: 'Amazon maliyet hesaplama akışı',
+        body: 'Ürün maliyeti\n↓\nSatış fiyatı\n↓\nAmazon komisyonu\n↓\nFBA / FBM lojistik\n↓\nReklam bütçesi\n↓\nİade / hasar riski\n↓\nStok ve operasyon gideri\n↓\nGerçek kâr marjı\n\nAmazon’da maliyet hesabı tek bir kalemle yapılmaz. Ürün satışa çıkmadan önce komisyon, lojistik, reklam, iade ve stok giderleri birlikte düşünülmelidir.',
+      },
+      {
+        heading: 'Amazon maliyet kalemleri kısa tablo',
+        body: 'Ürün maliyeti\nNe anlama gelir: Ürünün üretim veya tedarik maliyeti\nNeden önemlidir: Kâr hesabının temelini oluşturur\n\nAmazon komisyonu\nNe anlama gelir: Amazon’un satıştan aldığı kategori bazlı komisyon\nNeden önemlidir: Net kârı doğrudan etkiler\n\nFBA / FBM lojistik\nNe anlama gelir: Ürünün depolanması, hazırlanması ve gönderimiyle ilgili maliyetler\nNeden önemlidir: Ürün boyutu, ağırlık ve satış modeline göre değişir\n\nReklam maliyeti\nNe anlama gelir: PPC ve görünürlük için ayrılan bütçe\nNeden önemlidir: Satış fiyatı ve marjla birlikte hesaplanmalıdır\n\nİade / hasar riski\nNe anlama gelir: Müşteri iadeleri, ürün hasarı veya memnuniyetsizlik maliyeti\nNeden önemlidir: Görünmeyen kârlılık kaybı oluşturabilir\n\nStok maliyeti\nNe anlama gelir: Ürünün depoda beklemesi veya sermayenin stokta bağlı kalması\nNeden önemlidir: Nakit akışını etkileyebilir\n\nOperasyon giderleri\nNe anlama gelir: Yazılım, takip, içerik, görsel, danışmanlık veya ekip maliyetleri\nNeden önemlidir: Amazon satış sisteminin sürdürülebilirliğini etkiler',
+      },
+      {
+        heading: 'Amazon’da kârlılık nasıl hesaplanmalı?',
+        body: 'Kârlılık, satış fiyatından yalnızca ürün maliyetini çıkarmak değildir. Komisyon, lojistik, reklam, iade, stok ve operasyon giderleri hesaba katılarak gerçek kâr marjı düşünülmelidir.\n\nÖrnek mantık:\nSatış fiyatı\n- ürün maliyeti\n- Amazon komisyonu\n- lojistik gideri\n- reklam maliyeti\n- iade/stok/operasyon payı\n= tahmini net kâr\n\nBu sadece genel hesaplama mantığıdır; gerçek sonuç ürün ve pazara göre değişir.',
+      },
+      {
+        heading: 'Amazon’da gizli maliyetler nelerdir?',
+        body: '- Uzun süre satılmayan stok\n- Reklam harcaması\n- İade ve hasar oranı\n- Kargo ve paketleme farkları\n- Ürün hazırlık ve etiketleme\n- Görsel, içerik ve listing hazırlığı\n- Yazılım ve takip araçları\n- Zaman ve operasyon yükü\n- Vergi/gümrük/uyum süreçleri',
+      },
+      {
+        heading: 'Amazon’da başlangıç bütçesi nasıl düşünülmeli?',
+        body: '- Başlangıç bütçesi ürün tipi, satış modeli, ülke, stok miktarı ve reklam planına göre değişir\n- FBA için stok ve depo maliyetleri daha dikkatli planlanmalıdır\n- FBM için kargo, paketleme ve operasyon kapasitesi düşünülmelidir\n- Reklam bütçesi ayrı bir kalem olarak ele alınmalıdır\n- Küçük testlerle başlanması bazı ürünlerde daha kontrollü olabilir\n- Ancak her ürün için aynı bütçe mantığı geçerli değildir',
+      },
+      {
+        heading: 'Amazon maliyetlerinde en sık yapılan hatalar nelerdir?',
+        body: '- Sadece ürün alış fiyatına bakmak\n- Amazon komisyonlarını sonradan fark etmek\n- Reklam maliyetini hesaba katmamak\n- FBA depolama riskini düşünmemek\n- İade ve hasar maliyetini yok saymak\n- Kâr marjını satış fiyatı üzerinden fazla iyimser hesaplamak\n- Stokta bağlı kalan sermayeyi dikkate almamak\n- Ürün araştırması yapmadan maliyet hesabı yapmak',
+      },
+      {
+        heading: 'İlk 30 gün Amazon maliyet kontrol planı',
+        body: '1. hafta: ürün maliyeti, satış fiyatı ve kategori komisyonlarını kontrol etme\n2. hafta: FBA/FBM lojistik, kargo ve depolama risklerini değerlendirme\n3. hafta: reklam, iade, stok ve operasyon giderlerini hesaba katma\n4. hafta: tahmini net kâr, nakit akışı ve test bütçesi planını oluşturma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon’da kârlılığı yalnızca “alış fiyatı ve satış fiyatı” üzerinden hesaplamaktır. Gerçek kârlılık; komisyon, lojistik, reklam, iade, stok ve operasyon giderleri birlikte düşünülerek hesaplanmalıdır.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapmak isteyen markaların ürün maliyetini, kategori uygunluğunu, FBA/FBM lojistik yapısını, reklam bütçesini, stok riskini, listing hazırlığını ve tahmini kârlılığını birlikte analiz ederek daha kontrollü bir Amazon maliyet ve satış sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Görünen Kâr mı, Gerçek Amazon Kârlılığı mı?',
+      headers: ['Kriter', 'Görünen Kâr', 'Gerçek Amazon Kârlılığı'],
+      rows: [
+        { criterion: 'Hesaplama', individual: 'Sadece alış ve satış fiyatı karşılaştırılır', company: 'Komisyon, lojistik, reklam, iade ve stok birlikte hesaplanır' },
+        { criterion: 'Reklam', individual: 'Reklam maliyeti sonradan düşünülür', company: 'PPC bütçesi ürün marjına baştan dahil edilir' },
+        { criterion: 'Lojistik', individual: 'Kargo ve depolama basit varsayılır', company: 'FBA/FBM maliyetleri ürün boyutu ve modele göre değerlendirilir' },
+        { criterion: 'Stok', individual: 'Ürün satılana kadar maliyet görünmez', company: 'Stokta bağlı kalan sermaye ve depolama riski hesaba katılır' },
+        { criterion: 'Sonuç', individual: 'Ürün kârlı sanılabilir', company: 'Daha kontrollü fiyatlandırma ve satış kararı alınır' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon maliyet ve komisyon kontrol listesi',
+      items: [
+        'Ürün maliyeti net hesaplandı mı?',
+        'Satış fiyatı ve hedef kâr marjı belirlendi mi?',
+        'Amazon kategori komisyonları güncel kaynaklardan kontrol edildi mi?',
+        'FBA veya FBM maliyetleri ayrı ayrı düşünüldü mü?',
+        'Kargo, paketleme ve depolama giderleri hesaba katıldı mı?',
+        'Reklam bütçesi ürün marjına dahil edildi mi?',
+        'İade ve hasar riski değerlendirildi mi?',
+        'Stokta bağlı kalacak sermaye düşünüldü mü?',
+        'Operasyon, yazılım ve içerik giderleri hesaba katıldı mı?',
+        'Gerçek net kâr senaryosu çıkarıldı mı?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon komisyonları nelerdir?',
+          answer:
+            'Amazon komisyonları, Amazon’un her satıştan kategori bazlı aldığı ücrettir ve ülke, kategori ve ürün tipine göre değişebilir. Güncel oranlar Amazon’un resmi kaynaklarından kontrol edilmelidir.',
+        },
+        {
+          question: 'Amazon’da satış maliyetleri nelerdir?',
+          answer:
+            'Ürün maliyeti, Amazon komisyonları, FBA/FBM lojistik giderleri, reklam, kargo, depolama, iade, stok ve operasyon giderleri gibi kalemlerden oluşur. Bu kalemler birlikte değerlendirilmeden gerçek kârlılık görülemez.',
+        },
+        {
+          question: 'Amazon FBA maliyetleri nelerdir?',
+          answer:
+            'FBA işlem ücretleri, depolama maliyetleri ve ürün boyutu/ağırlığına bağlı giderlerden oluşur; kesin tutarlar Amazon’un güncel ücret yapısına göre değişir. Uzun süre satılmayan stoklar ek maliyet riski oluşturabilir.',
+        },
+        {
+          question: 'Amazon FBM maliyetleri nelerdir?',
+          answer:
+            'FBM’de satıcı kendi kargo, paketleme ve depo maliyetlerini yönetir; bu maliyetler kargo anlaşmasına ve operasyon yapısına göre değişir. FBM’nin her zaman daha ucuz olduğu söylenemez.',
+        },
+        {
+          question: 'Amazon’da kârlılık nasıl hesaplanır?',
+          answer:
+            'Satış fiyatından ürün maliyeti, komisyon, lojistik, reklam, iade ve stok/operasyon giderleri çıkarılarak genel bir hesaplama yapılabilir. Gerçek sonuç ürün ve pazara göre değişir, kesin bir rakam verilemez.',
+        },
+        {
+          question: 'Amazon reklam maliyeti nasıl düşünülmeli?',
+          answer:
+            'Reklam bütçesi ürün kâr marjıyla birlikte planlanmalı, tıklama almanın satış garantisi olmadığı unutulmamalıdır. ACOS ve ROAS değerleri ürün marjına ve kampanya amacına göre yorumlanmalıdır.',
+        },
+        {
+          question: 'Amazon’da satış yapmak için ne kadar bütçe gerekir?',
+          answer:
+            'Kesin bir bütçe rakamı verilemez; bütçe ürün tipi, satış modeli, stok miktarı ve reklam planına göre değişir. FBA ve FBM için farklı maliyet kalemleri ayrı ayrı planlanmalıdır.',
+        },
+        {
+          question: 'Amazon’da gizli maliyetler nelerdir?',
+          answer:
+            'Uzun süre satılmayan stok, iade/hasar oranı, görsel ve içerik hazırlığı, yazılım araçları ve operasyon yükü gibi kalemler sıkça gözden kaçırılır. Bu kalemler hesaba katılmazsa görünen kâr ile gerçek kâr farklı olabilir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Satmak istediğiniz ürünlerin ürün maliyetini çıkarın',
+      'Amazon kategori komisyonlarını güncel kaynaklardan kontrol edin',
+      'FBA veya FBM lojistik maliyetlerini ayrı ayrı değerlendirin',
+      'Reklam bütçesini ürün kâr marjıyla birlikte hesaplayın',
+      'İade, depolama, stok ve operasyon giderlerini hesaba katın',
+      'Ücretsiz analiz ile Amazon maliyet ve kârlılık yapınızı birlikte değerlendirelim',
+    ],
+  },
 };
