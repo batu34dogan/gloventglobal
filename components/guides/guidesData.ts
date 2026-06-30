@@ -5058,4 +5058,206 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon Buy Box ve satış operasyonunuzu birlikte değerlendirelim',
     ],
   },
+
+  'amazon-seller-central-nedir': {
+    title: 'Amazon Seller Central Nedir?',
+    slug: 'amazon-seller-central-nedir',
+    excerpt:
+      'Amazon Seller Central’ın ne olduğunu, hangi bölümlerden oluştuğunu ve satış operasyonunda nasıl kullanıldığını; ürün, stok, sipariş, reklam, ödeme ve hesap sağlığı açısından açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da satışa yeni başlayacak veya panel kullanımını öğrenmek isteyen satıcılar',
+    searchIntent: 'amazon seller central nedir, amazon seller central nasıl kullanılır, amazon satıcı paneli nedir, amazon seller central da neler yapılır, amazon seller central ürün yükleme nasıl yapılır, amazon seller central sipariş yönetimi nedir, amazon seller central account health nedir, amazon satıcı hesabı paneli nasıl çalışır',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-12',
+    order: 30,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon Seller Central, Amazon’da satış yapan satıcıların ürünlerini, siparişlerini, stoklarını, reklamlarını, ödemelerini, performans durumunu ve hesap sağlığını yönettiği satıcı panelidir. Seller Central yalnızca ürün yükleme alanı değildir; Amazon operasyonunun günlük takip merkezidir. Paneldeki ekranlar ve özellikler ülke, hesap tipi, kategori ve Amazon’un güncel arayüzüne göre değişebilir.',
+    quickAnswer:
+      'Amazon Seller Central, Amazon satıcılarının mağaza ve satış operasyonunu yönettiği ana paneldir. Bu panel üzerinden ürün listeleme, stok takibi, sipariş yönetimi, FBA/FBM süreçleri, reklam kampanyaları, ödeme raporları, Account Health ve performans göstergeleri takip edilebilir. Seller Central doğru kullanıldığında operasyon kontrolünü güçlendirir; ancak tek başına satış garantisi vermez.',
+    whoShouldRead: [
+      'Amazon’da satışa yeni başlayacak satıcılar',
+      'Seller Central panelini anlamak isteyen işletmeler',
+      'Ürün listeleme, stok, sipariş ve reklam süreçlerini öğrenmek isteyenler',
+      'FBA veya FBM operasyonunu Seller Central üzerinden yönetmek isteyenler',
+      'Account Health, ödeme, rapor ve performans ekranlarını anlamak isteyen markalar',
+      'Türkiye’den Amazon üzerinden yurtdışına satış yapmak isteyen üretici ve işletmeler',
+    ],
+    expertNote:
+      'Amazon Seller Central’da en sık yapılan hata, paneli sadece ürün yükleme yeri olarak görmektir. Seller Central aslında stok, sipariş, fiyat, reklam, müşteri deneyimi, hesap sağlığı, ödeme ve performans yönetiminin merkezi olduğu için düzenli takip edilmelidir.',
+    expertNoteAfterHeading: 'Amazon Account Health Seller Central’da neden önemlidir?',
+    keyTakeaway:
+      'Amazon Seller Central, Amazon mağazanızın kontrol panelidir; ancak her hesabın panel deneyimi birebir aynı olmayabilir. Ülke, hesap türü, kategori, marka durumu, FBA/FBM modeli ve Amazon’un güncel arayüz değişiklikleri bazı ekranların görünümünü veya erişimini etkileyebilir.',
+    nextReadingSlugs: [
+      'amazon-listing-nasil-hazirlanir',
+      'amazon-ppc-nasil-calisir',
+      'amazon-komisyonlari-ve-maliyetler',
+      'amazon-fba-nedir',
+      'amazon-buy-box-nedir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da satışa başlamaya hazırlanır veya satıcı hesabı açtıktan sonra paneli nasıl kullanacağını anlamaya çalışır. Seller Central, ürün yükleme ekranından daha geniş bir operasyon merkezidir; ürün, stok, sipariş, reklam, ödeme, rapor ve hesap sağlığı gibi alanları yönetir.',
+      },
+      {
+        heading: 'Amazon Seller Central nedir?',
+        body: '- Amazon satıcılarının satış operasyonunu yönettiği panel olduğu\n- Ürün listeleme, sipariş, stok, reklam, ödeme, rapor ve performans takibinin buradan yapılabileceği\n- FBA ve FBM süreçlerinin Seller Central ile bağlantılı olduğu\n- Account Health ve performans uyarılarının takip edilebildiği\n- Panelin ülke ve hesap durumuna göre farklılık gösterebileceği',
+      },
+      {
+        heading: 'Amazon Seller Central kimler için kritiktir?',
+        body: '- Amazon’da aktif satış yapan veya satışa hazırlanan satıcılar\n- Ürün yükleme ve listing yönetimi yapan işletmeler\n- Sipariş, stok ve teslimat sürecini takip etmesi gereken markalar\n- Amazon PPC reklamlarını yöneten satıcılar\n- Account Health ve performans uyarılarını düzenli takip etmesi gereken işletmeler\n- FBA veya FBM operasyonunu sistemli yürütmek isteyen firmalar',
+      },
+      {
+        heading: 'Amazon Seller Central ne işe yarar?',
+        body: '- Ürünleri listelemeye yardımcı olur\n- Stok ve envanter takibi yapılabilir\n- Siparişler ve kargo süreçleri yönetilebilir\n- FBA gönderileri veya FBM operasyonları takip edilebilir\n- Amazon reklamları yönetilebilir\n- Ödeme ve rapor ekranları izlenebilir\n- Account Health ve performans uyarıları kontrol edilebilir\n- Müşteri deneyimi ve operasyon kalitesi takip edilebilir',
+      },
+      {
+        heading: 'Amazon Seller Central nasıl kullanılır?',
+        body: '- Satıcı hesabı ile giriş yapılır\n- Ürün ve kategori yapısı kontrol edilir\n- Listing veya ürün sayfası hazırlanır\n- Stok ve fiyat bilgileri girilir\n- FBA veya FBM operasyon modeli yönetilir\n- Siparişler ve performans takip edilir\n- Reklam ve rapor ekranları düzenli incelenir\n- Account Health uyarıları kontrol edilir\n\nAmazon arayüzü zamanla değişebileceği için kesin bir menü yolu verilmemiştir.',
+      },
+      {
+        heading: 'Amazon Seller Central kullanım akışı',
+        body: 'Hesap girişi\n↓\nÜrün / listing yönetimi\n↓\nStok ve fiyat kontrolü\n↓\nFBA / FBM operasyonu\n↓\nSipariş yönetimi\n↓\nReklam ve görünürlük\n↓\nÖdeme ve raporlar\n↓\nAccount Health ve performans takibi\n\nSeller Central düzenli takip edilmesi gereken bir operasyon merkezidir. Ürün yüklemek tek başına yeterli değildir; stok, sipariş, reklam, ödeme ve performans sinyalleri birlikte izlenmelidir.',
+      },
+      {
+        heading: 'Örnek Amazon Seller Central Kullanım Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satışa yeni başlayan bir marka, Seller Central panelini yalnızca ürün yüklemek için değil; stok durumunu, siparişleri, reklam harcamalarını, ödeme raporlarını, Account Health uyarılarını ve müşteri deneyimi sinyallerini düzenli takip etmek için kullanır. Bu senaryo satış garantisi değil, Seller Central’ı daha sistemli yönetmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon Seller Central ana bölümleri nelerdir?',
+        body: '- Ürün/listing yönetimi\n- Envanter/stok\n- Siparişler\n- Reklam\n- Raporlar\n- Ödemeler\n- Performans\n- Account Health',
+      },
+      {
+        heading: 'Seller Central ana bölümleri kısa tablo',
+        body: 'Ürün / Listing\nNe işe yarar: Ürün sayfalarını oluşturma ve düzenleme süreçlerini yönetir\nNeden önemlidir: Listing kalitesi görünürlük ve dönüşüm üzerinde etkili olabilir\n\nEnvanter / Stok\nNe işe yarar: Ürün stok durumunu ve satışa uygunluğunu takip eder\nNeden önemlidir: Stok kesintisi satış ve görünürlük kaybı oluşturabilir\n\nSiparişler\nNe işe yarar: Gelen siparişleri ve gönderim durumunu yönetir\nNeden önemlidir: Müşteri deneyimi ve operasyon performansı için kritiktir\n\nReklam\nNe işe yarar: Amazon PPC kampanyalarını yönetmeye yardımcı olur\nNeden önemlidir: Görünürlük ve trafik kontrolü sağlar, ancak satış garantisi değildir\n\nRaporlar\nNe işe yarar: Satış, stok, reklam ve performans verilerini analiz etmeye yardımcı olur\nNeden önemlidir: Kararlar tahmine değil veriye dayanmalıdır\n\nÖdemeler\nNe işe yarar: Amazon’dan gelecek ödeme ve kesintileri takip etmeye yardımcı olur\nNeden önemlidir: Nakit akışı ve gerçek kârlılık için önemlidir\n\nPerformans\nNe işe yarar: Satıcı performansı ve operasyon sinyallerini izlemeye yardımcı olur\nNeden önemlidir: Hesap sağlığı ve müşteri deneyimi için takip edilmelidir\n\nAccount Health\nNe işe yarar: Hesapla ilgili uyarı, politika ve performans durumlarını gösterir\nNeden önemlidir: İhlal, uyarı veya operasyon sorunlarını erken fark etmek için kritiktir',
+      },
+      {
+        heading: 'Seller Central’da ürün listeleme nasıl yapılır?',
+        body: '- Ürün bilgileri hazırlanır\n- Kategori seçimi yapılır\n- Başlık, bullet point, açıklama ve görseller planlanır\n- Anahtar kelime yapısı düşünülür\n- Fiyat, stok ve kargo modeli girilir\n- Amazon’un kategori ve ürün kuralları kontrol edilir\n\nDetaylı listing hazırlığı için ayrı bir Amazon listing rehberi bu süreci daha derinlemesine ele alır.',
+      },
+      {
+        heading: 'Seller Central’da stok ve envanter nasıl takip edilir?',
+        body: '- Stok miktarı ve satışa uygunluk takip edilir\n- FBA stokları ve FBM stokları farklı operasyon gerektirebilir\n- Stok kesintisi satış ve reklam performansını etkileyebilir\n- Fazla stok da depolama ve nakit akışı riski oluşturabilir',
+      },
+      {
+        heading: 'Seller Central’da sipariş yönetimi nasıl düşünülmeli?',
+        body: '- FBA siparişlerinde Amazon operasyonun önemli bölümünü yönetebilir\n- FBM siparişlerinde satıcı gönderim ve teslimat sürecinden daha fazla sorumludur\n- Gecikme, iptal ve teslimat sorunları performansı etkileyebilir\n- Sipariş yönetimi müşteri deneyiminin temel parçasıdır',
+      },
+      {
+        heading: 'Seller Central’da reklam ve PPC nereden yönetilir?',
+        body: '- Amazon reklamları Seller Central üzerinden yönetilebilir\n- Sponsored Products, Sponsored Brands veya benzer reklam yapıları hesap uygunluğuna göre değişebilir\n- Reklam harcaması, satış, ACOS, ROAS, search terms gibi metrikler takip edilmelidir\n\nDetaylı reklam mantığı ayrı bir Amazon PPC rehberinde ele alınmaktadır.',
+      },
+      {
+        heading: 'Seller Central’da ödeme ve raporlar neden önemlidir?',
+        body: '- Satış gelirleri, kesintiler, iadeler ve ödeme süreçleri nakit akışını etkiler\n- Raporlar yalnızca görüntülenmek için değil, karar almak için kullanılmalıdır\n- Kârlılık hesabı komisyon, reklam, lojistik, iade ve operasyon giderleriyle birlikte yapılmalıdır\n\nDetaylı maliyet yapısı ayrı bir Amazon komisyon ve maliyetler rehberinde ele alınmaktadır.',
+      },
+      {
+        heading: 'Amazon Account Health Seller Central’da neden önemlidir?',
+        body: '- Account Health hesabın politika, performans ve operasyon durumunu takip etmeye yardımcı olabilir\n- Uyarılar, ihlaller veya performans sorunları erken fark edilmelidir\n- Account Health ekranı ülke ve hesap durumuna göre değişebilir\n- Bu alanın düzenli kontrol edilmesi gerekir',
+      },
+      {
+        heading: 'Yeni başlayanlar Seller Central’da nelere dikkat etmeli?',
+        body: '- Ürün bilgilerini eksik veya acele girmemek\n- Listing yayınlamadan önce görselleri ve açıklamayı kontrol etmek\n- Fiyat, stok ve kargo modelini doğru planlamak\n- FBA/FBM seçimini operasyon kapasitesine göre yapmak\n- Reklam açmadan önce listing kalitesini kontrol etmek\n- Account Health uyarılarını düzenli izlemek\n- Raporları ve ödemeleri takip etmek\n- Amazon’un güncel kurallarını resmi kaynaklardan kontrol etmek',
+      },
+      {
+        heading: 'Seller Central’da en sık yapılan hatalar nelerdir?',
+        body: '- Paneli sadece ürün yükleme alanı gibi görmek\n- Stok ve fiyat takibini ihmal etmek\n- Reklam harcamasını raporlarla karşılaştırmamak\n- Account Health uyarılarını geç fark etmek\n- FBA/FBM operasyon farkını dikkate almamak\n- Ürün listelemesini eksik hazırlamak\n- Ödeme ve kesintileri kârlılık hesabına dahil etmemek\n- Raporlardan karar üretmemek',
+      },
+      {
+        heading: 'İlk 30 gün Amazon Seller Central kontrol planı',
+        body: '1. hafta: ürün/listing, kategori, fiyat ve stok yapısını kontrol etme\n2. hafta: sipariş, FBA/FBM operasyonu ve reklam ekranlarını öğrenme\n3. hafta: ödeme, rapor, PPC ve search term verilerini takip etme\n4. hafta: Account Health, performans uyarıları ve operasyon rutinini kurma',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon Seller Central’ı yalnızca ürün yükleme ekranı olarak görmektir. Seller Central, satış, stok, sipariş, reklam, ödeme, rapor, performans ve hesap sağlığını birlikte takip etmeniz gereken operasyon merkezidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapan veya satışa hazırlanan markaların Seller Central panelini, ürün listeleme yapısını, FBA/FBM operasyonunu, reklam ve rapor ekranlarını, ödeme/kârlılık takibini ve Account Health kontrollerini birlikte analiz ederek daha kontrollü bir Amazon operasyon sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Dağınık Panel Kullanımı mı, Sistemli Seller Central Yönetimi mi?',
+      headers: ['Kriter', 'Dağınık Panel Kullanımı', 'Sistemli Seller Central Yönetimi'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Panel yalnızca ürün yüklemek için kullanılır', company: 'Ürün, stok, sipariş, reklam, ödeme ve performans birlikte takip edilir' },
+        { criterion: 'Stok', individual: 'Stok durumu geç fark edilebilir', company: 'Stok ve envanter düzenli kontrol edilir' },
+        { criterion: 'Reklam', individual: 'Reklam harcaması raporlarla ilişkilendirilmez', company: 'PPC verileri, listing ve kârlılıkla birlikte analiz edilir' },
+        { criterion: 'Performans', individual: 'Account Health uyarıları geç fark edilebilir', company: 'Hesap sağlığı ve performans sinyalleri düzenli takip edilir' },
+        { criterion: 'Sonuç', individual: 'Operasyon sorunları büyüyebilir', company: 'Amazon satış süreci daha kontrollü yönetilebilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon Seller Central kontrol listesi',
+      items: [
+        'Ürün/listing bilgileriniz eksiksiz mi?',
+        'Stok ve fiyat bilgileri güncel mi?',
+        'FBA/FBM operasyon modeli net mi?',
+        'Sipariş ve teslimat süreci düzenli takip ediliyor mu?',
+        'Reklam kampanyaları ve harcamalar kontrol ediliyor mu?',
+        'Ödeme, kesinti ve raporlar inceleniyor mu?',
+        'Account Health uyarıları takip ediliyor mu?',
+        'Ürün performansı ve müşteri deneyimi izleniyor mu?',
+        'Kârlılık hesabı gerçek verilerle güncelleniyor mu?',
+        'Haftalık Seller Central kontrol rutini oluşturuldu mu?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon Seller Central nedir?',
+          answer:
+            'Amazon Seller Central, Amazon satıcılarının ürün, sipariş, stok, reklam, ödeme ve performans süreçlerini yönettiği ana satıcı panelidir. Panel ülke ve hesap durumuna göre farklılık gösterebilir.',
+        },
+        {
+          question: 'Amazon Seller Central ne işe yarar?',
+          answer:
+            'Ürün listeleme, stok takibi, sipariş yönetimi, reklam kampanyaları, ödeme raporları ve Account Health gibi birçok alanı tek panelden yönetmeye yardımcı olur. Tek başına satış garantisi vermez.',
+        },
+        {
+          question: 'Amazon Seller Central nasıl kullanılır?',
+          answer:
+            'Satıcı hesabıyla giriş yapılıp ürün, stok, sipariş, reklam ve ödeme ekranları düzenli takip edilir. Amazon arayüzü zamanla değişebileceği için kesin bir kullanım yolu garanti edilemez.',
+        },
+        {
+          question: 'Seller Central’da ürün yükleme nasıl yapılır?',
+          answer:
+            'Ürün bilgileri, kategori, başlık, görseller ve fiyat/stok bilgileri hazırlanıp Amazon’un kategori kurallarına uygun şekilde girilir. Detaylı listing hazırlığı ayrı bir rehberde ele alınmaktadır.',
+        },
+        {
+          question: 'Seller Central’da siparişler nasıl yönetilir?',
+          answer:
+            'FBA siparişlerinde Amazon operasyonun büyük kısmını yönetebilirken, FBM siparişlerinde satıcı gönderim ve teslimat sürecinden daha fazla sorumludur. Sipariş yönetimi müşteri deneyiminin temel parçasıdır.',
+        },
+        {
+          question: 'Seller Central’da reklamlar nereden yönetilir?',
+          answer:
+            'Amazon reklamları Seller Central üzerinden yönetilebilir; reklam türleri hesap uygunluğuna göre değişebilir. Reklam harcaması ve performans metrikleri düzenli takip edilmelidir.',
+        },
+        {
+          question: 'Amazon Account Health nedir?',
+          answer:
+            'Account Health, hesabın politika, performans ve operasyon durumunu gösteren bir takip alanıdır. Uyarı ve ihlallerin erken fark edilmesi için düzenli kontrol edilmesi önerilir.',
+        },
+        {
+          question: 'Amazon Seller Central satış garantisi verir mi?',
+          answer:
+            'Hayır, Seller Central bir satış garantisi değildir; operasyonu daha kontrollü yönetmeye yardımcı olan bir panel sunar. Sonuç ürün, fiyat, listing ve reklam gibi diğer unsurlarla birlikte şekillenir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Seller Central panelindeki temel bölümleri öğrenin',
+      'Ürün, stok, sipariş, reklam ve ödeme ekranlarını düzenli takip edin',
+      'Account Health ve performans uyarılarını kontrol etmeyi alışkanlık haline getirin',
+      'FBA/FBM operasyonunuzu Seller Central verileriyle birlikte yönetin',
+      'Raporları yalnızca görüntülemek yerine karar almak için kullanın',
+      'Ücretsiz analiz ile Amazon Seller Central operasyonunuzu birlikte değerlendirelim',
+    ],
+  },
 };
