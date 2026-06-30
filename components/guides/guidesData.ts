@@ -6214,4 +6214,202 @@ export const guides: Record<string, Guide> = {
       'Ücretsiz analiz ile Amazon envanter ve operasyon yapınızı birlikte değerlendirelim',
     ],
   },
+
+  'amazon-fiyatlandirma-stratejisi-nasil-kurulur': {
+    title: 'Amazon Fiyatlandırma Stratejisi Nasıl Kurulur?',
+    slug: 'amazon-fiyatlandirma-stratejisi-nasil-kurulur',
+    excerpt:
+      'Amazon’da ürün fiyatını; ürün maliyeti, komisyon, FBA/FBM, reklam, Buy Box, stok ve marka konumuyla birlikte nasıl belirleyeceğinizi açıklıyoruz.',
+    category: 'Amazon',
+    targetAudience: 'Amazon’da ürün fiyatı belirlemeye çalışan ve kâr marjını doğru hesaplamak isteyen satıcılar',
+    searchIntent: 'amazon fiyatlandırma stratejisi nasıl kurulur, amazon da ürün fiyatı nasıl belirlenir, amazon da kâr marjı nasıl hesaplanır, amazon fiyat rekabeti nasıl yönetilir, amazon buy box için fiyat nasıl belirlenir, amazon ppc fiyatlandırmayı nasıl etkiler, amazon fba fiyat hesaplama nasıl yapılır, amazon da fiyat düşürmek satış getirir mi',
+    relatedServiceSlug: 'amazon',
+    readTime: '5 dk',
+    publishedAt: '2026-04-30',
+    order: 36,
+    updatedAt: 'Haziran 2026',
+    updatedAtISO: '2026-06-01',
+    author: 'GloventGlobal Global Commerce Team',
+    summary:
+      'Amazon fiyatlandırma stratejisi, ürün fiyatını yalnızca rakipten ucuz belirlemek değil; ürün maliyeti, Amazon komisyonları, FBA/FBM lojistik giderleri, reklam bütçesi, iade riski, stok durumu, Buy Box rekabeti, marka konumu ve hedef kâr marjını birlikte değerlendirme sürecidir. Doğru fiyatlandırma satış, kârlılık, reklam verimi ve operasyon sürdürülebilirliği açısından kritik öneme sahiptir.',
+    quickAnswer:
+      'Amazon’da ürün fiyatı belirlenirken yalnızca rakip fiyatlarına bakmak yeterli değildir. Ürün maliyeti, Amazon komisyonları, FBA/FBM giderleri, reklam maliyeti, iade riski, stok durumu, hedef kâr marjı ve Buy Box rekabeti birlikte hesaplanmalıdır. Düşük fiyat satış getirebilir gibi görünse de kâr marjı zayıfsa operasyon sürdürülebilir olmayabilir.',
+    whoShouldRead: [
+      'Amazon’da ürün fiyatı belirlemeye çalışan satıcılar',
+      'FBA veya FBM modelinde kâr marjını doğru hesaplamak isteyenler',
+      'Wholesale ürünlerde Buy Box ve fiyat rekabetini yönetmek isteyen işletmeler',
+      'Private Label ürünlerinde marka konumu ve kâr marjını dengelemek isteyen markalar',
+      'PPC reklam maliyetini fiyatlandırmaya dahil etmek isteyen satıcılar',
+      'Amazon’da satış hacmi ve gerçek kârlılığı birlikte yönetmek isteyen firmalar',
+    ],
+    expertNote:
+      'Amazon fiyatlandırmasında en sık yapılan hata, rakipten ucuz olmayı strateji sanmaktır. Düşük fiyat kısa vadede görünürlük sağlayabilir; ancak komisyon, lojistik, reklam, iade ve stok maliyeti hesaba katılmadığında satış olsa bile gerçek kârlılık zayıf kalabilir.',
+    expertNoteAfterHeading: 'Amazon Buy Box için fiyat nasıl düşünülmeli?',
+    keyTakeaway:
+      'Amazon’da fiyatlandırma yalnızca satış fiyatı seçmek değildir. Fiyat; ürün maliyeti, reklam bütçesi, Buy Box rekabeti, stok durumu, marka algısı ve gerçek kâr marjıyla birlikte yönetilmelidir. Ucuz olmak her zaman doğru strateji değildir.',
+    nextReadingSlugs: [
+      'amazon-komisyonlari-ve-maliyetler',
+      'amazon-buy-box-nedir',
+      'amazon-ppc-nasil-calisir',
+      'amazon-envanter-yonetimi-nasil-yapilir',
+      'amazon-wholesale-nedir',
+    ],
+    sections: [
+      {
+        heading: 'Bu soruyu neden soruyorsunuz?',
+        body: 'Bu soruyu soran kişiler genellikle Amazon’da ürününü hangi fiyattan satması gerektiğini, rakipten ucuz mu pahalı mı olması gerektiğini veya Buy Box için fiyatın ne kadar önemli olduğunu anlamaya çalışır. Fiyatlandırma sadece satış fiyatı değil; maliyet, reklam, lojistik, stok, rekabet ve marka stratejisidir.',
+      },
+      {
+        heading: 'Amazon fiyatlandırma stratejisi nedir?',
+        body: '- Ürün fiyatını satış, kârlılık ve rekabet dengesiyle belirleme süreci olduğu\n- Amazon komisyonları, lojistik, reklam, iade ve stok giderleriyle bağlantılı olduğu\n- Buy Box ve müşteri algısını etkileyebileceği\n- Private Label ve Wholesale modellerinde farklı düşünülmesi gerektiği\n- Fiyatlandırmanın satış garantisi olmadığı',
+      },
+      {
+        heading: 'Amazon fiyatlandırma kimler için kritiktir?',
+        body: '- Amazon’da aktif satış yapan satıcılar\n- Yeni ürün lansmanı yapacak markalar\n- Wholesale modelinde fiyat rekabeti yaşayan işletmeler\n- Private Label ürünlerinde marka değerini korumak isteyen satıcılar\n- PPC harcamasını kâr marjıyla dengelemek isteyen firmalar\n- FBA/FBM maliyetlerini fiyat yapısına doğru yansıtmak isteyen işletmeler',
+      },
+      {
+        heading: 'Amazon’da ürün fiyatı nasıl belirlenir?',
+        body: '- Ürün maliyeti hesaplanır\n- Amazon komisyonları ve kategori maliyetleri değerlendirilir\n- FBA/FBM lojistik giderleri eklenir\n- Reklam ve PPC maliyeti düşünülür\n- İade, hasar ve stok riski hesaba katılır\n- Rakip fiyatları ve Buy Box durumu incelenir\n- Marka konumu ve müşteri algısı değerlendirilir\n- Hedef net kâr mantığı oluşturulur',
+      },
+      {
+        heading: 'Amazon fiyatlandırma akışı',
+        body: 'Ürün maliyeti\n↓\nAmazon komisyonları\n↓\nFBA / FBM lojistik giderleri\n↓\nReklam ve PPC maliyeti\n↓\nİade / stok / operasyon payı\n↓\nRakip fiyatları\n↓\nBuy Box ve müşteri algısı\n↓\nGerçek kâr marjı\n\nAmazon’da fiyatlandırma tek bir rakam seçmek değildir. Fiyat, maliyet ve rekabet kadar reklam, stok, müşteri algısı ve gerçek kârlılıkla birlikte değerlendirilmelidir.',
+      },
+      {
+        heading: 'Örnek Amazon Fiyatlandırma Senaryosu',
+        body: 'Örnek senaryo: Amazon’da satış yapan bir marka, ürün fiyatını belirlerken yalnızca rakiplerin satış fiyatına bakmaz. Ürün maliyetini, Amazon komisyonunu, FBA/FBM lojistik giderlerini, reklam maliyetini, iade riskini, stok durumunu ve hedef kâr marjını birlikte değerlendirir. Daha sonra fiyatı Buy Box rekabeti ve müşteri algısıyla birlikte test eder. Bu senaryo satış veya kâr garantisi değil, Amazon fiyatlandırmasını daha kontrollü düşünmek için örnek bir yaklaşımdır.',
+      },
+      {
+        heading: 'Amazon fiyatlandırmasında hangi faktörlere bakılır?',
+        body: '- Ürün maliyeti\n- Amazon komisyonları\n- FBA/FBM lojistik\n- Reklam maliyeti\n- İade ve hasar riski\n- Stok durumu\n- Rakip fiyatları\n- Buy Box rekabeti\n- Marka konumu\n- Kampanya ve indirim planı',
+      },
+      {
+        heading: 'Amazon fiyatlandırma faktörleri kısa tablo',
+        body: 'Ürün maliyeti\nNe anlama gelir: Ürünün üretim veya tedarik maliyeti\nNeden önemlidir: Fiyatın kârlılık temelini oluşturur\n\nAmazon komisyonları\nNe anlama gelir: Amazon’un satıştan aldığı kategori bazlı ücretler\nNeden önemlidir: Net kârı doğrudan etkiler\n\nFBA / FBM lojistik\nNe anlama gelir: Depolama, gönderim, paketleme ve teslimat maliyetleri\nNeden önemlidir: Ürün boyutu, ağırlık ve satış modeline göre fiyatı etkiler\n\nReklam maliyeti\nNe anlama gelir: PPC ve görünürlük için ayrılan bütçe\nNeden önemlidir: Reklam maliyeti hesaba katılmadan fiyat gerçek kârlılığı göstermez\n\nİade / hasar riski\nNe anlama gelir: Ürünün iade, memnuniyetsizlik veya hasar maliyeti\nNeden önemlidir: Görünmeyen kârlılık kaybı oluşturabilir\n\nRakip fiyatları\nNe anlama gelir: Aynı veya benzer ürünlerin pazardaki fiyat seviyesi\nNeden önemlidir: Müşteri algısı ve rekabet için önemlidir\n\nBuy Box\nNe anlama gelir: Aynı listing altında satın alma alanında öne çıkma durumu\nNeden önemlidir: Fiyat, stok, teslimat ve performansla birlikte değerlendirilmelidir\n\nMarka konumu\nNe anlama gelir: Ürünün ekonomik, orta seviye veya premium algısı\nNeden önemlidir: Private Label ürünlerde fiyat yalnızca maliyete göre değil, marka değerine göre de düşünülür',
+      },
+      {
+        heading: 'Amazon’da kâr marjı nasıl hesaplanmalı?',
+        body: 'Kâr marjı yalnızca satış fiyatı ve ürün maliyeti arasındaki fark değildir. Komisyon, FBA/FBM, reklam, iade, stok ve operasyon giderleri birlikte düşünülmelidir.\n\nGenel mantık:\nSatış fiyatı\n- ürün maliyeti\n- Amazon komisyonları\n- lojistik giderleri\n- reklam maliyeti\n- iade/stok/operasyon payı\n= tahmini net kâr\n\nBu hesap genel mantık sunar; gerçek sonuç ürün, ülke ve satış modeline göre değişebilir.',
+      },
+      {
+        heading: 'Amazon Buy Box için fiyat nasıl düşünülmeli?',
+        body: '- Fiyat Buy Box görünürlüğünde etkili olabilir\n- Ancak en düşük fiyat her zaman Buy Box garantisi vermez\n- Stok, teslimat, FBA/FBM modeli, satıcı performansı ve müşteri deneyimi de birlikte düşünülmelidir\n- Fiyat kırmak kâr marjını zayıflatabilir',
+      },
+      {
+        heading: 'Amazon PPC fiyatlandırmayı nasıl etkiler?',
+        body: '- Reklam harcaması ürün kâr marjına dahil edilmelidir\n- PPC maliyeti hesaba katılmadan fiyat düşük kalabilir\n- ACOS ve ROAS ürün marjı ve kampanya amacına göre yorumlanmalıdır\n- Lansman döneminde reklam harcaması daha farklı düşünülebilir\n- Reklam satış garantisi değildir',
+      },
+      {
+        heading: 'FBA ve FBM fiyatlandırmada nasıl farklı düşünülür?',
+        body: '- FBA’da depolama, işlem ve gönderim maliyetleri dikkate alınır\n- FBM’de kargo, paketleme, depo ve operasyon giderleri satıcı tarafından yönetilir\n- FBA her zaman daha pahalı veya FBM her zaman daha ucuz değildir\n- Ürün boyutu, ağırlık, teslimat beklentisi ve satış hacmi fiyatlandırmayı etkiler',
+      },
+      {
+        heading: 'Wholesale fiyatlandırma nasıl düşünülmeli?',
+        body: '- Tedarik fiyatı, Amazon satış fiyatı ve Buy Box rekabeti birlikte değerlendirilir\n- Aynı ürünü satan satıcı sayısı fiyat baskısı oluşturabilir\n- Kâr marjı düşükse fiyat rekabeti sürdürülemez hale gelebilir\n- Tedarikçi fiyat istikrarı ve stok devamlılığı önemlidir',
+      },
+      {
+        heading: 'Private Label fiyatlandırma nasıl düşünülmeli?',
+        body: '- Marka konumu, ürün farklılaştırması ve müşteri algısı önemlidir\n- Fiyat sadece maliyet üzerinden değil, ürün değeri ve rekabet konumu üzerinden düşünülmelidir\n- Premium algı istiyorsa listing, görsel, A+ Content ve yorum stratejisi güçlü olmalıdır\n- Reklam ve lansman maliyeti fiyata dahil edilmelidir',
+      },
+      {
+        heading: 'Amazon’da indirim ve kampanya fiyatı nasıl düşünülmeli?',
+        body: '- İndirimler görünürlük ve satın alma kararını destekleyebilir\n- Ancak indirim kâr marjını zayıflatabilir\n- Kampanya döneminde stok, reklam ve nakit akışı birlikte planlanmalıdır\n- Sürekli indirim yapmak marka algısını zayıflatabilir\n- Güncel Amazon kampanya araçları ve kuralları değişebilir',
+      },
+      {
+        heading: 'Amazon fiyatlandırmasında en sık yapılan hatalar nelerdir?',
+        body: '- Rakipten ucuz olmayı tek strateji sanmak\n- Amazon komisyonlarını eksik hesaplamak\n- Reklam maliyetini fiyatlandırmaya dahil etmemek\n- FBA/FBM lojistik giderlerini hafife almak\n- Buy Box için kâr marjını yok etmek\n- Stok ve nakit akışı riskini düşünmemek\n- Private Label ürünlerde marka değerini hesaba katmamak\n- Kampanya ve indirimleri plansız yapmak',
+      },
+      {
+        heading: 'İlk 30 gün Amazon fiyat kontrol planı',
+        body: '1. hafta: ürün maliyeti, komisyon ve lojistik giderlerini hesaplama\n2. hafta: rakip fiyatları, Buy Box ve müşteri algısını analiz etme\n3. hafta: PPC, indirim, stok ve kâr marjı ilişkisini değerlendirme\n4. hafta: fiyat değişikliklerinin satış, reklam ve kârlılık etkisini takip etme',
+      },
+      {
+        heading: 'En sık yapılan hata',
+        body: 'En sık hata, Amazon fiyatlandırmasını yalnızca “rakipten ucuz olayım” mantığıyla kurmaktır. Doğru fiyatlandırma; rekabet, Buy Box, komisyon, reklam, stok ve gerçek kârlılığı birlikte yönetmelidir.',
+      },
+      {
+        heading: 'GloventGlobal bu süreçte nasıl yardımcı olur?',
+        body: 'GloventGlobal, Amazon’da satış yapan markaların ürün maliyetlerini, komisyonlarını, FBA/FBM lojistik giderlerini, PPC harcamalarını, Buy Box rekabetini, stok durumunu ve marka konumunu birlikte analiz ederek daha kontrollü bir Amazon fiyatlandırma ve kârlılık sistemi oluşturmasına yardımcı olur.',
+      },
+    ],
+    comparison: {
+      heading: 'Ucuz Fiyat Yarışı mı, Sistemli Amazon Fiyatlandırması mı?',
+      headers: ['Kriter', 'Ucuz Fiyat Yarışı', 'Sistemli Fiyatlandırma'],
+      rows: [
+        { criterion: 'Başlangıç', individual: 'Amaç rakipten daha düşük fiyat vermektir', company: 'Fiyat; maliyet, rekabet, marka ve kârlılıkla birlikte belirlenir' },
+        { criterion: 'Kârlılık', individual: 'Satış olsa bile net kâr zayıflayabilir', company: 'Komisyon, lojistik, reklam ve iade maliyeti hesaba katılır' },
+        { criterion: 'Buy Box', individual: 'Buy Box sadece fiyatla ilişkilendirilir', company: 'Fiyat, stok, teslimat ve satıcı performansı birlikte değerlendirilir' },
+        { criterion: 'Marka', individual: 'Marka algısı zayıflayabilir', company: 'Ürün değeri ve marka konumu korunmaya çalışılır' },
+        { criterion: 'Sonuç', individual: 'Kısa vadeli satış için kârlılık riske girebilir', company: 'Satış, kâr ve operasyon dengesi daha kontrollü kurulabilir' },
+      ],
+    },
+    checklist: {
+      heading: 'Amazon fiyatlandırma kontrol listesi',
+      items: [
+        'Ürün maliyeti net hesaplandı mı?',
+        'Amazon komisyonları güncel kaynaklardan kontrol edildi mi?',
+        'FBA/FBM lojistik giderleri hesaba katıldı mı?',
+        'PPC reklam maliyeti fiyata dahil edildi mi?',
+        'İade, hasar ve stok riski düşünüldü mü?',
+        'Rakip fiyatları ve Buy Box durumu analiz edildi mi?',
+        'Hedef net kâr marjı belirlendi mi?',
+        'Kampanya ve indirimlerin kârlılığa etkisi hesaplandı mı?',
+        'Private Label veya Wholesale modeline göre fiyat mantığı ayrıldı mı?',
+        'Fiyat değişiklikleri satış ve kârlılık verileriyle takip ediliyor mu?',
+      ],
+    },
+    faq: {
+      heading: 'Sık Sorulan Sorular',
+      items: [
+        {
+          question: 'Amazon’da ürün fiyatı nasıl belirlenir?',
+          answer:
+            'Ürün maliyeti, Amazon komisyonları, FBA/FBM giderleri, reklam maliyeti, iade riski ve hedef kâr marjı birlikte hesaplanarak belirlenir. Rakip fiyatları ve Buy Box durumu da ayrıca incelenmelidir.',
+        },
+        {
+          question: 'Amazon fiyatlandırma stratejisi nedir?',
+          answer:
+            'Amazon fiyatlandırma stratejisi, ürün fiyatını maliyet, komisyon, lojistik, reklam, stok, rekabet ve marka konumuyla birlikte belirleme sürecidir. Sadece rakipten ucuz olmak bir strateji değildir.',
+        },
+        {
+          question: 'Amazon’da kâr marjı nasıl hesaplanır?',
+          answer:
+            'Satış fiyatından ürün maliyeti, komisyon, lojistik, reklam ve iade/stok/operasyon payı çıkarılarak genel bir hesaplama yapılabilir. Gerçek sonuç ürün ve pazara göre değişir, kesin bir rakam verilemez.',
+        },
+        {
+          question: 'Amazon Buy Box için en düşük fiyat yeterli mi?',
+          answer:
+            'Hayır, en düşük fiyat tek başına Buy Box garantisi vermez. Stok, teslimat, satıcı performansı ve müşteri deneyimi de birlikte değerlendirilmelidir.',
+        },
+        {
+          question: 'Amazon PPC fiyatlandırmayı etkiler mi?',
+          answer:
+            'Evet, reklam harcaması ürün kâr marjına dahil edilmelidir; PPC maliyeti hesaba katılmadan belirlenen fiyat gerçek kârlılığı yansıtmayabilir. ACOS ve ROAS ürün marjına göre yorumlanmalıdır.',
+        },
+        {
+          question: 'FBA ve FBM fiyatlandırmada nasıl farklılaşır?',
+          answer:
+            'FBA’da depolama ve gönderim maliyetleri, FBM’de ise kargo ve operasyon giderleri satıcı tarafından yönetilir. FBA her zaman daha pahalı veya FBM her zaman daha ucuz değildir, ürün ve duruma göre değişir.',
+        },
+        {
+          question: 'Amazon’da indirim yapmak mantıklı mı?',
+          answer:
+            'İndirimler görünürlük ve satın alma kararını destekleyebilir ama kâr marjını zayıflatabilir. Kampanya döneminde stok, reklam ve nakit akışı birlikte planlanmalıdır.',
+        },
+        {
+          question: 'Amazon fiyatlandırma satış garantisi verir mi?',
+          answer:
+            'Hayır, fiyatlandırma bir satış garantisi değildir; doğru fiyat satış ve kârlılığı destekleyebilir ama sonuç ürün, rekabet ve diğer listeleme unsurlarıyla birlikte şekillenir.',
+        },
+      ],
+    },
+    nextSteps: [
+      'Ürün maliyetinizi ve Amazon komisyonlarını birlikte hesaplayın',
+      'FBA/FBM lojistik, kargo, depolama ve iade riskini fiyata dahil edin',
+      'PPC reklam maliyetini ürün kâr marjıyla birlikte değerlendirin',
+      'Rakip fiyatlarını, Buy Box durumunu ve müşteri algısını analiz edin',
+      'Stok, kampanya ve indirim kararlarını gerçek kârlılıkla birlikte planlayın',
+      'Ücretsiz analiz ile Amazon fiyatlandırma ve kârlılık yapınızı birlikte değerlendirelim',
+    ],
+  },
 };
