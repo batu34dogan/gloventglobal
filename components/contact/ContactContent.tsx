@@ -268,6 +268,9 @@ export default function ContactContent() {
   const [processRef, processInView] = useInView<HTMLElement>();
   const [trustRef, trustInView] = useInView<HTMLElement>();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   // Pazarlama iletişimi izni — opsiyonel, varsayılan işaretsiz, form gönderimini engellemiyor.
   const [marketingConsent, setMarketingConsent] = useState(false);
 
@@ -285,12 +288,62 @@ export default function ContactContent() {
   const updateField = (field: keyof typeof formValues) => (value: string) =>
     setFormValues((previous) => ({ ...previous, [field]: value }));
 
-  // Bu fazda gerçek gönderim/backend yok — sadece sayfa içi geçici bir bilgilendirme gösteriliyor.
-  // mailto açılmıyor, hiçbir ağ isteği yapılmıyor, konsola hata düşürmeden form state'i sıfırlanmadan kalıyor.
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  // Ücretsiz Analiz widget'ıyla aynı endpoint'e (/api/analysis-lead) gönderir — API route generic bir
+  // passthrough olduğu için (sadece env'deki n8n webhook'una forward ediyor) burada ayrı bir route
+  // gerekmiyor. leadSource: 'contact_page' ile n8n tarafında iki akış birbirinden ayırt edilebilir.
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    trackEvent('contact_form_submit_success');
-    setSubmitted(true);
+    if (!formValues.fullName.trim()) {
+      setFormError('Lütfen ad soyad alanını doldurun.');
+      return;
+    }
+    if (!formValues.phone.trim() && !formValues.email.trim()) {
+      setFormError('Lütfen telefon veya e-posta alanlarından en az birini doldurun.');
+      return;
+    }
+    if (!formValues.notes.trim()) {
+      setFormError('Lütfen kısa açıklama alanını doldurun.');
+      return;
+    }
+    setFormError(null);
+    setSubmitError(null);
+    setIsSubmitting(true);
+
+    const payload = {
+      contact: {
+        fullName: formValues.fullName,
+        company: formValues.company,
+        phone: formValues.phone,
+        email: formValues.email,
+        website: formValues.website,
+      },
+      targetChannel: formValues.targetChannel,
+      mainGoal: formValues.mainGoal,
+      message: formValues.notes,
+      marketingConsent,
+      pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+      createdAt: new Date().toISOString(),
+      leadSource: 'contact_page',
+    };
+
+    try {
+      const res = await fetch('/api/analysis-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.success) {
+        trackEvent('contact_form_submit_success');
+        setSubmitted(true);
+      } else {
+        setSubmitError('Mesaj gönderilirken bir sorun oluştu. Lütfen info@gloventglobal.com üzerinden bize ulaşın.');
+      }
+    } catch {
+      setSubmitError('Mesaj gönderilirken bir sorun oluştu. Lütfen info@gloventglobal.com üzerinden bize ulaşın.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -427,11 +480,15 @@ export default function ContactContent() {
               </label>
 
               <div className="sm:col-span-2">
+                {formError && (
+                  <p className="mb-3 text-xs font-medium text-rose-300/90">{formError}</p>
+                )}
                 <button
                   type="submit"
-                  className="mt-2 rounded-full border border-blue-400/45 bg-blue-500/10 px-10 py-3 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
+                  disabled={isSubmitting}
+                  className="mt-2 rounded-full border border-blue-400/45 bg-blue-500/10 px-10 py-3 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Başvuruyu Hazırla
+                  {isSubmitting ? 'Gönderiliyor...' : 'Başvuruyu Hazırla'}
                 </button>
                 <p className="mt-3 text-[10px] leading-relaxed text-blue-100/40">
                   Formu göndererek bilgilerinizin talebinizin değerlendirilmesi ve sizinle iletişime geçilmesi
@@ -444,9 +501,11 @@ export default function ContactContent() {
 
                 {submitted && (
                   <p className="mt-4 text-sm leading-relaxed text-blue-100/75">
-                    Başvuru gönderim altyapısı yakında aktif edilecektir. Şimdilik{' '}
-                    <span className="text-white">info@gloventglobal.com</span> üzerinden bize ulaşabilirsiniz.
+                    Mesajınız alındı. Ekibimiz en kısa sürede sizinle iletişime geçecektir.
                   </p>
+                )}
+                {submitError && (
+                  <p className="mt-4 text-sm leading-relaxed text-rose-300/90">{submitError}</p>
                 )}
               </div>
             </form>
