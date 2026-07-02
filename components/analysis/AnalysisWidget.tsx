@@ -42,55 +42,25 @@ export default function AnalysisWidget() {
 
   return (
     <>
-      {/* ============ SAĞ KENAR BUTON ============
-          Desktop (md+): fixed sağ kenar dikey tab — yazı yukarıdan aşağı (rotate), sol köşeler
-          yuvarlatılmış, sağ taraf ekrana yapışık. z-[45] bilerek navbar'ın (z-40) üstünde ama
-          intro ekranının (z-50) ALTINDA.
-          Mobil (<md): sağ alt yatay pill — parmakla kolay tıklanabilir, ekranı kaplamaz. */}
+      {/* ============ SAĞ ALT SABİT BUTON ============
+          z-[45] bilerek navbar'ın (z-40) üstünde ama intro ekranının (z-50) ALTINDA — intro
+          oynarken bu buton üzerinde görünmesin, intro kapandıktan sonra (DOM'dan kalkınca)
+          buton doğal olarak görünür hale gelir. */}
       {!open && (
-        <>
-          {/* ── DESKTOP: dikey sağ kenar tab ── */}
-          <button
-            type="button"
-            onClick={() => {
-              trackEvent('free_analysis_cta_click', { location: 'floating_button' });
-              setOpen(true);
-            }}
-            className="fixed right-0 top-[62%] z-[45] hidden -translate-y-1/2 md:flex"
-            aria-label="Ücretsiz Analiz Al"
-          >
-            <span className="flex items-center gap-2.5 rounded-l-xl border border-r-0 border-blue-400/40 bg-[#0a1326]/95 px-3.5 py-4 shadow-[-4px_0_24px_-4px_rgba(59,130,246,0.45)] backdrop-blur-md transition-all duration-300 hover:-translate-x-0.5 hover:border-blue-400/70 hover:shadow-[-6px_0_32px_-4px_rgba(59,130,246,0.65)]">
-              {/* Mavi nabız noktası */}
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-400 shadow-[0_0_8px_2px_rgba(96,165,250,0.8)]"
-              />
-              {/* Dikey metin — rotate(-90deg): üstten alta doğru, ters değil, rahatça okunur */}
-              <span
-                className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white"
-                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-              >
-                Ücretsiz Analiz
-              </span>
-            </span>
-          </button>
-
-          {/* ── MOBİL: sağ alt yatay pill ── */}
-          <button
-            type="button"
-            onClick={() => {
-              trackEvent('free_analysis_cta_click', { location: 'floating_button' });
-              setOpen(true);
-            }}
-            className="fixed bottom-5 right-4 z-[45] flex items-center gap-2 rounded-full border border-blue-400/45 bg-[#0a1326]/90 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_8px_32px_-8px_rgba(59,130,246,0.55)] backdrop-blur-md transition-all duration-300 hover:border-blue-400/75 hover:shadow-[0_8px_40px_-6px_rgba(59,130,246,0.75)] md:hidden"
-          >
-            <span
-              aria-hidden="true"
-              className="h-2 w-2 flex-shrink-0 rounded-full bg-blue-400 shadow-[0_0_10px_2px_rgba(96,165,250,0.85)]"
-            />
-            Ücretsiz Analiz
-          </button>
-        </>
+        <button
+          type="button"
+          onClick={() => {
+            trackEvent('free_analysis_cta_click', { location: 'floating_button' });
+            setOpen(true);
+          }}
+          className="fixed bottom-5 right-4 z-[45] flex items-center gap-2.5 rounded-full border border-blue-500/40 bg-slate-950/90 px-4 py-3 text-sm font-semibold text-white shadow-[0_0_28px_-4px_rgba(59,130,246,0.50)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/70 hover:shadow-[0_0_38px_-4px_rgba(59,130,246,0.70)] md:bottom-8 md:right-8 md:px-5"
+        >
+          <span
+            aria-hidden="true"
+            className="h-2 w-2 flex-shrink-0 rounded-full bg-blue-400 shadow-[0_0_8px_2px_rgba(96,165,250,0.85)]"
+          />
+          Ücretsiz Analiz Al
+        </button>
       )}
 
       {/* ============ MODAL / PANEL ============ */}
