@@ -85,7 +85,7 @@ export default function AnalysisWidget() {
               <div>
                 <h2 className="text-lg font-bold tracking-tight text-white sm:text-xl">Dijital Büyüme Analizi</h2>
                 <p className="mt-1 text-xs leading-relaxed text-blue-100/65 sm:text-sm">
-                  6 kısa soruya cevap verin; markanız için hangi büyüme sistemlerinin öncelikli olabileceğini
+                  7 kısa soruya cevap verin; markanız için hangi büyüme sistemlerinin öncelikli olabileceğini
                   görelim.
                 </p>
               </div>
