@@ -41,8 +41,15 @@ export default function SiteNavbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
-        <Link href="/" className="text-sm font-semibold uppercase tracking-[0.25em] text-white">
-          GloventGlobal
+        <Link href="/" className="flex items-center" aria-label="GloventGlobal — Ana Sayfa">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/gloventglobal-logo.svg"
+            alt="GloventGlobal"
+            className="h-7 w-auto md:h-8"
+            width="160"
+            height="32"
+          />
         </Link>
 
         <div className="hidden items-center gap-8 sm:flex">
