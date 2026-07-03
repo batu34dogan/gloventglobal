@@ -41,7 +41,14 @@ export default function SiteNavbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
-        <Link href="/" aria-label="GloventGlobal — Ana Sayfa">
+        {/* Logo — mobilde scroll olunca gizlenir, desktop'ta her zaman görünür */}
+        <Link
+          href="/"
+          aria-label="GloventGlobal — Ana Sayfa"
+          className={`transition-all duration-300 sm:opacity-100 sm:pointer-events-auto ${
+            scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
+          }`}
+        >
           <span className="relative flex h-[52px] w-[200px] items-center justify-center overflow-hidden rounded-xl border border-blue-300/30 bg-slate-950/75 shadow-[0_0_24px_rgba(59,130,246,0.22)] backdrop-blur-md md:h-[56px] md:w-[220px]">
             {/* Geniş radial ışık — tüm kutuya yayılır */}
             <span
