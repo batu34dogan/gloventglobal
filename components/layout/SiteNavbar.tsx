@@ -47,7 +47,7 @@ export default function SiteNavbar() {
             <img
               src="/gloventglobal-logo.svg"
               alt="GloventGlobal"
-              className="h-10 w-auto max-w-[190px] object-contain md:h-14 md:max-w-[280px]"
+              className="h-10 w-auto max-w-[190px] object-contain md:h-12 md:max-w-[260px]"
             />
           </span>
         </Link>
