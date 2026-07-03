@@ -42,12 +42,12 @@ export default function SiteNavbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
         <Link href="/" aria-label="GloventGlobal — Ana Sayfa">
-          <span className="relative flex h-[52px] w-[170px] items-center justify-center overflow-hidden rounded-xl bg-white/95 shadow-sm md:h-[56px] md:w-[200px]">
+          <span className="relative flex h-[52px] w-[200px] items-center justify-center overflow-hidden rounded-xl border border-blue-400/25 bg-slate-950/70 shadow-[0_0_24px_rgba(59,130,246,0.18)] backdrop-blur-md md:h-[56px] md:w-[220px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/gloventglobal-logo.svg"
               alt="GloventGlobal"
-              className="h-full w-full translate-y-[3px] scale-[2.0] object-contain md:scale-[2.2]"
+              className="h-full w-full translate-y-[3px] scale-[2.0] object-contain brightness-110 contrast-110 md:scale-[2.2]"
             />
           </span>
         </Link>
