@@ -57,7 +57,7 @@ export default function SiteNavbar() {
             <img
               src="/gloventglobal-logo.svg"
               alt="GloventGlobal"
-              className="relative z-10 h-full w-full translate-y-[3px] scale-[2.0] object-contain brightness-110 contrast-125 saturate-110 md:scale-[2.2]"
+              className="relative z-10 h-full w-full translate-y-[3px] scale-[1.55] transform-gpu object-contain brightness-100 contrast-105 saturate-100 md:scale-[2.2] md:brightness-110 md:contrast-125 md:saturate-110"
             />
           </span>
         </Link>
