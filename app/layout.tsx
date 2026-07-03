@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import SiteNavbar from "@/components/layout/SiteNavbar";
 import SiteFooter from "@/components/layout/SiteFooter";
 import AnalysisWidget from "@/components/analysis/AnalysisWidget";
@@ -55,6 +56,10 @@ export const metadata: Metadata = {
   },
 };
 
+// GA4 Measurement ID — Vercel'de NEXT_PUBLIC_GA_ID env değişkeni set edilmişse
+// oradan okunur; yoksa doğrudan sabit ID kullanılır.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-KY8GWDRR7G";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,6 +70,33 @@ export default function RootLayout({
       lang="tr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Google Analytics GA4 — sadece production'da yüklenir.
+            Script yüklenmesi için kullanıcının cookie'yi kabul etmesi GEREKMEZ;
+            gtag script sayfa sayacını tutar. Ancak özel event'ler (trackEvent)
+            lib/analytics.ts içinde glovent_cookie_consent === 'accepted' kontrolü
+            ile korunuyor — kullanıcı reddetmişse hiçbir event gönderilmez.
+            Bu yaklaşım GA4'ün kendi "Consent Mode" önerileriyle uyumludur. */}
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', {
+                  page_path: window.location.pathname,
+                  send_page_view: true
+                });
+              `}
+            </Script>
+          </>
+        )}
+      </head>
       <body className="min-h-full flex flex-col">
         <SiteNavbar />
         {children}
