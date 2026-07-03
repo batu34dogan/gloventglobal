@@ -41,33 +41,33 @@ export default function SiteNavbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
-        {/* Logo — mobilde scroll olunca gizlenir, desktop'ta her zaman görünür */}
-        <Link
-          href="/"
-          aria-label="GloventGlobal — Ana Sayfa"
-          className={`transition-all duration-300 sm:opacity-100 sm:pointer-events-auto ${
-            scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
+        {/* Logo — mobilde scroll olunca genişlik sıfırlanır, yer kaplamaz, hamburger sola kayar */}
+        <div
+          className={`overflow-hidden transition-all duration-300 sm:w-auto sm:opacity-100 ${
+            scrolled ? 'w-0 opacity-0' : 'w-[200px] opacity-100'
           }`}
         >
-          <span className="relative flex h-[52px] w-[200px] items-center justify-center overflow-hidden rounded-xl border border-blue-300/30 bg-slate-950/75 shadow-[0_0_24px_rgba(59,130,246,0.22)] backdrop-blur-md md:h-[56px] md:w-[220px]">
-            {/* Geniş radial ışık — tüm kutuya yayılır */}
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 rounded-xl bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.72)_0%,rgba(226,239,255,0.58)_34%,rgba(147,197,253,0.28)_58%,rgba(15,23,42,0.08)_82%,transparent_100%)] opacity-95 blur-[1px]"
-            />
-            {/* Yatay yumuşak band — logo yazısı bölgesini destekler */}
-            <span
-              aria-hidden="true"
-              className="absolute inset-x-2 top-1/2 h-9 -translate-y-1/2 rounded-full bg-white/55 opacity-80 blur-xl"
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/gloventglobal-logo.svg"
-              alt="GloventGlobal"
-              className="relative z-10 h-full w-full translate-y-[3px] scale-[1.55] transform-gpu object-contain brightness-100 contrast-105 saturate-100 md:scale-[2.2] md:brightness-110 md:contrast-125 md:saturate-110"
-            />
-          </span>
-        </Link>
+          <Link href="/" aria-label="GloventGlobal — Ana Sayfa">
+            <span className="relative flex h-[52px] w-[200px] items-center justify-center overflow-hidden rounded-xl border border-blue-300/30 bg-slate-950/75 shadow-[0_0_24px_rgba(59,130,246,0.22)] md:h-[56px] md:w-[220px]">
+              {/* Radial ışık — blur kaldırıldı (mobil render kalitesini bozuyordu) */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 rounded-xl bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.72)_0%,rgba(226,239,255,0.58)_34%,rgba(147,197,253,0.28)_58%,rgba(15,23,42,0.08)_82%,transparent_100%)] opacity-95"
+              />
+              {/* Yatay yumuşak band */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-2 top-1/2 h-9 -translate-y-1/2 rounded-full bg-white/55 opacity-80 blur-xl"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/gloventglobal-logo.svg"
+                alt="GloventGlobal"
+                className="relative z-10 h-full w-full translate-y-[3px] scale-[1.35] object-contain md:scale-[2.2] md:brightness-110 md:contrast-125 md:saturate-110"
+              />
+            </span>
+          </Link>
+        </div>
 
         <div className="hidden items-center gap-8 sm:flex">
           {navLinks.map((link) => (
