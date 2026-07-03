@@ -46,7 +46,7 @@ export default function SiteNavbar() {
             {/* Logo arkasında yumuşak beyaz/mavi ışık — pointer-events yok, sadece görsel */}
             <span
               aria-hidden="true"
-              className="absolute inset-1 rounded-lg bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.78)_0%,rgba(219,234,254,0.42)_34%,rgba(30,64,175,0.12)_62%,transparent_78%)] opacity-90"
+              className="absolute inset-0 rounded-xl bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.88)_0%,rgba(219,234,254,0.60)_40%,rgba(30,64,175,0.15)_68%,transparent_85%)] opacity-95"
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
