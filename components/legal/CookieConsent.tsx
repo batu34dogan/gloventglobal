@@ -22,6 +22,8 @@ export default function CookieConsent() {
 
   const handleChoice = (value: 'accepted' | 'rejected') => {
     window.localStorage.setItem(STORAGE_KEY, value);
+    // GoogleAnalytics component'ini bilgilendir — sayfa yenilemesi olmadan GA yüklensin.
+    window.dispatchEvent(new CustomEvent('glovent-consent-change'));
     setVisible(false);
   };
 
