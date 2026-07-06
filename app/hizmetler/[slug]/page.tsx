@@ -1,13 +1,30 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import ServiceDetailContent from '@/components/services/ServiceDetailContent';
 import { serviceDetails } from '@/components/services/serviceDetailsData';
 import JsonLd from '@/components/seo/JsonLd';
 
-// Şu an veri objesinde sadece "etsy" var. Object.keys kullanmak (sabit bir dizi yazmak yerine)
-// her yeni hizmet eklendiğinde bu dosyaya dokunma ihtiyacını ortadan kaldırıyor — yeni hizmet =
-// sadece ServiceDetailContent.tsx'teki veri objesine yeni bir key eklemek.
 export function generateStaticParams() {
   return Object.keys(serviceDetails).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = serviceDetails[slug];
+  if (!service) return {};
+  return {
+    title: `${service.title} | GloventGlobal`,
+    description: service.description,
+    openGraph: {
+      title: `${service.title} | GloventGlobal`,
+      description: service.description,
+      url: `https://gloventglobal.com/hizmetler/${slug}`,
+    },
+  };
 }
 
 export default async function HizmetDetayPage({ params }: { params: Promise<{ slug: string }> }) {
