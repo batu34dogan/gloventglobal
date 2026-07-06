@@ -324,6 +324,7 @@ export default function ContactContent() {
       pageUrl: typeof window !== 'undefined' ? window.location.href : '',
       createdAt: new Date().toISOString(),
       leadSource: 'contact_page',
+      _hp: '', // honeypot — gerçek kullanıcıda her zaman boş, botlar doldurursa API reddeder
     };
 
     try {
@@ -332,6 +333,10 @@ export default function ContactContent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+      if (res.status === 429) {
+        setSubmitError('Çok fazla deneme yapıldı. Lütfen birkaç dakika sonra tekrar deneyin.');
+        return;
+      }
       const data = await res.json();
       if (data.success) {
         trackEvent('contact_form_submit_success');
