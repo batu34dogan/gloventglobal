@@ -1,308 +1,401 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
 
-// Bir elementin viewport'a girip girmediğini takip eder (native IntersectionObserver, yeni paket yok).
-// HomeContent.tsx / ServicesContent.tsx'teki aynı desenin bu dosyaya özel, bağımsız bir kopyası.
-function useInView<T extends HTMLElement>() {
-  const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
+// ============================================================================
+// Soru tanımları — 7 soruluk akış. Sıra: işletme tipi -> mevcut satış kanalları
+// (çoklu seçim) -> en büyük problem -> öncelikli hedef -> dijital altyapı durumu
+// -> aylık satış hacmi -> aylık büyüme/reklam bütçesi (son adım).
+// ============================================================================
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+type QuestionId = 'businessType' | 'channels' | 'problem' | 'goal' | 'infraLevel' | 'salesVolume' | 'budget';
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return [ref, inView] as const;
-}
-
-// Ana sayfadaki (HomeContent.tsx) / hizmetler sayfasındaki (ServicesContent.tsx) aynı görsel dil —
-// ama bu dosyaya özel, bağımsız kopya. O dosyalara dokunmamak / import etmemek için bilerek
-// burada yeniden tanımlandı.
-function Glow({
-  className,
-  targetOpacity,
-  visible,
-}: {
-  className: string;
-  targetOpacity: string;
-  visible: boolean;
-}) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`pointer-events-none absolute rounded-full transition-opacity duration-[1200ms] ease-out motion-reduce:transition-none ${className} ${
-        visible ? targetOpacity : 'opacity-0'
-      }`}
-      style={{ background: 'radial-gradient(closest-side, rgba(59,130,246,0.22), transparent)' }}
-    />
-  );
-}
-
-// Hero başlığının arkasına oturan, ana sayfa/hakkımızda sayfalarındaki Hero glow'uyla aynı kanıtlanmış
-// teknik — bağımsız kopya (sayfa izolasyonu prensibi korunuyor). Başlığın KENDİ (relative isolate)
-// kutusuna sıkıca bağlı, çevresindeki içeriği kapsamıyor.
-function TitleGlow({ tone }: { tone: 'hero' | 'section' | 'cta' }) {
-  const sizeClass =
-    tone === 'hero'
-      ? 'h-[300px] w-[min(820px,92vw)] sm:h-[360px] sm:w-[min(940px,90vw)]'
-      : tone === 'section'
-        ? 'h-[200px] w-[min(560px,85vw)] sm:h-[230px] sm:w-[min(620px,82vw)]'
-        : 'h-[170px] w-[min(480px,80vw)] sm:h-[190px] sm:w-[min(520px,78vw)]';
-  const opacityClass = tone === 'hero' ? 'opacity-50' : tone === 'section' ? 'opacity-[0.26]' : 'opacity-[0.16]';
-
-  return (
-    <span
-      aria-hidden="true"
-      className={`pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 ${sizeClass} rounded-full ${opacityClass} blur-2xl`}
-      style={{
-        background: 'radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(96,165,250,0.5) 45%, transparent 75%)',
-      }}
-    />
-  );
-}
-
-// Koyu zeminli, ince border'lı form alanı kabuğu — input/textarea/select hepsi aynı çerçeveyi kullanır.
-const fieldInputClass =
-  'w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder:text-blue-100/30 outline-none transition-colors duration-200 focus:border-blue-400/55 focus:bg-white/[0.05] focus:shadow-[0_0_0_3px_rgba(59,130,246,0.15)]';
-const fieldLabelClass = 'mb-1.5 block text-xs font-medium uppercase tracking-[0.1em] text-blue-100/70';
-
-function TextField({
-  label,
-  type = 'text',
-  value,
-  onChange,
-  fullWidth,
-}: {
-  label: string;
-  type?: string;
-  value: string;
-  onChange: (value: string) => void;
-  fullWidth?: boolean;
-}) {
-  return (
-    <label className={`block ${fullWidth ? 'sm:col-span-2' : ''}`}>
-      <span className={fieldLabelClass}>{label}</span>
-      <input type={type} value={value} onChange={(e) => onChange(e.target.value)} className={fieldInputClass} />
-    </label>
-  );
-}
-
-function TextAreaField({
-  label,
-  value,
-  onChange,
-  placeholder,
-}: {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-}) {
-  return (
-    <label className="block sm:col-span-2">
-      <span className={fieldLabelClass}>{label}</span>
-      <textarea
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        rows={3}
-        className={`${fieldInputClass} resize-none`}
-      />
-    </label>
-  );
-}
-
-function SelectField({
-  label,
-  value,
-  onChange,
-  options,
-  fullWidth,
-}: {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
+type Question = {
+  id: QuestionId;
+  title: string;
+  subtitle?: string;
+  multi: boolean;
   options: string[];
-  fullWidth?: boolean;
-}) {
-  return (
-    <label className={`block ${fullWidth ? 'sm:col-span-2' : ''}`}>
-      <span className={fieldLabelClass}>{label}</span>
-      {/* İki dropdown da (İlgilendiğiniz Alan / Ana Hedefiniz) bu component'i paylaşıyor — sabit
-          h-[42px] + appearance-none + özel ok ikonu, native <select> render'ının tarayıcıdan
-          tarayıcıya/işletim sisteminden işletim sistemine farklı yükseklik/tıklanabilir alan
-          hesaplamasını tamamen ortadan kaldırıyor. fieldInputClass (input/textarea ile paylaşımlı)
-          değişmedi — sadece bu select-özel ek class'lar burada, izole şekilde uygulanıyor. */}
-      <div className="relative">
-        <select
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className={`${fieldInputClass} h-[42px] cursor-pointer appearance-none bg-none pr-9 leading-[1.375rem]`}
-        >
-          <option value="" className="bg-[#070d18]">
-            Seçiniz
-          </option>
-          {options.map((option) => (
-            <option key={option} value={option} className="bg-[#070d18]">
-              {option}
-            </option>
-          ))}
-        </select>
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 20 20"
-          fill="none"
-          className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-100/50"
-        >
-          <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-    </label>
-  );
+};
+
+const questions: Question[] = [
+  {
+    id: 'businessType',
+    title: 'İşletme tipiniz nedir?',
+    multi: false,
+    options: ['Üretici / Marka Sahibi', 'Toptancı / B2B Firma', 'E-Ticaret Markası', 'Henüz Karar Vermedim'],
+  },
+  {
+    id: 'channels',
+    title: 'Şu anda nerede satış yapıyorsunuz?',
+    multi: true,
+    options: ['Amazon', 'Etsy', 'eBay', 'Shopify / Kendi Web Sitem', 'B2B / Toptan', 'Sosyal Medya', 'Henüz Satış Yapmıyorum'],
+  },
+  {
+    id: 'problem',
+    title: 'En büyük probleminiz nedir?',
+    multi: false,
+    options: [
+      'Yeterli trafik alamıyorum',
+      'Trafik var ama satışa dönüşmüyor',
+      'Satış yok / çok düşük',
+      'Reklam harcıyorum ama sonuç alamıyorum',
+      'Ürünlerimi doğru sunamıyorum',
+      'Operasyon / süreç yönetimi çok dağınık',
+      'Global pazara açılmak istiyorum',
+      'Henüz net değil',
+    ],
+  },
+  {
+    id: 'goal',
+    title: 'Öncelikli hedefiniz nedir?',
+    multi: false,
+    options: [
+      'Satışları artırmak',
+      'Yeni pazarlara açılmak',
+      'Marka bilinirliğini güçlendirmek',
+      'Operasyonu düzenlemek',
+      'Yapay zeka / otomasyon entegre etmek',
+      'B2B satış sürecini dijitalleştirmek',
+      'Henüz karar vermedim',
+    ],
+  },
+  {
+    id: 'infraLevel',
+    title: 'Mevcut dijital altyapınız ne durumda?',
+    multi: false,
+    options: ['Hiç Yok / Yeni Kuracağım', 'Var Ama Zayıf', 'Orta Seviyede', 'Güçlü Ama Büyümüyor'],
+  },
+  {
+    id: 'salesVolume',
+    title: 'Aylık satış hacminiz nedir?',
+    subtitle: 'Satış hacmi bilgisi, markanızın büyüme aşamasını daha doğru değerlendirebilmemiz için kullanılır.',
+    multi: false,
+    options: ['Henüz satış yok', '0 - 100.000 TL', '100.000 - 500.000 TL', '500.000 - 1.000.000 TL', '1.000.000 TL üzeri', 'Paylaşmak istemiyorum'],
+  },
+  {
+    id: 'budget',
+    title: 'Aylık büyüme / reklam bütçesi aralığınız nedir?',
+    subtitle: 'Bütçe bilgisi, size daha doğru bir büyüme yol haritası önerebilmemiz için kullanılır.',
+    multi: false,
+    options: ['Henüz bütçe belirlemedik', '0 - 25.000 TL', '25.000 - 75.000 TL', '75.000 - 150.000 TL', '150.000 TL üzeri'],
+  },
+];
+
+type Answers = Partial<Record<QuestionId, string | string[]>>;
+
+// ============================================================================
+// Cevap -> önerilen sistem eşleştirmesi. Her hizmet için sitedeki güncel
+// konumlandırma diliyle birebir uyumlu başlık/açıklama kullanılıyor.
+// ============================================================================
+
+type ServiceTag =
+  | 'amazon'
+  | 'etsy'
+  | 'ebay'
+  | 'shopify'
+  | 'b2b-dijital-showroom'
+  | 'marka-konumlandirma'
+  | 'gorsel-icerik-sistemi'
+  | 'yapay-zeka-entegrasyonu'
+  | 'sosyal-medya-yonetimi'
+  | 'reklam-optimizasyon'
+  | 'otomasyon-n8n'
+  | 'global-pazara-giris-stratejisi';
+
+const serviceInfo: Record<ServiceTag, { title: string; description: string }> = {
+  amazon: { title: 'Amazon Global Satış Sistemi', description: 'Kategori, listeleme, reklam ve operasyon süreçlerini birlikte çalışan global satış sistemine dönüştürürüz.' },
+  etsy: { title: 'Etsy Marka Sistemi', description: 'Ürün, görsel dil, marka hikayesi ve SEO’yu birlikte çalışan bir Etsy marka sistemine dönüştürürüz.' },
+  ebay: { title: 'eBay Global Satış Sistemi', description: 'Ülke stratejisi, fiyatlama, kargo ve operasyonla global satış sistemine dönüştürürüz.' },
+  shopify: { title: 'Shopify Commerce Sistemi', description: 'Bağımsız bir dijital ticaret sistemi kurarak markanızı yönetilebilir hale getiririz.' },
+  'b2b-dijital-showroom': { title: 'B2B Satış Sistemi', description: 'Dijital showroom, teklif süreci ve müşteri yönetimini birlikte çalışan bir satış sistemine dönüştürürüz.' },
+  'marka-konumlandirma': { title: 'Marka ve Konumlandırma Sistemi', description: 'Markanızı doğru müşterinin gözünde doğru konuma yerleştiririz.' },
+  'gorsel-icerik-sistemi': { title: 'Görsel ve İçerik Sistemi', description: 'Ürünlerinizi satışa dönüşen bir görsel ve içerik sistemiyle hazırlarız.' },
+  'yapay-zeka-entegrasyonu': { title: 'Yapay Zeka ve Karar Sistemleri', description: 'Yapay zekayı satış ve operasyon sistemlerinize entegre ederiz.' },
+  'sosyal-medya-yonetimi': { title: 'Sosyal Medya Büyüme Sistemi', description: 'Satış kanallarıyla uyumlu bir sosyal medya iletişim sistemi kurarız.' },
+  'reklam-optimizasyon': { title: 'Performans Pazarlama Sistemi', description: 'Reklam bütçenizi veriye dayalı, ölçülebilir bir büyüme sistemine dönüştürürüz.' },
+  'otomasyon-n8n': { title: 'Otomasyon ve Entegrasyon Sistemleri', description: 'Tekrarlayan işleri azaltan, operasyonu hızlandıran sistemler kurarız.' },
+  'global-pazara-giris-stratejisi': { title: 'Global Büyüme Stratejisi', description: 'Doğru ülke, kanal, fiyat ve operasyon planıyla global pazara giriş sistemi kurarız.' },
+};
+
+// Her hizmetin gerçek route slug'ı.
+const serviceHref = (tag: ServiceTag) => `/hizmetler/${tag}`;
+
+// Kanal bazlı eşleştirme — her kanal için 1 öncelikli sistem + 2 destek sistemi. Çoklu seçim
+// olduğu için her seçilen kanalın puanı toplanıyor (kanal seçimi "ilk güçlü sinyal").
+const channelTagMap: Record<string, { primary: ServiceTag; support: [ServiceTag, ServiceTag] }> = {
+  Amazon: { primary: 'amazon', support: ['reklam-optimizasyon', 'gorsel-icerik-sistemi'] },
+  Etsy: { primary: 'etsy', support: ['gorsel-icerik-sistemi', 'sosyal-medya-yonetimi'] },
+  eBay: { primary: 'ebay', support: ['global-pazara-giris-stratejisi', 'reklam-optimizasyon'] },
+  'Shopify / Kendi Web Sitem': { primary: 'shopify', support: ['reklam-optimizasyon', 'otomasyon-n8n'] },
+  'B2B / Toptan': { primary: 'b2b-dijital-showroom', support: ['shopify', 'otomasyon-n8n'] },
+  'Sosyal Medya': { primary: 'sosyal-medya-yonetimi', support: ['marka-konumlandirma', 'gorsel-icerik-sistemi'] },
+  'Henüz Satış Yapmıyorum': { primary: 'global-pazara-giris-stratejisi', support: ['marka-konumlandirma', 'gorsel-icerik-sistemi'] },
+};
+
+// Problem bazlı öncelik sıralaması (1. > 2. > 3.) — problem seçimi çok netse öneri sırasını
+// kanal sinyaliyle birlikte etkiler.
+const problemTagMap: Record<string, [ServiceTag, ServiceTag, ServiceTag]> = {
+  'Yeterli trafik alamıyorum': ['reklam-optimizasyon', 'sosyal-medya-yonetimi', 'gorsel-icerik-sistemi'],
+  'Trafik var ama satışa dönüşmüyor': ['gorsel-icerik-sistemi', 'shopify', 'reklam-optimizasyon'],
+  'Satış yok / çok düşük': ['marka-konumlandirma', 'gorsel-icerik-sistemi', 'reklam-optimizasyon'],
+  'Reklam harcıyorum ama sonuç alamıyorum': ['reklam-optimizasyon', 'gorsel-icerik-sistemi', 'shopify'],
+  'Ürünlerimi doğru sunamıyorum': ['gorsel-icerik-sistemi', 'marka-konumlandirma', 'etsy'],
+  'Operasyon / süreç yönetimi çok dağınık': ['otomasyon-n8n', 'yapay-zeka-entegrasyonu', 'b2b-dijital-showroom'],
+  'Global pazara açılmak istiyorum': ['global-pazara-giris-stratejisi', 'amazon', 'ebay'],
+};
+
+// Hedef bazlı öncelik sıralaması — kanal ve problemden sonra üçüncü sinyal katmanı.
+const goalTagMap: Record<string, [ServiceTag, ServiceTag, ServiceTag]> = {
+  'Satışları artırmak': ['marka-konumlandirma', 'gorsel-icerik-sistemi', 'reklam-optimizasyon'],
+  'Yeni pazarlara açılmak': ['global-pazara-giris-stratejisi', 'amazon', 'ebay'],
+  'Marka bilinirliğini güçlendirmek': ['marka-konumlandirma', 'sosyal-medya-yonetimi', 'gorsel-icerik-sistemi'],
+  'Operasyonu düzenlemek': ['otomasyon-n8n', 'yapay-zeka-entegrasyonu', 'b2b-dijital-showroom'],
+  'Yapay zeka / otomasyon entegre etmek': ['yapay-zeka-entegrasyonu', 'otomasyon-n8n', 'reklam-optimizasyon'],
+  'B2B satış sürecini dijitalleştirmek': ['b2b-dijital-showroom', 'shopify', 'otomasyon-n8n'],
+};
+
+// Bilerek basit bir ağırlıklı puanlama sistemi — karmaşık bir öneri motoru değil, sadece
+// cevaplara göre en fazla 3 anlamlı ve KİŞİSEL sistemi öne çıkaran hafif bir mantık. Backend / AI
+// yok. Ağırlıklar: kanal (ilk güçlü sinyal, çoklu seçimde toplanır) > problem > hedef > diğer.
+function getRecommendations(answers: Answers): { tag: ServiceTag; score: number }[] {
+  const tagScores: Partial<Record<ServiceTag, number>> = {};
+  const addScore = (tag: ServiceTag, amount: number) => {
+    tagScores[tag] = (tagScores[tag] ?? 0) + amount;
+  };
+
+  // 1) Kanal sinyali — en güçlü katman. Çoklu seçimde her kanal kendi puanını ekler.
+  const selectedChannels = (Array.isArray(answers.channels) ? answers.channels : []) as string[];
+  selectedChannels.forEach((channel) => {
+    const mapping = channelTagMap[channel];
+    if (!mapping) return;
+    addScore(mapping.primary, 5);
+    mapping.support.forEach((tag) => addScore(tag, 2));
+  });
+
+  // 2) Problem sinyali — ikinci katman, sıralı ağırlık (1. > 2. > 3.).
+  const problemTags = answers.problem ? problemTagMap[answers.problem as string] : undefined;
+  if (problemTags) {
+    addScore(problemTags[0], 4);
+    addScore(problemTags[1], 3);
+    addScore(problemTags[2], 2);
+  }
+
+  // 3) Hedef sinyali — üçüncü katman, daha hafif ağırlık.
+  const goalTags = answers.goal ? goalTagMap[answers.goal as string] : undefined;
+  if (goalTags) {
+    addScore(goalTags[0], 3);
+    addScore(goalTags[1], 2);
+    addScore(goalTags[2], 1);
+  }
+
+  // 4) İşletme tipi ve altyapı durumu — küçük tamamlayıcı sinyaller.
+  switch (answers.businessType) {
+    case 'Üretici / Marka Sahibi':
+      addScore('marka-konumlandirma', 1);
+      addScore('gorsel-icerik-sistemi', 1);
+      break;
+    case 'Toptancı / B2B Firma':
+      addScore('b2b-dijital-showroom', 1);
+      break;
+    case 'E-Ticaret Markası':
+      addScore('shopify', 1);
+      addScore('reklam-optimizasyon', 1);
+      break;
+  }
+  switch (answers.infraLevel) {
+    case 'Hiç Yok / Yeni Kuracağım':
+      addScore('shopify', 1);
+      break;
+    case 'Var Ama Zayıf':
+      addScore('gorsel-icerik-sistemi', 1);
+      break;
+    case 'Güçlü Ama Büyümüyor':
+      addScore('reklam-optimizasyon', 1);
+      addScore('yapay-zeka-entegrasyonu', 1);
+      break;
+  }
+
+  const sorted = (Object.entries(tagScores) as [ServiceTag, number][]).sort((a, b) => b[1] - a[1]);
+
+  // Yeterli sinyal yoksa (örn. "Henüz Satış Yapmıyorum" + "Henüz net değil" + "Henüz karar
+  // vermedim") genel ve güvenli önerilerle tamamla — boş sonuç ekranı göstermemek için. Aynı
+  // sistem asla tekrar etmez (unique kontrolü), en fazla 3 sistem gösterilir.
+  const fallback: ServiceTag[] = ['marka-konumlandirma', 'yapay-zeka-entegrasyonu', 'reklam-optimizasyon'];
+  const combined: [ServiceTag, number][] = [...sorted, ...fallback.map((tag) => [tag, 0] as [ServiceTag, number])];
+  const unique: { tag: ServiceTag; score: number }[] = [];
+  for (const [tag, score] of combined) {
+    if (!unique.some((u) => u.tag === tag)) unique.push({ tag, score });
+    if (unique.length === 3) break;
+  }
+  return unique;
 }
 
-const targetChannelOptions = [
-  'Amazon',
-  'Etsy',
-  'eBay',
-  'Shopify',
-  'B2B',
-  'Kurumsal Website',
-  'Dijital Showroom',
-  'Yapay Zeka',
-  'Otomasyon',
-  'Reklam & Optimizasyon',
-  'Sosyal Medya',
-  'Birden Fazlası',
-  'Henüz Emin Değilim',
-];
+// Sonuç kartlarındaki "Tahmini Öncelik" yüzdesi — kesin analiz sonucu gibi değil, ön
+// değerlendirme gibi hissettirecek sabit sıralama bazlı değerler (en güçlü öneri en yüksekte).
+const PRIORITY_LABELS = ['Yüksek Öncelik', 'Orta-Yüksek Öncelik', 'Destekleyici Öncelik'];
 
-// "Ana Hedefiniz" alanı — opsiyonel, formu zorunlu alanlarla şişirmemek için. Ziyaretçinin
-// "öncelikli kanal/alan" sorusundan ayrı olarak, ulaşmak istediği sonucu (marka bilinirliği, satış
-// artışı, dönüşüm vb.) tanımlamasını sağlar.
-const mainGoalOptions = [
-  'Marka Bilinirliği',
-  'Satış Artışı',
-  'E-Ticaret Altyapısı Kurulumu',
-  'B2B Satış Sistemi',
-  'Dijital Dönüşüm',
-  'Global Pazara Açılmak',
-  'Yapay Zeka Entegrasyonu',
-  'Otomasyon Sistemi Kurulumu',
-  'Operasyon Yönetimi',
-  'Henüz Net Değil',
-];
+// "Tahmini Büyüme Potansiyeli" skoru (0-100, gösterimde X/100). Basit, toplamalı frontend
+// mantığı — backend / AI entegrasyonu yok. Taban 60, sinyallere göre artar, 55-95 arasında
+// sınırlanır (kesin sonuç gibi görünmemesi için üst sınır 95'te tutuluyor).
+function getGrowthPotentialScore(answers: Answers): number {
+  let score = 60;
 
-const quickContactCards = [
-  {
-    label: 'E-posta',
-    value: 'info@gloventglobal.com',
-    description: 'Proje, hizmet ve iş birliği talepleriniz için bize e-posta gönderebilirsiniz.',
-    href: 'mailto:info@gloventglobal.com',
-  },
-  {
-    label: 'WhatsApp',
-    value: '0536 834 88 97',
-    description: 'Markanız, ürünleriniz ve hedef pazarınızla ilgili hızlı ön görüşme için WhatsApp üzerinden ulaşabilirsiniz.',
-    href: 'https://wa.me/905368348897',
-  },
-  {
-    label: 'Instagram',
-    value: '@gloventglobal',
-    description: 'Güncel çalışmalar, içerikler ve marka duyuruları için Instagram hesabımızı takip edebilirsiniz.',
-    href: 'https://www.instagram.com/gloventglobal',
-  },
-  {
-    label: 'Görüşme Planı',
-    value: 'Ön Değerlendirme',
-    description: 'Markanız, ürünleriniz, mevcut satış kanallarınız ve hedef pazarınız üzerinden ilk değerlendirme yapılır.',
-  },
-  {
-    label: 'Yanıt Süreci',
-    value: 'Yol Haritası',
-    description: 'Başvurular ön analiz sonrası uygun hizmet kombinasyonu ve yol haritası için değerlendirilir.',
-  },
-];
+  const selectedChannels = (Array.isArray(answers.channels) ? answers.channels : []) as string[];
+  const realChannelCount = selectedChannels.filter((c) => c !== 'Henüz Satış Yapmıyorum').length;
+  if (realChannelCount >= 1) score += 5;
+  if (realChannelCount >= 2) score += 8;
 
-const quickContactDelays = ['delay-[80ms]', 'delay-[130ms]', 'delay-[180ms]', 'delay-[230ms]', 'delay-[280ms]'];
+  const salesVolume = answers.salesVolume as string | undefined;
+  const salesAbove100k = ['100.000 - 500.000 TL', '500.000 - 1.000.000 TL', '1.000.000 TL üzeri'].includes(salesVolume ?? '');
+  const salesAbove500k = ['500.000 - 1.000.000 TL', '1.000.000 TL üzeri'].includes(salesVolume ?? '');
+  if (salesAbove100k) score += 8;
+  if (salesAbove500k) score += 12;
 
-const processSteps = [
-  {
-    number: '01',
-    title: 'Ön Analiz',
-    description: 'Markanız, ürün kategoriniz, mevcut satış kanallarınız ve hedef pazarınız ilk aşamada değerlendirilir.',
-  },
-  {
-    number: '02',
-    title: 'Yol Haritası Taslağı',
-    description:
-      'Amazon, Etsy, eBay, Shopify, B2B, sosyal medya, reklam veya otomasyon ihtiyaçlarınıza göre uygun hizmet kombinasyonu belirlenir.',
-  },
-  {
-    number: '03',
-    title: 'Görüşme ve Yol Haritası',
-    description: 'Ön analiz sonrası markanız için uygulanabilir bir yol haritası ve sonraki adımlar netleştirilir.',
-  },
-];
+  const budget = answers.budget as string | undefined;
+  const budgetAbove25k = ['25.000 - 75.000 TL', '75.000 - 150.000 TL', '150.000 TL üzeri'].includes(budget ?? '');
+  const budgetAbove75k = ['75.000 - 150.000 TL', '150.000 TL üzeri'].includes(budget ?? '');
+  if (budgetAbove25k) score += 5;
+  if (budgetAbove75k) score += 8;
 
-const processDelays = ['delay-[0ms]', 'delay-[100ms]', 'delay-[200ms]'];
+  if (answers.infraLevel === 'Var Ama Zayıf') score += 6;
 
-export default function ContactContent() {
-  const [mounted, setMounted] = useState(false);
-  const [formRef, formInView] = useInView<HTMLElement>();
-  const [processRef, processInView] = useInView<HTMLElement>();
-  const [trustRef, trustInView] = useInView<HTMLElement>();
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formError, setFormError] = useState<string | null>(null);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-  // Pazarlama iletişimi izni — opsiyonel, varsayılan işaretsiz, form gönderimini engellemiyor.
-  const [marketingConsent, setMarketingConsent] = useState(false);
+  const wantsGlobal = answers.problem === 'Global pazara açılmak istiyorum' || answers.goal === 'Yeni pazarlara açılmak';
+  if (wantsGlobal) score += 5;
 
+  const wantsOps =
+    answers.problem === 'Operasyon / süreç yönetimi çok dağınık' ||
+    answers.goal === 'Operasyonu düzenlemek' ||
+    answers.goal === 'Yapay zeka / otomasyon entegre etmek';
+  if (wantsOps) score += 5;
+
+  return Math.min(95, Math.max(55, score));
+}
+
+// Sonuç ekranındaki "Markanızın En Büyük Fırsat Alanı" özetini cevaplara göre üretir. Kanal
+// seçimi ilk güçlü sinyal olduğu için önce kanal bazlı eşleşmeler kontrol edilir, sonra problem
+// bazlı, hiçbiri yoksa genel (net sinyal yok) açıklamaya düşülür.
+function getReasonText(answers: Answers): string {
+  const channels = (Array.isArray(answers.channels) ? answers.channels : []) as string[];
+  if (channels.includes('Amazon')) {
+    return 'Amazon kanalını belirttiğiniz için ürün görünürlüğü, reklam verimliliği ve operasyon takibi öncelikli görünüyor.';
+  }
+  if (channels.includes('Etsy')) {
+    return 'Etsy kanalını belirttiğiniz için marka dili, görsel sunum, SEO ve ürün algısı öncelikli görünüyor.';
+  }
+  if (channels.includes('Shopify / Kendi Web Sitem')) {
+    return 'Shopify veya kendi web sitenizi belirttiğiniz için dönüşüm akışı, ürün yapısı ve müşteri deneyimi öncelikli görünüyor.';
+  }
+  if (channels.includes('B2B / Toptan')) {
+    return 'B2B satış yapınızı belirttiğiniz için ürün sunumu, teklif süreci ve müşteri yönetimi öncelikli görünüyor.';
+  }
+  if (answers.problem === 'Operasyon / süreç yönetimi çok dağınık' || answers.goal === 'Operasyonu düzenlemek') {
+    return 'Operasyon tarafında dağınıklık belirttiğiniz için otomasyon, yapay zeka ve takip sistemleri öncelikli hale geliyor.';
+  }
+  if (answers.problem === 'Reklam harcıyorum ama sonuç alamıyorum' || answers.problem === 'Yeterli trafik alamıyorum') {
+    return 'Reklam veya dönüşüm problemi belirttiğiniz için performans pazarlama, dönüşüm takibi ve içerik sistemi öncelikli görünüyor.';
+  }
+  return 'Cevaplarınıza göre ilk aşamada kanal seçimi, marka konumu ve büyüme önceliği netleştirilmelidir.';
+}
+
+
+type Stage = 'quiz' | 'results' | 'success';
+
+export default function AnalysisContent({ onRequestClose, onSuccess }: { onRequestClose?: () => void; onSuccess?: () => void }) {
+  const [stage, setStage] = useState<Stage>('quiz');
+  const [stepIndex, setStepIndex] = useState(0);
+  const [answers, setAnswers] = useState<Answers>({});
   const [formValues, setFormValues] = useState({
     fullName: '',
     company: '',
     phone: '',
     email: '',
     website: '',
-    targetChannel: '',
-    mainGoal: '',
     notes: '',
   });
+  // Pazarlama iletişimi izni — opsiyonel, varsayılan işaretsiz, form gönderimini engellemiyor.
+  const [marketingConsent, setMarketingConsent] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const updateField = (field: keyof typeof formValues) => (value: string) =>
-    setFormValues((previous) => ({ ...previous, [field]: value }));
+  const currentQuestion = questions[stepIndex];
+  const isLastQuestion = stepIndex === questions.length - 1;
 
-  // Ücretsiz Analiz widget'ıyla aynı endpoint'e (/api/analysis-lead) gönderir — API route generic bir
-  // passthrough olduğu için (sadece env'deki n8n webhook'una forward ediyor) burada ayrı bir route
-  // gerekmiyor. leadSource: 'contact_page' ile n8n tarafında iki akış birbirinden ayırt edilebilir.
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const recommendations = useMemo(() => getRecommendations(answers), [answers]);
+  const reasonText = useMemo(() => getReasonText(answers), [answers]);
+  const growthScore = useMemo(() => getGrowthPotentialScore(answers), [answers]);
+
+  const updateField = (field: keyof typeof formValues) => (value: string) => {
+    setFormValues((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSelectSingle = (questionId: QuestionId, option: string) => {
+    setAnswers((prev) => ({ ...prev, [questionId]: option }));
+  };
+
+  const handleToggleMulti = (questionId: QuestionId, option: string) => {
+    setAnswers((prev) => {
+      const current = (prev[questionId] as string[]) ?? [];
+      const next = current.includes(option) ? current.filter((o) => o !== option) : [...current, option];
+      return { ...prev, [questionId]: next };
+    });
+  };
+
+  const isOptionSelected = (questionId: QuestionId, option: string) => {
+    const value = answers[questionId];
+    if (Array.isArray(value)) return value.includes(option);
+    return value === option;
+  };
+
+  const isCurrentAnswered = () => {
+    const value = answers[currentQuestion.id];
+    if (Array.isArray(value)) return value.length > 0;
+    return Boolean(value);
+  };
+
+  const handleNext = () => {
+    if (isLastQuestion) {
+      setStage('results');
+      return;
+    }
+    setStepIndex((i) => Math.min(i + 1, questions.length - 1));
+  };
+
+  const handleBack = () => {
+    if (stepIndex === 0) return;
+    setStepIndex((i) => Math.max(i - 1, 0));
+  };
+
+  const resetAll = () => {
+    setStage('quiz');
+    setStepIndex(0);
+    setAnswers({});
+    setFormValues({ fullName: '', company: '', phone: '', email: '', website: '', notes: '' });
+    setMarketingConsent(false);
+    setFormError(null);
+  };
+
+  const handleClose = () => {
+    onRequestClose?.();
+    // Widget tekrar açıldığında analiz baştan başlasın (ilk faz için bu davranış yeterli).
+    resetAll();
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (!formValues.fullName.trim()) {
       setFormError('Lütfen ad soyad alanını doldurun.');
       return;
     }
-    if (!formValues.phone.trim() && !formValues.email.trim()) {
-      setFormError('Lütfen telefon veya e-posta alanlarından en az birini doldurun.');
+    if (!formValues.company.trim()) {
+      setFormError('Lütfen firma adı alanını doldurun.');
       return;
     }
-    if (!formValues.notes.trim()) {
-      setFormError('Lütfen kısa açıklama alanını doldurun.');
+    if (!formValues.phone.trim() && !formValues.email.trim()) {
+      setFormError('Lütfen telefon veya e-posta alanlarından en az birini doldurun.');
       return;
     }
     setFormError(null);
@@ -310,20 +403,18 @@ export default function ContactContent() {
     setIsSubmitting(true);
 
     const payload = {
-      contact: {
-        fullName: formValues.fullName,
-        company: formValues.company,
-        phone: formValues.phone,
-        email: formValues.email,
-        website: formValues.website,
-      },
-      targetChannel: formValues.targetChannel,
-      mainGoal: formValues.mainGoal,
-      message: formValues.notes,
+      contact: formValues,
       marketingConsent,
+      answers,
+      growthScore,
+      recommendations: recommendations.map(({ tag }, index) => ({
+        tag,
+        title: serviceInfo[tag].title,
+        priority: PRIORITY_LABELS[index] ?? 'Destekleyici Öncelik',
+      })),
       pageUrl: typeof window !== 'undefined' ? window.location.href : '',
       createdAt: new Date().toISOString(),
-      leadSource: 'contact_page',
+      leadSource: 'analysis-widget',
       _hp: '', // honeypot — gerçek kullanıcıda her zaman boş, botlar doldurursa API reddeder
     };
 
@@ -339,136 +430,248 @@ export default function ContactContent() {
       }
       const data = await res.json();
       if (data.success) {
-        trackEvent('contact_form_submit_success');
-        setSubmitted(true);
+        trackEvent('analysis_form_submit_success', {
+          lead_source: 'analysis-widget',
+          page_path: typeof window !== 'undefined' ? window.location.pathname : '',
+          growth_score: growthScore,
+        });
+        setStage('success');
+        onSuccess?.();
       } else {
-        setSubmitError('Mesaj gönderilirken bir sorun oluştu. Lütfen info@gloventglobal.com üzerinden bize ulaşın.');
+        setSubmitError('Analiz talebiniz gönderilemedi. Lütfen daha sonra tekrar deneyin veya iletişim sayfasından bize ulaşın.');
       }
     } catch {
-      setSubmitError('Mesaj gönderilirken bir sorun oluştu. Lütfen info@gloventglobal.com üzerinden bize ulaşın.');
+      setSubmitError('Analiz talebiniz gönderilemedi. Lütfen daha sonra tekrar deneyin veya iletişim sayfasından bize ulaşın.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  // Hero içindeki elementler için kademeli giriş (delay class'ları literal/sabit olmalı —
-  // Tailwind derleme zamanında metni tarayarak class üretir, dinamik string birleştirme çalışmaz).
-  const reveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  // Form + Hızlı İletişim Kartları bölümü Hero'nun altında, ekran dışında başlıyor — kendi
-  // viewport girişine bağlı, ayrı bir reveal.
-  const formReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      formInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  // Süreç bölümü form bölümünün altında, ekran dışında başlıyor — kendi viewport girişine bağlı, ayrı reveal.
-  const processReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      processInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-
-  // Final güven paneli sayfanın en sonunda — kendi viewport girişine bağlı, ayrı reveal.
-  const trustReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      trustInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
+  const fieldLabelClass = 'mb-1.5 block text-xs font-medium uppercase tracking-[0.1em] text-blue-100/70';
+  const fieldInputClass =
+    'w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder:text-blue-100/30 outline-none transition-colors duration-200 focus:border-blue-400/55 focus:bg-white/[0.05] focus:shadow-[0_0_0_3px_rgba(59,130,246,0.15)]';
 
   return (
-    <main className="relative overflow-hidden bg-[#070d18] font-sans text-white">
-      {/* ============ 1. İLETİŞİM HERO ============
-          Üst padding (pt-24/md:pt-28), /hizmetler Hero'suyla birebir aynı — sabit navbar'ın (z-40)
-          yüksekliğini (~64-72px) rahatça karşılıyor, çakışma olmuyor. Intro yok, sayfa direkt başlıyor. */}
-      <section className="relative px-6 pb-14 pt-24 sm:px-10 md:pb-16 md:pt-28">
-        <Glow visible={mounted} targetOpacity="opacity-70" className="left-1/2 top-[-120px] h-[560px] w-[860px] -translate-x-1/2" />
-        <Glow visible={mounted} targetOpacity="opacity-50" className="left-[-200px] top-[200px] h-[380px] w-[380px]" />
-
-        <div className="relative mx-auto max-w-4xl text-center">
-          <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
-            İletişim
+    <div className="text-white">
+      {stage === 'quiz' && (
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">
+            Adım {stepIndex + 1} / {questions.length}
           </p>
-          <div className="relative isolate mx-auto mt-8 max-w-3xl">
-            <TitleGlow tone="hero" />
-            <h1
-              className={`relative z-10 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl ${reveal(
-                'delay-[200ms]',
-              )}`}
-            >
-              Markanızın Dijital Büyüme Yol Haritasını Birlikte Oluşturalım
-            </h1>
-          </div>
-          <p
-            className={`mx-auto mt-7 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${reveal(
-              'delay-[300ms]',
-            )}`}
-          >
-            İşletmenizin mevcut yapısını, hedeflerini ve dijital ihtiyaçlarını anlayarak; strateji, teknoloji,
-            yapay zeka, otomasyon, e-ticaret ve operasyon süreçleri için uygulanabilir bir yol haritası
-            oluşturalım.
-          </p>
-        </div>
-      </section>
-
-      {/* ============ 2. BAŞVURU FORMU + HIZLI İLETİŞİM ============ */}
-      <section ref={formRef} className="relative px-6 pb-20 pt-14 sm:px-10">
-        <Glow visible={formInView} targetOpacity="opacity-40" className="right-[-220px] top-0 h-[460px] w-[460px]" />
-        <Glow visible={formInView} targetOpacity="opacity-30" className="left-[-220px] bottom-0 h-[420px] w-[420px]" />
-
-        <div className="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_320px]">
-          {/* Form — desktop'ta sol/geniş kolon, mobilde önce gelir (DOM sırası zaten bu) */}
-          <div
-            className={`relative rounded-2xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm sm:p-8 ${formReveal(
-              'delay-[0ms]',
-            )}`}
-          >
-            <span
-              aria-hidden="true"
-              className="absolute left-8 right-8 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
+          {/* İnce ilerleme çubuğu — adım göstergesini görsel olarak da güçlendiriyor. */}
+          <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-white/[0.06]">
+            <div
+              className="h-full rounded-full bg-blue-400/70 transition-all duration-500"
+              style={{ width: `${((stepIndex + 1) / questions.length) * 100}%` }}
             />
+          </div>
 
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Markanızı Tanıyalım</h2>
-            <p className="mt-3 text-sm leading-relaxed text-blue-100/70 sm:text-base">
-              Markanızla ilgili temel bilgileri paylaşın; ilgilendiğiniz alanı, hedeflerinizi ve ihtiyaçlarınızı
-              birlikte değerlendirerek doğru dijital büyüme yol haritasını planlayalım.
+          <h3 className="mt-5 text-xl font-semibold text-white sm:text-2xl">{currentQuestion.title}</h3>
+          {currentQuestion.subtitle && (
+            <p className="mt-1.5 text-xs leading-relaxed text-blue-100/55">{currentQuestion.subtitle}</p>
+          )}
+          {currentQuestion.multi && (
+            <p className="mt-1.5 text-xs text-blue-100/55">Birden fazla seçenek işaretleyebilirsiniz.</p>
+          )}
+
+          <div className="mt-5 grid gap-2.5 sm:grid-cols-2">
+            {currentQuestion.options.map((option) => {
+              const selected = isOptionSelected(currentQuestion.id, option);
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() =>
+                    currentQuestion.multi
+                      ? handleToggleMulti(currentQuestion.id, option)
+                      : handleSelectSingle(currentQuestion.id, option)
+                  }
+                  className={`rounded-xl border px-4 py-3 text-left text-sm font-medium transition-all duration-200 ${
+                    selected
+                      ? 'border-blue-400/60 bg-blue-500/15 text-white shadow-[0_0_24px_-8px_rgba(59,130,246,0.6)]'
+                      : 'border-white/10 bg-white/[0.03] text-blue-100/80 hover:border-white/25 hover:bg-white/[0.06]'
+                  }`}
+                >
+                  {option}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-7 flex items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={handleBack}
+              disabled={stepIndex === 0}
+              className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-semibold text-white/75 transition-all duration-200 hover:border-white/30 hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              Geri
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              disabled={!isCurrentAnswered()}
+              className="rounded-full border border-blue-400/45 bg-blue-500/10 px-7 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-blue-400/75 hover:bg-blue-500/20 disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              {isLastQuestion ? 'Ön Analizi Gör' : 'İleri'}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {stage === 'results' && (
+        <div>
+          {/* "İlk Değerlendirme Tamamlandı" + Büyüme Potansiyeli skoru — formdan önce, sonuç
+              kartlarından önce gösterilen güçlü ön değerlendirme bloğu. */}
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">İlk Değerlendirme Tamamlandı</p>
+          <p className="mt-3 text-sm leading-relaxed text-blue-100/70 sm:text-base">
+            Cevaplarınıza göre markanızın mevcut dijital büyüme öncelikleri ve potansiyel gelişim alanları
+            aşağıdaki gibi görünüyor.
+          </p>
+
+          <div className="mt-4 flex items-center gap-4 rounded-xl border border-blue-400/25 bg-blue-500/[0.06] px-5 py-4">
+            <div className="flex-shrink-0">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-blue-300/75">Tahmini Büyüme Potansiyeli</p>
+              <p className="mt-0.5 text-3xl font-bold text-white">
+                {growthScore}
+                <span className="text-base font-medium text-blue-200/60"> / 100</span>
+              </p>
+            </div>
+          </div>
+          <p className="mt-2 text-[11px] leading-relaxed text-blue-100/45">
+            Bu skor; mevcut satış kanallarınız, hedefleriniz, dijital altyapınız, satış hacminiz ve büyüme
+            bütçenize göre oluşturulan ön değerlendirmedir.
+          </p>
+
+          <div className="mt-4 rounded-lg border border-blue-400/20 bg-blue-500/[0.05] px-4 py-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">
+              Markanızın En Büyük Fırsat Alanı
+            </p>
+            <p className="mt-1.5 text-xs text-blue-100/70">Cevaplarınıza göre ilk odaklanmanız gereken alanlar şunlar olabilir:</p>
+            <ul className="mt-1.5 space-y-1">
+              {recommendations.map(({ tag }) => (
+                <li key={tag} className="flex items-start gap-1.5 text-xs leading-relaxed text-blue-100/85 sm:text-sm">
+                  <span className="text-blue-400">✓</span>
+                  {serviceInfo[tag].title}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-3 rounded-lg border border-blue-400/20 bg-blue-500/[0.05] px-4 py-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">
+              Neden Bu Sistemler Önerildi?
+            </p>
+            <p className="mt-1.5 text-xs leading-relaxed text-blue-100/75 sm:text-sm">{reasonText}</p>
+          </div>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            {recommendations.map(({ tag }, index) => (
+              <a
+                key={tag}
+                href={serviceHref(tag)}
+                className="group relative rounded-xl border border-white/[0.08] bg-white/[0.035] p-4 pt-9 transition-all duration-300 hover:border-blue-400/40 hover:bg-white/[0.06]"
+              >
+                <span className="absolute right-3 top-3 rounded-full border border-blue-400/35 bg-blue-500/10 px-2.5 py-1 text-[10px] font-semibold text-blue-200/90">
+                  {PRIORITY_LABELS[index] ?? 'Destekleyici Öncelik'}
+                </span>
+                <h4 className="text-sm font-semibold text-white group-hover:text-blue-200">{serviceInfo[tag].title}</h4>
+                <p className="mt-1.5 text-xs leading-relaxed text-blue-100/65">{serviceInfo[tag].description}</p>
+                <span className="mt-2 inline-block text-[11px] font-semibold uppercase tracking-[0.05em] text-blue-300/80">
+                  Detayları Gör →
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <p className="mt-3 text-[11px] leading-relaxed text-blue-100/45">
+            Bu öncelik seviyeleri, verdiğiniz cevaplara göre oluşturulan ön değerlendirmedir; kesin bir analiz
+            sonucu değildir.
+          </p>
+
+          {/* 5. madde: Ücretsiz Detaylı Analizde Ne Alacaksınız? — formdan önce değer kutusu. */}
+          <div className="mt-8 rounded-lg border border-blue-400/20 bg-blue-500/[0.05] px-4 py-3.5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-300/80">
+              Ücretsiz Detaylı Analizde Ne Alacaksınız?
+            </p>
+            <p className="mt-1.5 text-xs leading-relaxed text-blue-100/70 sm:text-sm">
+              Bilgilerinizi bıraktığınızda markanızın mevcut yapısını daha detaylı inceleyerek size uygulanabilir
+              bir büyüme yönü sunabiliriz.
+            </p>
+            <ul className="mt-2 grid gap-1 sm:grid-cols-2">
+              {['Rakip ve pazar görünümü', 'Kanal önceliklendirme', 'İlk 90 gün yol haritası', 'Büyüme fırsatları', 'Sistem önerileri'].map((item) => (
+                <li key={item} className="flex items-start gap-1.5 text-xs leading-relaxed text-blue-100/80">
+                  <span className="text-blue-400">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-5 border-t border-white/[0.08] pt-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">
+              Detaylı Analiz İçin Bilgilerinizi Bırakın
+            </p>
+            <p className="mt-2 text-xs leading-relaxed text-blue-100/65 sm:text-sm">
+              Ön değerlendirme sonucunuza göre markanızı daha detaylı inceleyip size uygulanabilir bir büyüme yol
+              haritası sunabiliriz.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-8 grid gap-5 sm:grid-cols-2">
-              <TextField label="Ad Soyad" value={formValues.fullName} onChange={updateField('fullName')} />
-              <TextField label="Firma / Marka Adı" value={formValues.company} onChange={updateField('company')} />
-              <TextField label="Telefon" type="tel" value={formValues.phone} onChange={updateField('phone')} />
-              <TextField label="E-posta" type="email" value={formValues.email} onChange={updateField('email')} />
-              <TextField
-                label="Web Sitesi / Sosyal Medya Hesabı"
-                value={formValues.website}
-                onChange={updateField('website')}
-                fullWidth
-              />
-              <SelectField
-                label="İlgilendiğiniz Alan / Öncelikli İhtiyaç"
-                value={formValues.targetChannel}
-                onChange={updateField('targetChannel')}
-                options={targetChannelOptions}
-              />
-              <SelectField
-                label="Ana Hedefiniz"
-                value={formValues.mainGoal}
-                onChange={updateField('mainGoal')}
-                options={mainGoalOptions}
-              />
-              <TextAreaField
-                label="Kısa Açıklama"
-                value={formValues.notes}
-                onChange={updateField('notes')}
-                placeholder="Markanız, ürünleriniz, mevcut dijital yapınız ve ulaşmak istediğiniz hedefler hakkında kısa bilgi paylaşın."
-              />
+            <form onSubmit={handleSubmit} className="mt-5 grid gap-4 sm:grid-cols-2">
+              <label className="block">
+                <span className={fieldLabelClass}>Ad Soyad</span>
+                <input
+                  value={formValues.fullName}
+                  onChange={(e) => updateField('fullName')(e.target.value)}
+                  className={fieldInputClass}
+                />
+              </label>
+              <label className="block">
+                <span className={fieldLabelClass}>Firma Adı</span>
+                <input
+                  value={formValues.company}
+                  onChange={(e) => updateField('company')(e.target.value)}
+                  className={fieldInputClass}
+                />
+              </label>
+              <label className="block">
+                <span className={fieldLabelClass}>Telefon</span>
+                <input
+                  type="tel"
+                  value={formValues.phone}
+                  onChange={(e) => updateField('phone')(e.target.value)}
+                  className={fieldInputClass}
+                />
+              </label>
+              <label className="block">
+                <span className={fieldLabelClass}>E-posta</span>
+                <input
+                  type="email"
+                  value={formValues.email}
+                  onChange={(e) => updateField('email')(e.target.value)}
+                  className={fieldInputClass}
+                />
+              </label>
+              <label className="block sm:col-span-2">
+                <span className={fieldLabelClass}>Web Sitesi / Mağaza Linki</span>
+                <input
+                  value={formValues.website}
+                  onChange={(e) => updateField('website')(e.target.value)}
+                  className={fieldInputClass}
+                />
+              </label>
+              <label className="block sm:col-span-2">
+                <span className={fieldLabelClass}>Notunuz</span>
+                <textarea
+                  value={formValues.notes}
+                  onChange={(e) => updateField('notes')(e.target.value)}
+                  rows={3}
+                  className={`${fieldInputClass} resize-none`}
+                />
+              </label>
+
+              {formError && <p className="text-xs font-medium text-red-300/90 sm:col-span-2">{formError}</p>}
+              {submitError && <p className="text-xs font-medium text-red-300/90 sm:col-span-2">{submitError}</p>}
 
               <label className="flex items-start gap-2.5 sm:col-span-2">
                 <input
@@ -485,17 +688,14 @@ export default function ContactContent() {
               </label>
 
               <div className="sm:col-span-2">
-                {formError && (
-                  <p className="mb-3 text-xs font-medium text-rose-300/90">{formError}</p>
-                )}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="mt-2 rounded-full border border-blue-400/45 bg-blue-500/10 px-10 py-3 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)] disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full rounded-full border border-blue-400/45 bg-blue-500/10 px-8 py-3 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
-                  {isSubmitting ? 'Gönderiliyor...' : 'Başvuruyu Hazırla'}
+                  {isSubmitting ? 'Gönderiliyor...' : 'Analiz Talebimi Gönder'}
                 </button>
-                <p className="mt-3 text-[10px] leading-relaxed text-blue-100/40">
+                <p className="mt-3 text-[10px] leading-relaxed text-blue-100/40 sm:col-span-2">
                   Formu göndererek bilgilerinizin talebinizin değerlendirilmesi ve sizinle iletişime geçilmesi
                   amacıyla işlenmesini kabul etmiş olursunuz. Detaylı bilgi için{' '}
                   <a href="/kvkk" className="underline hover:text-blue-200">
@@ -503,127 +703,41 @@ export default function ContactContent() {
                   </a>
                   &apos;ni inceleyebilirsiniz.
                 </p>
-
-                {submitted && (
-                  <p className="mt-4 text-sm leading-relaxed text-blue-100/75">
-                    Mesajınız alındı. Ekibimiz en kısa sürede sizinle iletişime geçecektir.
-                  </p>
-                )}
-                {submitError && (
-                  <p className="mt-4 text-sm leading-relaxed text-rose-300/90">{submitError}</p>
-                )}
               </div>
             </form>
           </div>
+        </div>
+      )}
 
-          {/* Hızlı iletişim kartları — desktop'ta sağ/dar kolon, mobilde formun altında.
-              Tıklanabilir kartlar (href varsa) tüm yüzeyiyle link; diğerleri sade bilgi kartı. */}
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-            {quickContactCards.map((card, index) => {
-              const isExternal = card.href?.startsWith('http');
-              const cardClassName = `relative block rounded-xl border border-white/[0.08] bg-white/[0.035] p-4 backdrop-blur-sm transition-all duration-300 ${
-                card.href
-                  ? 'hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.45)]'
-                  : ''
-              } ${formReveal(quickContactDelays[index])}`;
-
-              const cardContent = (
-                <>
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-4 right-4 top-0 h-px bg-gradient-to-r from-blue-400/50 via-blue-400/15 to-transparent"
-                  />
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/80">{card.label}</p>
-                  <p className="mt-2 text-sm font-semibold text-white">{card.value}</p>
-                  <p className="mt-1.5 text-xs leading-relaxed text-blue-100/60">{card.description}</p>
-                </>
-              );
-
-              return card.href ? (
-                <a
-                  key={card.label}
-                  href={card.href}
-                  target={isExternal ? '_blank' : undefined}
-                  rel={isExternal ? 'noopener noreferrer' : undefined}
-                  className={cardClassName}
-                >
-                  {cardContent}
-                </a>
-              ) : (
-                <div key={card.label} className={cardClassName}>
-                  {cardContent}
-                </div>
-              );
-            })}
+      {stage === 'success' && (
+        <div className="py-2 text-center">
+          <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-blue-300">
+            <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5">
+              <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <h3 className="mt-4 text-xl font-semibold text-white">Analiz talebiniz alındı.</h3>
+          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-blue-100/70">
+            Cevaplarınıza göre markanız için ön değerlendirme oluşturuldu. Ekibimiz 24-48 saat içinde detaylı analiz
+            için sizinle iletişime geçecektir.
+          </p>
+          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <button
+              type="button"
+              onClick={handleClose}
+              className="rounded-full border border-white/15 px-8 py-2.5 text-sm font-semibold text-white/85 transition-all duration-200 hover:border-white/35 hover:text-white"
+            >
+              Kapat
+            </button>
+            <Link
+              href="/hizmetler"
+              className="rounded-full border border-blue-400/45 bg-blue-500/10 px-8 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-blue-400/75 hover:bg-blue-500/20"
+            >
+              Hizmetleri İncele
+            </Link>
           </div>
         </div>
-      </section>
-
-      {/* ============ 3. SÜREÇ — Başvurudan Sonra Ne Olur? ============ */}
-      <section ref={processRef} className="relative px-6 pb-20 pt-14 sm:px-10">
-        <Glow visible={processInView} targetOpacity="opacity-40" className="left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2" />
-
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${processReveal('delay-[0ms]')}`}>
-            Süreç
-          </p>
-          <h2 className={`mt-4 text-3xl font-bold tracking-tight sm:text-4xl ${processReveal('delay-[100ms]')}`}>
-            Başvurudan Sonra Ne Olur?
-          </h2>
-          <p
-            className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${processReveal(
-              'delay-[200ms]',
-            )}`}
-          >
-            Başvurunuzu yalnızca bir iletişim talebi olarak değil, markanız için doğru dijital büyüme yol
-            haritasını belirlemenin ilk adımı olarak değerlendiriyoruz.
-          </p>
-        </div>
-
-        <div className="relative mx-auto mt-10 grid max-w-5xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <div key={step.number} className={processReveal(processDelays[index])}>
-              <div className="relative flex h-full min-h-[170px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
-                <span
-                  aria-hidden="true"
-                  className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent"
-                />
-                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_16px_-2px_rgba(59,130,246,0.6)]">
-                  {step.number}
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-white">{step.title}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-blue-100/75">{step.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ 4. FİNAL GÜVEN MESAJI ============
-          Final CTA değil — buton yok, sadece sakin/küçük bir kapanış paneli. */}
-      <section ref={trustRef} className="relative px-6 pb-20 pt-2 sm:px-10">
-        <div
-          className={`relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-8 text-center backdrop-blur-sm sm:px-10 sm:py-9 ${trustReveal(
-            'delay-[0ms]',
-          )}`}
-        >
-          <span
-            aria-hidden="true"
-            className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"
-          />
-
-          <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Her Marka İçin Farklı Bir Büyüme Yol Haritası Oluşturuyoruz</h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-blue-100/70 sm:text-base">
-            Hedeflerinize, mevcut yapınıza ve büyüme aşamanıza göre doğru stratejiyi birlikte belirliyoruz.
-          </p>
-          <p className="mt-5 text-xs font-medium uppercase tracking-[0.25em] text-blue-100/45">
-            Strateji • Altyapı • İçerik • Reklam • Otomasyon
-          </p>
-          <p className="mt-1.5 whitespace-nowrap text-xs font-semibold uppercase tracking-[0.3em] text-blue-200/60">
-            Global Büyüme
-          </p>
-        </div>
-      </section>
-    </main>
+      )}
+    </div>
   );
 }
