@@ -7,6 +7,7 @@ import { trackEvent } from '@/lib/analytics';
 
 export default function AnalysisWidget() {
   const [open, setOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const pathname = usePathname();
 
   // /analiz sayfasında form zaten tam sayfada gösteriliyor — floating buton tekrar etmesin.
@@ -73,7 +74,7 @@ export default function AnalysisWidget() {
         <div className="fixed inset-0 z-[45] flex items-end justify-center sm:items-center sm:p-6">
           <div
             aria-hidden="true"
-            onClick={() => setOpen(false)}
+            onClick={() => { setOpen(false); setIsSuccess(false); }}
             className="absolute inset-0 bg-[#040810]/75 backdrop-blur-sm"
           />
 
@@ -87,16 +88,20 @@ export default function AnalysisWidget() {
             />
 
             <div className="relative flex items-start justify-between gap-4 border-b border-white/[0.07] px-6 py-5 sm:px-8">
-              <div>
-                <h2 className="text-lg font-bold tracking-tight text-white sm:text-xl">Dijital Büyüme Analizi</h2>
-                <p className="mt-1 text-xs leading-relaxed text-blue-100/65 sm:text-sm">
-                  7 kısa soruya cevap verin; markanız için hangi büyüme sistemlerinin öncelikli olabileceğini
-                  görelim.
-                </p>
-              </div>
+              {/* Success ekranında tekrarlayan açıklama metni gizlenir */}
+              {!isSuccess && (
+                <div>
+                  <h2 className="text-lg font-bold tracking-tight text-white sm:text-xl">Dijital Büyüme Analizi</h2>
+                  <p className="mt-1 text-xs leading-relaxed text-blue-100/65 sm:text-sm">
+                    7 kısa soruya cevap verin; markanız için hangi büyüme sistemlerinin öncelikli olabileceğini
+                    görelim.
+                  </p>
+                </div>
+              )}
+              {isSuccess && <div />}
               <button
                 type="button"
-                onClick={() => setOpen(false)}
+                onClick={() => { setOpen(false); setIsSuccess(false); }}
                 aria-label="Kapat"
                 className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-white/10 text-white/60 transition-all duration-200 hover:border-white/30 hover:text-white"
               >
@@ -107,7 +112,10 @@ export default function AnalysisWidget() {
             </div>
 
             <div className="relative flex-1 overflow-y-auto px-6 py-6 sm:px-8">
-              <AnalysisContent onRequestClose={() => setOpen(false)} />
+              <AnalysisContent
+                onRequestClose={() => { setOpen(false); setIsSuccess(false); }}
+                onSuccess={() => setIsSuccess(true)}
+              />
             </div>
           </div>
         </div>

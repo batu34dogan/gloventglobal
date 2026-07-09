@@ -303,7 +303,7 @@ function getReasonText(answers: Answers): string {
 
 type Stage = 'quiz' | 'results' | 'success';
 
-export default function AnalysisContent({ onRequestClose }: { onRequestClose?: () => void }) {
+export default function AnalysisContent({ onRequestClose, onSuccess }: { onRequestClose?: () => void; onSuccess?: () => void }) {
   const [stage, setStage] = useState<Stage>('quiz');
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
@@ -432,6 +432,7 @@ export default function AnalysisContent({ onRequestClose }: { onRequestClose?: (
       if (data.success) {
         trackEvent('analysis_form_submit_success', { growthScore });
         setStage('success');
+        onSuccess?.();
       } else {
         setSubmitError('Analiz talebiniz gönderilemedi. Lütfen daha sonra tekrar deneyin veya iletişim sayfasından bize ulaşın.');
       }
