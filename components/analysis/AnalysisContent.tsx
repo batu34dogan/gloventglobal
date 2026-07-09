@@ -430,7 +430,14 @@ export default function AnalysisContent({ onRequestClose, onSuccess }: { onReque
       }
       const data = await res.json();
       if (data.success) {
-        trackEvent('analysis_form_submit_success', { growthScore });
+        trackEvent('analysis_form_submit_success', {
+          lead_source: typeof window !== 'undefined' && window.location.pathname === '/analiz'
+            ? 'analysis-page'
+            : 'analysis-widget',
+          page_path: typeof window !== 'undefined' ? window.location.pathname : '',
+          growth_score: growthScore,
+          debug_mode: true,
+        });
         setStage('success');
         onSuccess?.();
       } else {

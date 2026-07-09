@@ -1,19 +1,17 @@
-// Basit GA4 event helper. window.gtag tanımlı değilse (GA henüz kurulmamışsa veya engellenmişse)
-// hiçbir hata fırlatmaz, sessizce no-op olur — kullanıcı deneyimini hiç etkilemez.
-
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    __gloventTrackTest?: () => void;
   }
 }
 
-function sendGtagEvent(eventName: string, params: Record<string, unknown>): boolean {
+const IS_DEV = process.env.NODE_ENV !== 'production';
+
+function attempt(eventName: string, params: Record<string, unknown>): boolean {
   if (typeof window.gtag === 'function') {
     window.gtag('event', eventName, params);
-    if (process.env.NODE_ENV !== 'production') {
-      console.log('[GA4 EVENT sent]', eventName, params);
-    }
+    if (IS_DEV) console.log('[GA4 ✓ sent]', eventName, params);
     return true;
   }
   return false;
@@ -23,33 +21,42 @@ export function trackEvent(eventName: string, params?: Record<string, unknown>) 
   try {
     if (typeof window === 'undefined') return;
 
-    // Kullanıcı "Tümünü Kabul Et" demediyse analytics event'i hiç gönderilmez.
     const consent = window.localStorage.getItem('glovent_cookie_consent');
     if (consent !== 'accepted') {
-      if (process.env.NODE_ENV !== 'production') {
-        console.log('[GA4 EVENT blocked — no consent]', eventName);
-      }
+      if (IS_DEV) console.log('[GA4 ✗ blocked — no consent]', eventName);
       return;
     }
 
-    const mergedParams = params ?? {};
+    const p = params ?? {};
 
-    // İlk deneme — gtag çoğu zaman hazırdır.
-    if (sendGtagEvent(eventName, mergedParams)) return;
+    // Deneme 1 — anında
+    if (attempt(eventName, p)) return;
+    if (IS_DEV) console.warn('[GA4 ⟳ retry 500ms]', eventName);
 
-    // gtag henüz yüklenmemişse (afterInteractive script gecikmesi) 500ms sonra bir kez daha dene.
+    // Deneme 2 — 500ms
     setTimeout(() => {
-      try {
-        if (!sendGtagEvent(eventName, mergedParams)) {
-          if (process.env.NODE_ENV !== 'production') {
-            console.warn('[GA4 EVENT failed — gtag still not ready]', eventName);
-          }
+      if (attempt(eventName, p)) return;
+      if (IS_DEV) console.warn('[GA4 ⟳ retry 1500ms]', eventName);
+
+      // Deneme 3 — 1500ms
+      setTimeout(() => {
+        if (!attempt(eventName, p)) {
+          if (IS_DEV) console.error('[GA4 ✗ all retries failed]', eventName);
         }
-      } catch {
-        // sessiz yut
-      }
+      }, 1000);
     }, 500);
   } catch {
-    // Analytics asla kullanıcı deneyimini bozmamalı — sessizce yut.
+    // Analytics asla kullanıcı deneyimini bozmamalı.
   }
+}
+
+// Development'ta browser console'dan manuel test:
+// window.__gloventTrackTest()
+if (typeof window !== 'undefined' && IS_DEV) {
+  window.__gloventTrackTest = () => {
+    trackEvent('test_glovent_event', {
+      debug_mode: true,
+      page_path: window.location.pathname,
+    });
+  };
 }

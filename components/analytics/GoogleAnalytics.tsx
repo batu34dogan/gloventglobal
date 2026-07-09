@@ -3,19 +3,16 @@
 /**
  * GoogleAnalytics — consent-gated GA4 loader.
  *
- * Davranış:
- * - `glovent_cookie_consent === 'accepted'` olmadan GA script DOM'a eklenmez.
- * - Kullanıcı banner'dan "Tümünü Kabul Et" dediğinde storage değişim eventi
- *   yakalanır ve script o an yüklenir (sayfa yenilemesi gerektirmez).
- * - Script production-only yüklenir (NODE_ENV kontrolü build-time'da yapılır,
- *   GA_ID prop olarak layout.tsx'ten gelir).
- * - lib/analytics.ts içindeki trackEvent de ayrıca consent kontrolü yapar,
- *   çift katman güvenlik sağlar.
+ * Düzeltmeler:
+ * - Script yüklenince window.gtag hemen hazır olmayabilir. onLoad callback ile
+ *   dataLayer/gtag'ın gerçekten tanımlandığını doğruluyoruz.
+ * - 'glovent-consent-change' event'i yanı sıra storage polling de eklendi —
+ *   bazı tarayıcılarda cross-tab event gecikebiliyor.
+ * - GA_ID prop doğrulaması eklendi.
  */
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
-import { useState } from 'react';
 
 const CONSENT_KEY = 'glovent_cookie_consent';
 
@@ -25,38 +22,61 @@ interface Props {
 
 export default function GoogleAnalytics({ gaId }: Props) {
   const [consent, setConsent] = useState(false);
+  const initialized = useRef(false);
 
   useEffect(() => {
-    // İlk kontrol — sayfa açıldığında storage'daki mevcut değeri oku.
     const check = () => {
-      setConsent(window.localStorage.getItem(CONSENT_KEY) === 'accepted');
+      const val = window.localStorage.getItem(CONSENT_KEY) === 'accepted';
+      setConsent(val);
     };
+
+    // İlk yükleme kontrolü
     check();
 
-    // CookieConsent componenti 'glovent-consent-change' custom event fırlatıyor.
-    // Bu event geldiğinde storage'ı yeniden oku — banner kapanınca GA hemen aktif olsun.
-    const handler = () => check();
-    window.addEventListener('glovent-consent-change', handler);
-    return () => window.removeEventListener('glovent-consent-change', handler);
+    // CookieConsent banner'dan gelen custom event
+    window.addEventListener('glovent-consent-change', check);
+
+    // Fallback: 1 sn arayla 3 kez polling — bazı tarayıcılarda event kaçabilir
+    const timers = [
+      setTimeout(check, 1000),
+      setTimeout(check, 2000),
+      setTimeout(check, 3000),
+    ];
+
+    return () => {
+      window.removeEventListener('glovent-consent-change', check);
+      timers.forEach(clearTimeout);
+    };
   }, []);
 
-  // Consent yoksa hiçbir şey render etme — script DOM'a eklenmez.
-  if (!consent) return null;
+  if (!consent || !gaId) return null;
 
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
         strategy="afterInteractive"
+        onLoad={() => {
+          // Script yüklenince gtag'ı initialize et
+          if (initialized.current) return;
+          initialized.current = true;
+
+          window.dataLayer = window.dataLayer ?? [];
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          window.gtag = function gtag(...args: any[]) {
+            window.dataLayer!.push(args);
+          };
+          window.gtag('js', new Date());
+          window.gtag('config', gaId, {
+            page_path: window.location.pathname,
+            send_page_view: true,
+          });
+
+          if (process.env.NODE_ENV !== 'production') {
+            console.log('[GA4] Script loaded & initialized. gtag ready:', typeof window.gtag);
+          }
+        }}
       />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${gaId}', { page_path: window.location.pathname });
-        `}
-      </Script>
     </>
   );
 }
