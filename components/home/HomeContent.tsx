@@ -1,5 +1,8 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { useEffect, useRef, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 
@@ -563,6 +566,63 @@ export default function HomeContent() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ── Digital Growth System Görsel Paneli ──
+            "Birlikte çalışan sistem" metnini görsel olarak somutlaştırır.
+            Desktop ve mobil için ayrı optimize görseller kullanılır. */}
+        <div className="relative mx-auto mt-14 max-w-5xl">
+          {/* Alt başlık */}
+          <div className="mb-6 text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-300/70">
+              GloventGlobal Digital Growth System
+            </p>
+            <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-blue-100/55">
+              Amazon, Etsy, Shopify, eBay, B2B ve web satış kanallarını; operasyon, reklam, yapay zeka,
+              otomasyon ve veri analiziyle tek bir büyüme sisteminde birleştiriyoruz.
+            </p>
+            <p className="mt-1 text-xs font-medium text-blue-300/60">
+              Tek tek hizmetler değil, birlikte çalışan bir büyüme altyapısı.
+            </p>
+          </div>
+
+          {/* Görsel panel */}
+          <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070d18]/60 p-2 shadow-[0_0_60px_-20px_rgba(59,130,246,0.35)] backdrop-blur-sm sm:p-3">
+            {/* Desktop görseli — md ve üzeri */}
+            <Image
+              src="/images/system/digital-growth-system-desktop.png"
+              alt="GloventGlobal Digital Growth System — tüm kanalları, operasyonu ve büyüme süreçlerini birbirine bağlayan sistem diyagramı"
+              width={1600}
+              height={900}
+              priority={false}
+              className="hidden w-full rounded-xl object-contain md:block"
+            />
+            {/* Mobil görseli — md altı */}
+            <Image
+              src="/images/system/digital-growth-system-mobile.png"
+              alt="GloventGlobal Digital Growth System — mobil görünüm"
+              width={800}
+              height={1200}
+              priority={false}
+              className="block w-full rounded-xl object-contain md:hidden"
+            />
+          </div>
+
+          {/* Mini CTA */}
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+            <Link
+              href="/analiz"
+              className="rounded-full bg-blue-600 px-7 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-500 hover:shadow-[0_0_24px_-4px_rgba(59,130,246,0.7)]"
+            >
+              Ücretsiz Analiz Al
+            </Link>
+            <Link
+              href="/hizmetler"
+              className="rounded-full border border-white/15 px-7 py-2.5 text-sm font-semibold text-white/80 transition-all duration-200 hover:border-white/30 hover:text-white"
+            >
+              Hizmetleri İncele
+            </Link>
+          </div>
         </div>
       </section>
 
