@@ -12,14 +12,20 @@ export default function Home() {
             "@type": "Organization",
             name: "GloventGlobal",
             url: "https://gloventglobal.com",
+            logo: "https://gloventglobal.com/icon-512.png",
+            email: "info@gloventglobal.com",
             description:
-              "Markalar için e-ticaret, yapay zeka, otomasyon, global satış ve dijital büyüme sistemleri kuran stratejik büyüme partneri.",
+              "GloventGlobal, markalar için e-ticaret, dijital büyüme, yapay zeka ve otomasyon sistemleri kuran bir dijital büyüme partneridir.",
+            sameAs: [
+              "https://www.instagram.com/gloventglobal",
+            ],
           },
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: "GloventGlobal",
             url: "https://gloventglobal.com",
+            inLanguage: "tr-TR",
           },
         ]}
       />
