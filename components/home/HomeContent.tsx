@@ -571,45 +571,59 @@ export default function HomeContent() {
         {/* ── Digital Growth System Görsel Paneli ──
             "Birlikte çalışan sistem" metnini görsel olarak somutlaştırır.
             Desktop ve mobil için ayrı optimize görseller kullanılır. */}
-        <div className="relative mx-auto mt-14 max-w-5xl">
-          {/* Alt başlık */}
-          <div className="mb-6 text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-300/70">
+        <div className="relative mx-auto mt-20 max-w-6xl">
+          {/* Başlık alanı */}
+          <div className="mb-8 text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-blue-300/75">
               GloventGlobal Digital Growth System
             </p>
-            <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-blue-100/55">
-              Amazon, Etsy, Shopify, eBay, B2B ve web satış kanallarını; operasyon, reklam, yapay zeka,
-              otomasyon ve veri analiziyle tek bir büyüme sisteminde birleştiriyoruz.
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-blue-100/60 sm:text-base">
+              Parça parça hizmetler yerine; satış kanallarınızı, operasyonunuzu, pazarlamanızı,
+              yapay zeka ve otomasyon altyapınızı birlikte çalışan tek bir büyüme sistemine dönüştürüyoruz.
             </p>
-            <p className="mt-1 text-xs font-medium text-blue-300/60">
-              Tek tek hizmetler değil, birlikte çalışan bir büyüme altyapısı.
+            <p className="mt-2 text-xs font-semibold tracking-wide text-blue-300/55">
+              Tek tek hizmetler değil, birlikte çalışan dijital büyüme altyapısı.
             </p>
           </div>
 
-          {/* Görsel panel */}
-          <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070d18]/60 p-2 shadow-[0_0_60px_-20px_rgba(59,130,246,0.35)] backdrop-blur-sm sm:p-3">
-            {/* Desktop görseli — md ve üzeri */}
-            <Image
-              src="/images/system/digital-growth-system-desktop.png"
-              alt="GloventGlobal Digital Growth System — tüm kanalları, operasyonu ve büyüme süreçlerini birbirine bağlayan sistem diyagramı"
-              width={1600}
-              height={900}
-              priority={false}
-              className="hidden w-full rounded-xl object-contain md:block"
+          {/* Görsel panel — radial glow + ince gold highlight */}
+          <div className="relative">
+            {/* Arka plan radial glow */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -z-10 rounded-3xl opacity-60 blur-3xl"
+              style={{ background: 'radial-gradient(ellipse at center, rgba(59,130,246,0.22) 0%, rgba(59,130,246,0.06) 55%, transparent 80%)' }}
             />
-            {/* Mobil görseli — md altı */}
-            <Image
-              src="/images/system/digital-growth-system-mobile.png"
-              alt="GloventGlobal Digital Growth System — mobil görünüm"
-              width={800}
-              height={1200}
-              priority={false}
-              className="block w-full rounded-xl object-contain md:hidden"
-            />
+            {/* Panel */}
+            <div className="overflow-hidden rounded-2xl border border-white/[0.09] bg-[#06101e]/70 p-2 shadow-[0_0_80px_-24px_rgba(59,130,246,0.4)] sm:p-3">
+              {/* Gold highlight çizgisi — üst kenar */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-[#C9A84C]/35 to-transparent"
+              />
+              {/* Desktop görseli — md ve üzeri */}
+              <Image
+                src="/images/system/digital-growth-system-desktop.png"
+                alt="GloventGlobal Digital Growth System — tüm kanalları, operasyonu ve büyüme süreçlerini birbirine bağlayan sistem diyagramı"
+                width={1600}
+                height={900}
+                priority={false}
+                className="hidden w-full rounded-xl object-contain md:block"
+              />
+              {/* Mobil görseli — md altı */}
+              <Image
+                src="/images/system/digital-growth-system-mobile.png"
+                alt="GloventGlobal Digital Growth System — mobil görünüm"
+                width={800}
+                height={1200}
+                priority={false}
+                className="block w-full rounded-xl object-contain md:hidden"
+              />
+            </div>
           </div>
 
           {/* Mini CTA */}
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+          <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
             <Link
               href="/analiz"
               className="rounded-full bg-blue-600 px-7 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-500 hover:shadow-[0_0_24px_-4px_rgba(59,130,246,0.7)]"
