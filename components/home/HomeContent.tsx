@@ -44,45 +44,44 @@ const heroPlatforms = [
   { name: 'TEKNOLOJİ ALTYAPISI', tone: 'text-blue-200/72' },
 ];
 
-// "Markanız İçin Kurduğumuz Dijital Ekosistem" bölümü için 6 modül kartı — her biri kısa bir
-// açıklama + küçük "chip" alt etiketler ile (Shopify, Amazon, AI İçerik vb.). Önceki "Global Satış
-// Altyapısı" bölümünün dönüştürülmüş hali; yeni bölüm değil, mevcut veri/markup güncellendi.
-const services = [
+// "Markanız İçin Kurduğumuz Dijital Büyüme Ekosistemi" bölümü — "Teknoloji Ekosistemimiz"
+// bölümüyle birleştirildi; artık tek bir güçlü bölüm. 6 kart: açıklama + chip etiketler.
+const ecosystemCards = [
   {
-    tag: '01 WEB & COMMERCE',
-    title: 'Web & Commerce Altyapısı',
-    description: 'Shopify, headless commerce, B2B showroom, ürün sayfaları ve marka web platformlarını satışa ve büyümeye uygun şekilde kurgularız.',
-    chips: ['Shopify', 'Headless', 'B2B', 'Showroom'],
+    tag: '01 WEB & E-COMMERCE',
+    title: 'Web & E-Commerce Altyapısı',
+    description: 'Markanız için hızlı, güvenilir ve dönüşüm odaklı web/e-ticaret altyapısı kurarız.',
+    chips: ['Website', 'Shopify', 'Landing Page', 'Conversion'],
   },
   {
     tag: '02 PAZARYERİ',
     title: 'Pazaryeri Sistemleri',
-    description: 'Amazon, Etsy, eBay ve yerel pazaryerlerinde ürün listeleme, mağaza yapısı, görünürlük, reklam ve operasyon süreçlerini yönetilebilir hale getiririz.',
-    chips: ['Amazon', 'Etsy', 'eBay', 'Trendyol', 'Hepsiburada'],
+    description: 'Amazon, Etsy, eBay ve diğer pazaryerlerinde satışa hazır mağaza, ürün ve içerik yapısı oluştururuz.',
+    chips: ['Amazon', 'Etsy', 'eBay', 'Listing'],
   },
   {
-    tag: '03 YAPAY ZEKA',
-    title: 'Yapay Zeka Entegrasyonu',
-    description: 'Yapay zekayı içerik üretimi, görsel konsept, ürün sunumu, analiz, raporlama ve operasyon süreçlerine entegre ederiz.',
-    chips: ['AI İçerik', 'AI Görsel', 'AI Analiz', 'AI Operasyon'],
+    tag: '03 REKLAM & GROWTH',
+    title: 'Reklam & Growth',
+    description: 'PPC, SEO, içerik ve kampanya yapısını görünürlük ve satış odaklı büyüme için birlikte planlarız.',
+    chips: ['PPC', 'SEO', 'Content', 'Growth'],
   },
   {
-    tag: '04 OTOMASYON',
-    title: 'Otomasyon & Entegrasyonlar',
-    description: 'Form, teklif, müşteri, ürün, sipariş, WhatsApp, e-mail ve raporlama süreçlerini otomasyon sistemleriyle birbirine bağlarız.',
-    chips: ['n8n', 'CRM', 'WhatsApp', 'E-mail', 'API'],
+    tag: '04 YAPAY ZEKA & OTOMASYON',
+    title: 'Yapay Zeka & Otomasyon',
+    description: 'Tekrarlayan işleri azaltan, analiz ve operasyon süreçlerini hızlandıran yapay zeka destekli sistemler kurarız.',
+    chips: ['AI', 'Automation', 'Workflow', 'n8n'],
   },
   {
-    tag: '05 PERFORMANS',
-    title: 'Performans & Veri Analizi',
-    description: 'Trafik, dönüşüm, reklam, satış ve kullanıcı davranışı verilerini takip ederek dijital büyüme kararlarını ölçülebilir hale getiririz.',
-    chips: ['SEO', 'Analytics', 'CRO', 'Reklam', 'Raporlama'],
+    tag: '05 VERİ & PERFORMANS',
+    title: 'Veri & Performans Analizi',
+    description: 'GA4, Search Console, reklam ve satış verilerini birlikte yorumlayarak daha doğru büyüme kararları almanızı sağlarız.',
+    chips: ['GA4', 'Search Console', 'Reports', 'KPI'],
   },
   {
-    tag: '06 OPERASYON',
-    title: 'Dijital Operasyon',
-    description: 'Ürün yönetimi, kategori yapısı, banner, kampanya, içerik güncelleme ve günlük dijital operasyon süreçlerini sürdürülebilir hale getiririz.',
-    chips: ['Ürün', 'Kategori', 'Kampanya', 'Banner', 'İçerik'],
+    tag: '06 OPERASYON & ENTEGRASYON',
+    title: 'Operasyon & Entegrasyon',
+    description: 'Sipariş, stok, müşteri, lojistik ve platform entegrasyonlarını daha düzenli çalışan bir operasyon sistemine bağlarız.',
+    chips: ['Inventory', 'Orders', 'CRM', 'Logistics'],
   },
 ];
 
@@ -223,37 +222,6 @@ const audienceGroups = [
   },
 ];
 
-// "Teknoloji Ekosistemimiz" bölümü için 5 kategori — logo YOK, sadece küçük premium chip/glass
-// tag'ler. Marka algısı "teknoloji kullanan ajans" değil, "teknolojiyle büyüme sistemi kuran
-// şirket" olsun diye bilerek araç listesi gibi değil, kategori haritası gibi kurgulandı.
-const techStack = [
-  {
-    number: '01',
-    title: 'Commerce & Web',
-    chips: ['Shopify', 'Headless Commerce', 'Next.js', 'Vercel', 'Cloudflare'],
-  },
-  {
-    number: '02',
-    title: 'Yapay Zeka',
-    chips: ['OpenAI', 'Claude', 'AI İçerik', 'AI Görsel', 'AI Analiz'],
-  },
-  {
-    number: '03',
-    title: 'Otomasyon & Entegrasyon',
-    chips: ['n8n', 'Zapier', 'API', 'CRM', 'WhatsApp', 'E-mail'],
-  },
-  {
-    number: '04',
-    title: 'Pazaryeri & Satış Kanalları',
-    chips: ['Amazon', 'Etsy', 'eBay', 'Trendyol', 'Hepsiburada', 'B2B'],
-  },
-  {
-    number: '05',
-    title: 'Veri & Performans',
-    chips: ['Google Analytics', 'Search Console', 'Meta', 'SEO', 'CRO', 'Reklam Raporlama'],
-  },
-];
-
 // Tek, sürekli koyu lacivert taban — section'lar arasında sert renk/sınır geçişi yok.
 // Section kimliği, arka planda dağılmış yumuşak mavi glow'larla veriliyor (intro'nun network temasıyla aynı dil).
 function Glow({
@@ -308,7 +276,6 @@ export default function HomeContent() {
   const [brandsGridRef, brandsInView] = useInView<HTMLDivElement>();
   const [whyRef, whyInView] = useInView<HTMLElement>();
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
-  const [techRef, techInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -344,13 +311,6 @@ export default function HomeContent() {
       audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
   const audienceCardDelays = ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]'];
-
-  // "Teknoloji Ekosistemimiz" bölümü için ayrı reveal — kendi viewport girişine (techInView) bağlı.
-  const techReveal = (delayClass: string) =>
-    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      techInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
-    }`;
-  const techCardDelays = ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]'];
 
   return (
     <main
@@ -695,6 +655,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 5. GLOBAL SATIŞ ALTYAPISI ============ */}
+      {/* ============ 5. DİJİTAL BÜYÜME EKOSİSTEMİ (services + tech birleşik) ============ */}
       <section id="services" className="relative px-6 py-20 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-50" className="right-[-180px] top-10 h-[460px] w-[460px]" />
 
@@ -704,22 +665,19 @@ export default function HomeContent() {
             <div className="relative isolate mx-auto mt-4 max-w-2xl">
               <TitleGlow tone="section" />
               <h2 className="relative z-10 text-3xl font-bold tracking-tight sm:text-4xl">
-                Markanız İçin Kurduğumuz Dijital Ekosistem
+                Markanız İçin Kurduğumuz Dijital Büyüme Ekosistemi
               </h2>
             </div>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
-              Web altyapısı, pazaryerleri, yapay zeka, otomasyon, veri analizi ve dijital operasyon süreçlerini
-              birbirinden kopuk araçlar olarak değil; markanın büyümesini destekleyen tek bir sistemin parçaları
-              olarak kurgularız.
+              Web altyapısı, pazaryerleri, reklam, yapay zeka, otomasyon, veri analizi ve operasyon
+              süreçlerini birlikte çalışan tek bir dijital büyüme sistemine dönüştürüyoruz.
             </p>
           </div>
-          {/* Ekosistem modülü kartları: küçük modül etiketi (01 WEB & COMMERCE vb.) + başlık +
-              açıklama + alt kısımda küçük "chip" etiketler (Shopify, Amazon, AI İçerik vb.) —
-              klasik hizmet kutusu değil, "kurulan dijital ekosistemin haritası" gibi okunsun. */}
+
           <div className="mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {ecosystemCards.map((card) => (
               <div
-                key={service.title}
+                key={card.title}
                 className="group relative flex h-full flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]"
               >
                 <span
@@ -727,14 +685,12 @@ export default function HomeContent() {
                   className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-blue-400/55 via-blue-400/20 to-transparent transition-colors duration-300 group-hover:from-blue-400/75"
                 />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-300/80">
-                  {service.tag}
+                  {card.tag}
                 </span>
-                <h3 className="mt-3 text-lg font-semibold text-white">{service.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{service.description}</p>
-                {/* Chip / alt etiketler — tek tip mavi/premium ton, marka logosu veya çok renkli
-                    rozet hissi vermesin diye sadece monokromatik mavi tonlarda. */}
+                <h3 className="mt-3 text-lg font-semibold text-white">{card.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-blue-100/70">{card.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {service.chips.map((chip) => (
+                  {card.chips.map((chip) => (
                     <span
                       key={chip}
                       className="rounded-full border border-blue-400/25 bg-blue-500/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.05em] text-blue-200/75"
@@ -748,8 +704,6 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
-
-      {/* ============ 5.5 KİMLERLE ÇALIŞIYORUZ? ============ */}
       <section ref={audienceRef} className="relative px-6 py-20 sm:px-10">
         <Glow visible={audienceInView} targetOpacity="opacity-45" className="left-[-160px] top-10 h-[420px] w-[420px]" />
 
@@ -795,65 +749,6 @@ export default function HomeContent() {
                   </span>
                   <h3 className="mt-4 text-lg font-semibold text-white">{group.title}</h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-blue-100/70">{group.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ 5.6 TEKNOLOJİ EKOSİSTEMİMİZ ============ */}
-      <section ref={techRef} className="relative px-6 py-20 sm:px-10">
-        <Glow visible={techInView} targetOpacity="opacity-45" className="right-[-160px] bottom-[-100px] h-[420px] w-[420px]" />
-
-        <div className="relative mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className={`text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80 ${techReveal('delay-[0ms]')}`}>
-              Teknoloji
-            </p>
-            <div className="relative isolate mx-auto mt-4 max-w-2xl">
-              <TitleGlow tone="section" />
-              <h2 className={`relative z-10 text-3xl font-bold tracking-tight sm:text-4xl ${techReveal('delay-[60ms]')}`}>
-                Teknoloji Ekosistemimiz
-              </h2>
-            </div>
-            <p
-              className={`mx-auto mt-6 max-w-2xl text-base leading-relaxed text-blue-100/70 sm:text-lg ${techReveal(
-                'delay-[120ms]',
-              )}`}
-            >
-              Strateji ve operasyonu yalnızca manuel süreçlerle değil; doğru teknoloji, yapay zeka, otomasyon,
-              analiz ve dijital satış altyapılarıyla destekleriz.
-            </p>
-          </div>
-
-          {/* 5 teknoloji kategorisi — Kimlerle Çalışıyoruz bölümündeki aynı kanıtlanmış 3+2 merkezli
-              grid tekniği (8 sanal sütun, col-span-2, 0. karta col-start-2 / 3. karta col-start-3
-              ile her iki satır bağımsız ortalanıyor). Logo YOK, sadece küçük monokromatik mavi
-              chip/glass tag'ler — "araç listesi" değil, "teknoloji kategorisi haritası" hissi. */}
-          <div className="relative mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-8">
-            {techStack.map((category, index) => (
-              <div
-                key={category.title}
-                className={`${techReveal(techCardDelays[index])} lg:col-span-2 ${
-                  index === 0 ? 'lg:col-start-2' : index === 3 ? 'lg:col-start-3' : ''
-                }`}
-              >
-                <div className="group relative flex h-full min-h-[190px] flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-400/45 bg-blue-500/10 text-xs font-semibold text-blue-300 shadow-[0_0_18px_-2px_rgba(59,130,246,0.65)]">
-                    {category.number}
-                  </span>
-                  <h3 className="mt-4 text-lg font-semibold text-white">{category.title}</h3>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {category.chips.map((chip) => (
-                      <span
-                        key={chip}
-                        className="rounded-full border border-blue-400/25 bg-blue-500/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.05em] text-blue-200/75"
-                      >
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
             ))}
