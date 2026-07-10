@@ -275,7 +275,10 @@ export default function HomeContent() {
   const [mounted, setMounted] = useState(false);
   const [brandsGridRef, brandsInView] = useInView<HTMLDivElement>();
   const [whyRef, whyInView] = useInView<HTMLElement>();
+  const [processRef, processInView] = useInView<HTMLElement>();
+  const [servicesRef, servicesInView] = useInView<HTMLElement>();
   const [audienceRef, audienceInView] = useInView<HTMLElement>();
+  const [ctaRef, ctaInView] = useInView<HTMLElement>();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setMounted(true));
@@ -311,6 +314,28 @@ export default function HomeContent() {
       audienceInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
     }`;
   const audienceCardDelays = ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]'];
+
+  // Süreç bölümü reveal
+  const processReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      processInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+  const processCardDelays = [
+    'delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]',
+    'delay-[240ms]', 'delay-[300ms]', 'delay-[360ms]', 'delay-[420ms]',
+  ];
+
+  // Ekosistem kartları reveal
+  const servicesReveal = (delayClass: string) =>
+    `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
+      servicesInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+    }`;
+  const servicesCardDelays = ['delay-[0ms]', 'delay-[60ms]', 'delay-[120ms]', 'delay-[180ms]', 'delay-[240ms]', 'delay-[300ms]'];
+
+  // Final CTA reveal
+  const ctaReveal = `transition-all duration-700 ease-out delay-[100ms] motion-reduce:transition-none ${
+    ctaInView ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+  }`;
 
   return (
     <main
@@ -548,14 +573,14 @@ export default function HomeContent() {
 
           {/* Görsel panel — radial glow + ince gold highlight */}
           <div className="relative">
-            {/* Arka plan radial glow */}
+            {/* Arka plan radial glow — hafif solunuyor */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 -z-10 rounded-3xl opacity-60 blur-3xl"
-              style={{ background: 'radial-gradient(ellipse at center, rgba(59,130,246,0.22) 0%, rgba(59,130,246,0.06) 55%, transparent 80%)' }}
+              className="animate-panel-breathe pointer-events-none absolute inset-0 -z-10 rounded-3xl opacity-60 blur-3xl"
+              style={{ background: 'radial-gradient(ellipse at center, rgba(59,130,246,0.25) 0%, rgba(59,130,246,0.07) 55%, transparent 80%)' }}
             />
             {/* Panel */}
-            <div className="overflow-hidden rounded-2xl border border-white/[0.09] bg-[#06101e]/70 p-2 shadow-[0_0_80px_-24px_rgba(59,130,246,0.4)] sm:p-3">
+            <div className="group overflow-hidden rounded-2xl border border-white/[0.09] bg-[#06101e]/70 p-2 shadow-[0_0_80px_-24px_rgba(59,130,246,0.4)] transition-shadow duration-500 hover:shadow-[0_0_100px_-20px_rgba(59,130,246,0.55)] sm:p-3">
               {/* Gold highlight çizgisi — üst kenar */}
               <span
                 aria-hidden="true"
@@ -601,7 +626,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 4. SÜREÇ ============ */}
-      <section id="process" className="relative px-6 pb-16 pt-20 sm:px-10">
+      <section ref={processRef} id="process" className="relative px-6 pb-16 pt-20 sm:px-10">
         <span
           aria-hidden="true"
           className="absolute left-1/2 top-0 h-px w-2/3 max-w-lg -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"
@@ -610,7 +635,7 @@ export default function HomeContent() {
         <Glow visible={mounted} targetOpacity="opacity-45" className="left-[-180px] bottom-[-120px] h-[420px] w-[420px]" />
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className={`mx-auto max-w-2xl text-center ${processReveal('delay-[0ms]')}`}>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Süreç</p>
             <div className="relative isolate mx-auto mt-4 max-w-2xl">
               <TitleGlow tone="section" />
@@ -626,18 +651,13 @@ export default function HomeContent() {
           </div>
 
           <div className="relative mt-14 grid gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Mobilde (sm altı): tek sütun stack olduğunda adımları bağlayan ince dikey çizgi.
-                Konteynerin gerçek yüksekliğine göre otomatik uzar (sabit piksel tahmini yok). */}
             <span
               aria-hidden="true"
               className="absolute left-1/2 top-6 bottom-6 block w-px -translate-x-1/2 bg-gradient-to-b from-blue-400/45 via-blue-400/25 to-blue-400/45 sm:hidden"
             />
 
             {processSteps.map((step, index) => (
-              <div key={step.number} className="group relative flex flex-col items-center text-center">
-                {/* Bağlantı çizgisi sadece AYNI satırdaki bir sonraki düğüme uzanır — 4+4 grid'de
-                    satır sonunda (index 3) bir sonraki adım farklı satırda olduğu için çizgi
-                    yanlışlıkla satırlar arası atlamasın diye index % 4 !== 3 kontrolü eklendi. */}
+              <div key={step.number} className={`group relative flex flex-col items-center text-center ${processReveal(processCardDelays[index])}`}>
                 {index < processSteps.length - 1 && index % 4 !== 3 && (
                   <span className="absolute left-1/2 top-[24px] hidden h-px w-full bg-gradient-to-r from-blue-400/70 to-transparent lg:block" />
                 )}
@@ -654,13 +674,11 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ============ 5. GLOBAL SATIŞ ALTYAPISI ============ */}
-      {/* ============ 5. DİJİTAL BÜYÜME EKOSİSTEMİ (services + tech birleşik) ============ */}
-      <section id="services" className="relative px-6 py-20 sm:px-10">
+      <section ref={servicesRef} id="services" className="relative px-6 py-20 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-50" className="right-[-180px] top-10 h-[460px] w-[460px]" />
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className={`mx-auto max-w-2xl text-center ${servicesReveal('delay-[0ms]')}`}>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300/80">Ekosistem</p>
             <div className="relative isolate mx-auto mt-4 max-w-2xl">
               <TitleGlow tone="section" />
@@ -675,10 +693,10 @@ export default function HomeContent() {
           </div>
 
           <div className="mt-14 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {ecosystemCards.map((card) => (
+            {ecosystemCards.map((card, index) => (
               <div
                 key={card.title}
-                className="group relative flex h-full flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)]"
+                className={`group relative flex h-full flex-col rounded-xl border border-white/[0.08] bg-white/[0.035] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/45 hover:bg-white/[0.06] hover:shadow-[0_4px_40px_-10px_rgba(59,130,246,0.5)] ${servicesReveal(servicesCardDelays[index])}`}
               >
                 <span
                   aria-hidden="true"
@@ -757,7 +775,7 @@ export default function HomeContent() {
       </section>
 
       {/* ============ 6. FİNAL CTA ============ */}
-      <section id="contact" className="relative px-6 pb-28 pt-16 sm:px-10">
+      <section ref={ctaRef} id="contact" className="relative px-6 pb-28 pt-16 sm:px-10">
         <Glow visible={mounted} targetOpacity="opacity-60" className="left-1/2 top-0 h-[500px] w-[860px] -translate-x-1/2" />
         <span
           aria-hidden="true"
@@ -765,7 +783,7 @@ export default function HomeContent() {
         />
 
         {/* Kapanış paneli: cam panel hissinde, ortalı, kontrollü genişlikte — "growth system start" hissi için */}
-        <div className="relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-10 text-center backdrop-blur-sm sm:px-12 sm:py-12">
+        <div className={`relative mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-white/[0.035] px-6 py-10 text-center backdrop-blur-sm sm:px-12 sm:py-12 ${ctaReveal}`}>
           <span
             aria-hidden="true"
             className="absolute left-10 right-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"
@@ -796,7 +814,7 @@ export default function HomeContent() {
 
           <a
             href="/iletisim"
-            className="mt-9 inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-12 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-blue-400/75 hover:bg-blue-500/20 hover:shadow-[0_0_36px_-6px_rgba(59,130,246,0.6)]"
+            className="mt-9 inline-block rounded-full border border-blue-400/45 bg-blue-500/10 px-12 py-3.5 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/80 hover:bg-blue-500/20 hover:shadow-[0_0_40px_-6px_rgba(59,130,246,0.7)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070d18]"
           >
             GloventGlobal ile Görüş
           </a>
