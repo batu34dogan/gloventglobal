@@ -5,29 +5,51 @@ const nextConfig: NextConfig = {
     qualities: [100],
   },
 
+  // /rehberler/ prefix'i olmadan erişilen rehber URL'lerini doğru adrese yönlendir.
+  // Örnek: /amazon-fba-nedir → /rehberler/amazon-fba-nedir (308 kalıcı)
+  // Google geçmişte bu tarz URL'leri taramış olabilir; 404 yerine redirect vermek
+  // hem crawl bütçesini korur hem SEO sinyali aktarır.
+  async redirects() {
+    return [
+      {
+        source: "/amazon-:slug*",
+        destination: "/rehberler/amazon-:slug*",
+        permanent: true,
+      },
+      {
+        source: "/amazonda-:slug*",
+        destination: "/rehberler/amazonda-:slug*",
+        permanent: true,
+      },
+      {
+        source: "/etsy-:slug*",
+        destination: "/rehberler/etsy-:slug*",
+        permanent: true,
+      },
+      {
+        source: "/etsyde-:slug*",
+        destination: "/rehberler/etsyde-:slug*",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
-          // Sitenin iframe içinde açılmasını engeller (clickjacking koruması)
           { key: "X-Frame-Options", value: "DENY" },
-          // Tarayıcının MIME tipini tahmin etmesini engeller
           { key: "X-Content-Type-Options", value: "nosniff" },
-          // Dış linklerde tam URL yerine sadece origin gider
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          // Kamera, mikrofon, konum, ödeme API'lerini varsayılan kapalı tutar
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(), payment=()",
           },
-          // HTTPS kullanımını güçlendirir (Vercel HTTPS aktif olduğu için güvenli)
           {
             key: "Strict-Transport-Security",
             value: "max-age=31536000; includeSubDomains; preload",
           },
-          // CSP bu turda eklenmedi — GA4 inline script, n8n webhook ve
-          // Next.js runtime scriptleriyle çakışma riski var. Ayrı turda planlanacak.
         ],
       },
     ];
