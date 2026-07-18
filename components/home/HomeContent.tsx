@@ -1,7 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+
+// Dynamic import — SSR'da render edilmez, bundle sadece hero mount edilince yüklenir.
+// Mobil ve prefers-reduced-motion: wrapper'da gizlenir (md:block).
+const HeroGlobe = dynamic(() => import('./HeroGlobe'), { ssr: false });
 
 import { useEffect, useRef, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
@@ -348,7 +353,22 @@ export default function HomeContent() {
         <Glow visible={mounted} targetOpacity="opacity-70" className="left-1/2 top-[-120px] h-[640px] w-[960px] -translate-x-1/2" />
         <Glow visible={mounted} targetOpacity="opacity-60" className="left-[-200px] top-[280px] h-[420px] w-[420px]" />
 
-        <div className="relative mx-auto max-w-4xl text-center">
+        {/* 3D Globe — sadece desktop (md+), prefers-reduced-motion kapalıysa gizle.
+            Canvas pointer-events-none → tıklama/metin seçimi engellenmez.
+            Glob hero'nun sağ yarısında konumlanır; metin solda okunabilir kalır. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden overflow-hidden md:block motion-reduce:hidden"
+        >
+          {/* Glob sağa hizalı — negatif sağ margin ile kısmen taşır, derin his verir */}
+          <div className="absolute right-[-60px] top-1/2 h-[480px] w-[480px] -translate-y-1/2 opacity-75 lg:right-[-30px] lg:h-[540px] lg:w-[540px]">
+            <HeroGlobe />
+          </div>
+          {/* Glob ile metin arasında geçiş fader'ı — metni bastırmaz */}
+          <div className="absolute inset-y-0 right-[280px] w-40 bg-gradient-to-r from-[#070d18] to-transparent lg:right-[360px]" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-4xl text-center md:max-w-2xl md:text-left lg:max-w-3xl">
           <p className={`text-xs font-semibold uppercase tracking-[0.35em] text-blue-300/80 ${reveal('delay-[100ms]')}`}>
             GLOVENTGLOBAL — DIGITAL GROWTH SYSTEMS
           </p>
