@@ -74,7 +74,7 @@ export default function SiteNavbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-xs font-medium uppercase tracking-[0.15em] text-blue-100/75 transition-colors duration-200 hover:text-white"
+              className="text-[13px] font-medium uppercase tracking-[0.15em] text-blue-100/75 transition-colors duration-200 hover:text-white"
             >
               {link.label}
             </a>
@@ -115,7 +115,7 @@ export default function SiteNavbar() {
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="rounded-md px-2 py-2.5 text-xs font-medium uppercase tracking-[0.15em] text-blue-100/80 transition-colors duration-200 hover:bg-white/5 hover:text-white"
+              className="rounded-md px-2 py-2.5 text-[13px] font-medium uppercase tracking-[0.15em] text-blue-100/80 transition-colors duration-200 hover:bg-white/5 hover:text-white"
             >
               {link.label}
             </a>
