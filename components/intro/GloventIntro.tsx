@@ -69,10 +69,15 @@ export default function GloventIntro() {
         <IntroBackground />
       </div>
 
-      {/* Marka adı */}
-      <span className="absolute left-1/2 top-[37svh] z-20 -translate-x-1/2 -translate-y-1/2 text-sm font-semibold tracking-[0.25em] text-white pointer-events-none md:left-10 md:top-8 md:translate-x-0 md:translate-y-0 md:text-base">
-        GLOVENTGLOBAL
-      </span>
+      {/* Marka adı + Digital Growth System */}
+      <div className="absolute left-1/2 top-[37svh] z-20 -translate-x-1/2 -translate-y-1/2 pointer-events-none text-center md:left-10 md:top-8 md:translate-x-0 md:translate-y-0 md:text-left">
+        <span className="block text-sm font-semibold tracking-[0.25em] text-white md:text-base">
+          GLOVENTGLOBAL
+        </span>
+        <span className="mt-1 block text-[10px] font-medium tracking-[0.22em] text-blue-300/70 uppercase">
+          Digital Growth System
+        </span>
+      </div>
 
       {/* Yönlendirme notu — çok küçük, premium */}
       <span className="absolute bottom-[calc(4.5rem+1px)] left-1/2 z-20 -translate-x-1/2 text-[10px] tracking-[0.18em] text-white/40 pointer-events-none md:hidden">
@@ -80,14 +85,19 @@ export default function GloventIntro() {
       </span>
 
       {/* Giriş butonu */}
-      <button
-        type="button"
-        onClick={enter}
-        disabled={phase !== 'idle'}
-        className="absolute left-1/2 top-[50svh] z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white transition-colors hover:bg-white/10 md:bottom-14 md:top-auto md:translate-y-0 md:text-sm"
-      >
-        GLOBAL SİSTEME GİR
-      </button>
+      <div className="absolute left-1/2 top-[50svh] z-20 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2.5 md:bottom-14 md:top-auto md:translate-y-0">
+        <span className="text-[10px] tracking-[0.18em] text-white/40 uppercase pointer-events-none hidden md:block">
+          Sistemi keşfetmek için giriş yapın
+        </span>
+        <button
+          type="button"
+          onClick={enter}
+          disabled={phase !== 'idle'}
+          className="rounded-full border border-white/35 bg-white/5 px-8 py-3 text-xs font-semibold tracking-[0.2em] text-white shadow-[0_0_24px_-4px_rgba(59,130,246,0.35)] backdrop-blur-sm transition-all duration-300 hover:border-blue-400/60 hover:bg-white/10 hover:shadow-[0_0_36px_-4px_rgba(59,130,246,0.60)] md:text-sm"
+        >
+          GLOBAL SİSTEME GİR
+        </button>
+      </div>
     </section>
   );
 }
