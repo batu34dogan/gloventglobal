@@ -1,15 +1,10 @@
 'use client';
 
-import Image from 'next/image';
-
 export default function IntroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#050b14]">
 
-      {/* ── DESKTOP (md+): video background ─────────────────────────────
-          Video tam ekranı kapsar, mute/autoplay/loop standart.
-          preload="metadata" → sadece ilk kare + süre bilgisi önceden yüklenir,
-          tam video stream intro görünürken devreye girer.                    */}
+      {/* Video background — tüm cihazlarda */}
       <video
         aria-hidden="true"
         autoPlay
@@ -17,24 +12,12 @@ export default function IntroBackground() {
         loop
         playsInline
         preload="metadata"
-        poster="/glovent-platform-hero.png"
-        className="absolute inset-0 hidden h-full w-full object-cover md:block"
+        poster="/glovent-platform-hero-mobile.png"
+        className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/videos/hero-global-earth.webm" type="video/webm" />
         <source src="/videos/hero-global-earth.mp4"  type="video/mp4"  />
       </video>
-
-      {/* Mobil (md altı): özel dikey görsel, tam ekran object-cover
-          Video mobilde ağır olabileceği için mevcut görsel fallback korunuyor */}
-      <Image
-        src="/glovent-platform-hero-mobile.png"
-        alt=""
-        fill
-        priority
-        quality={100}
-        sizes="100vw"
-        className="block object-cover object-center md:hidden"
-      />
 
       {/* ── Overlay gradient katmanları ────────────────────────────────
           1. Genel koyu örtü — metnin her yerde okunabilirliği
