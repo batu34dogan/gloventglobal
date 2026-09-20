@@ -11,8 +11,7 @@ export default function IntroBackground() {
         muted
         loop
         playsInline
-        preload="metadata"
-        poster="/glovent-platform-hero-mobile.png"
+        preload="auto"
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/videos/hero-global-earth.webm" type="video/webm" />
