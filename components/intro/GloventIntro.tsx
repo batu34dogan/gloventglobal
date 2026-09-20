@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import IntroBackground from './IntroBackground';
 
 type Phase = 'idle' | 'leaving' | 'done';
@@ -9,19 +9,24 @@ const TRANSITION_MS = 850;
 const SESSION_KEY   = 'glovent_intro_seen';
 
 export default function GloventIntro() {
-  const [phase, setPhase] = useState<Phase>(() => {
-    if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SESSION_KEY)) {
-      return 'done';
-    }
-    return 'idle';
-  });
+  // SSR'da her zaman 'idle' — intro overlay HTML'de hazır gelir, alttaki
+  // sayfa içeriği hiçbir frame'de görünmez.
+  // Hydration sonrası useEffect sessionStorage'ı kontrol eder; daha önce
+  // görüldüyse animasyonsuz ve anında 'done' geçer.
+  const [phase, setPhase] = useState<Phase>('idle');
+  const initialized = useRef(false);
 
-  // idle → scroll kilitle
   useEffect(() => {
-    if (phase !== 'idle') return;
+    if (initialized.current) return;
+    initialized.current = true;
+
+    if (sessionStorage.getItem(SESSION_KEY)) {
+      // Önceki oturumda görüldü — bir tick sonra kaldır (sync setState hatasını önler)
+      window.setTimeout(() => setPhase('done'), 0);
+      return;
+    }
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = ''; };
-  }, [phase]);
+  }, []);
 
   // leaving → done
   useEffect(() => {
@@ -52,10 +57,10 @@ export default function GloventIntro() {
   return (
     <section
       className={`fixed inset-0 z-50 overflow-hidden transition-opacity duration-[850ms] ease-out motion-reduce:transition-none motion-reduce:duration-0 ${
-        leaving ? 'opacity-0' : 'opacity-100'
+        leaving ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* Video/arka plan alanı — tıklayınca giriş yapılır */}
+      {/* Video/arka plan alanı — tıklayınca giriş */}
       <div
         role="button"
         tabIndex={0}
@@ -79,14 +84,14 @@ export default function GloventIntro() {
         </span>
       </div>
 
-      {/* Yönlendirme notu — çok küçük, premium */}
+      {/* Mobil yönlendirme */}
       <span className="absolute bottom-[calc(4.5rem+1px)] left-1/2 z-20 -translate-x-1/2 text-[10px] tracking-[0.18em] text-white/40 pointer-events-none md:hidden">
         dünyaya dokunarak devam edin
       </span>
 
       {/* Giriş butonu */}
       <div className="absolute left-1/2 top-[50svh] z-20 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2.5 md:bottom-14 md:top-auto md:translate-y-0">
-        <span className="text-[10px] tracking-[0.18em] text-white/40 uppercase pointer-events-none hidden md:block">
+        <span className="hidden text-[10px] tracking-[0.18em] text-white/40 uppercase pointer-events-none md:block">
           Sistemi keşfetmek için giriş yapın
         </span>
         <button
