@@ -1,24 +1,73 @@
 import Link from 'next/link';
-const NAV = ['Hizmetler','Kaynaklar','İletişim'];
+
+const NAV = [
+  { label: 'Hizmetler', href: '#hizmetler' },
+  { label: 'Başarı Hikayeleri', href: '#hikayeler' },
+  { label: 'İletişim', href: '/iletisim' },
+];
+
+const LEGAL = [
+  { label: 'KVKK', href: '/kvkk' },
+  { label: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
+  { label: 'Çerez Politikası', href: '/cerez-politikasi' },
+];
+
 export default function RDFooter() {
   return (
-    <footer className="border-t border-[#E5E5EC] bg-[#FAFAF8] py-10">
-      <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-6 px-6 sm:px-10">
-        {/* Logo */}
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#1B5CD6] text-[13px] font-black text-[#1B2E5E]">G</div>
-          <span className="text-[14px] font-bold text-[#1B2E5E]">GloventGlobal</span>
+    <footer className="border-t border-[#E5E5EC] bg-[#FAF9F6]">
+      <div className="mx-auto max-w-[1400px] px-6 py-16 sm:px-10">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.9fr_0.9fr_0.9fr]">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#1B5CD6] text-[16px] font-black text-[#14213F]">G</div>
+              <span className="text-[16.5px] font-bold text-[#14213F]">GloventGlobal</span>
+            </div>
+            <p className="mt-4 max-w-[32ch] text-[14.5px] leading-relaxed text-[#6A6A7A]">
+              Türk markalarının global pazarlarda büyümesi için strateji, ticaret, teknoloji ve operasyon sistemini tek çatıda kuruyoruz.
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <p className="text-[11px] font-bold tracking-[0.2em] text-[#9A9AA8] uppercase">Navigasyon</p>
+            <ul className="mt-4 space-y-2.5">
+              {NAV.map(l => (
+                <li key={l.label}>
+                  <Link href={l.href} className="text-[14.5px] text-[#4A4A5A] transition-colors hover:text-[#1B5CD6]">{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p className="text-[11px] font-bold tracking-[0.2em] text-[#9A9AA8] uppercase">İletişim</p>
+            <ul className="mt-4 space-y-2.5">
+              <li><a href="mailto:info@gloventglobal.com" className="text-[14.5px] text-[#4A4A5A] transition-colors hover:text-[#1B5CD6]">info@gloventglobal.com</a></li>
+              <li><span className="text-[14.5px] text-[#4A4A5A]">İstanbul, Türkiye</span></li>
+            </ul>
+          </div>
+
+          {/* Social */}
+          <div>
+            <p className="text-[11px] font-bold tracking-[0.2em] text-[#9A9AA8] uppercase">Sosyal</p>
+            <div className="mt-4 flex items-center gap-3">
+              <a href="https://www.instagram.com/gloventglobal" target="_blank" rel="noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E0E0E8] text-[11.5px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">ig</a>
+              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E0E0E8] text-[11.5px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">in</a>
+              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E0E0E8] text-[11.5px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">yt</a>
+            </div>
+          </div>
         </div>
-        {/* Nav */}
-        <ul className="flex flex-wrap gap-6">
-          {NAV.map(l => <li key={l}><Link href="#" className="text-[13px] text-[#6A6A7A] hover:text-[#1B5CD6]">{l}</Link></li>)}
-        </ul>
-        {/* Social */}
-        <div className="flex items-center gap-4">
-          {['in','ig','yt'].map(s => (
-            <a key={s} href="#" className="flex h-8 w-8 items-center justify-center rounded-full border border-[#E0E0E8] text-[11px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">{s}</a>
-          ))}
-          <span className="ml-4 text-[13px] text-[#6A6A7A]">Daha Büyük Yarınlar İçin.</span>
+
+        {/* Bottom bar */}
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-[#E5E5EC] pt-7 sm:flex-row">
+          <p className="text-[13px] text-[#8A8A98]">© {new Date().getFullYear()} GloventGlobal</p>
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {LEGAL.map(l => (
+              <a key={l.label} href={l.href} className="text-[13px] text-[#8A8A98] transition-colors hover:text-[#1B5CD6]">{l.label}</a>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>
