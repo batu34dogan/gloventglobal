@@ -62,12 +62,12 @@ const projects: Project[] = [
   },
 ];
 
-const CARD_CLASS = 'w-[85vw] shrink-0 sm:w-[55vw] sm:max-w-[420px] lg:w-[42vw] lg:max-w-[600px]';
+const CARD_CLASS = 'w-[85vw] shrink-0 sm:w-[450px]';
 
 function ProjectCard({ p }: { p: Project }) {
   return (
     <article className={CARD_CLASS}>
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
         {/* Neutral editorial placeholder — swap for next/image (fill + object-cover) once real project photography is ready */}
         <div aria-hidden className="absolute inset-0" style={{ background: p.tone }} />
         <span aria-hidden className="absolute inset-0 flex items-center justify-center text-[7rem] font-black leading-none text-[#14213F]/[0.06] sm:text-[8rem]">
@@ -218,11 +218,13 @@ function Marquee() {
 
   return (
     <div
-      className="overflow-hidden"
+      className="relative overflow-hidden"
       onWheel={onWheel}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
+      {/* Softens the previous card's trailing sliver so the rail reads as starting clean at the content edge */}
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#FAF9F6] to-transparent sm:w-14" />
       <div
         ref={trackRef}
         role="region"
