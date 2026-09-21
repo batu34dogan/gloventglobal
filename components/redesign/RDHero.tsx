@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const SYSTEM = ['Strategy', 'Commerce', 'Technology', 'Operations'];
@@ -37,23 +38,25 @@ export default function RDHero() {
         </div>
       </div>
 
-      {/* Cinematic composition — bleeds full-width on desktop so it reads as part of the hero, not a card.
-          Swap the gradient layer for next/image once real photography is ready. */}
+      {/* Cinematic composition — bleeds full-width on desktop so it reads as part of the hero, not a card. */}
       <div className="relative mx-6 mt-2 aspect-[4/5] overflow-hidden rounded-2xl sm:mx-10 lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(155deg,#14213F 0%,#2E4A78 42%,#7C8CA6 68%,#C9B79A 100%)' }}
+        <Image
+          src="/redesign/hero-istanbul.jpg"
+          alt="İstanbul Boğazı manzaralı bir terasta, dizüstü bilgisayarıyla çalışan biri"
+          fill
+          priority
+          sizes="(min-width: 1024px) 54vw, 100vw"
+          className="object-cover object-[62%_center] lg:object-[65%_center]"
         />
         <div
           aria-hidden
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-20"
           style={{ background: 'radial-gradient(circle at 76% 18%,rgba(255,255,255,0.32),transparent 45%)' }}
         />
         <div
           aria-hidden
           className="absolute inset-x-0 bottom-0 h-40 lg:h-56"
-          style={{ background: 'linear-gradient(to top,rgba(15,21,45,0.4),transparent)' }}
+          style={{ background: 'linear-gradient(to top,rgba(15,21,45,0.55),transparent)' }}
         />
         <div aria-hidden className="absolute inset-y-0 left-0 hidden w-56 bg-gradient-to-r from-[#FAF9F6] to-transparent lg:block" />
         <span className="absolute bottom-7 left-7 text-[13px] font-semibold tracking-[0.05em] text-white lg:bottom-12 lg:left-16">
