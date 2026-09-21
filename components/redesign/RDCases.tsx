@@ -218,13 +218,27 @@ function Marquee() {
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="rd-rail-fade overflow-hidden"
       onWheel={onWheel}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {/* Fully conceals the previous card's trailing sliver (solid for the first half, then fades) so the rail always reads as starting clean at the content edge */}
-      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6] to-transparent sm:w-16" />
+      {/* True alpha mask (not an overlay) so a card fades as one unit — image, category, title, description
+          and capability all dissolve together at the same rate instead of the image and text clipping separately. */}
+      <style>{`
+        .rd-rail-fade {
+          -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+          -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+          -webkit-mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 20px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 20px), transparent 100%);
+        }
+        @media (min-width: 640px) {
+          .rd-rail-fade {
+            -webkit-mask-image: linear-gradient(to right, transparent 0, #000 100px, #000 calc(100% - 32px), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 100px, #000 calc(100% - 32px), transparent 100%);
+          }
+        }
+      `}</style>
       <div
         ref={trackRef}
         role="region"
