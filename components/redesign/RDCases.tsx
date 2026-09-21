@@ -223,8 +223,8 @@ function Marquee() {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {/* Softens the previous card's trailing sliver so the rail reads as starting clean at the content edge */}
-      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#FAF9F6] to-transparent sm:w-14" />
+      {/* Fully conceals the previous card's trailing sliver (solid for the first half, then fades) so the rail always reads as starting clean at the content edge */}
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6] to-transparent sm:w-16" />
       <div
         ref={trackRef}
         role="region"
@@ -263,7 +263,7 @@ export default function RDCases() {
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="max-w-[52ch]">
           <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Projeler</p>
-          <h2 className="mt-3 text-[2.6rem] font-extrabold tracking-tight text-[#14213F] sm:text-[3.1rem]">Birlikte Kurduğumuz Sistemler</h2>
+          <h2 className="mt-3 text-[2.6rem] font-extrabold tracking-tight text-[#14213F] sm:text-[2.85rem]">Birlikte Kurduğumuz Sistemler</h2>
           <p className="mt-4 text-[1.1rem] leading-relaxed text-[#5A5A6A]">
             Her marka için aynı reçeteyi değil; ihtiyacına göre strateji, teknoloji, commerce ve operasyon sistemleri kuruyoruz.
           </p>
@@ -271,7 +271,7 @@ export default function RDCases() {
       </div>
 
       {/* Rail — left edge aligns with the header above; right edge bleeds past the content column to hint continuation */}
-      <div className="mt-12 pl-6 sm:pl-10 lg:pl-[max(2.5rem,calc((100vw-1400px)/2+2.5rem))]">
+      <div className="mt-[42px] pl-6 sm:pl-10 lg:pl-[max(2.5rem,calc((100vw-1400px)/2+2.5rem))]">
         {reducedMotion ? <StaticRail /> : <Marquee />}
       </div>
     </section>
