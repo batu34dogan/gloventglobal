@@ -3,7 +3,7 @@ const NAV = ['Hizmetler','Kaynaklar','İletişim'];
 export default function RDFooter() {
   return (
     <footer className="border-t border-[#E5E5EC] bg-[#FAFAF8] py-10">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-6 sm:px-10">
+      <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-6 px-6 sm:px-10">
         {/* Logo */}
         <div className="flex items-center gap-2.5">
           <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#1B5CD6] text-[13px] font-black text-[#1B2E5E]">G</div>

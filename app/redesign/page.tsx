@@ -3,6 +3,7 @@ import RDNavbar from '@/components/redesign/RDNavbar';
 import RDHero from '@/components/redesign/RDHero';
 import RDChannels from '@/components/redesign/RDChannels';
 import RDServices from '@/components/redesign/RDServices';
+import RDSystem from '@/components/redesign/RDSystem';
 import RDCases from '@/components/redesign/RDCases';
 import RDWhy from '@/components/redesign/RDWhy';
 import RDFooter from '@/components/redesign/RDFooter';
@@ -21,6 +22,7 @@ export default function RedesignPage() {
         <RDHero />
         <RDChannels />
         <RDServices />
+        <RDSystem />
         <RDCases />
         <RDWhy />
       </main>
