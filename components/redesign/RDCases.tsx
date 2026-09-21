@@ -1,68 +1,85 @@
-type CaseItem = {
+type Project = {
   brand: string;
   category: string;
-  tags: string[];
+  capability: string;
   desc: string;
-  gradient: string;
+  tone: string;
   featured?: boolean;
 };
 
-const cases: CaseItem[] = [
+const projects: Project[] = [
   {
     brand: 'ASL Çanta',
     category: 'E-Commerce',
-    tags: ['Shopify', 'Commerce Infrastructure', 'UX', 'Product Architecture'],
+    capability: 'Shopify · Commerce Infrastructure · UX',
     desc: 'Geniş ürün kataloğu için ürün mimarisinden kullanıcı deneyimine uzanan modern e-ticaret ve dijital operasyon altyapısı.',
-    gradient: 'linear-gradient(155deg,#E4CBA8 0%,#C9A876 55%,#9C7C4D 100%)',
+    tone: 'linear-gradient(160deg,#EFE9DD 0%,#E6DFD0 100%)',
     featured: true,
   },
   {
     brand: 'BERD',
     category: 'Global Commerce',
-    tags: ['Amazon', 'Market Entry', 'Commerce', 'Growth'],
+    capability: 'Amazon · Market Entry · Growth',
     desc: 'Türkiye’den global pazarlara açılma sürecinde pazaryeri, satış ve büyüme yapısının oluşturulması.',
-    gradient: 'linear-gradient(155deg,#1E2C4A 0%,#33486E 55%,#6B7FA0 100%)',
+    tone: 'linear-gradient(160deg,#E4E6EA 0%,#D8DBE1 100%)',
     featured: true,
   },
   {
     brand: 'Güvenli Adımlar',
     category: 'Amazon',
-    tags: ['Amazon', 'Listing', 'Marketplace Operations'],
+    capability: 'Amazon · Listing · Marketplace Operations',
     desc: 'Amazon satış operasyonunun ürün konumlandırması, listeleme ve pazaryeri süreçleriyle yapılandırılması.',
-    gradient: 'linear-gradient(160deg,#C9C4BA 0%,#A39C8E 100%)',
+    tone: 'linear-gradient(160deg,#EDEBE6 0%,#E3E0D8 100%)',
   },
   {
     brand: 'Ziynet Bijüteri',
     category: 'B2B',
-    tags: ['B2B', 'Digital Showroom', 'Global'],
+    capability: 'B2B · Digital Showroom · Global',
     desc: 'Türkiye’den global alıcılara ulaşmayı destekleyen dijital B2B satış ve marka sunum yapısı.',
-    gradient: 'linear-gradient(160deg,#C7D6E5 0%,#9FB6CC 100%)',
+    tone: 'linear-gradient(160deg,#E7EAED 0%,#DCE0E5 100%)',
   },
   {
     brand: 'RituelCo',
     category: 'Etsy',
-    tags: ['Etsy', 'Digital Commerce', 'Global'],
+    capability: 'Etsy · Commerce · Global',
     desc: 'Global dijital müşterilere ulaşmak için Etsy odaklı satış ve commerce yapısı.',
-    gradient: 'linear-gradient(160deg,#F0EBDF 0%,#D9CFBA 100%)',
+    tone: 'linear-gradient(160deg,#F0ECE3 0%,#E7E1D3 100%)',
   },
   {
     brand: 'GLC',
     category: 'Etsy',
-    tags: ['Etsy', 'Marketplace', 'Global'],
+    capability: 'Etsy · Marketplace · Global',
     desc: 'Etsy üzerinden global müşterilere ulaşmayı destekleyen pazaryeri ve dijital satış yapısı.',
-    gradient: 'linear-gradient(200deg,#E7D2AE 0%,#BFA070 100%)',
+    tone: 'linear-gradient(160deg,#ECE7DC 0%,#E1DACB 100%)',
   },
   {
     brand: 'Maxpace',
     category: 'Amazon',
-    tags: ['Amazon', 'Marketplace', 'Global Expansion'],
+    capability: 'Amazon · Marketplace · Global Expansion',
     desc: 'Amazon üzerinden farklı küresel pazarlara açılmayı destekleyen satış ve pazaryeri yapılanması.',
-    gradient: 'linear-gradient(200deg,#2A3A5C 0%,#5A6E90 100%)',
+    tone: 'linear-gradient(160deg,#E3E5E8 0%,#D7DAE0 100%)',
   },
 ];
 
-const featured = cases.filter(c => c.featured);
-const compact = cases.filter(c => !c.featured);
+const featured = projects.filter(p => p.featured);
+const compactRow1 = projects.filter(p => !p.featured).slice(0, 3);
+const compactRow2 = projects.filter(p => !p.featured).slice(3);
+
+function ProjectImage({ brand, tone, large }: { brand: string; tone: string; large?: boolean }) {
+  return (
+    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
+      {/* Neutral editorial placeholder — swap for next/image (fill + object-cover) once real project photography is ready */}
+      <div aria-hidden className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.03]" style={{ background: tone }} />
+      <span
+        aria-hidden
+        className={`absolute inset-0 flex items-center justify-center font-black leading-none text-[#14213F]/[0.06] ${large ? 'text-[9rem] sm:text-[11rem]' : 'text-[6rem]'}`}
+      >
+        {brand.charAt(0)}
+      </span>
+      <div aria-hidden className="absolute inset-0 ring-1 ring-inset ring-black/5" />
+    </div>
+  );
+}
 
 export default function RDCases() {
   return (
@@ -76,50 +93,45 @@ export default function RDCases() {
           </p>
         </div>
 
-        {/* Featured — two large, visually weighted projects */}
-        <div className="mt-12 grid gap-7 lg:grid-cols-2">
-          {featured.map(c => (
-            <article key={c.brand} className="group overflow-hidden rounded-2xl bg-white">
-              {/* Image container — sized for next/image (fill + object-cover) once real project photography replaces the gradient */}
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <div aria-hidden className="absolute inset-0" style={{ background: c.gradient }} />
-                <div aria-hidden className="absolute inset-0 ring-1 ring-inset ring-black/5" />
-              </div>
-              <div className="pt-6">
-                <p className="text-[11px] font-bold tracking-[0.2em] text-[#8A8A98] uppercase">{c.category}</p>
-                <h3 className="mt-2 text-[26px] font-bold text-[#14213F] sm:text-[30px]">{c.brand}</h3>
-                <p className="mt-2.5 max-w-[52ch] text-[15px] leading-relaxed text-[#5A5A6A]">{c.desc}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {c.tags.map(t => (
-                    <span key={t} className="rounded-full border border-[#E0E0E6] px-2.5 py-1 text-[12px] font-semibold text-[#5A5A6A]">
-                      {t}
-                    </span>
-                  ))}
-                </div>
+        {/* Featured — two flagship projects */}
+        <div className="mt-14 grid gap-10 lg:grid-cols-2">
+          {featured.map(p => (
+            <article key={p.brand} className="group overflow-hidden rounded-2xl bg-white">
+              <ProjectImage brand={p.brand} tone={p.tone} large />
+              <div className="pt-7">
+                <p className="text-[11.5px] font-bold tracking-[0.2em] text-[#8A8A98] uppercase">{p.category}</p>
+                <h3 className="mt-2.5 text-[28px] font-bold text-[#14213F] sm:text-[32px]">{p.brand}</h3>
+                <p className="mt-3 max-w-[48ch] text-[15.5px] leading-relaxed text-[#5A5A6A]">{p.desc}</p>
+                <p className="mt-4 text-[12.5px] font-semibold tracking-[0.06em] text-[#8A8A98]">{p.capability}</p>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Compact — five supporting projects */}
-        <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {compact.map(c => (
-            <article key={c.brand} className="group overflow-hidden rounded-2xl bg-white">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <div aria-hidden className="absolute inset-0" style={{ background: c.gradient }} />
-                <div aria-hidden className="absolute inset-0 ring-1 ring-inset ring-black/5" />
+        {/* Supporting projects — 3 + 2, each row evenly filled */}
+        <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
+          {compactRow1.map(p => (
+            <article key={p.brand} className="group overflow-hidden rounded-2xl bg-white">
+              <ProjectImage brand={p.brand} tone={p.tone} />
+              <div className="pt-6">
+                <p className="text-[11px] font-bold tracking-[0.18em] text-[#8A8A98] uppercase">{p.category}</p>
+                <h3 className="mt-2 text-[21px] font-bold text-[#14213F]">{p.brand}</h3>
+                <p className="mt-2.5 text-[14.5px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
+                <p className="mt-3.5 text-[12px] font-semibold tracking-[0.05em] text-[#8A8A98]">{p.capability}</p>
               </div>
-              <div className="pt-5">
-                <p className="text-[10.5px] font-bold tracking-[0.18em] text-[#8A8A98] uppercase">{c.category}</p>
-                <h3 className="mt-1.5 text-[17px] font-bold text-[#14213F]">{c.brand}</h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-[#6A6A7A]">{c.desc}</p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {c.tags.map(t => (
-                    <span key={t} className="rounded-full border border-[#E0E0E6] px-2 py-0.5 text-[11px] font-semibold text-[#5A5A6A]">
-                      {t}
-                    </span>
-                  ))}
-                </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2">
+          {compactRow2.map(p => (
+            <article key={p.brand} className="group overflow-hidden rounded-2xl bg-white">
+              <ProjectImage brand={p.brand} tone={p.tone} />
+              <div className="pt-6">
+                <p className="text-[11px] font-bold tracking-[0.18em] text-[#8A8A98] uppercase">{p.category}</p>
+                <h3 className="mt-2 text-[21px] font-bold text-[#14213F]">{p.brand}</h3>
+                <p className="mt-2.5 text-[14.5px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
+                <p className="mt-3.5 text-[12px] font-semibold tracking-[0.05em] text-[#8A8A98]">{p.capability}</p>
               </div>
             </article>
           ))}
