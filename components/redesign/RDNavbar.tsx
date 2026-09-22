@@ -2,7 +2,13 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-const LINKS = ['Hizmetler','Sektörler','Başarı Hikayeleri','Kaynaklar','Hakkımızda'];
+const LINKS = [
+  { label: 'Hizmetler', href: '#' },
+  { label: 'Sektörler', href: '#' },
+  { label: 'Projeler', href: '#hikayeler' },
+  { label: 'Kaynaklar', href: '#' },
+  { label: 'Hakkımızda', href: '#' },
+];
 
 export default function RDNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,7 +31,7 @@ export default function RDNavbar() {
         </Link>
         {/* Desktop nav */}
         <ul className="hidden items-center gap-6 lg:flex">
-          {LINKS.map(l => <li key={l}><a href="#" className="text-[15px] font-medium text-[#4A4A5A] transition-colors hover:text-[#1B5CD6]">{l}</a></li>)}
+          {LINKS.map(l => <li key={l.label}><a href={l.href} className="text-[15px] font-medium text-[#4A4A5A] transition-colors hover:text-[#1B5CD6]">{l.label}</a></li>)}
         </ul>
         <div className="hidden items-center gap-3 lg:flex">
           <button className="flex items-center gap-1 text-[14px] font-medium text-[#4A4A5A]">TR <span className="text-[11px]">▾</span></button>
@@ -39,7 +45,7 @@ export default function RDNavbar() {
       </nav>
       <div className={`overflow-hidden border-t border-[#E8E8EC] bg-white transition-all lg:hidden ${open ? 'max-h-80' : 'max-h-0 border-transparent'}`}>
         <div className="flex flex-col px-6 py-3 gap-0.5">
-          {LINKS.map(l => <a key={l} href="#" onClick={()=>setOpen(false)} className="rounded-lg px-2 py-2.5 text-[15.5px] font-medium text-[#3A3A4A] hover:bg-[#F4F4F8]">{l}</a>)}
+          {LINKS.map(l => <a key={l.label} href={l.href} onClick={()=>setOpen(false)} className="rounded-lg px-2 py-2.5 text-[15.5px] font-medium text-[#3A3A4A] hover:bg-[#F4F4F8]">{l.label}</a>)}
           <Link href="/iletisim" onClick={()=>setOpen(false)} className="mt-2 rounded-full bg-[#1B2E5E] px-5 py-3 text-center text-[15.5px] font-semibold text-white">İletişime Geç →</Link>
         </div>
       </div>

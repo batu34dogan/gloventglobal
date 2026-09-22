@@ -59,9 +59,6 @@ export default function RDHero() {
           style={{ background: 'linear-gradient(to top,rgba(15,21,45,0.55),transparent)' }}
         />
         <div aria-hidden className="absolute inset-y-0 left-0 hidden w-56 bg-gradient-to-r from-[#FAF9F6] to-transparent lg:block" />
-        <span className="absolute bottom-7 left-7 text-[13px] font-semibold tracking-[0.05em] text-white lg:bottom-12 lg:left-16">
-          İstanbul · Global Ticaret
-        </span>
       </div>
     </section>
   );
