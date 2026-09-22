@@ -3,20 +3,24 @@ import Link from 'next/link';
 const NAV = [
   { label: 'Hizmetler', href: '#hizmetler' },
   { label: 'Projeler', href: '#hikayeler' },
+  { label: 'Hakkımızda', href: '/hakkimizda' },
   { label: 'İletişim', href: '/iletisim' },
 ];
+
+const RESOURCES = [{ label: 'Rehberler', href: '/rehberler' }];
 
 const LEGAL = [
   { label: 'KVKK', href: '/kvkk' },
   { label: 'Gizlilik Politikası', href: '/gizlilik-politikasi' },
   { label: 'Çerez Politikası', href: '/cerez-politikasi' },
+  { label: 'Kullanım Şartları', href: '/kullanim-sartlari' },
 ];
 
 export default function RDFooter() {
   return (
     <footer className="border-t border-[#E5E5EC] bg-[#FAF9F6]">
       <div className="mx-auto max-w-[1400px] px-6 py-16 sm:px-10">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.9fr_0.9fr_0.9fr]">
+        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.2fr_0.8fr_0.6fr_0.8fr_0.7fr]">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
@@ -40,11 +44,23 @@ export default function RDFooter() {
             </ul>
           </div>
 
+          {/* Resources */}
+          <div>
+            <p className="text-[11px] font-bold tracking-[0.2em] text-[#9A9AA8] uppercase">Kaynaklar</p>
+            <ul className="mt-4 space-y-2.5">
+              {RESOURCES.map(l => (
+                <li key={l.label}>
+                  <Link href={l.href} className="text-[14.5px] text-[#4A4A5A] transition-colors hover:text-[#1B5CD6]">{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
             <p className="text-[11px] font-bold tracking-[0.2em] text-[#9A9AA8] uppercase">İletişim</p>
             <ul className="mt-4 space-y-2.5">
-              <li><a href="mailto:info@gloventglobal.com" className="text-[14.5px] text-[#4A4A5A] transition-colors hover:text-[#1B5CD6]">info@gloventglobal.com</a></li>
+              <li><a href="mailto:info@gloventglobal.com" className="break-words text-[14.5px] text-[#4A4A5A] transition-colors hover:text-[#1B5CD6]">info@gloventglobal.com</a></li>
               <li><span className="text-[14.5px] text-[#4A4A5A]">İstanbul, Türkiye</span></li>
             </ul>
           </div>
