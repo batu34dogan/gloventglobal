@@ -119,7 +119,7 @@ export default function RDWhy() {
             >
               İletişime Geç →
             </Link>
-            <p className="mt-5 max-w-[400px] text-[13.5px] leading-relaxed text-[#A9B4CC]/80">
+            <p className="mt-5 max-w-[400px] text-[14px] leading-relaxed text-[#A9B4CC]/[0.92]">
               Strateji verip çekilmiyoruz. Sistemi kuruyor, işletiyor ve sürekli geliştiriyoruz.
             </p>
           </div>
