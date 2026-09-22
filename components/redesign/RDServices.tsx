@@ -222,10 +222,10 @@ export default function RDServices() {
             <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Çekirdek Yetkinlikler</p>
             <h2 className="mt-3 text-[2.6rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[3.1rem]">Neler Yapıyoruz?</h2>
           </div>
-          <div className={`rd-support max-w-[320px] ${inView ? 'rd-in' : ''}`}>
+          <div className={`rd-support max-w-[365px] ${inView ? 'rd-in' : ''}`}>
             <p className="text-[11px] font-bold tracking-[0.24em] text-[#B8935A] uppercase">Tek Sistem · Dört Yetkinlik</p>
-            <p className="mt-3 text-[1.4rem] font-semibold leading-snug text-[#1F2A44] sm:text-[1.55rem]">
-              Strateji, ticaret, teknoloji ve operasyonu <span className="text-[#1B5CD6]">tek bir büyüme sistemi</span> altında birleştiriyoruz.
+            <p className="mt-3 text-[1.275rem] font-semibold leading-snug text-[#1F2A44] sm:text-[1.4rem]">
+              Strateji, ticaret, teknoloji ve operasyonu <span className="text-[#1B5CD6]">tek bir büyüme sisteminde</span> birleştiriyoruz.
             </p>
           </div>
         </div>
