@@ -17,9 +17,9 @@ export default function RDChannels() {
           <Image
             src="/redesign/channels/commerce-ecosystem.png"
             alt="Amazon, Etsy, eBay, Shopify, Walmart, TikTok Shop"
-            width={2042}
-            height={179}
-            className="h-5 w-auto shrink-0 sm:h-6"
+            width={2161}
+            height={198}
+            className="h-auto w-[750px] shrink-0 lg:w-[min(1000px,82vw)]"
           />
         </div>
       </div>
