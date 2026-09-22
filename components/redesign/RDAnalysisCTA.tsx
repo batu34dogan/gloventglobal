@@ -47,9 +47,12 @@ export default function RDAnalysisCTA() {
       >
         <span aria-hidden="true" className="rd-analysis-cta-grid" />
 
-        <span aria-hidden="true" className="relative flex h-8 w-8 shrink-0 items-center justify-center">
+        <span
+          aria-hidden="true"
+          className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.06]"
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/gloventglobal-icon.svg" alt="" className="h-6 w-6 object-contain" />
+          <img src="/gloventglobal-icon.svg" alt="" className="h-5 w-5 object-contain" />
         </span>
 
         {/* Mobil: tek satırlı kompakt versiyon */}
