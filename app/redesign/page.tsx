@@ -7,6 +7,7 @@ import RDSystem from '@/components/redesign/RDSystem';
 import RDCases from '@/components/redesign/RDCases';
 import RDWhy from '@/components/redesign/RDWhy';
 import RDFooter from '@/components/redesign/RDFooter';
+import RDAnalysisCTA from '@/components/redesign/RDAnalysisCTA';
 
 export const metadata: Metadata = {
   title: 'GloventGlobal — Premium Redesign Preview',
@@ -27,6 +28,7 @@ export default function RedesignPage() {
         <RDWhy />
       </main>
       <RDFooter />
+      <RDAnalysisCTA />
     </div>
   );
 }
