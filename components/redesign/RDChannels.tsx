@@ -16,10 +16,10 @@ export default function RDChannels() {
         <div className="rd-eco-scroll mt-6 flex justify-start overflow-x-auto overscroll-x-contain sm:justify-center">
           <Image
             src="/redesign/channels/commerce-ecosystem.png"
-            alt="Amazon, Etsy, eBay, Shopify, Walmart, TikTok Shop"
-            width={2161}
-            height={198}
-            className="h-auto w-[750px] shrink-0 lg:w-[min(1000px,82vw)]"
+            alt="Amazon, Etsy, eBay, Shopify, Walmart, TikTok Shop, Trendyol"
+            width={2124}
+            height={180}
+            className="h-auto w-[860px] shrink-0 lg:w-[1100px]"
           />
         </div>
       </div>
