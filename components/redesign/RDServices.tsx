@@ -9,7 +9,7 @@ const services = [
   { n: '04', title: 'Operasyon', desc: 'İçerik, ürün, reklam, veri ve günlük operasyon.' },
 ];
 
-const aiNodes = ['Automation', 'Content', 'Data', 'Decision', 'Operations', 'Workflows'];
+const aiNodes = ['Otomasyon', 'İçerik', 'Veri', 'Karar Desteği', 'Operasyon', 'İş Akışları'];
 
 function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
   if (e.pointerType !== 'mouse') return;
@@ -254,7 +254,7 @@ export default function RDServices() {
                 Yapay zekâyı anlatmıyoruz. Sistemlerin içine entegre ediyoruz.
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-white/65">
-                İçerik üretiminden veri analizine, operasyon otomasyonundan karar destek süreçlerine kadar AI&apos;ı hem kendi işimizde hem kurduğumuz sistemlerde aktif olarak kullanıyoruz.
+                İçerik üretiminden veri analizine, otomasyondan karar desteğine kadar yapay zekâyı kendi operasyonlarımızda ve kurduğumuz sistemlerin içinde aktif olarak kullanıyoruz.
               </p>
             </div>
 
