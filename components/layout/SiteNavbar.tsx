@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { label: 'Hizmetler', href: '/hizmetler' },
@@ -16,6 +17,7 @@ const navLinks = [
 // z-index (z-40) veriliyor — intro açıkken navbar'ın arkasında kalır (görünmez), intro fade-out
 // olurken doğal şekilde belirir. Bu sayede GloventIntro.tsx'e hiç dokunulmadan çakışma önleniyor.
 export default function SiteNavbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -31,6 +33,10 @@ export default function SiteNavbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // /redesign kendi RDNavbar'ını render ediyor — eski global navbar orada hiç mount olmasın
+  // (DOM'da gizli-ama-canlı kalıp klavye/screen reader'a sızmasın diye).
+  if (pathname?.startsWith('/redesign')) return null;
 
   return (
     <header

@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
 
 const LINKS = [
-  { label: 'Hizmetler', href: '#' },
-  { label: 'Sektörler', href: '#' },
+  { label: 'Hizmetler', href: '/hizmetler' },
+  { label: 'Nasıl Çalışıyoruz', href: '/nasil-calisiyoruz' },
   { label: 'Projeler', href: '#hikayeler' },
-  { label: 'Kaynaklar', href: '#' },
-  { label: 'Hakkımızda', href: '#' },
+  { label: 'Rehberler', href: '/rehberler' },
+  { label: 'Hakkımızda', href: '/hakkimizda' },
 ];
 
 export default function RDNavbar() {
