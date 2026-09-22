@@ -103,7 +103,7 @@ export default function RDWhy() {
       `}</style>
 
       <div ref={sectionRef} className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="grid md:grid-cols-2">
+        <div className="grid md:grid-cols-2 lg:grid-cols-[1fr_1.08fr]">
           {/* Left dark panel */}
           <div className={`rd-diff-left ${inView ? 'rd-in' : ''} flex flex-col justify-center py-16 pr-0 md:pr-8 lg:pr-16`}>
             <p className="text-[11px] font-bold tracking-[0.28em] text-[#1B5CD6] uppercase">Türkiye&apos;den Dünyaya</p>
@@ -119,14 +119,6 @@ export default function RDWhy() {
             >
               İletişime Geç →
             </Link>
-
-            {/* Founder quote — small, secondary */}
-            <div className="mt-14 flex items-center gap-3 border-t border-white/10 pt-6">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-[10.5px] font-bold text-white/80">BD</div>
-              <p className="text-[13px] italic leading-snug text-white/45">
-                &ldquo;Sadece danışmanlık değil, uzun vadeli bir büyüme ortaklığı.&rdquo; — Batuhan Doğan, Kurucu
-              </p>
-            </div>
           </div>
 
           {/* Right — transformation rows */}
@@ -144,12 +136,12 @@ export default function RDWhy() {
                   className={`rd-diff-row ${inView ? 'rd-in' : ''} border-b border-white/10 last:border-0`}
                 >
                   <span aria-hidden className="rd-diff-accent" />
-                  <div className="flex items-center justify-between gap-6 py-8 pl-5">
+                  <div className="flex items-center justify-between gap-6 py-8 pl-5 pr-5">
                     <div>
-                      <p className="text-[12px] font-semibold uppercase tracking-[0.1em] text-white/35">{d.not}</p>
+                      <p className="text-[12px] font-semibold uppercase tracking-[0.1em] text-white/40">{d.not}</p>
                       <p className="rd-diff-is mt-1.5 text-[1.5rem] font-bold leading-snug text-white">{d.is}</p>
                     </div>
-                    <span className="rd-diff-num shrink-0 text-[13px] font-bold text-white/25">{pad(i + 1)}</span>
+                    <span className="rd-diff-num shrink-0 text-[13px] font-bold text-white/30">{pad(i + 1)}</span>
                   </div>
                 </div>
               ))}
