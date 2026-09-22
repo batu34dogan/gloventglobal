@@ -6,6 +6,7 @@ import RDHero from '@/components/redesign/RDHero';
 import RDChannels from '@/components/redesign/RDChannels';
 import RDServices from '@/components/redesign/RDServices';
 import RDSystem from '@/components/redesign/RDSystem';
+import RDAudiences from '@/components/redesign/RDAudiences';
 import RDCases from '@/components/redesign/RDCases';
 import RDGuides from '@/components/redesign/RDGuides';
 import RDWhy from '@/components/redesign/RDWhy';
@@ -63,6 +64,7 @@ export default function RedesignPage() {
         <RDChannels />
         <RDServices />
         <RDSystem />
+        <RDAudiences />
         <RDCases />
         <RDGuides />
         <RDWhy />
