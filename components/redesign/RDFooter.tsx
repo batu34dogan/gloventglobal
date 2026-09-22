@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const NAV = [
   { label: 'Hizmetler', href: '#hizmetler' },
-  { label: 'Başarı Hikayeleri', href: '#hikayeler' },
+  { label: 'Projeler', href: '#hikayeler' },
   { label: 'İletişim', href: '/iletisim' },
 ];
 

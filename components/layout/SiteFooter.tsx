@@ -1,3 +1,7 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+
 const siteLinks = [{ label: 'Rehberler', href: '/rehberler' }];
 
 const legalLinks = [
@@ -8,6 +12,11 @@ const legalLinks = [
 ];
 
 export default function SiteFooter() {
+  const pathname = usePathname();
+
+  // /redesign kendi RDFooter'ını render ediyor — eski global footer orada tekrar görünmesin.
+  if (pathname?.startsWith('/redesign')) return null;
+
   return (
     <footer className="relative border-t border-white/[0.06] px-6 py-6 sm:px-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 sm:flex-row">
