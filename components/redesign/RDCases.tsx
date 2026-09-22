@@ -27,7 +27,7 @@ const projects: Project[] = [
     logo: '/redesign/logos/asl-canta.png',
     logoWidth: 2195,
     logoHeight: 944,
-    logoMaxWidthPct: 48,
+    logoMaxWidthPct: 38,
   },
   {
     brand: 'BERD',
@@ -38,7 +38,7 @@ const projects: Project[] = [
     logo: '/redesign/logos/berd.png',
     logoWidth: 1720,
     logoHeight: 849,
-    logoMaxWidthPct: 58,
+    logoMaxWidthPct: 51,
   },
   {
     brand: 'Güvenli Adımlar',
@@ -60,7 +60,7 @@ const projects: Project[] = [
     logo: '/redesign/logos/ziynet-bijuteri.png',
     logoWidth: 1691,
     logoHeight: 793,
-    logoMaxWidthPct: 58,
+    logoMaxWidthPct: 49,
   },
   {
     brand: 'RituelCo',
@@ -71,7 +71,7 @@ const projects: Project[] = [
     logo: '/redesign/logos/rituelco.png',
     logoWidth: 1692,
     logoHeight: 1689,
-    logoMaxWidthPct: 43.5,
+    logoMaxWidthPct: 40,
   },
   {
     brand: 'GLC',
@@ -82,7 +82,7 @@ const projects: Project[] = [
     logo: '/redesign/logos/glc.png',
     logoWidth: 1254,
     logoHeight: 1254,
-    logoMaxWidthPct: 36,
+    logoMaxWidthPct: 35,
   },
   {
     brand: 'Maxpace',
@@ -93,7 +93,7 @@ const projects: Project[] = [
     logo: '/redesign/logos/maxpace.png',
     logoWidth: 2048,
     logoHeight: 555,
-    logoMaxWidthPct: 62,
+    logoMaxWidthPct: 60,
   },
 ];
 
