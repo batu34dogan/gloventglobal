@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { trackEvent } from '@/lib/analytics';
 
 const SYSTEM = ['Strategy', 'Commerce', 'Technology', 'Operations'];
 
@@ -28,10 +31,18 @@ export default function RDHero() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link href="/analiz" className="inline-flex items-center gap-2 rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6]">
+            <Link
+              href="/analiz"
+              onClick={() => trackEvent('free_analysis_cta_click', { location: 'redesign_hero' })}
+              className="inline-flex items-center gap-2 rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6]"
+            >
               Ücretsiz Strateji Görüşmesi →
             </Link>
-            <Link href="#hizmetler" className="inline-flex items-center rounded-full border border-[#D6D6DC] bg-transparent px-7 py-3.5 text-[15.5px] font-semibold text-[#14213F] transition-all hover:border-[#1B5CD6] hover:text-[#1B5CD6]">
+            <Link
+              href="#hizmetler"
+              onClick={() => trackEvent('services_anchor_click', { location: 'redesign_hero' })}
+              className="inline-flex items-center rounded-full border border-[#D6D6DC] bg-transparent px-7 py-3.5 text-[15.5px] font-semibold text-[#14213F] transition-all hover:border-[#1B5CD6] hover:text-[#1B5CD6]"
+            >
               Hizmetlerimizi Keşfet
             </Link>
           </div>

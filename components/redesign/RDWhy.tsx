@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 const diffs = [
   { not: 'Rapor değil', is: 'Çalışan sistem' },
@@ -115,6 +116,7 @@ export default function RDWhy() {
             </p>
             <Link
               href="/iletisim"
+              onClick={() => trackEvent('contact_cta_click', { location: 'redesign_why' })}
               className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-white hover:text-[#0F1E3C]"
             >
               İletişime Geç →
