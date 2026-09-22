@@ -218,29 +218,11 @@ function Marquee() {
 
   return (
     <div
-      className="rd-rail-fade overflow-hidden"
+      className="overflow-hidden"
       onWheel={onWheel}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {/* True alpha mask (not an overlay) so a card fades as one unit — image, category, title, description
-          and capability all dissolve together at the same rate instead of the image and text clipping separately.
-          Left side stays fully transparent (0 opacity, no ghosted text) for most of its width, with only a short
-          ramp right at the boundary; right side keeps a plain, lighter fade so the next card stays legible. */}
-      <style>{`
-        .rd-rail-fade {
-          -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-          -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
-          -webkit-mask-image: linear-gradient(to right, transparent 0, transparent 24px, #000 40px, #000 calc(100% - 20px), transparent 100%);
-          mask-image: linear-gradient(to right, transparent 0, transparent 24px, #000 40px, #000 calc(100% - 20px), transparent 100%);
-        }
-        @media (min-width: 640px) {
-          .rd-rail-fade {
-            -webkit-mask-image: linear-gradient(to right, transparent 0, transparent 40px, #000 60px, #000 calc(100% - 32px), transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0, transparent 40px, #000 60px, #000 calc(100% - 32px), transparent 100%);
-          }
-        }
-      `}</style>
       <div
         ref={trackRef}
         role="region"
@@ -286,8 +268,9 @@ export default function RDCases() {
         </div>
       </div>
 
-      {/* Rail — left edge aligns with the header above; right edge bleeds past the content column to hint continuation */}
-      <div className="mt-[42px] pl-6 sm:pl-10 lg:pl-[max(2.5rem,calc((100vw-1400px)/2+2.5rem))]">
+      {/* Full-bleed rail — breaks out of the content column to run edge-to-edge with the viewport, like an
+          editorial strip. Partial cards at both screen edges are intentional, not clipped-away overflow. */}
+      <div className="mt-[42px] w-screen ml-[calc(50%-50vw)]">
         {reducedMotion ? <StaticRail /> : <Marquee />}
       </div>
     </section>
