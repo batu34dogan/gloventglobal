@@ -5,6 +5,7 @@ import RDChannels from '@/components/redesign/RDChannels';
 import RDServices from '@/components/redesign/RDServices';
 import RDSystem from '@/components/redesign/RDSystem';
 import RDCases from '@/components/redesign/RDCases';
+import RDGuides from '@/components/redesign/RDGuides';
 import RDWhy from '@/components/redesign/RDWhy';
 import RDFooter from '@/components/redesign/RDFooter';
 import RDAnalysisCTA from '@/components/redesign/RDAnalysisCTA';
@@ -25,6 +26,7 @@ export default function RedesignPage() {
         <RDServices />
         <RDSystem />
         <RDCases />
+        <RDGuides />
         <RDWhy />
       </main>
       <RDFooter />
