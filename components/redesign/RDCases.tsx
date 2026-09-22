@@ -12,8 +12,9 @@ type Project = {
   logo: string;
   logoWidth: number;
   logoHeight: number;
-  // Very wide wordmarks get a little extra width so they don't read as undersized next to square marks.
-  wideLogo?: boolean;
+  // Per-brand cap (% of the image area's width) — logos differ enough in shape/density
+  // that a single uniform rule made some read too small and others too large.
+  logoMaxWidthPct: number;
 };
 
 const projects: Project[] = [
@@ -23,9 +24,10 @@ const projects: Project[] = [
     capability: 'Shopify · Commerce Infrastructure · UX',
     desc: 'Geniş ürün kataloğu için ürün mimarisinden kullanıcı deneyimine uzanan modern e-ticaret ve dijital operasyon altyapısı.',
     tone: 'linear-gradient(160deg,#EFE9DD 0%,#E6DFD0 100%)',
-    logo: '/redesign/logos/asl-canta.svg',
-    logoWidth: 768,
-    logoHeight: 768,
+    logo: '/redesign/logos/asl-canta.png',
+    logoWidth: 2195,
+    logoHeight: 944,
+    logoMaxWidthPct: 48,
   },
   {
     brand: 'BERD',
@@ -33,9 +35,10 @@ const projects: Project[] = [
     capability: 'Amazon · Market Entry · Growth',
     desc: 'Türkiye’den global pazarlara açılma sürecinde pazaryeri, satış ve büyüme yapısının oluşturulması.',
     tone: 'linear-gradient(160deg,#E4E6EA 0%,#D8DBE1 100%)',
-    logo: '/redesign/logos/berd.svg',
-    logoWidth: 708,
-    logoHeight: 708,
+    logo: '/redesign/logos/berd.png',
+    logoWidth: 1720,
+    logoHeight: 849,
+    logoMaxWidthPct: 58,
   },
   {
     brand: 'Güvenli Adımlar',
@@ -43,9 +46,10 @@ const projects: Project[] = [
     capability: 'Amazon · Listing · Marketplace Operations',
     desc: 'Amazon satış operasyonunun ürün konumlandırması, listeleme ve pazaryeri süreçleriyle yapılandırılması.',
     tone: 'linear-gradient(160deg,#EDEBE6 0%,#E3E0D8 100%)',
-    logo: '/redesign/logos/guvenli-adimlar.svg',
-    logoWidth: 1152,
-    logoHeight: 768,
+    logo: '/redesign/logos/guvenli-adimlar.png',
+    logoWidth: 1292,
+    logoHeight: 577,
+    logoMaxWidthPct: 58,
   },
   {
     brand: 'Ziynet Bijüteri',
@@ -53,9 +57,10 @@ const projects: Project[] = [
     capability: 'B2B · Digital Showroom · Global',
     desc: 'Türkiye’den global alıcılara ulaşmayı destekleyen dijital B2B satış ve marka sunum yapısı.',
     tone: 'linear-gradient(160deg,#E7EAED 0%,#DCE0E5 100%)',
-    logo: '/redesign/logos/ziynet-bijuteri.svg',
-    logoWidth: 810,
-    logoHeight: 1013,
+    logo: '/redesign/logos/ziynet-bijuteri.png',
+    logoWidth: 1691,
+    logoHeight: 793,
+    logoMaxWidthPct: 58,
   },
   {
     brand: 'RituelCo',
@@ -63,9 +68,10 @@ const projects: Project[] = [
     capability: 'Etsy · Commerce · Global',
     desc: 'Global dijital müşterilere ulaşmak için Etsy odaklı satış ve commerce yapısı.',
     tone: 'linear-gradient(160deg,#F0ECE3 0%,#E7E1D3 100%)',
-    logo: '/redesign/logos/rituelco.svg',
-    logoWidth: 941,
-    logoHeight: 941,
+    logo: '/redesign/logos/rituelco.png',
+    logoWidth: 1692,
+    logoHeight: 1689,
+    logoMaxWidthPct: 43.5,
   },
   {
     brand: 'GLC',
@@ -76,6 +82,7 @@ const projects: Project[] = [
     logo: '/redesign/logos/glc.png',
     logoWidth: 1254,
     logoHeight: 1254,
+    logoMaxWidthPct: 36,
   },
   {
     brand: 'Maxpace',
@@ -85,8 +92,8 @@ const projects: Project[] = [
     tone: 'linear-gradient(160deg,#E3E5E8 0%,#D7DAE0 100%)',
     logo: '/redesign/logos/maxpace.png',
     logoWidth: 2048,
-    logoHeight: 682,
-    wideLogo: true,
+    logoHeight: 555,
+    logoMaxWidthPct: 62,
   },
 ];
 
@@ -104,10 +111,9 @@ function ProjectCard({ p }: { p: Project }) {
             width={p.logoWidth}
             height={p.logoHeight}
             draggable={false}
-            // SVGs are vector and the optimizer rejects them unless dangerouslyAllowSVG is enabled in next.config.
-            unoptimized={p.logo.endsWith('.svg')}
             sizes="(min-width: 640px) 280px, 45vw"
-            className={`h-auto w-auto max-h-[45%] object-contain ${p.wideLogo ? 'max-w-[60%]' : 'max-w-[48%]'}`}
+            className="h-auto w-auto object-contain"
+            style={{ maxWidth: `${p.logoMaxWidthPct}%`, maxHeight: '75%' }}
           />
         </div>
         <div aria-hidden className="absolute inset-0 ring-1 ring-inset ring-black/5" />
