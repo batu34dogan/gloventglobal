@@ -118,7 +118,7 @@ export default function RDSystem() {
 
         .rd-sys-seg {
           fill: none;
-          stroke: #C9CCD6;
+          stroke: #B1B4BC;
           stroke-width: 2;
           stroke-linecap: round;
           stroke-dasharray: 420;
@@ -151,7 +151,7 @@ export default function RDSystem() {
         }
         .rd-sys-diagram.rd-in .rd-sys-return-label { opacity: .85; }
 
-        .rd-sys-pulse-dot { opacity: 0; transition: opacity .4s ease; transition-delay: 1000ms; }
+        .rd-sys-pulse-dot { opacity: 0; filter: drop-shadow(0 0 3px rgba(201,168,118,0.65)); transition: opacity .4s ease; transition-delay: 1000ms; }
         .rd-sys-diagram.rd-in .rd-sys-pulse-dot { opacity: 1; }
 
         .rd-sys-node {
@@ -223,7 +223,7 @@ export default function RDSystem() {
                   />
                 ))}
                 {!reducedMotion && (
-                  <circle r="3.5" fill="#C9A876" className="rd-sys-pulse-dot">
+                  <circle r="4" fill="#C9A876" className="rd-sys-pulse-dot">
                     <animateMotion dur="7s" repeatCount="indefinite" path={FULL_PATH_H} rotate="auto" />
                   </circle>
                 )}
@@ -245,7 +245,7 @@ export default function RDSystem() {
               <span
                 aria-hidden
                 className="rd-sys-return-label absolute text-[9.5px] font-bold tracking-[0.18em] text-[#B8935A] uppercase"
-                style={{ left: '48%', top: '0%', transform: 'translate(-50%, 0)' }}
+                style={{ left: '48%', top: '7px', transform: 'translate(-50%, 0)' }}
               >
                 Sürekli Optimizasyon
               </span>
@@ -269,7 +269,7 @@ export default function RDSystem() {
                   <path d={RETURN_PATH_V} className="rd-sys-return" />
                   <path d={FULL_PATH_V} className="rd-sys-seg" data-i="0" style={{ strokeDasharray: 640, strokeDashoffset: inView ? 0 : 640 }} />
                   {!reducedMotion && (
-                    <circle r="3.5" fill="#C9A876" className="rd-sys-pulse-dot">
+                    <circle r="4" fill="#C9A876" className="rd-sys-pulse-dot">
                       <animateMotion dur="7s" repeatCount="indefinite" path={FULL_PATH_V} rotate="auto" />
                     </circle>
                   )}
