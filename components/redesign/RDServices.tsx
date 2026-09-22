@@ -219,7 +219,7 @@ export default function RDServices() {
         {/* Header row */}
         <div className="flex flex-wrap items-center justify-between gap-8">
           <div>
-            <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Çekirdek Yetkinlikler</p>
+            <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Büyüme Mimarisi</p>
             <h2 className="mt-3 text-[2.6rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[3.1rem]">Neler Yapıyoruz?</h2>
           </div>
           <div className={`rd-support max-w-[365px] ${inView ? 'rd-in' : ''}`}>
@@ -231,7 +231,7 @@ export default function RDServices() {
         </div>
 
         {/* Capability tiles */}
-        <div ref={gridRef} className="rd-cap-grid mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div ref={gridRef} className="rd-cap-grid mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {services.map((s, i) => (
             <div
               key={s.title}
