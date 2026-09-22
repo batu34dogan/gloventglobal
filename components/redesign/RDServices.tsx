@@ -2,11 +2,28 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+// secondaryLabel/secondaryChips: production ana sayfanın (HomeContent.tsx) eski Ekosistem
+// bölümünde ayrı kart olarak geçen "Reklam & Growth" (PPC/SEO/Content) ve "Veri & Performans
+// Analizi" (GA4/Search Console/KPI) yetkinlikleri — yeni 5./6. kart açmadan, en ilgili mevcut
+// karta (satış kanalları → Ticaret, günlük operasyon/veri → Operasyon) düşük ağırlıklı ikincil
+// etiket olarak entegre edildi. Uydurma araç/hizmet adı yok, hepsi production kaynağından.
 const services = [
   { n: '01', title: 'Strateji', desc: 'Pazar, ürün, fiyatlandırma ve büyüme modeli.' },
-  { n: '02', title: 'Ticaret', desc: 'Marketplace, Shopify, B2B ve satış kanalları.' },
+  {
+    n: '02',
+    title: 'Ticaret',
+    desc: 'Marketplace, Shopify, B2B ve satış kanalları.',
+    secondaryLabel: 'Reklam & Growth',
+    secondaryChips: ['PPC', 'SEO', 'Content'],
+  },
   { n: '03', title: 'Teknoloji', desc: 'Web, entegrasyon, API, AI ve otomasyon.' },
-  { n: '04', title: 'Operasyon', desc: 'İçerik, ürün, reklam, veri ve günlük operasyon.' },
+  {
+    n: '04',
+    title: 'Operasyon',
+    desc: 'İçerik, ürün, reklam, veri ve günlük operasyon.',
+    secondaryLabel: 'Veri & Performans Analizi',
+    secondaryChips: ['GA4', 'Search Console', 'KPI'],
+  },
 ];
 
 const aiNodes = ['Otomasyon', 'İçerik', 'Veri', 'Karar Desteği', 'Operasyon', 'İş Akışları'];
@@ -245,6 +262,16 @@ export default function RDServices() {
               <span className="rd-cap-number relative text-[11.5px] font-bold tracking-[0.2em] text-[#B8935A]">{s.n}</span>
               <h3 className="rd-cap-title relative mt-4 text-[21px] font-bold tracking-tight text-[#14213F]">{s.title}</h3>
               <p className="relative mt-2.5 text-[15px] leading-[1.65] text-[#5A5A6A]">{s.desc}</p>
+              {s.secondaryLabel && (
+                <div className="relative mt-5 border-t border-[#E5E5EC] pt-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#9A9AA8]">
+                    {s.secondaryLabel}
+                  </p>
+                  <p className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[#B8935A]">
+                    {s.secondaryChips.join(' · ')}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>

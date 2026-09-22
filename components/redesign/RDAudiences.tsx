@@ -78,7 +78,7 @@ export default function RDAudiences() {
           transition: color .3s ease, transform .3s ease;
         }
         .rd-aud-desc {
-          opacity: .82;
+          opacity: .93;
           transition: opacity .3s ease, color .3s ease;
         }
         .rd-aud-row:focus-visible {
@@ -136,14 +136,16 @@ export default function RDAudiences() {
           {audiences.map((a) => (
             <div key={a.number} tabIndex={0} className="rd-aud-row border-b border-[#E5E5EC] last:border-0">
               <span aria-hidden="true" className="rd-aud-accent" />
-              <div className="grid grid-cols-1 gap-3 py-7 pl-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] sm:items-baseline sm:gap-10 sm:py-8">
+              <div className="grid grid-cols-1 gap-3 py-[25px] pl-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] sm:items-baseline sm:gap-10 sm:py-[29px]">
                 <div className="flex items-baseline gap-4">
                   <span className="rd-aud-number shrink-0 text-[13px] font-bold text-[#9A9AA8]">{a.number}</span>
                   <h3 className="rd-aud-title text-[1.4rem] font-bold leading-snug text-[#14213F] sm:text-[1.7rem]">
                     {a.title}
                   </h3>
                 </div>
-                <p className="rd-aud-desc text-[14.5px] leading-relaxed text-[#6A6A7A]">{a.description}</p>
+                <p className="rd-aud-desc max-w-[600px] text-[14.5px] leading-relaxed text-[#6A6A7A]">
+                  {a.description}
+                </p>
               </div>
             </div>
           ))}
