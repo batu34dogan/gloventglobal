@@ -89,6 +89,13 @@ export default function RDServices() {
         }
         .rd-cap-card.rd-in { opacity: 1; transform: translateY(0); }
 
+        .rd-support {
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity .6s ease, transform .6s ease;
+        }
+        .rd-support.rd-in { opacity: 1; transform: translateY(0); }
+
         .rd-cap-bgpattern {
           position: absolute; inset: 0; pointer-events: none; border-radius: inherit; overflow: hidden;
           background-image:
@@ -144,7 +151,8 @@ export default function RDServices() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .rd-cap-card, .rd-cap-card.rd-in, .rd-cap-card:hover {
+          .rd-cap-card, .rd-cap-card.rd-in, .rd-cap-card:hover,
+          .rd-support, .rd-support.rd-in {
             opacity: 1 !important;
             transform: none !important;
             transition: none !important;
@@ -214,9 +222,12 @@ export default function RDServices() {
             <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Çekirdek Yetkinlikler</p>
             <h2 className="mt-3 text-[2.6rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[3.1rem]">Neler Yapıyoruz?</h2>
           </div>
-          <p className="max-w-[32ch] text-[1.1rem] leading-relaxed text-[#5A5A6A]">
-            Markanızı global pazarlara taşıyan dört temel yetkinlik.
-          </p>
+          <div className={`rd-support max-w-[320px] ${inView ? 'rd-in' : ''}`}>
+            <p className="text-[11px] font-bold tracking-[0.24em] text-[#B8935A] uppercase">Tek Sistem · Dört Yetkinlik</p>
+            <p className="mt-3 text-[1.4rem] font-semibold leading-snug text-[#1F2A44] sm:text-[1.55rem]">
+              Strateji, ticaret, teknoloji ve operasyonu <span className="text-[#1B5CD6]">tek bir büyüme sistemi</span> altında birleştiriyoruz.
+            </p>
+          </div>
         </div>
 
         {/* Capability tiles */}
