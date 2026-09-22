@@ -3,17 +3,21 @@ const channels = ['Amazon', 'Etsy', 'eBay', 'Shopify', 'Walmart', 'TikTok Shop']
 export default function RDChannels() {
   return (
     <section className="border-y border-[#E8E8EC] bg-white py-10">
+      <style>{`
+        .rd-eco-scroll{scrollbar-width:none;-ms-overflow-style:none;}
+        .rd-eco-scroll::-webkit-scrollbar{display:none;}
+      `}</style>
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="flex items-center justify-center gap-3">
           <span aria-hidden className="h-px w-8 bg-[#C9A876]" />
-          <p className="text-[11px] font-bold tracking-[0.32em] text-[#9A9AA8] uppercase">Global Commerce Ecosystem</p>
+          <p className="text-[12px] font-bold tracking-[0.28em] text-[#1B5CD6] uppercase">Global Commerce Ecosystem</p>
           <span aria-hidden className="h-px w-8 bg-[#C9A876]" />
         </div>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 divide-x divide-[#E5E5EA] sm:gap-x-10">
+        <div className="rd-eco-scroll mt-6 flex flex-nowrap items-center justify-start gap-x-8 overflow-x-auto overscroll-x-contain sm:justify-center sm:gap-x-6 lg:gap-x-10">
           {channels.map(ch => (
             <span
               key={ch}
-              className="pl-8 text-[14px] font-semibold uppercase tracking-[0.08em] text-[#5A5A6A] transition-colors first:pl-0 hover:text-[#14213F] sm:pl-10"
+              className="shrink-0 text-[16px] font-semibold uppercase tracking-[0.06em] text-[#5A5A6A] transition-colors hover:text-[#14213F]"
             >
               {ch}
             </span>
