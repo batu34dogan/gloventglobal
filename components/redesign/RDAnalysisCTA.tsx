@@ -47,15 +47,18 @@ export default function RDAnalysisCTA() {
       >
         <span aria-hidden="true" className="rd-analysis-cta-grid" />
 
-        {/* Navbar'daki gerçek marka işaretiyle (RDNavbar.tsx) aynı markup yaklaşımı: mevcut
-            gloventglobal-icon.svg/apple-touch-icon.svg dosyaları kendi içinde opak beyaz bir
-            <rect> zemin taşıyor (Canva raster export) — küçük boyutta kaçınılmaz şekilde beyaz
-            kare olarak görünüyor, bu yüzden burada da image değil, aynı border+harf tekniği kullanılıyor. */}
+        {/* Gerçek GloventGlobal globe+arrow marka işareti (public/apple-touch-icon.svg ile aynı
+            sanat çalışması). O dosya kendi içinde opak beyaz bir zemin taşıdığı için (Canva
+            export) küçük boyutta kaçınılmaz beyaz kare/daire olarak görünüyordu — bu yüzden
+            aynı işaret, beyaz zemini şeffaflaştırılıp içeriğe sıkı kırpılmış olarak
+            public/redesign/gloventglobal-mark.png'ye işlendi (yeni tasarım değil, aynı marka
+            görselinin arka planı temizlenmiş hali). */}
         <span
           aria-hidden="true"
-          className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[#1B5CD6] text-[15px] font-black text-white"
+          className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/[0.08]"
         >
-          G
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/redesign/gloventglobal-mark.png" alt="" className="h-7 w-7 object-contain" />
         </span>
 
         {/* Mobil: tek satırlı kompakt versiyon */}
