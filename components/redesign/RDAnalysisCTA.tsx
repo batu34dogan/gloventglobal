@@ -28,7 +28,7 @@ export default function RDAnalysisCTA() {
         }
         @media (hover: hover) and (pointer: fine) {
           .rd-analysis-cta:hover {
-            transform: translateY(-2px) scale(1.01);
+            transform: translateY(-2px);
             border-color: rgba(27,92,214,0.45);
             box-shadow: 0 10px 26px -14px rgba(0,0,0,0.5);
           }
@@ -43,7 +43,7 @@ export default function RDAnalysisCTA() {
       <button
         type="button"
         onClick={openAnalysis}
-        className="rd-analysis-cta fixed z-[45] flex items-center gap-3 overflow-hidden rounded-[17px] border border-white/[0.08] bg-[#14213F] px-4 py-3 text-left text-white bottom-[calc(16px+env(safe-area-inset-bottom))] right-[calc(16px+env(safe-area-inset-right))] sm:h-[68px] sm:w-[232px] sm:bottom-[calc(26px+env(safe-area-inset-bottom))] sm:right-[calc(26px+env(safe-area-inset-right))] sm:px-4"
+        className="rd-analysis-cta fixed z-[45] flex items-center gap-3 overflow-hidden rounded-[17px] border border-white/[0.08] bg-[#14213F] px-4 py-3 text-left text-white bottom-[calc(16px+env(safe-area-inset-bottom))] right-[calc(16px+env(safe-area-inset-right))] sm:h-[68px] sm:w-[244px] sm:bottom-[calc(30px+env(safe-area-inset-bottom))] sm:right-[calc(30px+env(safe-area-inset-right))] sm:px-4"
       >
         <span aria-hidden="true" className="rd-analysis-cta-grid" />
 
