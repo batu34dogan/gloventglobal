@@ -34,9 +34,11 @@ export default function SiteNavbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // /redesign kendi RDNavbar'ını render ediyor — eski global navbar orada hiç mount olmasın
-  // (DOM'da gizli-ama-canlı kalıp klavye/screen reader'a sızmasın diye).
-  if (pathname?.startsWith('/redesign')) return null;
+  // Yeni production ana sayfa (/) artık kendi RDNavbar'ını render ediyor — eski global navbar
+  // orada ikinci kez mount olmasın. /redesign (rollback/preview amaçlı hâlâ ayakta) da aynı
+  // sebeple hariç tutuluyor. Diğer tüm route'larda (== hariç, startsWith değil) eski navbar
+  // davranışı birebir korunuyor.
+  if (pathname === '/' || pathname?.startsWith('/redesign')) return null;
 
   return (
     <header

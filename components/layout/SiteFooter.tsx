@@ -14,8 +14,10 @@ const legalLinks = [
 export default function SiteFooter() {
   const pathname = usePathname();
 
-  // /redesign kendi RDFooter'ını render ediyor — eski global footer orada tekrar görünmesin.
-  if (pathname?.startsWith('/redesign')) return null;
+  // Yeni production ana sayfa (/) artık kendi RDFooter'ını render ediyor — eski global footer
+  // orada ikinci kez görünmesin. /redesign (rollback/preview amaçlı hâlâ ayakta) da aynı sebeple
+  // hariç tutuluyor. Diğer tüm route'larda eski footer davranışı birebir korunuyor.
+  if (pathname === '/' || pathname?.startsWith('/redesign')) return null;
 
   return (
     <footer className="relative border-t border-white/[0.06] px-6 py-6 sm:px-10">

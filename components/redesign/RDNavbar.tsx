@@ -23,7 +23,7 @@ export default function RDNavbar() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-200 ${scrolled ? 'bg-white/96 shadow-[0_1px_0_0_#e5e5e8] backdrop-blur-sm' : 'bg-white/80 backdrop-blur-sm'}`}>
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-3.5 sm:px-10">
         {/* Logo */}
-        <Link href="/redesign" className="flex items-center gap-2.5 shrink-0">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#1B5CD6] text-[16px] font-black text-[#1B2E5E]">G</div>
           <div>
             <div className="text-[16.5px] font-bold leading-tight tracking-tight text-[#1B2E5E]">GloventGlobal</div>

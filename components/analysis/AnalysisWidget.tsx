@@ -15,6 +15,11 @@ export default function AnalysisWidget() {
   const isAnalysisPage = pathname === '/analiz';
   // /redesign kendi CTA'larını kullanıyor — eski global floating buton orada görünmesin.
   const isRedesignPage = pathname?.startsWith('/redesign') ?? false;
+  // Yeni production ana sayfa (/) artık kendi premium RDAnalysisCTA'sını render ediyor —
+  // eski floating buton orada ikinci bir tetikleyici olarak görünmesin. Modal/form/event
+  // sistemi burada aynen kalıyor, RDAnalysisCTA da bu component'in dinlediği
+  // 'open-analysis-widget' event'ini kullanıyor.
+  const isHomepage = pathname === '/';
 
   // Modal açıkken: ESC ile kapatma + arka sayfa scroll'unu kilitleme. İkisi de "olursa güzel"
   // seviyesinde isteniyordu, basit ve düşük riskli oldukları için ekledik.
@@ -61,7 +66,7 @@ export default function AnalysisWidget() {
           z-[45] bilerek navbar'ın (z-40) üstünde ama intro ekranının (z-50) ALTINDA — intro
           oynarken bu buton üzerinde görünmesin, intro kapandıktan sonra (DOM'dan kalkınca)
           buton doğal olarak görünür hale gelir. */}
-      {!open && !isAnalysisPage && !isRedesignPage && (
+      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && (
         <button
           type="button"
           onClick={() => {
