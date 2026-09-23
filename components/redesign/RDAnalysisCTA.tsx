@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { trackEvent } from '@/lib/analytics';
 
 // Mevcut AnalysisWidget'ın modalını/formunu/API'sini/event sistemini aynen kullanır — burada
@@ -56,8 +57,14 @@ export default function RDAnalysisCTA() {
           aria-hidden="true"
           className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/[0.06] bg-[#FAF9F6]"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/redesign/gloventglobal-mark.png" alt="" className="h-[24px] w-[24px] object-contain" />
+          <Image
+            src="/redesign/gloventglobal-mark.png"
+            alt=""
+            width={474}
+            height={455}
+            sizes="24px"
+            className="h-[24px] w-[24px] object-contain"
+          />
         </span>
 
         {/* Mobil: tek satırlı kompakt versiyon */}

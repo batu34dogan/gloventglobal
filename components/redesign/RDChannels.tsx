@@ -19,6 +19,7 @@ export default function RDChannels() {
             alt="Amazon, Alibaba, Etsy, eBay, Shopify, Walmart, TikTok Shop, Trendyol"
             width={2163}
             height={171}
+            sizes="(min-width: 1024px) 1100px, 860px"
             className="h-auto w-[860px] shrink-0 lg:w-[1100px]"
           />
         </div>

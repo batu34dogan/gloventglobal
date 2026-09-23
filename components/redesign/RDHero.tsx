@@ -56,6 +56,7 @@ export default function RDHero() {
           alt="İstanbul Boğazı manzaralı bir terasta, dizüstü bilgisayarıyla çalışan biri"
           fill
           priority
+          fetchPriority="high"
           sizes="(min-width: 1024px) 54vw, 100vw"
           className="object-cover object-[62%_center] lg:object-[65%_center]"
         />

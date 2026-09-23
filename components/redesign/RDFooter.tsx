@@ -34,7 +34,7 @@ export default function RDFooter() {
 
           {/* Navigation */}
           <div>
-            <p className="text-[11px] font-bold tracking-[0.2em] text-[#757580] uppercase">Navigasyon</p>
+            <p className="text-[11px] font-bold tracking-[0.2em] text-[#6F6F79] uppercase">Navigasyon</p>
             <ul className="mt-4 space-y-2.5">
               {NAV.map(l => (
                 <li key={l.label}>
@@ -46,7 +46,7 @@ export default function RDFooter() {
 
           {/* Resources */}
           <div>
-            <p className="text-[11px] font-bold tracking-[0.2em] text-[#757580] uppercase">Kaynaklar</p>
+            <p className="text-[11px] font-bold tracking-[0.2em] text-[#6F6F79] uppercase">Kaynaklar</p>
             <ul className="mt-4 space-y-2.5">
               {RESOURCES.map(l => (
                 <li key={l.label}>
@@ -58,7 +58,7 @@ export default function RDFooter() {
 
           {/* Contact */}
           <div>
-            <p className="text-[11px] font-bold tracking-[0.2em] text-[#757580] uppercase">İletişim</p>
+            <p className="text-[11px] font-bold tracking-[0.2em] text-[#6F6F79] uppercase">İletişim</p>
             <ul className="mt-4 space-y-2.5">
               <li><a href="mailto:info@gloventglobal.com" className="break-words text-[14.5px] text-[#4A4A5A] transition-colors hover:text-[#1B5CD6]">info@gloventglobal.com</a></li>
               <li><span className="text-[14.5px] text-[#4A4A5A]">İstanbul, Türkiye</span></li>
@@ -67,7 +67,7 @@ export default function RDFooter() {
 
           {/* Social */}
           <div>
-            <p className="text-[11px] font-bold tracking-[0.2em] text-[#757580] uppercase">Sosyal</p>
+            <p className="text-[11px] font-bold tracking-[0.2em] text-[#6F6F79] uppercase">Sosyal</p>
             <div className="mt-4 flex items-center gap-3">
               <a href="https://www.instagram.com/gloventglobal" target="_blank" rel="noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E0E0E8] text-[11.5px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">ig</a>
               <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E0E0E8] text-[11.5px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">in</a>
