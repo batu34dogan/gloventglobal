@@ -106,7 +106,7 @@ export default function RDWhy() {
       <div ref={sectionRef} className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-[1fr_1.08fr]">
           {/* Left dark panel */}
-          <div className={`rd-diff-left ${inView ? 'rd-in' : ''} flex flex-col justify-center py-16 pr-0 md:pr-8 lg:pr-16`}>
+          <div className={`rd-diff-left ${inView ? 'rd-in' : ''} flex flex-col justify-center py-12 pr-0 md:py-16 md:pr-8 lg:pr-16`}>
             <p className="text-[11px] font-bold tracking-[0.28em] text-[#1B5CD6] uppercase">Türkiye&apos;den Dünyaya</p>
             <h2 className="mt-5 text-[2.6rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[3.1rem]">
               Yerel Gücü Global Büyümeye Dönüştürüyoruz.
@@ -129,11 +129,11 @@ export default function RDWhy() {
           {/* Right — transformation rows */}
           <div
             onPointerMove={handleSpotlightMove}
-            className="rd-diff-rows relative border-t border-white/10 bg-white/[0.04] py-16 pl-0 md:border-l md:border-t-0 md:pl-8 lg:pl-16"
+            className="rd-diff-rows relative border-t border-white/10 bg-white/[0.04] py-12 pl-0 md:border-l md:border-t-0 md:py-16 md:pl-8 lg:pl-16"
           >
             <span aria-hidden className="rd-diff-spotlight" />
             <p className="relative text-[11px] font-bold tracking-[0.28em] text-[#5B8CEE] uppercase">Neden GloventGlobal?</p>
-            <div className="relative mt-8">
+            <div className="relative mt-6 md:mt-8">
               {diffs.map((d, i) => (
                 <div
                   key={d.is}
@@ -141,7 +141,7 @@ export default function RDWhy() {
                   className={`rd-diff-row ${inView ? 'rd-in' : ''} border-b border-white/10 last:border-0`}
                 >
                   <span aria-hidden className="rd-diff-accent" />
-                  <div className="flex items-center justify-between gap-6 py-8 pl-5 pr-5">
+                  <div className="flex items-center justify-between gap-6 py-6 pl-5 pr-5 md:py-8">
                     <div>
                       <p className="text-[12px] font-semibold uppercase tracking-[0.1em] text-white/46">{d.not}</p>
                       <p className="rd-diff-is mt-1.5 text-[1.5rem] font-bold leading-snug text-white">{d.is}</p>

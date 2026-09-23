@@ -15,6 +15,35 @@ const topGuides = Object.values(guides)
   .sort((a, b) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER))
   .slice(0, 3);
 
+function GuideCard({ guide, widthClassName }: { guide: (typeof topGuides)[number]; widthClassName?: string }) {
+  return (
+    <Link
+      href={`/rehberler/${guide.slug}`}
+      className={`rd-guide-card flex flex-col rounded-2xl border border-[#E5E5EC] bg-white p-7 ${widthClassName ?? ''}`}
+    >
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">
+          {guide.category}
+        </span>
+        <span className="text-[11.5px] font-medium text-[#757580]">{guide.readTime}</span>
+      </div>
+
+      <h3 className="mt-4 text-[18px] font-bold leading-snug text-[#14213F]">{guide.title}</h3>
+      <p className="mt-2.5 flex-1 text-[14px] leading-relaxed text-[#6A6A7A]">{guide.excerpt}</p>
+
+      <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#E5E5EC] pt-5">
+        <span className="text-[11px] font-medium uppercase tracking-[0.04em] text-[#757580]">
+          {guide.updatedAt ? `Güncelleme: ${guide.updatedAt}` : `Yayın: ${formatPublished(guide.publishedAt)}`}
+        </span>
+        <span className="inline-flex shrink-0 items-center gap-1 text-[13.5px] font-semibold text-[#1B5CD6]">
+          Rehberi Oku
+          <span aria-hidden="true" className="rd-guide-arrow">→</span>
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 export default function RDGuides() {
   return (
     <section className="bg-[#FAF9F6] py-16 sm:py-20">
@@ -41,6 +70,8 @@ export default function RDGuides() {
             transform: none !important;
           }
         }
+        .rd-guide-rail { scrollbar-width: none; -ms-overflow-style: none; }
+        .rd-guide-rail::-webkit-scrollbar { display: none; }
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
@@ -62,33 +93,17 @@ export default function RDGuides() {
           </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Desktop/tablet (768px+) — mevcut 3'lü grid birebir korunuyor */}
+        <div className="mt-12 hidden gap-6 sm:grid-cols-2 md:grid lg:grid-cols-3">
           {topGuides.map((guide) => (
-            <Link
-              key={guide.slug}
-              href={`/rehberler/${guide.slug}`}
-              className="rd-guide-card flex flex-col rounded-2xl border border-[#E5E5EC] bg-white p-7"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">
-                  {guide.category}
-                </span>
-                <span className="text-[11.5px] font-medium text-[#757580]">{guide.readTime}</span>
-              </div>
+            <GuideCard key={guide.slug} guide={guide} />
+          ))}
+        </div>
 
-              <h3 className="mt-4 text-[18px] font-bold leading-snug text-[#14213F]">{guide.title}</h3>
-              <p className="mt-2.5 flex-1 text-[14px] leading-relaxed text-[#6A6A7A]">{guide.excerpt}</p>
-
-              <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#E5E5EC] pt-5">
-                <span className="text-[11px] font-medium uppercase tracking-[0.04em] text-[#757580]">
-                  {guide.updatedAt ? `Güncelleme: ${guide.updatedAt}` : `Yayın: ${formatPublished(guide.publishedAt)}`}
-                </span>
-                <span className="inline-flex shrink-0 items-center gap-1 text-[13.5px] font-semibold text-[#1B5CD6]">
-                  Rehberi Oku
-                  <span aria-hidden="true" className="rd-guide-arrow">→</span>
-                </span>
-              </div>
-            </Link>
+        {/* Mobil (0-767px) — 3 kart alt alta değil, yatay swipe/scroll-snap rail */}
+        <div className="rd-guide-rail mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 md:hidden">
+          {topGuides.map((guide) => (
+            <GuideCard key={guide.slug} guide={guide} widthClassName="w-[87vw] shrink-0 snap-center" />
           ))}
         </div>
       </div>

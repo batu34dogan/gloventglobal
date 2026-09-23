@@ -104,7 +104,7 @@ export default function RDSystem() {
   }, []);
 
   return (
-    <section className="border-t border-[#E8E8EC] bg-white py-16 sm:py-20">
+    <section className="border-t border-[#E8E8EC] bg-white py-12 sm:py-20">
       <style>{`
         .rd-sys-bgpattern {
           position: absolute; inset: -10% -2% auto -2%; height: 130%; pointer-events: none; z-index: 0;
@@ -289,9 +289,9 @@ export default function RDSystem() {
               </div>
               <div className="flex flex-1 flex-col justify-between py-1">
                 {steps.map(s => (
-                  <div key={s.n} className="min-h-[112px] pl-2">
-                    <h3 className={`text-[16px] font-bold ${s.outcome ? 'text-[#1B5CD6]' : 'text-[#14213F]'}`}>{s.title}</h3>
-                    <p className="mt-1 text-[13px] leading-relaxed text-[#6A6A7A]">{s.desc}</p>
+                  <div key={s.n} className="min-h-[84px] pl-2">
+                    <h3 className={`text-[15px] font-bold ${s.outcome ? 'text-[#1B5CD6]' : 'text-[#14213F]'}`}>{s.title}</h3>
+                    <p className="mt-1 text-[12.5px] leading-snug text-[#6A6A7A]">{s.desc}</p>
                   </div>
                 ))}
               </div>

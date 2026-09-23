@@ -265,6 +265,18 @@ export default function RDServicesDirectory() {
           .rd-exp-row:hover .rd-exp-title, .rd-exp-row:hover .rd-exp-arrow { transform: none !important; }
           .rd-exp-module:hover .rd-exp-module-title { transform: none !important; }
         }
+
+        /* Mobil accordion — native <details>/<summary>: JS olmadan da çalışır (tarayıcı nativesi),
+           tüm hizmet içeriği her zaman DOM'da/HTML kaynağında kalır (SEO), klavye ve dokunma
+           erişimi native olarak gelir. */
+        .rd-acc-summary { cursor: pointer; list-style: none; }
+        .rd-acc-summary::-webkit-details-marker { display: none; }
+        .rd-acc-chevron { transition: transform .3s ease; }
+        details[open] > .rd-acc-summary .rd-acc-chevron { transform: rotate(180deg); }
+        .rd-acc-summary:focus-visible { outline: 2px solid rgba(27,92,214,0.5); outline-offset: -2px; }
+        @media (prefers-reduced-motion: reduce) {
+          .rd-acc-chevron { transition: none !important; }
+        }
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
@@ -306,27 +318,36 @@ export default function RDServicesDirectory() {
           </div>
         </div>
 
-        {/* Mobile / tablet — all categories stacked, normal scroll, no hover dependency */}
-        <div ref={ref} className="mt-12 flex flex-col gap-12 lg:hidden">
+        {/* Mobile / tablet — 4 category accordion (native <details>, tüm 12 hizmet her zaman DOM'da).
+            İlk kategori (Strateji) varsayılan açık, diğerleri kapalı; kullanıcı dokununca açılır. */}
+        <div ref={ref} className="mt-12 flex flex-col gap-3 lg:hidden">
           {groups.map((group, gi) => (
-            <div
+            <details
               key={group.category}
+              open={gi === 0}
               style={{ transitionDelay: inView ? `${gi * 90}ms` : '0ms' }}
-              className={`rd-exp-group ${inView ? 'rd-in' : ''}`}
+              className={`rd-exp-group ${inView ? 'rd-in' : ''} overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white`}
             >
-              <div className="flex items-center gap-4">
-                <span className="text-[13px] font-bold text-[#C4C4CE]">{String(gi + 1).padStart(2, '0')}</span>
-                <h3 className="text-[13px] font-bold uppercase tracking-[0.24em] text-[#8A6E43]">
-                  {group.category}
-                </h3>
-                <span aria-hidden="true" className="h-px flex-1 bg-[#E5E5EC]" />
-              </div>
-              <div className="mt-5 divide-y divide-[#E5E5EC] border-y border-[#E5E5EC]">
+              <summary className="rd-acc-summary flex items-center justify-between gap-4 px-5 py-4">
+                <span className="flex items-center gap-3">
+                  <span className="text-[12px] font-bold text-[#C4C4CE]">{String(gi + 1).padStart(2, '0')}</span>
+                  <span className="text-[14.5px] font-bold uppercase tracking-[0.1em] text-[#14213F]">
+                    {group.category}
+                  </span>
+                </span>
+                <span className="flex shrink-0 items-center gap-2.5">
+                  <span className="text-[11px] font-medium text-[#B8B8C2]">{group.items.length} hizmet</span>
+                  <svg aria-hidden="true" className="rd-acc-chevron h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="#71717D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 7.5l5 5 5-5" />
+                  </svg>
+                </span>
+              </summary>
+              <div className="divide-y divide-[#E5E5EC] border-t border-[#E5E5EC] px-5">
                 {group.items.map((item) => (
                   <ServiceRow key={item.slug} item={item} />
                 ))}
               </div>
-            </div>
+            </details>
           ))}
         </div>
       </div>

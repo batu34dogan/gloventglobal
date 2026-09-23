@@ -99,9 +99,9 @@ const projects: Project[] = [
 
 const CARD_CLASS = 'w-[85vw] shrink-0 sm:w-[450px]';
 
-function ProjectCard({ p, hidden }: { p: Project; hidden?: boolean }) {
+function ProjectCard({ p, hidden, widthClassName }: { p: Project; hidden?: boolean; widthClassName?: string }) {
   return (
-    <article className={CARD_CLASS} aria-hidden={hidden || undefined}>
+    <article className={widthClassName ?? CARD_CLASS} aria-hidden={hidden || undefined}>
       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
         <div aria-hidden className="absolute inset-0" style={{ background: p.tone }} />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -296,11 +296,29 @@ function StaticRail() {
   );
 }
 
+// Mobil (0-767px): sürekli otomatik kayan marquee kapalı — kullanıcı kontrollü, native
+// scroll-snap rail. Auto-scroll yok, JS-driven transform yok, sadece tarayıcının kendi yatay
+// scroll'u + CSS snap. 7 gerçek proje aynen korunuyor.
+function MobileRail() {
+  return (
+    <div className="rd-cases-mobile-rail flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2">
+      {projects.map((p) => (
+        <ProjectCard key={p.brand} p={p} widthClassName="w-[88vw] shrink-0 snap-center" />
+      ))}
+      <div aria-hidden className="w-px shrink-0" />
+    </div>
+  );
+}
+
 export default function RDCases() {
   const reducedMotion = useReducedMotion();
 
   return (
     <section id="hikayeler" className="scroll-mt-20 overflow-x-hidden bg-[#FAF9F6] py-16 sm:py-20">
+      <style>{`
+        .rd-cases-mobile-rail { scrollbar-width: none; -ms-overflow-style: none; }
+        .rd-cases-mobile-rail::-webkit-scrollbar { display: none; }
+      `}</style>
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="max-w-[52ch]">
           <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Projeler</p>
@@ -311,12 +329,14 @@ export default function RDCases() {
         </div>
       </div>
 
-      {/* Full-bleed rail — breaks out of the content column to run edge-to-edge with the viewport, like an
-          editorial strip. Partial cards at both screen edges are intentional, not clipped-away overflow.
-          `w-screen` is wrapped by the section's own `overflow-x-hidden` so the scrollbar-inclusion quirk of
-          100vw can never widen the document itself; a small side padding keeps cards off the literal screen edge. */}
-      <div className="mt-[42px] w-screen ml-[calc(50%-50vw)] px-0 sm:px-7">
+      {/* Desktop/tablet (768px+) — mevcut full-bleed marquee/StaticRail birebir korunuyor. */}
+      <div className="mt-[42px] hidden w-screen ml-[calc(50%-50vw)] px-0 sm:px-7 md:block">
         {reducedMotion ? <StaticRail /> : <Marquee />}
+      </div>
+
+      {/* Mobil (0-767px) — auto-scroll'suz, kullanıcı kontrollü native swipe rail. */}
+      <div className="mt-[32px] md:hidden">
+        <MobileRail />
       </div>
     </section>
   );

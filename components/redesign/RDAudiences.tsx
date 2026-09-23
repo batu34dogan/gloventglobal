@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 // Production ana sayfada (components/home/HomeContent.tsx) "Kimlerle Çalışıyoruz?" bölümünde
 // doğrulanmış 5 segment — aynı başlık ve anlam korunarak taşındı, yeni segment/vaat/metrik
 // eklenmedi.
@@ -35,6 +39,8 @@ const audiences = [
 ];
 
 export default function RDAudiences() {
+  const [active, setActive] = useState(0);
+
   return (
     <section className="border-t border-[#E8E8EC] bg-white py-16 sm:py-20">
       <style>{`
@@ -117,6 +123,8 @@ export default function RDAudiences() {
           }
           .rd-aud-row:not(:hover):not(:focus-visible) { opacity: 1 !important; }
         }
+        .rd-aud-tabs { scrollbar-width: none; -ms-overflow-style: none; }
+        .rd-aud-tabs::-webkit-scrollbar { display: none; }
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
@@ -131,14 +139,15 @@ export default function RDAudiences() {
           </p>
         </div>
 
-        <div className="rd-aud-field mt-14">
+        {/* Desktop/tablet (768px+) — mevcut editorial row listesi birebir korunuyor */}
+        <div className="rd-aud-field mt-14 hidden md:block">
           <span aria-hidden="true" className="rd-aud-bgpattern" />
           {audiences.map((a) => (
             <div key={a.number} tabIndex={0} className="rd-aud-row border-b border-[#E5E5EC] last:border-0">
               <span aria-hidden="true" className="rd-aud-accent" />
               <div className="grid grid-cols-1 gap-3 py-[25px] pl-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] sm:items-baseline sm:gap-10 sm:py-[29px]">
                 <div className="flex items-baseline gap-4">
-                  <span className="rd-aud-number shrink-0 text-[22px] font-extrabold text-[#14213F]/20 lg:text-[13px] lg:font-bold lg:text-[#757580]">{a.number}</span>
+                  <span className="rd-aud-number shrink-0 text-[13px] font-bold text-[#757580]">{a.number}</span>
                   <h3 className="rd-aud-title text-[1.4rem] font-bold leading-snug text-[#14213F] sm:text-[1.7rem]">
                     {a.title}
                   </h3>
@@ -149,6 +158,39 @@ export default function RDAudiences() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobil (0-767px): 5 uzun kart alt alta değil — üstte swipe edilebilir segment seçici,
+            altında yalnızca seçili segment için tek büyük panel. Tüm 5 açıklama DOM'da kalıyor
+            (yalnızca aktif olmayanlar CSS ile gizli), böylece içerik erişilebilir/indexlenebilir kalır. */}
+        <div className="mt-10 md:hidden">
+          <div className="rd-aud-tabs flex gap-2 overflow-x-auto pb-1">
+            {audiences.map((a, i) => (
+              <button
+                key={a.number}
+                type="button"
+                onClick={() => setActive(i)}
+                aria-pressed={active === i}
+                className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2.5 text-[13px] font-semibold transition-colors ${
+                  active === i
+                    ? 'border-[#1B5CD6] bg-[#1B5CD6] text-white'
+                    : 'border-[#E0E0E8] bg-white text-[#4A4A5A]'
+                }`}
+              >
+                {a.title}
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-5 rounded-2xl border border-[#E5E5EC] bg-[#FAF9F6] p-7">
+            {audiences.map((a, i) => (
+              <div key={a.number} className={i === active ? 'block' : 'hidden'}>
+                <span className="text-[13px] font-bold text-[#8A6E43]">{a.number}</span>
+                <h3 className="mt-2 text-[1.4rem] font-bold leading-snug text-[#14213F]">{a.title}</h3>
+                <p className="mt-3 text-[14.5px] leading-relaxed text-[#6A6A7A]">{a.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

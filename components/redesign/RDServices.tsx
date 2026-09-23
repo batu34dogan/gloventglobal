@@ -55,6 +55,8 @@ export default function RDServices() {
   const [inView, setInView] = useState(false);
   const aiRef = useRef<HTMLDivElement>(null);
   const [aiInView, setAiInView] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
     const el = gridRef.current;
@@ -93,6 +95,27 @@ export default function RDServices() {
       { threshold: 0.2 },
     );
     observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Mobil carousel'de (md altı) hangi kartın ortada olduğunu takip eder — sadece 01/04 progress
+  // göstergesi için, native scroll-snap'in kendisi tamamen tarayıcı davranışı.
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+    const cards = Array.from(el.children) as HTMLElement[];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+            const idx = cards.indexOf(entry.target as HTMLElement);
+            if (idx !== -1) setActiveCard(idx);
+          }
+        });
+      },
+      { root: el, threshold: [0.6] },
+    );
+    cards.forEach((c) => observer.observe(c));
     return () => observer.disconnect();
   }, []);
 
@@ -166,6 +189,9 @@ export default function RDServices() {
             transform: scale(0.99);
           }
         }
+
+        .rd-cap-carousel { scrollbar-width: none; -ms-overflow-style: none; }
+        .rd-cap-carousel::-webkit-scrollbar { display: none; }
 
         @media (prefers-reduced-motion: reduce) {
           .rd-cap-card, .rd-cap-card.rd-in, .rd-cap-card:hover,
@@ -257,8 +283,8 @@ export default function RDServices() {
           </div>
         </div>
 
-        {/* Capability tiles */}
-        <div ref={gridRef} className="rd-cap-grid mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        {/* Capability tiles — desktop/tablet (768px+, mevcut davranış birebir korunuyor) */}
+        <div ref={gridRef} className="rd-cap-grid mt-10 hidden gap-6 sm:grid-cols-2 md:grid xl:grid-cols-4">
           {services.map((s, i) => (
             <div
               key={s.title}
@@ -284,6 +310,48 @@ export default function RDServices() {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Capability tiles — mobil (0-767px): dört uzun kartın alt alta dizilmesi yerine
+            scroll-snap carousel. İçerik/label'lar birebir aynı, sadece sunum yatay. */}
+        <div className="mt-10 md:hidden">
+          <div
+            ref={carouselRef}
+            className="rd-cap-carousel flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+          >
+            {services.map((s) => (
+              <div
+                key={s.title}
+                className="relative w-[86vw] shrink-0 snap-center overflow-hidden rounded-2xl border border-[#E5E5EC] bg-[#FEFCF9] p-7"
+              >
+                <span aria-hidden className="rd-cap-bgpattern" style={{ opacity: 0.35 }} />
+                <span className="relative text-[11.5px] font-bold tracking-[0.2em] text-[#8A6E43]">{s.n}</span>
+                <h3 className="relative mt-4 text-[21px] font-bold tracking-tight text-[#14213F]">{s.title}</h3>
+                <p className="relative mt-2.5 text-[15px] leading-[1.6] text-[#5A5A6A]">{s.desc}</p>
+                {s.secondaryLabel && (
+                  <div className="relative mt-5 border-t border-[#E5E5EC] pt-4">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#757580]">
+                      {s.secondaryLabel}
+                    </p>
+                    <p className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[#8A6E43]">
+                      {s.secondaryChips.join(' · ')}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="mt-5 flex items-center justify-center gap-2">
+            {services.map((s, i) => (
+              <span
+                key={s.title}
+                aria-hidden="true"
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeCard === i ? 'w-6 bg-[#1B5CD6]' : 'w-1.5 bg-[#DCDCE2]'
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* AI + Data operating layer — runs beneath and across all four capabilities, not a fifth card */}
