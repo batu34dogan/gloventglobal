@@ -240,7 +240,7 @@ export default function RDServices() {
             <h2 className="mt-3 text-[2.6rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[3.1rem]">Neler Yapıyoruz?</h2>
           </div>
           <div className={`rd-support max-w-[365px] ${inView ? 'rd-in' : ''}`}>
-            <p className="text-[11px] font-bold tracking-[0.24em] text-[#B8935A] uppercase">Tek Sistem · Dört Yetkinlik</p>
+            <p className="text-[11px] font-bold tracking-[0.24em] text-[#8A6E43] uppercase">Tek Sistem · Dört Yetkinlik</p>
             <p className="mt-3 text-[1.275rem] font-semibold leading-snug text-[#1F2A44] sm:text-[1.4rem]">
               Strateji, ticaret, teknoloji ve operasyonu <span className="text-[#1B5CD6]">tek bir büyüme sisteminde</span> birleştiriyoruz.
             </p>
@@ -259,15 +259,15 @@ export default function RDServices() {
               <span aria-hidden className="rd-cap-bgpattern" />
               <span aria-hidden className="rd-cap-spotlight" />
               <span aria-hidden className="rd-cap-edge" />
-              <span className="rd-cap-number relative text-[11.5px] font-bold tracking-[0.2em] text-[#B8935A]">{s.n}</span>
+              <span className="rd-cap-number relative text-[11.5px] font-bold tracking-[0.2em] text-[#8A6E43]">{s.n}</span>
               <h3 className="rd-cap-title relative mt-4 text-[21px] font-bold tracking-tight text-[#14213F]">{s.title}</h3>
               <p className="relative mt-2.5 text-[15px] leading-[1.65] text-[#5A5A6A]">{s.desc}</p>
               {s.secondaryLabel && (
                 <div className="relative mt-5 border-t border-[#E5E5EC] pt-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#9A9AA8]">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#757580]">
                     {s.secondaryLabel}
                   </p>
-                  <p className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[#B8935A]">
+                  <p className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[#8A6E43]">
                     {s.secondaryChips.join(' · ')}
                   </p>
                 </div>

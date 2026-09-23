@@ -143,7 +143,7 @@ export default function RDWhy() {
                   <span aria-hidden className="rd-diff-accent" />
                   <div className="flex items-center justify-between gap-6 py-8 pl-5 pr-5">
                     <div>
-                      <p className="text-[12px] font-semibold uppercase tracking-[0.1em] text-white/40">{d.not}</p>
+                      <p className="text-[12px] font-semibold uppercase tracking-[0.1em] text-white/46">{d.not}</p>
                       <p className="rd-diff-is mt-1.5 text-[1.5rem] font-bold leading-snug text-white">{d.is}</p>
                     </div>
                     <span className="rd-diff-num shrink-0 text-[13px] font-bold text-white/30">{pad(i + 1)}</span>

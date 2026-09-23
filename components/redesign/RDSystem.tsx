@@ -244,7 +244,7 @@ export default function RDSystem() {
               </div>
               <span
                 aria-hidden
-                className="rd-sys-return-label absolute text-[9.5px] font-bold tracking-[0.18em] text-[#B8935A] uppercase"
+                className="rd-sys-return-label absolute text-[9.5px] font-bold tracking-[0.18em] text-[#8A6E43] uppercase"
                 style={{ left: '48%', top: '7px', transform: 'translate(-50%, 0)' }}
               >
                 Sürekli Optimizasyon
@@ -296,7 +296,7 @@ export default function RDSystem() {
                 ))}
               </div>
             </div>
-            <p className="mt-2 text-[9.5px] font-bold tracking-[0.18em] text-[#B8935A] uppercase">Sürekli Optimizasyon</p>
+            <p className="mt-2 text-[9.5px] font-bold tracking-[0.18em] text-[#8A6E43] uppercase">Sürekli Optimizasyon</p>
           </div>
         </div>
 

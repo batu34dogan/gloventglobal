@@ -99,9 +99,9 @@ const projects: Project[] = [
 
 const CARD_CLASS = 'w-[85vw] shrink-0 sm:w-[450px]';
 
-function ProjectCard({ p }: { p: Project }) {
+function ProjectCard({ p, hidden }: { p: Project; hidden?: boolean }) {
   return (
-    <article className={CARD_CLASS}>
+    <article className={CARD_CLASS} aria-hidden={hidden || undefined}>
       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
         <div aria-hidden className="absolute inset-0" style={{ background: p.tone }} />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -119,10 +119,10 @@ function ProjectCard({ p }: { p: Project }) {
         <div aria-hidden className="absolute inset-0 ring-1 ring-inset ring-black/5" />
       </div>
       <div className="pt-6">
-        <p className="text-[11px] font-bold tracking-[0.2em] text-[#8A8A98] uppercase">{p.category}</p>
+        <p className="text-[11px] font-bold tracking-[0.2em] text-[#71717D] uppercase">{p.category}</p>
         <h3 className="mt-2 text-[24px] font-bold text-[#14213F] sm:text-[26px]">{p.brand}</h3>
         <p className="mt-2.5 text-[14.5px] leading-relaxed text-[#5A5A6A]">{p.desc}</p>
-        <p className="mt-3.5 text-[12.5px] font-semibold tracking-[0.05em] text-[#8A8A98]">{p.capability}</p>
+        <p className="mt-3.5 text-[12.5px] font-semibold tracking-[0.05em] text-[#71717D]">{p.capability}</p>
       </div>
     </article>
   );
@@ -280,7 +280,7 @@ function Marquee() {
         className={`flex w-max touch-pan-y gap-6 will-change-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B5CD6] ${dragging ? 'cursor-grabbing select-none' : 'cursor-grab'}`}
       >
         {[...projects, ...projects].map((p, i) => (
-          <ProjectCard key={`${p.brand}-${i}`} p={p} />
+          <ProjectCard key={`${p.brand}-${i}`} p={p} hidden={i >= projects.length} />
         ))}
       </div>
     </div>

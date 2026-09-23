@@ -21,7 +21,7 @@ export default function RDHero() {
             Global büyümeniz için strateji vermekle kalmıyor; satış, teknoloji, yapay zeka ve operasyon sistemini kuruyoruz.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-[12.5px] font-bold tracking-[0.16em] text-[#8A8A98] uppercase">
+          <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-[12.5px] font-bold tracking-[0.16em] text-[#71717D] uppercase">
             {SYSTEM.map((s, i) => (
               <span key={s} className="flex items-center gap-3">
                 {i > 0 && <span className="text-[#C9A876]">·</span>}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import AnalysisContent from './AnalysisContent';
 import { trackEvent } from '@/lib/analytics';
@@ -9,6 +9,7 @@ export default function AnalysisWidget() {
   const [open, setOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const pathname = usePathname();
+  const modalRef = useRef<HTMLDivElement>(null);
 
   // /analiz sayfasında form zaten tam sayfada gösteriliyor — floating buton tekrar etmesin.
   const isAnalysisPage = pathname === '/analiz';
@@ -23,6 +24,12 @@ export default function AnalysisWidget() {
   // yerden ölçülsün.
   useEffect(() => {
     if (open) trackEvent('analysis_widget_open');
+  }, [open]);
+
+  // Modal açıldığında klavye/ekran okuyucu odağını diyaloğun içine taşı — açık kalan trigger
+  // butonundan sonra odak kaybolmasın diye.
+  useEffect(() => {
+    if (open) modalRef.current?.focus();
   }, [open]);
 
   useEffect(() => {
@@ -80,7 +87,14 @@ export default function AnalysisWidget() {
             className="absolute inset-0 bg-[#040810]/75 backdrop-blur-sm"
           />
 
-          <div className="relative flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-2xl border border-white/[0.08] bg-[#0a1120] shadow-[0_24px_80px_-20px_rgba(0,0,0,0.7)] sm:max-h-[88vh] sm:max-w-2xl sm:rounded-2xl">
+          <div
+            ref={modalRef}
+            tabIndex={-1}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Dijital Büyüme Analizi"
+            className="relative flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-2xl border border-white/[0.08] bg-[#0a1120] shadow-[0_24px_80px_-20px_rgba(0,0,0,0.7)] outline-none sm:max-h-[88vh] sm:max-w-2xl sm:rounded-2xl"
+          >
             <span
               aria-hidden="true"
               className="pointer-events-none absolute left-1/2 top-0 h-[220px] w-[420px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"

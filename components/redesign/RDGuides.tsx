@@ -73,14 +73,14 @@ export default function RDGuides() {
                 <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">
                   {guide.category}
                 </span>
-                <span className="text-[11.5px] font-medium text-[#9A9AA8]">{guide.readTime}</span>
+                <span className="text-[11.5px] font-medium text-[#757580]">{guide.readTime}</span>
               </div>
 
               <h3 className="mt-4 text-[18px] font-bold leading-snug text-[#14213F]">{guide.title}</h3>
               <p className="mt-2.5 flex-1 text-[14px] leading-relaxed text-[#6A6A7A]">{guide.excerpt}</p>
 
               <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#E5E5EC] pt-5">
-                <span className="text-[11px] font-medium uppercase tracking-[0.04em] text-[#9A9AA8]">
+                <span className="text-[11px] font-medium uppercase tracking-[0.04em] text-[#757580]">
                   {guide.updatedAt ? `Güncelleme: ${guide.updatedAt}` : `Yayın: ${formatPublished(guide.publishedAt)}`}
                 </span>
                 <span className="inline-flex shrink-0 items-center gap-1 text-[13.5px] font-semibold text-[#1B5CD6]">

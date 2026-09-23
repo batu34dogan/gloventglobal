@@ -100,7 +100,7 @@ export default function RDAudiences() {
             transform: scaleY(1);
           }
           .rd-aud-row:hover .rd-aud-number, .rd-aud-row:focus-visible .rd-aud-number {
-            color: #C9A876;
+            color: #8A6E43;
           }
           .rd-aud-row:hover .rd-aud-title, .rd-aud-row:focus-visible .rd-aud-title {
             color: #1B5CD6;
@@ -138,7 +138,7 @@ export default function RDAudiences() {
               <span aria-hidden="true" className="rd-aud-accent" />
               <div className="grid grid-cols-1 gap-3 py-[25px] pl-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] sm:items-baseline sm:gap-10 sm:py-[29px]">
                 <div className="flex items-baseline gap-4">
-                  <span className="rd-aud-number shrink-0 text-[13px] font-bold text-[#9A9AA8]">{a.number}</span>
+                  <span className="rd-aud-number shrink-0 text-[13px] font-bold text-[#757580]">{a.number}</span>
                   <h3 className="rd-aud-title text-[1.4rem] font-bold leading-snug text-[#14213F] sm:text-[1.7rem]">
                     {a.title}
                   </h3>
