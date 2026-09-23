@@ -300,7 +300,7 @@ export default function RDCases() {
   const reducedMotion = useReducedMotion();
 
   return (
-    <section id="hikayeler" className="overflow-x-hidden bg-[#FAF9F6] py-16 sm:py-20">
+    <section id="hikayeler" className="scroll-mt-20 overflow-x-hidden bg-[#FAF9F6] py-16 sm:py-20">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="max-w-[52ch]">
           <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Projeler</p>

@@ -97,7 +97,7 @@ export default function RDServices() {
   }, []);
 
   return (
-    <section id="hizmetler" className="bg-[#FAF9F6] py-16 sm:py-20">
+    <section id="hizmetler" className="scroll-mt-20 bg-[#FAF9F6] py-16 sm:py-20">
       <style>{`
         .rd-cap-card {
           opacity: 0;

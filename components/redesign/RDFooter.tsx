@@ -74,8 +74,6 @@ export default function RDFooter() {
             <p className="text-[11px] font-bold tracking-[0.2em] text-[#6F6F79] uppercase">Sosyal</p>
             <div className="mt-4 flex items-center gap-3">
               <a href="https://www.instagram.com/gloventglobal" target="_blank" rel="noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E0E0E8] text-[11.5px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">ig</a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E0E0E8] text-[11.5px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">in</a>
-              <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E0E0E8] text-[11.5px] font-bold text-[#3A3A52] transition hover:border-[#1B5CD6] hover:text-[#1B5CD6]">yt</a>
             </div>
           </div>
         </div>
