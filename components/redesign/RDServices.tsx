@@ -28,6 +28,29 @@ const services = [
 
 const aiNodes = ['Otomasyon', 'İçerik', 'Veri', 'Karar Desteği', 'Operasyon', 'İş Akışları'];
 
+// Mobil (0-767px) radial network — 6 node hub'ın çevresine altıgen düzende yerleşiyor (viewBox
+// 0 0 200 250, hub 100,125). x/y: SVG spoke+dot koordinatları. xPct/yPct: aynı noktanın HTML
+// label'ı için yüzde konumu. transform/align/maxWidth: label kutusunun dot'a göre dışa doğru
+// (üst/alt/sağ/sol) hizalanmasını sağlıyor — 360px genişlikte bile viewport dışına taşmadan.
+const AI_RADIAL_NODES: Array<{
+  key: string;
+  label: string;
+  x: number;
+  y: number;
+  xPct: number;
+  yPct: number;
+  align: 'left' | 'right' | 'center';
+  transform: string;
+  maxWidth: number;
+}> = [
+  { key: 'automation', label: 'Otomasyon', x: 100, y: 45, xPct: 50, yPct: 18, align: 'center', transform: 'translate(-50%, calc(-100% - 10px))', maxWidth: 110 },
+  { key: 'content', label: 'İçerik', x: 150.2, y: 85, xPct: 75, yPct: 34, align: 'left', transform: 'translate(10px, -50%)', maxWidth: 66 },
+  { key: 'data', label: 'Veri', x: 150.2, y: 165, xPct: 75, yPct: 66, align: 'left', transform: 'translate(10px, -50%)', maxWidth: 66 },
+  { key: 'decision', label: 'Karar Desteği', x: 100, y: 205, xPct: 50, yPct: 82, align: 'center', transform: 'translate(-50%, 10px)', maxWidth: 116 },
+  { key: 'ops', label: 'Operasyon', x: 49.8, y: 165, xPct: 25, yPct: 66, align: 'right', transform: 'translate(calc(-100% - 10px), -50%)', maxWidth: 66 },
+  { key: 'workflows', label: 'İş Akışları', x: 49.8, y: 85, xPct: 25, yPct: 34, align: 'right', transform: 'translate(calc(-100% - 10px), -50%)', maxWidth: 66 },
+];
+
 function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
   if (e.pointerType !== 'mouse') return;
   const el = e.currentTarget;
@@ -338,11 +361,52 @@ export default function RDServices() {
               </p>
             </div>
 
-            {/* Mobil/tablette (lg altı) node etiketleri sadece alt alta chip gibi durmasın diye —
-                bilgi burada değil, aşağıdaki gerçek chip listesinde; bu sadece dekoratif, aria-hidden
-                bir "network" görseli. Masaüstünde lg:flex-row zaten yatay bir denge kuruyor,
-                bu görsele ihtiyaç yok. */}
-            <div aria-hidden="true" className="relative mx-auto h-[192px] w-[192px] shrink-0 lg:hidden">
+            {/* Mobil (0-767px): 6 node, ayrı chip listesi olarak değil, doğrudan network
+                diyagramının çevresinde — merkezde AI + DATA hub, her node ince bir spoke line ile
+                bağlı. Label'lar gerçek/erişilebilir metin (aria-hidden değil); sadece çizgi/nokta
+                dekoratif. Hover/tap gerekmiyor, her zaman görünür. */}
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-[264px] md:hidden">
+              <svg viewBox="0 0 200 250" aria-hidden="true" className="absolute inset-0 h-full w-full">
+                {AI_RADIAL_NODES.map((node) => (
+                  <line key={`line-${node.key}`} x1="100" y1="125" x2={node.x} y2={node.y} stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+                ))}
+                <circle cx="100" cy="125" r="26" fill="#0F1E3C" stroke="#C9A876" strokeWidth="1.2" />
+                {AI_RADIAL_NODES.map((node) => (
+                  <circle key={`dot-${node.key}`} cx={node.x} cy={node.y} r="4.5" fill="#14213F" stroke="rgba(255,255,255,0.4)" strokeWidth="1" />
+                ))}
+              </svg>
+              <span
+                aria-hidden="true"
+                className="rd-ai-mini-pulse absolute rounded-full border border-[#C9A876]/40"
+                style={{ left: '50%', top: '50%', width: '20.8%', height: '16.64%', transform: 'translate(-50%, -50%)' }}
+              />
+              <span
+                className="absolute whitespace-nowrap text-[9px] font-extrabold tracking-[0.04em] text-[#C9A876] uppercase"
+                style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}
+              >
+                AI + Data
+              </span>
+              {AI_RADIAL_NODES.map((node) => (
+                <span
+                  key={node.key}
+                  className="absolute text-[11.5px] font-semibold leading-tight text-white/85"
+                  style={{
+                    left: `${node.xPct}%`,
+                    top: `${node.yPct}%`,
+                    transform: node.transform,
+                    textAlign: node.align,
+                    maxWidth: `${node.maxWidth}px`,
+                  }}
+                >
+                  {node.label}
+                </span>
+              ))}
+            </div>
+
+            {/* Tablet (768-1023px): mevcut dekoratif mini-network + gerçek chip listesi kombinasyonu
+                birebir korunuyor — mobilde artık üstteki entegre network kullanılıyor. Masaüstünde
+                (1024px+) mini-network zaten lg:hidden, chip listesi metnin yanında yatay duruyor. */}
+            <div aria-hidden="true" className="relative mx-auto hidden h-[192px] w-[192px] shrink-0 md:block lg:hidden">
               <span
                 className="rd-ai-mini-pulse absolute inset-[28%] rounded-full border border-[#C9A876]/40"
               />
@@ -363,7 +427,7 @@ export default function RDServices() {
               </svg>
             </div>
 
-            <div className="flex w-full flex-wrap gap-x-2.5 gap-y-3 lg:w-[420px] xl:w-[460px]">
+            <div className="hidden w-full flex-wrap gap-x-2.5 gap-y-3 md:flex lg:w-[420px] xl:w-[460px]">
               {aiNodes.map((n, i) => (
                 <span
                   key={n}
