@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const NAV = [
@@ -23,10 +24,13 @@ export default function RDFooter() {
         <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.2fr_0.8fr_0.6fr_0.8fr_0.7fr]">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#1B5CD6] text-[16px] font-black text-[#14213F]">G</div>
-              <span className="text-[16.5px] font-bold text-[#14213F]">GloventGlobal</span>
-            </div>
+            <Image
+              src="/redesign/gloventglobal-logo-full.svg"
+              alt="GloventGlobal"
+              width={1454}
+              height={717}
+              className="h-20 w-auto"
+            />
             <p className="mt-4 max-w-[32ch] text-[14.5px] leading-relaxed text-[#6A6A7A]">
               Türk markalarının global pazarlarda büyümesi için strateji, ticaret, teknoloji ve operasyon sistemini tek çatıda kuruyoruz.
             </p>
