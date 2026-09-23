@@ -1,12 +1,28 @@
 // Kaynak: components/services/ServicesContent.tsx (audienceSegments) — production /hizmetler'in
-// "Kimler İçin?" bölümündeki 5 gerçek segment birebir aynı, homepage'in RDAudiences'ı (farklı bir
-// segmentasyon/interaksiyon) tekrar edilmiyor. Kompakt bir "bridge" — tam bölüm değil.
+// "Kimler İçin?" bölümündeki 5 gerçek segmentin başlığı VE tam açıklama metni birebir aynı,
+// homepage'in RDAudiences'ı (farklı bir segmentasyon/interaksiyon) tekrar edilmiyor. Kompakt bir
+// "bridge" — tam bölüm değil.
 const segments = [
-  { title: 'Üreticiler', desc: 'Ürününü ilk kez global pazarlara taşımak isteyen üreticiler.' },
-  { title: 'Toptan Satış Yapan Markalar', desc: 'Dijital katalog, B2B showroom ve teklif listesi ihtiyacı olanlar.' },
-  { title: 'Pazaryerlerine Girmek İsteyenler', desc: 'Mağaza kurulumu, listeleme ve reklam altyapısına ihtiyaç duyanlar.' },
-  { title: 'Shopify ile Kendi Sistemini Kurmak İsteyenler', desc: 'Kendi markasına ait satış kanalı kurmak isteyenler.' },
-  { title: 'Marka Algısını Güçlendirmek İsteyenler', desc: 'Görsel bütünlük ve içerik diliyle global pazarda öne çıkmak isteyenler.' },
+  {
+    title: 'Üreticiler',
+    desc: 'Ürününü ilk kez global pazarlara taşımak isteyen üreticiler için pazar, kanal ve satış sistemi planı oluştururuz.',
+  },
+  {
+    title: 'Toptan Satış Yapan Markalar',
+    desc: 'Toptan çalışan markalar için dijital katalog, B2B showroom, teklif listesi ve müşteri odaklı ürün sunumu kurgularız.',
+  },
+  {
+    title: 'Pazaryerlerine Girmek İsteyenler',
+    desc: 'Pazaryerlerine giriş yapmak isteyen markalar için mağaza kurulumu, listeleme, SEO, görsel dil ve reklam altyapısını hazırlarız.',
+  },
+  {
+    title: 'Shopify ile Kendi Sistemini Kurmak İsteyenler',
+    desc: 'Kendi markasına ait satış kanalı kurmak isteyen işletmeler için Shopify tabanlı vitrin, ürün yönetimi ve satış deneyimi oluştururuz.',
+  },
+  {
+    title: 'Marka Algısını Güçlendirmek İsteyenler',
+    desc: 'Yalnızca satış değil, marka algısı, görsel bütünlük, sosyal medya ve içerik diliyle global pazarda daha güçlü görünmek isteyen markalara sistem kurarız.',
+  },
 ];
 
 export default function RDServicesAudience() {

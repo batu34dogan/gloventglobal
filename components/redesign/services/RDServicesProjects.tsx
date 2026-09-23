@@ -1,8 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Kaynak: components/redesign/RDCases.tsx — aynı gerçek proje verisi (logo/oran/açıklama), ama
 // marquee tekrar edilmiyor: hizmetlerle ilişkiyi daha net göstermek için 4 seçili proje, sade bir
-// grid içinde. Yeni proje/iddia/metrik uydurulmadı. GermaniaLeather ayrı eklenmedi (GLC ile aynı
+// grid içinde. `system` alanı, projenin RDCases'teki gerçek capability etiketinin (örn. "Shopify ·
+// Commerce Infrastructure") doğrudan karşılığı olan gerçek /hizmetler/[slug] sayfasına işaret
+// ediyor — yeni proje/iddia/metrik uydurulmadı. GermaniaLeather ayrı eklenmedi (GLC ile aynı
 // güncel marka), Boncukcu Amca eklenmedi.
 const projects = [
   {
@@ -14,6 +17,7 @@ const projects = [
     logoWidth: 2195,
     logoHeight: 944,
     logoMaxWidthPct: 46,
+    system: { title: 'Shopify Commerce Sistemi', slug: 'shopify' },
   },
   {
     brand: 'BERD',
@@ -24,6 +28,7 @@ const projects = [
     logoWidth: 1720,
     logoHeight: 849,
     logoMaxWidthPct: 58,
+    system: { title: 'Amazon Global Satış Sistemi', slug: 'amazon' },
   },
   {
     brand: 'Ziynet Bijüteri',
@@ -34,6 +39,7 @@ const projects = [
     logoWidth: 1691,
     logoHeight: 793,
     logoMaxWidthPct: 56,
+    system: { title: 'B2B Dijital Showroom', slug: 'b2b-dijital-showroom' },
   },
   {
     brand: 'RituelCo',
@@ -44,6 +50,7 @@ const projects = [
     logoWidth: 1692,
     logoHeight: 1689,
     logoMaxWidthPct: 46,
+    system: { title: 'Etsy Marka Sistemi', slug: 'etsy' },
   },
 ];
 
@@ -79,6 +86,12 @@ export default function RDServicesProjects() {
               <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{p.capability}</p>
               <h3 className="mt-1.5 text-[15.5px] font-bold text-[#14213F]">{p.brand}</h3>
               <p className="mt-2 text-[13px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
+              <Link
+                href={`/hizmetler/${p.system.slug}`}
+                className="mt-3 inline-flex items-center gap-1 border-t border-[#E5E5EC] pt-3 text-[12px] font-semibold text-[#8A6E43] transition-colors hover:text-[#1B5CD6]"
+              >
+                Uygulanan sistem: {p.system.title} →
+              </Link>
             </article>
           ))}
         </div>

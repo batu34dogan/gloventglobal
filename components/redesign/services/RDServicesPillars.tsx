@@ -4,32 +4,32 @@ import { useEffect, useRef, useState } from 'react';
 
 // Homepage'teki (RDServices.tsx) dört yetkinlik birebir korunuyor — bu dosyaya özel, bağımsız bir
 // kopya (site genelindeki "sayfa izolasyonu" prensibi: her RD* dosyası kendi verisini taşır).
-// `services` alanı, kullanıcının audit sonrası verdiği pillar↔hizmet eşleştirmesinin aynısı —
-// yeni bir kategori/isim uydurulmadı.
+// Açıklamalar, her pillar'ın gerçek hizmetlerinin serviceDetailsData.ts'teki audience/approach/
+// problem içeriğinden derlendi (bkz. commit mesajı) — yeni bir kapsam/vaat uydurulmadı.
 const pillars = [
   {
     n: '01',
     title: 'Strateji',
-    desc: 'Pazar, ürün, fiyatlandırma ve büyüme modeli.',
+    desc: 'Markanızın pazarda nasıl algılanacağını, hangi ülke ve kanaldan büyüyeceğini, hangi fiyat konumunda duracağını netleştiririz. Ürün-pazar uyumu, rakip ayrışması ve hedef müşteri kararları bu aşamada birlikte ele alınır.',
     services: ['Marka Konumlandırma', 'Global Pazara Giriş Stratejisi'],
   },
   {
     n: '02',
     title: 'Ticaret',
-    desc: 'Marketplace, Shopify, B2B ve satış kanalları.',
+    desc: 'Amazon, Etsy, eBay, Shopify ve B2B dijital showroom üzerinde satış kanalını kurar, listeleme ve ürün sunumunu satışa hazır hale getiririz. Her kanal kendi dinamiğine göre planlanır, ama markanın tek satış sistemi içinde birbirine bağlı kalır.',
     services: ['Amazon', 'Etsy', 'eBay', 'Shopify', 'B2B Dijital Showroom'],
     secondaryLabel: 'Reklam & Growth',
   },
   {
     n: '03',
     title: 'Teknoloji',
-    desc: 'Web, entegrasyon, API, AI ve otomasyon.',
+    desc: 'Commerce altyapısını, API ve n8n tabanlı otomasyonları, yapay zeka destekli iş akışlarını satış sisteminize entegre ederiz. Tekrarlayan form, teklif, sipariş ve raporlama süreçleri birbirine bağlı, izlenebilir sistemlere dönüşür.',
     services: ['Shopify Altyapısı', 'Otomasyon & n8n', 'Yapay Zeka Entegrasyonu', 'B2B Teknik Altyapı'],
   },
   {
     n: '04',
     title: 'Operasyon',
-    desc: 'İçerik, ürün, reklam, veri ve günlük operasyon.',
+    desc: 'Reklam, görsel/içerik üretimi, sosyal medya ve pazaryerlerindeki günlük operasyonu; performans verisine göre sürekli geliştirilen tek bir sistem olarak yürütürüz. Sistemi kurup bırakmayız, veriyle birlikte geliştirmeye devam ederiz.',
     services: ['Reklam & Optimizasyon', 'Görsel & İçerik Sistemi', 'Sosyal Medya Yönetimi'],
     secondaryLabel: 'Veri & Performans Analizi',
   },
@@ -112,12 +112,12 @@ export default function RDServicesPillars() {
               className={`rd-pillar-row border-b border-[#E5E5EC] ${inView ? 'rd-in' : ''}`}
             >
               <span aria-hidden="true" className="rd-pillar-accent" />
-              <div className="grid gap-3 py-9 pl-5 pr-2 lg:grid-cols-[56px_180px_1fr_1.1fr] lg:items-start lg:gap-8 lg:py-10">
+              <div className="grid gap-3 py-9 pl-5 pr-2 lg:grid-cols-[56px_160px_1.3fr_1fr] lg:items-start lg:gap-8 lg:py-10">
                 <span className="text-[13px] font-bold text-[#C4C4CE]">{p.n}</span>
                 <h3 className="rd-pillar-title text-[1.6rem] font-extrabold text-[#14213F] transition-colors duration-300">
                   {p.title}
                 </h3>
-                <p className="text-[14.5px] leading-relaxed text-[#4A4A5A]">{p.desc}</p>
+                <p className="max-w-[48ch] text-[14.5px] leading-relaxed text-[#4A4A5A]">{p.desc}</p>
                 <div>
                   <div className="flex flex-wrap gap-2">
                     {p.services.map((s) => (

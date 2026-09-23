@@ -51,9 +51,10 @@ export default function RDServicesAILayer() {
         <h2 className="mt-4 max-w-[24ch] text-[2rem] font-extrabold leading-tight tracking-tight text-white sm:text-[2.6rem]">
           Her Sistemin İçinde Çalışan Katman.
         </h2>
-        <p className="mt-5 max-w-[58ch] text-[15px] leading-relaxed text-white/60">
-          Yapay zeka ve veriyi ayrı bir hizmet kutusu olarak sunmuyoruz; strateji, ticaret, teknoloji ve operasyonun
-          tamamında sürekli çalışan yatay bir katman olarak kuruyoruz.
+        <p className="mt-5 max-w-[62ch] text-[15px] leading-relaxed text-white/60">
+          Ürün açıklamaları, listeleme içerikleri, teklif ve müşteri akışları, raporlama ile n8n tabanlı
+          otomasyonlar bu katman üzerinden çalışır. Amazon’dan Shopify’a, reklamdan operasyona kadar her sistemde
+          aynı veri ve karar desteği altyapısını kullanırız — ayrı bir “AI ürünü” değil, sistemin kendisidir.
         </p>
 
         <div className="mt-9 flex flex-wrap gap-3">
