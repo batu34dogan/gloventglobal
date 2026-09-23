@@ -5,12 +5,11 @@ import { useEffect, useRef, useState } from 'react';
 
 // Kaynak: components/services/serviceDetailsData.ts (audience/approach/problem/deliverables
 // alanları) + components/services/ServicesContent.tsx (serviceCards). Başlıklar kullanıcının
-// brief'inde verdiği 12 gerçek hizmet adıyla birebir aynı; açıklamalar ve capability label'lar her
-// hizmetin kendi serviceDetailsData içeriğinden (ilgili gerçek kavramlar: listeleme, SEO, reklam,
-// n8n, ROAS, hedef müşteri, vb.) derlendi — yeni hizmet, vaat ya da platform uydurulmadı. Kategori
-// grupları, kullanıcının verdiği pillar eşleştirmesiyle aynı; her hizmet tek birincil kategoriye
-// yerleştirildi (Shopify/B2B pillar bölümünde Teknoloji'ye de değiniyor ama burada tekrar satır
-// oluşturmamak için Ticaret altında listeleniyor).
+// verdiği 12 gerçek hizmet adıyla birebir aynı; açıklamalar ve capability label'lar her hizmetin
+// kendi serviceDetailsData içeriğinden derlendi — yeni hizmet, vaat ya da platform uydurulmadı.
+// Kategori grupları, kullanıcının verdiği pillar eşleştirmesiyle aynı; her hizmet tek birincil
+// kategoriye yerleştirildi (Shopify/B2B pillar bölümünde Teknoloji'ye de değiniyor ama burada
+// tekrar satır oluşturmamak için Ticaret altında listeleniyor).
 const groups: {
   category: string;
   items: { title: string; desc: string; labels: string[]; slug: string }[];
@@ -127,7 +126,7 @@ function useInView<T extends HTMLElement>() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.08 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -136,56 +135,126 @@ function useInView<T extends HTMLElement>() {
   return [ref, inView] as const;
 }
 
+function ServiceRow({ item }: { item: (typeof groups)[number]['items'][number] }) {
+  return (
+    <Link
+      href={`/hizmetler/${item.slug}`}
+      className="rd-exp-row group relative flex flex-col gap-3 py-7 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+    >
+      <span aria-hidden="true" className="rd-exp-accent" />
+      <div className="max-w-[640px]">
+        <h4 className="rd-exp-title text-[18px] font-bold text-[#14213F]">{item.title}</h4>
+        <p className="mt-1.5 text-[14px] leading-relaxed text-[#6A6A7A]">{item.desc}</p>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {item.labels.map((label) => (
+            <span
+              key={label}
+              className="rounded-full border border-[#E0E0E8] px-2.5 py-1 text-[10.5px] font-medium uppercase tracking-[0.03em] text-[#6F6F79]"
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+      </div>
+      <span className="shrink-0 text-[13.5px] font-semibold text-[#1B5CD6]">
+        Detayları İncele <span aria-hidden="true" className="rd-exp-arrow">→</span>
+      </span>
+    </Link>
+  );
+}
+
 export default function RDServicesDirectory() {
   const [ref, inView] = useInView<HTMLDivElement>();
+  const [active, setActive] = useState(0);
 
   return (
-    <section id="hizmetler" className="scroll-mt-20 bg-[#FAF9F6] py-16 sm:py-20">
+    <section id="hizmetler" className="scroll-mt-20 bg-white py-16 sm:py-20">
       <style>{`
-        .rd-dir-row { position: relative; transition: background-color .25s ease; }
-        .rd-dir-accent {
+        .rd-exp-row { position: relative; transition: background-color .25s ease; }
+        .rd-exp-accent {
           position: absolute; left: -1px; top: 0; bottom: 0; width: 2px;
           background: linear-gradient(to bottom, #1B5CD6, #C9A876);
-          transform: scaleY(0);
-          transform-origin: top;
-          transition: transform .3s ease;
+          transform: scaleY(0); transform-origin: top; transition: transform .3s ease;
         }
-        .rd-dir-title { transition: color .25s ease, transform .25s ease; display: inline-block; }
-        .rd-dir-arrow { display: inline-block; transition: transform .25s ease; }
+        .rd-exp-title { transition: color .25s ease, transform .25s ease; display: inline-block; }
+        .rd-exp-arrow { display: inline-block; transition: transform .25s ease; }
         @media (hover: hover) and (pointer: fine) {
-          .rd-dir-row:hover { background-color: rgba(27,92,214,0.035); }
-          .rd-dir-row:hover .rd-dir-accent { transform: scaleY(1); }
-          .rd-dir-row:hover .rd-dir-title { color: #1B5CD6; transform: translateX(3px); }
-          .rd-dir-row:hover .rd-dir-arrow { transform: translateX(3px); }
+          .rd-exp-row:hover { background-color: rgba(27,92,214,0.035); }
+          .rd-exp-row:hover .rd-exp-accent { transform: scaleY(1); }
+          .rd-exp-row:hover .rd-exp-title { color: #1B5CD6; transform: translateX(3px); }
+          .rd-exp-row:hover .rd-exp-arrow { transform: translateX(3px); }
         }
-        .rd-dir-group {
-          opacity: 0;
-          transform: translateY(10px);
+        .rd-exp-nav-btn {
+          position: relative; display: flex; width: 100%; align-items: center; justify-content: space-between;
+          gap: 12px; border-radius: 12px; padding: 14px 16px; text-align: left;
+          transition: background-color .25s ease, color .25s ease;
+        }
+        .rd-exp-nav-btn[aria-current="true"] { background-color: rgba(27,92,214,0.06); }
+        .rd-exp-nav-btn:not([aria-current="true"]):hover { background-color: rgba(20,33,63,0.03); }
+        .rd-exp-panel {
+          opacity: 0; transform: translateY(8px);
+          animation: rd-exp-fade .4s ease forwards;
+        }
+        @keyframes rd-exp-fade { to { opacity: 1; transform: translateY(0); } }
+        .rd-exp-group {
+          opacity: 0; transform: translateY(10px);
           transition: opacity .55s ease, transform .55s ease;
         }
-        .rd-dir-group.rd-in { opacity: 1; transform: translateY(0); }
+        .rd-exp-group.rd-in { opacity: 1; transform: translateY(0); }
         @media (prefers-reduced-motion: reduce) {
-          .rd-dir-group, .rd-dir-group.rd-in { opacity: 1 !important; transform: none !important; transition: none !important; }
-          .rd-dir-arrow, .rd-dir-title { transition: none !important; }
-          .rd-dir-row:hover .rd-dir-title { transform: none !important; }
-          .rd-dir-row:hover .rd-dir-arrow { transform: none !important; }
+          .rd-exp-group, .rd-exp-group.rd-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+          .rd-exp-panel { animation: none !important; opacity: 1 !important; transform: none !important; }
+          .rd-exp-title, .rd-exp-arrow { transition: none !important; }
+          .rd-exp-row:hover .rd-exp-title, .rd-exp-row:hover .rd-exp-arrow { transform: none !important; }
         }
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="max-w-[52ch]">
           <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Çözümler</p>
-          <h2 className="mt-3 text-[2.2rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[2.7rem]">
+          <h2 className="mt-3 text-[2.4rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[3rem]">
             İhtiyacınıza Göre Kurduğumuz Sistemler.
           </h2>
         </div>
 
-        <div ref={ref} className="mt-12 flex flex-col gap-14">
+        {/* Desktop — sticky category nav + active category panel */}
+        <div className="mt-14 hidden lg:grid lg:grid-cols-[240px_1fr] lg:gap-14">
+          <nav aria-label="Hizmet kategorileri" className="sticky top-24 flex h-fit flex-col gap-1.5">
+            {groups.map((g, i) => (
+              <button
+                key={g.category}
+                type="button"
+                aria-current={active === i}
+                onClick={() => setActive(i)}
+                className="rd-exp-nav-btn"
+              >
+                <span className="flex items-center gap-3">
+                  <span className="text-[12px] font-bold text-[#C4C4CE]">{String(i + 1).padStart(2, '0')}</span>
+                  <span
+                    className={`text-[15px] font-bold ${active === i ? 'text-[#1B5CD6]' : 'text-[#14213F]'}`}
+                  >
+                    {g.category}
+                  </span>
+                </span>
+                <span className="text-[11px] font-medium text-[#B8B8C2]">{g.items.length}</span>
+              </button>
+            ))}
+          </nav>
+
+          <div key={active} className="rd-exp-panel divide-y divide-[#E5E5EC] border-y border-[#E5E5EC]">
+            {groups[active].items.map((item) => (
+              <ServiceRow key={item.slug} item={item} />
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile / tablet — all categories stacked, normal scroll, no hover dependency */}
+        <div ref={ref} className="mt-12 flex flex-col gap-12 lg:hidden">
           {groups.map((group, gi) => (
             <div
               key={group.category}
               style={{ transitionDelay: inView ? `${gi * 90}ms` : '0ms' }}
-              className={`rd-dir-group ${inView ? 'rd-in' : ''}`}
+              className={`rd-exp-group ${inView ? 'rd-in' : ''}`}
             >
               <div className="flex items-center gap-4">
                 <span className="text-[13px] font-bold text-[#C4C4CE]">{String(gi + 1).padStart(2, '0')}</span>
@@ -196,30 +265,7 @@ export default function RDServicesDirectory() {
               </div>
               <div className="mt-5 divide-y divide-[#E5E5EC] border-y border-[#E5E5EC]">
                 {group.items.map((item) => (
-                  <Link
-                    key={item.slug}
-                    href={`/hizmetler/${item.slug}`}
-                    className="rd-dir-row group flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
-                  >
-                    <span aria-hidden="true" className="rd-dir-accent" />
-                    <div className="max-w-[640px]">
-                      <h4 className="rd-dir-title text-[17.5px] font-bold text-[#14213F]">{item.title}</h4>
-                      <p className="mt-1.5 text-[14px] leading-relaxed text-[#6A6A7A]">{item.desc}</p>
-                      <div className="mt-3 flex flex-wrap gap-1.5">
-                        {item.labels.map((label) => (
-                          <span
-                            key={label}
-                            className="rounded-full border border-[#E0E0E8] px-2.5 py-1 text-[10.5px] font-medium uppercase tracking-[0.03em] text-[#6F6F79]"
-                          >
-                            {label}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <span className="shrink-0 text-[13.5px] font-semibold text-[#1B5CD6]">
-                      Detayları İncele <span aria-hidden="true" className="rd-dir-arrow">→</span>
-                    </span>
-                  </Link>
+                  <ServiceRow key={item.slug} item={item} />
                 ))}
               </div>
             </div>

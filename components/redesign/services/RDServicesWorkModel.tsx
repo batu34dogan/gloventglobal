@@ -1,7 +1,10 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 
 // Kaynak: components/services/ServicesContent.tsx (deliveryModels) — eski /hizmetler'deki "Hizmeti
-// Nasıl Alabilirsiniz?" bölümünün aynı üç gerçek modeli, kompakt bridge formatında.
+// Nasıl Alabilirsiniz?" bölümünün aynı üç gerçek modeli, kompakt bir "system flow" bridge olarak.
+// Homepage'in Growth Engine'i (RDSystem.tsx) birebir kopyalanmadı — burada sadece 3 adım arasında
+// ince bir bağlantı çizgisi var, ayrı bir büyük süreç diyagramı değil.
 const models = [
   {
     n: '01',
@@ -27,7 +30,7 @@ export default function RDServicesWorkModel() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-[48ch]">
             <p className="text-[11px] font-bold tracking-[0.28em] text-[#1B5CD6] uppercase">Çalışma Modeli</p>
-            <h2 className="mt-3 text-[1.7rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[2rem]">
+            <h2 className="mt-3 text-[1.9rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[2.2rem]">
               İhtiyaca Göre Kuruyor, Yönetiyor ve Geliştiriyoruz.
             </h2>
           </div>
@@ -39,15 +42,23 @@ export default function RDServicesWorkModel() {
           </Link>
         </div>
 
-        <div className="mt-9 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {models.map((m) => (
-            <div key={m.n}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1B5CD6]/40 text-[13px] font-bold text-[#1B5CD6]">
-                {m.n}
-              </span>
-              <h3 className="mt-4 text-[16px] font-bold text-[#14213F]">{m.title}</h3>
-              <p className="mt-2 text-[13.5px] leading-relaxed text-[#6A6A7A]">{m.desc}</p>
-            </div>
+        <div className="mt-10 grid grid-cols-1 gap-y-8 sm:grid-cols-[1fr_28px_1fr_28px_1fr] sm:items-start sm:gap-x-3">
+          {models.map((m, i) => (
+            <Fragment key={m.n}>
+              <div>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1B5CD6]/40 text-[13px] font-bold text-[#1B5CD6]">
+                  {m.n}
+                </span>
+                <h3 className="mt-4 text-[16px] font-bold text-[#14213F]">{m.title}</h3>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-[#6A6A7A]">{m.desc}</p>
+              </div>
+              {i < models.length - 1 && (
+                <div aria-hidden="true" className="relative hidden h-9 items-center justify-center sm:flex">
+                  <span className="h-px w-full bg-gradient-to-r from-[#1B5CD6]/40 to-[#C9A876]/40" />
+                  <span className="absolute text-[13px] text-[#C9A876]">→</span>
+                </div>
+              )}
+            </Fragment>
           ))}
         </div>
       </div>

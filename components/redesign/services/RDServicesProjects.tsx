@@ -57,18 +57,36 @@ const projects = [
 export default function RDServicesProjects() {
   return (
     <section className="border-t border-[#E5E5EC] bg-[#FAF9F6] py-16 sm:py-20">
+      <style>{`
+        .rd-proj-card { transition: border-color .3s ease, box-shadow .3s ease; }
+        .rd-proj-logo { transition: transform .4s ease; }
+        .rd-proj-edge {
+          position: absolute; inset: 0; border-radius: 16px; padding: 1px; opacity: 0;
+          background: linear-gradient(135deg, #1B5CD6, #C9A876);
+          -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          -webkit-mask-composite: xor; mask-composite: exclude;
+          transition: opacity .3s ease; pointer-events: none;
+        }
+        @media (hover: hover) and (pointer: fine) {
+          .rd-proj-card:hover { border-color: transparent; box-shadow: 0 20px 44px -30px rgba(20,33,63,0.4); }
+          .rd-proj-card:hover .rd-proj-logo { transform: scale(1.04); }
+          .rd-proj-card:hover .rd-proj-edge { opacity: 1; }
+        }
+      `}</style>
+
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="max-w-[48ch]">
           <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Gerçek Uygulamalar</p>
-          <h2 className="mt-3 text-[2.2rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[2.7rem]">
+          <h2 className="mt-3 text-[2.4rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[3rem]">
             Hizmetten Çalışan Sisteme.
           </h2>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-2">
           {projects.map((p) => (
-            <article key={p.brand} className="rounded-2xl border border-[#E5E5EC] bg-white p-5">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl">
+            <article key={p.brand} className="rd-proj-card relative overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white p-6 sm:p-7">
+              <span aria-hidden="true" className="rd-proj-edge" />
+              <div className="relative aspect-[21/10] overflow-hidden rounded-xl">
                 <div aria-hidden="true" className="absolute inset-0" style={{ background: p.tone }} />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image
@@ -76,19 +94,19 @@ export default function RDServicesProjects() {
                     alt={`${p.brand} logosu`}
                     width={p.logoWidth}
                     height={p.logoHeight}
-                    sizes="(min-width: 1024px) 260px, 45vw"
-                    className="h-auto w-auto object-contain"
-                    style={{ maxWidth: `${p.logoMaxWidthPct}%`, maxHeight: '70%' }}
+                    sizes="(min-width: 1024px) 560px, 90vw"
+                    className="rd-proj-logo h-auto w-auto object-contain"
+                    style={{ maxWidth: `${p.logoMaxWidthPct}%`, maxHeight: '68%' }}
                   />
                 </div>
                 <div aria-hidden="true" className="absolute inset-0 ring-1 ring-inset ring-black/5" />
               </div>
-              <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{p.capability}</p>
-              <h3 className="mt-1.5 text-[15.5px] font-bold text-[#14213F]">{p.brand}</h3>
-              <p className="mt-2 text-[13px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
+              <p className="mt-5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{p.capability}</p>
+              <h3 className="mt-1.5 text-[18px] font-bold text-[#14213F]">{p.brand}</h3>
+              <p className="mt-2 max-w-[52ch] text-[13.5px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
               <Link
                 href={`/hizmetler/${p.system.slug}`}
-                className="mt-3 inline-flex items-center gap-1 border-t border-[#E5E5EC] pt-3 text-[12px] font-semibold text-[#8A6E43] transition-colors hover:text-[#1B5CD6]"
+                className="relative mt-4 inline-flex items-center gap-1 border-t border-[#E5E5EC] pt-4 text-[12.5px] font-semibold text-[#8A6E43] transition-colors hover:text-[#1B5CD6]"
               >
                 Uygulanan sistem: {p.system.title} →
               </Link>
