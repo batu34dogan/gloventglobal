@@ -19,6 +19,9 @@ export async function generateMetadata({
   return {
     title: `${service.title} | GloventGlobal`,
     description: service.description,
+    alternates: {
+      canonical: `/hizmetler/${slug}`,
+    },
     openGraph: {
       title: `${service.title} | GloventGlobal`,
       description: service.description,
