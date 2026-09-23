@@ -264,6 +264,57 @@ export default function RDServices() {
           50% { transform: scale(1.12); opacity: .15; }
         }
 
+        /* Mobile (0-767px) AI+Data network — restrained data-flow loop. Dedicated classes/keyframes
+           (not shared with .rd-ai-mini-pulse, which the 768-1023px decorative network still uses
+           untouched) so tablet/desktop stay pixel-identical. One 7.2s cycle, one node active at a
+           time (6 × 1.2s slots), phase-shifted per node via negative animation-delay. */
+        .rd-ai-hub-pulse {
+          animation: rd-ai-hub-pulse-kf 4s ease-in-out infinite;
+        }
+        @keyframes rd-ai-hub-pulse-kf {
+          0%, 100% { opacity: .35; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: .65; transform: translate(-50%, -50%) scale(1.04); }
+        }
+
+        .rd-ai-node-spoke {
+          animation: rd-ai-spoke-kf 7.2s ease-in-out infinite;
+        }
+        @keyframes rd-ai-spoke-kf {
+          0%, 100% { stroke: rgba(255,255,255,0.2); stroke-width: 1; }
+          4%, 13% { stroke: #1B5CD6; stroke-width: 1.6; }
+          15% { stroke: rgba(255,255,255,0.2); stroke-width: 1; }
+        }
+
+        .rd-ai-node-dot {
+          animation: rd-ai-dot-kf 7.2s ease-in-out infinite;
+        }
+        @keyframes rd-ai-dot-kf {
+          0%, 100% { stroke: rgba(255,255,255,0.4); r: 4.5px; }
+          4%, 13% { stroke: #C9A876; r: 5px; }
+          15% { stroke: rgba(255,255,255,0.4); r: 4.5px; }
+        }
+
+        .rd-ai-node-label {
+          display: inline-block;
+          color: rgba(255,255,255,0.72);
+          animation: rd-ai-label-kf 7.2s ease-in-out infinite;
+        }
+        @keyframes rd-ai-label-kf {
+          0%, 100% { color: rgba(255,255,255,0.72); transform: scale(1); }
+          4%, 13% { color: #FFFFFF; transform: scale(1.05); }
+          15% { color: rgba(255,255,255,0.72); transform: scale(1); }
+        }
+
+        .rd-ai-data-point {
+          animation: rd-ai-travel-kf 7.2s linear infinite;
+        }
+        @keyframes rd-ai-travel-kf {
+          0%, 4% { offset-distance: 0%; opacity: 0; }
+          6% { offset-distance: 12%; opacity: 1; }
+          11% { offset-distance: 100%; opacity: 1; }
+          13%, 100% { offset-distance: 100%; opacity: 0; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .rd-ai-panel, .rd-ai-panel.rd-ai-in, .rd-ai-node, .rd-ai-panel.rd-ai-in .rd-ai-node, .rd-ai-node:hover {
             opacity: 1 !important;
@@ -272,6 +323,15 @@ export default function RDServices() {
           }
           .rd-ai-glow { opacity: 0 !important; }
           .rd-ai-mini-pulse { animation: none !important; opacity: .3; }
+          .rd-ai-hub-pulse {
+            animation: none !important;
+            opacity: .5 !important;
+            transform: translate(-50%, -50%) scale(1) !important;
+          }
+          .rd-ai-node-spoke { animation: none !important; stroke: rgba(255,255,255,0.2) !important; stroke-width: 1 !important; }
+          .rd-ai-node-dot { animation: none !important; stroke: rgba(255,255,255,0.4) !important; r: 4.5px !important; }
+          .rd-ai-node-label { animation: none !important; color: rgba(255,255,255,0.72) !important; transform: none !important; }
+          .rd-ai-data-point { animation: none !important; opacity: 0 !important; }
         }
       `}</style>
 
@@ -364,21 +424,57 @@ export default function RDServices() {
             {/* Mobil (0-767px): 6 node, ayrı chip listesi olarak değil, doğrudan network
                 diyagramının çevresinde — merkezde AI + DATA hub, her node ince bir spoke line ile
                 bağlı. Label'lar gerçek/erişilebilir metin (aria-hidden değil); sadece çizgi/nokta
-                dekoratif. Hover/tap gerekmiyor, her zaman görünür. */}
+                dekoratif. Hover/tap gerekmiyor, her zaman görünür. Sıralı, restrained data-flow
+                animasyonu: aynı anda yalnızca bir node/spoke aktif + merkezden o node'a doğru
+                küçük bir champagne veri noktası akıyor (bkz. yukarıdaki rd-ai-* keyframe'leri). */}
             <div className="relative mx-auto aspect-[4/5] w-full max-w-[264px] md:hidden">
               <svg viewBox="0 0 200 250" aria-hidden="true" className="absolute inset-0 h-full w-full">
-                {AI_RADIAL_NODES.map((node) => (
-                  <line key={`line-${node.key}`} x1="100" y1="125" x2={node.x} y2={node.y} stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+                {AI_RADIAL_NODES.map((node, i) => (
+                  <line
+                    key={`line-${node.key}`}
+                    className="rd-ai-node-spoke"
+                    x1="100"
+                    y1="125"
+                    x2={node.x}
+                    y2={node.y}
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1"
+                    style={{ animationDelay: `${i * 1.2}s` }}
+                  />
                 ))}
                 <circle cx="100" cy="125" r="26" fill="#0F1E3C" stroke="#C9A876" strokeWidth="1.2" />
-                {AI_RADIAL_NODES.map((node) => (
-                  <circle key={`dot-${node.key}`} cx={node.x} cy={node.y} r="4.5" fill="#14213F" stroke="rgba(255,255,255,0.4)" strokeWidth="1" />
+                {AI_RADIAL_NODES.map((node, i) => (
+                  <circle
+                    key={`dot-${node.key}`}
+                    className="rd-ai-node-dot"
+                    cx={node.x}
+                    cy={node.y}
+                    r="4.5"
+                    fill="#14213F"
+                    stroke="rgba(255,255,255,0.4)"
+                    strokeWidth="1"
+                    style={{ animationDelay: `${i * 1.2}s` }}
+                  />
+                ))}
+                {AI_RADIAL_NODES.map((node, i) => (
+                  <circle
+                    key={`travel-${node.key}`}
+                    className="rd-ai-data-point"
+                    r="3.5"
+                    cx="0"
+                    cy="0"
+                    fill="#C9A876"
+                    style={{
+                      offsetPath: `path('M 100 125 L ${node.x} ${node.y}')`,
+                      animationDelay: `${i * 1.2}s`,
+                    }}
+                  />
                 ))}
               </svg>
               <span
                 aria-hidden="true"
-                className="rd-ai-mini-pulse absolute rounded-full border border-[#C9A876]/40"
-                style={{ left: '50%', top: '50%', width: '20.8%', height: '16.64%', transform: 'translate(-50%, -50%)' }}
+                className="rd-ai-hub-pulse absolute rounded-full border border-[#C9A876]/40"
+                style={{ left: '50%', top: '50%', width: '20.8%', height: '16.64%' }}
               />
               <span
                 className="absolute whitespace-nowrap text-[9px] font-extrabold tracking-[0.04em] text-[#C9A876] uppercase"
@@ -386,10 +482,10 @@ export default function RDServices() {
               >
                 AI + Data
               </span>
-              {AI_RADIAL_NODES.map((node) => (
+              {AI_RADIAL_NODES.map((node, i) => (
                 <span
                   key={node.key}
-                  className="absolute text-[11.5px] font-semibold leading-tight text-white/85"
+                  className="absolute text-[11.5px] font-semibold leading-tight"
                   style={{
                     left: `${node.xPct}%`,
                     top: `${node.yPct}%`,
@@ -398,7 +494,9 @@ export default function RDServices() {
                     maxWidth: `${node.maxWidth}px`,
                   }}
                 >
-                  {node.label}
+                  <span className="rd-ai-node-label" style={{ animationDelay: `${i * 1.2}s` }}>
+                    {node.label}
+                  </span>
                 </span>
               ))}
             </div>
