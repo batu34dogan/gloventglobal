@@ -311,13 +311,13 @@ function StaticRail() {
 // scroll'u + CSS snap. 7 gerçek proje aynen korunuyor.
 function MobileRail() {
   return (
-    <div className="rd-cases-mobile-rail flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2">
+    <div className="rd-cases-mobile-rail flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2">
       {projects.map((p) => (
         <ProjectCard
           key={p.brand}
           p={p}
-          widthClassName="w-[90vw] shrink-0 snap-center"
-          imageAspectClassName="aspect-[3/2]"
+          widthClassName="w-[86vw] shrink-0 snap-center"
+          imageAspectClassName="aspect-[4/3]"
         />
       ))}
       <div aria-hidden className="w-px shrink-0" />

@@ -22,7 +22,7 @@ export default function RDNavbar() {
   }, []);
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-200 ${scrolled ? 'bg-white/96 shadow-[0_1px_0_0_#e5e5e8] backdrop-blur-sm' : 'bg-white/80 backdrop-blur-sm'}`}>
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-2 sm:px-10 sm:py-2.5">
+      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-1 sm:px-10 sm:py-1.5 lg:py-2.5">
         {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center">
           <Image
@@ -31,7 +31,7 @@ export default function RDNavbar() {
             width={1454}
             height={717}
             priority
-            className="h-[54px] w-auto sm:h-[56px]"
+            className="h-[62px] w-auto sm:h-[64px] lg:h-[56px]"
           />
         </Link>
         {/* Desktop nav */}

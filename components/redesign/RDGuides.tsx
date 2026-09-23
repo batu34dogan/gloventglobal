@@ -15,11 +15,21 @@ const topGuides = Object.values(guides)
   .sort((a, b) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER))
   .slice(0, 3);
 
-function GuideCard({ guide, widthClassName }: { guide: (typeof topGuides)[number]; widthClassName?: string }) {
+function GuideCard({
+  guide,
+  widthClassName,
+  surfaceClassName,
+  titleClassName,
+}: {
+  guide: (typeof topGuides)[number];
+  widthClassName?: string;
+  surfaceClassName?: string;
+  titleClassName?: string;
+}) {
   return (
     <Link
       href={`/rehberler/${guide.slug}`}
-      className={`rd-guide-card flex flex-col rounded-2xl border border-[#E5E5EC] bg-white p-7 ${widthClassName ?? ''}`}
+      className={`rd-guide-card flex flex-col p-7 ${surfaceClassName ?? 'rounded-2xl border border-[#E5E5EC] bg-white'} ${widthClassName ?? ''}`}
     >
       <div className="flex items-center justify-between gap-3">
         <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">
@@ -28,7 +38,7 @@ function GuideCard({ guide, widthClassName }: { guide: (typeof topGuides)[number
         <span className="text-[11.5px] font-medium text-[#757580]">{guide.readTime}</span>
       </div>
 
-      <h3 className="mt-4 text-[18px] font-bold leading-snug text-[#14213F]">{guide.title}</h3>
+      <h3 className={titleClassName ?? 'mt-4 text-[18px] font-bold leading-snug text-[#14213F]'}>{guide.title}</h3>
       <p className="mt-2.5 flex-1 text-[14px] leading-relaxed text-[#6A6A7A]">{guide.excerpt}</p>
 
       <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#E5E5EC] pt-5">
@@ -46,7 +56,7 @@ function GuideCard({ guide, widthClassName }: { guide: (typeof topGuides)[number
 
 export default function RDGuides() {
   return (
-    <section className="bg-[#FAF9F6] py-16 sm:py-20">
+    <section className="overflow-x-hidden bg-[#FAF9F6] py-16 sm:py-20">
       <style>{`
         .rd-guide-card {
           transition: transform .25s ease, border-color .25s ease;
@@ -87,7 +97,7 @@ export default function RDGuides() {
           </div>
           <Link
             href="/rehberler"
-            className="inline-flex w-fit shrink-0 items-center gap-2 text-[14.5px] font-semibold text-[#1B5CD6] transition-colors hover:text-[#14213F]"
+            className="inline-flex w-fit shrink-0 items-center gap-2 text-[15px] font-bold text-[#1B5CD6] transition-colors hover:text-[#14213F] sm:text-[14.5px] sm:font-semibold"
           >
             Tüm Rehberleri Gör →
           </Link>
@@ -99,13 +109,21 @@ export default function RDGuides() {
             <GuideCard key={guide.slug} guide={guide} />
           ))}
         </div>
+      </div>
 
-        {/* Mobil (0-767px) — 3 kart alt alta değil, yatay swipe/scroll-snap rail */}
-        <div className="rd-guide-rail mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 md:hidden">
-          {topGuides.map((guide) => (
-            <GuideCard key={guide.slug} guide={guide} widthClassName="w-[87vw] shrink-0 snap-center" />
-          ))}
-        </div>
+      {/* Mobil (0-767px) — 3 kart alt alta değil, yatay swipe/scroll-snap rail; full-bleed
+          (mx-auto max-w-[1400px] sınırının dışına taşıyor) ki ikinci kartın kenarı net görünsün. */}
+      <div className="rd-guide-rail mt-10 flex w-screen snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 ml-[calc(50%-50vw)] md:hidden">
+        {topGuides.map((guide) => (
+          <GuideCard
+            key={guide.slug}
+            guide={guide}
+            widthClassName="w-[87vw] shrink-0 snap-center"
+            surfaceClassName="rounded-2xl border border-[#EDEDF2] bg-white shadow-[0_1px_3px_rgba(20,33,63,0.05)]"
+            titleClassName="mt-4 text-[19px] font-extrabold leading-snug tracking-tight text-[#14213F]"
+          />
+        ))}
+        <div aria-hidden className="w-px shrink-0" />
       </div>
     </section>
   );

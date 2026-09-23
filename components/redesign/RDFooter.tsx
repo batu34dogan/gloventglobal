@@ -20,7 +20,7 @@ const LEGAL = [
 export default function RDFooter() {
   return (
     <footer className="border-t border-[#E5E5EC] bg-[#FAF9F6]">
-      <div className="mx-auto max-w-[1400px] px-6 py-16 sm:px-10">
+      <div className="mx-auto max-w-[1400px] px-6 pt-16 pb-24 sm:px-10 sm:pb-16">
         <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.2fr_0.8fr_0.6fr_0.8fr_0.7fr]">
           {/* Brand */}
           <div>

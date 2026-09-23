@@ -31,7 +31,7 @@ export default function RDHero() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-x-3 gap-y-4 sm:gap-3">
             <Link
               href="/analiz"
               onClick={() => trackEvent('free_analysis_cta_click', { location: 'redesign_hero' })}
@@ -52,9 +52,10 @@ export default function RDHero() {
 
       {/* Cinematic composition. Mobil (0-767px): Hero yüzeyinin devamı gibi, full-bleed, kart
           hissi vermeyen sabit yükseklikli görsel + üstte ivory→transparent geçiş (metin alanıyla
-          kesintisiz birleşiyor). 768px+ (md/tablet) mevcut inset/rounded/aspect-[4/5] görünüm
-          birebir korunuyor; 1024px+ (lg) zaten kendi ayrı sağ-panel düzenine geçiyor, dokunulmadı. */}
-      <div className="relative mt-6 h-[320px] overflow-hidden md:mx-10 md:mt-2 md:aspect-[4/5] md:h-auto md:rounded-2xl lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
+          kesintisiz birleşiyor). Yükseklik + vertical anchor mobilde kişi/laptop kompozisyonunu
+          daha güçlü göstermek için ayarlı. 768px+ (md/tablet) mevcut inset/rounded/aspect-[4/5]
+          görünüm birebir korunuyor; 1024px+ (lg) zaten kendi ayrı sağ-panel düzenine geçiyor, dokunulmadı. */}
+      <div className="relative mt-6 h-[360px] overflow-hidden md:mx-10 md:mt-2 md:aspect-[4/5] md:h-auto md:rounded-2xl lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
         <Image
           src="/redesign/hero-istanbul.jpg"
           alt="İstanbul Boğazı manzaralı bir terasta, dizüstü bilgisayarıyla çalışan biri"
@@ -62,7 +63,7 @@ export default function RDHero() {
           priority
           fetchPriority="high"
           sizes="(min-width: 1024px) 54vw, 100vw"
-          className="object-cover object-[62%_center] lg:object-[65%_center]"
+          className="object-cover object-[62%_60%] md:object-[62%_center] lg:object-[65%_center]"
         />
         <div
           aria-hidden
@@ -71,8 +72,8 @@ export default function RDHero() {
         />
         <div
           aria-hidden
-          className="absolute inset-x-0 top-0 h-20 md:hidden"
-          style={{ background: 'linear-gradient(to bottom,#FAF9F6,transparent)' }}
+          className="absolute inset-x-0 top-0 h-28 md:hidden"
+          style={{ background: 'linear-gradient(to bottom,#FAF9F6 0%,rgba(250,249,246,0.8) 45%,transparent 100%)' }}
         />
         <div
           aria-hidden
