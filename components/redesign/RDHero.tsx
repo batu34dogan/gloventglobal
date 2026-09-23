@@ -9,18 +9,6 @@ const SYSTEM = ['Strategy', 'Commerce', 'Technology', 'Operations'];
 export default function RDHero() {
   return (
     <section className="relative overflow-hidden bg-[#FAF9F6] lg:min-h-[90vh]">
-      <style>{`
-        .rd-hero-hub-pulse {
-          animation: rd-hero-hub-pulse-kf 4.5s ease-in-out infinite;
-        }
-        @keyframes rd-hero-hub-pulse-kf {
-          0%, 100% { opacity: .4; transform: scale(1); }
-          50% { opacity: .1; transform: scale(1.1); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .rd-hero-hub-pulse { animation: none !important; opacity: .25; }
-        }
-      `}</style>
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="max-w-[46ch] py-20 lg:flex lg:min-h-[90vh] lg:max-w-[54%] lg:flex-col lg:justify-center lg:py-28">
           <p className="text-[12px] font-bold tracking-[0.3em] text-[#1B5CD6] uppercase">Global Growth Partner</p>
@@ -59,35 +47,14 @@ export default function RDHero() {
               Hizmetlerimizi Keşfet
             </Link>
           </div>
-
-          {/* Mobil (0-767px): düz "Strategy · Commerce · Technology · Operations" metni yerine,
-              Hero'nun devamı gibi duran kompakt bir sistem kartı — AI+DATA hub + 4 okunur node.
-              Ayrı/boşlukta duran bir diyagram değil, CTA'ların hemen altına yapışık tek composition. */}
-          <div className="mt-8 flex items-center gap-4 rounded-2xl border border-[#E5E5EC] bg-white/70 p-5 md:hidden">
-            <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-[#1B5CD6] bg-[#FEFCF9]">
-              <span aria-hidden="true" className="rd-hero-hub-pulse absolute inset-[-6px] rounded-full border border-[#C9A876]/40" />
-              <span className="relative flex flex-col items-center">
-                <span className="text-[8px] font-bold tracking-[0.1em] text-[#C9A876]">AI+</span>
-                <span className="text-[11px] font-extrabold text-[#14213F]">DATA</span>
-              </span>
-            </div>
-            <span aria-hidden="true" className="h-10 w-px shrink-0 bg-[#E0E0E8]" />
-            <div className="grid flex-1 grid-cols-2 gap-2">
-              {SYSTEM.map((s) => (
-                <span
-                  key={s}
-                  className="rounded-lg border border-[#E5E5EC] bg-[#FAF9F6] px-2 py-2 text-center text-[10px] font-bold uppercase tracking-[0.05em] text-[#4A4A5A]"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
-      {/* Cinematic composition — bleeds full-width on desktop so it reads as part of the hero, not a card. */}
-      <div className="relative mx-6 mt-2 aspect-[4/5] overflow-hidden rounded-2xl sm:mx-10 lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
+      {/* Cinematic composition. Mobil (0-767px): Hero yüzeyinin devamı gibi, full-bleed, kart
+          hissi vermeyen sabit yükseklikli görsel + üstte ivory→transparent geçiş (metin alanıyla
+          kesintisiz birleşiyor). 768px+ (md/tablet) mevcut inset/rounded/aspect-[4/5] görünüm
+          birebir korunuyor; 1024px+ (lg) zaten kendi ayrı sağ-panel düzenine geçiyor, dokunulmadı. */}
+      <div className="relative mt-6 h-[320px] overflow-hidden md:mx-10 md:mt-2 md:aspect-[4/5] md:h-auto md:rounded-2xl lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
         <Image
           src="/redesign/hero-istanbul.jpg"
           alt="İstanbul Boğazı manzaralı bir terasta, dizüstü bilgisayarıyla çalışan biri"
@@ -101,6 +68,11 @@ export default function RDHero() {
           aria-hidden
           className="absolute inset-0 opacity-20"
           style={{ background: 'radial-gradient(circle at 76% 18%,rgba(255,255,255,0.32),transparent 45%)' }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-20 md:hidden"
+          style={{ background: 'linear-gradient(to bottom,#FAF9F6,transparent)' }}
         />
         <div
           aria-hidden

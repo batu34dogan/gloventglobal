@@ -182,12 +182,13 @@ export default function RDAudiences() {
             ))}
           </div>
 
-          <div className="mt-5 rounded-2xl border border-[#E5E5EC] bg-[#FAF9F6] p-7">
+          <div className="relative mt-7 pl-6">
+            <span aria-hidden="true" className="absolute left-0 top-1 bottom-1 w-[2px] bg-gradient-to-b from-[#1B5CD6] to-[#C9A876]" />
             {audiences.map((a, i) => (
               <div key={a.number} className={i === active ? 'block' : 'hidden'}>
                 <span className="text-[13px] font-bold text-[#8A6E43]">{a.number}</span>
-                <h3 className="mt-2 text-[1.4rem] font-bold leading-snug text-[#14213F]">{a.title}</h3>
-                <p className="mt-3 text-[14.5px] leading-relaxed text-[#6A6A7A]">{a.description}</p>
+                <h3 className="mt-2 text-[1.7rem] font-extrabold leading-tight tracking-tight text-[#14213F]">{a.title}</h3>
+                <p className="mt-3 max-w-[38ch] text-[15px] leading-relaxed text-[#5A5A6A]">{a.description}</p>
               </div>
             ))}
           </div>

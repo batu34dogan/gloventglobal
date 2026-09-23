@@ -55,8 +55,6 @@ export default function RDServices() {
   const [inView, setInView] = useState(false);
   const aiRef = useRef<HTMLDivElement>(null);
   const [aiInView, setAiInView] = useState(false);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [activeCard, setActiveCard] = useState(0);
 
   useEffect(() => {
     const el = gridRef.current;
@@ -95,27 +93,6 @@ export default function RDServices() {
       { threshold: 0.2 },
     );
     observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  // Mobil carousel'de (md altı) hangi kartın ortada olduğunu takip eder — sadece 01/04 progress
-  // göstergesi için, native scroll-snap'in kendisi tamamen tarayıcı davranışı.
-  useEffect(() => {
-    const el = carouselRef.current;
-    if (!el || typeof IntersectionObserver === 'undefined') return;
-    const cards = Array.from(el.children) as HTMLElement[];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-            const idx = cards.indexOf(entry.target as HTMLElement);
-            if (idx !== -1) setActiveCard(idx);
-          }
-        });
-      },
-      { root: el, threshold: [0.6] },
-    );
-    cards.forEach((c) => observer.observe(c));
     return () => observer.disconnect();
   }, []);
 
@@ -190,8 +167,15 @@ export default function RDServices() {
           }
         }
 
-        .rd-cap-carousel { scrollbar-width: none; -ms-overflow-style: none; }
-        .rd-cap-carousel::-webkit-scrollbar { display: none; }
+        .rd-cap-mobile-grid {
+          position: absolute; inset: -4% -6%; pointer-events: none; z-index: 0;
+          background-image:
+            linear-gradient(rgba(20,33,63,0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(20,33,63,0.035) 1px, transparent 1px);
+          background-size: 24px 24px;
+          -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+          mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+        }
 
         @media (prefers-reduced-motion: reduce) {
           .rd-cap-card, .rd-cap-card.rd-in, .rd-cap-card:hover,
@@ -312,44 +296,24 @@ export default function RDServices() {
           ))}
         </div>
 
-        {/* Capability tiles — mobil (0-767px): dört uzun kartın alt alta dizilmesi yerine
-            scroll-snap carousel. İçerik/label'lar birebir aynı, sadece sunum yatay. */}
-        <div className="mt-10 md:hidden">
-          <div
-            ref={carouselRef}
-            className="rd-cap-carousel flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
-          >
-            {services.map((s) => (
-              <div
-                key={s.title}
-                className="relative w-[86vw] shrink-0 snap-center overflow-hidden rounded-2xl border border-[#E5E5EC] bg-[#FEFCF9] p-7"
-              >
-                <span aria-hidden className="rd-cap-bgpattern" style={{ opacity: 0.35 }} />
-                <span className="relative text-[11.5px] font-bold tracking-[0.2em] text-[#8A6E43]">{s.n}</span>
-                <h3 className="relative mt-4 text-[21px] font-bold tracking-tight text-[#14213F]">{s.title}</h3>
-                <p className="relative mt-2.5 text-[15px] leading-[1.6] text-[#5A5A6A]">{s.desc}</p>
+        {/* Capability chapters — mobil (0-767px): küçük carousel kartları değil, doğal vertical
+            editorial akış. Her yetkinlik kendi büyük "chapter"ı — beyaz kart/kutu yok, sadece
+            typography + ince blue→champagne accent çizgisi + çok hafif arkaplan grid dokusu. */}
+        <div className="relative mt-10 md:hidden">
+          <span aria-hidden="true" className="rd-cap-mobile-grid" />
+          <div className="relative flex flex-col">
+            {services.map((s, i) => (
+              <div key={s.title} className={`relative py-8 pl-6 ${i > 0 ? 'border-t border-[#E5E5EC]' : ''}`}>
+                <span aria-hidden="true" className="absolute left-0 top-8 bottom-8 w-[2px] bg-gradient-to-b from-[#1B5CD6] to-[#C9A876]" />
+                <span className="text-[13px] font-bold text-[#C4C4CE]">{s.n}</span>
+                <h3 className="mt-2 text-[27px] font-extrabold leading-tight tracking-tight text-[#14213F]">{s.title}</h3>
+                <p className="mt-2.5 max-w-[38ch] text-[15px] leading-relaxed text-[#5A5A6A]">{s.desc}</p>
                 {s.secondaryLabel && (
-                  <div className="relative mt-5 border-t border-[#E5E5EC] pt-4">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#757580]">
-                      {s.secondaryLabel}
-                    </p>
-                    <p className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[#8A6E43]">
-                      {s.secondaryChips.join(' · ')}
-                    </p>
-                  </div>
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#8A6E43]">
+                    {s.secondaryLabel} · {s.secondaryChips.join(' · ')}
+                  </p>
                 )}
               </div>
-            ))}
-          </div>
-          <div className="mt-5 flex items-center justify-center gap-2">
-            {services.map((s, i) => (
-              <span
-                key={s.title}
-                aria-hidden="true"
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  activeCard === i ? 'w-6 bg-[#1B5CD6]' : 'w-1.5 bg-[#DCDCE2]'
-                }`}
-              />
             ))}
           </div>
         </div>
@@ -363,7 +327,7 @@ export default function RDServices() {
           <span aria-hidden className="rd-ai-grid" />
           <span aria-hidden className="rd-ai-glow" />
 
-          <div className="relative flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
             <div className="max-w-[46ch]">
               <p className="text-[11px] font-bold tracking-[0.28em] text-[#C9A876] uppercase">AI + Data Layer</p>
               <h3 className="mt-4 text-[1.75rem] font-extrabold leading-tight text-white sm:text-[2.1rem]">
@@ -378,7 +342,7 @@ export default function RDServices() {
                 bilgi burada değil, aşağıdaki gerçek chip listesinde; bu sadece dekoratif, aria-hidden
                 bir "network" görseli. Masaüstünde lg:flex-row zaten yatay bir denge kuruyor,
                 bu görsele ihtiyaç yok. */}
-            <div aria-hidden="true" className="relative mx-auto h-[168px] w-[168px] shrink-0 lg:hidden">
+            <div aria-hidden="true" className="relative mx-auto h-[192px] w-[192px] shrink-0 lg:hidden">
               <span
                 className="rd-ai-mini-pulse absolute inset-[28%] rounded-full border border-[#C9A876]/40"
               />

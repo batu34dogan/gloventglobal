@@ -99,10 +99,20 @@ const projects: Project[] = [
 
 const CARD_CLASS = 'w-[85vw] shrink-0 sm:w-[450px]';
 
-function ProjectCard({ p, hidden, widthClassName }: { p: Project; hidden?: boolean; widthClassName?: string }) {
+function ProjectCard({
+  p,
+  hidden,
+  widthClassName,
+  imageAspectClassName,
+}: {
+  p: Project;
+  hidden?: boolean;
+  widthClassName?: string;
+  imageAspectClassName?: string;
+}) {
   return (
     <article className={widthClassName ?? CARD_CLASS} aria-hidden={hidden || undefined}>
-      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
+      <div className={`relative overflow-hidden rounded-2xl ${imageAspectClassName ?? 'aspect-[16/10]'}`}>
         <div aria-hidden className="absolute inset-0" style={{ background: p.tone }} />
         <div className="absolute inset-0 flex items-center justify-center">
           <Image
@@ -303,7 +313,12 @@ function MobileRail() {
   return (
     <div className="rd-cases-mobile-rail flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2">
       {projects.map((p) => (
-        <ProjectCard key={p.brand} p={p} widthClassName="w-[88vw] shrink-0 snap-center" />
+        <ProjectCard
+          key={p.brand}
+          p={p}
+          widthClassName="w-[90vw] shrink-0 snap-center"
+          imageAspectClassName="aspect-[3/2]"
+        />
       ))}
       <div aria-hidden className="w-px shrink-0" />
     </div>
@@ -334,8 +349,9 @@ export default function RDCases() {
         {reducedMotion ? <StaticRail /> : <Marquee />}
       </div>
 
-      {/* Mobil (0-767px) — auto-scroll'suz, kullanıcı kontrollü native swipe rail. */}
-      <div className="mt-[32px] md:hidden">
+      {/* Mobil (0-767px) — auto-scroll'suz, kullanıcı kontrollü native swipe rail, full-bleed
+          (mx-auto max-w-[1400px] sınırının dışına taşıyor, desktop marquee ile aynı teknik). */}
+      <div className="mt-[32px] w-screen ml-[calc(50%-50vw)] md:hidden">
         <MobileRail />
       </div>
     </section>

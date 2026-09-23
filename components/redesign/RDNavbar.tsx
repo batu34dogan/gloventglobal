@@ -31,7 +31,7 @@ export default function RDNavbar() {
             width={1454}
             height={717}
             priority
-            className="h-[46px] w-auto sm:h-[56px]"
+            className="h-[54px] w-auto sm:h-[56px]"
           />
         </Link>
         {/* Desktop nav */}
