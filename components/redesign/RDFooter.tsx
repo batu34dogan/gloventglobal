@@ -29,7 +29,7 @@ export default function RDFooter() {
               alt="GloventGlobal"
               width={1454}
               height={717}
-              className="h-20 w-auto"
+              className="h-[62px] w-auto"
             />
             <p className="mt-4 max-w-[32ch] text-[14.5px] leading-relaxed text-[#6A6A7A]">
               Türk markalarının global pazarlarda büyümesi için strateji, ticaret, teknoloji ve operasyon sistemini tek çatıda kuruyoruz.
