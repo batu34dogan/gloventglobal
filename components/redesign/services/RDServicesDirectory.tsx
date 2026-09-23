@@ -135,6 +135,39 @@ function useInView<T extends HTMLElement>() {
   return [ref, inView] as const;
 }
 
+// Desktop-only "system module" kartı (lg+, sağdaki explorer panelinde) — mobile hâlâ aynı
+// ServiceRow'u kullanıyor, bu görevde mobile markup'a dokunulmadı.
+function ServiceModule({ item }: { item: (typeof groups)[number]['items'][number] }) {
+  return (
+    <Link
+      href={`/hizmetler/${item.slug}`}
+      className="rd-exp-module group relative block overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white p-8"
+    >
+      <span aria-hidden="true" className="rd-exp-module-accent" />
+      <span aria-hidden="true" className="rd-exp-module-grid" />
+      <div className="relative flex items-start justify-between gap-8">
+        <div className="max-w-[600px]">
+          <h4 className="rd-exp-module-title text-[20px] font-bold text-[#14213F]">{item.title}</h4>
+          <p className="mt-2.5 text-[14.5px] leading-relaxed text-[#6A6A7A]">{item.desc}</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {item.labels.map((label) => (
+              <span
+                key={label}
+                className="rounded-full border border-[#E0E0E8] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.03em] text-[#6F6F79]"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+        <span className="mt-1 flex shrink-0 items-center gap-1 text-[13.5px] font-semibold text-[#1B5CD6]">
+          Detayları İncele <span aria-hidden="true" className="rd-exp-arrow">→</span>
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 function ServiceRow({ item }: { item: (typeof groups)[number]['items'][number] }) {
   return (
     <Link
@@ -196,6 +229,30 @@ export default function RDServicesDirectory() {
           animation: rd-exp-fade .4s ease forwards;
         }
         @keyframes rd-exp-fade { to { opacity: 1; transform: translateY(0); } }
+        .rd-exp-module { transition: border-color .3s ease, box-shadow .3s ease, background-color .3s ease; }
+        .rd-exp-module-accent {
+          position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+          background: linear-gradient(to bottom, #1B5CD6, #C9A876);
+          opacity: .35; transition: opacity .3s ease;
+        }
+        .rd-exp-module-grid {
+          position: absolute; inset: 0; opacity: 0; pointer-events: none;
+          background-image:
+            linear-gradient(rgba(27,92,214,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(27,92,214,0.05) 1px, transparent 1px);
+          background-size: 22px 22px;
+          transition: opacity .3s ease;
+        }
+        .rd-exp-module-title { transition: color .25s ease, transform .25s ease; display: inline-block; }
+        @media (hover: hover) and (pointer: fine) {
+          .rd-exp-module:hover {
+            border-color: rgba(27,92,214,0.3); background-color: rgba(27,92,214,0.015);
+            box-shadow: 0 16px 36px -28px rgba(20,33,63,0.35);
+          }
+          .rd-exp-module:hover .rd-exp-module-accent { opacity: 1; }
+          .rd-exp-module:hover .rd-exp-module-grid { opacity: 1; }
+          .rd-exp-module:hover .rd-exp-module-title { color: #1B5CD6; transform: translateX(3px); }
+        }
         .rd-exp-group {
           opacity: 0; transform: translateY(10px);
           transition: opacity .55s ease, transform .55s ease;
@@ -204,8 +261,9 @@ export default function RDServicesDirectory() {
         @media (prefers-reduced-motion: reduce) {
           .rd-exp-group, .rd-exp-group.rd-in { opacity: 1 !important; transform: none !important; transition: none !important; }
           .rd-exp-panel { animation: none !important; opacity: 1 !important; transform: none !important; }
-          .rd-exp-title, .rd-exp-arrow { transition: none !important; }
+          .rd-exp-title, .rd-exp-arrow, .rd-exp-module-title { transition: none !important; }
           .rd-exp-row:hover .rd-exp-title, .rd-exp-row:hover .rd-exp-arrow { transform: none !important; }
+          .rd-exp-module:hover .rd-exp-module-title { transform: none !important; }
         }
       `}</style>
 
@@ -241,9 +299,9 @@ export default function RDServicesDirectory() {
             ))}
           </nav>
 
-          <div key={active} className="rd-exp-panel divide-y divide-[#E5E5EC] border-y border-[#E5E5EC]">
+          <div key={active} className="rd-exp-panel flex flex-col gap-5 lg:min-h-[480px]">
             {groups[active].items.map((item) => (
-              <ServiceRow key={item.slug} item={item} />
+              <ServiceModule key={item.slug} item={item} />
             ))}
           </div>
         </div>

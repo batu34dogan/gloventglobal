@@ -29,7 +29,7 @@ export default function RDGrowthSystemDiagram() {
   return (
     <div
       onPointerMove={handlePointerMove}
-      className="rd-gsd relative mx-auto aspect-square w-full max-w-[420px]"
+      className="rd-gsd relative mx-auto aspect-square w-full max-w-[580px]"
     >
       <style>{`
         .rd-gsd-spotlight {
@@ -41,12 +41,12 @@ export default function RDGrowthSystemDiagram() {
           .rd-gsd:hover .rd-gsd-spotlight { opacity: 1; }
         }
         .rd-gsd-spoke {
-          fill: none; stroke: #D6D6DC; stroke-width: 1.4; stroke-linecap: round;
+          fill: none; stroke: #C7C7D1; stroke-width: 1.6; stroke-linecap: round;
           transition: stroke .3s ease, stroke-width .3s ease;
         }
-        .rd-gsd-spoke.rd-gsd-hot { stroke: #1B5CD6; stroke-width: 2; }
+        .rd-gsd-spoke.rd-gsd-hot { stroke: #1B5CD6; stroke-width: 2.4; }
         .rd-gsd-core-ring {
-          fill: none; stroke: #C9A876; stroke-width: 1; opacity: .45;
+          fill: none; stroke: #C9A876; stroke-width: 1.2; opacity: .5;
           transform-origin: 220px 220px;
           animation: rd-gsd-pulse 4.5s ease-in-out infinite;
         }
@@ -55,17 +55,17 @@ export default function RDGrowthSystemDiagram() {
           50% { transform: scale(1.08); opacity: .15; }
         }
         .rd-gsd-node {
-          position: absolute; display: flex; flex-direction: column; align-items: center; gap: 6px;
+          position: absolute; display: flex; flex-direction: column; align-items: center; gap: 8px;
           transform: translate(-50%, -50%);
           background: none; border: none; padding: 0; cursor: pointer;
         }
         .rd-gsd-node-dot {
-          display: flex; height: 44px; width: 44px; align-items: center; justify-content: center;
+          display: flex; height: 60px; width: 60px; align-items: center; justify-content: center;
           border-radius: 9999px; border: 1.5px solid #DCDCE2; background: #FEFCF9;
           transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
         }
         .rd-gsd-node-label {
-          font-size: 9.5px; font-weight: 700; letter-spacing: .12em; color: #71717D;
+          font-size: 11.5px; font-weight: 700; letter-spacing: .12em; color: #71717D;
           transition: color .25s ease;
         }
         @media (hover: hover) and (pointer: fine) {
@@ -93,13 +93,13 @@ export default function RDGrowthSystemDiagram() {
             className={`rd-gsd-spoke ${hovered === n.key ? 'rd-gsd-hot' : ''}`}
           />
         ))}
-        <circle cx="220" cy="220" r="70" className="rd-gsd-core-ring" />
-        <circle cx="220" cy="220" r="58" fill="#FEFCF9" stroke="#1B5CD6" strokeWidth="1.5" />
+        <circle cx="220" cy="220" r="74" className="rd-gsd-core-ring" />
+        <circle cx="220" cy="220" r="62" fill="#FEFCF9" stroke="#1B5CD6" strokeWidth="1.8" />
       </svg>
 
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
-        <span className="text-[10px] font-bold tracking-[0.14em] text-[#C9A876] uppercase">AI +</span>
-        <span className="text-[13px] font-extrabold tracking-[0.06em] text-[#14213F]">DATA</span>
+        <span className="text-[12px] font-bold tracking-[0.14em] text-[#C9A876] uppercase">AI +</span>
+        <span className="text-[16px] font-extrabold tracking-[0.06em] text-[#14213F]">DATA</span>
       </div>
 
       {NODES.map((n) => (

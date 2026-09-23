@@ -68,9 +68,9 @@ export default function RDServicesAILayer() {
   return (
     <section className="bg-[#0F1E3C] py-16 sm:py-20">
       <style>{`
-        .rd-ainet-spoke { fill: none; stroke: rgba(255,255,255,0.16); stroke-width: 1.2; transition: stroke .3s ease, stroke-width .3s ease; }
-        .rd-ainet-spoke.rd-ainet-hot { stroke: #C9A876; stroke-width: 1.8; }
-        .rd-ainet-hex { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 1; }
+        .rd-ainet-spoke { fill: none; stroke: rgba(255,255,255,0.22); stroke-width: 1.5; transition: stroke .3s ease, stroke-width .3s ease; }
+        .rd-ainet-spoke.rd-ainet-hot { stroke: #C9A876; stroke-width: 2.2; }
+        .rd-ainet-hex { fill: none; stroke: rgba(255,255,255,0.12); stroke-width: 1.1; }
         .rd-ainet-core {
           transform-origin: 200px 200px;
           animation: rd-ainet-pulse 4s ease-in-out infinite;
@@ -87,12 +87,12 @@ export default function RDServicesAILayer() {
         }
         .rd-ainet-node.rd-in { opacity: 1; }
         .rd-ainet-node-dot {
-          display: flex; height: 40px; width: 40px; align-items: center; justify-content: center;
-          border-radius: 9999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.04);
+          display: flex; height: 52px; width: 52px; align-items: center; justify-content: center;
+          border-radius: 9999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);
           transition: border-color .25s ease, background-color .25s ease, transform .25s ease;
         }
         .rd-ainet-node-label {
-          font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.65); white-space: nowrap;
+          font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); white-space: nowrap;
           transition: color .25s ease;
         }
         @media (hover: hover) and (pointer: fine) {
@@ -108,7 +108,7 @@ export default function RDServicesAILayer() {
         }
       `}</style>
 
-      <div ref={ref} className="mx-auto grid max-w-[1400px] items-center gap-12 px-6 sm:px-10 lg:grid-cols-[1fr_0.9fr] lg:gap-8">
+      <div ref={ref} className="mx-auto grid max-w-[1400px] items-center gap-12 px-6 sm:px-10 lg:grid-cols-[0.95fr_1.1fr] lg:gap-8">
         <div>
           <p className="text-[11px] font-bold tracking-[0.28em] text-[#C9A876] uppercase">AI + Data Layer</p>
           <h2 className="mt-4 max-w-[22ch] text-[2rem] font-extrabold leading-tight tracking-tight text-white sm:text-[2.6rem]">
@@ -121,7 +121,7 @@ export default function RDServicesAILayer() {
           </p>
         </div>
 
-        <div className="relative mx-auto aspect-square w-full max-w-[380px]">
+        <div className="relative mx-auto aspect-square w-full max-w-[500px]">
           <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full" aria-hidden focusable="false">
             <path d={HEX_PATH} className="rd-ainet-hex" />
             {NODES.map((n, i) => {
@@ -137,10 +137,10 @@ export default function RDServicesAILayer() {
                 />
               );
             })}
-            <circle cx={CX} cy={CY} r="34" className="rd-ainet-core" fill="none" stroke="#C9A876" strokeWidth="1" />
-            <circle cx={CX} cy={CY} r="20" fill="#14213F" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+            <circle cx={CX} cy={CY} r="44" className="rd-ainet-core" fill="none" stroke="#C9A876" strokeWidth="1.3" />
+            <circle cx={CX} cy={CY} r="27" fill="#14213F" stroke="rgba(255,255,255,0.24)" strokeWidth="1.3" />
             {!reducedMotion && (
-              <circle r="2.5" fill="#C9A876">
+              <circle r="3.2" fill="#C9A876">
                 <animateMotion dur="6s" repeatCount="indefinite" path={HEX_PATH} rotate="auto" />
               </circle>
             )}
