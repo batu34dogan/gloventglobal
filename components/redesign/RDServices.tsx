@@ -222,6 +222,15 @@ export default function RDServices() {
           .rd-ai-node:hover .rd-ai-dot { background: #C9A876; box-shadow: 0 0 6px 1px rgba(201,168,118,0.6); }
         }
 
+        .rd-ai-mini-pulse {
+          transform-origin: center;
+          animation: rd-ai-mini-pulse-kf 4.5s ease-in-out infinite;
+        }
+        @keyframes rd-ai-mini-pulse-kf {
+          0%, 100% { transform: scale(1); opacity: .5; }
+          50% { transform: scale(1.12); opacity: .15; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .rd-ai-panel, .rd-ai-panel.rd-ai-in, .rd-ai-node, .rd-ai-panel.rd-ai-in .rd-ai-node, .rd-ai-node:hover {
             opacity: 1 !important;
@@ -229,6 +238,7 @@ export default function RDServices() {
             transition: none !important;
           }
           .rd-ai-glow { opacity: 0 !important; }
+          .rd-ai-mini-pulse { animation: none !important; opacity: .3; }
         }
       `}</style>
 
@@ -294,6 +304,31 @@ export default function RDServices() {
               <p className="mt-4 text-[15px] leading-relaxed text-white/65">
                 İçerik üretiminden veri analizine, otomasyondan karar desteğine kadar yapay zekâyı kendi operasyonlarımızda ve kurduğumuz sistemlerin içinde aktif olarak kullanıyoruz.
               </p>
+            </div>
+
+            {/* Mobil/tablette (lg altı) node etiketleri sadece alt alta chip gibi durmasın diye —
+                bilgi burada değil, aşağıdaki gerçek chip listesinde; bu sadece dekoratif, aria-hidden
+                bir "network" görseli. Masaüstünde lg:flex-row zaten yatay bir denge kuruyor,
+                bu görsele ihtiyaç yok. */}
+            <div aria-hidden="true" className="relative mx-auto h-[168px] w-[168px] shrink-0 lg:hidden">
+              <span
+                className="rd-ai-mini-pulse absolute inset-[28%] rounded-full border border-[#C9A876]/40"
+              />
+              <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full">
+                {[
+                  [100, 30], [160.6, 65], [160.6, 135],
+                  [100, 170], [39.4, 135], [39.4, 65],
+                ].map(([x, y]) => (
+                  <line key={`${x}-${y}`} x1="100" y1="100" x2={x} y2={y} stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
+                ))}
+                <circle cx="100" cy="100" r="15" fill="#0F1E3C" stroke="#C9A876" strokeWidth="1.2" />
+                {[
+                  [100, 30], [160.6, 65], [160.6, 135],
+                  [100, 170], [39.4, 135], [39.4, 65],
+                ].map(([x, y]) => (
+                  <circle key={`dot-${x}-${y}`} cx={x} cy={y} r="5" fill="#14213F" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
+                ))}
+              </svg>
             </div>
 
             <div className="flex w-full flex-wrap gap-x-2.5 gap-y-3 lg:w-[420px] xl:w-[460px]">

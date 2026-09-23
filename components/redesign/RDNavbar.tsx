@@ -47,7 +47,7 @@ export default function RDNavbar() {
           aria-label={open ? 'Menüyü kapat' : 'Menüyü aç'}
           aria-expanded={open}
           aria-controls="rd-mobile-menu"
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E5E5E8] lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-[#E5E5E8] lg:hidden"
         >
           <svg viewBox="0 0 18 18" className="h-4 w-4" stroke="#1B2E5E" strokeWidth="1.8" strokeLinecap="round" fill="none">
             {open ? <><path d="M3 3l12 12M15 3L3 15"/> </> : <><path d="M2 5h14M2 9h14M2 13h14"/></>}
@@ -57,11 +57,11 @@ export default function RDNavbar() {
       <div
         id="rd-mobile-menu"
         inert={!open}
-        className={`overflow-hidden border-t border-[#E8E8EC] bg-white transition-all lg:hidden ${open ? 'max-h-80' : 'max-h-0 border-transparent'}`}
+        className={`overflow-hidden border-t border-[#E8E8EC] bg-white transition-all duration-300 lg:hidden ${open ? 'max-h-[480px]' : 'max-h-0 border-transparent'}`}
       >
-        <div className="flex flex-col px-6 py-3 gap-0.5">
-          {LINKS.map(l => <a key={l.label} href={l.href} onClick={()=>setOpen(false)} className="rounded-lg px-2 py-2.5 text-[15.5px] font-medium text-[#3A3A4A] hover:bg-[#F4F4F8]">{l.label}</a>)}
-          <Link href="/iletisim" onClick={()=>{trackEvent('contact_cta_click', { location: 'redesign_navbar' }); setOpen(false);}} className="mt-2 rounded-full bg-[#1B2E5E] px-5 py-3 text-center text-[15.5px] font-semibold text-white">İletişime Geç →</Link>
+        <div className="flex flex-col gap-1 px-6 py-5">
+          {LINKS.map(l => <a key={l.label} href={l.href} onClick={()=>setOpen(false)} className="rounded-lg px-3 py-3.5 text-[16px] font-medium text-[#3A3A4A] transition-colors hover:bg-[#F4F4F8]">{l.label}</a>)}
+          <Link href="/iletisim" onClick={()=>{trackEvent('contact_cta_click', { location: 'redesign_navbar' }); setOpen(false);}} className="mt-3 rounded-full bg-[#1B2E5E] px-5 py-4 text-center text-[16px] font-semibold text-white transition-colors hover:bg-[#1B5CD6]">İletişime Geç →</Link>
         </div>
       </div>
     </header>
