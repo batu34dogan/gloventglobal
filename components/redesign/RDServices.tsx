@@ -51,6 +51,33 @@ const AI_RADIAL_NODES: Array<{
   { key: 'workflows', label: 'İş Akışları', x: 49.8, y: 85, xPct: 25, yPct: 34, align: 'right', transform: 'translate(calc(-100% - 10px), -50%)', maxWidth: 66 },
 ];
 
+// Desktop (1024px+) network — aynı 6 kavram, artık pill/chip değil doğrudan network'ün node'ları.
+// Hexagon + merkez hub (services sayfasındaki RDServicesAILayer ile aynı "altıgen + hub" dili,
+// farklı bir kopya) — angle sırası aiNodes ile birebir aynı ki otomatik sequence doğru sırada aksın.
+const AI_DESKTOP_NODES = [
+  { key: 'automation', label: 'Otomasyon', angle: -90 },
+  { key: 'content', label: 'İçerik', angle: -30 },
+  { key: 'data', label: 'Veri', angle: 30 },
+  { key: 'decision', label: 'Karar Desteği', angle: 90 },
+  { key: 'ops', label: 'Operasyon', angle: 150 },
+  { key: 'workflows', label: 'İş Akışları', angle: 210 },
+] as const;
+
+const AI_DESKTOP_CX = 200;
+const AI_DESKTOP_CY = 200;
+const AI_DESKTOP_R = 156;
+
+function aiDesktopPoint(angleDeg: number) {
+  const rad = (angleDeg * Math.PI) / 180;
+  return { x: AI_DESKTOP_CX + AI_DESKTOP_R * Math.cos(rad), y: AI_DESKTOP_CY + AI_DESKTOP_R * Math.sin(rad) };
+}
+
+const AI_DESKTOP_HEX =
+  AI_DESKTOP_NODES.map((n, i) => {
+    const p = aiDesktopPoint(n.angle);
+    return `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+  }).join(' ') + ' Z';
+
 function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
   if (e.pointerType !== 'mouse') return;
   const el = e.currentTarget;
@@ -78,6 +105,7 @@ export default function RDServices() {
   const [inView, setInView] = useState(false);
   const aiRef = useRef<HTMLDivElement>(null);
   const [aiInView, setAiInView] = useState(false);
+  const [aiDesktopHovered, setAiDesktopHovered] = useState<number | null>(null);
 
   useEffect(() => {
     const el = gridRef.current;
@@ -315,6 +343,75 @@ export default function RDServices() {
           13%, 100% { offset-distance: 100%; opacity: 0; }
         }
 
+        /* Desktop (1024px+) AI+Data network — eski 6 pill/chip'in yerine. Dedicated rd-ai2-*
+           class/keyframe'leri (mobil rd-ai-*'dan tamamen ayrı) — restrained otomatik sequence
+           (mobil ile aynı 7.2s / 6x1.2s mantığı, node sırası aiNodes ile birebir aynı) + pointer:fine
+           hover/focus emphasis üstüne biner (!important ile, sequence'i durdurmadan). */
+        .rd-ai2-hex { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 1; }
+
+        .rd-ai2-spoke {
+          fill: none; stroke: rgba(255,255,255,0.22); stroke-width: 1.4;
+          animation: rd-ai2-spoke-kf 7.2s ease-in-out infinite;
+        }
+        @keyframes rd-ai2-spoke-kf {
+          0%, 100% { stroke: rgba(255,255,255,0.22); stroke-width: 1.4; }
+          4%, 13% { stroke: #1B5CD6; stroke-width: 2; }
+          15% { stroke: rgba(255,255,255,0.22); stroke-width: 1.4; }
+        }
+        .rd-ai2-spoke.rd-ai2-hot { stroke: #C9A876 !important; stroke-width: 2.2 !important; }
+
+        .rd-ai2-hub-ring-outer { fill: none; stroke: #C9A876; stroke-width: 1; opacity: .55; }
+        .rd-ai2-hub-pulse {
+          animation: rd-ai2-hub-pulse-kf 4s ease-in-out infinite;
+        }
+        @keyframes rd-ai2-hub-pulse-kf {
+          0%, 100% { opacity: .4; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: .7; transform: translate(-50%, -50%) scale(1.035); }
+        }
+
+        .rd-ai2-node {
+          position: absolute; display: flex; flex-direction: column; align-items: center; gap: 9px;
+          transform: translate(-50%, -50%);
+          background: none; border: none; padding: 0; cursor: pointer;
+        }
+        .rd-ai2-node-dot {
+          display: flex; height: 15px; width: 15px; align-items: center; justify-content: center;
+          border-radius: 9999px; border: 1.5px solid rgba(255,255,255,0.28); background: rgba(255,255,255,0.05);
+          animation: rd-ai2-dot-kf 7.2s ease-in-out infinite;
+        }
+        @keyframes rd-ai2-dot-kf {
+          0%, 100% { border-color: rgba(255,255,255,0.28); background-color: rgba(255,255,255,0.05); transform: scale(1); }
+          4%, 13% { border-color: #1B5CD6; background-color: rgba(27,92,214,0.16); transform: scale(1.05); }
+          15% { border-color: rgba(255,255,255,0.28); background-color: rgba(255,255,255,0.05); transform: scale(1); }
+        }
+        .rd-ai2-node.rd-ai2-hot .rd-ai2-node-dot {
+          border-color: #C9A876 !important; background-color: rgba(201,168,118,0.18) !important; transform: scale(1.05) !important;
+        }
+        .rd-ai2-node-label {
+          font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65); white-space: nowrap;
+          animation: rd-ai2-label-kf 7.2s ease-in-out infinite;
+        }
+        @keyframes rd-ai2-label-kf {
+          0%, 100% { color: rgba(255,255,255,0.65); }
+          4%, 13% { color: #fff; }
+          15% { color: rgba(255,255,255,0.65); }
+        }
+        .rd-ai2-node.rd-ai2-hot .rd-ai2-node-label { color: #fff !important; }
+
+        .rd-ai2-data-point {
+          animation: rd-ai2-travel-kf 7.2s linear infinite;
+        }
+        @keyframes rd-ai2-travel-kf {
+          0%, 4% { offset-distance: 0%; opacity: 0; }
+          6% { offset-distance: 12%; opacity: 1; }
+          11% { offset-distance: 100%; opacity: 1; }
+          13%, 100% { offset-distance: 100%; opacity: 0; }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+          .rd-ai2-node:focus-visible { outline: 2px solid rgba(201,168,118,0.6); outline-offset: 6px; border-radius: 9999px; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .rd-ai-panel, .rd-ai-panel.rd-ai-in, .rd-ai-node, .rd-ai-panel.rd-ai-in .rd-ai-node, .rd-ai-node:hover {
             opacity: 1 !important;
@@ -332,6 +429,11 @@ export default function RDServices() {
           .rd-ai-node-dot { animation: none !important; stroke: rgba(255,255,255,0.4) !important; r: 4.5px !important; }
           .rd-ai-node-label { animation: none !important; color: rgba(255,255,255,0.72) !important; transform: none !important; }
           .rd-ai-data-point { animation: none !important; opacity: 0 !important; }
+          .rd-ai2-spoke { animation: none !important; stroke: rgba(255,255,255,0.22) !important; stroke-width: 1.4 !important; }
+          .rd-ai2-hub-pulse { animation: none !important; opacity: .5 !important; transform: translate(-50%, -50%) scale(1) !important; }
+          .rd-ai2-node-dot { animation: none !important; border-color: rgba(255,255,255,0.28) !important; background-color: rgba(255,255,255,0.05) !important; transform: none !important; }
+          .rd-ai2-node-label { animation: none !important; color: rgba(255,255,255,0.65) !important; }
+          .rd-ai2-data-point { animation: none !important; opacity: 0 !important; }
         }
       `}</style>
 
@@ -525,7 +627,7 @@ export default function RDServices() {
               </svg>
             </div>
 
-            <div className="hidden w-full flex-wrap gap-x-2.5 gap-y-3 md:flex lg:w-[420px] xl:w-[460px]">
+            <div className="hidden w-full flex-wrap gap-x-2.5 gap-y-3 md:flex lg:hidden">
               {aiNodes.map((n, i) => (
                 <span
                   key={n}
@@ -536,6 +638,83 @@ export default function RDServices() {
                   {n}
                 </span>
               ))}
+            </div>
+
+            {/* Desktop (1024px+): 6 pill/chip yerine doğrudan network'ün node'ları. Merkezde AI + DATA
+                double-ring hub (çok hafif breathing), çevrede altıgen + hex outline. Node sırası
+                aiNodes ile birebir aynı: otomatik sequence Otomasyon→İçerik→Veri→Karar Desteği→
+                Operasyon→İş Akışları sırasında aksın diye pozitif animation-delay kullanıldı (bkz.
+                mobil versiyonda negatif delay'in sırayı ters çevirdiği, bu sefer baştan doğru yapıldı).
+                Aynı anda tek node aktif + merkezden o node'a akan tek champagne data point. */}
+            <div className="relative mx-auto hidden aspect-square w-full max-w-[460px] shrink-0 lg:block lg:w-[440px] xl:max-w-[500px] xl:w-[500px]">
+              <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full" aria-hidden focusable="false">
+                <path d={AI_DESKTOP_HEX} className="rd-ai2-hex" />
+                {AI_DESKTOP_NODES.map((n, i) => {
+                  const p = aiDesktopPoint(n.angle);
+                  return (
+                    <line
+                      key={`line-${n.key}`}
+                      x1={AI_DESKTOP_CX}
+                      y1={AI_DESKTOP_CY}
+                      x2={p.x}
+                      y2={p.y}
+                      className={`rd-ai2-spoke ${aiDesktopHovered === i ? 'rd-ai2-hot' : ''}`}
+                      style={{ animationDelay: `${i * 1.2}s` }}
+                    />
+                  );
+                })}
+                <circle cx={AI_DESKTOP_CX} cy={AI_DESKTOP_CY} r="60" className="rd-ai2-hub-ring-outer" />
+                <circle cx={AI_DESKTOP_CX} cy={AI_DESKTOP_CY} r="47" fill="#0F1E3C" stroke="#1B5CD6" strokeWidth="1.4" />
+                {AI_DESKTOP_NODES.map((n, i) => {
+                  const p = aiDesktopPoint(n.angle);
+                  return (
+                    <circle
+                      key={`travel-${n.key}`}
+                      r="3.5"
+                      cx="0"
+                      cy="0"
+                      fill="#C9A876"
+                      className="rd-ai2-data-point"
+                      style={{
+                        offsetPath: `path('M ${AI_DESKTOP_CX} ${AI_DESKTOP_CY} L ${p.x} ${p.y}')`,
+                        animationDelay: `${i * 1.2}s`,
+                      }}
+                    />
+                  );
+                })}
+              </svg>
+
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center"
+              >
+                <span
+                  className="rd-ai2-hub-pulse absolute rounded-full border border-[#C9A876]/40"
+                  style={{ width: '118px', height: '118px' }}
+                />
+                <span className="relative text-[12px] font-bold tracking-[0.2em] text-[#C9A876] uppercase">AI +</span>
+                <span className="relative text-[16px] font-extrabold tracking-[0.06em] text-white">DATA</span>
+              </div>
+
+              {AI_DESKTOP_NODES.map((n, i) => {
+                const p = aiDesktopPoint(n.angle);
+                return (
+                  <button
+                    key={n.key}
+                    type="button"
+                    className={`rd-ai2-node ${aiDesktopHovered === i ? 'rd-ai2-hot' : ''}`}
+                    style={{ left: `${(p.x / 400) * 100}%`, top: `${(p.y / 400) * 100}%`, animationDelay: `${i * 1.2}s` }}
+                    aria-label={n.label}
+                    onMouseEnter={() => setAiDesktopHovered(i)}
+                    onMouseLeave={() => setAiDesktopHovered(null)}
+                    onFocus={() => setAiDesktopHovered(i)}
+                    onBlur={() => setAiDesktopHovered(null)}
+                  >
+                    <span aria-hidden="true" className="rd-ai2-node-dot" />
+                    <span className="rd-ai2-node-label">{n.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
