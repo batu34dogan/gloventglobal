@@ -44,7 +44,7 @@ export default function RDAnalysisCTA() {
       <button
         type="button"
         onClick={openAnalysis}
-        className="rd-analysis-cta fixed z-[45] flex items-center gap-3 overflow-hidden rounded-[17px] border border-white/[0.08] bg-[#14213F] px-4 py-3 text-left text-white bottom-[calc(16px+env(safe-area-inset-bottom))] right-[calc(16px+env(safe-area-inset-right))] sm:h-[68px] sm:w-[244px] sm:bottom-[calc(30px+env(safe-area-inset-bottom))] sm:right-[calc(30px+env(safe-area-inset-right))] sm:px-4"
+        className="rd-analysis-cta fixed z-[45] flex items-center gap-2 overflow-hidden rounded-[17px] border border-white/[0.08] bg-[#14213F] px-2.5 py-3 text-left text-white bottom-[calc(16px+env(safe-area-inset-bottom))] right-[calc(16px+env(safe-area-inset-right))] sm:h-[68px] sm:w-[244px] sm:gap-3 sm:bottom-[calc(30px+env(safe-area-inset-bottom))] sm:right-[calc(30px+env(safe-area-inset-right))] sm:px-4"
       >
         <span aria-hidden="true" className="rd-analysis-cta-grid" />
 
@@ -55,7 +55,7 @@ export default function RDAnalysisCTA() {
             daire eklendi; logonun kendi renklerine hiçbir filtre/opacity/blend-mode uygulanmıyor. */}
         <span
           aria-hidden="true"
-          className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/[0.06] bg-[#FAF9F6]"
+          className="relative flex h-[33px] w-[33px] shrink-0 items-center justify-center rounded-full border border-black/[0.06] bg-[#FAF9F6] sm:h-9 sm:w-9"
         >
           <Image
             src="/redesign/gloventglobal-mark.png"
@@ -63,7 +63,7 @@ export default function RDAnalysisCTA() {
             width={474}
             height={455}
             sizes="24px"
-            className="h-[24px] w-[24px] object-contain"
+            className="h-[23px] w-[23px] object-contain sm:h-[24px] sm:w-[24px]"
           />
         </span>
 

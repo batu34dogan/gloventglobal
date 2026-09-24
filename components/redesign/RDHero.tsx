@@ -58,7 +58,7 @@ export default function RDHero() {
           gereksiz boşluk yerine görselin anlamlı kısmı görünsün. 768px+ (md/tablet) mevcut
           inset/rounded/aspect-[4/5] görünüm birebir korunuyor; 1024px+ (lg) zaten kendi ayrı
           sağ-panel düzenine geçiyor, dokunulmadı. */}
-      <div className="relative mt-12 h-[360px] overflow-hidden md:mx-10 md:mt-2 md:aspect-[4/5] md:h-auto md:rounded-2xl lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
+      <div className="relative mt-6 h-[360px] overflow-hidden md:mx-10 md:mt-2 md:aspect-[4/5] md:h-auto md:rounded-2xl lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
         <Image
           src="/redesign/hero-istanbul.jpg"
           alt="İstanbul Boğazı manzaralı bir terasta, dizüstü bilgisayarıyla çalışan biri"
