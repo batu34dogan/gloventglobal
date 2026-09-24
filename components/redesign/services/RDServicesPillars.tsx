@@ -73,8 +73,19 @@ export default function RDServicesPillars() {
   const [ref, inView] = useInView<HTMLDivElement>();
 
   return (
-    <section className="border-t border-[#E5E5EC] bg-[#FAF9F6] py-16 sm:py-20">
+    <section className="overflow-x-hidden border-t border-[#E5E5EC] bg-[#FAF9F6] py-16 sm:py-20">
       <style>{`
+        .rd-pm-rail { scrollbar-width: none; -ms-overflow-style: none; }
+        .rd-pm-rail::-webkit-scrollbar { display: none; }
+        .rd-pm-rail-grid {
+          position: absolute; inset: -4% -6%; pointer-events: none; z-index: 0;
+          background-image:
+            linear-gradient(rgba(20,33,63,0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(20,33,63,0.035) 1px, transparent 1px);
+          background-size: 24px 24px;
+          -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+          mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+        }
         .rd-pm-grid {
           position: absolute; inset: -6% -3%; pointer-events: none; z-index: 0;
           background-image:
@@ -130,7 +141,8 @@ export default function RDServicesPillars() {
           </p>
         </div>
 
-        <div ref={ref} className="relative mt-14">
+        {/* Desktop (1024px+) — mevcut 2x2 module grid birebir korunuyor */}
+        <div ref={ref} className="relative mt-14 hidden lg:block">
           <span aria-hidden="true" className="rd-pm-grid" />
           <div className="relative grid gap-5 lg:grid-cols-2">
             {pillars.map((p, i) => (
@@ -175,6 +187,54 @@ export default function RDServicesPillars() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Mobil/tablet (0-1023px) — 4 uzun kart alt alta değil, native horizontal scroll-snap rail;
+          full-bleed (mx-auto max-w-[1400px] sınırının dışına taşıyor, homepage RDCases/RDGuides ile
+          aynı teknik) ki bir sonraki panel görünsün. Auto-scroll yok. */}
+      <div className="mt-10 lg:hidden">
+        <div className="rd-pm-rail flex w-screen snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 ml-[calc(50%-50vw)]">
+          {pillars.map((p) => (
+            <div
+              key={p.title}
+              className="relative w-[86vw] shrink-0 snap-center overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white p-7"
+            >
+              <span aria-hidden="true" className="rd-pm-rail-grid" />
+              <span
+                aria-hidden="true"
+                className="absolute left-6 right-6 top-0 h-px bg-gradient-to-r from-[#1B5CD6] via-[#C9A876] to-transparent"
+              />
+              <div className="relative">
+                <span className="text-[13px] font-bold text-[#C4C4CE]">{p.n}</span>
+                <h3 className="mt-2 text-[1.7rem] font-extrabold leading-tight tracking-tight text-[#14213F]">
+                  {p.title}
+                </h3>
+                <p className="mt-3 text-[14.5px] leading-relaxed text-[#4A4A5A]">{p.desc}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.services.map((s) => (
+                    <span
+                      key={s}
+                      className="rounded-full border border-[#E0E0E8] px-3 py-1.5 text-[12px] font-medium text-[#4A4A5A]"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                {p.secondaryLabel && (
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#8A6E43]">
+                    + {p.secondaryLabel}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
+          <div aria-hidden="true" className="w-px shrink-0" />
+        </div>
+        <div className="mt-5 flex items-center justify-center gap-2">
+          {pillars.map((p) => (
+            <span key={p.title} aria-hidden="true" className="h-[3px] w-6 rounded-full bg-[#DCDCE2]" />
+          ))}
         </div>
       </div>
     </section>

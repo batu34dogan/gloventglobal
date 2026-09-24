@@ -68,6 +68,12 @@ export default function RDGrowthSystemDiagram() {
           font-size: 11.5px; font-weight: 700; letter-spacing: .12em; color: #71717D;
           transition: color .25s ease;
         }
+        /* Dar viewport'larda (1024px altı) OPERATIONS/COMMERCE gibi uzun label'lar diyagramın
+           dışına taşabiliyor — yalnızca bu breakpoint'te font/tracking hafifçe daraltıldı, node
+           pozisyonları (dolayısıyla 1024px+ desktop görünümü) hiç değişmedi. */
+        @media (max-width: 1023px) {
+          .rd-gsd-node-label { font-size: 9.5px; letter-spacing: .02em; }
+        }
         @media (hover: hover) and (pointer: fine) {
           .rd-gsd-node:hover .rd-gsd-node-dot, .rd-gsd-node:focus-visible .rd-gsd-node-dot {
             border-color: #1B5CD6; transform: scale(1.06); box-shadow: 0 0 0 5px rgba(27,92,214,0.10);

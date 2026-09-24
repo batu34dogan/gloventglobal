@@ -19,13 +19,13 @@ export default function RDServicesHero() {
 
   return (
     <section className="bg-white px-6 pb-16 pt-28 sm:px-10 sm:pb-20 sm:pt-32">
-      <div className="mx-auto grid max-w-[1400px] items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="mx-auto grid max-w-[1400px] items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div className="text-center lg:text-left">
           <p className={`text-[12px] font-bold tracking-[0.3em] text-[#1B5CD6] uppercase ${reveal('delay-[80ms]')}`}>
             Hizmetler
           </p>
           <h1
-            className={`mt-6 text-[2.3rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#14213F] sm:text-[3.2rem] lg:text-[3.5rem] ${reveal(
+            className={`mx-auto mt-6 max-w-[15ch] text-[2.625rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#14213F] sm:mx-0 sm:max-w-none sm:text-[3.2rem] lg:text-[3.5rem] ${reveal(
               'delay-[160ms]',
             )}`}
           >
@@ -59,8 +59,24 @@ export default function RDServicesHero() {
           </div>
         </div>
 
-        <div className={reveal('delay-[280ms]')}>
-          <RDGrowthSystemDiagram />
+        {/* 0-1023px: diyagram, Hero'nun ayrı yapıştırılmış bir eki değil devamı gibi görünsün diye
+            altına çok hafif ivory/grid bir surface eklendi. 1024px+ (lg) tamamen dokunulmadı —
+            surface/padding yok, diyagram doğrudan sağ kolonda. */}
+        <div className={`${reveal('delay-[280ms]')} relative rounded-2xl bg-[#FAF9F6] p-3 sm:p-6 lg:rounded-none lg:bg-transparent lg:p-0`}>
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 rounded-2xl lg:hidden"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(20,33,63,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(20,33,63,0.04) 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+              WebkitMaskImage: 'radial-gradient(ellipse at center, black 0%, transparent 75%)',
+              maskImage: 'radial-gradient(ellipse at center, black 0%, transparent 75%)',
+            }}
+          />
+          <div className="relative">
+            <RDGrowthSystemDiagram />
+          </div>
         </div>
       </div>
     </section>

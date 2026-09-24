@@ -42,7 +42,8 @@ export default function RDServicesWorkModel() {
           </Link>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-y-8 sm:grid-cols-[1fr_32px_1fr_32px_1fr] sm:items-start sm:gap-x-3">
+        {/* 640px+ (sm) — mevcut yatay flow birebir korunuyor */}
+        <div className="mt-10 hidden sm:grid sm:grid-cols-[1fr_32px_1fr_32px_1fr] sm:items-start sm:gap-x-3 sm:gap-y-8">
           {models.map((m, i) => (
             <Fragment key={m.n}>
               <div>
@@ -53,12 +54,33 @@ export default function RDServicesWorkModel() {
                 <p className="mt-2 text-[13.5px] leading-relaxed text-[#6A6A7A]">{m.desc}</p>
               </div>
               {i < models.length - 1 && (
-                <div aria-hidden="true" className="relative hidden h-11 items-center justify-center sm:flex">
+                <div aria-hidden="true" className="relative flex h-11 items-center justify-center">
                   <span className="h-[1.5px] w-full bg-gradient-to-r from-[#1B5CD6]/55 to-[#C9A876]/55" />
                   <span className="absolute text-[15px] font-semibold text-[#C9A876]">→</span>
                 </div>
               )}
             </Fragment>
+          ))}
+        </div>
+
+        {/* 0-639px — yatay flow'un stack yerine, ince vertical path + node circle ile premium
+            dikey akış. Büyük card stack değil, homepage RDSystem'daki teknikle aynı dil. */}
+        <div className="mt-10 flex flex-col sm:hidden">
+          {models.map((m, i) => (
+            <div key={m.n} className="flex gap-5">
+              <div className="flex shrink-0 flex-col items-center">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-[#1B5CD6]/50 text-[14px] font-bold text-[#1B5CD6]">
+                  {m.n}
+                </span>
+                {i < models.length - 1 && (
+                  <span aria-hidden="true" className="mt-1 w-[1.5px] flex-1 bg-gradient-to-b from-[#1B5CD6]/55 to-[#C9A876]/55" />
+                )}
+              </div>
+              <div className={i < models.length - 1 ? 'pb-8' : ''}>
+                <h3 className="pt-2 text-[17.5px] font-extrabold text-[#14213F]">{m.title}</h3>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-[#6A6A7A]">{m.desc}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

@@ -63,6 +63,7 @@ function useInView<T extends HTMLElement>() {
 
 export default function RDServicesAudience() {
   const [ref, inView] = useInView<HTMLDivElement>();
+  const [active, setActive] = useState(0);
 
   return (
     <section className="border-t border-[#E5E5EC] bg-[#F6F3EC] py-14 sm:py-16">
@@ -83,6 +84,8 @@ export default function RDServicesAudience() {
         @media (prefers-reduced-motion: reduce) {
           .rd-aud-block, .rd-aud-block.rd-in { opacity: 1 !important; transform: none !important; transition: none !important; }
         }
+        .rd-aud-tabs { scrollbar-width: none; -ms-overflow-style: none; }
+        .rd-aud-tabs::-webkit-scrollbar { display: none; }
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
@@ -99,7 +102,8 @@ export default function RDServicesAudience() {
           </p>
         </div>
 
-        <div ref={ref} className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
+        {/* Desktop (1024px+) — mevcut staggered 5 kart grid birebir korunuyor */}
+        <div ref={ref} className="mt-10 hidden lg:grid lg:grid-cols-5 lg:gap-4">
           {segments.map((s, i) => (
             <div
               key={s.title}
@@ -115,6 +119,42 @@ export default function RDServicesAudience() {
               <p className="relative mt-2.5 text-[12.5px] leading-relaxed text-[#6A6A7A]">{s.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Mobil/tablet (0-1023px) — 5 kart alt alta değil, yatay swipe edilebilir segment seçici +
+            seçili segment için tek büyük panel. Tüm 5 açıklama DOM'da kalıyor (yalnızca aktif
+            olmayanlar CSS ile gizli), erişilebilir/indexlenebilir kalıyor. */}
+        <div className="mt-9 lg:hidden">
+          <div className="rd-aud-tabs flex gap-2 overflow-x-auto pb-1">
+            {segments.map((s, i) => (
+              <button
+                key={s.title}
+                type="button"
+                onClick={() => setActive(i)}
+                aria-pressed={active === i}
+                className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2.5 text-[13px] font-semibold transition-colors ${
+                  active === i
+                    ? 'border-[#1B5CD6] bg-[#1B5CD6] text-white'
+                    : 'border-[#E0E0E8] bg-white text-[#4A4A5A]'
+                }`}
+              >
+                {s.title}
+              </button>
+            ))}
+          </div>
+
+          <div className="relative mt-7 pl-6">
+            <span aria-hidden="true" className="absolute left-0 top-1 bottom-1 w-[2px] bg-gradient-to-b from-[#1B5CD6] to-[#C9A876]" />
+            {segments.map((s, i) => (
+              <div key={s.title} className={i === active ? 'block' : 'hidden'}>
+                <span className="text-[13px] font-bold text-[#8A6E43]">{s.n}</span>
+                <h3 className="mt-2 text-[1.6rem] font-extrabold leading-tight tracking-tight text-[#14213F]">
+                  {s.title}
+                </h3>
+                <p className="mt-3 max-w-[42ch] text-[15px] leading-relaxed text-[#5A5A6A]">{s.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

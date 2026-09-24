@@ -54,9 +54,49 @@ const projects = [
   },
 ];
 
+function ProjectCard({
+  p,
+  widthClassName,
+  imageAspectClassName,
+}: {
+  p: (typeof projects)[number];
+  widthClassName?: string;
+  imageAspectClassName?: string;
+}) {
+  return (
+    <article className={`rd-proj-card relative overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white p-6 sm:p-7 ${widthClassName ?? ''}`}>
+      <span aria-hidden="true" className="rd-proj-edge" />
+      <div className={`relative overflow-hidden rounded-xl ${imageAspectClassName ?? 'aspect-[21/10]'}`}>
+        <div aria-hidden="true" className="absolute inset-0" style={{ background: p.tone }} />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Image
+            src={p.logo}
+            alt={`${p.brand} logosu`}
+            width={p.logoWidth}
+            height={p.logoHeight}
+            sizes="(min-width: 1024px) 560px, 90vw"
+            className="rd-proj-logo h-auto w-auto object-contain"
+            style={{ maxWidth: `${p.logoMaxWidthPct}%`, maxHeight: '68%' }}
+          />
+        </div>
+        <div aria-hidden="true" className="absolute inset-0 ring-1 ring-inset ring-black/5" />
+      </div>
+      <p className="mt-5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{p.capability}</p>
+      <h3 className="mt-1.5 text-[18px] font-bold text-[#14213F]">{p.brand}</h3>
+      <p className="mt-2 max-w-[52ch] text-[13.5px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
+      <Link
+        href={`/hizmetler/${p.system.slug}`}
+        className="relative mt-4 inline-flex items-center gap-1 border-t border-[#E5E5EC] pt-4 text-[12.5px] font-semibold text-[#8A6E43] transition-colors hover:text-[#1B5CD6]"
+      >
+        Uygulanan sistem: {p.system.title} →
+      </Link>
+    </article>
+  );
+}
+
 export default function RDServicesProjects() {
   return (
-    <section className="border-t border-[#E5E5EC] bg-[#FAF9F6] py-16 sm:py-20">
+    <section className="overflow-x-hidden border-t border-[#E5E5EC] bg-[#FAF9F6] py-16 sm:py-20">
       <style>{`
         .rd-proj-card { transition: border-color .3s ease, box-shadow .3s ease; }
         .rd-proj-logo { transition: transform .4s ease; }
@@ -72,6 +112,8 @@ export default function RDServicesProjects() {
           .rd-proj-card:hover .rd-proj-logo { transform: scale(1.04); }
           .rd-proj-card:hover .rd-proj-edge { opacity: 1; }
         }
+        .rd-proj-rail { scrollbar-width: none; -ms-overflow-style: none; }
+        .rd-proj-rail::-webkit-scrollbar { display: none; }
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
@@ -82,36 +124,27 @@ export default function RDServicesProjects() {
           </h2>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-2">
+        {/* Desktop (1024px+) — mevcut 2 sütun grid birebir korunuyor */}
+        <div className="mt-12 hidden lg:grid lg:grid-cols-2 lg:gap-7">
           {projects.map((p) => (
-            <article key={p.brand} className="rd-proj-card relative overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white p-6 sm:p-7">
-              <span aria-hidden="true" className="rd-proj-edge" />
-              <div className="relative aspect-[21/10] overflow-hidden rounded-xl">
-                <div aria-hidden="true" className="absolute inset-0" style={{ background: p.tone }} />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Image
-                    src={p.logo}
-                    alt={`${p.brand} logosu`}
-                    width={p.logoWidth}
-                    height={p.logoHeight}
-                    sizes="(min-width: 1024px) 560px, 90vw"
-                    className="rd-proj-logo h-auto w-auto object-contain"
-                    style={{ maxWidth: `${p.logoMaxWidthPct}%`, maxHeight: '68%' }}
-                  />
-                </div>
-                <div aria-hidden="true" className="absolute inset-0 ring-1 ring-inset ring-black/5" />
-              </div>
-              <p className="mt-5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{p.capability}</p>
-              <h3 className="mt-1.5 text-[18px] font-bold text-[#14213F]">{p.brand}</h3>
-              <p className="mt-2 max-w-[52ch] text-[13.5px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
-              <Link
-                href={`/hizmetler/${p.system.slug}`}
-                className="relative mt-4 inline-flex items-center gap-1 border-t border-[#E5E5EC] pt-4 text-[12.5px] font-semibold text-[#8A6E43] transition-colors hover:text-[#1B5CD6]"
-              >
-                Uygulanan sistem: {p.system.title} →
-              </Link>
-            </article>
+            <ProjectCard key={p.brand} p={p} />
           ))}
+        </div>
+      </div>
+
+      {/* Mobil/tablet (0-1023px) — 4 kart alt alta değil, full-bleed native horizontal
+          scroll-snap rail (homepage RDCases ile aynı teknik). Auto-scroll yok. */}
+      <div className="mt-10 lg:hidden">
+        <div className="rd-proj-rail flex w-screen snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 ml-[calc(50%-50vw)]">
+          {projects.map((p) => (
+            <ProjectCard
+              key={p.brand}
+              p={p}
+              widthClassName="w-[88vw] shrink-0 snap-center"
+              imageAspectClassName="aspect-[3/2]"
+            />
+          ))}
+          <div aria-hidden="true" className="w-px shrink-0" />
         </div>
       </div>
     </section>
