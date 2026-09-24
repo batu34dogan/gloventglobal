@@ -38,7 +38,8 @@ export default function SiteNavbar() {
   // orada ikinci kez mount olmasın. /redesign (rollback/preview amaçlı hâlâ ayakta) da aynı
   // sebeple hariç tutuluyor. Diğer tüm route'larda (== hariç, startsWith değil) eski navbar
   // davranışı birebir korunuyor.
-  if (pathname === '/' || pathname?.startsWith('/redesign')) return null;
+  // /hizmetler (overview, tam eşleşme — detay sayfaları değil) de artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/redesign')) return null;
 
   return (
     <header

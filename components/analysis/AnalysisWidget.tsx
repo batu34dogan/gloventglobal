@@ -20,6 +20,9 @@ export default function AnalysisWidget() {
   // sistemi burada aynen kalıyor, RDAnalysisCTA da bu component'in dinlediği
   // 'open-analysis-widget' event'ini kullanıyor.
   const isHomepage = pathname === '/';
+  // Production /hizmetler overview, onaylanan preview (/redesign/hizmetler) gibi floating trigger
+  // göstermiyor — CTA'lar sayfa içindeki 'open-analysis-widget' butonları. Detay sayfaları etkilenmez.
+  const isServicesOverview = pathname === '/hizmetler';
 
   // Modal açıkken: ESC ile kapatma + arka sayfa scroll'unu kilitleme. İkisi de "olursa güzel"
   // seviyesinde isteniyordu, basit ve düşük riskli oldukları için ekledik.
@@ -66,7 +69,7 @@ export default function AnalysisWidget() {
           z-[45] bilerek navbar'ın (z-40) üstünde ama intro ekranının (z-50) ALTINDA — intro
           oynarken bu buton üzerinde görünmesin, intro kapandıktan sonra (DOM'dan kalkınca)
           buton doğal olarak görünür hale gelir. */}
-      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && (
+      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && (
         <button
           type="button"
           onClick={() => {
