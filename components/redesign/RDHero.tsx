@@ -10,7 +10,7 @@ export default function RDHero() {
   return (
     <section className="relative overflow-hidden bg-[#FAF9F6] lg:min-h-[90vh]">
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="max-w-[46ch] py-20 lg:flex lg:min-h-[90vh] lg:max-w-[54%] lg:flex-col lg:justify-center lg:py-28">
+        <div className="max-w-[46ch] pt-20 pb-0 md:py-20 lg:flex lg:min-h-[90vh] lg:max-w-[54%] lg:flex-col lg:justify-center lg:py-28">
           <p className="text-[12px] font-bold tracking-[0.3em] text-[#1B5CD6] uppercase">Global Growth Partner</p>
 
           <h1 className="mt-6 text-[2.625rem] font-extrabold leading-[1.03] tracking-[-0.03em] text-[#14213F] sm:text-[4rem] lg:text-[4.8rem]">
@@ -53,9 +53,12 @@ export default function RDHero() {
       {/* Cinematic composition. Mobil (0-767px): Hero yüzeyinin devamı gibi, full-bleed, kart
           hissi vermeyen sabit yükseklikli görsel + üstte ivory→transparent geçiş (metin alanıyla
           kesintisiz birleşiyor). Yükseklik + vertical anchor mobilde kişi/laptop kompozisyonunu
-          daha güçlü göstermek için ayarlı. 768px+ (md/tablet) mevcut inset/rounded/aspect-[4/5]
-          görünüm birebir korunuyor; 1024px+ (lg) zaten kendi ayrı sağ-panel düzenine geçiyor, dokunulmadı. */}
-      <div className="relative mt-6 h-[360px] overflow-hidden md:mx-10 md:mt-2 md:aspect-[4/5] md:h-auto md:rounded-2xl lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
+          daha güçlü göstermek için ayarlı. CTA'dan görsele mesafe artık yalnızca bu mt (metin
+          bloğunun kendi pb'si mobilde 0'a çekildi — bkz. yukarıdaki text wrapper) → ilk viewport'ta
+          gereksiz boşluk yerine görselin anlamlı kısmı görünsün. 768px+ (md/tablet) mevcut
+          inset/rounded/aspect-[4/5] görünüm birebir korunuyor; 1024px+ (lg) zaten kendi ayrı
+          sağ-panel düzenine geçiyor, dokunulmadı. */}
+      <div className="relative mt-12 h-[360px] overflow-hidden md:mx-10 md:mt-2 md:aspect-[4/5] md:h-auto md:rounded-2xl lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[54%] lg:rounded-none">
         <Image
           src="/redesign/hero-istanbul.jpg"
           alt="İstanbul Boğazı manzaralı bir terasta, dizüstü bilgisayarıyla çalışan biri"
