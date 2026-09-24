@@ -14,9 +14,9 @@ export function RDServiceRelatedGuides({ guides, bg }: { guides: RelatedGuide[];
         <span className="text-[#1B5CD6]">{g.category}</span>
         <span className="font-medium normal-case tracking-normal text-[#6A6A7A]">{g.readTime}</span>
       </span>
-      <h3 className="mt-4 text-[17px] font-bold leading-snug text-[#14213F] group-hover:text-[#1B5CD6]">{g.title}</h3>
+      <h3 className="mt-4 text-[17.5px] font-bold leading-[1.35] text-[#14213F] group-hover:text-[#1B5CD6]">{g.title}</h3>
       <p className="mt-2.5 line-clamp-3 text-[13.5px] leading-relaxed text-[#5A5A6A]">{g.excerpt}</p>
-      <span className="mt-auto pt-5 text-[13px] font-semibold text-[#8A6E43]">Rehberi Oku →</span>
+      <span className="mt-auto pt-5 text-[13.5px] font-bold text-[#8A6E43] group-hover:text-[#1B5CD6]">Rehberi Oku →</span>
     </Link>
   );
 
@@ -51,12 +51,19 @@ export function RDServiceRelatedServices({ services, bg }: { services: RelatedSe
     <Link
       key={s.slug}
       href={`/hizmetler/${s.slug}`}
-      className={`group flex flex-col rounded-2xl border border-[#E5E5EC] bg-white p-6 transition-colors hover:border-[#1B5CD6]/40 ${focusRing} ${extra}`}
+      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-[#1B5CD6]/45 hover:shadow-[0_18px_40px_-30px_rgba(20,33,63,0.45)] focus-visible:border-[#1B5CD6]/60 motion-reduce:transition-none ${focusRing} ${extra}`}
     >
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-[#1B5CD6] to-[#C9A876] transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"
+      />
       <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#8A6E43]">{s.pillar}</span>
-      <h3 className="mt-3 text-[18px] font-extrabold leading-snug text-[#14213F] group-hover:text-[#1B5CD6]">{s.name}</h3>
+      <h3 className="mt-3 text-[19.5px] font-extrabold leading-snug tracking-tight text-[#14213F] group-hover:text-[#1B5CD6]">{s.name}</h3>
       <p className="mt-2.5 line-clamp-3 text-[13.5px] leading-relaxed text-[#5A5A6A]">{s.description}</p>
-      <span className="mt-auto pt-5 text-[13px] font-semibold text-[#1B5CD6]">Sistemi İncele →</span>
+      <span className="mt-auto inline-flex items-center gap-1.5 border-t border-[#EDEDF1] pt-4 text-[14px] font-bold text-[#1B5CD6]">
+        Detayları İncele
+        <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none">→</span>
+      </span>
     </Link>
   );
 

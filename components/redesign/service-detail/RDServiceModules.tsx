@@ -16,8 +16,8 @@ export default function RDServiceModules({
     <section aria-labelledby={id} className={`border-t border-[#E5E5EC] py-14 sm:py-20 ${bg}`}>
       <div className={sectionShell}>
         <RDSectionHeader id={id} eyebrow={block.eyebrow} title={block.title} description={block.description} />
-        <div className="mt-10">
-          <RDNumberedRows items={block.cards} columns={2} />
+        <div className="mt-8">
+          <RDNumberedRows items={block.cards} columns={2} accent="outline" />
         </div>
       </div>
     </section>

@@ -25,7 +25,8 @@ export default function RDServiceProof({ project, bg }: { project: ServiceProjec
             </div>
           </div>
           <div className="p-6 sm:p-8">
-            <p className="text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{project.capability}</p>
+            {/* Capability etiketleri İngilizce — lang="en" olmadan tr büyük harf dönüşümü "DİGİTAL" üretiyor. */}
+            <p lang="en" className="text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{project.capability}</p>
             <h3 className="mt-2 text-[20px] font-extrabold text-[#14213F]">{project.brand}</h3>
             <p className="mt-3 text-[14.5px] leading-relaxed text-[#5A5A6A]">{project.desc}</p>
           </div>

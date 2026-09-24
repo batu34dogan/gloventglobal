@@ -9,6 +9,7 @@ export function RDSectionHeader({
   tone = 'light',
   className = '',
   id,
+  accent = false,
 }: {
   eyebrow: string;
   title: string;
@@ -16,10 +17,13 @@ export function RDSectionHeader({
   tone?: 'light' | 'dark';
   className?: string;
   id?: string;
+  // Uzun sayfada art arda gelen benzer bölümleri ayırmak için eyebrow üstünde kısa aksan çizgisi.
+  accent?: boolean;
 }) {
   const dark = tone === 'dark';
   return (
     <div className={className}>
+      {accent && <span aria-hidden="true" className="mb-5 block h-[2px] w-12 rounded-full bg-gradient-to-r from-[#1B5CD6] to-[#C9A876]" />}
       <p className={`text-[11px] font-bold uppercase tracking-[0.26em] ${dark ? 'text-[#C9A876]' : 'text-[#1B5CD6]'}`}>
         {eyebrow}
       </p>
@@ -70,24 +74,33 @@ export function RDNumberedRows({
   items,
   columns = 1,
   tone = 'light',
+  accent = 'blue',
 }: {
   items: { number: string; title: string; description: string }[];
   columns?: 1 | 2;
   tone?: 'light' | 'dark';
+  // Aynı satır yapısını kullanan bölümler arasında küçük ritim farkı: problem (warm/champagne),
+  // kapsam/yaklaşım (blue), opsiyonel modüller (outline, biraz daha sıkı satır aralığı).
+  accent?: 'blue' | 'warm' | 'outline';
 }) {
   const dark = tone === 'dark';
+  const badge = dark
+    ? 'border-white/15 text-[#C9A876]'
+    : accent === 'warm'
+      ? 'border-[#E9DCC3] bg-[#FBF6EC] text-[#8A6E43]'
+      : accent === 'outline'
+        ? 'rounded-full border-[#1B5CD6]/35 bg-transparent text-[#1B5CD6]'
+        : 'border-[#DCE3F3] bg-[#F5F8FE] text-[#1B5CD6]';
   return (
     <ol className={`grid gap-x-10 ${columns === 2 ? 'md:grid-cols-2' : ''}`}>
       {items.map((it) => (
         <li
           key={it.number + it.title}
-          className={`grid grid-cols-[auto_1fr] gap-x-4 border-t py-6 sm:gap-x-5 ${dark ? 'border-white/10' : 'border-[#E5E5EC]'}`}
+          className={`grid grid-cols-[auto_1fr] gap-x-4 border-t sm:gap-x-5 ${accent === 'outline' ? 'py-5' : 'py-6'} ${
+            dark ? 'border-white/10' : accent === 'warm' ? 'border-[#E9E2D4]' : 'border-[#E5E5EC]'
+          }`}
         >
-          <span
-            className={`flex h-9 w-9 items-center justify-center rounded-lg border text-[12px] font-bold ${
-              dark ? 'border-white/15 text-[#C9A876]' : 'border-[#DCE3F3] bg-[#F5F8FE] text-[#1B5CD6]'
-            }`}
-          >
+          <span className={`flex h-9 w-9 items-center justify-center rounded-lg border text-[12px] font-bold ${badge}`}>
             {it.number}
           </span>
           <div>

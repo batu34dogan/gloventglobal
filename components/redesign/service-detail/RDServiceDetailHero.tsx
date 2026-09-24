@@ -27,7 +27,7 @@ export default function RDServiceDetailHero({
 }) {
   return (
     <section className="bg-white pb-14 pt-28 sm:pb-20 sm:pt-32">
-      <div className={`${sectionShell} grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16`}>
+      <div className={`${sectionShell} grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 xl:grid-cols-[1.07fr_0.93fr] xl:gap-10`}>
         <div>
           <nav aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12.5px] font-medium text-[#6A6A7A]">
@@ -44,7 +44,7 @@ export default function RDServiceDetailHero({
           </nav>
 
           <p className="mt-7 text-[11.5px] font-bold uppercase tracking-[0.26em] text-[#1B5CD6]">{eyebrow}</p>
-          <h1 className="mt-4 max-w-[22ch] text-[2.15rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#14213F] sm:text-[2.9rem] lg:text-[3.25rem]">
+          <h1 className="mt-4 max-w-[22ch] text-[2rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#14213F] sm:text-[2.9rem] lg:text-[3.25rem]">
             {title}
           </h1>
           <p className="mt-6 max-w-[58ch] text-[16px] leading-relaxed text-[#4A4A5A] sm:text-[17px]">{description}</p>
@@ -83,7 +83,7 @@ export default function RDServiceDetailHero({
           )}
         </div>
 
-        <div className="mx-auto w-full max-w-[440px] lg:max-w-[520px]">
+        <div className="mx-auto w-full max-w-[440px] lg:max-w-[520px] xl:max-w-[560px]">
           <RDServiceSystemVisual name={name} pillar={pillar} steps={steps} />
         </div>
       </div>

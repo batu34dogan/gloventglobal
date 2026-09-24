@@ -42,7 +42,7 @@ export default function RDServiceSystemVisual({
   const slot = CYCLE_S / nodes.length;
 
   return (
-    <div aria-hidden="true" className="rd-sdv relative mx-auto aspect-square w-full max-w-[520px]">
+    <div aria-hidden="true" className="rd-sdv relative mx-auto aspect-square w-full max-w-[560px]">
       <style>{`
         .rd-sdv-spoke { stroke: #CFCBC2; stroke-width: 1; vector-effect: non-scaling-stroke; animation: rd-sdv-spoke-kf ${CYCLE_S}s ease-in-out infinite; }
         @keyframes rd-sdv-spoke-kf {
@@ -118,7 +118,7 @@ export default function RDServiceSystemVisual({
 
       <div className="absolute left-1/2 top-1/2 flex w-[28%] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center">
         <span className="text-[8.5px] font-bold uppercase tracking-[0.18em] text-[#8A6E43] sm:text-[10px]">Sistem</span>
-        <span className="mt-1 text-[10.5px] font-extrabold leading-[1.18] text-[#14213F] sm:text-[13.5px]">{name}</span>
+        <span className="mt-1 text-[10.5px] font-extrabold leading-[1.18] text-[#14213F] sm:text-[13.5px] xl:text-[14.5px]">{name}</span>
       </div>
 
       {nodes.map((n, i) => {
@@ -131,13 +131,13 @@ export default function RDServiceSystemVisual({
             className={`absolute w-[37%] -translate-x-1/2 ${p.y < 50 ? '-translate-y-[68%]' : '-translate-y-[32%]'}`}
             style={{ left: `${p.x}%`, top: `${p.y}%` }}
           >
-            <div className="rd-sdv-card relative rounded-xl border bg-white px-2.5 py-2 sm:px-3.5 sm:py-3" style={{ animationDelay: `${i * slot}s` }}>
+            <div className="rd-sdv-card relative rounded-xl border bg-white px-2.5 py-2 sm:px-3.5 sm:py-3 xl:px-4" style={{ animationDelay: `${i * slot}s` }}>
               <span
                 className="rd-sdv-dot absolute -top-[5px] left-3 h-[9px] w-[9px] rounded-full border-[1.5px]"
                 style={{ animationDelay: `${i * slot}s` }}
               />
-              <span className="block text-[9.5px] font-bold tracking-[0.1em] text-[#1B5CD6] sm:text-[10.5px]">{n.number}</span>
-              <span className="mt-0.5 block text-[10.5px] font-semibold leading-[1.25] text-[#14213F] sm:text-[12.5px]">{n.title}</span>
+              <span className="block text-[9.5px] font-bold tracking-[0.1em] text-[#1B5CD6] sm:text-[10.5px] xl:text-[11px]">{n.number}</span>
+              <span className="mt-0.5 block text-[10.5px] font-semibold leading-[1.25] text-[#14213F] sm:text-[12.5px] xl:text-[13.25px]">{n.title}</span>
             </div>
           </div>
         );

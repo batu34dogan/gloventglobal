@@ -10,7 +10,7 @@ export default function RDServiceProblem({ problem, bg }: { problem: ServiceData
         <div className="lg:sticky lg:top-28 lg:self-start">
           <RDSectionHeader id="sd-problem" eyebrow={problem.eyebrow} title={problem.title} description={problem.description} />
         </div>
-        <RDNumberedRows items={problem.cards} />
+        <RDNumberedRows items={problem.cards} accent="warm" />
       </div>
     </section>
   );

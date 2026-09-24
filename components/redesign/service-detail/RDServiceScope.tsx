@@ -7,7 +7,7 @@ import type { ServiceData } from './serviceDetailAdapter';
 // ile açılır (ilk ikisi varsayılan açık). İçerik DOM'da her zaman mevcut.
 export default function RDServiceScope({ deliverables, bg }: { deliverables: ServiceData['deliverables']; bg: string }) {
   return (
-    <section aria-labelledby="sd-scope" className={`border-t border-[#E5E5EC] py-14 sm:py-20 ${bg}`}>
+    <section aria-labelledby="sd-scope" className={`border-t border-[#E5E5EC] py-16 sm:py-24 ${bg}`}>
       <style>{`
         .rd-sd-acc > summary { list-style: none; }
         .rd-sd-acc > summary::-webkit-details-marker { display: none; }
@@ -17,7 +17,7 @@ export default function RDServiceScope({ deliverables, bg }: { deliverables: Ser
       `}</style>
       <div className={`${sectionShell} grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16`}>
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <RDSectionHeader id="sd-scope" eyebrow={deliverables.eyebrow} title={deliverables.title} description={deliverables.description} />
+          <RDSectionHeader accent id="sd-scope" eyebrow={deliverables.eyebrow} title={deliverables.title} description={deliverables.description} />
         </div>
 
         <div className="hidden md:block">
