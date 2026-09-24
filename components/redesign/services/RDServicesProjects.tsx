@@ -133,14 +133,15 @@ export default function RDServicesProjects() {
       </div>
 
       {/* Mobil/tablet (0-1023px) — 4 kart alt alta değil, full-bleed native horizontal
-          scroll-snap rail (homepage RDCases ile aynı teknik). Auto-scroll yok. */}
+          scroll-snap rail (homepage RDCases ile aynı teknik). Auto-scroll yok. Kart 86vw + px-4/gap-2.5 +
+          snap-start: sıradaki kartın ~%8-12'si sağda görünür kalır. */}
       <div className="mt-10 lg:hidden">
-        <div className="rd-proj-rail flex w-screen snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 ml-[calc(50%-50vw)]">
+        <div className="rd-proj-rail flex w-screen snap-x snap-mandatory scroll-pl-4 gap-2.5 overflow-x-auto px-4 pb-2 ml-[calc(50%-50vw)]">
           {projects.map((p) => (
             <ProjectCard
               key={p.brand}
               p={p}
-              widthClassName="w-[88vw] shrink-0 snap-center"
+              widthClassName="w-[86vw] shrink-0 snap-start"
               imageAspectClassName="aspect-[3/2]"
             />
           ))}

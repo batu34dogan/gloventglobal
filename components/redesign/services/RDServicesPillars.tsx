@@ -192,13 +192,14 @@ export default function RDServicesPillars() {
 
       {/* Mobil/tablet (0-1023px) — 4 uzun kart alt alta değil, native horizontal scroll-snap rail;
           full-bleed (mx-auto max-w-[1400px] sınırının dışına taşıyor, homepage RDCases/RDGuides ile
-          aynı teknik) ki bir sonraki panel görünsün. Auto-scroll yok. */}
+          aynı teknik) ki bir sonraki panel görünsün. Auto-scroll yok. Kart 84vw (768px'te 86vw) +
+          px-4/gap-3 + snap-start: sonraki kartın ~%10-12'si sağda görünür kalır (swipe affordance). */}
       <div className="mt-10 lg:hidden">
-        <div className="rd-pm-rail flex w-screen snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 ml-[calc(50%-50vw)]">
+        <div className="rd-pm-rail flex w-screen snap-x snap-mandatory scroll-pl-4 gap-3 overflow-x-auto px-4 pb-2 ml-[calc(50%-50vw)]">
           {pillars.map((p) => (
             <div
               key={p.title}
-              className="relative w-[86vw] shrink-0 snap-center overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white p-7"
+              className="relative w-[84vw] shrink-0 snap-start overflow-hidden md:w-[86vw] rounded-2xl border border-[#E5E5EC] bg-white p-7"
             >
               <span aria-hidden="true" className="rd-pm-rail-grid" />
               <span

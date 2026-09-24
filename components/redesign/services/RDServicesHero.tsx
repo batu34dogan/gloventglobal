@@ -61,8 +61,9 @@ export default function RDServicesHero() {
 
         {/* 0-1023px: diyagram, Hero'nun ayrı yapıştırılmış bir eki değil devamı gibi görünsün diye
             altına çok hafif ivory/grid bir surface eklendi. 1024px+ (lg) tamamen dokunulmadı —
-            surface/padding yok, diyagram doğrudan sağ kolonda. */}
-        <div className={`${reveal('delay-[280ms]')} relative rounded-2xl bg-[#FAF9F6] p-3 sm:p-6 lg:rounded-none lg:bg-transparent lg:p-0`}>
+            surface/padding yok, diyagram doğrudan sağ kolonda. 0-767px'te surface hafif negatif margin +
+            daha ince padding alıyor → diyagram ~%9-10 daha büyük; 768px+ ölçüler değişmedi. */}
+        <div className={`${reveal('delay-[280ms]')} relative -mx-2 rounded-2xl bg-[#FAF9F6] px-1 py-2.5 sm:p-3 md:mx-0 md:p-6 lg:rounded-none lg:bg-transparent lg:p-0`}>
           <span
             aria-hidden="true"
             className="absolute inset-0 rounded-2xl lg:hidden"

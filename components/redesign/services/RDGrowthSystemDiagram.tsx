@@ -104,8 +104,8 @@ export default function RDGrowthSystemDiagram() {
       </svg>
 
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
-        <span className="text-[12px] font-bold tracking-[0.14em] text-[#C9A876] uppercase">AI +</span>
-        <span className="text-[16px] font-extrabold tracking-[0.06em] text-[#14213F]">DATA</span>
+        <span className="text-[13px] font-bold tracking-[0.14em] text-[#C9A876] uppercase md:text-[12px]">AI +</span>
+        <span className="text-[18px] font-extrabold md:text-[16px] tracking-[0.06em] text-[#14213F]">DATA</span>
       </div>
 
       {NODES.map((n) => (
