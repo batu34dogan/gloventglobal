@@ -333,7 +333,10 @@ export default function RDServices() {
           15% { color: rgba(255,255,255,0.72); transform: scale(1); }
         }
 
+        /* Temel opacity 0: pozitif animation-delay beklenirken (ilk cycle) keyframe henüz uygulanmıyor —
+           aksi halde sırası gelmemiş noktalar hub merkezinde sabit görünüyor. */
         .rd-ai-data-point {
+          opacity: 0;
           animation: rd-ai-travel-kf 7.2s linear infinite;
         }
         @keyframes rd-ai-travel-kf {
@@ -399,6 +402,7 @@ export default function RDServices() {
         .rd-ai2-node.rd-ai2-hot .rd-ai2-node-label { color: #fff !important; }
 
         .rd-ai2-data-point {
+          opacity: 0;
           animation: rd-ai2-travel-kf 7.2s linear infinite;
         }
         @keyframes rd-ai2-travel-kf {
@@ -407,6 +411,18 @@ export default function RDServices() {
           11% { offset-distance: 100%; opacity: 1; }
           13%, 100% { offset-distance: 100%; opacity: 0; }
         }
+
+        /* Hover/focus sırasında: sequence pause (hover bitince kaldığı yerden devam eder), hover
+           edilmeyen spoke/node'lar passive'e sabitlenir ve moving dot gizlenir — aynı anda tek
+           aktif node kalır. Hub breathing bağımsız, devam ediyor. */
+        .rd-ai2-hovering .rd-ai2-spoke, .rd-ai2-hovering .rd-ai2-node-dot,
+        .rd-ai2-hovering .rd-ai2-node-label, .rd-ai2-hovering .rd-ai2-data-point { animation-play-state: paused; }
+        .rd-ai2-hovering .rd-ai2-spoke:not(.rd-ai2-hot) { stroke: rgba(255,255,255,0.22) !important; stroke-width: 1.4 !important; }
+        .rd-ai2-hovering .rd-ai2-node:not(.rd-ai2-hot) .rd-ai2-node-dot {
+          border-color: rgba(255,255,255,0.28) !important; background-color: rgba(255,255,255,0.05) !important; transform: scale(1) !important;
+        }
+        .rd-ai2-hovering .rd-ai2-node:not(.rd-ai2-hot) .rd-ai2-node-label { color: rgba(255,255,255,0.65) !important; }
+        .rd-ai2-hovering .rd-ai2-data-point { opacity: 0 !important; }
 
         @media (hover: hover) and (pointer: fine) {
           .rd-ai2-node:focus-visible { outline: 2px solid rgba(201,168,118,0.6); outline-offset: 6px; border-radius: 9999px; }
@@ -646,7 +662,11 @@ export default function RDServices() {
                 Operasyon→İş Akışları sırasında aksın diye pozitif animation-delay kullanıldı (bkz.
                 mobil versiyonda negatif delay'in sırayı ters çevirdiği, bu sefer baştan doğru yapıldı).
                 Aynı anda tek node aktif + merkezden o node'a akan tek champagne data point. */}
-            <div className="relative mx-auto hidden aspect-square w-full max-w-[460px] shrink-0 lg:block lg:w-[440px] xl:max-w-[500px] xl:w-[500px]">
+            <div
+              className={`relative mx-auto hidden aspect-square w-full max-w-[460px] shrink-0 lg:block lg:w-[440px] xl:max-w-[500px] xl:w-[500px] ${
+                aiDesktopHovered !== null ? 'rd-ai2-hovering' : ''
+              }`}
+            >
               <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full" aria-hidden focusable="false">
                 <path d={AI_DESKTOP_HEX} className="rd-ai2-hex" />
                 {AI_DESKTOP_NODES.map((n, i) => {
@@ -690,7 +710,7 @@ export default function RDServices() {
               >
                 <span
                   className="rd-ai2-hub-pulse absolute rounded-full border border-[#C9A876]/40"
-                  style={{ width: '118px', height: '118px' }}
+                  style={{ left: '50%', top: '50%', width: '118px', height: '118px' }}
                 />
                 <span className="relative text-[12px] font-bold tracking-[0.2em] text-[#C9A876] uppercase">AI +</span>
                 <span className="relative text-[16px] font-extrabold tracking-[0.06em] text-white">DATA</span>
@@ -703,15 +723,17 @@ export default function RDServices() {
                     key={n.key}
                     type="button"
                     className={`rd-ai2-node ${aiDesktopHovered === i ? 'rd-ai2-hot' : ''}`}
-                    style={{ left: `${(p.x / 400) * 100}%`, top: `${(p.y / 400) * 100}%`, animationDelay: `${i * 1.2}s` }}
+                    style={{ left: `${(p.x / 400) * 100}%`, top: `${(p.y / 400) * 100}%` }}
                     aria-label={n.label}
                     onMouseEnter={() => setAiDesktopHovered(i)}
                     onMouseLeave={() => setAiDesktopHovered(null)}
                     onFocus={() => setAiDesktopHovered(i)}
                     onBlur={() => setAiDesktopHovered(null)}
                   >
-                    <span aria-hidden="true" className="rd-ai2-node-dot" />
-                    <span className="rd-ai2-node-label">{n.label}</span>
+                    {/* animation-delay button'a değil, animasyonun çalıştığı dot/label'a verilmeli —
+                        delay miras alınmıyor, aksi halde 6 node aynı anda aktifleşiyor. */}
+                    <span aria-hidden="true" className="rd-ai2-node-dot" style={{ animationDelay: `${i * 1.2}s` }} />
+                    <span className="rd-ai2-node-label" style={{ animationDelay: `${i * 1.2}s` }}>{n.label}</span>
                   </button>
                 );
               })}
