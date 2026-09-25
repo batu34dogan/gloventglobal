@@ -142,3 +142,22 @@ export function getServiceDetailView(slug: string) {
 export type ServiceDetailView = NonNullable<ReturnType<typeof getServiceDetailView>>;
 export type RelatedGuide = ServiceDetailView['relatedGuides'][number];
 export type RelatedService = ServiceDetailView['relatedServices'][number];
+
+// /redesign/nasil-calisiyoruz gibi diğer redesign sayfaları için READ-ONLY yardımcılar — aynı
+// SERVICE_META ve PROJECT_BY_SERVICE kaynaklarını yeniden kullanır, ikinci bir mapping oluşturmaz.
+export const PILLAR_ORDER: Pillar[] = ['Strateji', 'Ticaret', 'Teknoloji', 'Operasyon'];
+
+export function getServicesByPillar() {
+  return PILLAR_ORDER.map((pillar) => ({
+    pillar,
+    services: Object.entries(SERVICE_META)
+      .filter(([slug, m]) => m.pillar === pillar && serviceDetails[slug])
+      .map(([slug, m]) => ({ slug, name: m.name })),
+  }));
+}
+
+export function getServiceProject(slug: string) {
+  const project = PROJECT_BY_SERVICE[slug];
+  const meta = SERVICE_META[slug];
+  return project && meta ? { slug, serviceName: meta.name, project } : null;
+}
