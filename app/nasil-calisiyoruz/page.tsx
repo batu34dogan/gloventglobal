@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ProcessContent from '@/components/process/ProcessContent';
+import RDProcessPage from '@/components/redesign/process/RDProcessPage';
 import JsonLd from '@/components/seo/JsonLd';
 
 // Route kendi metadata'sını tanımlamadığı için root layout'un homepage title/description/canonical
@@ -45,7 +45,10 @@ export default function NasilCalisiyoruzPage() {
           ],
         }}
       />
-      <ProcessContent />
+      {/* Onaylanan redesign (preview /redesign/nasil-calisiyoruz ile aynı ağaç). Metadata ve BreadcrumbList
+          yukarıda aynen korunuyor; robots index,follow — preview'deki noindex,nofollow buraya taşınmadı.
+          Eski ProcessContent rollback/referans için repoda duruyor, burada artık render edilmiyor. */}
+      <RDProcessPage />
     </>
   );
 }

@@ -6,7 +6,8 @@ import { focusRing } from '@/components/redesign/service-detail/RDServiceDetailP
 import { processCta } from './processData';
 
 // Final CTA — production'daki başlık ve açıklama birebir. Form yok; mevcut AnalysisWidget açılıyor.
-export default function RDProcessCTA() {
+// analyticsPrefix: production'da '' (nasil_calisiyoruz_*), preview'de 'redesign_'.
+export default function RDProcessCTA({ analyticsPrefix = '' }: { analyticsPrefix?: string }) {
   return (
     <section aria-labelledby="pr-cta" className="relative overflow-hidden bg-[#0F1E3C] py-16 sm:py-20">
       <span
@@ -24,7 +25,7 @@ export default function RDProcessCTA() {
           <button
             type="button"
             onClick={() => {
-              trackEvent('free_analysis_cta_click', { location: 'redesign_nasil_calisiyoruz_final_cta' });
+              trackEvent('free_analysis_cta_click', { location: `${analyticsPrefix}nasil_calisiyoruz_final_cta` });
               window.dispatchEvent(new Event('open-analysis-widget'));
             }}
             className={`inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-[15.5px] font-semibold text-[#0F1E3C] transition-all hover:bg-[#C9A876] hover:text-white ${focusRing} focus-visible:outline-white`}
@@ -33,7 +34,7 @@ export default function RDProcessCTA() {
           </button>
           <Link
             href="/iletisim"
-            onClick={() => trackEvent('contact_cta_click', { location: 'redesign_nasil_calisiyoruz_final_cta' })}
+            onClick={() => trackEvent('contact_cta_click', { location: `${analyticsPrefix}nasil_calisiyoruz_final_cta` })}
             className={`inline-flex items-center rounded-full border border-white/25 px-8 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-white hover:text-[#0F1E3C] ${focusRing} focus-visible:outline-white`}
           >
             İletişime Geç

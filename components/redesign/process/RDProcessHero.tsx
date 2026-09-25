@@ -6,7 +6,8 @@ import { focusRing, sectionShell } from '@/components/redesign/service-detail/RD
 import RDProcessFlowVisual from './RDProcessFlowVisual';
 import { processHero } from './processData';
 
-export default function RDProcessHero() {
+// analyticsPrefix: production'da '' (nasil_calisiyoruz_*), preview'de 'redesign_'.
+export default function RDProcessHero({ analyticsPrefix = '' }: { analyticsPrefix?: string }) {
   return (
     <section className="bg-white pb-14 pt-28 sm:pb-20 sm:pt-32">
       <div className={`${sectionShell} grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14`}>
@@ -20,7 +21,7 @@ export default function RDProcessHero() {
             <button
               type="button"
               onClick={() => {
-                trackEvent('free_analysis_cta_click', { location: 'redesign_nasil_calisiyoruz_hero' });
+                trackEvent('free_analysis_cta_click', { location: `${analyticsPrefix}nasil_calisiyoruz_hero` });
                 window.dispatchEvent(new Event('open-analysis-widget'));
               }}
               className={`inline-flex items-center gap-2 rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6] ${focusRing}`}
@@ -29,7 +30,7 @@ export default function RDProcessHero() {
             </button>
             <Link
               href="/iletisim"
-              onClick={() => trackEvent('contact_cta_click', { location: 'redesign_nasil_calisiyoruz_hero' })}
+              onClick={() => trackEvent('contact_cta_click', { location: `${analyticsPrefix}nasil_calisiyoruz_hero` })}
               className={`inline-flex items-center rounded-full border border-[#D6D6DC] px-7 py-3.5 text-[15.5px] font-semibold text-[#14213F] transition-all hover:border-[#1B5CD6] hover:text-[#1B5CD6] ${focusRing}`}
             >
               İletişime Geç

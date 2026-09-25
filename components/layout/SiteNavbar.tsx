@@ -39,7 +39,8 @@ export default function SiteNavbar() {
   // sebeple hariç tutuluyor. Diğer tüm route'larda (== hariç, startsWith değil) eski navbar
   // davranışı birebir korunuyor.
   // /hizmetler overview ve /hizmetler/[slug] detay sayfaları da artık kendi RDNavbar/RDFooter'ını render ediyor.
-  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname?.startsWith('/redesign')) return null;
+  // /nasil-calisiyoruz (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname?.startsWith('/redesign')) return null;
 
   return (
     <header

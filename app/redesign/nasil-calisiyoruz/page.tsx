@@ -1,16 +1,7 @@
 import type { Metadata } from 'next';
-import RDNavbar from '@/components/redesign/RDNavbar';
-import RDFooter from '@/components/redesign/RDFooter';
-import RDProcessHero from '@/components/redesign/process/RDProcessHero';
-import RDProcessManifesto from '@/components/redesign/process/RDProcessManifesto';
-import RDProcessJourney from '@/components/redesign/process/RDProcessJourney';
-import RDProcessDataLoop from '@/components/redesign/process/RDProcessDataLoop';
-import RDProcessAdaptiveSystem from '@/components/redesign/process/RDProcessAdaptiveSystem';
-import RDProcessWorkModels from '@/components/redesign/process/RDProcessWorkModels';
-import RDProcessProof from '@/components/redesign/process/RDProcessProof';
-import RDProcessCTA from '@/components/redesign/process/RDProcessCTA';
+import RDProcessPage from '@/components/redesign/process/RDProcessPage';
 
-// PREVIEW — production /nasil-calisiyoruz değil (production UI hâlâ ProcessContent). Title/description
+// PREVIEW (rollback/referans) — production /nasil-calisiyoruz artık aynı RDProcessPage ağacını render ediyor. Title/description
 // production ile aynı; canonical ve og:url production route'u gösteriyor, robots noindex,nofollow.
 // BreadcrumbList JSON-LD bilinçli olarak YOK (production'da var). Sitemap'e eklenmedi. Floating
 // analiz tetikleyicisi yok — Hero ve Final CTA mevcut global AnalysisWidget'ı açıyor.
@@ -41,20 +32,5 @@ export const metadata: Metadata = {
 };
 
 export default function RedesignNasilCalisiyoruzPage() {
-  return (
-    <div className="min-h-screen" style={{ fontFamily: 'var(--font-geist-sans),system-ui,sans-serif' }}>
-      <RDNavbar />
-      <main>
-        <RDProcessHero />
-        <RDProcessManifesto />
-        <RDProcessJourney />
-        <RDProcessDataLoop />
-        <RDProcessAdaptiveSystem />
-        <RDProcessWorkModels />
-        <RDProcessProof />
-        <RDProcessCTA />
-      </main>
-      <RDFooter />
-    </div>
-  );
+  return <RDProcessPage analyticsPrefix="redesign_" />;
 }
