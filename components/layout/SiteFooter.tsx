@@ -17,8 +17,8 @@ export default function SiteFooter() {
   // Yeni production ana sayfa (/) artık kendi RDFooter'ını render ediyor — eski global footer
   // orada ikinci kez görünmesin. /redesign (rollback/preview amaçlı hâlâ ayakta) da aynı sebeple
   // hariç tutuluyor. Diğer tüm route'larda eski footer davranışı birebir korunuyor.
-  // /hizmetler (overview, tam eşleşme — detay sayfaları değil) de artık kendi RDNavbar/RDFooter'ını render ediyor.
-  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/redesign')) return null;
+  // /hizmetler overview ve /hizmetler/[slug] detay sayfaları da artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname?.startsWith('/redesign')) return null;
 
   return (
     <footer className="relative border-t border-white/[0.06] px-6 py-6 sm:px-10">

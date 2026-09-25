@@ -81,7 +81,7 @@ function ProjectCard({
         </div>
         <div aria-hidden="true" className="absolute inset-0 ring-1 ring-inset ring-black/5" />
       </div>
-      <p className="mt-5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{p.capability}</p>
+      <p lang="en" className="mt-5 text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{p.capability}</p>
       <h3 className="mt-1.5 text-[18px] font-bold text-[#14213F]">{p.brand}</h3>
       <p className="mt-2 max-w-[52ch] text-[13.5px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
       <Link

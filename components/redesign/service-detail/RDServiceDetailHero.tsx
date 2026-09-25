@@ -15,6 +15,7 @@ export default function RDServiceDetailHero({
   description,
   scopeKeywords,
   steps,
+  analyticsPrefix = '',
 }: {
   slug: string;
   name: string;
@@ -24,6 +25,7 @@ export default function RDServiceDetailHero({
   description: string;
   scopeKeywords: string[];
   steps: { number: string; title: string }[];
+  analyticsPrefix?: string;
 }) {
   return (
     <section className="bg-white pb-14 pt-28 sm:pb-20 sm:pt-32">
@@ -53,7 +55,7 @@ export default function RDServiceDetailHero({
             <button
               type="button"
               onClick={() => {
-                trackEvent('free_analysis_cta_click', { location: 'redesign_service_detail_hero', service: slug });
+                trackEvent('free_analysis_cta_click', { location: `${analyticsPrefix}service_detail_hero`, service: slug });
                 window.dispatchEvent(new Event('open-analysis-widget'));
               }}
               className={`inline-flex items-center gap-2 rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6] ${focusRing}`}
@@ -62,7 +64,7 @@ export default function RDServiceDetailHero({
             </button>
             <Link
               href="/iletisim"
-              onClick={() => trackEvent('contact_cta_click', { location: 'redesign_service_detail_hero', service: slug })}
+              onClick={() => trackEvent('contact_cta_click', { location: `${analyticsPrefix}service_detail_hero`, service: slug })}
               className={`inline-flex items-center rounded-full border border-[#D6D6DC] px-7 py-3.5 text-[15.5px] font-semibold text-[#14213F] transition-all hover:border-[#1B5CD6] hover:text-[#1B5CD6] ${focusRing}`}
             >
               İletişime Geç

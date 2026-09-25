@@ -21,8 +21,9 @@ export default function AnalysisWidget() {
   // 'open-analysis-widget' event'ini kullanıyor.
   const isHomepage = pathname === '/';
   // Production /hizmetler overview, onaylanan preview (/redesign/hizmetler) gibi floating trigger
-  // göstermiyor — CTA'lar sayfa içindeki 'open-analysis-widget' butonları. Detay sayfaları etkilenmez.
-  const isServicesOverview = pathname === '/hizmetler';
+  // göstermiyor — CTA'lar sayfa içindeki 'open-analysis-widget' butonları. Redesign detay sayfaları
+  // (/hizmetler/[slug]) da preview'deki gibi floating trigger'sız; modal aynı.
+  const isServicesOverview = pathname === '/hizmetler' || (pathname?.startsWith('/hizmetler/') ?? false);
 
   // Modal açıkken: ESC ile kapatma + arka sayfa scroll'unu kilitleme. İkisi de "olursa güzel"
   // seviyesinde isteniyordu, basit ve düşük riskli oldukları için ekledik.

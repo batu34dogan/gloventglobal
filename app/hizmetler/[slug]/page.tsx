@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import ServiceDetailContent from '@/components/services/ServiceDetailContent';
+import RDServiceDetailPage from '@/components/redesign/service-detail/RDServiceDetailPage';
+import { getServiceDetailView } from '@/components/redesign/service-detail/serviceDetailAdapter';
 import { serviceDetails } from '@/components/services/serviceDetailsData';
 import JsonLd from '@/components/seo/JsonLd';
 
@@ -38,6 +39,8 @@ export default async function HizmetDetayPage({ params }: { params: Promise<{ sl
   }
 
   const service = serviceDetails[slug];
+  const view = getServiceDetailView(slug);
+  if (!view) notFound();
   const url = `https://gloventglobal.com/hizmetler/${slug}`;
 
   return (
@@ -64,7 +67,11 @@ export default async function HizmetDetayPage({ params }: { params: Promise<{ sl
           },
         ]}
       />
-      <ServiceDetailContent slug={slug} />
+      {/* Onaylanan ortak redesign detay template'i (preview /redesign/hizmetler/[slug] ile aynı ağaç).
+          Metadata, SSG ve Service/BreadcrumbList JSON-LD yukarıda aynen korunuyor; robots override
+          YOK — preview'deki noindex,nofollow buraya taşınmadı. Eski ServiceDetailContent rollback/
+          referans için repoda duruyor, burada artık render edilmiyor. */}
+      <RDServiceDetailPage view={view} />
     </>
   );
 }
