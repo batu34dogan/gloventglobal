@@ -24,14 +24,17 @@ export default function RDProcessAdaptiveSystem() {
 
         <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
           {groups.map((g) => (
-            <div key={g.pillar} className="border-t-2 border-[#14213F] pt-4">
-              <h3 className="text-[12px] font-bold uppercase tracking-[0.2em] text-[#8A6E43]">{g.pillar}</h3>
-              <ul className="mt-3 space-y-2.5">
+            <div key={g.pillar} className="relative border-t-2 border-[#14213F] pt-4 md:border-t-0 md:pt-5">
+              {/* md+: kalın lacivert çizgi yerine rafine blue→champagne aksan + ince taban çizgisi */}
+              <span aria-hidden="true" className="absolute inset-x-0 top-0 hidden h-px bg-[#DCD8CE] md:block" />
+              <span aria-hidden="true" className="absolute left-0 top-0 hidden h-[2px] w-14 bg-gradient-to-r from-[#1B5CD6] to-[#C9A876] md:block" />
+              <h3 className="text-[12px] font-bold uppercase tracking-[0.2em] text-[#8A6E43] md:text-[13px] md:tracking-[0.22em]">{g.pillar}</h3>
+              <ul className="mt-3 space-y-2.5 md:mt-4 md:space-y-3">
                 {g.services.map((s) => (
                   <li key={s.slug}>
                     <Link
                       href={`/hizmetler/${s.slug}`}
-                      className={`group rounded text-[14px] font-semibold leading-snug text-[#14213F] transition-colors hover:text-[#1B5CD6] ${focusRing}`}
+                      className={`group rounded text-[14px] font-semibold leading-snug text-[#14213F] transition-colors hover:text-[#1B5CD6] md:text-[15px] md:leading-[1.4] md:decoration-[#1B5CD6]/45 md:underline-offset-4 md:hover:underline md:focus-visible:text-[#1B5CD6] md:focus-visible:underline ${focusRing}`}
                     >
                       {s.name}
                       <span aria-hidden="true" className="ml-1 whitespace-nowrap text-[#B8B8C2] transition-colors group-hover:text-[#1B5CD6]">→</span>

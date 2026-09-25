@@ -14,13 +14,27 @@ export default function RDProcessWorkModels() {
         </h2>
 
         <div className="relative mt-12 hidden md:block">
-          <span aria-hidden="true" style={{ right: "calc((100% - 48px) / 3 - 22px)" }} className="absolute left-[22px] top-[22px] h-[1.5px] bg-gradient-to-r from-[#1B5CD6]/55 via-[#1B5CD6]/30 to-[#C9A876]/60" />
+          {/* Kurulum → yönetim → partnerlik ilerleyişi: daha belirgin sistem çizgisi, dolu düğümler
+              (beyaz halka çizgiyi düğüm arkasında keser) ve aralarda küçük champagne yön işareti. */}
+          <span
+            aria-hidden="true"
+            style={{ right: 'calc((100% - 48px) / 3 - 22px)' }}
+            className="absolute left-[22px] top-[21px] h-[2px] bg-gradient-to-r from-[#1B5CD6]/80 via-[#1B5CD6]/50 to-[#C9A876]/85"
+          />
           <ol className="grid grid-cols-3 gap-6">
           {workModels.map((m, i) => (
             <li key={m.n} className="relative">
+              {i < last && (
+                <span
+                  aria-hidden="true"
+                  className="absolute left-[calc(50%+34px)] top-[22px] z-10 flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#E9DCC3] bg-white text-[13px] font-bold leading-none text-[#C9A876]"
+                >
+                  ›
+                </span>
+              )}
               <span
-                className={`relative z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 text-[14px] font-bold ${
-                  i === last ? 'border-[#C9A876] bg-[#FFFCF6] text-[#8A6E43]' : 'border-[#1B5CD6]/55 bg-white text-[#1B5CD6]'
+                className={`relative z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 text-[14px] font-bold shadow-[0_0_0_5px_#fff] ${
+                  i === last ? 'border-[#C9A876] bg-[#FFFCF6] text-[#8A6E43]' : 'border-[#1B5CD6] bg-[#1B5CD6] text-white'
                 }`}
               >
                 {m.n}
