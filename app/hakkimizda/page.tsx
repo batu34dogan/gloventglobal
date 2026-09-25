@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import AboutContent from '@/components/about/AboutContent';
+import RDAboutPage from '@/components/redesign/about/RDAboutPage';
 import JsonLd from '@/components/seo/JsonLd';
 
 // Route kendi metadata'sını tanımlamadığı için root layout'un homepage title/description/canonical
@@ -36,16 +36,31 @@ export default function HakkimizdaPage() {
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://gloventglobal.com' },
-            { '@type': 'ListItem', position: 2, name: 'Hakkımızda', item: 'https://gloventglobal.com/hakkimizda' },
-          ],
-        }}
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://gloventglobal.com' },
+              { '@type': 'ListItem', position: 2, name: 'Hakkımızda', item: 'https://gloventglobal.com/hakkimizda' },
+            ],
+          },
+          // AboutPage — Organization homepage'te (organizationSchema.ts) zaten var ve stabil bir @id'si
+          // yok; ikinci bir Organization nesnesi üretmemek için burada organization ilişkisi kurulmadı.
+          {
+            '@context': 'https://schema.org',
+            '@type': 'AboutPage',
+            name: TITLE,
+            url: URL,
+            description: DESCRIPTION,
+            inLanguage: 'tr-TR',
+          },
+        ]}
       />
-      <AboutContent />
+      {/* Onaylanan redesign (preview /redesign/hakkimizda ile aynı RDAboutPage ağacı). Metadata yukarıda
+          aynen korunuyor; robots index,follow — preview'deki noindex,nofollow buraya taşınmadı. Eski
+          AboutContent rollback/referans için repoda duruyor, burada artık render edilmiyor. */}
+      <RDAboutPage />
     </>
   );
 }

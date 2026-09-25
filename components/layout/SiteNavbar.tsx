@@ -7,7 +7,8 @@ import { usePathname } from 'next/navigation';
 const navLinks = [
   { label: 'Hizmetler', href: '/hizmetler' },
   { label: 'Rehberler', href: '/rehberler' },
-  { label: 'Farkımız', href: '/farkimiz' },
+  // /farkimiz artık /hakkimizda#prensipler'e kalıcı yönleniyor — gereksiz redirect olmasın diye doğrudan hedef.
+  { label: 'Farkımız', href: '/hakkimizda#prensipler' },
   { label: 'Nasıl Çalışıyoruz', href: '/nasil-calisiyoruz' },
   { label: 'Hakkımızda', href: '/hakkimizda' },
   { label: 'İletişim', href: '/iletisim' },
@@ -40,7 +41,8 @@ export default function SiteNavbar() {
   // davranışı birebir korunuyor.
   // /hizmetler overview ve /hizmetler/[slug] detay sayfaları da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /nasil-calisiyoruz (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
-  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname?.startsWith('/redesign')) return null;
+  // /hakkimizda (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname?.startsWith('/redesign')) return null;
 
   return (
     <header

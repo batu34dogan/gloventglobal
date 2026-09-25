@@ -19,7 +19,8 @@ export default function SiteFooter() {
   // hariç tutuluyor. Diğer tüm route'larda eski footer davranışı birebir korunuyor.
   // /hizmetler overview ve /hizmetler/[slug] detay sayfaları da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /nasil-calisiyoruz (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
-  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname?.startsWith('/redesign')) return null;
+  // /hakkimizda (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname?.startsWith('/redesign')) return null;
 
   return (
     <footer className="relative border-t border-white/[0.06] px-6 py-6 sm:px-10">

@@ -55,7 +55,11 @@ const nextConfig: NextConfig = {
   },
 
   async redirects() {
-    return guideRedirects;
+    return [
+      ...guideRedirects,
+      // /farkimiz içeriği /hakkimizda "Prensiplerimiz" bölümüne konsolide edildi — kalıcı (308) yönlendirme.
+      { source: "/farkimiz", destination: "/hakkimizda#prensipler", permanent: true },
+    ];
   },
 
   async headers() {
