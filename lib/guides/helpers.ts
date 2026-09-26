@@ -62,8 +62,8 @@ export function deriveCategories(list: Guide[]): { name: string; count: number }
 
 // ---------------------------------------------------------------------------
 // İlgili rehberler (yalnızca render seçimi): 1) nextReadingSlugs sırasıyla, 2) aynı kategoride order'ı
-// en yakın olanlar, 3) hâlâ 3'e tamamlanmadıysa tüm katalogda order'ı en yakın olanlar. Mevcut rehber
-// hariç, tekrar yok, en fazla 3.
+// en yakın olanlar. Başka kategoriden rehber EKLENMEZ (alaka > kart sayısı): 0–3 sonuç olabilir; 0 ise
+// bölüm hiç render edilmez. Mevcut rehber hariç, tekrar yok, en fazla 3.
 // ---------------------------------------------------------------------------
 export function resolveRelatedGuides(current: Guide, all: Record<string, Guide>, max = 3): Guide[] {
   const picked: Guide[] = [];
@@ -76,7 +76,6 @@ export function resolveRelatedGuides(current: Guide, all: Record<string, Guide>,
     [...list].sort((a, b) => Math.abs((a.order ?? 0) - o) - Math.abs((b.order ?? 0) - o) || (a.order ?? 0) - (b.order ?? 0));
   const others = Object.values(all).filter((g) => g.slug !== current.slug);
   nearest(others.filter((g) => g.category === current.category)).forEach(add);
-  nearest(others).forEach(add);
   return picked;
 }
 
