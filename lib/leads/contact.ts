@@ -37,9 +37,9 @@ export type ContactField = 'fullName' | 'company' | 'email' | 'phone' | 'contact
 export type ContactErrors = Partial<Record<ContactField, string>>;
 
 // Pragmatik e-posta kontrolü (RFC'nin tamamı değil): tek @, boşluk yok, alan adında nokta.
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Telefon: rakam, boşluk, +, -, (, ) — en az 7 rakam.
-const PHONE_RE = /^[+\d\s\-()]+$/;
+export const PHONE_RE = /^[+\d\s\-()]+$/;
 
 const str = (v: unknown) => (typeof v === 'string' ? v.trim() : '');
 

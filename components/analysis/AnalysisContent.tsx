@@ -3,302 +3,18 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
+import { questions, type Answers, type QuestionId } from '@/lib/analysis/questions';
+import { PRIORITY_LABELS, getGrowthScore as getGrowthPotentialScore, getReasonText, getRecommendations } from '@/lib/analysis/engine';
+import { getAnalysisService } from '@/lib/analysis/services';
 
-// ============================================================================
-// Soru tanımları — 7 soruluk akış. Sıra: işletme tipi -> mevcut satış kanalları
-// (çoklu seçim) -> en büyük problem -> öncelikli hedef -> dijital altyapı durumu
-// -> aylık satış hacmi -> aylık büyüme/reklam bütçesi (son adım).
-// ============================================================================
-
-type QuestionId = 'businessType' | 'channels' | 'problem' | 'goal' | 'infraLevel' | 'salesVolume' | 'budget';
-
-type Question = {
-  id: QuestionId;
-  title: string;
-  subtitle?: string;
-  multi: boolean;
-  options: string[];
+// ESKİ (production /analiz) quiz UI'ı — /analiz yeni AnalysisFlow'a promote edilene kadar görünümü
+// korunuyor. Sorular, skor, öneriler ve hizmet adları artık lib/analysis'ten (modal ve /redesign/analiz
+// ile tek kaynak). Hizmet adı/açıklaması production /hizmetler verisinden gelir.
+const serviceInfo = (tag: Parameters<typeof getAnalysisService>[0]) => {
+  const s = getAnalysisService(tag);
+  return { title: s.name, description: s.summary };
 };
-
-const questions: Question[] = [
-  {
-    id: 'businessType',
-    title: 'İşletme tipiniz nedir?',
-    multi: false,
-    options: ['Üretici / Marka Sahibi', 'Toptancı / B2B Firma', 'E-Ticaret Markası', 'Henüz Karar Vermedim'],
-  },
-  {
-    id: 'channels',
-    title: 'Şu anda nerede satış yapıyorsunuz?',
-    multi: true,
-    options: ['Amazon', 'Etsy', 'eBay', 'Shopify / Kendi Web Sitem', 'B2B / Toptan', 'Sosyal Medya', 'Henüz Satış Yapmıyorum'],
-  },
-  {
-    id: 'problem',
-    title: 'En büyük probleminiz nedir?',
-    multi: false,
-    options: [
-      'Yeterli trafik alamıyorum',
-      'Trafik var ama satışa dönüşmüyor',
-      'Satış yok / çok düşük',
-      'Reklam harcıyorum ama sonuç alamıyorum',
-      'Ürünlerimi doğru sunamıyorum',
-      'Operasyon / süreç yönetimi çok dağınık',
-      'Global pazara açılmak istiyorum',
-      'Henüz net değil',
-    ],
-  },
-  {
-    id: 'goal',
-    title: 'Öncelikli hedefiniz nedir?',
-    multi: false,
-    options: [
-      'Satışları artırmak',
-      'Yeni pazarlara açılmak',
-      'Marka bilinirliğini güçlendirmek',
-      'Operasyonu düzenlemek',
-      'Yapay zeka / otomasyon entegre etmek',
-      'B2B satış sürecini dijitalleştirmek',
-      'Henüz karar vermedim',
-    ],
-  },
-  {
-    id: 'infraLevel',
-    title: 'Mevcut dijital altyapınız ne durumda?',
-    multi: false,
-    options: ['Hiç Yok / Yeni Kuracağım', 'Var Ama Zayıf', 'Orta Seviyede', 'Güçlü Ama Büyümüyor'],
-  },
-  {
-    id: 'salesVolume',
-    title: 'Aylık satış hacminiz nedir?',
-    subtitle: 'Satış hacmi bilgisi, markanızın büyüme aşamasını daha doğru değerlendirebilmemiz için kullanılır.',
-    multi: false,
-    options: ['Henüz satış yok', '0 - 100.000 TL', '100.000 - 500.000 TL', '500.000 - 1.000.000 TL', '1.000.000 TL üzeri', 'Paylaşmak istemiyorum'],
-  },
-  {
-    id: 'budget',
-    title: 'Aylık büyüme / reklam bütçesi aralığınız nedir?',
-    subtitle: 'Bütçe bilgisi, size daha doğru bir büyüme yol haritası önerebilmemiz için kullanılır.',
-    multi: false,
-    options: ['Henüz bütçe belirlemedik', '0 - 25.000 TL', '25.000 - 75.000 TL', '75.000 - 150.000 TL', '150.000 TL üzeri'],
-  },
-];
-
-type Answers = Partial<Record<QuestionId, string | string[]>>;
-
-// ============================================================================
-// Cevap -> önerilen sistem eşleştirmesi. Her hizmet için sitedeki güncel
-// konumlandırma diliyle birebir uyumlu başlık/açıklama kullanılıyor.
-// ============================================================================
-
-type ServiceTag =
-  | 'amazon'
-  | 'etsy'
-  | 'ebay'
-  | 'shopify'
-  | 'b2b-dijital-showroom'
-  | 'marka-konumlandirma'
-  | 'gorsel-icerik-sistemi'
-  | 'yapay-zeka-entegrasyonu'
-  | 'sosyal-medya-yonetimi'
-  | 'reklam-optimizasyon'
-  | 'otomasyon-n8n'
-  | 'global-pazara-giris-stratejisi';
-
-const serviceInfo: Record<ServiceTag, { title: string; description: string }> = {
-  amazon: { title: 'Amazon Global Satış Sistemi', description: 'Kategori, listeleme, reklam ve operasyon süreçlerini birlikte çalışan global satış sistemine dönüştürürüz.' },
-  etsy: { title: 'Etsy Marka Sistemi', description: 'Ürün, görsel dil, marka hikayesi ve SEO’yu birlikte çalışan bir Etsy marka sistemine dönüştürürüz.' },
-  ebay: { title: 'eBay Global Satış Sistemi', description: 'Ülke stratejisi, fiyatlama, kargo ve operasyonla global satış sistemine dönüştürürüz.' },
-  shopify: { title: 'Shopify Commerce Sistemi', description: 'Bağımsız bir dijital ticaret sistemi kurarak markanızı yönetilebilir hale getiririz.' },
-  'b2b-dijital-showroom': { title: 'B2B Satış Sistemi', description: 'Dijital showroom, teklif süreci ve müşteri yönetimini birlikte çalışan bir satış sistemine dönüştürürüz.' },
-  'marka-konumlandirma': { title: 'Marka ve Konumlandırma Sistemi', description: 'Markanızı doğru müşterinin gözünde doğru konuma yerleştiririz.' },
-  'gorsel-icerik-sistemi': { title: 'Görsel ve İçerik Sistemi', description: 'Ürünlerinizi satışa dönüşen bir görsel ve içerik sistemiyle hazırlarız.' },
-  'yapay-zeka-entegrasyonu': { title: 'Yapay Zeka ve Karar Sistemleri', description: 'Yapay zekayı satış ve operasyon sistemlerinize entegre ederiz.' },
-  'sosyal-medya-yonetimi': { title: 'Sosyal Medya Büyüme Sistemi', description: 'Satış kanallarıyla uyumlu bir sosyal medya iletişim sistemi kurarız.' },
-  'reklam-optimizasyon': { title: 'Performans Pazarlama Sistemi', description: 'Reklam bütçenizi veriye dayalı, ölçülebilir bir büyüme sistemine dönüştürürüz.' },
-  'otomasyon-n8n': { title: 'Otomasyon ve Entegrasyon Sistemleri', description: 'Tekrarlayan işleri azaltan, operasyonu hızlandıran sistemler kurarız.' },
-  'global-pazara-giris-stratejisi': { title: 'Global Büyüme Stratejisi', description: 'Doğru ülke, kanal, fiyat ve operasyon planıyla global pazara giriş sistemi kurarız.' },
-};
-
-// Her hizmetin gerçek route slug'ı.
-const serviceHref = (tag: ServiceTag) => `/hizmetler/${tag}`;
-
-// Kanal bazlı eşleştirme — her kanal için 1 öncelikli sistem + 2 destek sistemi. Çoklu seçim
-// olduğu için her seçilen kanalın puanı toplanıyor (kanal seçimi "ilk güçlü sinyal").
-const channelTagMap: Record<string, { primary: ServiceTag; support: [ServiceTag, ServiceTag] }> = {
-  Amazon: { primary: 'amazon', support: ['reklam-optimizasyon', 'gorsel-icerik-sistemi'] },
-  Etsy: { primary: 'etsy', support: ['gorsel-icerik-sistemi', 'sosyal-medya-yonetimi'] },
-  eBay: { primary: 'ebay', support: ['global-pazara-giris-stratejisi', 'reklam-optimizasyon'] },
-  'Shopify / Kendi Web Sitem': { primary: 'shopify', support: ['reklam-optimizasyon', 'otomasyon-n8n'] },
-  'B2B / Toptan': { primary: 'b2b-dijital-showroom', support: ['shopify', 'otomasyon-n8n'] },
-  'Sosyal Medya': { primary: 'sosyal-medya-yonetimi', support: ['marka-konumlandirma', 'gorsel-icerik-sistemi'] },
-  'Henüz Satış Yapmıyorum': { primary: 'global-pazara-giris-stratejisi', support: ['marka-konumlandirma', 'gorsel-icerik-sistemi'] },
-};
-
-// Problem bazlı öncelik sıralaması (1. > 2. > 3.) — problem seçimi çok netse öneri sırasını
-// kanal sinyaliyle birlikte etkiler.
-const problemTagMap: Record<string, [ServiceTag, ServiceTag, ServiceTag]> = {
-  'Yeterli trafik alamıyorum': ['reklam-optimizasyon', 'sosyal-medya-yonetimi', 'gorsel-icerik-sistemi'],
-  'Trafik var ama satışa dönüşmüyor': ['gorsel-icerik-sistemi', 'shopify', 'reklam-optimizasyon'],
-  'Satış yok / çok düşük': ['marka-konumlandirma', 'gorsel-icerik-sistemi', 'reklam-optimizasyon'],
-  'Reklam harcıyorum ama sonuç alamıyorum': ['reklam-optimizasyon', 'gorsel-icerik-sistemi', 'shopify'],
-  'Ürünlerimi doğru sunamıyorum': ['gorsel-icerik-sistemi', 'marka-konumlandirma', 'etsy'],
-  'Operasyon / süreç yönetimi çok dağınık': ['otomasyon-n8n', 'yapay-zeka-entegrasyonu', 'b2b-dijital-showroom'],
-  'Global pazara açılmak istiyorum': ['global-pazara-giris-stratejisi', 'amazon', 'ebay'],
-};
-
-// Hedef bazlı öncelik sıralaması — kanal ve problemden sonra üçüncü sinyal katmanı.
-const goalTagMap: Record<string, [ServiceTag, ServiceTag, ServiceTag]> = {
-  'Satışları artırmak': ['marka-konumlandirma', 'gorsel-icerik-sistemi', 'reklam-optimizasyon'],
-  'Yeni pazarlara açılmak': ['global-pazara-giris-stratejisi', 'amazon', 'ebay'],
-  'Marka bilinirliğini güçlendirmek': ['marka-konumlandirma', 'sosyal-medya-yonetimi', 'gorsel-icerik-sistemi'],
-  'Operasyonu düzenlemek': ['otomasyon-n8n', 'yapay-zeka-entegrasyonu', 'b2b-dijital-showroom'],
-  'Yapay zeka / otomasyon entegre etmek': ['yapay-zeka-entegrasyonu', 'otomasyon-n8n', 'reklam-optimizasyon'],
-  'B2B satış sürecini dijitalleştirmek': ['b2b-dijital-showroom', 'shopify', 'otomasyon-n8n'],
-};
-
-// Bilerek basit bir ağırlıklı puanlama sistemi — karmaşık bir öneri motoru değil, sadece
-// cevaplara göre en fazla 3 anlamlı ve KİŞİSEL sistemi öne çıkaran hafif bir mantık. Backend / AI
-// yok. Ağırlıklar: kanal (ilk güçlü sinyal, çoklu seçimde toplanır) > problem > hedef > diğer.
-function getRecommendations(answers: Answers): { tag: ServiceTag; score: number }[] {
-  const tagScores: Partial<Record<ServiceTag, number>> = {};
-  const addScore = (tag: ServiceTag, amount: number) => {
-    tagScores[tag] = (tagScores[tag] ?? 0) + amount;
-  };
-
-  // 1) Kanal sinyali — en güçlü katman. Çoklu seçimde her kanal kendi puanını ekler.
-  const selectedChannels = (Array.isArray(answers.channels) ? answers.channels : []) as string[];
-  selectedChannels.forEach((channel) => {
-    const mapping = channelTagMap[channel];
-    if (!mapping) return;
-    addScore(mapping.primary, 5);
-    mapping.support.forEach((tag) => addScore(tag, 2));
-  });
-
-  // 2) Problem sinyali — ikinci katman, sıralı ağırlık (1. > 2. > 3.).
-  const problemTags = answers.problem ? problemTagMap[answers.problem as string] : undefined;
-  if (problemTags) {
-    addScore(problemTags[0], 4);
-    addScore(problemTags[1], 3);
-    addScore(problemTags[2], 2);
-  }
-
-  // 3) Hedef sinyali — üçüncü katman, daha hafif ağırlık.
-  const goalTags = answers.goal ? goalTagMap[answers.goal as string] : undefined;
-  if (goalTags) {
-    addScore(goalTags[0], 3);
-    addScore(goalTags[1], 2);
-    addScore(goalTags[2], 1);
-  }
-
-  // 4) İşletme tipi ve altyapı durumu — küçük tamamlayıcı sinyaller.
-  switch (answers.businessType) {
-    case 'Üretici / Marka Sahibi':
-      addScore('marka-konumlandirma', 1);
-      addScore('gorsel-icerik-sistemi', 1);
-      break;
-    case 'Toptancı / B2B Firma':
-      addScore('b2b-dijital-showroom', 1);
-      break;
-    case 'E-Ticaret Markası':
-      addScore('shopify', 1);
-      addScore('reklam-optimizasyon', 1);
-      break;
-  }
-  switch (answers.infraLevel) {
-    case 'Hiç Yok / Yeni Kuracağım':
-      addScore('shopify', 1);
-      break;
-    case 'Var Ama Zayıf':
-      addScore('gorsel-icerik-sistemi', 1);
-      break;
-    case 'Güçlü Ama Büyümüyor':
-      addScore('reklam-optimizasyon', 1);
-      addScore('yapay-zeka-entegrasyonu', 1);
-      break;
-  }
-
-  const sorted = (Object.entries(tagScores) as [ServiceTag, number][]).sort((a, b) => b[1] - a[1]);
-
-  // Yeterli sinyal yoksa (örn. "Henüz Satış Yapmıyorum" + "Henüz net değil" + "Henüz karar
-  // vermedim") genel ve güvenli önerilerle tamamla — boş sonuç ekranı göstermemek için. Aynı
-  // sistem asla tekrar etmez (unique kontrolü), en fazla 3 sistem gösterilir.
-  const fallback: ServiceTag[] = ['marka-konumlandirma', 'yapay-zeka-entegrasyonu', 'reklam-optimizasyon'];
-  const combined: [ServiceTag, number][] = [...sorted, ...fallback.map((tag) => [tag, 0] as [ServiceTag, number])];
-  const unique: { tag: ServiceTag; score: number }[] = [];
-  for (const [tag, score] of combined) {
-    if (!unique.some((u) => u.tag === tag)) unique.push({ tag, score });
-    if (unique.length === 3) break;
-  }
-  return unique;
-}
-
-// Sonuç kartlarındaki "Tahmini Öncelik" yüzdesi — kesin analiz sonucu gibi değil, ön
-// değerlendirme gibi hissettirecek sabit sıralama bazlı değerler (en güçlü öneri en yüksekte).
-const PRIORITY_LABELS = ['Yüksek Öncelik', 'Orta-Yüksek Öncelik', 'Destekleyici Öncelik'];
-
-// "Tahmini Büyüme Potansiyeli" skoru (0-100, gösterimde X/100). Basit, toplamalı frontend
-// mantığı — backend / AI entegrasyonu yok. Taban 60, sinyallere göre artar, 55-95 arasında
-// sınırlanır (kesin sonuç gibi görünmemesi için üst sınır 95'te tutuluyor).
-function getGrowthPotentialScore(answers: Answers): number {
-  let score = 60;
-
-  const selectedChannels = (Array.isArray(answers.channels) ? answers.channels : []) as string[];
-  const realChannelCount = selectedChannels.filter((c) => c !== 'Henüz Satış Yapmıyorum').length;
-  if (realChannelCount >= 1) score += 5;
-  if (realChannelCount >= 2) score += 8;
-
-  const salesVolume = answers.salesVolume as string | undefined;
-  const salesAbove100k = ['100.000 - 500.000 TL', '500.000 - 1.000.000 TL', '1.000.000 TL üzeri'].includes(salesVolume ?? '');
-  const salesAbove500k = ['500.000 - 1.000.000 TL', '1.000.000 TL üzeri'].includes(salesVolume ?? '');
-  if (salesAbove100k) score += 8;
-  if (salesAbove500k) score += 12;
-
-  const budget = answers.budget as string | undefined;
-  const budgetAbove25k = ['25.000 - 75.000 TL', '75.000 - 150.000 TL', '150.000 TL üzeri'].includes(budget ?? '');
-  const budgetAbove75k = ['75.000 - 150.000 TL', '150.000 TL üzeri'].includes(budget ?? '');
-  if (budgetAbove25k) score += 5;
-  if (budgetAbove75k) score += 8;
-
-  if (answers.infraLevel === 'Var Ama Zayıf') score += 6;
-
-  const wantsGlobal = answers.problem === 'Global pazara açılmak istiyorum' || answers.goal === 'Yeni pazarlara açılmak';
-  if (wantsGlobal) score += 5;
-
-  const wantsOps =
-    answers.problem === 'Operasyon / süreç yönetimi çok dağınık' ||
-    answers.goal === 'Operasyonu düzenlemek' ||
-    answers.goal === 'Yapay zeka / otomasyon entegre etmek';
-  if (wantsOps) score += 5;
-
-  return Math.min(95, Math.max(55, score));
-}
-
-// Sonuç ekranındaki "Markanızın En Büyük Fırsat Alanı" özetini cevaplara göre üretir. Kanal
-// seçimi ilk güçlü sinyal olduğu için önce kanal bazlı eşleşmeler kontrol edilir, sonra problem
-// bazlı, hiçbiri yoksa genel (net sinyal yok) açıklamaya düşülür.
-function getReasonText(answers: Answers): string {
-  const channels = (Array.isArray(answers.channels) ? answers.channels : []) as string[];
-  if (channels.includes('Amazon')) {
-    return 'Amazon kanalını belirttiğiniz için ürün görünürlüğü, reklam verimliliği ve operasyon takibi öncelikli görünüyor.';
-  }
-  if (channels.includes('Etsy')) {
-    return 'Etsy kanalını belirttiğiniz için marka dili, görsel sunum, SEO ve ürün algısı öncelikli görünüyor.';
-  }
-  if (channels.includes('Shopify / Kendi Web Sitem')) {
-    return 'Shopify veya kendi web sitenizi belirttiğiniz için dönüşüm akışı, ürün yapısı ve müşteri deneyimi öncelikli görünüyor.';
-  }
-  if (channels.includes('B2B / Toptan')) {
-    return 'B2B satış yapınızı belirttiğiniz için ürün sunumu, teklif süreci ve müşteri yönetimi öncelikli görünüyor.';
-  }
-  if (answers.problem === 'Operasyon / süreç yönetimi çok dağınık' || answers.goal === 'Operasyonu düzenlemek') {
-    return 'Operasyon tarafında dağınıklık belirttiğiniz için otomasyon, yapay zeka ve takip sistemleri öncelikli hale geliyor.';
-  }
-  if (answers.problem === 'Reklam harcıyorum ama sonuç alamıyorum' || answers.problem === 'Yeterli trafik alamıyorum') {
-    return 'Reklam veya dönüşüm problemi belirttiğiniz için performans pazarlama, dönüşüm takibi ve içerik sistemi öncelikli görünüyor.';
-  }
-  return 'Cevaplarınıza göre ilk aşamada kanal seçimi, marka konumu ve büyüme önceliği netleştirilmelidir.';
-}
+const serviceHref = (tag: Parameters<typeof getAnalysisService>[0]) => `/hizmetler/${tag}`;
 
 
 type Stage = 'quiz' | 'results' | 'success';
@@ -421,7 +137,7 @@ export default function AnalysisContent({
       growthScore,
       recommendations: recommendations.map(({ tag }, index) => ({
         tag,
-        title: serviceInfo[tag].title,
+        title: serviceInfo(tag).title,
         priority: PRIORITY_LABELS[index] ?? 'Destekleyici Öncelik',
       })),
       pageUrl: typeof window !== 'undefined' ? window.location.href : '',
@@ -440,8 +156,13 @@ export default function AnalysisContent({
         setSubmitError('Çok fazla deneme yapıldı. Lütfen birkaç dakika sonra tekrar deneyin.');
         return;
       }
-      const data = await res.json();
-      if (data.success) {
+      const data = await res.json().catch(() => ({}));
+      // Server doğrulaması (ör. geçersiz e-posta/telefon) alan hatası döndürürse ilkini göster.
+      if (res.status === 400 && data.errors) {
+        setSubmitError(String(Object.values(data.errors)[0]));
+        return;
+      }
+      if (res.ok && data.success) {
         trackEvent('analysis_form_submit_success', {
           lead_source: leadSource,
           page_path: typeof window !== 'undefined' ? window.location.pathname : '',
@@ -566,7 +287,7 @@ export default function AnalysisContent({
               {recommendations.map(({ tag }) => (
                 <li key={tag} className="flex items-start gap-1.5 text-xs leading-relaxed text-blue-100/85 sm:text-sm">
                   <span className="text-blue-400">✓</span>
-                  {serviceInfo[tag].title}
+                  {serviceInfo(tag).title}
                 </li>
               ))}
             </ul>
@@ -589,8 +310,8 @@ export default function AnalysisContent({
                 <span className="absolute right-3 top-3 rounded-full border border-blue-400/35 bg-blue-500/10 px-2.5 py-1 text-[10px] font-semibold text-blue-200/90">
                   {PRIORITY_LABELS[index] ?? 'Destekleyici Öncelik'}
                 </span>
-                <h4 className="text-sm font-semibold text-white group-hover:text-blue-200">{serviceInfo[tag].title}</h4>
-                <p className="mt-1.5 text-xs leading-relaxed text-blue-100/65">{serviceInfo[tag].description}</p>
+                <h4 className="text-sm font-semibold text-white group-hover:text-blue-200">{serviceInfo(tag).title}</h4>
+                <p className="mt-1.5 text-xs leading-relaxed text-blue-100/65">{serviceInfo(tag).description}</p>
                 <span className="mt-2 inline-block text-[11px] font-semibold uppercase tracking-[0.05em] text-blue-300/80">
                   Detayları Gör →
                 </span>

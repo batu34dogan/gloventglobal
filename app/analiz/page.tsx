@@ -1,11 +1,31 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AnalysisContent from '@/components/analysis/AnalysisContent';
+import { ANALYSIS_DESCRIPTION, ANALYSIS_TITLE, ANALYSIS_URL } from '@/components/redesign/analysis/analysisPageData';
 
+// Route kendi canonical/OG/Twitter değerlerini tanımlamadığı için root layout'un homepage değerlerini
+// ("/") miras alıyordu. Next.js metadata'yı yüzeysel birleştirdiği için openGraph/twitter tam tanımlı.
+// Production UI (eski AnalysisContent) bu hotfix'te değişmedi.
 export const metadata: Metadata = {
-  title: 'Ücretsiz Dijital Büyüme Analizi | GloventGlobal',
-  description:
-    'Amazon, Etsy, Shopify ve eBay için markanızın global satış potansiyelini ve öncelikli büyüme adımlarını ücretsiz analiz edin.',
+  title: ANALYSIS_TITLE,
+  description: ANALYSIS_DESCRIPTION,
+  alternates: { canonical: '/analiz' },
+  openGraph: {
+    title: ANALYSIS_TITLE,
+    description: ANALYSIS_DESCRIPTION,
+    url: ANALYSIS_URL,
+    siteName: 'GloventGlobal',
+    locale: 'tr_TR',
+    type: 'website',
+    images: [{ url: '/glovent-platform-hero.png', width: 1534, height: 1025, alt: 'GloventGlobal' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: ANALYSIS_TITLE,
+    description: ANALYSIS_DESCRIPTION,
+    images: ['/glovent-platform-hero.png'],
+  },
+  robots: { index: true, follow: true },
 };
 
 const benefitCards = [
