@@ -9,7 +9,7 @@ import { CONTACT_FORM_ID, contactHero, contactIntents } from './contactData';
 export default function RDContactIntro({ analyticsPrefix = '' }: { analyticsPrefix?: string }) {
   const { analysis, direct } = contactIntents;
   return (
-    <section className="bg-white pb-12 pt-28 sm:pb-16 sm:pt-32">
+    <section className="bg-white pb-12 pt-28 sm:pb-16 sm:pt-32 lg:pb-14">
       <div className={sectionShell}>
         <p className="text-[11.5px] font-bold uppercase tracking-[0.3em] text-[#1B5CD6]">{contactHero.eyebrow}</p>
         <h1 className="mt-5 max-w-[20ch] text-[2.15rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-[#14213F] sm:text-[3rem] lg:text-[3.35rem]">
@@ -30,7 +30,7 @@ export default function RDContactIntro({ analyticsPrefix = '' }: { analyticsPref
                   trackEvent('free_analysis_cta_click', { location: `${analyticsPrefix}iletisim_analysis` });
                   window.dispatchEvent(new Event('open-analysis-widget'));
                 }}
-                className={`inline-flex w-full items-center justify-center rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6] sm:w-auto ${focusRing}`}
+                className={`inline-flex w-full items-center justify-center rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6] sm:w-auto lg:border lg:border-transparent ${focusRing}`}
               >
                 {analysis.cta}
               </button>
