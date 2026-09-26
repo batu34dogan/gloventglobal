@@ -28,6 +28,8 @@ export default function AnalysisWidget() {
   const isProcessPage = pathname === '/nasil-calisiyoruz';
   // Production /hakkimizda: onaylı preview'de floating trigger yok — Hero ve Final CTA yeterli.
   const isAboutPage = pathname === '/hakkimizda';
+  // Production /iletisim: sayfanın kendi "Ücretsiz Analiz" seçeneği var — floating trigger gösterilmiyor.
+  const isContactPage = pathname === '/iletisim';
 
   // Modal açıkken: ESC ile kapatma + arka sayfa scroll'unu kilitleme. İkisi de "olursa güzel"
   // seviyesinde isteniyordu, basit ve düşük riskli oldukları için ekledik.
@@ -74,7 +76,7 @@ export default function AnalysisWidget() {
           z-[45] bilerek navbar'ın (z-40) üstünde ama intro ekranının (z-50) ALTINDA — intro
           oynarken bu buton üzerinde görünmesin, intro kapandıktan sonra (DOM'dan kalkınca)
           buton doğal olarak görünür hale gelir. */}
-      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && (
+      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && !isContactPage && (
         <button
           type="button"
           onClick={() => {

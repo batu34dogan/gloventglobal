@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ContactContent from '@/components/contact/ContactContent';
+import RDContactPage from '@/components/redesign/contact/RDContactPage';
 import JsonLd from '@/components/seo/JsonLd';
 
 // Route kendi metadata'sını tanımlamadığı için root layout'un homepage title/description/canonical
@@ -42,6 +42,7 @@ export default function IletisimPage() {
             '@type': 'ContactPage',
             name: 'GloventGlobal İletişim',
             url: 'https://gloventglobal.com/iletisim',
+            description: DESCRIPTION,
           },
           {
             '@context': 'https://schema.org',
@@ -53,14 +54,11 @@ export default function IletisimPage() {
           },
         ]}
       />
-      {/* pt-28 → fixed navbar clearance (navbar ~72px + nefes boşluğu)
-          min-h-screen → footer her zaman viewport altında kalır
-          pb-20 → footer ile form arası alt boşluk                        */}
-      <main className="min-h-screen bg-[#070d18] px-6 pb-20 pt-28 text-white sm:px-10 md:pt-32">
-        <div className="mx-auto max-w-3xl">
-          <ContactContent leadSource="contact-page" />
-        </div>
-      </main>
+      {/* Onaylanan redesign (preview /redesign/iletisim ile aynı RDContactPage ağacı): Ücretsiz Analiz
+          (mevcut AnalysisWidget) + Doğrudan İletişim formu (/api/contact-lead). Metadata yukarıda aynen
+          korunuyor; robots index,follow. Eski ContactContent (analiz quiz kopyası) rollback/referans için
+          repoda duruyor, burada artık render edilmiyor. */}
+      <RDContactPage />
     </>
   );
 }

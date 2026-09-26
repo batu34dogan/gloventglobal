@@ -42,7 +42,8 @@ export default function SiteNavbar() {
   // /hizmetler overview ve /hizmetler/[slug] detay sayfaları da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /nasil-calisiyoruz (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /hakkimizda (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
-  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname?.startsWith('/redesign')) return null;
+  // /iletisim (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname === '/iletisim' || pathname?.startsWith('/redesign')) return null;
 
   return (
     <header
