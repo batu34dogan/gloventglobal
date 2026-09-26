@@ -61,6 +61,9 @@ export default function RDGuideDetailPage({ guide, basePath = '/rehberler', anal
   const minutes = readingMinutes(guide);
   const related = resolveRelatedGuides(guide, guides);
   const service = serviceName(guide.relatedServiceSlug);
+  // İlgili rehber yoksa (0 sonuç) hizmet bloğu dar 1/3 sütunda kalmasın: lg+ makale sütunuyla aynı
+  // genişlikte (700px) yatay bir kompozisyon. İlgili rehber varsa onaylı 1/3 + 2/3 grid aynen.
+  const hasRelated = related.length > 0;
   // Uzman Notu yerleşimi production şablonuyla aynı: expertNoteAfterHeading, yoksa 3. bölüm sonrası.
   const expertIndex = guide.expertNote
     ? guide.expertNoteAfterHeading
@@ -336,16 +339,17 @@ export default function RDGuideDetailPage({ guide, basePath = '/rehberler', anal
 
         {/* ============ İLGİLİ HİZMET + İLGİLİ REHBERLER ============ */}
         <section aria-label="İlgili içerikler" className="border-t border-[#E5E5EC] bg-white py-12 sm:py-16">
-          <div className={`${sectionShell} grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-14`}>
+          <div className={hasRelated ? `${sectionShell} grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-14` : sectionShell}>
+            <div className={hasRelated ? 'contents' : 'lg:max-w-[700px]'}>
             {service && (
               <div>
                 <h2 className={`${labelCls} text-[#1B5CD6]`}>İlgili Hizmet</h2>
                 <Link
                   href={`/hizmetler/${guide.relatedServiceSlug}`}
-                  className={`group mt-4 flex flex-col rounded-3xl border border-[#E5E5EC] bg-[#FAF9F6] p-6 transition-colors hover:border-[#1B5CD6] sm:p-7 ${focusRing}`}
+                  className={`group mt-4 flex flex-col rounded-3xl border border-[#E5E5EC] bg-[#FAF9F6] p-6 transition-colors hover:border-[#1B5CD6] sm:p-7 ${hasRelated ? '' : 'lg:flex-row lg:items-center lg:justify-between lg:gap-8'} ${focusRing}`}
                 >
                   <span className="text-[1.3rem] font-extrabold leading-snug text-[#14213F] group-hover:text-[#1B5CD6]">{service}</span>
-                  <span className="mt-4 text-[14.5px] font-semibold text-[#1B5CD6]">
+                  <span className={`mt-4 text-[14.5px] font-semibold text-[#1B5CD6] ${hasRelated ? '' : 'lg:mt-0 lg:shrink-0'}`}>
                     Hizmet Detayını Gör <span aria-hidden="true">→</span>
                   </span>
                 </Link>
@@ -371,6 +375,7 @@ export default function RDGuideDetailPage({ guide, basePath = '/rehberler', anal
                 </ul>
               </div>
             )}
+            </div>
           </div>
         </section>
 
