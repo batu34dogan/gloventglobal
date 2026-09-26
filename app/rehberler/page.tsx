@@ -1,45 +1,57 @@
 import type { Metadata } from 'next';
-import GuidesContent from '@/components/guides/GuidesContent';
+import RDGuidesOverview from '@/components/redesign/guides/RDGuidesOverview';
 import JsonLd from '@/components/seo/JsonLd';
 import { guides } from '@/components/guides/guidesData';
+import { sortGuides } from '@/lib/guides/helpers';
+
+// Onaylanan redesign (preview /redesign/rehberler ile aynı RDGuidesOverview ağacı, server-first).
+// Eski GuidesContent rollback/referans için repoda duruyor, burada artık render edilmiyor.
+// openGraph/twitter tam tanımlı (Next.js metadata yüzeysel birleştirir — root görseli düşmesin).
+const TITLE = 'Global Büyüme Rehberleri | GloventGlobal';
+const DESCRIPTION =
+  'Global satış, Amazon, Etsy, Shopify, B2B, teknoloji, otomasyon ve operasyon sistemleri hakkında uygulanabilir GloventGlobal rehberlerini keşfedin.';
+const URL = 'https://gloventglobal.com/rehberler';
 
 export const metadata: Metadata = {
-  title: 'Rehberler | GloventGlobal',
-  description:
-    'Amazon, Etsy, Shopify, B2B, global satış ve yapay zeka konularında e-ticaret ve dijital büyüme rehberleri.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/rehberler' },
   openGraph: {
-    title: 'Rehberler | GloventGlobal',
-    description:
-      'Amazon, Etsy, Shopify, B2B, global satış ve yapay zeka konularında e-ticaret ve dijital büyüme rehberleri.',
-    url: 'https://gloventglobal.com/rehberler',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
     siteName: 'GloventGlobal',
     locale: 'tr_TR',
     type: 'website',
+    images: [{ url: '/glovent-platform-hero.png', width: 1534, height: 1025, alt: 'GloventGlobal' }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Rehberler | GloventGlobal',
-    description:
-      'Amazon, Etsy, Shopify, B2B, global satış ve yapay zeka konularında e-ticaret ve dijital büyüme rehberleri.',
-  },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: ['/glovent-platform-hero.png'] },
+  robots: { index: true, follow: true },
 };
 
 export default function RehberlerPage() {
-  const slugs = Object.keys(guides);
-
+  // ItemList sırası sayfadaki liste sırasıyla aynı (order).
+  const list = sortGuides(Object.values(guides));
   return (
     <>
       <JsonLd
         data={[
           {
             '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'Global Büyüme Rehberleri',
+            url: URL,
+            description: DESCRIPTION,
+            inLanguage: 'tr-TR',
+          },
+          {
+            '@context': 'https://schema.org',
             '@type': 'ItemList',
-            itemListElement: slugs.map((slug, index) => ({
+            itemListElement: list.map((g, index) => ({
               '@type': 'ListItem',
               position: index + 1,
-              url: `https://gloventglobal.com/rehberler/${slug}`,
-              name: guides[slug].title,
+              url: `${URL}/${g.slug}`,
+              name: g.title,
             })),
           },
           {
@@ -47,12 +59,12 @@ export default function RehberlerPage() {
             '@type': 'BreadcrumbList',
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Ana Sayfa', item: 'https://gloventglobal.com' },
-              { '@type': 'ListItem', position: 2, name: 'Rehberler', item: 'https://gloventglobal.com/rehberler' },
+              { '@type': 'ListItem', position: 2, name: 'Rehberler', item: URL },
             ],
           },
         ]}
       />
-      <GuidesContent />
+      <RDGuidesOverview />
     </>
   );
 }

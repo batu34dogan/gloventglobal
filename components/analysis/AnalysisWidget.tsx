@@ -35,6 +35,8 @@ export default function AnalysisWidget() {
   const isAboutPage = pathname === '/hakkimizda';
   // Production /iletisim: sayfanın kendi "Ücretsiz Analiz" seçeneği var — floating trigger gösterilmiyor.
   const isContactPage = pathname === '/iletisim';
+  // Production /rehberler ve /rehberler/[slug]: sayfa içi Analysis CTA'ları var — floating trigger gösterilmiyor.
+  const isGuidesPage = pathname === '/rehberler' || (pathname?.startsWith('/rehberler/') ?? false);
 
   // Preview (/redesign/*) sayfalarından açılan modalın event'leri 'redesign_' önekli kaynak taşır.
   const analyticsPrefix = isRedesignPage ? 'redesign_' : '';
@@ -121,7 +123,7 @@ export default function AnalysisWidget() {
           z-[45] bilerek navbar'ın (z-40) üstünde ama intro ekranının (z-50) ALTINDA — intro
           oynarken bu buton üzerinde görünmesin, intro kapandıktan sonra (DOM'dan kalkınca)
           buton doğal olarak görünür hale gelir. */}
-      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && !isContactPage && (
+      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && !isContactPage && !isGuidesPage && (
         <button
           ref={floatingRef}
           type="button"

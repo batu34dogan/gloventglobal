@@ -44,7 +44,8 @@ export default function SiteNavbar() {
   // /hakkimizda (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /iletisim (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /analiz (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
-  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname === '/iletisim' || pathname === '/analiz' || pathname?.startsWith('/redesign')) return null;
+  // /rehberler ve /rehberler/[slug] de artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname === '/iletisim' || pathname === '/analiz' || pathname === '/rehberler' || pathname?.startsWith('/rehberler/') || pathname?.startsWith('/redesign')) return null;
 
   return (
     <header

@@ -22,7 +22,8 @@ export default function SiteFooter() {
   // /hakkimizda (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /iletisim (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /analiz (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
-  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname === '/iletisim' || pathname === '/analiz' || pathname?.startsWith('/redesign')) return null;
+  // /rehberler ve /rehberler/[slug] de artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname === '/iletisim' || pathname === '/analiz' || pathname === '/rehberler' || pathname?.startsWith('/rehberler/') || pathname?.startsWith('/redesign')) return null;
 
   return (
     <footer className="relative border-t border-white/[0.06] px-6 py-6 sm:px-10">
