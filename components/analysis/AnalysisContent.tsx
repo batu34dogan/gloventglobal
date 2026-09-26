@@ -303,7 +303,17 @@ function getReasonText(answers: Answers): string {
 
 type Stage = 'quiz' | 'results' | 'success';
 
-export default function AnalysisContent({ onRequestClose, onSuccess }: { onRequestClose?: () => void; onSuccess?: () => void }) {
+// leadSource: lead'in gerçek kaynağı — modal "analysis-widget", /analiz "analysis-page", eski /iletisim
+// quiz'i "contact-page". n8n payload'ı ve analytics lead_source aynı değeri kullanır.
+export default function AnalysisContent({
+  onRequestClose,
+  onSuccess,
+  leadSource = 'analysis-widget',
+}: {
+  onRequestClose?: () => void;
+  onSuccess?: () => void;
+  leadSource?: 'analysis-widget' | 'analysis-page' | 'contact-page';
+}) {
   const [stage, setStage] = useState<Stage>('quiz');
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
@@ -320,6 +330,8 @@ export default function AnalysisContent({ onRequestClose, onSuccess }: { onReque
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  // Gerçek honeypot değeri — gizli input'a bağlı; gerçek kullanıcıda her zaman boş kalır.
+  const [hp, setHp] = useState('');
 
   const currentQuestion = questions[stepIndex];
   const isLastQuestion = stepIndex === questions.length - 1;
@@ -414,8 +426,8 @@ export default function AnalysisContent({ onRequestClose, onSuccess }: { onReque
       })),
       pageUrl: typeof window !== 'undefined' ? window.location.href : '',
       createdAt: new Date().toISOString(),
-      leadSource: 'analysis-widget',
-      _hp: '', // honeypot — gerçek kullanıcıda her zaman boş, botlar doldurursa API reddeder
+      leadSource,
+      _hp: hp, // honeypot — gizli input; gerçek kullanıcıda boş, bot doldurursa API sessizce reddeder
     };
 
     try {
@@ -431,12 +443,11 @@ export default function AnalysisContent({ onRequestClose, onSuccess }: { onReque
       const data = await res.json();
       if (data.success) {
         trackEvent('analysis_form_submit_success', {
-          lead_source: typeof window !== 'undefined' && window.location.pathname === '/analiz'
-            ? 'analysis-page'
-            : 'analysis-widget',
+          lead_source: leadSource,
           page_path: typeof window !== 'undefined' ? window.location.pathname : '',
           growth_score: growthScore,
-          debug_mode: true,
+          // DebugView yalnızca development'ta — production dönüşümleri DebugView'a zorlanmıyor.
+          ...(process.env.NODE_ENV !== 'production' ? { debug_mode: true } : {}),
         });
         setStage('success');
         onSuccess?.();
@@ -621,6 +632,13 @@ export default function AnalysisContent({ onRequestClose, onSuccess }: { onReque
             </p>
 
             <form onSubmit={handleSubmit} className="mt-5 grid gap-4 sm:grid-cols-2">
+              {/* Gerçek honeypot: görünmez (sr-only kırpma), tab sırasına girmez, ekran okuyucudan gizli. */}
+              <div aria-hidden="true" className="sr-only">
+                <label>
+                  Şirket web sitesi
+                  <input type="text" name="company_website" tabIndex={-1} autoComplete="off" value={hp} onChange={(e) => setHp(e.target.value)} />
+                </label>
+              </div>
               <label className="block">
                 <span className={fieldLabelClass}>Ad Soyad</span>
                 <input

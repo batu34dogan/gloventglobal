@@ -68,7 +68,7 @@ export default function AnalizPage() {
 
         {/* Form kartı — hiçbir değişiklik yapılmadı */}
         <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#0a1120] p-6 shadow-[0_24px_80px_-20px_rgba(0,0,0,0.55)] sm:p-8">
-          <AnalysisContent />
+          <AnalysisContent leadSource="analysis-page" />
         </div>
 
         {/* KVKK / Gizlilik notu */}

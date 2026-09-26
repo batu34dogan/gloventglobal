@@ -142,6 +142,7 @@ export default function AnalysisWidget() {
 
             <div className="relative flex-1 overflow-y-auto px-6 py-6 sm:px-8">
               <AnalysisContent
+                leadSource="analysis-widget"
                 onRequestClose={() => { setOpen(false); setIsSuccess(false); }}
                 onSuccess={() => setIsSuccess(true)}
               />
