@@ -101,7 +101,7 @@ export default function RDProcessDataLoop() {
             const y = (150 + (LOOP_R + 30) * Math.sin(rad)) / 3;
             return (
               <span key={n.label} className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-center" style={{ left: `${x}%`, top: `${y}%` }}>
-                <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-white">{n.label}</span>
+                <span lang="en" className="block text-[11px] font-bold uppercase tracking-[0.2em] text-white">{n.label}</span>
                 <span className="block text-[10.5px] text-white/55">{n.sub}</span>
               </span>
             );

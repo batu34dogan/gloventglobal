@@ -58,7 +58,7 @@ export default function RDProcessJourney() {
           </div>
           {/* Homepage Growth Engine ile bağlayıcı track marker */}
           <div className="lg:text-right">
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8A6E43]">Growth Engine</p>
+            <p lang="en" className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8A6E43]">Growth Engine</p>
             <ol className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[12.5px] font-semibold text-[#14213F] lg:justify-end">
               {growthStages.map((s, i) => (
                 <li key={s} className="flex items-center gap-2">

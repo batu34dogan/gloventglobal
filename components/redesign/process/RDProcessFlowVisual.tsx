@@ -97,7 +97,7 @@ export default function RDProcessFlowVisual() {
         <circle r="4" fill="#C9A876" className="rd-pf-pulse" />
       </svg>
 
-      <span className="absolute left-5 top-4 text-[9.5px] font-bold uppercase tracking-[0.2em] text-[#8A6E43] sm:left-6 sm:top-5 sm:text-[10.5px]">
+      <span lang="en" className="absolute left-5 top-4 text-[9.5px] font-bold uppercase tracking-[0.2em] text-[#8A6E43] sm:left-6 sm:top-5 sm:text-[10.5px]">
         Growth Operating Flow
       </span>
       <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-[#E9DCC3] bg-white/80 px-3 py-1 text-[9.5px] font-bold uppercase tracking-[0.16em] text-[#8A6E43] sm:text-[10.5px]">
