@@ -44,10 +44,12 @@ export default function AnalysisWidget() {
     setOpen(true);
   }, []);
 
-  const closeModal = useCallback(() => {
+  const closeModal = useCallback((opts?: { restoreFocus?: boolean }) => {
     setOpen(false);
     const trigger = triggerRef.current;
     triggerRef.current = null;
+    // Akış içindeki bir linkle başka sayfaya gidiliyorsa odak eski sayfaya döndürülmez.
+    if (opts?.restoreFocus === false) return;
     // Modal kapanınca odağı modalı açan tetikleyiciye geri ver. Floating buton modal açıkken DOM'dan
     // kalktığı için yeniden mount olduktan sonra (bir sonraki frame) ona odaklanılır.
     requestAnimationFrame(() => {
@@ -144,7 +146,7 @@ export default function AnalysisWidget() {
           viewport'a sığar, içerik kendi içinde kayar), sm+ ortalanmış diyalog. */}
       {open && (
         <div className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center sm:p-6">
-          <div aria-hidden="true" onClick={closeModal} className="absolute inset-0 bg-[#0B1530]/60 backdrop-blur-[2px]" />
+          <div aria-hidden="true" onClick={() => closeModal()} className="absolute inset-0 bg-[#0B1530]/60 backdrop-blur-[2px]" />
 
           <div
             ref={modalRef}
@@ -168,7 +170,7 @@ export default function AnalysisWidget() {
               </div>
               <button
                 type="button"
-                onClick={closeModal}
+                onClick={() => closeModal()}
                 aria-label="Kapat"
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#D6D6DC] text-[#14213F] transition-colors hover:border-[#1B5CD6] hover:text-[#1B5CD6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B5CD6]"
               >

@@ -46,7 +46,7 @@ export default function AnalysisFlow({
   variant: Variant;
   leadSource: 'analysis-page' | 'analysis-widget';
   analyticsPrefix?: string;
-  onRequestClose?: () => void;
+  onRequestClose?: (opts?: { restoreFocus?: boolean }) => void;
   onSuccess?: () => void;
 }) {
   const uid = useId().replace(/:/g, '');
@@ -68,6 +68,18 @@ export default function AnalysisFlow({
   const successRef = useRef<HTMLHeadingElement>(null);
   const started = useRef(false);
   const mounted = useRef(false);
+
+  // Modal root layout'ta yaşadığı için client-side navigation'da unmount olmaz. Modal variant'ta akış
+  // içindeki bir link (öneri, Hizmetleri İncele, KVKK/Gizlilik) aynı sekmede açılırken modal kapatılır;
+  // odak eski sayfadaki tetikleyiciye döndürülmez (yeni sayfaya gidiliyor). Yeni sekme/pencere
+  // tıklamalarında (Ctrl/Cmd/Shift/orta tuş) modal açık kalır. Page variant'ta handler yok.
+  const closeOnNavigate =
+    variant === 'modal' && onRequestClose
+      ? (e: React.MouseEvent<HTMLAnchorElement>) => {
+          if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          onRequestClose({ restoreFocus: false });
+        }
+      : undefined;
 
   const question = questions[stepIndex];
   const isLast = stepIndex === questions.length - 1;
@@ -349,7 +361,7 @@ export default function AnalysisFlow({
         </p>
         <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
           {variant === 'modal' && onRequestClose ? (
-            <button type="button" onClick={onRequestClose} className={secondaryBtn}>
+            <button type="button" onClick={() => onRequestClose()} className={secondaryBtn}>
               Kapat
             </button>
           ) : (
@@ -357,7 +369,7 @@ export default function AnalysisFlow({
               Yeni analiz başlat
             </button>
           )}
-          <Link href="/hizmetler" className={primaryBtn}>
+          <Link href="/hizmetler" onClick={closeOnNavigate} className={primaryBtn}>
             Hizmetleri İncele
           </Link>
         </div>
@@ -416,6 +428,7 @@ export default function AnalysisFlow({
           <li key={s.tag}>
             <Link
               href={s.href}
+              onClick={closeOnNavigate}
               className={`group flex h-full flex-col rounded-2xl border border-[#E5E5EC] bg-white p-5 motion-safe:transition-colors hover:border-[#1B5CD6] ${focusRing}`}
             >
               <span className={`self-start rounded-full px-2.5 py-1 text-[11.5px] font-bold ${i === 0 ? 'bg-[#14213F] text-white' : 'bg-[#F1EDE4] text-[#6B5A36]'}`}>
@@ -546,11 +559,11 @@ export default function AnalysisFlow({
           <p className="mt-4 text-[12.5px] leading-relaxed text-[#5A5A6A]">
             Formu göndererek bilgilerinizin talebinizin değerlendirilmesi ve sizinle iletişime geçilmesi amacıyla işlenmesini kabul etmiş
             olursunuz. Detaylı bilgi için{' '}
-            <Link href="/kvkk" className={`rounded font-semibold text-[#1B5CD6] underline underline-offset-2 hover:text-[#14213F] ${focusRing}`}>
+            <Link href="/kvkk" onClick={closeOnNavigate} className={`rounded font-semibold text-[#1B5CD6] underline underline-offset-2 hover:text-[#14213F] ${focusRing}`}>
               KVKK Aydınlatma Metni
             </Link>{' '}
             ve{' '}
-            <Link href="/gizlilik-politikasi" className={`rounded font-semibold text-[#1B5CD6] underline underline-offset-2 hover:text-[#14213F] ${focusRing}`}>
+            <Link href="/gizlilik-politikasi" onClick={closeOnNavigate} className={`rounded font-semibold text-[#1B5CD6] underline underline-offset-2 hover:text-[#14213F] ${focusRing}`}>
               Gizlilik Politikası
             </Link>
             ’nı inceleyebilirsiniz.
