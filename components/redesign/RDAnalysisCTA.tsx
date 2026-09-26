@@ -7,9 +7,10 @@ import { trackEvent } from '@/lib/analytics';
 // sadece /redesign'e uygun premium bir tetikleyici (trigger) render edilir, ayrı bir analiz
 // sistemi veya form yok. Modal, global AnalysisWidget'ın zaten dinlediği 'open-analysis-widget'
 // custom event'i ile açılır (aynı yerden analysis_widget_open de otomatik tetiklenir).
-export default function RDAnalysisCTA() {
+// analyticsLocation: production ana sayfa 'homepage_floating_button', /redesign preview 'redesign_floating_button'.
+export default function RDAnalysisCTA({ analyticsLocation = 'homepage_floating_button' }: { analyticsLocation?: string }) {
   const openAnalysis = () => {
-    trackEvent('free_analysis_cta_click', { location: 'redesign_floating_button' });
+    trackEvent('free_analysis_cta_click', { location: analyticsLocation });
     window.dispatchEvent(new Event('open-analysis-widget'));
   };
 

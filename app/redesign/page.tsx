@@ -70,7 +70,7 @@ export default function RedesignPage() {
         <RDWhy />
       </main>
       <RDFooter />
-      <RDAnalysisCTA />
+      <RDAnalysisCTA analyticsLocation="redesign_floating_button" />
     </div>
   );
 }
