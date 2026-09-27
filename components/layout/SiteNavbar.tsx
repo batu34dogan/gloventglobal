@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { isLegalPath } from '@/lib/legalRoutes';
 
 const navLinks = [
   { label: 'Hizmetler', href: '/hizmetler' },
@@ -45,7 +46,8 @@ export default function SiteNavbar() {
   // /iletisim (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /analiz (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
   // /rehberler ve /rehberler/[slug] de artık kendi RDNavbar/RDFooter'ını render ediyor.
-  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname === '/iletisim' || pathname === '/analiz' || pathname === '/rehberler' || pathname?.startsWith('/rehberler/') || pathname?.startsWith('/redesign')) return null;
+  // /kvkk, /gizlilik-politikasi, /cerez-politikasi, /kullanim-sartlari (tam eşleşme) da artık kendi RDNavbar/RDFooter'ını render ediyor.
+  if (pathname === '/' || pathname === '/hizmetler' || pathname?.startsWith('/hizmetler/') || pathname === '/nasil-calisiyoruz' || pathname === '/hakkimizda' || pathname === '/iletisim' || pathname === '/analiz' || pathname === '/rehberler' || pathname?.startsWith('/rehberler/') || isLegalPath(pathname) || pathname?.startsWith('/redesign')) return null;
 
   return (
     <header

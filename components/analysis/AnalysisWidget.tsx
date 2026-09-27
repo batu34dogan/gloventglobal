@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { isLegalPath } from '@/lib/legalRoutes';
 import AnalysisFlow from './AnalysisFlow';
 import { trackEvent } from '@/lib/analytics';
 
@@ -37,6 +38,8 @@ export default function AnalysisWidget() {
   const isContactPage = pathname === '/iletisim';
   // Production /rehberler ve /rehberler/[slug]: sayfa içi Analysis CTA'ları var — floating trigger gösterilmiyor.
   const isGuidesPage = pathname === '/rehberler' || (pathname?.startsWith('/rehberler/') ?? false);
+  // Production legal sayfaları (/kvkk, /gizlilik-politikasi, /cerez-politikasi, /kullanim-sartlari): legal içerikte satış tetikleyicisi yok.
+  const isLegalPage = isLegalPath(pathname);
 
   // Preview (/redesign/*) sayfalarından açılan modalın event'leri 'redesign_' önekli kaynak taşır.
   const analyticsPrefix = isRedesignPage ? 'redesign_' : '';
@@ -123,7 +126,7 @@ export default function AnalysisWidget() {
           z-[45] bilerek navbar'ın (z-40) üstünde ama intro ekranının (z-50) ALTINDA — intro
           oynarken bu buton üzerinde görünmesin, intro kapandıktan sonra (DOM'dan kalkınca)
           buton doğal olarak görünür hale gelir. */}
-      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && !isContactPage && !isGuidesPage && (
+      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && !isContactPage && !isGuidesPage && !isLegalPage && (
         <button
           ref={floatingRef}
           type="button"

@@ -1,60 +1,97 @@
-import type { Metadata } from 'next';
-import LegalPageLayout from '@/components/legal/LegalPageLayout';
+import RDLegalPage, { LegalLink, type LegalSection } from '@/components/redesign/legal/RDLegalPage';
+import { LegalJsonLd, legalMetadata, type LegalPageMeta } from '@/components/redesign/legal/legalSeo';
 
-export const metadata: Metadata = {
+const META: LegalPageMeta = {
+  path: '/cerez-politikasi',
+  name: 'Çerez Politikası',
   title: 'Çerez Politikası | GloventGlobal',
   description: 'GloventGlobal sitesinde kullanılan zorunlu çerezler, analitik çerezler ve çerez tercihlerinin yönetimi hakkında açıklama.',
 };
 
-const sectionTitleClass = 'mt-2 text-lg font-semibold text-white';
+export const metadata = legalMetadata(META);
 
-export default function CerezPolitikasiPage() {
-  return (
-    <LegalPageLayout title="Çerez Politikası">
-      <h2 className={sectionTitleClass}>Çerez Nedir?</h2>
+// Hukuki metin önceki sürümle birebir aynı; onaylı tek değişiklik: tercih seçenekleri gerçek çerez
+// bildirimindeki (components/legal/CookieConsent.tsx) buton adlarıyla eşitlendi —
+// "Kabul Et" → "Tümünü Kabul Et", "Reddet" → "Sadece Zorunlu". Banner davranışı değişmedi.
+const sections: LegalSection[] = [
+  {
+    id: 'cerez-nedir',
+    heading: 'Çerez Nedir?',
+    content: (
       <p>
         Çerezler, bir internet sitesini ziyaret ettiğinizde tarayıcınıza kaydedilen küçük metin
         dosyalarıdır. Sitenin düzgün çalışmasını sağlamak ve kullanım deneyimini ölçmek için kullanılır.
       </p>
-
-      <h2 className={sectionTitleClass}>Kullanılan Çerez Türleri</h2>
+    ),
+  },
+  {
+    id: 'kullanilan-cerez-turleri',
+    heading: 'Kullanılan Çerez Türleri',
+    content: (
       <p>
         GloventGlobal sitesinde sınırlı sayıda zorunlu çerez ve analitik amaçlı takip teknolojisi
         kullanılmaktadır.
       </p>
-
-      <h2 className={sectionTitleClass}>Zorunlu Çerezler</h2>
+    ),
+  },
+  {
+    id: 'zorunlu-cerezler',
+    heading: 'Zorunlu Çerezler',
+    content: (
       <p>
         Sitenin temel işlevlerinin (sayfa gezinme, form alanlarının doğru çalışması, çerez tercihinizin
         hatırlanması gibi) çalışabilmesi için gerekli olan çerezlerdir.
       </p>
-
-      <h2 className={sectionTitleClass}>Analitik Çerezler</h2>
+    ),
+  },
+  {
+    id: 'analitik-cerezler',
+    heading: 'Analitik Çerezler',
+    content: (
       <p>
         Hangi sayfaların ziyaret edildiğini, hangi butonların kullanıldığını anlamak için temel analitik ölçüm
         araçları kullanılabilir. Bu ölçümler siteyi geliştirmek amacıyla kullanılır.
       </p>
-
-      <h2 className={sectionTitleClass}>Çerez Tercihleri</h2>
+    ),
+  },
+  {
+    id: 'cerez-tercihleri',
+    heading: 'Çerez Tercihleri',
+    content: (
       <p>
-        Siteyi ilk ziyaretinizde karşınıza çıkan çerez bildirimi üzerinden &quot;Kabul Et&quot; veya
-        &quot;Reddet&quot; seçeneklerinden birini seçerek tercihinizi belirtebilirsiniz.
+        Siteyi ilk ziyaretinizde karşınıza çıkan çerez bildirimi üzerinden &quot;Tümünü Kabul Et&quot; veya
+        &quot;Sadece Zorunlu&quot; seçeneklerinden birini seçerek tercihinizi belirtebilirsiniz.
       </p>
-
-      <h2 className={sectionTitleClass}>Çerezleri Yönetme</h2>
+    ),
+  },
+  {
+    id: 'cerezleri-yonetme',
+    heading: 'Çerezleri Yönetme',
+    content: (
       <p>
         Tarayıcı ayarlarınız üzerinden çerezleri yönetebilir veya engelleyebilirsiniz; ancak bu durumda
         sitenin bazı bölümleri beklendiği gibi çalışmayabilir.
       </p>
-
-      <h2 className={sectionTitleClass}>İletişim</h2>
+    ),
+  },
+  {
+    id: 'iletisim',
+    heading: 'İletişim',
+    content: (
       <p>
         Çerez politikamızla ilgili sorularınız için{' '}
-        <a href="mailto:info@gloventglobal.com" className="underline hover:text-blue-200">
-          info@gloventglobal.com
-        </a>{' '}
+        <LegalLink href="mailto:info@gloventglobal.com">info@gloventglobal.com</LegalLink>{' '}
         adresinden bize ulaşabilirsiniz.
       </p>
-    </LegalPageLayout>
+    ),
+  },
+];
+
+export default function CerezPolitikasiPage() {
+  return (
+    <>
+      <LegalJsonLd {...META} />
+      <RDLegalPage title="Çerez Politikası" sections={sections} />
+    </>
   );
 }
