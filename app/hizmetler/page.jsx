@@ -63,9 +63,7 @@ export default function HizmetlerPage() {
           },
         ]}
       />
-      {/* Onaylanan /redesign/hizmetler UI'ı — section sırası preview ile birebir. Eski
-          ServicesContent rollback/referans için repoda duruyor, burada artık render edilmiyor.
-          Global SiteNavbar/SiteFooter/floating analiz butonu bu route'ta pathname ile gizleniyor.
+      {/* Onaylanan /redesign/hizmetler UI'ı — section sırası preview ile birebir.
           /redesign/hizmetler'deki noindex,nofollow buraya taşınmadı; robots açıkça index,follow. */}
       <div className="min-h-screen" style={{ fontFamily: 'var(--font-geist-sans),system-ui,sans-serif' }}>
         <RDNavbar />

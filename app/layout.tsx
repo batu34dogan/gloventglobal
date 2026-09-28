@@ -85,8 +85,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        {/* Eski SiteNavbar/SiteFooter artık render edilmiyor: tüm production route'ları (ve 404'ler)
-            kendi RDNavbar/RDFooter'ını kullanıyor. Dosyalar ayrı dead-code temizliğine kadar repoda. */}
+        {/* Navbar/footer root layout'ta değil: her route (ve 404'ler) kendi RDNavbar/RDFooter'ını render eder. */}
         {children}
         <AnalysisWidget />
         <CookieConsent />

@@ -2,49 +2,22 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { isLegalPath } from '@/lib/legalRoutes';
 import AnalysisFlow from './AnalysisFlow';
 import { trackEvent } from '@/lib/analytics';
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-// Eski koyu sağ-alt floating tetikleyici: artık hiçbir production route'unda gösterilmiyor (her sayfa kendi
-// CTA'larını / RDAnalysisCTA'yı kullanıyor; geriye yalnızca 404'ler kalıyordu). Modal ve 'open-analysis-widget'
-// event sistemi aynen çalışıyor. Buton kodu ayrı dead-code temizliğine kadar duruyor.
-const LEGACY_FLOATING_TRIGGER = false;
-
+// Global analiz modalı. Kendi tetikleyicisi yok: sayfalardaki CTA'lar (RDAnalysisCTA, hero/final CTA'lar,
+// footer) 'open-analysis-widget' custom event'i ile açar.
 export default function AnalysisWidget() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const modalRef = useRef<HTMLDivElement>(null);
   // Modalı açan gerçek tetikleyici — kapanınca odak buraya döner.
   const triggerRef = useRef<HTMLElement | null>(null);
-  const floatingRef = useRef<HTMLButtonElement>(null);
 
-  // /analiz sayfasında form zaten tam sayfada gösteriliyor — floating buton tekrar etmesin.
-  const isAnalysisPage = pathname === '/analiz';
-  // /redesign kendi CTA'larını kullanıyor — eski global floating buton orada görünmesin.
   const isRedesignPage = pathname?.startsWith('/redesign') ?? false;
-  // Yeni production ana sayfa (/) artık kendi premium RDAnalysisCTA'sını render ediyor —
-  // eski floating buton orada ikinci bir tetikleyici olarak görünmesin. Modal/form/event
-  // sistemi burada aynen kalıyor, RDAnalysisCTA da bu component'in dinlediği
-  // 'open-analysis-widget' event'ini kullanıyor.
-  const isHomepage = pathname === '/';
-  // Production /hizmetler overview, onaylanan preview (/redesign/hizmetler) gibi floating trigger
-  // göstermiyor — CTA'lar sayfa içindeki 'open-analysis-widget' butonları. Redesign detay sayfaları
-  // (/hizmetler/[slug]) da preview'deki gibi floating trigger'sız; modal aynı.
-  const isServicesOverview = pathname === '/hizmetler' || (pathname?.startsWith('/hizmetler/') ?? false);
-  // Production /nasil-calisiyoruz: onaylı preview'de floating trigger yok — Hero ve Final CTA yeterli.
-  const isProcessPage = pathname === '/nasil-calisiyoruz';
-  // Production /hakkimizda: onaylı preview'de floating trigger yok — Hero ve Final CTA yeterli.
-  const isAboutPage = pathname === '/hakkimizda';
-  // Production /iletisim: sayfanın kendi "Ücretsiz Analiz" seçeneği var — floating trigger gösterilmiyor.
-  const isContactPage = pathname === '/iletisim';
-  // Production /rehberler ve /rehberler/[slug]: sayfa içi Analysis CTA'ları var — floating trigger gösterilmiyor.
-  const isGuidesPage = pathname === '/rehberler' || (pathname?.startsWith('/rehberler/') ?? false);
-  // Production legal sayfaları (/kvkk, /gizlilik-politikasi, /cerez-politikasi, /kullanim-sartlari): legal içerikte satış tetikleyicisi yok.
-  const isLegalPage = isLegalPath(pathname);
 
   // Preview (/redesign/*) sayfalarından açılan modalın event'leri 'redesign_' önekli kaynak taşır.
   const analyticsPrefix = isRedesignPage ? 'redesign_' : '';
@@ -60,15 +33,13 @@ export default function AnalysisWidget() {
     triggerRef.current = null;
     // Akış içindeki bir linkle başka sayfaya gidiliyorsa odak eski sayfaya döndürülmez.
     if (opts?.restoreFocus === false) return;
-    // Modal kapanınca odağı modalı açan tetikleyiciye geri ver. Floating buton modal açıkken DOM'dan
-    // kalktığı için yeniden mount olduktan sonra (bir sonraki frame) ona odaklanılır.
+    // Modal kapanınca odağı modalı açan tetikleyiciye geri ver (bir sonraki frame, modal DOM'dan kalktıktan sonra).
     requestAnimationFrame(() => {
       if (trigger && trigger.isConnected) trigger.focus();
-      else floatingRef.current?.focus();
     });
   }, []);
 
-  // Modal hangi yoldan açılırsa açılsın (sağ alt buton veya sayfalardaki CTA'lar) tek yerden ölçülür.
+  // Modal hangi CTA'dan açılırsa açılsın tek yerden ölçülür.
   useEffect(() => {
     if (open) trackEvent('analysis_widget_open');
   }, [open]);
@@ -78,7 +49,7 @@ export default function AnalysisWidget() {
     if (open) modalRef.current?.focus();
   }, [open]);
 
-  // Sayfalardaki "Ücretsiz Analiz Al" CTA'ları dependency-free custom event ile modalı açar.
+  // Sayfalardaki analiz CTA'ları dependency-free custom event ile modalı açar.
   useEffect(() => {
     window.addEventListener('open-analysis-widget', openModal);
     return () => window.removeEventListener('open-analysis-widget', openModal);
@@ -127,30 +98,6 @@ export default function AnalysisWidget() {
 
   return (
     <>
-      {/* ============ SAĞ ALT SABİT BUTON ============
-          z-[45] bilerek navbar'ın (z-40) üstünde ama intro ekranının (z-50) ALTINDA — intro
-          oynarken bu buton üzerinde görünmesin, intro kapandıktan sonra (DOM'dan kalkınca)
-          buton doğal olarak görünür hale gelir. */}
-      {LEGACY_FLOATING_TRIGGER && !open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && !isContactPage && !isGuidesPage && !isLegalPage && (
-        <button
-          ref={floatingRef}
-          type="button"
-          onClick={() => {
-            trackEvent('free_analysis_cta_click', { location: 'floating_button' });
-            triggerRef.current = null;
-            setOpen(true);
-          }}
-          className="fixed bottom-5 right-4 z-[45] flex items-center gap-2.5 rounded-full border border-blue-500/40 bg-slate-950/90 px-4 py-3 text-sm font-semibold text-white shadow-[0_0_28px_-4px_rgba(59,130,246,0.50)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/70 hover:shadow-[0_0_38px_-4px_rgba(59,130,246,0.70)] md:bottom-8 md:right-8 md:px-5"
-        >
-          <span
-            aria-hidden="true"
-            className="h-2 w-2 flex-shrink-0 rounded-full bg-blue-400 shadow-[0_0_8px_2px_rgba(96,165,250,0.85)]"
-          />
-          Ücretsiz Ön Analize Başla
-        </button>
-      )}
-
-
       {/* ============ MODAL ============
           z-[60]: RDNavbar (z-50) dahil her şeyin üstünde. Mobilde alttan açılan panel (dvh ile
           viewport'a sığar, içerik kendi içinde kayar), sm+ ortalanmış diyalog. */}

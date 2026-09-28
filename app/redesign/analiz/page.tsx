@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import RDAnalysisPage from '@/components/redesign/analysis/RDAnalysisPage';
 import { ANALYSIS_DESCRIPTION, ANALYSIS_TITLE, ANALYSIS_URL } from '@/components/redesign/analysis/analysisPageData';
 
-// PREVIEW — production /analiz değil (production UI hâlâ eski AnalysisContent). Title/description
+// PREVIEW (rollback/referans) — production /analiz aynı RDAnalysisPage'i render eder. Title/description
 // production ile aynı; canonical ve og:url production route'u gösteriyor, robots noindex,nofollow.
 // JSON-LD bilinçli olarak YOK (production migration'da WebPage + BreadcrumbList). Sitemap'e eklenmedi.
 // Floating analiz tetikleyicisi yok (AnalysisWidget /redesign/* altında gizli). Gönderimler

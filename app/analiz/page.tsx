@@ -53,8 +53,7 @@ export default function AnalizPage() {
       />
       {/* Onaylanan redesign (preview /redesign/analiz ile aynı RDAnalysisPage ağacı): paylaşılan
           AnalysisFlow variant="page", leadSource "analysis-page", analytics öneksiz. Metadata yukarıda;
-          robots index,follow. Eski koyu AnalysisContent rollback/referans için repoda duruyor, burada
-          artık render edilmiyor. */}
+          robots index,follow. */}
       <RDAnalysisPage />
     </>
   );

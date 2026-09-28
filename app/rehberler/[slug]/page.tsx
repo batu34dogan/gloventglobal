@@ -6,7 +6,7 @@ import RDGuideDetailPage from '@/components/redesign/guides/RDGuideDetailPage';
 import JsonLd from '@/components/seo/JsonLd';
 
 // Onaylanan redesign: 36 rehber preview (/redesign/rehberler/[slug]) ile aynı tek RDGuideDetailPage
-// şablonunu kullanır. Eski GuideDetailContent rollback/referans için repoda duruyor.
+// şablonunu kullanır.
 // Tarihler (publishedAt/updatedAt) doğrulanamadığı için ne UI'da ne schema'da kullanılıyor; data
 // alanları olduğu gibi duruyor. Rehbere özel görsel olmadığı için Article'a image eklenmiyor.
 export function generateStaticParams() {

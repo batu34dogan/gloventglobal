@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import RDNotFound from '@/components/redesign/RDNotFound';
 
-// Geçersiz /hizmetler/[slug] → notFound(). /hizmetler/* altında eski SiteNavbar/SiteFooter gizli olduğu
-// için bu segment kendi markalı 404'ünü render eder. HTTP 404 + noindex Next.js tarafından verilir;
+// Geçersiz /hizmetler/[slug] → notFound(). Bu segment kendi markalı 404'ünü (RDNotFound) render eder.
+// HTTP 404 + noindex Next.js tarafından verilir;
 // geçerli 12 hizmet sayfası bu dosyadan etkilenmez. Root title/OG değerleri 404'e miras kalmasın.
 export const metadata: Metadata = {
   title: 'Hizmet Bulunamadı | GloventGlobal',

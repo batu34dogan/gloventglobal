@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import RDContactPage from '@/components/redesign/contact/RDContactPage';
 
-// PREVIEW — production /iletisim değil (production UI hâlâ eski ContactContent quiz'i). Title/description
+// PREVIEW (rollback/referans) — production /iletisim aynı RDContactPage'i render eder. Title/description
 // production ile aynı; canonical ve og:url production route'u gösteriyor, robots noindex,nofollow.
 // ContactPage/BreadcrumbList JSON-LD bilinçli olarak YOK (production'da var). Sitemap'e eklenmedi.
 // Floating analiz tetikleyicisi yok (AnalysisWidget /redesign/* altında gizli) — analiz yolu sayfa içinde.

@@ -56,8 +56,7 @@ export default function IletisimPage() {
       />
       {/* Onaylanan redesign (preview /redesign/iletisim ile aynı RDContactPage ağacı): Ücretsiz Analiz
           (mevcut AnalysisWidget) + Doğrudan İletişim formu (/api/contact-lead). Metadata yukarıda aynen
-          korunuyor; robots index,follow. Eski ContactContent (analiz quiz kopyası) rollback/referans için
-          repoda duruyor, burada artık render edilmiyor. */}
+          korunuyor; robots index,follow. */}
       <RDContactPage />
     </>
   );

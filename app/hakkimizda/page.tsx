@@ -58,8 +58,7 @@ export default function HakkimizdaPage() {
         ]}
       />
       {/* Onaylanan redesign (preview /redesign/hakkimizda ile aynı RDAboutPage ağacı). Metadata yukarıda
-          aynen korunuyor; robots index,follow — preview'deki noindex,nofollow buraya taşınmadı. Eski
-          AboutContent rollback/referans için repoda duruyor, burada artık render edilmiyor. */}
+          aynen korunuyor; robots index,follow — preview'deki noindex,nofollow buraya taşınmadı. */}
       <RDAboutPage />
     </>
   );

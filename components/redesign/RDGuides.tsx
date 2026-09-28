@@ -10,7 +10,7 @@ function formatPublished(dateStr: string) {
   }
 }
 
-// GuidesContent.tsx (/rehberler) ile aynı stratejik sıralama: order alanına göre, homepage için
+// /rehberler ile aynı stratejik sıralama: order alanına göre, homepage için
 // yalnızca ilk 3. Yeni veri/tarih üretilmiyor — guidesData.ts'teki gerçek rehberler kullanılıyor.
 const topGuides = Object.values(guides)
   .sort((a, b) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER))

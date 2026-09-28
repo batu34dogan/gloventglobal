@@ -51,11 +51,9 @@ export default function CookieConsent() {
   if (!visible) return null;
 
   return (
-    // Sağ alttaki "Ücretsiz Analiz" floating butonu (bottom-5/6 right-4/6) ile ÇAKIŞMASIN diye
-    // bilerek karşı tarafa (sol alt) yerleştirildi. Mobilde ise butonun (bottom-5, ~50px yükseklik)
-    // ÜSTÜNE oturacak şekilde bottom-[92px] kullanıldı — z-index'e güvenmek yerine konumla
-    // gerçek çakışmayı önlüyor. z-40 (navbar seviyesi), analiz widget'ın z-[45] modalının/
-    // butonunun her zaman üstte kalmasını garantiliyor.
+    // Sağ alttaki sabit "Ücretsiz Ön Analiz" butonu (RDAnalysisCTA) ile ÇAKIŞMASIN diye bilerek karşı
+    // tarafa (sol alt) yerleştirildi; mobilde butonun ÜSTÜNE oturacak şekilde bottom-[92px] — z-index'e
+    // güvenmek yerine konumla çakışmayı önlüyor. z-40: sabit CTA (z-[45]) ve analiz modalı (z-[60]) üstte kalır.
     <div role="region" aria-label="Çerez tercihleri" className="fixed bottom-[92px] left-4 right-4 z-40 sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-[460px]">
       <div className="relative overflow-hidden rounded-2xl border border-blue-400/25 bg-[#0a1120]/90 p-5 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.65)] backdrop-blur-md">
         <span

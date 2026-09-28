@@ -46,8 +46,7 @@ export default function NasilCalisiyoruzPage() {
         }}
       />
       {/* Onaylanan redesign (preview /redesign/nasil-calisiyoruz ile aynı ağaç). Metadata ve BreadcrumbList
-          yukarıda aynen korunuyor; robots index,follow — preview'deki noindex,nofollow buraya taşınmadı.
-          Eski ProcessContent rollback/referans için repoda duruyor, burada artık render edilmiyor. */}
+          yukarıda aynen korunuyor; robots index,follow — preview'deki noindex,nofollow buraya taşınmadı. */}
       <RDProcessPage />
     </>
   );

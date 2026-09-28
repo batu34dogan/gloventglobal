@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import RDGuidesOverview from '@/components/redesign/guides/RDGuidesOverview';
 
-// PREVIEW — production /rehberler değil (production UI hâlâ eski GuidesContent). Title/description
+// PREVIEW (rollback/referans) — production /rehberler aynı RDGuidesOverview'u render eder. Title/description
 // production ile aynı; canonical ve og:url production route'u gösteriyor, robots noindex,nofollow.
 // JSON-LD bilinçli olarak YOK; sitemap'e eklenmedi. Floating analiz tetikleyicisi /redesign/* altında gizli.
 const TITLE = 'Rehberler | GloventGlobal';

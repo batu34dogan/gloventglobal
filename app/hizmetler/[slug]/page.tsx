@@ -80,8 +80,7 @@ export default async function HizmetDetayPage({ params }: { params: Promise<{ sl
       />
       {/* Onaylanan ortak redesign detay template'i (preview /redesign/hizmetler/[slug] ile aynı ağaç).
           Metadata, SSG ve Service/BreadcrumbList JSON-LD yukarıda aynen korunuyor; robots override
-          YOK — preview'deki noindex,nofollow buraya taşınmadı. Eski ServiceDetailContent rollback/
-          referans için repoda duruyor, burada artık render edilmiyor. */}
+          YOK — preview'deki noindex,nofollow buraya taşınmadı. */}
       <RDServiceDetailPage view={view} />
     </>
   );

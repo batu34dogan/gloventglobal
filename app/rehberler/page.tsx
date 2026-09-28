@@ -5,7 +5,6 @@ import { guides } from '@/components/guides/guidesData';
 import { sortGuides } from '@/lib/guides/helpers';
 
 // Onaylanan redesign (preview /redesign/rehberler ile aynı RDGuidesOverview ağacı, server-first).
-// Eski GuidesContent rollback/referans için repoda duruyor, burada artık render edilmiyor.
 // openGraph/twitter tam tanımlı (Next.js metadata yüzeysel birleştirir — root görseli düşmesin).
 const TITLE = 'Global Büyüme Rehberleri | GloventGlobal';
 const DESCRIPTION =

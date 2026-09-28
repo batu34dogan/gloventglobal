@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import RDAboutPage from '@/components/redesign/about/RDAboutPage';
 
-// PREVIEW — production /hakkimizda değil (production UI hâlâ AboutContent). Title/description
+// PREVIEW (rollback/referans) — production /hakkimizda aynı RDAboutPage'i render eder. Title/description
 // production ile aynı; canonical ve og:url production route'u gösteriyor, robots noindex,nofollow.
 // BreadcrumbList/AboutPage/Organization JSON-LD bilinçli olarak YOK (schema kararı production
 // migration'da uygulanacak). Sitemap'e eklenmedi. Floating analiz tetikleyicisi yok.
