@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import SiteNavbar from "@/components/layout/SiteNavbar";
-import SiteFooter from "@/components/layout/SiteFooter";
 import AnalysisWidget from "@/components/analysis/AnalysisWidget";
 import CookieConsent from "@/components/legal/CookieConsent";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import HydrationMark from "@/components/layout/HydrationMark";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,12 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gloventglobal.com"),
-  title: "GloventGlobal | Dijital Büyüme, E-Ticaret ve Yapay Zeka Sistemleri",
+  title: "GloventGlobal | Global Growth Partner",
   description:
-    "GloventGlobal; markalar için e-ticaret, yapay zeka, otomasyon, global satış ve dijital büyüme sistemleri kuran stratejik büyüme partneridir.",
-  alternates: {
-    canonical: "/",
-  },
+    "GloventGlobal; strateji, global ticaret, teknoloji, yapay zeka ve operasyon sistemlerini bir araya getirerek markaların sürdürülebilir global büyüme altyapısını kurar.",
+  // Root canonical/og:url bilinçli olarak YOK: her production route kendi self canonical'ını tanımlıyor;
+  // root değerleri 404 ve tanımsız sayfalara ana sayfa canonical'ı olarak sızıyordu.
   icons: {
     icon: [
       { url: "/favicon.svg?v=2", type: "image/svg+xml" },
@@ -36,10 +34,9 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "GloventGlobal | Dijital Büyüme, E-Ticaret ve Yapay Zeka Sistemleri",
+    title: "GloventGlobal | Global Growth Partner",
     description:
-      "GloventGlobal; markalar için e-ticaret, yapay zeka, otomasyon, global satış ve dijital büyüme sistemleri kuran stratejik büyüme partneridir.",
-    url: "https://gloventglobal.com",
+      "GloventGlobal; strateji, global ticaret, teknoloji, yapay zeka ve operasyon sistemlerini bir araya getirerek markaların sürdürülebilir global büyüme altyapısını kurar.",
     siteName: "GloventGlobal",
     locale: "tr_TR",
     type: "website",
@@ -54,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GloventGlobal | Dijital Büyüme, E-Ticaret ve Yapay Zeka Sistemleri",
+    title: "GloventGlobal | Global Growth Partner",
     description:
-      "GloventGlobal; markalar için e-ticaret, yapay zeka, otomasyon, global satış ve dijital büyüme sistemleri kuran stratejik büyüme partneridir.",
+      "GloventGlobal; strateji, global ticaret, teknoloji, yapay zeka ve operasyon sistemlerini bir araya getirerek markaların sürdürülebilir global büyüme altyapısını kurar.",
     images: ["/glovent-platform-hero.png"],
   },
 };
@@ -74,13 +71,26 @@ export default function RootLayout({
     <html
       lang="tr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      // rd-js sınıfı head script'i tarafından hydration öncesi eklenir.
+      suppressHydrationWarning
     >
+      <head>
+        {/* Progressive enhancement: JS varsa reveal animasyonlarının gizli başlangıç durumu (html.rd-js)
+            etkinleşir; uygulama 4 sn içinde hydrate olmazsa sınıf kaldırılır ve içerik görünür kalır. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('rd-js');setTimeout(function(){if(!window.__rdHydrated)document.documentElement.classList.remove('rd-js')},4000);",
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
-        <SiteNavbar />
+        {/* Eski SiteNavbar/SiteFooter artık render edilmiyor: tüm production route'ları (ve 404'ler)
+            kendi RDNavbar/RDFooter'ını kullanıyor. Dosyalar ayrı dead-code temizliğine kadar repoda. */}
         {children}
-        <SiteFooter />
         <AnalysisWidget />
         <CookieConsent />
+        <HydrationMark />
         {/* GA4 — sadece kullanıcı cookie'yi kabul ettikten sonra yüklenir.
             Client component olduğu için SSR'de hiç render edilmez. */}
         {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId={GA_ID} />}

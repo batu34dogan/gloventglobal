@@ -143,7 +143,7 @@ export default function RDAudiences() {
         <div className="rd-aud-field mt-14 hidden md:block">
           <span aria-hidden="true" className="rd-aud-bgpattern" />
           {audiences.map((a) => (
-            <div key={a.number} tabIndex={0} className="rd-aud-row border-b border-[#E5E5EC] last:border-0">
+            <div key={a.number} className="rd-aud-row border-b border-[#E5E5EC] last:border-0">
               <span aria-hidden="true" className="rd-aud-accent" />
               <div className="grid grid-cols-1 gap-3 py-[25px] pl-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] sm:items-baseline sm:gap-10 sm:py-[29px]">
                 <div className="flex items-baseline gap-4">

@@ -83,8 +83,10 @@ export default function RDServicesAILayer() {
           position: absolute; display: flex; flex-direction: column; align-items: center; gap: 8px;
           transform: translate(-50%, -50%);
           background: none; border: none; padding: 0; cursor: pointer;
-          opacity: 0; transition: opacity .5s ease;
+          transition: opacity .5s ease;
         }
+        /* Progressive enhancement: gizli başlangıç durumu yalnızca JS çalışırken (html.rd-js) uygulanır. */
+        .rd-js .rd-ainet-node:not(.rd-in) { opacity: 0; }
         .rd-ainet-node.rd-in { opacity: 1; }
         .rd-ainet-node-dot {
           display: flex; height: 52px; width: 52px; align-items: center; justify-content: center;

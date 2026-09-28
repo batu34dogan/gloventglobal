@@ -73,7 +73,7 @@ export default function RDServiceDetailHero({
 
           {scopeKeywords.length > 0 && (
             <div className="mt-10 border-t border-[#EDEDF1] pt-6">
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#8A6E43]">Kapsam</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#84683E]">Kapsam</p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {scopeKeywords.map((k) => (
                   <li key={k} className="rounded-full border border-[#E0E0E8] bg-white px-3 py-1.5 text-[12px] font-medium text-[#4A4A5A]">

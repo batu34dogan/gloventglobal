@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics';
 
-export default function RDServicesFinalCTA() {
+// analyticsLocation: production /hizmetler 'services_final_cta', /redesign preview 'redesign_services_final_cta'.
+export default function RDServicesFinalCTA({ analyticsLocation = 'services_final_cta' }: { analyticsLocation?: string }) {
   return (
     <section className="relative overflow-hidden bg-[#0F1E3C] py-16 sm:py-20">
       <span
@@ -40,7 +41,7 @@ export default function RDServicesFinalCTA() {
           <button
             type="button"
             onClick={() => {
-              trackEvent('free_analysis_cta_click', { location: 'redesign_services_final_cta' });
+              trackEvent('free_analysis_cta_click', { location: analyticsLocation });
               window.dispatchEvent(new Event('open-analysis-widget'));
             }}
             className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-[15.5px] font-semibold text-[#0F1E3C] transition-all hover:bg-[#C9A876] hover:text-white"
@@ -49,7 +50,7 @@ export default function RDServicesFinalCTA() {
           </button>
           <Link
             href="/iletisim"
-            onClick={() => trackEvent('contact_cta_click', { location: 'redesign_services_final_cta' })}
+            onClick={() => trackEvent('contact_cta_click', { location: analyticsLocation })}
             className="inline-flex items-center rounded-full border border-white/25 px-8 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-white hover:text-[#0F1E3C]"
           >
             İletişime Geç

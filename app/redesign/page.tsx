@@ -60,14 +60,14 @@ export default function RedesignPage() {
       <JsonLd data={organizationJsonLd} />
       <RDNavbar />
       <main>
-        <RDHero />
+        <RDHero analyticsLocation="redesign_hero" />
         <RDChannels />
         <RDServices />
         <RDSystem />
         <RDAudiences />
         <RDCases />
         <RDGuides />
-        <RDWhy />
+        <RDWhy analyticsLocation="redesign_why" />
       </main>
       <RDFooter />
       <RDAnalysisCTA analyticsLocation="redesign_floating_button" />

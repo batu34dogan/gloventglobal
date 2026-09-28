@@ -4,6 +4,7 @@ import RDServiceDetailPage from '@/components/redesign/service-detail/RDServiceD
 import { getServiceDetailView } from '@/components/redesign/service-detail/serviceDetailAdapter';
 import { serviceDetails } from '@/components/services/serviceDetailsData';
 import JsonLd from '@/components/seo/JsonLd';
+import { shortMetaDescription } from '@/lib/seo/metaDescription';
 
 export function generateStaticParams() {
   return Object.keys(serviceDetails).map((slug) => ({ slug }));
@@ -16,18 +17,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = serviceDetails[slug];
-  if (!service) return {};
+  // Geçersiz slug: {} dönmek root (ana sayfa) title'ını 404'e sızdırıyordu; not-found metadata'sı kullanılsın.
+  if (!service) notFound();
+  // openGraph/twitter tam tanımlı — aksi halde root (ana sayfa) Twitter başlığı/açıklaması ve og:image
+  // eksikliği sızıyordu. Açıklama kaynak metnin deterministik ≤160 karakterlik kısaltması.
+  const title = `${service.title} | GloventGlobal`;
+  const description = shortMetaDescription(service.description);
+  const url = `https://gloventglobal.com/hizmetler/${slug}`;
   return {
-    title: `${service.title} | GloventGlobal`,
-    description: service.description,
-    alternates: {
-      canonical: `/hizmetler/${slug}`,
-    },
+    title,
+    description,
+    alternates: { canonical: `/hizmetler/${slug}` },
     openGraph: {
-      title: `${service.title} | GloventGlobal`,
-      description: service.description,
-      url: `https://gloventglobal.com/hizmetler/${slug}`,
+      title,
+      description,
+      url,
+      siteName: 'GloventGlobal',
+      locale: 'tr_TR',
+      type: 'website',
+      images: [{ url: '/glovent-platform-hero.png', width: 1534, height: 1025, alt: 'GloventGlobal' }],
     },
+    twitter: { card: 'summary_large_image', title, description, images: ['/glovent-platform-hero.png'] },
+    robots: { index: true, follow: true },
   };
 }
 

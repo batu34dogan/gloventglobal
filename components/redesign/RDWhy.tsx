@@ -21,7 +21,8 @@ function handleSpotlightMove(e: React.PointerEvent<HTMLDivElement>) {
   el.style.setProperty('--dmy', `${e.clientY - rect.top}px`);
 }
 
-export default function RDWhy() {
+// analyticsLocation: production ana sayfa 'home_why', /redesign preview 'redesign_why'.
+export default function RDWhy({ analyticsLocation = 'home_why' }: { analyticsLocation?: string }) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -48,20 +49,19 @@ export default function RDWhy() {
   return (
     <section className="overflow-hidden bg-[#0F1E3C]">
       <style>{`
+        /* Progressive enhancement: gizli başlangıç durumu yalnızca JS çalışırken (html.rd-js) uygulanır. */
         .rd-diff-left {
-          opacity: 0;
-          transform: translateY(14px);
           transition: opacity .6s ease, transform .6s ease;
         }
+        .rd-js .rd-diff-left:not(.rd-in) { opacity: 0; transform: translateY(14px); }
         .rd-diff-left.rd-in { opacity: 1; transform: translateY(0); }
 
         .rd-diff-row {
           position: relative;
           overflow: hidden;
-          opacity: 0;
-          transform: translateY(12px);
           transition: opacity .5s ease, transform .5s ease, background-color .3s ease;
         }
+        .rd-js .rd-diff-row:not(.rd-in) { opacity: 0; transform: translateY(12px); }
         .rd-diff-row.rd-in { opacity: 1; transform: translateY(0); }
 
         .rd-diff-accent {
@@ -116,7 +116,7 @@ export default function RDWhy() {
             </p>
             <Link
               href="/iletisim"
-              onClick={() => trackEvent('contact_cta_click', { location: 'redesign_why' })}
+              onClick={() => trackEvent('contact_cta_click', { location: analyticsLocation })}
               className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-white hover:text-[#0F1E3C]"
             >
               İletişime Geç →

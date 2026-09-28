@@ -111,13 +111,13 @@ export default function RDServiceSystemVisual({
       </svg>
 
       <span
-        className={`absolute rounded-full bg-[#FAF9F6] px-2 text-[9.5px] font-bold uppercase tracking-[0.16em] text-[#8A6E43] sm:text-[10.5px] ${PILLAR_LABEL_POS[pillar]}`}
+        className={`absolute rounded-full bg-[#FAF9F6] px-2 text-[9.5px] font-bold uppercase tracking-[0.16em] text-[#84683E] sm:text-[10.5px] ${PILLAR_LABEL_POS[pillar]}`}
       >
         {pillar}
       </span>
 
       <div className="absolute left-1/2 top-1/2 flex w-[28%] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center">
-        <span className="text-[8.5px] font-bold uppercase tracking-[0.18em] text-[#8A6E43] sm:text-[10px]">Sistem</span>
+        <span className="text-[8.5px] font-bold uppercase tracking-[0.18em] text-[#84683E] sm:text-[10px]">Sistem</span>
         <span className="mt-1 text-[10.5px] font-extrabold leading-[1.18] text-[#14213F] sm:text-[13.5px] xl:text-[14.5px]">{name}</span>
       </div>
 

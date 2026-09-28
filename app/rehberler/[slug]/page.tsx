@@ -22,7 +22,8 @@ function seoTitle(title: string) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const guide = guides[slug];
-  if (!guide) return {};
+  // Geçersiz slug: {} dönmek root (ana sayfa) title'ını 404'e sızdırıyordu; not-found metadata'sı kullanılsın.
+  if (!guide) notFound();
   const url = `https://gloventglobal.com/rehberler/${slug}`;
   const description = guideMetaDescription(guide);
   return {

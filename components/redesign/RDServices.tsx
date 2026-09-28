@@ -150,18 +150,17 @@ export default function RDServices() {
   return (
     <section id="hizmetler" className="scroll-mt-20 bg-[#FAF9F6] py-16 sm:py-20">
       <style>{`
+        /* Progressive enhancement: gizli başlangıç durumu yalnızca JS çalışırken (html.rd-js) uygulanır. */
         .rd-cap-card {
-          opacity: 0;
-          transform: translateY(16px);
           transition: opacity .6s ease, transform .6s ease, border-color .3s ease;
         }
+        .rd-js .rd-cap-card:not(.rd-in) { opacity: 0; transform: translateY(16px); }
         .rd-cap-card.rd-in { opacity: 1; transform: translateY(0); }
 
         .rd-support {
-          opacity: 0;
-          transform: translateY(10px);
           transition: opacity .6s ease, transform .6s ease;
         }
+        .rd-js .rd-support:not(.rd-in) { opacity: 0; transform: translateY(10px); }
         .rd-support.rd-in { opacity: 1; transform: translateY(0); }
 
         .rd-cap-bgpattern {
@@ -243,10 +242,9 @@ export default function RDServices() {
 
         /* AI + Data operating layer */
         .rd-ai-panel {
-          opacity: 0;
-          transform: translateY(20px);
           transition: opacity .7s ease, transform .7s ease;
         }
+        .rd-js .rd-ai-panel:not(.rd-ai-in) { opacity: 0; transform: translateY(20px); }
         .rd-ai-panel.rd-ai-in { opacity: 1; transform: translateY(0); }
 
         .rd-ai-grid {
@@ -269,10 +267,9 @@ export default function RDServices() {
         }
 
         .rd-ai-node {
-          opacity: 0;
-          transform: translateY(8px);
           transition: opacity .5s ease, transform .5s ease, border-color .25s ease, background-color .25s ease;
         }
+        .rd-js .rd-ai-panel:not(.rd-ai-in) .rd-ai-node { opacity: 0; transform: translateY(8px); }
         .rd-ai-panel.rd-ai-in .rd-ai-node { opacity: 1; transform: translateY(0); }
         @media (hover: hover) and (pointer: fine) {
           .rd-ai-node:hover {

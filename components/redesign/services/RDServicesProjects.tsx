@@ -86,7 +86,7 @@ function ProjectCard({
       <p className="mt-2 max-w-[52ch] text-[13.5px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
       <Link
         href={`/hizmetler/${p.system.slug}`}
-        className="relative mt-4 inline-flex items-center gap-1 border-t border-[#E5E5EC] pt-4 text-[12.5px] font-semibold text-[#8A6E43] transition-colors hover:text-[#1B5CD6]"
+        className="relative mt-4 inline-flex items-center gap-1 border-t border-[#E5E5EC] pt-4 text-[12.5px] font-semibold text-[#84683E] transition-colors hover:text-[#1B5CD6]"
       >
         Uygulanan sistem: {p.system.title} →
       </Link>

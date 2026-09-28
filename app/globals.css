@@ -45,6 +45,13 @@ body {
   animation: fade-up-once 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
+/* Progressive enhancement: html.rd-js yalnızca JS çalışırken var (layout.tsx head script’i).
+   JS yoksa veya uygulama hydrate olamazsa içerik görünür kalır. */
+.rd-js .rd-pe-hide {
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+
 /* prefers-reduced-motion: tüm animasyonları kapat */
 @media (prefers-reduced-motion: reduce) {
   *,

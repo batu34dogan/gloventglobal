@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import RDGrowthSystemDiagram from './RDGrowthSystemDiagram';
 
-export default function RDServicesHero() {
+// analyticsLocation: production /hizmetler 'services_hero', /redesign preview 'redesign_services_hero'.
+export default function RDServicesHero({ analyticsLocation = 'services_hero' }: { analyticsLocation?: string }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function RDServicesHero() {
 
   const reveal = (delayClass: string) =>
     `transition-all duration-700 ease-out motion-reduce:transition-none ${delayClass} ${
-      mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+      mounted ? 'translate-y-0 opacity-100' : 'rd-pe-hide'
     }`;
 
   return (
@@ -43,7 +44,7 @@ export default function RDServicesHero() {
             <button
               type="button"
               onClick={() => {
-                trackEvent('free_analysis_cta_click', { location: 'redesign_services_hero' });
+                trackEvent('free_analysis_cta_click', { location: analyticsLocation });
                 window.dispatchEvent(new Event('open-analysis-widget'));
               }}
               className="inline-flex items-center gap-2 rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6]"

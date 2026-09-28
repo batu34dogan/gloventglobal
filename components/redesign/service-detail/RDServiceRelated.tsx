@@ -16,7 +16,7 @@ export function RDServiceRelatedGuides({ guides, bg }: { guides: RelatedGuide[];
       </span>
       <h3 className="mt-4 text-[17.5px] font-bold leading-[1.35] text-[#14213F] group-hover:text-[#1B5CD6]">{g.title}</h3>
       <p className="mt-2.5 line-clamp-3 text-[13.5px] leading-relaxed text-[#5A5A6A]">{g.excerpt}</p>
-      <span className="mt-auto pt-5 text-[13.5px] font-bold text-[#8A6E43] group-hover:text-[#1B5CD6]">Rehberi Oku →</span>
+      <span className="mt-auto pt-5 text-[13.5px] font-bold text-[#84683E] group-hover:text-[#1B5CD6]">Rehberi Oku →</span>
     </Link>
   );
 
@@ -57,7 +57,7 @@ export function RDServiceRelatedServices({ services, bg }: { services: RelatedSe
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-[#1B5CD6] to-[#C9A876] transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"
       />
-      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#8A6E43]">{s.pillar}</span>
+      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#84683E]">{s.pillar}</span>
       <h3 className="mt-3 text-[19.5px] font-extrabold leading-snug tracking-tight text-[#14213F] group-hover:text-[#1B5CD6]">{s.name}</h3>
       <p className="mt-2.5 line-clamp-3 text-[13.5px] leading-relaxed text-[#5A5A6A]">{s.description}</p>
       <span className="mt-auto inline-flex items-center gap-1.5 border-t border-[#EDEDF1] pt-4 text-[14px] font-bold text-[#1B5CD6]">

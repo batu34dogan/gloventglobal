@@ -43,7 +43,7 @@ function ServiceModule({ item }: { item: (typeof groups)[number]['items'][number
       <span aria-hidden="true" className="rd-exp-module-grid" />
       <div className="relative flex items-start justify-between gap-8">
         <div className="max-w-[600px]">
-          <h4 className="rd-exp-module-title text-[20px] font-bold text-[#14213F]">{item.title}</h4>
+          <h3 className="rd-exp-module-title text-[20px] font-bold text-[#14213F]">{item.title}</h3>
           <p className="mt-2.5 text-[14.5px] leading-relaxed text-[#6A6A7A]">{item.desc}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {item.labels.map((label) => (
@@ -72,7 +72,7 @@ function ServiceRow({ item }: { item: (typeof groups)[number]['items'][number] }
     >
       <span aria-hidden="true" className="rd-exp-accent" />
       <div className="max-w-[640px]">
-        <h4 className="rd-exp-title text-[18px] font-bold text-[#14213F]">{item.title}</h4>
+        <h3 className="rd-exp-title text-[18px] font-bold text-[#14213F]">{item.title}</h3>
         <p className="mt-1.5 text-[14px] leading-relaxed text-[#6A6A7A]">{item.desc}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {item.labels.map((label) => (
@@ -150,9 +150,10 @@ export default function RDServicesDirectory() {
           .rd-exp-module:hover .rd-exp-module-title { color: #1B5CD6; transform: translateX(3px); }
         }
         .rd-exp-group {
-          opacity: 0; transform: translateY(10px);
           transition: opacity .55s ease, transform .55s ease;
         }
+        /* Progressive enhancement: gizli başlangıç durumu yalnızca JS çalışırken (html.rd-js) uygulanır. */
+        .rd-js .rd-exp-group:not(.rd-in) { opacity: 0; transform: translateY(10px); }
         .rd-exp-group.rd-in { opacity: 1; transform: translateY(0); }
         @media (prefers-reduced-motion: reduce) {
           .rd-exp-group, .rd-exp-group.rd-in { opacity: 1 !important; transform: none !important; transition: none !important; }

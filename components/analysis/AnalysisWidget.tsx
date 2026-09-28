@@ -9,6 +9,11 @@ import { trackEvent } from '@/lib/analytics';
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+// Eski koyu sağ-alt floating tetikleyici: artık hiçbir production route'unda gösterilmiyor (her sayfa kendi
+// CTA'larını / RDAnalysisCTA'yı kullanıyor; geriye yalnızca 404'ler kalıyordu). Modal ve 'open-analysis-widget'
+// event sistemi aynen çalışıyor. Buton kodu ayrı dead-code temizliğine kadar duruyor.
+const LEGACY_FLOATING_TRIGGER = false;
+
 export default function AnalysisWidget() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -126,7 +131,7 @@ export default function AnalysisWidget() {
           z-[45] bilerek navbar'ın (z-40) üstünde ama intro ekranının (z-50) ALTINDA — intro
           oynarken bu buton üzerinde görünmesin, intro kapandıktan sonra (DOM'dan kalkınca)
           buton doğal olarak görünür hale gelir. */}
-      {!open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && !isContactPage && !isGuidesPage && !isLegalPage && (
+      {LEGACY_FLOATING_TRIGGER && !open && !isAnalysisPage && !isRedesignPage && !isHomepage && !isServicesOverview && !isProcessPage && !isAboutPage && !isContactPage && !isGuidesPage && !isLegalPage && (
         <button
           ref={floatingRef}
           type="button"

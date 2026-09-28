@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { trackEvent } from '@/lib/analytics';
 import { focusRing } from '@/components/redesign/service-detail/RDServiceDetailPrimitives';
 
@@ -18,6 +19,9 @@ export default function RDNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  // Aynı navbar production ve /redesign preview'de render ediliyor: production 'navbar', preview 'redesign_navbar'.
+  const pathname = usePathname();
+  const navLocation = pathname?.startsWith('/redesign') ? 'redesign_navbar' : 'navbar';
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 8);
@@ -76,7 +80,7 @@ export default function RDNavbar() {
           <span className="text-[14px] font-medium text-[#4A4A5A]">
             <span className="sr-only">Dil: </span>TR
           </span>
-          <Link href="/iletisim" onClick={() => trackEvent('contact_cta_click', { location: 'redesign_navbar' })} className={`rounded-full bg-[#1B2E5E] px-5 py-2.5 text-[15px] font-semibold text-white transition-all hover:bg-[#1B5CD6] ${focusRing}`}>İletişime Geç →</Link>
+          <Link href="/iletisim" onClick={() => trackEvent('contact_cta_click', { location: navLocation })} className={`rounded-full bg-[#1B2E5E] px-5 py-2.5 text-[15px] font-semibold text-white transition-all hover:bg-[#1B5CD6] ${focusRing}`}>İletişime Geç →</Link>
         </div>
         <button
           ref={triggerRef}
@@ -97,10 +101,10 @@ export default function RDNavbar() {
         inert={!open}
         className={`overflow-hidden border-t border-[#E8E8EC] bg-white transition-all duration-300 lg:hidden ${open ? 'max-h-[480px]' : 'max-h-0 border-transparent'}`}
       >
-        <div className="flex flex-col gap-1 px-6 py-5">
+        <nav aria-label="Mobil menü" className="flex flex-col gap-1 px-6 py-5">
           {LINKS.map(l => <a key={l.label} href={l.href} onClick={()=>closeMenu(false)} className={`rounded-lg px-3 py-3.5 text-[16px] font-medium text-[#3A3A4A] transition-colors hover:bg-[#F4F4F8] ${focusRing}`}>{l.label}</a>)}
-          <Link href="/iletisim" onClick={()=>{trackEvent('contact_cta_click', { location: 'redesign_navbar' }); closeMenu(false);}} className={`mt-3 rounded-full bg-[#1B2E5E] px-5 py-4 text-center text-[16px] font-semibold text-white transition-colors hover:bg-[#1B5CD6] ${focusRing}`}>İletişime Geç →</Link>
-        </div>
+          <Link href="/iletisim" onClick={()=>{trackEvent('contact_cta_click', { location: navLocation }); closeMenu(false);}} className={`mt-3 rounded-full bg-[#1B2E5E] px-5 py-4 text-center text-[16px] font-semibold text-white transition-colors hover:bg-[#1B5CD6] ${focusRing}`}>İletişime Geç →</Link>
+        </nav>
       </div>
     </header>
   );

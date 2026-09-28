@@ -97,9 +97,10 @@ export default function RDServicesPillars() {
         }
         .rd-pm-module {
           position: relative; overflow: hidden; z-index: 1;
-          opacity: 0; transform: translateY(14px);
           transition: opacity .55s ease, transform .55s ease, border-color .3s ease, box-shadow .3s ease;
         }
+        /* Progressive enhancement: gizli başlangıç durumu yalnızca JS çalışırken (html.rd-js) uygulanır. */
+        .rd-js .rd-pm-module:not(.rd-in) { opacity: 0; transform: translateY(14px); }
         .rd-pm-module.rd-in { opacity: 1; transform: translateY(0); }
         .rd-pm-inner-grid {
           position: absolute; inset: 0; opacity: 0; pointer-events: none;
@@ -179,7 +180,7 @@ export default function RDServicesPillars() {
                     ))}
                   </div>
                   {p.secondaryLabel && (
-                    <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#8A6E43]">
+                    <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#84683E]">
                       + {p.secondaryLabel}
                     </p>
                   )}
@@ -223,7 +224,7 @@ export default function RDServicesPillars() {
                   ))}
                 </div>
                 {p.secondaryLabel && (
-                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#8A6E43]">
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#84683E]">
                     + {p.secondaryLabel}
                   </p>
                 )}

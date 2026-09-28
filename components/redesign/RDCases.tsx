@@ -165,6 +165,17 @@ function Marquee() {
   const drag = useRef({ active: false, startX: 0, baseX: 0, moved: false });
   const resumeTimer = useRef<number | undefined>(undefined);
   const [dragging, setDragging] = useState(false);
+  // WCAG 2.2.2: 5 sn'den uzun süren otomatik hareket için kalıcı duraklatma kontrolü (hover/focus/drag
+  // duraklatması geçici; dokunmatik tablet kullanıcıları için yeterli değil).
+  const [userPaused, setUserPaused] = useState(false);
+  const userPausedRef = useRef(false);
+  const toggleUserPaused = () => {
+    const next = !userPausedRef.current;
+    userPausedRef.current = next;
+    setUserPaused(next);
+    if (next) paused.current = true;
+    else maybeResume();
+  };
 
   useEffect(() => {
     const measure = () => {
@@ -212,7 +223,7 @@ function Marquee() {
   };
 
   const maybeResume = () => {
-    if (!hovering.current && !focused.current && !drag.current.active) paused.current = false;
+    if (!userPausedRef.current && !hovering.current && !focused.current && !drag.current.active) paused.current = false;
   };
 
   const scheduleResume = () => {
@@ -270,6 +281,7 @@ function Marquee() {
   };
 
   return (
+    <>
     <div
       className="overflow-hidden"
       onWheel={onWheel}
@@ -294,6 +306,20 @@ function Marquee() {
         ))}
       </div>
     </div>
+    <div className="mx-auto mt-5 flex max-w-[1400px] justify-start px-6 sm:px-8">
+      <button
+        type="button"
+        onClick={toggleUserPaused}
+        aria-label={userPaused ? 'Proje galerisi animasyonunu devam ettir' : 'Proje galerisi animasyonunu duraklat'}
+        className="inline-flex min-h-[40px] items-center gap-2 rounded-full border border-[#D6D6DC] px-4 text-[13.5px] font-semibold text-[#14213F] transition-colors hover:border-[#1B5CD6] hover:text-[#1B5CD6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B5CD6]"
+      >
+        <svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5">
+          {userPaused ? <path d="M4 2.5v11l9-5.5-9-5.5Z" /> : <path d="M4 2.5h3v11H4zM9 2.5h3v11H9z" />}
+        </svg>
+        {userPaused ? 'Devam Et' : 'Duraklat'}
+      </button>
+    </div>
+    </>
   );
 }
 

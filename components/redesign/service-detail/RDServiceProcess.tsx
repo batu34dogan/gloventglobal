@@ -17,7 +17,7 @@ export default function RDServiceProcess({ process, bg }: { process: ServiceData
             <li key={s.number} className="relative pr-6">
               <span
                 className={`relative flex h-11 w-11 items-center justify-center rounded-full border-2 text-[14px] font-bold ${
-                  i === last ? 'border-[#C9A876] bg-[#FFFCF6] text-[#8A6E43]' : 'border-[#1B5CD6]/55 bg-white text-[#1B5CD6]'
+                  i === last ? 'border-[#C9A876] bg-[#FFFCF6] text-[#84683E]' : 'border-[#1B5CD6]/55 bg-white text-[#1B5CD6]'
                 }`}
               >
                 {s.number}
@@ -35,7 +35,7 @@ export default function RDServiceProcess({ process, bg }: { process: ServiceData
               <div className="flex shrink-0 flex-col items-center">
                 <span
                   className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 text-[14px] font-bold ${
-                    i === last ? 'border-[#C9A876] bg-[#FFFCF6] text-[#8A6E43]' : 'border-[#1B5CD6]/55 bg-white text-[#1B5CD6]'
+                    i === last ? 'border-[#C9A876] bg-[#FFFCF6] text-[#84683E]' : 'border-[#1B5CD6]/55 bg-white text-[#1B5CD6]'
                   }`}
                 >
                   {s.number}

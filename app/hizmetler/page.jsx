@@ -11,21 +11,29 @@ import RDServicesProjects from '@/components/redesign/services/RDServicesProject
 import RDServicesWorkModel from '@/components/redesign/services/RDServicesWorkModel';
 import RDServicesFinalCTA from '@/components/redesign/services/RDServicesFinalCTA';
 
-// Route kendi canonical/metadata'sını tanımlamazsa root layout'unkini (homepage) miras alıyordu —
-// /hizmetler'in <link rel="canonical"> homepage'i göstermesine sebep olan bug buradan kaynaklanıyordu.
+// Route-specific metadata tam tanımlı: Next.js metadata'yı yüzeysel birleştirdiği için openGraph/twitter
+// eksik kalırsa root (ana sayfa) değerleri miras alınıyordu (Twitter başlığı/açıklaması, og:image).
+// Açıklama sayfanın kendi hero metninden, ≤160 karakter.
+const TITLE = 'Hizmetler | GloventGlobal';
+const DESCRIPTION =
+  'Stratejiden satış kanallarına, teknolojiden operasyona kadar markanızın ihtiyaç duyduğu yapıyı birlikte çalışan bir global büyüme sistemi olarak kuruyoruz.';
+const URL = 'https://gloventglobal.com/hizmetler';
+
 export const metadata = {
-  title: 'Hizmetler | GloventGlobal',
-  description:
-    'GloventGlobal; markanızın hedeflerine göre strateji, teknoloji, yapay zeka, otomasyon, e-ticaret altyapısı, pazaryeri yönetimi ve dijital operasyon süreçlerini birlikte çalışan bir büyüme sistemi olarak kurgular.',
-  alternates: {
-    canonical: '/hizmetler',
-  },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: '/hizmetler' },
   openGraph: {
-    title: 'Hizmetler | GloventGlobal',
-    description:
-      'GloventGlobal; markanızın hedeflerine göre strateji, teknoloji, yapay zeka, otomasyon, e-ticaret altyapısı, pazaryeri yönetimi ve dijital operasyon süreçlerini birlikte çalışan bir büyüme sistemi olarak kurgular.',
-    url: 'https://gloventglobal.com/hizmetler',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
+    siteName: 'GloventGlobal',
+    locale: 'tr_TR',
+    type: 'website',
+    images: [{ url: '/glovent-platform-hero.png', width: 1534, height: 1025, alt: 'GloventGlobal' }],
   },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: ['/glovent-platform-hero.png'] },
+  robots: { index: true, follow: true },
 };
 
 export default function HizmetlerPage() {
@@ -58,7 +66,7 @@ export default function HizmetlerPage() {
       {/* Onaylanan /redesign/hizmetler UI'ı — section sırası preview ile birebir. Eski
           ServicesContent rollback/referans için repoda duruyor, burada artık render edilmiyor.
           Global SiteNavbar/SiteFooter/floating analiz butonu bu route'ta pathname ile gizleniyor.
-          Bilinçli: robots override YOK — /redesign/hizmetler'deki noindex,nofollow buraya taşınmadı. */}
+          /redesign/hizmetler'deki noindex,nofollow buraya taşınmadı; robots açıkça index,follow. */}
       <div className="min-h-screen" style={{ fontFamily: 'var(--font-geist-sans),system-ui,sans-serif' }}>
         <RDNavbar />
         <main>

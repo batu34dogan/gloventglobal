@@ -144,21 +144,23 @@ export default function RDSystem() {
         }
         .rd-sys-diagram.rd-in .rd-sys-return { opacity: .4; }
 
+        /* Progressive enhancement: gizli başlangıç durumu yalnızca JS çalışırken (html.rd-js) uygulanır. */
         .rd-sys-return-label {
-          opacity: 0;
+          opacity: .85;
           transition: opacity .6s ease;
           transition-delay: 950ms;
         }
+        .rd-js .rd-sys-diagram:not(.rd-in) .rd-sys-return-label { opacity: 0; }
         .rd-sys-diagram.rd-in .rd-sys-return-label { opacity: .85; }
 
         .rd-sys-pulse-dot { opacity: 0; filter: drop-shadow(0 0 3px rgba(201,168,118,0.65)); transition: opacity .4s ease; transition-delay: 1000ms; }
         .rd-sys-diagram.rd-in .rd-sys-pulse-dot { opacity: 1; }
 
         .rd-sys-node {
-          opacity: 0;
-          transform: translate(-50%, calc(-50% + 10px));
+          transform: translate(-50%, -50%);
           transition: opacity .5s ease, transform .3s ease, border-color .25s ease, box-shadow .25s ease;
         }
+        .rd-js .rd-sys-node:not(.rd-sys-in) { opacity: 0; transform: translate(-50%, calc(-50% + 10px)); }
         .rd-sys-node.rd-sys-in { opacity: 1; transform: translate(-50%, -50%); }
         @media (hover: hover) and (pointer: fine) {
           .rd-sys-node:hover, .rd-sys-node-hover {

@@ -69,9 +69,11 @@ export default function RDServicesAudience() {
     <section className="border-t border-[#E5E5EC] bg-[#F6F3EC] py-14 sm:py-16">
       <style>{`
         .rd-aud-block {
-          position: relative; opacity: 0; transform: translateY(14px);
+          position: relative;
           transition: opacity .55s ease, transform .55s ease, border-color .25s ease;
         }
+        /* Progressive enhancement: gizli başlangıç durumu yalnızca JS çalışırken (html.rd-js) uygulanır. */
+        .rd-js .rd-aud-block:not(.rd-in) { opacity: 0; transform: translateY(14px); }
         .rd-aud-block.rd-in { opacity: 1; transform: translateY(0); }
         .rd-aud-num {
           position: absolute; right: 10px; top: -6px; font-size: 52px; font-weight: 800;
@@ -147,7 +149,7 @@ export default function RDServicesAudience() {
             <span aria-hidden="true" className="absolute left-0 top-1 bottom-1 w-[2px] bg-gradient-to-b from-[#1B5CD6] to-[#C9A876]" />
             {segments.map((s, i) => (
               <div key={s.title} className={i === active ? 'block' : 'hidden'}>
-                <span className="text-[13px] font-bold text-[#8A6E43]">{s.n}</span>
+                <span className="text-[13px] font-bold text-[#84683E]">{s.n}</span>
                 <h3 className="mt-2 text-[1.6rem] font-extrabold leading-tight tracking-tight text-[#14213F]">
                   {s.title}
                 </h3>

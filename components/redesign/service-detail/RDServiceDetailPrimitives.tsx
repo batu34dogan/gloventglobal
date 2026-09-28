@@ -87,7 +87,7 @@ export function RDNumberedRows({
   const badge = dark
     ? 'border-white/15 text-[#C9A876]'
     : accent === 'warm'
-      ? 'border-[#E9DCC3] bg-[#FBF6EC] text-[#8A6E43]'
+      ? 'border-[#E9DCC3] bg-[#FBF6EC] text-[#84683E]'
       : accent === 'outline'
         ? 'rounded-full border-[#1B5CD6]/35 bg-transparent text-[#1B5CD6]'
         : 'border-[#DCE3F3] bg-[#F5F8FE] text-[#1B5CD6]';

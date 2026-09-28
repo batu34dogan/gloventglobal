@@ -29,14 +29,14 @@ export default function RedesignHizmetlerPage() {
     <div className="min-h-screen" style={{ fontFamily: 'var(--font-geist-sans),system-ui,sans-serif' }}>
       <RDNavbar />
       <main>
-        <RDServicesHero />
+        <RDServicesHero analyticsLocation="redesign_services_hero" />
         <RDServicesPillars />
         <RDServicesAILayer />
         <RDServicesDirectory />
         <RDServicesAudience />
         <RDServicesProjects />
         <RDServicesWorkModel />
-        <RDServicesFinalCTA />
+        <RDServicesFinalCTA analyticsLocation="redesign_services_final_cta" />
       </main>
       <RDFooter />
     </div>

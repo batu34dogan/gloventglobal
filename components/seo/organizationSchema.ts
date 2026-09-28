@@ -10,7 +10,7 @@ export const organizationJsonLd = [
     logo: 'https://gloventglobal.com/icon-512.png',
     email: 'info@gloventglobal.com',
     description:
-      'GloventGlobal, markalar için e-ticaret, dijital büyüme, yapay zeka ve otomasyon sistemleri kuran bir dijital büyüme partneridir.',
+      'GloventGlobal; strateji, global ticaret, teknoloji, yapay zeka ve operasyon sistemlerini bir araya getirerek markaların sürdürülebilir global büyüme altyapısını kurar.',
     sameAs: ['https://www.instagram.com/gloventglobal'],
   },
   {
