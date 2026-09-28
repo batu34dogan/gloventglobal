@@ -5,6 +5,7 @@ import RDServiceDetailHero from './RDServiceDetailHero';
 import RDServiceAudience from './RDServiceAudience';
 import RDServiceProblem from './RDServiceProblem';
 import RDServiceApproach from './RDServiceApproach';
+import RDServiceScenario from './RDServiceScenario';
 import RDServiceModules from './RDServiceModules';
 import RDServiceScope from './RDServiceScope';
 import RDServiceProcess from './RDServiceProcess';
@@ -33,6 +34,11 @@ export default function RDServiceDetailPage({ view, analyticsPrefix = '' }: { vi
   pushLight((bg) => <RDServiceAudience key="audience" audience={data.audience} bg={bg} />);
   pushLight((bg) => <RDServiceProblem key="problem" problem={data.problem} bg={bg} />);
   pushLight((bg) => <RDServiceApproach key="approach" approach={data.approach} bg={bg} />);
+  // Opsiyonel örnek durum — yalnız veride senaryo tanımlı hizmetlerde (boş başlık oluşmaz).
+  if (data.scenario) {
+    const scenario = data.scenario;
+    pushLight((bg) => <RDServiceScenario key="scenario" scenario={scenario} bg={bg} />);
+  }
   if (data.useCases) {
     const block = data.useCases;
     pushLight((bg) => <RDServiceModules key="usecases" id="sd-usecases" block={block} bg={bg} />);

@@ -34,6 +34,14 @@ export const serviceDetails: Record<
       description: string;
       steps: { number: string; title: string; description: string }[];
     };
+    // Opsiyonel kısa karar senaryosu ("Bu durumda nasıl yaklaşırız?") — "Yaklaşım" bölümünden hemen
+    // sonra render edilir. Örnek durumdur; gerçek müşteri vakası, marka, rakam veya sonuç iddiası
+    // içermez. Belirtilmezse bölüm hiç render edilmez (boş başlık oluşmaz).
+    scenario?: {
+      situation: string;
+      decision: string;
+      rationale: string;
+    };
     deliverables: {
       eyebrow: string;
       title: string;
@@ -228,6 +236,14 @@ export const serviceDetails: Record<
           description: 'İsterseniz içerik, reklam, optimizasyon, SEO, görsel sunum ve büyüme süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
         },
       ],
+    },
+    scenario: {
+      situation:
+        'El emeği bir ürünün başlığı çok genel; fotoğraflar ürünün boyutunu, dokusunu ve nasıl kullanıldığını göstermiyor.',
+      decision:
+        'Metinleri ürüne gerçekten uyan arama ifadelerine göre düzenleriz. Görsel sırasını da alıcının sorularına göre kurarız: genel görünüm, ölçü, detay ve kullanım.',
+      rationale:
+        'Alıcının ürünü hem bulabilmesi hem de doğru değerlendirebilmesi gerekir. Ürünü açıkça anlatan bir sunum, alıcıda doğru beklenti oluşturur.',
     },
     process: {
       eyebrow: 'SÜREÇ',
@@ -444,6 +460,14 @@ export const serviceDetails: Record<
           description: 'İsterseniz reklam, içerik, ürün, stok, kampanya, performans ve büyüme süreçlerini düzenli olarak birlikte yönetir ve geliştiririz.',
         },
       ],
+    },
+    scenario: {
+      situation:
+        'Türkiye’de iyi satan bir ürünün yurt dışında Amazon’da aynı fiyat, aynı paket ve aynı anlatımla satılabileceği varsayılıyor.',
+      decision:
+        'Listelemeye geçmeden önce ürünün hedef pazara uyumunu, rakiplerin konumunu, kargo ve platform giderleri dahil toplam maliyeti ve stok, iade gibi operasyon gereksinimlerini değerlendiririz.',
+      rationale:
+        'Mağaza açmak teknik bir adımdır; ürünün o pazarda kârlı ve sürdürülebilir biçimde satılıp satılamayacağı ayrı bir sorudur. İkisini ayırmak, yatırım kararını doğru soruya göre vermeyi sağlar.',
     },
     process: {
       eyebrow: 'SÜREÇ',
@@ -678,6 +702,14 @@ export const serviceDetails: Record<
           description: 'Kullanıcı davranışı, trafik, dönüşüm, ürün performansı ve satış verilerini takip ederek sistemi geliştirilebilir hale getiririz.',
         },
       ],
+    },
+    scenario: {
+      situation:
+        'Geniş bir katalogda müşteri aradığı ürünü ve doğru varyantı (renk, ölçü, model) bulmakta zorlanıyor.',
+      decision:
+        'Önce kategori yapısını, filtreleri, ürün verisini ve varyant kurgusunu ele alırız; arayüzü bu yapının üzerine geliştiririz. Mevcut tema ve uygulamalarla çözülebilen kısmı, özel geliştirme gerektiren kısımdan ayırırız.',
+      rationale:
+        'Yalnız görsel yenileme, ürün keşfindeki temel sorunu çözmez. Sağlam bir ürün yapısı, tasarımın da doğru çalışmasını sağlar.',
     },
     process: {
       eyebrow: 'SÜREÇ',
@@ -1148,6 +1180,14 @@ export const serviceDetails: Record<
         },
       ],
     },
+    scenario: {
+      situation:
+        'Alıcılar ürünleri soruyor; ancak teklif için gereken bilgiler (ürün, kullanım alanı, miktar) farklı mesajlara ve kanallara dağılmış durumda.',
+      decision:
+        'Ürün seçimini, kullanım ihtiyacını ve miktarı tek bir anlaşılır talep özetinde toplayan bir akış kurarız; katalog yapısını da bu akışa göre düzenleriz.',
+      rationale:
+        'Teklif görüşmesine dağınık notlarla değil, net bir ihtiyaç tanımıyla başlamak; iki tarafın da aynı bilgi üzerinden konuşmasını sağlar.',
+    },
     process: {
       eyebrow: 'SÜREÇ',
       title: 'B2B Showroom’unuzu Satışa Hazırlayan Yol Haritası',
@@ -1588,6 +1628,14 @@ export const serviceDetails: Record<
         },
       ],
     },
+    scenario: {
+      situation:
+        'Reklamlar siteye ziyaretçi getiriyor, ancak yeterli başvuru veya satın alma oluşmuyor.',
+      decision:
+        'Bütçeyi artırmadan önce reklam mesajının açılış sayfasıyla uyumunu, ölçüm kurulumunu ve formdan ödemeye kadar işlem akışını inceleriz.',
+      rationale:
+        'Önce sorunun trafik miktarında mı, yoksa ziyaretçinin karşılaştığı deneyimde mi olduğunu ayırmak gerekir. Aksi hâlde bütçe artışı aynı sorunu yalnızca daha pahalı hâle getirebilir.',
+    },
     process: {
       eyebrow: 'SÜREÇ',
       title: 'Reklam ve Optimizasyon İçin Büyüme Yol Haritası',
@@ -1810,6 +1858,14 @@ export const serviceDetails: Record<
           description: 'Rakiplerin görsel dili, listeleme yapısı ve içerik sunumunu inceleyerek markanızın hangi alanda daha güçlü ayrışabileceğini belirleriz.',
         },
       ],
+    },
+    scenario: {
+      situation:
+        'Aynı ürün pazaryerinde, marka mağazasında ve toptan satış kanalında aynı metin ve görsellerle sunuluyor.',
+      decision:
+        'Marka dilini ve görsel tutarlılığı koruyarak bilgi sırasını ve sunumu her kanalın satın alma biçimine göre uyarlarız: pazaryerinde hızlı karşılaştırma, marka mağazasında ürünün hikâyesi, toptan satışta teknik ve miktar bilgisi öne çıkar.',
+      rationale:
+        'Her kanaldaki alıcı farklı sorularla gelir. Aynı içeriği her yerde tekrarlamak, bu soruların bir kısmını cevapsız bırakır.',
     },
     process: {
       eyebrow: 'SÜREÇ',
@@ -2043,6 +2099,14 @@ export const serviceDetails: Record<
           description: 'Hangi AI akışlarının güçlendirileceğini, hangi süreçlerin otomasyona bağlanacağını ve hangi çıktılarda insan kontrolü gerektiğini belirleriz.',
         },
       ],
+    },
+    scenario: {
+      situation:
+        'Müşteri mesajlarının yapay zekâyla yanıtlanması isteniyor; ancak hangi soruların otomatik yanıtlanabileceği, hangi bilgilere ihtiyaç olduğu ve ne zaman bir kişinin devreye gireceği belli değil.',
+      decision:
+        'Önce mesaj türlerini, gerekli veriyi ve insan onayı gereken noktaları belirleriz. Ardından her adım için uygun çözümü seçeriz; bazı adımlarda basit, kurallı bir otomasyon yapay zekâdan daha uygun olabilir.',
+      rationale:
+        'Belirsiz bir süreci hızlandırmak yerine güvenilir ve kontrol edilebilir bir iş akışı kurmak.',
     },
     process: {
       eyebrow: 'SÜREÇ',
@@ -2697,6 +2761,14 @@ export const serviceDetails: Record<
           description: 'Hangi pazarın önce test edileceğini, hangi ürünlerin öne çıkarılacağını ve hangi yatırım sırasının daha mantıklı olduğunu netleştiririz.',
         },
       ],
+    },
+    scenario: {
+      situation:
+        'Bir üretici aynı dönemde birkaç ülkeye birden açılmak istiyor; ancak ekip, bütçe ve stok kapasitesi sınırlı.',
+      decision:
+        'Ürünü, hedef pazarlardaki talebi ve rekabeti; lojistik, toplam maliyet ve ekibin operasyon kapasitesiyle birlikte değerlendiririz. Buna göre başlangıç için öncelikli pazarı ve sonraki pazarların sırasını belirleriz.',
+      rationale:
+        'Kaynakları aynı anda birçok pazara dağıtmak yerine yönetilebilir bir başlangıç kurmak, sonraki adımlar için de sınanmış bir zemin bırakır.',
     },
     process: {
       eyebrow: 'SÜREÇ',
