@@ -4,7 +4,7 @@ import RDFooter from '@/components/redesign/RDFooter';
 import { focusRing, sectionShell } from '@/components/redesign/service-detail/RDServiceDetailPrimitives';
 import { guides, type Guide } from '@/components/guides/guidesData';
 import { parseBody, type BodyBlock } from '@/lib/guides/body';
-import { headingId, readingMinutes, resolveRelatedGuides, serviceName } from '@/lib/guides/helpers';
+import { headingId, readingTimeLabel, resolveRelatedGuides, serviceName } from '@/lib/guides/helpers';
 import RDGuideAnalysisButton from './RDGuideAnalysisButton';
 
 // 36 rehberin TEK ortak detay şablonu — SERVER component (guidesData tarayıcıya gönderilmez).
@@ -20,11 +20,71 @@ const dot = 'before:absolute before:left-1 before:top-[0.72em] before:h-1.5 befo
 const labelCls = 'text-[12px] font-bold uppercase tracking-[0.2em]';
 const h2Cls = 'scroll-mt-28 text-[1.5rem] font-extrabold leading-snug tracking-tight text-[#14213F] sm:text-[1.75rem]';
 
-function Blocks({ blocks }: { blocks: BodyBlock[] }) {
+function Blocks({ blocks, heading }: { blocks: BodyBlock[]; heading: string }) {
   return (
     <div className="mt-4 space-y-4">
       {blocks.map((b, i) => {
         if (b.type === 'p') return <p key={i} className={pCls}>{b.text}</p>;
+        // Kaynakta açıkça kayıt-tablosu olarak yazılmış bölüm: desktop semantic table, mobil etiketli satırlar
+        // (karşılaştırma tablosuyla aynı desen). Metin kaynakla birebir; ilk sütunun başlığı kaynakta yok → boş.
+        if (b.type === 'table')
+          return (
+            <div key={i}>
+              <div className="hidden overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white sm:block">
+                <table className="w-full text-left">
+                  <caption className="sr-only">{heading}</caption>
+                  <thead className="bg-[#14213F] text-white">
+                    <tr>
+                      <td className="px-5 py-3.5" />
+                      {b.labels.map((l) => (
+                        <th key={l} scope="col" className="px-5 py-3.5 text-[14px] font-bold">{l}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#E5E5EC]">
+                    {b.rows.map((r) => (
+                      <tr key={r.name} className="align-top">
+                        <th scope="row" className="w-[24%] px-5 py-3.5 text-[15.5px] font-semibold leading-snug text-[#14213F]">{r.name}</th>
+                        {r.values.map((v, k) => (
+                          <td key={k} className="px-5 py-3.5 text-[15.5px] leading-[1.6] text-[#2F2F3B]">{v}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <ul className="space-y-3 sm:hidden">
+                {b.rows.map((r) => (
+                  <li key={r.name} className="rounded-2xl border border-[#E5E5EC] bg-white p-4">
+                    <p className="text-[16px] font-bold text-[#14213F]">{r.name}</p>
+                    <dl className="mt-2.5 space-y-2.5">
+                      {r.values.map((v, k) => (
+                        <div key={k}>
+                          <dt className="text-[13px] font-bold text-[#1B5CD6]">{b.labels[k]}</dt>
+                          <dd className="mt-0.5 text-[15.5px] leading-[1.6] text-[#2F2F3B]">{v}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        // Kaynakta '↓' ile yazılmış ardışık akış → sıralı adımlar. Adım metinleri birebir; numara görsel.
+        if (b.type === 'flow')
+          return (
+            <ol key={i} className="relative space-y-2">
+              {b.steps.map((t, j) => (
+                <li key={j} className="relative flex items-start gap-3.5">
+                  {j < b.steps.length - 1 && <span aria-hidden="true" className="absolute left-[13px] top-8 h-[calc(100%-18px)] w-px bg-[#D6D6DC]" />}
+                  <span aria-hidden="true" className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#1B5CD6]/40 bg-white text-[13px] font-bold text-[#1B5CD6]">
+                    {j + 1}
+                  </span>
+                  <span className="pb-3 pt-0.5 text-[17px] font-medium leading-snug text-[#14213F] sm:text-[18px]">{t}</span>
+                </li>
+              ))}
+            </ol>
+          );
         if (b.type === 'ul')
           return (
             <ul key={i} className="space-y-2">
@@ -58,7 +118,6 @@ function Check() {
 }
 
 export default function RDGuideDetailPage({ guide, basePath = '/rehberler', analyticsPrefix = '' }: { guide: Guide; basePath?: string; analyticsPrefix?: string }) {
-  const minutes = readingMinutes(guide);
   const related = resolveRelatedGuides(guide, guides);
   const service = serviceName(guide.relatedServiceSlug);
   // İlgili rehber yoksa (0 sonuç) hizmet bloğu dar 1/3 sütunda kalmasın: lg+ makale sütunuyla aynı
@@ -111,7 +170,7 @@ export default function RDGuideDetailPage({ guide, basePath = '/rehberler', anal
             </nav>
             <p className="mt-8 text-[12.5px] font-bold uppercase tracking-[0.2em] text-[#1B5CD6] sm:mt-10">
               <span className="normal-case tracking-[0.02em]">{guide.category}</span> <span aria-hidden="true" className="px-1 text-[#B8B8C2]">·</span>{' '}
-              <span className="font-semibold normal-case tracking-normal text-[#5A5A6A]">{minutes} dk okuma</span>
+              <span className="font-semibold normal-case tracking-normal text-[#5A5A6A]">{readingTimeLabel(guide)}</span>
             </p>
             <h1 className="mt-3 max-w-[26ch] text-[1.95rem] font-extrabold leading-[1.12] tracking-[-0.02em] text-[#14213F] sm:text-[2.6rem] lg:text-[3.05rem]">
               {guide.title}
@@ -128,40 +187,9 @@ export default function RDGuideDetailPage({ guide, basePath = '/rehberler', anal
 
         <div className={`${sectionShell} grid gap-10 pb-16 pt-10 sm:pt-12 lg:grid-cols-[minmax(0,700px)_260px] lg:justify-between lg:gap-12 lg:pt-14 xl:grid-cols-[minmax(0,700px)_280px]`}>
           <div className="min-w-0">
-            {/* ============ AÇILIŞ: Özet + Kısa Cevap + Kimler Okumalı ============ */}
-            {(guide.summary || guide.quickAnswer) && (
-              <section aria-label="Rehber özeti" className="relative overflow-hidden rounded-3xl border border-[#E5E5EC] bg-white p-6 sm:p-8">
-                <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#1B5CD6] to-[#C9A876]" />
-                {guide.summary && (
-                  <>
-                    <p className={`${labelCls} text-[#1B5CD6]`}>Özet</p>
-                    <p className="mt-2.5 text-[16.5px] leading-[1.7] text-[#2F2F3B] sm:text-[17px]">{guide.summary}</p>
-                  </>
-                )}
-                {guide.quickAnswer && (
-                  <div className={guide.summary ? 'mt-6 border-t border-[#E5E5EC] pt-6' : ''}>
-                    <p className={`${labelCls} text-[#8A6D3B]`}>Kısa Cevap</p>
-                    <p className="mt-2.5 text-[18px] font-semibold leading-[1.6] text-[#14213F] sm:text-[19px]">{guide.quickAnswer}</p>
-                  </div>
-                )}
-              </section>
-            )}
-            {guide.whoShouldRead && guide.whoShouldRead.length > 0 && (
-              <section aria-label="Kimler okumalı" className="mt-5 rounded-3xl bg-[#F1EDE4]/60 p-6 sm:p-7">
-                <p className={`${labelCls} text-[#14213F]`}>Kimler Okumalı?</p>
-                <ul className="mt-3 grid gap-2 sm:grid-cols-2 sm:gap-x-6">
-                  {guide.whoShouldRead.map((w) => (
-                    <li key={w} className="flex gap-2.5 text-[15.5px] leading-relaxed text-[#2F2F3B]">
-                      <Check />
-                      {w}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {/* Mobil/tablet içindekiler — native details, kapalı başlar; sticky değil */}
-            <details className="group mt-6 rounded-2xl border border-[#E5E5EC] bg-white lg:hidden">
+            {/* Mobil/tablet içindekiler — hero'dan hemen sonra (açılış bloklarından önce); native details, kapalı
+                başlar; sticky değil. Desktop sticky TOC aynı veriden; görünmeyen örnek display:none. */}
+            <details className="group mb-6 rounded-2xl border border-[#E5E5EC] bg-white lg:hidden">
               <summary className={`flex min-h-[52px] cursor-pointer list-none items-center justify-between gap-3 rounded-2xl px-5 text-[15px] font-semibold text-[#14213F] [&::-webkit-details-marker]:hidden ${focusRing}`}>
                 Bu Rehberde
                 <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="h-4 w-4 transition-transform group-open:rotate-180">
@@ -172,13 +200,45 @@ export default function RDGuideDetailPage({ guide, basePath = '/rehberler', anal
                 {tocList}
               </nav>
             </details>
+            {/* ============ AÇILIŞ: Özet + Kısa Cevap + Kimler Okumalı ============ */}
+            {(guide.summary || guide.quickAnswer) && (
+              <section aria-label="Rehber özeti" className="relative overflow-hidden rounded-3xl border border-[#E5E5EC] bg-white p-5 sm:p-8">
+                <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#1B5CD6] to-[#C9A876]" />
+                {guide.summary && (
+                  <>
+                    <p className={`${labelCls} text-[#1B5CD6]`}>Özet</p>
+                    <p className="mt-2.5 text-[16.5px] leading-[1.7] text-[#2F2F3B] sm:text-[17px]">{guide.summary}</p>
+                  </>
+                )}
+                {guide.quickAnswer && (
+                  <div className={guide.summary ? 'mt-5 border-t border-[#E5E5EC] pt-5 sm:mt-6 sm:pt-6' : ''}>
+                    <p className={`${labelCls} text-[#8A6D3B]`}>Kısa Cevap</p>
+                    <p className="mt-2 text-[17px] font-semibold leading-[1.55] text-[#14213F] sm:mt-2.5 sm:text-[19px] sm:leading-[1.6]">{guide.quickAnswer}</p>
+                  </div>
+                )}
+              </section>
+            )}
+            {guide.whoShouldRead && guide.whoShouldRead.length > 0 && (
+              <section aria-label="Kimler okumalı" className="mt-4 rounded-2xl bg-[#F1EDE4]/60 px-5 py-4 sm:mt-5 sm:rounded-3xl sm:p-7">
+                <p className={`${labelCls} text-[#14213F]`}>Kimler Okumalı?</p>
+                <ul className="mt-2.5 grid gap-1.5 sm:mt-3 sm:grid-cols-2 sm:gap-2 sm:gap-x-6">
+                  {guide.whoShouldRead.map((w) => (
+                    <li key={w} className="flex gap-2.5 text-[15px] leading-relaxed text-[#2F2F3B] sm:text-[15.5px]">
+                      <Check />
+                      {w}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
 
             {/* ============ MAKALE ============ */}
             <article className="mt-10 sm:mt-12">
               {guide.sections.map((s, i) => (
                 <section key={s.heading} aria-labelledby={headingId(s.heading)} className="mt-11 first:mt-0 sm:mt-14">
                   <h2 id={headingId(s.heading)} className={h2Cls}>{s.heading}</h2>
-                  <Blocks blocks={parseBody(s.body)} />
+                  <Blocks blocks={parseBody(s.body)} heading={s.heading} />
                   {i === expertIndex && guide.expertNote && (
                     <aside aria-label="Uzman notu" className="mt-8 rounded-2xl bg-[#0F1E3C] p-6 text-white sm:p-7">
                       <p className={`${labelCls} text-[#C9A876]`}>Uzman Notu</p>
@@ -364,7 +424,7 @@ export default function RDGuideDetailPage({ guide, basePath = '/rehberler', anal
                       <Link href={`${basePath}/${r.slug}`} className={`group block rounded-md py-4 ${focusRing}`}>
                         <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#1B5CD6]">
                           <span className="normal-case tracking-[0.02em]">{r.category}</span> <span aria-hidden="true" className="px-1 text-[#B8B8C2]">·</span>{' '}
-                          <span className="font-semibold normal-case tracking-normal text-[#5A5A6A]">{readingMinutes(r)} dk okuma</span>
+                          <span className="font-semibold normal-case tracking-normal text-[#5A5A6A]">{readingTimeLabel(r)}</span>
                         </p>
                         <h3 className="mt-1.5 text-[1.08rem] font-bold leading-snug text-[#14213F] group-hover:text-[#1B5CD6]">
                           {r.title} <span aria-hidden="true" className="text-[#1B5CD6]">→</span>

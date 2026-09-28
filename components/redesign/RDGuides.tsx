@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { guides } from '@/components/guides/guidesData';
+import { readingTimeLabel } from '@/lib/guides/helpers';
 
 function formatPublished(dateStr: string) {
   try {
@@ -35,7 +36,7 @@ function GuideCard({
         <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">
           {guide.category}
         </span>
-        <span className="text-[11.5px] font-medium text-[#757580]">{guide.readTime}</span>
+        <span className="text-[11.5px] font-medium text-[#757580]">{readingTimeLabel(guide)}</span>
       </div>
 
       <h3 className={titleClassName ?? 'mt-4 text-[18px] font-bold leading-snug text-[#14213F]'}>{guide.title}</h3>

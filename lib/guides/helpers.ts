@@ -41,6 +41,11 @@ export function readingMinutes(g: Guide): number {
   return Math.max(1, Math.ceil(words / WORDS_PER_MINUTE));
 }
 
+// Tüm production rehber kartlarının tek okuma süresi etiketi (data'daki eski readTime UI'da kullanılmaz).
+export function readingTimeLabel(g: Guide): string {
+  return `${readingMinutes(g)} dk okuma`;
+}
+
 // ---------------------------------------------------------------------------
 // Kategoriler — sabit liste yerine veriden türetilir (sayı ↓, eşitlikte ilk görünen rehberin order'ı).
 // ---------------------------------------------------------------------------

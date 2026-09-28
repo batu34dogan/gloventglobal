@@ -4,6 +4,7 @@
 // hizmet içeriği değil, navigasyon/ilişki bilgisidir ve kaynakları yanlarında belirtilmiştir.
 import { serviceDetails } from '@/components/services/serviceDetailsData';
 import { guides } from '@/components/guides/guidesData';
+import { readingTimeLabel } from '@/lib/guides/helpers';
 
 export type ServiceData = (typeof serviceDetails)[string];
 export type Pillar = 'Strateji' | 'Ticaret' | 'Teknoloji' | 'Operasyon';
@@ -121,7 +122,7 @@ export function getServiceDetailView(slug: string) {
     .filter((g) => g.relatedServiceSlug === slug)
     .sort((a, b) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER))
     .slice(0, 3)
-    .map((g) => ({ slug: g.slug, title: g.title, excerpt: g.excerpt, category: g.category, readTime: g.readTime }));
+    .map((g) => ({ slug: g.slug, title: g.title, excerpt: g.excerpt, category: g.category, readTime: readingTimeLabel(g) }));
 
   const relatedServices = (RELATED[slug] ?? [])
     .filter((s) => serviceDetails[s] && SERVICE_META[s])
