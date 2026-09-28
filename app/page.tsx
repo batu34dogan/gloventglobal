@@ -5,6 +5,7 @@ import RDNavbar from '@/components/redesign/RDNavbar';
 import RDHero from '@/components/redesign/RDHero';
 import RDChannels from '@/components/redesign/RDChannels';
 import RDServices from '@/components/redesign/RDServices';
+import RDSalesModels from '@/components/redesign/RDSalesModels';
 import RDSystem from '@/components/redesign/RDSystem';
 import RDAudiences from '@/components/redesign/RDAudiences';
 import RDCases from '@/components/redesign/RDCases';
@@ -56,7 +57,7 @@ export default function Home() {
       <main>
         <RDHero />
         <RDChannels />
-        <RDServices />
+        <RDServices salesModels={<RDSalesModels />} />
         <RDSystem />
         <RDAudiences />
         <RDCases />

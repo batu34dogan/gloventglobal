@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 // secondaryLabel/secondaryChips: production ana sayfanın (HomeContent.tsx) eski Ekosistem
 // bölümünde ayrı kart olarak geçen "Reklam & Growth" (PPC/SEO/Content) ve "Veri & Performans
@@ -100,7 +100,9 @@ function handleAiPointerMove(e: React.PointerEvent<HTMLDivElement>) {
   el.style.setProperty('--ai-my', `${e.clientY - rect.top}px`);
 }
 
-export default function RDServices() {
+// salesModels: yetkinlik kartlarından sonra, AI + Data katmanından önce gösterilen isteğe bağlı bölüm
+// (production ana sayfa "Bir ürün. Üç satış modeli." konseptini verir; /redesign preview vermez).
+export default function RDServices({ salesModels }: { salesModels?: ReactNode } = {}) {
   const gridRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   const aiRef = useRef<HTMLDivElement>(null);
@@ -516,11 +518,13 @@ export default function RDServices() {
           </div>
         </div>
 
+        {salesModels}
+
         {/* AI + Data operating layer — runs beneath and across all four capabilities, not a fifth card */}
         <div
           ref={aiRef}
           onPointerMove={handleAiPointerMove}
-          className={`rd-ai-panel ${aiInView ? 'rd-ai-in' : ''} relative mt-8 overflow-hidden rounded-2xl bg-[#0F1E3C] px-7 py-10 sm:px-10 sm:py-12 lg:px-12`}
+          className={`rd-ai-panel ${aiInView ? 'rd-ai-in' : ''} relative ${salesModels ? 'mt-14 sm:mt-20' : 'mt-8'} overflow-hidden rounded-2xl bg-[#0F1E3C] px-7 py-10 sm:px-10 sm:py-12 lg:px-12`}
         >
           <span aria-hidden className="rd-ai-grid" />
           <span aria-hidden className="rd-ai-glow" />
