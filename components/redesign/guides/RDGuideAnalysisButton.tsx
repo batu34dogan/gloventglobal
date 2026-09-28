@@ -19,7 +19,7 @@ export default function RDGuideAnalysisButton({ location, tone = 'dark' }: { loc
           : `bg-[#14213F] text-white hover:bg-[#1B5CD6] ${focusRing}`
       }`}
     >
-      Ücretsiz Analiz Al <span aria-hidden="true" className="ml-1.5">→</span>
+      Ücretsiz Ön Analize Başla <span aria-hidden="true" className="ml-1.5">→</span>
     </button>
   );
 }

@@ -37,7 +37,7 @@ export default function RDHero() {
               onClick={() => trackEvent('free_analysis_cta_click', { location: 'redesign_hero' })}
               className="inline-flex items-center gap-2 rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6]"
             >
-              Ücretsiz Strateji Görüşmesi →
+              Ücretsiz Ön Analize Başla →
             </Link>
             <Link
               href="#hizmetler"

@@ -29,7 +29,7 @@ export default function RDAboutCTA({ analyticsPrefix = '' }: { analyticsPrefix?:
             }}
             className={`inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-[15.5px] font-semibold text-[#0F1E3C] transition-all hover:bg-[#C9A876] hover:text-white ${focusRing} focus-visible:outline-white`}
           >
-            Ücretsiz Analiz Al →
+            Ücretsiz Ön Analize Başla →
           </button>
           <Link
             href="/iletisim"

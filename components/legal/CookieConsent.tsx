@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { OPEN_COOKIE_PREFERENCES_EVENT } from '@/components/redesign/RDFooterActions';
 
 const STORAGE_KEY = 'glovent_cookie_consent';
 
@@ -8,6 +9,10 @@ export default function CookieConsent() {
   // İlk render'da false kalır (SSR/hydration uyumu için) — gerçek kontrol useEffect içinde
   // yapılır, böylece localStorage'a yalnızca client'ta erişilir.
   const [visible, setVisible] = useState(false);
+  // Footer'daki "Çerez Tercihleri" ile yeniden açıldığında: mevcut seçim silinmez (kullanıcı yeni seçim
+  // yapana kadar geçerli kalır), odak banner'a taşınır ve seçimden sonra açan butona geri döner.
+  const reopenTriggerRef = useRef<HTMLElement | null>(null);
+  const firstButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     // NOT: eslint'in "set-state-in-effect" uyarısı burada bilerek suppress edildi. Bu deseni
@@ -20,11 +25,27 @@ export default function CookieConsent() {
     if (!existing) setVisible(true);
   }, []);
 
+  useEffect(() => {
+    const reopen = () => {
+      reopenTriggerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      setVisible(true);
+    };
+    window.addEventListener(OPEN_COOKIE_PREFERENCES_EVENT, reopen);
+    return () => window.removeEventListener(OPEN_COOKIE_PREFERENCES_EVENT, reopen);
+  }, []);
+
+  useEffect(() => {
+    if (visible && reopenTriggerRef.current) firstButtonRef.current?.focus();
+  }, [visible]);
+
   const handleChoice = (value: 'accepted' | 'rejected') => {
     window.localStorage.setItem(STORAGE_KEY, value);
     // GoogleAnalytics component'ini bilgilendir — sayfa yenilemesi olmadan GA yüklensin.
     window.dispatchEvent(new CustomEvent('glovent-consent-change'));
     setVisible(false);
+    const trigger = reopenTriggerRef.current;
+    reopenTriggerRef.current = null;
+    if (trigger?.isConnected) trigger.focus();
   };
 
   if (!visible) return null;
@@ -35,7 +56,7 @@ export default function CookieConsent() {
     // ÜSTÜNE oturacak şekilde bottom-[92px] kullanıldı — z-index'e güvenmek yerine konumla
     // gerçek çakışmayı önlüyor. z-40 (navbar seviyesi), analiz widget'ın z-[45] modalının/
     // butonunun her zaman üstte kalmasını garantiliyor.
-    <div className="fixed bottom-[92px] left-4 right-4 z-40 sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-[460px]">
+    <div role="region" aria-label="Çerez tercihleri" className="fixed bottom-[92px] left-4 right-4 z-40 sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-[460px]">
       <div className="relative overflow-hidden rounded-2xl border border-blue-400/25 bg-[#0a1120]/90 p-5 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.65)] backdrop-blur-md">
         <span
           aria-hidden="true"
@@ -63,6 +84,7 @@ export default function CookieConsent() {
 
         <div className="relative mt-4 flex items-center gap-2.5">
           <button
+            ref={firstButtonRef}
             type="button"
             onClick={() => handleChoice('rejected')}
             className="flex-1 rounded-full border border-white/15 px-4 py-2 text-xs font-semibold text-white/75 transition-all duration-200 hover:border-white/35 hover:text-white"

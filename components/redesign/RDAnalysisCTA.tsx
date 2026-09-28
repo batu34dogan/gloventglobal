@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { trackEvent } from '@/lib/analytics';
 
@@ -9,6 +10,17 @@ import { trackEvent } from '@/lib/analytics';
 // custom event'i ile açılır (aynı yerden analysis_widget_open de otomatik tetiklenir).
 // analyticsLocation: production ana sayfa 'homepage_floating_button', /redesign preview 'redesign_floating_button'.
 export default function RDAnalysisCTA({ analyticsLocation = 'homepage_floating_button' }: { analyticsLocation?: string }) {
+  // Footer (data-site-footer) görünür alandayken buton gizlenir: footer'ın sağ alt linklerini örtmesin.
+  // visibility:hidden → tıklanamaz, Tab sırasından ve erişilebilirlik ağacından çıkar.
+  const [overFooter, setOverFooter] = useState(false);
+  useEffect(() => {
+    const footer = document.querySelector('[data-site-footer]');
+    if (!footer || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(([entry]) => setOverFooter(entry.isIntersecting));
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
   const openAnalysis = () => {
     trackEvent('free_analysis_cta_click', { location: analyticsLocation });
     window.dispatchEvent(new Event('open-analysis-widget'));
@@ -18,9 +30,10 @@ export default function RDAnalysisCTA({ analyticsLocation = 'homepage_floating_b
     <>
       <style>{`
         .rd-analysis-cta {
-          transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+          transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, opacity .2s ease, visibility .2s;
           box-shadow: 0 8px 24px -14px rgba(0,0,0,0.45);
         }
+        .rd-analysis-cta.rd-analysis-cta-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .rd-analysis-cta-grid {
           position: absolute; inset: 0; pointer-events: none;
           background-image:
@@ -45,7 +58,7 @@ export default function RDAnalysisCTA({ analyticsLocation = 'homepage_floating_b
       <button
         type="button"
         onClick={openAnalysis}
-        className="rd-analysis-cta fixed z-[45] flex items-center gap-2 overflow-hidden rounded-[17px] border border-white/[0.08] bg-[#14213F] px-2.5 py-3 text-left text-white bottom-[calc(16px+env(safe-area-inset-bottom))] right-[calc(16px+env(safe-area-inset-right))] sm:h-[68px] sm:w-[244px] sm:gap-3 sm:bottom-[calc(30px+env(safe-area-inset-bottom))] sm:right-[calc(30px+env(safe-area-inset-right))] sm:px-4"
+        className={`rd-analysis-cta ${overFooter ? 'rd-analysis-cta-hidden' : ''} fixed z-[45] flex items-center gap-2 overflow-hidden rounded-[17px] border border-white/[0.08] bg-[#14213F] px-2.5 py-3 text-left text-white bottom-[calc(16px+env(safe-area-inset-bottom))] right-[calc(16px+env(safe-area-inset-right))] sm:h-[68px] sm:w-[244px] sm:gap-3 sm:bottom-[calc(30px+env(safe-area-inset-bottom))] sm:right-[calc(30px+env(safe-area-inset-right))] sm:px-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B5CD6]`}
       >
         <span aria-hidden="true" className="rd-analysis-cta-grid" />
 
@@ -70,13 +83,13 @@ export default function RDAnalysisCTA({ analyticsLocation = 'homepage_floating_b
 
         {/* Mobil: tek satırlı kompakt versiyon */}
         <span className="relative text-[13.5px] font-semibold leading-tight sm:hidden">
-          Ücretsiz Analiz →
+          Ücretsiz Ön Analiz →
         </span>
 
         {/* Desktop: label + ana ifade, iki satır */}
         <span className="relative hidden flex-col sm:flex">
           <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#C9A876]">
-            Ücretsiz Analiz
+            Ücretsiz Ön Analiz
           </span>
           <span className="mt-1 text-[13.5px] font-bold leading-snug text-white">
             Markanızı birlikte inceleyelim →

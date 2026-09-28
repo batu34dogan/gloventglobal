@@ -26,7 +26,7 @@ export default function RDAboutHero({ analyticsPrefix = '' }: { analyticsPrefix?
               }}
               className={`inline-flex items-center gap-2 rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6] ${focusRing}`}
             >
-              Ücretsiz Analiz Al →
+              Ücretsiz Ön Analize Başla →
             </button>
             <Link
               href="/nasil-calisiyoruz"

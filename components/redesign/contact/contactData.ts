@@ -18,7 +18,7 @@ export const contactIntents = {
     n: '01',
     title: 'Ücretsiz Analiz',
     desc: 'İşletmenizi ve büyüme ihtiyacınızı birkaç kısa soruyla değerlendirin; cevaplarınıza göre ön değerlendirme ve öncelikli sistem önerilerini görün.',
-    cta: 'Ücretsiz Analiz Al →',
+    cta: 'Ücretsiz Ön Analize Başla →',
   },
   direct: {
     n: '02',

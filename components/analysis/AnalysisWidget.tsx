@@ -141,7 +141,7 @@ export default function AnalysisWidget() {
             aria-hidden="true"
             className="h-2 w-2 flex-shrink-0 rounded-full bg-blue-400 shadow-[0_0_8px_2px_rgba(96,165,250,0.85)]"
           />
-          Ücretsiz Analiz Al
+          Ücretsiz Ön Analize Başla
         </button>
       )}
 
