@@ -86,7 +86,8 @@ export default function RDGuides() {
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        {/* data-hm işaretleri yalnız ana sayfada (home-motion.css) etkin. */}
+        <div data-hm="head" className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[11px] font-bold tracking-[0.28em] text-[#1B5CD6] uppercase">İçgörüler</p>
             <h2 className="mt-4 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-[#14213F] sm:text-[2.4rem]">
@@ -105,7 +106,7 @@ export default function RDGuides() {
         </div>
 
         {/* Desktop/tablet (768px+) — mevcut 3'lü grid birebir korunuyor */}
-        <div className="mt-12 hidden gap-6 sm:grid-cols-2 md:grid lg:grid-cols-3">
+        <div data-hm="body" className="mt-12 hidden gap-6 sm:grid-cols-2 md:grid lg:grid-cols-3">
           {topGuides.map((guide) => (
             <GuideCard key={guide.slug} guide={guide} />
           ))}
@@ -114,7 +115,7 @@ export default function RDGuides() {
 
       {/* Mobil (0-767px) — 3 kart alt alta değil, yatay swipe/scroll-snap rail; full-bleed
           (mx-auto max-w-[1400px] sınırının dışına taşıyor) ki ikinci kartın kenarı net görünsün. */}
-      <div className="rd-guide-rail mt-10 flex w-screen snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 ml-[calc(50%-50vw)] md:hidden">
+      <div data-hm="body" className="rd-guide-rail mt-10 flex w-screen snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 ml-[calc(50%-50vw)] md:hidden">
         {topGuides.map((guide) => (
           <GuideCard
             key={guide.slug}

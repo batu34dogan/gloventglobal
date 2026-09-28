@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 
 // secondaryLabel/secondaryChips: production ana sayfanın (HomeContent.tsx) eski Ekosistem
 // bölümünde ayrı kart olarak geçen "Reklam & Growth" (PPC/SEO/Content) ve "Veri & Performans
@@ -453,8 +453,8 @@ export default function RDServices({ salesModels }: { salesModels?: ReactNode } 
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        {/* Header row */}
-        <div className="flex flex-wrap items-center justify-between gap-8">
+        {/* Header row — data-hm/data-hm-follow işaretleri yalnız ana sayfada (home-motion.css) etkin. */}
+        <div data-hm="head" className="flex flex-wrap items-center justify-between gap-8">
           <div>
             <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Büyüme Mimarisi</p>
             <h2 className="mt-3 text-[2.6rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[3.1rem]">Neler Yapıyoruz?</h2>
@@ -473,7 +473,7 @@ export default function RDServices({ salesModels }: { salesModels?: ReactNode } 
             <div
               key={s.title}
               onPointerMove={handlePointerMove}
-              style={{ transitionDelay: inView ? `${i * 80}ms` : '0ms' }}
+              style={{ transitionDelay: inView ? `${i * 80}ms` : '0ms', '--rd-i': i } as CSSProperties}
               className={`rd-cap-card ${inView ? 'rd-in' : ''} relative overflow-hidden rounded-2xl border border-[#E5E5EC] bg-[#FEFCF9] p-8`}
             >
               <span aria-hidden className="rd-cap-bgpattern" />
@@ -503,7 +503,7 @@ export default function RDServices({ salesModels }: { salesModels?: ReactNode } 
           <span aria-hidden="true" className="rd-cap-mobile-grid" />
           <div className="relative flex flex-col">
             {services.map((s, i) => (
-              <div key={s.title} className={`relative py-8 pl-6 ${i > 0 ? 'border-t border-[#E5E5EC]' : ''}`}>
+              <div key={s.title} data-hm="body" className={`relative py-8 pl-6 ${i > 0 ? 'border-t border-[#E5E5EC]' : ''}`}>
                 <span aria-hidden="true" className="absolute left-0 top-8 bottom-8 w-[2px] bg-gradient-to-b from-[#1B5CD6] to-[#C9A876]" />
                 <span className="text-[13px] font-bold text-[#C4C4CE]">{s.n}</span>
                 <h3 className="mt-2 text-[27px] font-extrabold leading-tight tracking-tight text-[#14213F]">{s.title}</h3>
@@ -530,7 +530,7 @@ export default function RDServices({ salesModels }: { salesModels?: ReactNode } 
           <span aria-hidden className="rd-ai-glow" />
 
           <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-            <div className="max-w-[46ch]">
+            <div data-hm-follow="text" className="max-w-[46ch]">
               <p className="text-[11px] font-bold tracking-[0.28em] text-[#C9A876] uppercase">AI + Data Layer</p>
               <h3 className="mt-4 text-[1.75rem] font-extrabold leading-tight text-white sm:text-[2.1rem]">
                 Yapay zekâyı anlatmıyoruz. Sistemlerin içine entegre ediyoruz.
@@ -546,7 +546,7 @@ export default function RDServices({ salesModels }: { salesModels?: ReactNode } 
                 dekoratif. Hover/tap gerekmiyor, her zaman görünür. Sıralı, restrained data-flow
                 animasyonu: aynı anda yalnızca bir node/spoke aktif + merkezden o node'a doğru
                 küçük bir champagne veri noktası akıyor (bkz. yukarıdaki rd-ai-* keyframe'leri). */}
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-[264px] md:hidden">
+            <div data-hm-follow="visual" className="relative mx-auto aspect-[4/5] w-full max-w-[264px] md:hidden">
               <svg viewBox="0 0 200 250" aria-hidden="true" className="absolute inset-0 h-full w-full">
                 {AI_RADIAL_NODES.map((node, i) => (
                   <line
@@ -623,7 +623,7 @@ export default function RDServices({ salesModels }: { salesModels?: ReactNode } 
             {/* Tablet (768-1023px): mevcut dekoratif mini-network + gerçek chip listesi kombinasyonu
                 birebir korunuyor — mobilde artık üstteki entegre network kullanılıyor. Masaüstünde
                 (1024px+) mini-network zaten lg:hidden, chip listesi metnin yanında yatay duruyor. */}
-            <div aria-hidden="true" className="relative mx-auto hidden h-[192px] w-[192px] shrink-0 md:block lg:hidden">
+            <div aria-hidden="true" data-hm-follow="visual" className="relative mx-auto hidden h-[192px] w-[192px] shrink-0 md:block lg:hidden">
               <span
                 className="rd-ai-mini-pulse absolute inset-[28%] rounded-full border border-[#C9A876]/40"
               />
@@ -664,6 +664,7 @@ export default function RDServices({ salesModels }: { salesModels?: ReactNode } 
                 mobil versiyonda negatif delay'in sırayı ters çevirdiği, bu sefer baştan doğru yapıldı).
                 Aynı anda tek node aktif + merkezden o node'a akan tek champagne data point. */}
             <div
+              data-hm-follow="visual"
               className={`relative mx-auto hidden aspect-square w-full max-w-[460px] shrink-0 lg:block lg:w-[440px] xl:max-w-[500px] xl:w-[500px] ${
                 aiDesktopHovered !== null ? 'rd-ai2-hovering' : ''
               }`}

@@ -11,7 +11,8 @@ export default function RDHero({ analyticsLocation = 'home_hero' }: { analyticsL
   return (
     <section className="relative overflow-hidden bg-[#FAF9F6] lg:min-h-[90vh]">
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="max-w-[46ch] pt-20 pb-0 md:py-20 lg:flex lg:min-h-[90vh] lg:max-w-[54%] lg:flex-col lg:justify-center lg:py-28">
+        {/* data-scene-text: ana sayfa sahne geçişinde metin grubunun kaydırmaya bağlı kalkışı (başka yerde etkisiz). */}
+        <div data-scene-text className="max-w-[46ch] pt-20 pb-0 md:py-20 lg:flex lg:min-h-[90vh] lg:max-w-[54%] lg:flex-col lg:justify-center lg:py-28">
           <p className="text-[12px] font-bold tracking-[0.3em] text-[#1B5CD6] uppercase">Global Growth Partner</p>
 
           <h1 className="mt-6 text-[2.625rem] font-extrabold leading-[1.03] tracking-[-0.03em] text-[#14213F] sm:text-[4rem] lg:text-[4.8rem]">

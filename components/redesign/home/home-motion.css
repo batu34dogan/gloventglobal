@@ -1,0 +1,127 @@
+/* Ana sayfa hareket dili — yalnız app/page.tsx'teki <main className="rd-home"> altında etkin.
+   Paylaşılan bileşenlerdeki data-hm / data-hm-follow işaretleri /redesign önizlemesinde ve diğer
+   sayfalarda etkisizdir (orada .rd-home yok). Next.js global stil sayfalardan kaldırılmadığı için
+   bütün seçiciler .rd-home altında tutulur. */
+
+.rd-home {
+  --hm-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --hm-head-y: 20px;       /* bölüm başlığı grubu */
+  --hm-body-y: 14px;       /* ana içerik / görsel grubu */
+  --hm-head-dur: 620ms;
+  --hm-body-dur: 560ms;
+  --hm-fade-dur: 520ms;    /* yalnız opacity */
+  --hm-line-dur: 420ms;    /* altın çizgi */
+  --hm-step: 80ms;         /* grup içi sıra */
+}
+@media (max-width: 767px) {
+  .rd-home {
+    --hm-head-y: 12px;
+    --hm-body-y: 10px;
+    --hm-head-dur: 560ms;
+    --hm-body-dur: 500ms;
+    --hm-step: 50ms;
+  }
+}
+
+/* 1) Bölüm girişleri — [data-hm] grupları, RDHomeMotion ilk girişte data-hm-in ekler (tek sefer).
+      Konum için bağımsız `translate` özelliği: öğelerin kendi transform'lu hover'larıyla çakışmaz. */
+.rd-home [data-hm] {
+  transition-property: opacity, translate;
+  transition-duration: var(--hm-body-dur);
+  transition-timing-function: var(--hm-ease);
+  transition-delay: calc(var(--hm-i, 0) * var(--hm-step));
+}
+.rd-home [data-hm='head'] { transition-duration: var(--hm-head-dur); }
+.rd-home [data-hm='fade'] { transition-duration: var(--hm-fade-dur); }
+.rd-js .rd-home [data-hm='head']:not([data-hm-in]) { opacity: 0; translate: 0 var(--hm-head-y); }
+.rd-js .rd-home [data-hm='body']:not([data-hm-in]) { opacity: 0; translate: 0 var(--hm-body-y); }
+.rd-js .rd-home [data-hm='fade']:not([data-hm-in]) { opacity: 0; }
+
+/* 2) Altın çizgi — mevcut kısa çizgiler, soldan sağa bir kez açılır. */
+.rd-home [data-hm='line'] {
+  transform-origin: left center;
+  transition: transform var(--hm-line-dur) var(--hm-ease) calc(120ms + var(--hm-i, 0) * var(--hm-step));
+}
+.rd-js .rd-home [data-hm='line']:not([data-hm-in]) { transform: scaleX(0); }
+
+.rd-home [data-hm-in='instant'] { transition: none; }
+
+/* 3) Mevcut girişlerin ortak dile uyarlanması (ikinci animasyon eklenmez; aynı tetik, yeni zamanlama). */
+
+/* Yetkinlikler — sağdaki metin kendi girişini (mobilde hiç tetiklenmeyen, masaüstü ızgaraya bağlı)
+   bırakır; başlık satırının [data-hm] grubuyla birlikte gelir. */
+.rd-js .rd-home .rd-support:not(.rd-in),
+.rd-home .rd-support { opacity: 1; transform: none; transition: none; }
+
+/* Yetkinlik kartları — giriş opacity + translate ile (kısa sıra, en fazla 180 ms); hover'daki transform
+   gecikmesiz kalır (önceden giriş gecikmesi hover'a da uygulanıyordu). */
+.rd-home .rd-cap-card {
+  transition-property: opacity, translate, transform, border-color !important;
+  transition-duration: var(--hm-body-dur), var(--hm-body-dur), 0.6s, 0.3s !important;
+  transition-timing-function: var(--hm-ease), var(--hm-ease), ease, ease !important;
+  transition-delay: calc(var(--rd-i, 0) * 60ms), calc(var(--rd-i, 0) * 60ms), 0s, 0s !important;
+}
+.rd-js .rd-home .rd-cap-card:not(.rd-in) { transform: none; translate: 0 var(--hm-body-y); }
+
+/* AI+DATA — panel bütün olarak kaymaz; yalnız belirir. Metin kısa yükselir, ağ hemen ardından belirir.
+   İç animasyonlar ve düğüm girişleri olduğu gibi. */
+.rd-home .rd-ai-panel { transition: opacity var(--hm-body-dur) var(--hm-ease); }
+.rd-js .rd-home .rd-ai-panel:not(.rd-ai-in) { transform: none; }
+.rd-home .rd-ai-panel [data-hm-follow='text'] { transition: translate var(--hm-head-dur) var(--hm-ease); }
+.rd-js .rd-home .rd-ai-panel:not(.rd-ai-in) [data-hm-follow='text'] { translate: 0 var(--hm-body-y); }
+.rd-home .rd-ai-panel [data-hm-follow='visual'] { transition: opacity var(--hm-fade-dur) var(--hm-ease) 120ms; }
+.rd-js .rd-home .rd-ai-panel:not(.rd-ai-in) [data-hm-follow='visual'] { opacity: 0; }
+
+/* Seçili çalışmalar — marka değişince panel: kısa opacity + 4 px. */
+@keyframes rd-hm-panel {
+  from { opacity: 0; translate: 0 4px; }
+  to { opacity: 1; translate: none; }
+}
+.rd-home .rd-sw-panel:not([hidden]) { animation: rd-hm-panel 220ms var(--hm-ease) backwards; }
+
+/* Son çağrı — sol panel aynı aileden; satırlar kendi sıralı girişini bırakır, satır grubu ayrı izlenir
+   (mobilde ekranın altındayken tüketilmez). Satır hover'ı gecikmesiz. */
+.rd-home .rd-diff-left {
+  transition: opacity var(--hm-head-dur) var(--hm-ease), transform var(--hm-head-dur) var(--hm-ease);
+}
+.rd-js .rd-home .rd-diff-left:not(.rd-in) { transform: translateY(var(--hm-head-y)); }
+.rd-js .rd-home .rd-diff-row:not(.rd-in),
+.rd-home .rd-diff-row:not(.rd-in) { opacity: 1; transform: none; }
+.rd-home .rd-diff-row {
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
+  transition-delay: 0s !important;
+}
+
+/* 4) Klavye — odak, henüz açılmamış ya da açılmakta olan bir bölümün içine gelirse içerik hemen son
+      hâlinde görünür (data-hm grupları için RDHomeMotion kalıcı işaretler; diğer mevcut girişler için
+      :focus-within). Odaklanan kontroller sabit navbar/analiz butonunun altında kalmayacak şekilde kayar. */
+.rd-home .rd-sm-region:focus-within .rd-sm-rv,
+.rd-home .rd-ai-panel:focus-within,
+.rd-home .rd-ai-panel:focus-within [data-hm-follow],
+.rd-home .rd-diff-left:focus-within {
+  opacity: 1 !important;
+  transform: none !important;
+  translate: none !important;
+  transition: none !important;
+}
+.rd-home .rd-sys-diagram:focus-within .rd-sys-node {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) !important;
+  transition: none !important;
+}
+.rd-home :is(a, button, [tabindex]) { scroll-margin-top: 104px; scroll-margin-bottom: 120px; }
+
+/* 5) Hareket azaltma — konumsal girişler, çizgi açılması ve geçişler kapalı; içerik hemen görünür. */
+@media (prefers-reduced-motion: reduce) {
+  .rd-js .rd-home [data-hm]:not([data-hm-in]) { opacity: 1; translate: none; transform: none; }
+  .rd-js .rd-home .rd-cap-card:not(.rd-in) { translate: none; }
+  .rd-js .rd-home .rd-ai-panel:not(.rd-ai-in) [data-hm-follow] { opacity: 1; translate: none; }
+  .rd-js .rd-home .rd-diff-left:not(.rd-in) { transform: none; }
+  .rd-home [data-hm],
+  .rd-home [data-hm-follow],
+  .rd-home .rd-cap-card,
+  .rd-home .rd-ai-panel,
+  .rd-home .rd-diff-left,
+  .rd-home .rd-diff-row { transition: none !important; }
+  .rd-home .rd-sw-panel:not([hidden]) { animation: none; }
+}

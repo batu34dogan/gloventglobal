@@ -128,7 +128,8 @@ export default function RDAudiences() {
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="mx-auto max-w-2xl text-center">
+        {/* data-hm işaretleri yalnız ana sayfada (home-motion.css) etkin. */}
+        <div data-hm="head" className="mx-auto max-w-2xl text-center">
           <p className="text-[11px] font-bold tracking-[0.28em] text-[#1B5CD6] uppercase">Kimlerle Çalışıyoruz?</p>
           <h2 className="mt-5 text-[2rem] font-extrabold leading-[1.15] tracking-tight text-[#14213F] sm:text-[2.4rem]">
             Büyümeye Hazır İşletmelerle.
@@ -140,7 +141,7 @@ export default function RDAudiences() {
         </div>
 
         {/* Desktop/tablet (768px+) — mevcut editorial row listesi birebir korunuyor */}
-        <div className="rd-aud-field mt-14 hidden md:block">
+        <div data-hm="body" className="rd-aud-field mt-14 hidden md:block">
           <span aria-hidden="true" className="rd-aud-bgpattern" />
           {audiences.map((a) => (
             <div key={a.number} className="rd-aud-row border-b border-[#E5E5EC] last:border-0">
@@ -163,7 +164,7 @@ export default function RDAudiences() {
         {/* Mobil (0-767px): 5 uzun kart alt alta değil — üstte swipe edilebilir segment seçici,
             altında yalnızca seçili segment için tek büyük panel. Tüm 5 açıklama DOM'da kalıyor
             (yalnızca aktif olmayanlar CSS ile gizli), böylece içerik erişilebilir/indexlenebilir kalır. */}
-        <div className="mt-10 md:hidden">
+        <div data-hm="body" className="mt-10 md:hidden">
           <div className="rd-aud-tabs flex gap-2 overflow-x-auto pb-1">
             {audiences.map((a, i) => (
               <button

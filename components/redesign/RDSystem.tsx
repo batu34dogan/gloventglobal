@@ -201,7 +201,8 @@ export default function RDSystem() {
       `}</style>
 
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="max-w-[44ch]">
+        {/* data-hm işaretleri yalnız ana sayfada (home-motion.css) etkin. */}
+        <div data-hm="head" className="max-w-[44ch]">
           <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Gerçek Çalışma Süreci</p>
           <h2 className="mt-3 text-[2.6rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[3.1rem]">
             Stratejiden Çalışan Sisteme.
@@ -303,7 +304,7 @@ export default function RDSystem() {
         </div>
 
         {/* AI + DATA — continuous layer running underneath the whole process */}
-        <div className="relative mt-10">
+        <div data-hm="fade" className="relative mt-10">
           <div aria-hidden className="rd-sys-connectors relative z-0 hidden h-8 sm:block">
             {NODE_X.map((x, i) => (
               <span key={i} data-i={i} className="rd-sys-connector" style={{ left: `${x}%` }} />

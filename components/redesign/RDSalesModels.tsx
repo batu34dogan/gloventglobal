@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type FormEvent, type KeyboardEvent } from 'react';
 import Image from 'next/image';
 import { focusRing } from '@/components/redesign/service-detail/RDServiceDetailPrimitives';
 
@@ -243,7 +243,7 @@ function B2BPanel() {
           </div>
           <button
             type="submit"
-            className={`mt-6 inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#14213F] px-6 text-[15px] font-semibold text-white transition-colors hover:bg-[#1B5CD6] ${focusRing}`}
+            className={`rd-sm-cta mt-6 inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#14213F] px-6 text-[15px] font-semibold text-white hover:bg-[#1B5CD6] ${focusRing}`}
           >
             Örnek talep özetini gör
           </button>
@@ -278,6 +278,71 @@ export default function RDSalesModels() {
   const [active, setActive] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const cardRef = useRef<HTMLDivElement>(null);
+  const regionRef = useRef<HTMLDivElement>(null);
+  const tablistRef = useRef<HTMLDivElement>(null);
+  const indicatorRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef(0);
+  const placedOnce = useRef(false);
+  const [revealed, setRevealed] = useState(false);
+
+  // İlk giriş (yalnız bir kez): mevcut html.rd-js + IntersectionObserver deseni. Gizli başlangıç durumu
+  // yalnız JS çalışırken ve boyamadan önce uygulanır; hydrate olmazsa rd-js kalkar, içerik görünür kalır.
+  useEffect(() => {
+    const el = regionRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      const id = window.setTimeout(() => setRevealed(true), 0);
+      return () => window.clearTimeout(id);
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setRevealed(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '0px 0px -10% 0px' },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Kayan sekme göstergesi: sekmelerin üstünde, beyaz etiket kopyalarını taşıyan lacivert katman; yalnız
+  // clip-path bölgesi seçili sekmenin kutusuna kayar. Beyaz yazı yalnız lacivertin olduğu yerde görünür, alttaki
+  // gerçek etiketler hep lacivert kalır — geçişin her karesinde (ve yarıda kesilen geçişlerde) okunur.
+  // İlk yerleşim ve yeniden boyutlanma geçişsiz; ölçüm yalnız seçim değişince ve şerit/sekmeler boyut değiştirince.
+  const placeIndicator = useCallback((animate: boolean) => {
+    const list = tablistRef.current;
+    const ind = indicatorRef.current;
+    const tab = tabRefs.current[activeRef.current];
+    if (!list || !ind || !tab) return;
+    if (!animate) ind.style.transition = 'none';
+    // Kesirli ölçü (mobil 3 sütunlu ızgarada sekme genişlikleri tam sayı değil); ikisi de aynı transform altında.
+    const box = ind.getBoundingClientRect();
+    const t = tab.getBoundingClientRect();
+    const radius = getComputedStyle(tab).borderTopLeftRadius;
+    ind.style.clipPath = `inset(${t.top - box.top}px ${box.right - t.right}px ${box.bottom - t.bottom}px ${t.left - box.left}px round ${radius})`;
+    if (!animate) {
+      void ind.offsetWidth;
+      ind.style.transition = '';
+    }
+    list.dataset.indicator = 'on';
+  }, []);
+
+  useLayoutEffect(() => {
+    activeRef.current = active;
+    placeIndicator(placedOnce.current);
+    placedOnce.current = true;
+  }, [active, placeIndicator]);
+
+  useEffect(() => {
+    const list = tablistRef.current;
+    if (!list || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(() => placeIndicator(false));
+    ro.observe(list);
+    tabRefs.current.forEach((t) => t && ro.observe(t));
+    return () => ro.disconnect();
+  }, [placeIndicator]);
 
   const select = (i: number, focus: boolean) => {
     setActive(i);
@@ -305,18 +370,61 @@ export default function RDSalesModels() {
   };
 
   return (
-    <div className="rd-sm-region mt-14 sm:mt-20" aria-labelledby={`${uid}-title`} role="region">
+    <div ref={regionRef} className={`rd-sm-region mt-14 sm:mt-20${revealed ? ' rd-in' : ''}`} aria-labelledby={`${uid}-title`} role="region">
       <style>{`
+        /* Hareket dili denemesi — yalnız bu bölüm kapsamında. */
+        .rd-sm-region {
+          --rd-sm-ease: cubic-bezier(0.22, 1, 0.36, 1);
+          --rd-sm-reveal: 600ms; /* ilk giriş: başlık grubu, sekmeler, sunum alanı */
+          --rd-sm-step: 80ms;    /* ilk giriş öğeleri arası gecikme (en fazla 160 ms) */
+          --rd-sm-line: 400ms;   /* altın çizginin açılması */
+          --rd-sm-tab: 220ms;    /* sekme göstergesi (lacivert zemin + beyaz etiketler) */
+          --rd-sm-panel: 200ms;  /* panel içeriği */
+          --rd-sm-btn: 160ms;    /* B2B butonu */
+        }
+        /* 1) İlk giriş — tek sefer. Yalnız html.rd-js varken (boyamadan önce) gizli başlar; sonra .rd-in. */
+        .rd-sm-rv {
+          transition: opacity var(--rd-sm-reveal) var(--rd-sm-ease), transform var(--rd-sm-reveal) var(--rd-sm-ease);
+          transition-delay: calc(var(--rd-sm-i, 0) * var(--rd-sm-step));
+        }
+        /* Mesafeler ana sayfanın ortak değişkenlerinden (home-motion.css); mobilde kısalır. */
+        .rd-js .rd-sm-region:not(.rd-in) .rd-sm-rv { opacity: 0; transform: translateY(var(--hm-body-y, 14px)); }
+        .rd-js .rd-sm-region:not(.rd-in) .rd-sm-head { transform: translateY(var(--hm-head-y, 18px)); }
+        /* 2) Altın çizgi — soldan sağa bir kez açılır. */
+        .rd-sm-line { transform-origin: left center; transition: transform var(--rd-sm-line) var(--rd-sm-ease) 120ms; }
+        .rd-js .rd-sm-region:not(.rd-in) .rd-sm-line { transform: scaleX(0); }
+        /* 3) Sekmeler — gösterge ölçülüp yerleşince seçili sekmenin kendi zemini devreden çıkar. */
+        .rd-sm-tab { transition: background-color var(--rd-sm-tab) var(--rd-sm-ease); }
+        .rd-sm-ind { opacity: 0; transition: clip-path var(--rd-sm-tab) var(--rd-sm-ease); }
+        .rd-sm-tabs[data-indicator] .rd-sm-ind { opacity: 1; }
+        .rd-sm-tabs[data-indicator] .rd-sm-tab[aria-selected="true"] { background-color: transparent; color: #14213F; }
+        @keyframes rd-sm-panel-kf { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+        .rd-sm-panel:not([hidden]) { animation: rd-sm-panel-kf var(--rd-sm-panel) var(--rd-sm-ease) backwards; }
+        /* Galeri görsel değişimi (mevcut davranış). */
         @keyframes rd-sm-fade-kf { from { opacity: 0; } to { opacity: 1; } }
         .rd-sm-fade { animation: rd-sm-fade-kf .22s ease-out both; }
-        @media (prefers-reduced-motion: reduce) { .rd-sm-fade { animation: none; } }
+        /* 4) B2B butonu — yükselme yalnız hover destekli, hassas işaretçili cihazlarda. */
+        .rd-sm-cta {
+          transition: background-color var(--rd-sm-btn) var(--rd-sm-ease), box-shadow var(--rd-sm-btn) var(--rd-sm-ease), transform var(--rd-sm-btn) var(--rd-sm-ease);
+        }
+        @media (hover: hover) and (pointer: fine) {
+          .rd-sm-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 18px -10px rgba(20, 33, 63, 0.55); }
+        }
+        .rd-sm-cta:active { transform: scale(0.99); box-shadow: none; transition-duration: 90ms; }
+        @media (prefers-reduced-motion: reduce) {
+          .rd-js .rd-sm-region:not(.rd-in) .rd-sm-rv { opacity: 1; transform: none; }
+          .rd-js .rd-sm-region:not(.rd-in) .rd-sm-line { transform: none; }
+          .rd-sm-rv, .rd-sm-line, .rd-sm-ind { transition: none; }
+          .rd-sm-panel:not([hidden]), .rd-sm-fade { animation: none; }
+          .rd-sm-cta:hover, .rd-sm-cta:active { transform: none; }
+        }
         /* Klavye odağıyla kaydırmada kontroller sabit navbar'ın (üst) ve sabit analiz CTA'sının (alt) altında kalmasın. */
         .rd-sm-region :is(button, input, a) { scroll-margin-top: 104px; scroll-margin-bottom: 120px; }
       `}</style>
 
-      <div>
+      <div className="rd-sm-rv rd-sm-head">
         <p className="inline-flex items-center gap-2 text-[11.5px] font-bold uppercase tracking-[0.26em] text-[#1B5CD6]">
-          <span aria-hidden="true" className="h-px w-6 bg-[#C9A876]" />
+          <span aria-hidden="true" className="rd-sm-line h-px w-6 bg-[#C9A876]" />
           Örnek Senaryo
         </p>
         <h3 id={`${uid}-title`} className="mt-3 text-[2rem] font-extrabold leading-tight tracking-tight text-[#14213F] sm:text-[2.4rem]">
@@ -329,7 +437,13 @@ export default function RDSalesModels() {
 
       {/* Sekmeler */}
       {/* Mobilde 3 eşit sütun (etiketler sarılabilir, hepsi her zaman görünür); sm+ tek satır pill bar. */}
-      <div role="tablist" aria-label="Satış modeli" className="mt-7 grid grid-cols-3 gap-1 rounded-2xl border border-[#E5E5EC] bg-white p-1.5 sm:inline-flex sm:gap-1.5 sm:rounded-full">
+      <div
+        ref={tablistRef}
+        role="tablist"
+        aria-label="Satış modeli"
+        className="rd-sm-rv rd-sm-tabs relative mt-7 grid grid-cols-3 gap-1 rounded-2xl border border-[#E5E5EC] bg-white p-1.5 sm:inline-flex sm:gap-1.5 sm:rounded-full"
+        style={{ '--rd-sm-i': 1 } as CSSProperties}
+      >
         {MODELS.map((m, i) => {
           const on = i === active;
           return (
@@ -346,7 +460,7 @@ export default function RDSalesModels() {
               tabIndex={on ? 0 : -1}
               onClick={() => select(i, false)}
               onKeyDown={(e) => onTabKey(e, i)}
-              className={`min-h-[48px] rounded-xl px-1.5 text-[13.5px] font-semibold leading-tight transition-colors sm:min-h-[44px] sm:whitespace-nowrap sm:rounded-full sm:px-5 sm:text-[14.5px] ${focusRing} ${
+              className={`rd-sm-tab relative min-h-[48px] rounded-xl px-1.5 text-[13.5px] font-semibold leading-tight sm:min-h-[44px] sm:whitespace-nowrap sm:rounded-full sm:px-5 sm:text-[14.5px] ${focusRing} ${
                 on ? 'bg-[#14213F] text-white' : 'text-[#14213F] hover:bg-[#F4F1EA]'
               }`}
             >
@@ -354,10 +468,29 @@ export default function RDSalesModels() {
             </button>
           );
         })}
+        {/* Gösterge katmanı: sekmelerle aynı yerleşim ve tipografi (etiketler üst üste oturur). */}
+        <div
+          ref={indicatorRef}
+          aria-hidden="true"
+          className="rd-sm-ind pointer-events-none absolute inset-0 grid grid-cols-3 gap-1 bg-[#14213F] p-1.5 sm:flex sm:gap-1.5"
+        >
+          {MODELS.map((m) => (
+            <span
+              key={m.key}
+              className="flex min-h-[48px] items-center justify-center px-1.5 text-center text-[13.5px] font-semibold leading-tight text-white sm:min-h-[44px] sm:whitespace-nowrap sm:px-5 sm:text-[14.5px]"
+            >
+              {m.label}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Ana sunum kartı: ~2/3 konsept arayüz + ~1/3 "Neden böyle?" (mobilde açıklama altta) */}
-      <div ref={cardRef} className="mt-4 scroll-mt-28 overflow-hidden rounded-2xl border border-[#E5E5EC] bg-[#FEFCF9]">
+      <div
+        ref={cardRef}
+        className="rd-sm-rv mt-4 scroll-mt-28 overflow-hidden rounded-2xl border border-[#E5E5EC] bg-[#FEFCF9]"
+        style={{ '--rd-sm-i': 2 } as CSSProperties}
+      >
         {MODELS.map((m, i) => (
           <div
             key={m.key}
@@ -367,11 +500,11 @@ export default function RDSalesModels() {
             hidden={i !== active}
             // Asgari yükseklik grid'in kendisinde: iki sütun da kartın altına kadar uzar (sağ sütun zemini ve
             // ayırıcı çizgi kesintisiz). Yalnız masaüstü; mobilde paneller doğal yükseklikte.
-            className="grid lg:min-h-[560px] lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]"
+            className="rd-sm-panel grid lg:min-h-[560px] lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]"
           >
             {i === active && (
               <>
-                <div className="rd-sm-fade p-5 sm:p-8 lg:flex lg:flex-col lg:justify-center lg:p-10">
+                <div className="p-5 sm:p-8 lg:flex lg:flex-col lg:justify-center lg:p-10">
                   {m.key === 'pazaryeri' && <MarketplacePanel />}
                   {m.key === 'magaza' && <StorePanel />}
                   {m.key === 'b2b' && <B2BPanel />}
@@ -398,7 +531,11 @@ export default function RDSalesModels() {
 
       {/* Karşılaştırma önizlemeleri — tıklanınca ilgili sekmeyi açar. Mobilde (<640px) gösterilmez: üstteki
           sekmeler yeterli; display:none olduğu için düğmeler odak sırasına da girmez. */}
-      <ul className="mt-4 hidden gap-4 sm:grid sm:grid-cols-3" aria-label="Satış modeli önizlemeleri">
+      <ul
+        className="rd-sm-rv mt-4 hidden gap-4 sm:grid sm:grid-cols-3"
+        aria-label="Satış modeli önizlemeleri"
+        style={{ '--rd-sm-i': 2 } as CSSProperties}
+      >
         {MODELS.map((m, i) => {
           const on = i === active;
           return (

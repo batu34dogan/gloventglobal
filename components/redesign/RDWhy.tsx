@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { trackEvent } from '@/lib/analytics';
 
 const diffs = [
@@ -133,7 +133,8 @@ export default function RDWhy({ analyticsLocation = 'home_why' }: { analyticsLoc
           >
             <span aria-hidden className="rd-diff-spotlight" />
             <p className="relative text-[11px] font-bold tracking-[0.28em] text-[#5B8CEE] uppercase">Neden GloventGlobal?</p>
-            <div className="relative mt-6 md:mt-8">
+            {/* data-hm: ana sayfada satır grubu ayrı izlenir (home-motion.css); başka yerde etkisiz. */}
+            <div data-hm="body" style={{ '--hm-i': 1 } as CSSProperties} className="relative mt-6 md:mt-8">
               {diffs.map((d, i) => (
                 <div
                   key={d.is}

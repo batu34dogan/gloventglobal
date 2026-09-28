@@ -13,6 +13,10 @@ import RDGuides from '@/components/redesign/RDGuides';
 import RDWhy from '@/components/redesign/RDWhy';
 import RDFooter from '@/components/redesign/RDFooter';
 import RDAnalysisCTA from '@/components/redesign/RDAnalysisCTA';
+import RDHomeMotion from '@/components/redesign/home/RDHomeMotion';
+import '@/components/redesign/home/home-motion.css';
+import RDHeroScene from '@/components/redesign/home/RDHeroScene';
+import '@/components/redesign/home/hero-scene.css';
 
 export const metadata: Metadata = {
   title: 'GloventGlobal | Global Growth Partner',
@@ -54,16 +58,20 @@ export default function Home() {
     <div className="min-h-screen" style={{fontFamily:'var(--font-geist-sans),system-ui,sans-serif'}}>
       <JsonLd data={organizationJsonLd} />
       <RDNavbar />
-      <main>
-        <RDHero />
-        <RDChannels />
-        <RDServices salesModels={<RDSalesModels />} />
-        <RDSystem />
-        <RDAudiences />
-        <RDCases />
-        <RDGuides />
-        <RDWhy />
+      {/* rd-home: ana sayfaya özel hareket dili (home-motion.css + RDHomeMotion); /redesign'de yok. */}
+      <main className="rd-home">
+        {/* Sahne geçişi: hero tutulur, sonraki bölümler aynı sırayla üzerine yükselen yüzeydir. */}
+        <RDHeroScene hero={<RDHero />}>
+          <RDChannels />
+          <RDServices salesModels={<RDSalesModels />} />
+          <RDSystem />
+          <RDAudiences />
+          <RDCases />
+          <RDGuides />
+          <RDWhy />
+        </RDHeroScene>
       </main>
+      <RDHomeMotion />
       <RDFooter />
       <RDAnalysisCTA />
     </div>

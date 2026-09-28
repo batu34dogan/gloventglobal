@@ -9,9 +9,10 @@ export default function RDChannels() {
       `}</style>
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
         <div className="flex items-center justify-center gap-3">
-          <span aria-hidden className="h-px w-8 bg-[#C9A876]" />
+          {/* data-hm="line": ana sayfada tek seferlik çizgi açılması (home-motion.css); başka yerde etkisiz. */}
+          <span aria-hidden data-hm="line" className="h-px w-8 bg-[#C9A876]" />
           <p className="text-[12px] font-bold tracking-[0.28em] text-[#1B5CD6] uppercase">Global Commerce Ecosystem</p>
-          <span aria-hidden className="h-px w-8 bg-[#C9A876]" />
+          <span aria-hidden data-hm="line" className="h-px w-8 bg-[#C9A876]" />
         </div>
         <div className="relative mt-6">
           {/* Mobil/tablet'te içerik gerçekten taşıp kaydırılabilir olduğunda, kullanıcının bunu fark

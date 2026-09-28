@@ -1,0 +1,60 @@
+/* Ana sayfa sahne geçişi — İstanbul hero'su tutulur, sonraki içerik yüzeyi üzerine yükselir.
+   Yalnız RDHeroScene data-scene="on" koyduğunda etkin (JS var, hareket azaltma kapalı, ekran ≥ 560 px yüksek).
+   Aksi hâlde bu kurallar hiç uygulanmaz ve sayfa normal akıştadır. */
+
+.rd-scene-probe { position: absolute; top: 0; left: 0; width: 0; height: 100svh; pointer-events: none; visibility: hidden; }
+
+.rd-scene[data-scene='on'] {
+  /* Tutma uzunluğu P: mobil kısa ve sade, tablet biraz daha uzun, masaüstünde kapak navbar'a ulaşana dek. */
+  --scene-len: 32svh;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .rd-scene[data-scene='on'] { --scene-len: 38svh; }
+}
+/* Masaüstü: tutma, kapağın üst kenarı navbar'ın alt kenarına ulaştığı anda biter (hero ekrandan uzunsa
+   tutma, alt kenarı ekrana oturduktan sonra başlar; bu yüzden min(hero, ekran)). Kalan hero şeridi yok. */
+@media (min-width: 1024px) {
+  .rd-scene[data-scene='on'] { --scene-len: calc(min(var(--scene-h, 90vh), 100svh) - var(--scene-nav, 76px)); }
+}
+
+/* +P (tutma boşluğu) ve −P (kapak) birbirini götürür: sayfa yüksekliği ve bölüm konumları değişmez.
+   Boşluk ayrı öğe: sticky öğe ebeveyninin içerik kutusuyla sınırlıdır, padding tutma alanı sağlamaz. */
+.rd-scene[data-scene='on'] .rd-scene-spacer { height: var(--scene-len); }
+.rd-scene[data-scene='on'] .rd-scene-stage {
+  position: sticky;
+  /* Hero ekrandan uzunsa alt kenarı ekranın altına gelene dek normal kayar, sonra tutulur (svh: adres
+     çubuğu açılıp kapanınca değişmez). */
+  top: min(0px, calc(100svh - var(--scene-h, 100svh)));
+  z-index: 0;
+}
+.rd-scene[data-scene='on'] .rd-scene-cover {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(-1 * var(--scene-len));
+  background: #FAF9F6;
+  /* Temiz üst sınır: yalnız çok hafif bir ayırıcı gölge. */
+  box-shadow: 0 -1px 0 rgba(20, 33, 63, 0.06), 0 -22px 44px -30px rgba(15, 21, 45, 0.35);
+}
+
+/* Hero metin grubu (yalnız masaüstü, metin görselin yanında ve kapak onun üzerinden geçerken): kaydırmayla
+   doğrudan en fazla 28 px yukarı; solma tutmanın %35'inden sonra başlar, kapak yaklaşmadan kaybolmaz.
+   Geçiş (transition) yok — hareket kaydırmanın gerisinde kalmaz. Mobil/tablette metin görselin üstündedir
+   ve tutma yalnız görsel üzerinde olur; metin normal kayar, erken solmaz. */
+@media (min-width: 1024px) {
+  .rd-scene[data-scene='on'] [data-scene-text] {
+    translate: 0 calc(var(--scene-p, 0) * -28px);
+    opacity: calc(1 - clamp(0, (var(--scene-p, 0) - 0.35) / 0.6, 1));
+  }
+}
+.rd-scene[data-scene='on'] .rd-scene-stage[data-scene-covered] { visibility: hidden; }
+
+/* Kapak yüzeyinin ilk alanındaki giriş efektleri (kanal şeridi çizgileri, "Neler Yapıyoruz?" başlığı)
+   yükselen yüzeyle yarışmasın: sahne etkinken hazır görünür. */
+.rd-home .rd-scene[data-scene='on'] .rd-scene-cover > section:first-child [data-hm],
+.rd-home .rd-scene[data-scene='on'] #hizmetler [data-hm='head'] {
+  opacity: 1 !important;
+  translate: none !important;
+  transform: none !important;
+  transition: none !important;
+}

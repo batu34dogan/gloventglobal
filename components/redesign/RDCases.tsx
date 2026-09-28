@@ -100,7 +100,7 @@ function SelectedWork() {
   };
 
   return (
-    <div className="mt-10 sm:mt-12">
+    <div data-hm="body" className="mt-10 sm:mt-12">
       <div role="tablist" aria-label="Seçili çalışmalar" className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-4">
         {showcases.map((s, i) => {
           const selected = i === active;
@@ -189,7 +189,7 @@ const COUNTRIES = ['Türkiye', 'Çin', 'ABD', 'Kanada', 'Avustralya', 'BAE'];
 
 function InternationalScope() {
   return (
-    <div className="mt-10 border-t border-[#E5E5EC] pt-8 sm:mt-12 sm:pt-10 xl:grid xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] xl:items-center xl:gap-12">
+    <div data-hm="fade" className="mt-10 border-t border-[#E5E5EC] pt-8 sm:mt-12 sm:pt-10 xl:grid xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] xl:items-center xl:gap-12">
       <div>
         <h3 className="text-[1.45rem] leading-tight font-extrabold tracking-tight text-[#14213F] sm:text-[1.7rem]">
           Tek bir rota değil. İşinize uygun ticaret modeli.
@@ -529,7 +529,8 @@ export default function RDCases() {
         @media (prefers-reduced-motion: reduce) { .rd-sw-panel:not([hidden]) { animation: none; } }
       `}</style>
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10">
-        <div className="max-w-[52ch]">
+        {/* data-hm işaretleri yalnız ana sayfada (home-motion.css) etkin. */}
+        <div data-hm="head" className="max-w-[52ch]">
           <p className="text-[11.5px] font-bold tracking-[0.26em] text-[#1B5CD6] uppercase">Seçili çalışmalar</p>
           <h2 className="mt-3 text-[2.2rem] leading-[1.1] font-extrabold tracking-tight text-[#14213F] sm:text-[2.85rem]">Farklı işler. İşe özel kararlar.</h2>
           <p className="mt-4 text-[1.1rem] leading-relaxed text-[#5A5A6A]">
