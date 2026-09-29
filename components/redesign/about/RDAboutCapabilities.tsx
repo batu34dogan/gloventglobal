@@ -20,7 +20,8 @@ export default function RDAboutCapabilities() {
           </Link>
         </div>
 
-        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+        {/* <360px: tek sütun — iki sütunda kart içi ~98px kalıyor ve uzun kelimeler ("entegrasyonlarla") taşıyordu. */}
+        <ul className="mt-10 grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {aboutCapabilities.map((c) => (
             <li key={c.en} className="relative rounded-2xl border border-[#E5E5EC] bg-white p-4 sm:p-6">
               <span aria-hidden="true" className="absolute left-4 right-4 top-0 h-px bg-gradient-to-r from-[#1B5CD6] via-[#C9A876] to-transparent sm:left-6 sm:right-6" />

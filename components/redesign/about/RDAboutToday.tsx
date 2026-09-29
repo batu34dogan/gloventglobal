@@ -49,7 +49,16 @@ export default function RDAboutToday() {
               Aynı Düşünce Yapısı, Farklı İş Modelleri.
             </h2>
           </div>
-          <p className="max-w-[60ch] text-[15.5px] leading-relaxed text-[#4A4A5A] sm:text-[16.5px]">{aboutToday}</p>
+          <div>
+            <p className="max-w-[60ch] text-[15.5px] leading-relaxed text-[#4A4A5A] sm:text-[16.5px]">{aboutToday}</p>
+            {/* Güncel proje anlatımları ana sayfadaki "Seçili çalışmalar" alanında; burada tekrar edilmiyor. */}
+            <Link
+              href="/#hikayeler"
+              className={`mt-4 inline-flex rounded text-[14.5px] font-semibold text-[#1B5CD6] transition-colors hover:text-[#14213F] ${focusRing}`}
+            >
+              Seçili çalışmaları inceleyin →
+            </Link>
+          </div>
         </div>
         {items.length > 0 && (
           <>

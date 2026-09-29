@@ -5,8 +5,12 @@
 //   - components/difference/DifferenceContent.tsx (/farkimiz): prensip açıklamaları.
 // ONAYLI YENİDEN İFADE (Global Growth Partner konumlandırması — "dijital büyüme" ve "ajans değil"
 // dili ana mesaj olarak kullanılmıyor): Hero başlığı/alt metni, "Biz Kimiz?" başlığı, yetkinlik kısa
-// açıklamaları, AI + DATA katmanı cümlesi ve final CTA. Kuruluş yılı, kurucu, ekip ya da sayısal
-// iddia kaynakta olmadığı için hiçbir yerde kullanılmıyor.
+// açıklamaları, AI + DATA katmanı cümlesi ve final CTA.
+// KURUCU / SAHA DENEYİMİ: yalnız kullanıcının doğruladığı bilgiler (kurucu Batuhan Doğan; 7 yıllık
+// e-ticaret deneyimi — kurucunun deneyimidir, şirketin kuruluş yaşı DEĞİLDİR; yurt içi/yurt dışı farklı
+// satış modelleri; Türkiye'den yurt dışına açılım ve Çin'den farklı pazarlara uzanan operasyonlar; ABD,
+// Kanada, Avustralya, BAE bağlamı — ofis/depo/şube değildir). Kuruluş yılı, ekip büyüklüğü, unvan dışı
+// kişisel bilgi veya sayısal başarı iddiası yok.
 
 export const aboutHero = {
   eyebrow: 'HAKKIMIZDA',
@@ -17,15 +21,33 @@ export const aboutHero = {
     'GloventGlobal; strateji, ticaret, teknoloji ve operasyonu birlikte kuran, yöneten ve geliştiren bir Global Growth Partner’dır. Dağınık araçları, kanalları ve süreçleri markanın büyümesini taşıyan tek bir sisteme dönüştürürüz.',
 };
 
-// Birebir kaynak (AboutContent "Neden Kurulduk?").
+// Hikâye: saha deneyimi ana mesajı + "Neden Kurulduk?" kaynağının iki özgün paragrafı (birebir).
+// Kaynağın "Oysa sürdürülebilir büyüme…" paragrafı ve vurgu cümlesi "Biz Kimiz?" gövdesi ile
+// "Ticareti Bir Bütün Olarak Ele Alırız" prensibini tekrar ettiği için burada kullanılmıyor.
 export const aboutStory = {
-  title: 'Neden Kurulduk?',
+  eyebrow: 'Hikâyemiz',
+  title: 'Kararlarımızın arkasında saha deneyimi var.',
+  lead: 'GloventGlobal’ın yaklaşımı, kurucusu Batuhan Doğan’ın 7 yıllık yurt içi ve uluslararası e-ticaret deneyimine dayanır. Bu birikimi markalar için geliştirdiğimiz strateji, altyapı ve operasyon çalışmalarına taşıyoruz.',
   paragraphs: [
     'Birçok işletmenin dijital dünyaya yalnızca web sitesi, reklam veya pazaryeri kurulumu olarak baktığını gördük.',
-    'Oysa sürdürülebilir büyüme; strateji, teknoloji, operasyon, veri ve yapay zeka süreçlerinin birlikte çalışmasıyla oluşur.',
     'GloventGlobal bu nedenle kuruldu: işletmelerin dijitalde büyümesi için dağınık araçları, kanalları ve süreçleri birlikte çalışan bir sisteme dönüştürmek.',
   ],
-  emphasis: 'Çünkü sürdürülebilir büyüme tek bir araçla değil, birlikte çalışan sistemlerle oluşur.',
+};
+
+// Kurucu anlatımı — kurucunun kendi ifadesi (röportaj/alıntı/testimonial biçimi değil).
+export const aboutFounder = {
+  eyebrow: 'Kurucudan',
+  name: 'Batuhan Doğan',
+  role: 'GloventGlobal Kurucusu',
+  paragraphs: [
+    'Bir ürünü satmaya çalışırken fiyatın, sunumun, satış kanalının ve operasyonun birbirinden bağımsız olmadığını sahada gördüm. Bugün bir projeye başlarken önce ürünün kim için anlamlı olduğunu, hangi pazarda nasıl sunulacağını ve arkasındaki işleyişin nasıl kurulacağını değerlendiriyorum.',
+    'GloventGlobal’da bu deneyimi markaya özel kararlarla birleştiriyoruz. Hazır bir çözüm yeterliyse onu kullanıyor, ihtiyaç gerektiriyorsa özel bir sistem geliştiriyoruz. Teknolojiyi, işin gerektirdiği yerde devreye alıyoruz.',
+  ],
+  // Operasyon bağlamı — ülkeler çalışma bağlamıdır; ofis, depo veya şube değildir.
+  operations: {
+    label: 'Operasyon deneyimi',
+    text: 'Türkiye’den yurt dışına açılım ve Çin’den farklı pazarlara uzanan ticaret operasyonlarında çalışıyoruz. Deneyimimiz ABD, Kanada, Avustralya ve Birleşik Arap Emirlikleri’ni kapsıyor.',
+  },
 };
 
 export const aboutWho = {
@@ -55,8 +77,8 @@ export const aboutDataLayer =
 export const aboutPrinciples = [
   {
     n: '01',
-    title: 'Önce İşletmeyi Okuruz',
-    desc: 'Hazır paketlerle başlamayız. Markanın ürünlerini, hedef kitlesini, mevcut dijital yapısını, operasyon kapasitesini ve büyüme potansiyelini analiz ederiz.',
+    title: 'Üründen Başlarız',
+    desc: 'Satış kanalını seçmeden önce ürünü, hedef alıcıyı ve işletmenin kapasitesini birlikte değerlendiririz. Hazır paketlerle başlamayız; mevcut dijital yapıyı ve büyüme potansiyelini de bu değerlendirmeye katarız.',
     source: '/farkimiz',
   },
   {
@@ -67,20 +89,20 @@ export const aboutPrinciples = [
   },
   {
     n: '03',
-    title: 'Sistem Düşünürüz',
-    desc: 'Strateji, teknoloji, içerik, reklam, otomasyon ve operasyon adımlarını birbirinden kopuk işler olarak değil, birlikte çalışan bir büyüme sistemi olarak kurgularız.',
+    title: 'Ticareti Bir Bütün Olarak Ele Alırız',
+    desc: 'Ürün sunumu, fiyatlandırma, dijital altyapı ve operasyon kararlarını birbirinden koparmayız. İçerik, reklam ve otomasyonu da aynı sistemin parçası olarak kurgularız.',
     source: '/hakkimizda',
   },
   {
     n: '04',
-    title: 'Teknolojiyi Amaç Değil, Araç Olarak Kullanırız',
-    desc: 'Shopify, headless commerce, pazaryeri sistemleri, yapay zeka ve otomasyon yapıları bizim için tek başına hedef değil; büyümeyi destekleyen araçlardır.',
+    title: 'Teknolojiyi İhtiyaca Göre Seçeriz',
+    desc: 'Hazır araçları, özel geliştirmeyi ve otomasyonu işin gerektirdiği ölçüde bir araya getiririz. Shopify, headless commerce ve pazaryeri sistemleri bizim için tek başına hedef değil, araçtır.',
     source: '/farkimiz',
   },
   {
     n: '05',
-    title: 'Yapay Zekayı Sürece Entegre Ederiz',
-    desc: 'Yapay zekayı yalnızca içerik üretimi için değil; analiz, görsel konsept, raporlama, operasyon, karar destek ve süreç hızlandırma alanlarında kullanırız.',
+    title: 'Yapay Zekâ, Günlük Çalışma Biçimimizin Bir Parçası',
+    desc: 'Araştırma, içerik ve görsel hazırlama, yazılım geliştirme ve süreç tasarımı çalışmalarımızda yapay zekâdan aktif olarak yararlanıyoruz. Üretilen çıktıları ürünün gerçekleri, marka dili ve işin ihtiyaçlarıyla karşılaştırarak değerlendiriyoruz.',
     source: '/farkimiz',
   },
   {
