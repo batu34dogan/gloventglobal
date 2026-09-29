@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { RDSectionHeader, sectionShell } from './RDServiceDetailPrimitives';
+import Link from 'next/link';
+import { RDSectionHeader, focusRing, sectionShell } from './RDServiceDetailPrimitives';
 import type { ServiceProject } from './serviceDetailAdapter';
 
 // Opsiyonel — yalnızca overview'de onaylı gerçek proje ↔ hizmet eşleşmesi olan 4 hizmette
@@ -29,6 +30,15 @@ export default function RDServiceProof({ project, bg }: { project: ServiceProjec
             <p lang="en" className="text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{project.capability}</p>
             <h3 className="mt-2 text-[20px] font-extrabold text-[#14213F]">{project.brand}</h3>
             <p className="mt-3 text-[14.5px] leading-relaxed text-[#5A5A6A]">{project.proofDesc ?? project.desc}</p>
+            {/* Yalnız ayrıntılı proje sayfası olan markalarda (ASL Çanta, BERD). */}
+            {project.detailHref && (
+              <Link
+                href={project.detailHref}
+                className={`mt-4 inline-flex w-fit rounded text-[15px] font-semibold text-[#1B5CD6] transition-colors hover:text-[#14213F] ${focusRing}`}
+              >
+                Çalışmanın detayları →
+              </Link>
+            )}
           </div>
         </article>
       </div>

@@ -45,10 +45,14 @@ export type ServiceProject = {
   proofEyebrow?: string;
   proofTitle?: string;
   experience?: { label: string; href: string };
+  // Opsiyonel: markanın ayrıntılı proje sayfası (/projeler/[slug]). Yalnız detay sayfası olan markalarda
+  // tanımlı; hizmet sayfasının proje bölümünde "Çalışmanın detayları" bağlantısı olarak gösterilir.
+  detailHref?: string;
 };
 const PROJECT_BY_SERVICE: Record<string, ServiceProject> = {
   shopify: {
     brand: 'ASL Çanta',
+    detailHref: '/projeler/asl-canta',
     capability: 'Shopify · Commerce Infrastructure',
     desc: 'Geniş ürün kataloğu için ürün mimarisinden kullanıcı deneyimine uzanan modern e-ticaret ve dijital operasyon altyapısı.',
     tone: 'linear-gradient(160deg,#EFE9DD 0%,#E6DFD0 100%)',
@@ -66,6 +70,7 @@ const PROJECT_BY_SERVICE: Record<string, ServiceProject> = {
     proofEyebrow: 'Kendi Marka Deneyimimiz',
     proofTitle: 'Bu Alandaki Deneyimimizin Kaynağı.',
     experience: { label: 'Deneyim alanı: Marka oluşturma ve Amazon Avustralya operasyonu', href: '/projeler/berd' },
+    detailHref: '/projeler/berd',
     tone: 'linear-gradient(160deg,#E4E6EA 0%,#D8DBE1 100%)',
     logo: '/redesign/logos/berd.png',
     logoWidth: 1720,
