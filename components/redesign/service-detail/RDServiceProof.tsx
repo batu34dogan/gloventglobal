@@ -8,7 +8,7 @@ export default function RDServiceProof({ project, bg }: { project: ServiceProjec
   return (
     <section aria-labelledby="sd-proof" className={`border-t border-[#E5E5EC] py-14 sm:py-20 ${bg}`}>
       <div className={`${sectionShell} grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16`}>
-        <RDSectionHeader id="sd-proof" eyebrow="Gerçek Uygulama" title="Bu Sistemi Kurduğumuz Bir Marka." />
+        <RDSectionHeader id="sd-proof" eyebrow={project.proofEyebrow ?? 'Gerçek Uygulama'} title={project.proofTitle ?? 'Bu Sistemi Kurduğumuz Bir Marka.'} />
         <article className="grid overflow-hidden rounded-2xl border border-[#E5E5EC] bg-white sm:grid-cols-[0.9fr_1.1fr]">
           <div className="relative aspect-[3/2] sm:aspect-auto sm:min-h-[220px]">
             <div aria-hidden="true" className="absolute inset-0" style={{ background: project.tone }} />
@@ -28,7 +28,7 @@ export default function RDServiceProof({ project, bg }: { project: ServiceProjec
             {/* Capability etiketleri İngilizce — lang="en" olmadan tr büyük harf dönüşümü "DİGİTAL" üretiyor. */}
             <p lang="en" className="text-[11.5px] font-bold uppercase tracking-[0.1em] text-[#1B5CD6]">{project.capability}</p>
             <h3 className="mt-2 text-[20px] font-extrabold text-[#14213F]">{project.brand}</h3>
-            <p className="mt-3 text-[14.5px] leading-relaxed text-[#5A5A6A]">{project.desc}</p>
+            <p className="mt-3 text-[14.5px] leading-relaxed text-[#5A5A6A]">{project.proofDesc ?? project.desc}</p>
           </div>
         </article>
       </div>

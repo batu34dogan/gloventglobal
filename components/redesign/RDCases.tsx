@@ -1,7 +1,9 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useId, useRef, useState, useSyncExternalStore } from 'react';
+import { PROJECT_HREF_BY_SHOWCASE } from '@/components/redesign/projects/projectDetails';
 
 const focusRing = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B5CD6]';
 
@@ -19,8 +21,9 @@ type Project = {
   logoMaxWidthPct: number;
 };
 
-// Seçili çalışmalar — onaylı kopya, birebir. Metrik/sonuç iddiası yok; doğrulanmış proje linki ve
-// projeye ait gerçek ekran görüntüsü olmadığı için panel logo sunumuyla, buton/link olmadan kurulu.
+// Seçili çalışmalar — onaylı kopya, birebir. Metrik/sonuç iddiası yok; projeye ait gerçek ekran
+// görüntüsü olmadığı için panel logo sunumuyla kurulu. Ayrıntılı anlatımı hazır olan markalarda
+// (projectDetails.ts) panele "Çalışmanın detayları" bağlantısı eklenir; diğerlerinde bağlantı yok.
 // Bu markalar aşağıdaki "Diğer çalışmalar" şeridinde tekrar anlatılmaz.
 type Showcase = {
   id: string;
@@ -71,7 +74,8 @@ const showcases: Showcase[] = [
     tone: 'linear-gradient(160deg,#E4E6EA 0%,#D8DBE1 100%)',
     category: 'Amazon Avustralya',
     title: 'Yeni bir pazara girişin arkasındaki operasyon.',
-    desc: 'BERD ile Amazon Avustralya odağındaki çalışmamız, uluslararası ticaret ve pazaryeri operasyonu deneyimimizin örneklerinden biri.',
+    // Kurucunun kendi markası — müşteri projesi olarak anlatılmaz.
+    desc: 'Kurucumuzun oluşturduğu BERD markasıyla Amazon Avustralya’da yeni popülerleşen ürünleri satışa sunduk. Marka oluşturma ve satış operasyonunun tamamını bizzat yürüttük.',
   },
 ];
 
@@ -175,6 +179,14 @@ function SelectedWork() {
                 <span className="mr-2 text-[11px] font-bold tracking-[0.18em] text-[#8A6E43] uppercase">Yaklaşımımız</span>
                 <span className="font-semibold">{s.approach}</span>
               </p>
+            )}
+            {PROJECT_HREF_BY_SHOWCASE[s.id] && (
+              <Link
+                href={PROJECT_HREF_BY_SHOWCASE[s.id]}
+                className={`mt-5 inline-flex w-fit rounded text-[15px] font-semibold text-[#1B5CD6] transition-colors hover:text-[#14213F] ${focusRing}`}
+              >
+                Çalışmanın detayları →
+              </Link>
             )}
           </div>
         </div>

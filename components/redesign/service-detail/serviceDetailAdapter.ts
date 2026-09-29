@@ -38,6 +38,13 @@ export type ServiceProject = {
   logoWidth: number;
   logoHeight: number;
   logoMaxWidthPct: number;
+  // Opsiyonel, markaya özel çerçeve (şu an yalnız BERD): kurucunun kendi markası olduğu için müşteri
+  // hizmeti izlenimi veren "Uygulanan sistem" satırı ve kanıt bölümü başlığı bunlarla değiştirilir.
+  // Tanımlanmadığında diğer markalarda mevcut görünüm aynen kalır.
+  proofDesc?: string;
+  proofEyebrow?: string;
+  proofTitle?: string;
+  experience?: { label: string; href: string };
 };
 const PROJECT_BY_SERVICE: Record<string, ServiceProject> = {
   shopify: {
@@ -51,9 +58,14 @@ const PROJECT_BY_SERVICE: Record<string, ServiceProject> = {
     logoMaxWidthPct: 46,
   },
   amazon: {
+    // Kurucunun kendi markası — müşteri/ihracat projesi olarak anlatılmaz.
     brand: 'BERD',
-    capability: 'Amazon · Market Entry',
-    desc: 'Türkiye’den global pazarlara açılma sürecinde pazaryeri, satış ve büyüme yapısının oluşturulması.',
+    capability: 'Founder’s Brand · Amazon Australia',
+    desc: 'Kurucumuzun kendi markasıyla Amazon Avustralya’da yürüttüğü uçtan uca ticaret deneyimi.',
+    proofDesc: 'BERD, kurucumuz Batuhan Doğan’ın oluşturduğu ve Amazon Avustralya’da kendi markası altında yeni popülerleşen ürünler sattığı girişimdir. Marka oluşturma ve satış operasyonunun tamamını kendisi yürütmüştür.',
+    proofEyebrow: 'Kendi Marka Deneyimimiz',
+    proofTitle: 'Bu Alandaki Deneyimimizin Kaynağı.',
+    experience: { label: 'Deneyim alanı: Marka oluşturma ve Amazon Avustralya operasyonu', href: '/projeler/berd' },
     tone: 'linear-gradient(160deg,#E4E6EA 0%,#D8DBE1 100%)',
     logo: '/redesign/logos/berd.png',
     logoWidth: 1720,

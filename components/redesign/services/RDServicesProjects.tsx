@@ -20,9 +20,11 @@ const projects = [
     system: { title: 'Shopify Commerce Sistemi', slug: 'shopify' },
   },
   {
+    // Kurucunun kendi markası — müşteri/ihracat projesi olarak anlatılmaz; "Uygulanan sistem" yerine deneyim alanı.
     brand: 'BERD',
-    capability: 'Amazon · Market Entry',
-    desc: 'Türkiye’den global pazarlara açılma sürecinde pazaryeri, satış ve büyüme yapısının oluşturulması.',
+    capability: 'Founder’s Brand · Amazon Australia',
+    desc: 'Kurucumuzun kendi markasıyla Amazon Avustralya’da yürüttüğü uçtan uca ticaret deneyimi.',
+    experience: { label: 'Deneyim alanı: Marka oluşturma ve Amazon Avustralya operasyonu', href: '/projeler/berd' },
     tone: 'linear-gradient(160deg,#E4E6EA 0%,#D8DBE1 100%)',
     logo: '/redesign/logos/berd.png',
     logoWidth: 1720,
@@ -85,10 +87,10 @@ function ProjectCard({
       <h3 className="mt-1.5 text-[18px] font-bold text-[#14213F]">{p.brand}</h3>
       <p className="mt-2 max-w-[52ch] text-[13.5px] leading-relaxed text-[#6A6A7A]">{p.desc}</p>
       <Link
-        href={`/hizmetler/${p.system.slug}`}
+        href={'experience' in p && p.experience ? p.experience.href : `/hizmetler/${p.system.slug}`}
         className="relative mt-4 inline-flex items-center gap-1 border-t border-[#E5E5EC] pt-4 text-[12.5px] font-semibold text-[#84683E] transition-colors hover:text-[#1B5CD6]"
       >
-        Uygulanan sistem: {p.system.title} →
+        {'experience' in p && p.experience ? `${p.experience.label} →` : `Uygulanan sistem: ${p.system.title} →`}
       </Link>
     </article>
   );

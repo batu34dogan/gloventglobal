@@ -30,10 +30,10 @@ export default function RDAboutToday() {
         <h3 className="mt-2 text-[19px] font-extrabold text-[#14213F]">{it.project.brand}</h3>
         <p className="mt-2.5 text-[14px] leading-relaxed text-[#5A5A6A]">{it.project.desc}</p>
         <Link
-          href={`/hizmetler/${it.slug}`}
+          href={it.project.experience?.href ?? `/hizmetler/${it.slug}`}
           className={`mt-auto inline-flex rounded border-t border-[#EDEDF1] pt-4 text-[13.5px] font-semibold text-[#8A6E43] transition-colors hover:text-[#1B5CD6] ${focusRing}`}
         >
-          Uygulanan sistem: {it.serviceName} →
+          {it.project.experience ? `${it.project.experience.label} →` : `Uygulanan sistem: ${it.serviceName} →`}
         </Link>
       </div>
     </article>

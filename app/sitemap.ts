@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { guides } from "@/components/guides/guidesData";
+import { PROJECT_SLUGS } from "@/components/redesign/projects/projectDetails";
 
 const baseUrl = "https://gloventglobal.com";
 
@@ -48,5 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...servicePages, ...guidePages];
+  // Proje detay sayfaları (/projeler/[slug]) — slug'lar projectDetails.ts'ten.
+  const projectPages: MetadataRoute.Sitemap = PROJECT_SLUGS.map((slug) => ({
+    url: `${baseUrl}/projeler/${slug}`,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...servicePages, ...guidePages, ...projectPages];
 }
