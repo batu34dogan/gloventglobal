@@ -6,6 +6,7 @@ import RDServiceAudience from './RDServiceAudience';
 import RDServiceProblem from './RDServiceProblem';
 import RDServiceApproach from './RDServiceApproach';
 import RDServiceScenario from './RDServiceScenario';
+import RDAutomationDemo from './RDAutomationDemo';
 import RDServiceModules from './RDServiceModules';
 import RDServiceScope from './RDServiceScope';
 import RDServiceProcess from './RDServiceProcess';
@@ -38,6 +39,10 @@ export default function RDServiceDetailPage({ view, analyticsPrefix = '' }: { vi
   if (data.scenario) {
     const scenario = data.scenario;
     pushLight((bg) => <RDServiceScenario key="scenario" scenario={scenario} bg={bg} />);
+  }
+  // Opsiyonel etkileşimli örnek iş akışı — yalnız eşleşen hizmette (Otomasyon & n8n).
+  if (view.demo === 'b2b-intake') {
+    pushLight((bg) => <RDAutomationDemo key="demo" bg={bg} />);
   }
   if (data.useCases) {
     const block = data.useCases;

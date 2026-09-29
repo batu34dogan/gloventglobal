@@ -82,6 +82,12 @@ const PROJECT_BY_SERVICE: Record<string, ServiceProject> = {
   },
 };
 
+// Etkileşimli örnek iş akışı yalnız bu hizmete bağlı (RDAutomationDemo). Eşleşmesi olmayan hizmetlerde
+// bölüm hiç render edilmez.
+const DEMO_BY_SERVICE: Record<string, 'b2b-intake'> = {
+  'otomasyon-n8n': 'b2b-intake',
+};
+
 // İlgili hizmetler — küçük, açık, elle yazılmış ilişki haritası. Her ilişki, kaynak hizmetin kendi
 // içeriğinde (serviceDetailsData: problem/approach/deliverables/finalCta.supportText) doğrudan
 // geçen bir ihtiyaca dayanıyor (örn. Amazon → reklam kurgusu, Shopify → teklif/otomasyon akışı).
@@ -135,6 +141,7 @@ export function getServiceDetailView(slug: string) {
     name: meta.name,
     scopeKeywords,
     project: PROJECT_BY_SERVICE[slug] ?? null,
+    demo: DEMO_BY_SERVICE[slug] ?? null,
     relatedGuides,
     relatedServices,
   };
