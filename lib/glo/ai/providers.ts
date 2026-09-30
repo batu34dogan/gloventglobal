@@ -4,11 +4,30 @@
 
 export type ProviderUsage = { input?: number; output?: number; thought?: number; total?: number };
 export type ProviderResult = { text: string; usage?: ProviderUsage };
-export type ProviderRequest = { system: string; input: string; schema: object; maxOutputTokens: number; signal: AbortSignal };
+export type ProviderRequest = {
+  system: string;
+  input: string;
+  schema: object;
+  maxOutputTokens: number;
+  signal: AbortSignal;
+  /** Yanıt başlıkları geldiğinde (ms) — zaman aşımında "başlık hiç gelmedi" ile "gövde okunurken kesildi"yi ayırmak için. */
+  onHeaders?: (ms: number) => void;
+};
 export type GloProvider = { name: 'gemini' | 'mock'; model: string; generate: (req: ProviderRequest) => Promise<ProviderResult> };
 
 /** Sağlayıcı hatasının içeriksiz özeti (HTTP kodu, Google hata durumu, kota kimliği, Retry-After) — yerel tanı. */
-export type ProviderErrorDetail = { httpStatus?: number; googleStatus?: string; quotaIds?: string[]; retryAfter?: string };
+export type ProviderErrorDetail = {
+  httpStatus?: number;
+  googleStatus?: string;
+  quotaIds?: string[];
+  retryAfter?: string;
+  /** Sağlayıcının hata mesajı (kısaltılmış; anahtar benzeri diziler maskelenir) — yalnız yerel tanı. */
+  providerMessage?: string;
+  /** Yanıt başlığındaki istek kimliği (varsa). */
+  requestId?: string;
+  /** Zaman aşımında: yanıt başlıklarının geldiği an (ms); yoksa başlık hiç gelmedi. */
+  headersMs?: number;
+};
 
 export class ProviderError extends Error {
   kind: 'quota' | 'upstream' | 'invalid_output';
@@ -23,7 +42,17 @@ export class ProviderError extends Error {
 }
 
 async function errorDetail(res: Response): Promise<ProviderErrorDetail> {
-  const body = (await res.json().catch(() => null)) as { error?: { status?: unknown; details?: unknown } } | null;
+  const body = (await res.json().catch(() => null)) as { error?: { status?: unknown; details?: unknown; message?: unknown } } | null;
+  const message =
+    typeof body?.error?.message === 'string'
+      ? body.error.message
+          .replace(/AIza[\w-]{10,}/g, '[anahtar]')
+          .replace(/[A-Za-z0-9_-]{32,}/g, '[gizli]')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .slice(0, 200)
+      : undefined;
+  const requestId = ['x-request-id', 'x-goog-request-id', 'x-cloud-trace-context'].map((h) => res.headers.get(h)).find(Boolean) ?? undefined;
   const quotaIds = Array.isArray(body?.error?.details)
     ? body.error.details.flatMap((d: { violations?: { quotaId?: unknown }[] }) =>
         (d?.violations ?? []).map((v) => v?.quotaId).filter((q): q is string => typeof q === 'string'),
@@ -34,6 +63,8 @@ async function errorDetail(res: Response): Promise<ProviderErrorDetail> {
     googleStatus: typeof body?.error?.status === 'string' ? body.error.status : undefined,
     quotaIds: quotaIds.length ? quotaIds.slice(0, 3) : undefined,
     retryAfter: res.headers.get('retry-after') ?? undefined,
+    providerMessage: message || undefined,
+    requestId: requestId?.slice(0, 80),
   };
 }
 
@@ -44,7 +75,8 @@ export function geminiProvider(apiKey: string, model: string): GloProvider {
   return {
     name: 'gemini',
     model,
-    async generate({ system, input, schema, maxOutputTokens, signal }) {
+    async generate({ system, input, schema, maxOutputTokens, signal, onHeaders }) {
+      const t0 = Date.now();
       const res = await fetch(GEMINI_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
@@ -58,6 +90,7 @@ export function geminiProvider(apiKey: string, model: string): GloProvider {
         }),
         signal,
       });
+      onHeaders?.(Date.now() - t0);
       if (res.status === 429) throw new ProviderError('quota', 429, await errorDetail(res));
       if (!res.ok) throw new ProviderError('upstream', res.status, await errorDetail(res));
       const data = (await res.json().catch(() => null)) as Record<string, unknown> | null;

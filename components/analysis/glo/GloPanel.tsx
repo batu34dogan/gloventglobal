@@ -5,14 +5,16 @@ import Image from 'next/image';
 import './glo-avatar.css';
 import { focusRing } from '@/components/redesign/service-detail/RDServiceDetailPrimitives';
 import { parseAnswers, type Answers, type QuestionId } from '@/lib/analysis/questions';
-import { GLO_WELCOME, type GloField, type GloMessage, type GloState } from '@/lib/glo/state';
+import { GLO_WELCOME, OTHER_CHANNEL_LIMIT, type GloField, type GloMessage, type GloState } from '@/lib/glo/state';
 import {
   FIELD_LABEL,
   MESSAGE_LIMIT,
   NOTES_LIMIT,
+  PRODUCT_LIMIT,
   composeNotes,
   contextValue,
   formatAnswer,
+  channelsText,
   notesExtra,
   promptFor,
   respond,
@@ -28,10 +30,10 @@ import {
 import { checkAiResult } from '@/lib/glo/ai/schema';
 import type { GloAiMode, GloSurface } from '@/lib/glo/flag';
 
-// Glo etkileşim prototipi paneli (Aşama A) + yerel AI denemesi (Aşama B1, aiMode !== 'off'). Storage veya
-// analitik YOK; tüm durum AnalysisFlow'daki bellek state'inde. AI modunda yalnızca serbest metin
-// /api/glo/turn'e gider (seçenek düğmeleri model çağırmaz); aynı anda tek istek, panel kapanınca iptal. Yalnızca GLO_PROTOTYPE izni + ?glo=1 ile AnalysisFlow tarafından
-// lazy yüklenir. Geçmiş (log) ile güncel soru ayrıdır: yeni soru her zaman altta görünür, log yalnızca
+// Glo sohbet paneli — canlı erken erişimde ve yerel prototipte AnalysisFlow tarafından lazy yüklenir. Storage
+// YOK; tüm durum AnalysisFlow'daki bellek state'inde. AI kapalıyken (aiMode 'off') yalnız sabit seçenekler, serbest
+// metin alanı yok. AI modunda yalnızca serbest metin /api/glo/turn'e gider (seçenek düğmeleri model çağırmaz);
+// aynı anda tek istek, panel kapanınca iptal. Geçmiş (log) ile güncel soru ayrıdır: yeni soru her zaman altta görünür, log yalnızca
 // kullanıcı en alttaysa kaydırılır.
 
 const chipBase = `inline-flex min-h-[44px] items-center gap-2 rounded-full border px-4 py-2 text-left text-[14.5px] font-medium leading-snug text-[#14213F] motion-safe:transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${focusRing}`;
@@ -63,15 +65,28 @@ export default function GloPanel({
   glo: GloState;
   headingLevel: 'h2' | 'h3';
   onChange: (next: { answers: Answers; glo: GloState }) => void;
-  onSwitchToForm: () => void;
+  /** Forma geçiş; Glo bağlamı (composeNotes) formun not alanına taşınır. */
+  onSwitchToForm: (notes: string) => void;
   onComplete: (notes: string) => void;
 }) {
   const uid = useId().replace(/:/g, '');
   const id = (n: string) => `glo-${uid}-${n}`;
   const prompt = promptFor(answers, glo);
   const messages = glo.messages;
+  // AI kapalıyken serbest metin alanı gösterilmez (kural tabanlı eşleşme AI gibi sunulmaz); sohbet seçeneklerle
+  // ilerler. Yazı bekleyen yerde kısa açıklama gösterilir.
+  const freeText = aiMode !== 'off';
+  const hint = !freeText && prompt.step === 'target' ? `${OPTIONS_ONLY_NOTE} Bunu mevcut satış kanalı olarak kaydetmem.` : prompt.hint;
 
   const [text, setText] = useState('');
+  const chatInput = freeText && prompt.step !== 'otherChannel';
+  const shortInput =
+    prompt.step === 'otherChannel'
+      ? ({ type: 'otherChannel', label: 'Kanal adı', limit: OTHER_CHANNEL_LIMIT } as const)
+      : !freeText && prompt.step === 'product'
+        ? ({ type: 'product', label: 'Ürün veya hizmetiniz', limit: PRODUCT_LIMIT } as const)
+        : null;
+  const [productText, setProductText] = useState('');
   // Avatarın açılış hareketi panel her açıldığında bir kez oynar; bitince (veya AI beklemesi başlayınca) kapanır.
   const [greeted, setGreeted] = useState(false);
   // Özetteki "Tüm cevaplar" listesi, bir cevap düzenlenip özete dönülünce açık kalır.
@@ -205,7 +220,7 @@ export default function GloPanel({
   const formButton = (extra: string) => (
     <button
       type="button"
-      onClick={onSwitchToForm}
+      onClick={() => onSwitchToForm(composeNotes(glo))}
       className={`items-center justify-center rounded-full border border-[#D6D6DC] bg-white px-5 py-2.5 text-[14px] font-semibold text-[#14213F] motion-safe:transition-colors hover:border-[#1B5CD6] hover:text-[#1B5CD6] ${focusRing} ${extra}`}
     >
       Form ile devam et
@@ -252,7 +267,7 @@ export default function GloPanel({
           {twoCol && formButton('mt-4 hidden xl:inline-flex')}
         </div>
         {started && (
-          <button type="button" onClick={onSwitchToForm} className={`${linkBtn} shrink-0 whitespace-nowrap text-[13.5px]`}>
+          <button type="button" onClick={() => onSwitchToForm(composeNotes(glo))} className={`${linkBtn} shrink-0 whitespace-nowrap text-[13.5px]`}>
             Form ile devam et
           </button>
         )}
@@ -382,6 +397,7 @@ export default function GloPanel({
             onChange={onChange}
             onComplete={onComplete}
             face={<GloFace eager />}
+            surface={surface}
           />
         ) : (
           <>
@@ -395,9 +411,9 @@ export default function GloPanel({
                   <p id={id('q')} className="text-[15.5px] font-bold leading-snug text-[#14213F]">
                     {prompt.text}
                   </p>
-                  {prompt.hint && (
+                  {hint && (
                     <p id={id('hint')} className="mt-1 text-[13px] leading-relaxed text-[#5A5A6A]">
-                      {prompt.hint}
+                      {hint}
                     </p>
                   )}
                 </div>
@@ -407,28 +423,55 @@ export default function GloPanel({
                 <p id={id('q')} className="text-[1.08rem] font-bold leading-snug text-[#14213F]">
                   {prompt.text}
                 </p>
-                {prompt.hint && (
+                {hint && (
                   <p id={id('hint')} className="mt-1.5 text-[13.5px] leading-relaxed text-[#5A5A6A]">
-                    {prompt.hint}
+                    {hint}
                   </p>
                 )}
               </>
             )}
-            <GloOptions
-              key={`${prompt.step}-${glo.nextId}`}
-              prompt={prompt}
-              labelId={id('q')}
-              hintId={prompt.hint ? id('hint') : undefined}
-              onPick={(value, label) => apply({ type: 'choice', value, label }, true)}
-              onMulti={(values) => apply({ type: 'multi', values }, true)}
-              disabled={busy}
-            />
-
-            <form onSubmit={send} className="mt-4">
-              <label htmlFor={id('input')} className="block px-1 text-[13px] font-semibold text-[#4A4A5A]">
-                Ya da kendi cümlelerinizle yazın
+            {shortInput && (
+              // Kısa metin (AI kapalıyken ürün sorusu; her modda "Diğer" kanal adı): olduğu gibi saklanır — AI'a
+              // gitmez, sınıflandırılmaz, hiçbir kanala eşlenmez, puana katılmaz. Genel serbest sohbet girişi değildir.
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const t = productText.trim();
+                  if (!t) return;
+                  apply({ type: shortInput.type, text: t }, true);
+                  setProductText('');
+                }}
+                className="mt-3"
+              >
+                <label htmlFor={id('product')} className="sr-only">
+                  {shortInput.label}
+                </label>
+                <div className="flex items-center gap-2">
+                  <input
+                    id={id('product')}
+                    type="text"
+                    enterKeyHint="done"
+                    autoComplete="off"
+                    maxLength={shortInput.limit}
+                    value={productText}
+                    onChange={(e) => setProductText(e.target.value)}
+                    aria-describedby={hint ? id('hint') : undefined}
+                    placeholder={shortInput.label}
+                    className="block min-w-0 flex-1 rounded-full border border-[#D6D6DC] bg-white px-4 py-3 text-[16px] text-[#14213F] outline-none motion-safe:transition-colors placeholder:text-[#8A8A96] hover:border-[#B8B8C2] focus:border-[#1B5CD6] focus:ring-4 focus:ring-[#1B5CD6]/15"
+                  />
+                  <button type="submit" disabled={!productText.trim()} className={`${primaryBtn} shrink-0 px-5`}>
+                    Kaydet
+                  </button>
+                </div>
+              </form>
+            )}
+            {/* AI açıkken yazı alanı birincildir (sorunun hemen altında); seçenekler kısa yardımcı olarak altta. */}
+            {chatInput && (
+            <form onSubmit={send} className="mt-3">
+              <label htmlFor={id('input')} className="sr-only">
+                Glo’ya yazın
               </label>
-              <div className="mt-1.5 flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <input
                   id={id('input')}
                   type="text"
@@ -438,7 +481,7 @@ export default function GloPanel({
                   onChange={(e) => setText(e.target.value)}
                   readOnly={busy}
                   aria-busy={busy}
-                  placeholder="Mesajınız"
+                  placeholder={prompt.step === 'intro' ? 'Örn. Çanta satıyorum, Trendyol’dayım…' : 'Mesajınız'}
                   aria-invalid={over}
                   aria-describedby={text.length > MESSAGE_LIMIT - 100 ? id('count') : undefined}
                   className={`block min-w-0 flex-1 rounded-full border bg-white px-4 py-3 text-[16px] text-[#14213F] outline-none motion-safe:transition-colors placeholder:text-[#8A8A96] focus:border-[#1B5CD6] focus:ring-4 focus:ring-[#1B5CD6]/15 ${
@@ -460,6 +503,17 @@ export default function GloPanel({
                 </p>
               )}
             </form>
+            )}
+            {chatInput && <p className="mt-4 px-1 text-[13px] font-semibold text-[#5A5A6A]">Ya da kısaca seçin</p>}
+            <GloOptions
+              key={`${prompt.step}-${glo.nextId}`}
+              prompt={prompt}
+              labelId={id('q')}
+              hintId={hint ? id('hint') : undefined}
+              onPick={(value, label) => apply({ type: 'choice', value, label }, true)}
+              onMulti={(values) => apply({ type: 'multi', values }, true)}
+              disabled={busy}
+            />
           </>
         )}
       </div>
@@ -550,6 +604,8 @@ function GloOptions({
 }
 
 const VISIBLE_OPTIONS = 4;
+/** AI kapalıyken yazı beklenen yerde gösterilen kısa açıklama. */
+const OPTIONS_ONLY_NOTE = 'Şimdilik seçeneklerle ilerleyebilirsiniz.';
 
 
 const ALL_FIELDS: GloField[] = ['start', 'product', 'channels', 'target', 'goal', 'businessType', 'problem', 'infraLevel', 'salesVolume', 'budget'];
@@ -565,8 +621,10 @@ function GloSummary({
   onChange,
   onComplete,
   face,
+  surface,
 }: {
   face: React.ReactNode;
+  surface: GloSurface;
   answers: Answers;
   glo: GloState;
   prompt: Prompt;
@@ -585,7 +643,8 @@ function GloSummary({
   const over = full.length > NOTES_LIMIT;
   const complete = parseAnswers(answers) !== null;
   const rows = ALL_FIELDS.filter((f) => f !== 'target' || showsTarget(answers, glo));
-  const fieldValue = (f: GloField) => (f === 'start' || f === 'product' || f === 'target' ? contextValue(f, glo) : formatAnswer(answers, f as QuestionId));
+  const fieldValue = (f: GloField) =>
+    f === 'start' || f === 'product' || f === 'target' ? contextValue(f, glo) : f === 'channels' ? channelsText(answers, glo) : formatAnswer(answers, f as QuestionId);
 
   return (
     <div>
@@ -646,7 +705,7 @@ function GloSummary({
       </div>
 
       <p className="mt-5 text-[12.5px] leading-relaxed text-[#5A5A6A]">
-        Etkileşim prototipi · AI bağlı değil. Sonraki adımdaki değerlendirme, mevcut analiz formunun kurallarıyla hesaplanır.
+        {surface === 'live' ? '' : 'Etkileşim prototipi · AI bağlı değil. '}Sonraki adımdaki değerlendirme, mevcut analiz formunun kurallarıyla hesaplanır.
       </p>
       {!complete && (
         <p role="alert" className="mt-3 text-[13.5px] font-medium text-[#B42318]">
@@ -654,7 +713,7 @@ function GloSummary({
         </p>
       )}
       <button type="button" disabled={!complete || over} onClick={() => onComplete(full)} className={`mt-4 w-full sm:w-auto ${primaryBtn}`}>
-        Ön değerlendirmeyi gör
+        Doğru, ön değerlendirmeyi gör
       </button>
     </div>
   );

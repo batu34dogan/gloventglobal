@@ -14,6 +14,12 @@ import type { GloAiResult, GloTurnRequest } from './ai/schema';
 import {
   NO_SALES_CHANNEL,
   NO_SALES_VOLUME,
+  OTHER_CHANNEL,
+  OTHER_CHANNEL_LIMIT,
+  OTHER_CHANNEL_NOTE,
+  otherCurrentNames,
+  upsertNoteLine,
+  withProductNote,
   type GloField,
   type GloMessage,
   type GloStart,
@@ -67,7 +73,10 @@ const REST: SingleId[] = ['businessType', 'problem', 'infraLevel', 'salesVolume'
 // ---------------------------------------------------------------------------
 // Adım seçimi
 // ---------------------------------------------------------------------------
-export type StepKey = GloField | 'suggestion' | 'summary';
+export type StepKey = GloField | 'intro' | 'otherChannel' | 'suggestion' | 'summary';
+
+/** AI açıkken açılış sorusu (tek mesajda birden fazla bilgi verilebilir). */
+export const AI_OPENING = 'Ne satıyorsunuz, şu an nerede satış yapıyorsunuz ve neyi geliştirmek istiyorsunuz? Kısaca anlatın, birlikte bakalım.';
 
 const arr = (v: Answers[QuestionId]) => (Array.isArray(v) ? v : []);
 export const hasAnswer = (a: Answers, id: QuestionId) => {
@@ -87,9 +96,12 @@ function isFilled(field: GloField, a: Answers, g: GloState) {
 export function nextStep(a: Answers, g: GloState): StepKey {
   if (g.suggestions.length > 0) return 'suggestion';
   if (g.editing) return g.editing;
+  if (g.intro) return 'intro';
   if (!g.start && !hasAnswer(a, 'channels')) return 'start';
   if (g.product === undefined && !g.productSkipped) return 'product';
   if (!hasAnswer(a, 'channels')) return 'channels';
+  // "Diğer" seçildiyse (ve AI adını almadıysa) kısa kanal adı bir kez sorulur.
+  if (arr(a.channels).includes(OTHER_CHANNEL) && !otherCurrentNames(g) && !g.otherChannelSkipped) return 'otherChannel';
   if (!hasAnswer(a, 'goal')) return 'goal';
   if (needsTarget(a, g) && !targetKnown(g)) return 'target';
   for (const id of REST) if (!hasAnswer(a, id)) return id;
@@ -141,13 +153,16 @@ export function promptFor(a: Answers, g: GloState): Prompt {
           ],
         };
       }
+      // AI'nın doğrulanmış doğal sorusu varsa o; birden çok seçenekte "hangisi", tek seçenekte onay şablonu.
       return {
         ...base,
         kind: 'single',
-        text: `${FIELD_LABEL[s.field]} için bunu mu kastettiniz?`,
-        options: [...opts(s.options), { label: 'Hayır, tüm seçenekleri göster', value: NO }],
+        text: s.question ?? (s.options.length > 1 ? `${FIELD_LABEL[s.field]} için hangisi daha yakın?` : `${FIELD_LABEL[s.field]} için bunu mu kastettiniz?`),
+        options: [...opts(s.options), { label: s.options.length > 1 ? 'Başka bir durum' : 'Hayır, tüm seçenekleri göster', value: NO }],
       };
     }
+    case 'intro':
+      return { ...base, kind: 'single', text: AI_OPENING, options: START_OPTIONS.map((o) => ({ label: o.label, value: o.value })) };
     case 'start':
       return { ...base, kind: 'single', text: 'Nereden başlıyoruz?', options: START_OPTIONS.map((o) => ({ label: o.label, value: o.value })) };
     case 'product':
@@ -179,8 +194,16 @@ export function promptFor(a: Answers, g: GloState): Prompt {
         ...base,
         kind: 'multi',
         text: 'Şu anda hangi kanallarda satış yapıyorsunuz?',
-        hint: 'Birden fazla seçebilirsiniz. Yalnızca bugün satış yaptığınız kanalları işaretleyin; hedefleri ayrıca not ederim.',
+        hint: 'Birden fazla seçebilirsiniz. Yalnızca bugün satış yaptığınız kanalları işaretleyin; listede yoksa “Diğer”i seçin.',
         options: Q.channels.options.map((o) => ({ label: o, value: o, exclusive: o === NO_SALES_CHANNEL })),
+      };
+    case 'otherChannel':
+      return {
+        ...base,
+        kind: 'single',
+        text: 'Listede olmayan hangi kanalda satış yapıyorsunuz?',
+        hint: 'Kısa bir ad yeterli; örneğin Trendyol ya da Hepsiburada.',
+        options: [{ label: 'Şimdilik geçelim', value: SKIP }],
       };
     case 'goal':
       return { ...base, kind: 'single', text: 'Önümüzdeki dönemde önceliğiniz ne?', options: opts(Q.goal.options) };
@@ -209,7 +232,7 @@ export function promptFor(a: Answers, g: GloState): Prompt {
       return {
         step,
         kind: 'summary',
-        text: 'Ön değerlendirme için yeterli bilgi var. Özeti kontrol edip gerekirse düzenleyebilirsiniz.',
+        text: 'Sizi doğru anladıysam durum aşağıdaki gibi. Gerekirse düzenleyin; doğruysa ön değerlendirmeye geçelim.',
         options: [],
         text_input: false,
       };
@@ -440,7 +463,7 @@ export function extract(text: string, step: StepKey): Extract {
   }
 
   // Aktif sorunun seçeneğini birebir yazdıysa (ör. "Henüz bütçe belirlemedik") kesin kabul.
-  if (step !== 'suggestion' && step !== 'summary' && step !== 'start' && step !== 'product' && step !== 'target' && step !== 'channels') {
+  if (step !== 'suggestion' && step !== 'summary' && step !== 'intro' && step !== 'otherChannel' && step !== 'start' && step !== 'product' && step !== 'target' && step !== 'channels') {
     const literal = Q[step].options.filter((o) => t.includes(norm(o)));
     if (literal.length === 1) add(step, literal, 'strong');
   }
@@ -474,7 +497,14 @@ export type GloInput =
   | { type: 'choice'; value: string; label: string }
   | { type: 'multi'; values: string[] }
   | { type: 'text'; text: string }
+  /** Ürün/hizmet sorusunun kısa metni (AI kapalı): olduğu gibi saklanır — AI'a gitmez, sınıflandırılmaz, puana katılmaz. */
+  | { type: 'product'; text: string }
+  /** "Diğer" kanalın kısa adı: olduğu gibi saklanır — AI'a gitmez, hiçbir kanala eşlenmez, puana katılmaz. */
+  | { type: 'otherChannel'; text: string }
   | { type: 'edit'; field: GloField };
+
+/** Ürün/hizmet kısa metin sınırı. */
+export const PRODUCT_LIMIT = 120;
 
 function reconcile(a: Answers, g: GloState, notes: string[]) {
   const ch = arr(a.channels);
@@ -575,8 +605,9 @@ export function respond(a0: Answers, g0: GloState, input: GloInput): { answers: 
         }
         recorded.push(s.field);
       }
-    } else if (step === 'start') {
+    } else if (step === 'start' || step === 'intro') {
       g.start = v as GloStart;
+      g.intro = false;
       recorded.push('start');
     } else if (step === 'product') {
       g.productSkipped = true;
@@ -592,14 +623,38 @@ export function respond(a0: Answers, g0: GloState, input: GloInput): { answers: 
       } else if (v === CH_NEW_SOME) {
         g.channelsExpanded = true;
       }
+    } else if (step === 'otherChannel') {
+      g.otherChannelSkipped = true; // "Diğer" kalır; adı belirtilmedi
+      recorded.push('channels');
     } else if (step !== 'summary') {
       a[step] = v;
       if (step === 'salesVolume') g.inferredVolume = false;
       recorded.push(step);
     }
     push({ from: 'user', text: input.label, fields: recorded.length ? [...recorded] : undefined });
+  } else if (input.type === 'otherChannel') {
+    const name = input.text.replace(/[<>\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, OTHER_CHANNEL_LIMIT);
+    if (step === 'otherChannel' && name) {
+      g.otherChannels = [...(g.otherChannels ?? []).filter((o) => o.status !== 'current'), { name, status: 'current' }];
+      g.otherChannelSkipped = false;
+      recorded.push('channels');
+    }
+    push({ from: 'user', text: name, fields: recorded.length ? ['channels'] : undefined });
+  } else if (input.type === 'product') {
+    const text = input.text.trim().slice(0, PRODUCT_LIMIT);
+    if (step === 'product' && text) {
+      g.product = text;
+      g.productSkipped = false;
+      recorded.push('product');
+    }
+    push({ from: 'user', text, fields: recorded.length ? ['product'] : undefined });
   } else if (input.type === 'multi') {
     a.channels = [...input.values];
+    // "Diğer" kaldırıldıysa bugünkü diğer kanal adları da düşer (hedef/netleşmemiş olanlar kalır).
+    if (!input.values.includes(OTHER_CHANNEL)) {
+      g.otherChannels = (g.otherChannels ?? []).filter((o) => o.status !== 'current');
+      g.otherChannelSkipped = false;
+    }
     recorded.push('channels');
     push({ from: 'user', text: joinTr(input.values), fields: ['channels'] });
   } else {
@@ -728,6 +783,10 @@ function contextNotes(g: GloState): string {
   if (g.targetMarkets.length) lines.push(`Hedef pazar: ${joinTr(g.targetMarkets)}`);
   if (g.targetText) lines.push(`Hedef: ${g.targetText}`);
   if (g.unsureChannels.length) lines.push(`Netleşmemiş kanal: ${joinTr(g.unsureChannels)}`);
+  const other = (s: 'current' | 'planned' | 'unclear') => (g.otherChannels ?? []).filter((o) => o.status === s).map((o) => o.name);
+  if (other('current').length) lines.push(`Diğer mevcut kanal: ${joinTr(other('current'))}`);
+  if (other('planned').length) lines.push(`Diğer hedef kanal: ${joinTr(other('planned'))}`);
+  if (other('unclear').length) lines.push(`Diğer kanal (durumu netleşmedi): ${joinTr(other('unclear'))}`);
   return lines.join('\n');
 }
 
@@ -736,18 +795,25 @@ export const notesExtra = (g: GloState) => g.notesExtra ?? g.extraNotes.join('\n
 
 /** Sonuç ekranına aktarılacak tam not: bağlam + kullanıcının eklediği metin. */
 export function composeNotes(g: GloState): string {
-  if (g.notesRaw !== undefined) return g.notesRaw;
+  // Elle düzenlenmiş not korunur; yalnız ürün/hizmet satırı güncel değere çekilir.
+  if (g.notesRaw !== undefined) return upsertNoteLine(withProductNote(g.notesRaw, g.product), OTHER_CHANNEL_NOTE, otherCurrentNames(g) || undefined);
   return [contextNotes(g), notesExtra(g).trim()].filter(Boolean).join('\n\n');
 }
 
 /** Kısa özet: ürün/hizmet, mevcut durum, hedef, ihtiyaç. */
 export function shortSummary(a: Answers, g: GloState): { label: string; value: string }[] {
   const ch = arr(a.channels);
+  const others = (s: 'current' | 'planned') => (g.otherChannels ?? []).filter((o) => o.status === s).map((o) => o.name);
   const current =
-    ch.length === 1 && ch[0] === NO_SALES_CHANNEL
+    ch.length === 1 && ch[0] === NO_SALES_CHANNEL && !others('current').length
       ? 'Henüz satış yapmıyor'
-      : [ch.length ? joinTr(ch) : '', a.salesVolume && a.salesVolume !== NO_SALES_VOLUME ? `aylık ${a.salesVolume}` : ''].filter(Boolean).join(' · ');
-  const target = [a.goal as string | undefined, [...g.targetChannels, ...g.targetMarkets].join(', '), g.targetText].filter(Boolean).join(' · ');
+      : [
+          joinTr([...ch.filter((c) => c !== NO_SALES_CHANNEL && !(c === OTHER_CHANNEL && others('current').length)), ...others('current')]),
+          a.salesVolume && a.salesVolume !== NO_SALES_VOLUME ? `aylık ${a.salesVolume}` : '',
+        ]
+          .filter(Boolean)
+          .join(' · ');
+  const target = [a.goal as string | undefined, [...g.targetChannels, ...others('planned'), ...g.targetMarkets].join(', '), g.targetText].filter(Boolean).join(' · ');
   return [
     { label: 'Ürün / hizmet', value: g.product ?? 'Belirtilmedi' },
     { label: 'Mevcut durum', value: current || '—' },
@@ -761,11 +827,17 @@ export function formatAnswer(a: Answers, id: QuestionId): string {
   return Array.isArray(v) ? joinTr(v) : (v ?? '—');
 }
 
+/** Kanal cevabı + "Diğer" kanalın adı (ör. "Etsy, Diğer (Trendyol)"). */
+export function channelsText(a: Answers, g: GloState): string {
+  const names = otherCurrentNames(g);
+  return arr(a.channels).map((c) => (c === OTHER_CHANNEL && names ? `${OTHER_CHANNEL} (${names})` : c)).join(', ') || '—';
+}
+
 // ---------------------------------------------------------------------------
 // Yerel AI denemesi (Aşama B1): doğrulanmış model önerisini uygular. Kural tabanlı eşleştirme bu yolda
 // kullanılmaz; model yanıt veremezse hiçbir cevap değişmez ve bu açıkça söylenir.
 // ---------------------------------------------------------------------------
-export const AI_FAILURE_TEXT = 'Şu anda yanıt veremiyorum. Seçeneklerle veya form üzerinden devam edebilirsiniz.';
+export const AI_FAILURE_TEXT = 'Şu anda yanıt veremiyorum; mesajınızı not olarak sakladım. Seçeneklerle veya form üzerinden devam edebilirsiniz.';
 
 function beginTextTurn(a0: Answers, g0: GloState) {
   const a: Answers = { ...a0 };
@@ -789,17 +861,22 @@ function beginTextTurn(a0: Answers, g0: GloState) {
 }
 
 export function applyAiFailure(a0: Answers, g0: GloState, text: string) {
+  // Cevaplar değişmez; mesaj kaybolmaz: geçmişte kalır ve not taslağına eklenir. Açılış sorusu açık kalır.
   const { a, g, push } = beginTextTurn(a0, g0);
   push({ from: 'user', text });
+  if (!g.extraNotes.includes(text)) g.extraNotes.push(text);
   push({ from: 'glo', tone: 'note', text: AI_FAILURE_TEXT });
   return { answers: a, glo: g };
 }
 
 export function applyAiResult(a0: Answers, g0: GloState, text: string, r: GloAiResult) {
   const { a, g, push, step } = beginTextTurn(a0, g0);
+  // Notlar kısa tutulur: kaydedilen alanların ADI (değerler kullanıcı mesajının altındaki "Değiştir"
+  // bağlantılarında görünür; kullanıcının söylediği uzun uzun tekrar edilmez).
   const notes: string[] = [];
   const recorded: GloField[] = [];
   if (step === 'suggestion') g.suggestions.shift(); // seçmek yerine yazdı: bekleyen netleştirme düşer
+  g.intro = false;
 
   for (const [id, v] of Object.entries(r.answers) as [QuestionId, string | string[]][]) {
     const prev = a[id];
@@ -807,7 +884,7 @@ export function applyAiResult(a0: Answers, g0: GloState, text: string, r: GloAiR
     a[id] = Array.isArray(v) ? [...v] : v;
     if (id === 'salesVolume') g.inferredVolume = false;
     recorded.push(id);
-    notes.push(`${FIELD_LABEL[id]}: ${Array.isArray(v) ? joinTr(v) : v}${prev ? ' (güncellendi)' : ''}`);
+    notes.push(`${FIELD_LABEL[id]}${prev ? ' (güncellendi)' : ''}`);
   }
   for (const id of r.clear) {
     if (!hasAnswer(a, id)) continue;
@@ -833,24 +910,41 @@ export function applyAiResult(a0: Answers, g0: GloState, text: string, r: GloAiR
   if (tAdd.length) {
     g.targetChannels.push(...tAdd);
     recorded.push('target');
-    notes.push(`Hedef kanal: ${joinTr(tAdd)} (mevcut satış kanalı olarak kaydetmedim)`);
+    notes.push('Hedef kanal (mevcut satış olarak değil)');
   }
   const mAdd = (r.targetMarkets ?? []).filter((m) => !g.targetMarkets.includes(m));
   if (mAdd.length) {
     g.targetMarkets.push(...mAdd);
     if (!recorded.includes('target')) recorded.push('target');
-    notes.push(`Hedef pazar: ${joinTr(mAdd)}`);
+    notes.push('Hedef pazar');
   }
   if (step === 'target' && !recorded.includes('target')) {
     g.targetText = text.slice(0, 300);
     recorded.push('target');
   }
+  // Listede olmayan kanallar (ör. Trendyol) hiçbir seçeneğe eşlenmez; bağlamda saklanır, nota ve özete girer.
+  if (r.otherChannels?.length) {
+    const others = [...(g.otherChannels ?? [])];
+    for (const o of r.otherChannels) {
+      const i = others.findIndex((x) => x.name.toLocaleLowerCase('tr-TR') === o.name.toLocaleLowerCase('tr-TR'));
+      if (i === -1) others.push(o);
+      else if (o.status !== 'unclear') others[i] = o; // netleşen durum öncekini günceller
+    }
+    g.otherChannels = others;
+    notes.push('Listede olmayan kanal (not olarak)');
+  }
+  // Netleştirmeler (belirsiz kanal / tekil bilgi) önce sorulur; AI'nın doğal sorusu en başa alınır.
+  const clarifications: typeof g.suggestions = [];
+  for (const c of r.confirm ?? []) {
+    if (!hasAnswer(a, c.field)) clarifications.push({ field: c.field, options: c.options, ...(c.question ? { question: c.question } : {}) });
+  }
   for (const ch of r.unclearChannels ?? []) {
     if (arr(a.channels).includes(ch) || g.targetChannels.includes(TARGET_CHANNEL_LABEL[ch] ?? ch)) continue;
-    g.suggestions.push({ field: 'channels', options: [ch], kind: 'clarify' });
+    clarifications.push({ field: 'channels', options: [ch], kind: 'clarify' });
   }
-  // Belirsiz tekil bilgiler cevaba yazılmaz; tek tek onaylatılır ("… için bunu mu kastettiniz?").
-  for (const c of r.confirm ?? []) if (!hasAnswer(a, c.field)) g.suggestions.push({ field: c.field, options: c.options });
+  const natural = clarifications.filter((c) => c.question);
+  g.suggestions.unshift(...natural);
+  g.suggestions.push(...clarifications.filter((c) => !c.question));
 
   push({ from: 'user', text, fields: recorded.length ? [...new Set(recorded)] : undefined });
   if (r.reply) push({ from: 'glo', text: r.reply });
@@ -859,7 +953,7 @@ export function applyAiResult(a0: Answers, g0: GloState, text: string, r: GloAiR
   }
   if (g.editing && isFilled(g.editing, a, g)) g.editing = undefined;
   reconcile(a, g, notes);
-  if (notes.length) push({ from: 'glo', tone: 'note', text: `Not ettim: ${notes.join(' · ')}.` });
+  if (notes.length) push({ from: 'glo', tone: 'note', text: `Kaydettim: ${notes.join(' · ')}.` });
   return { answers: a, glo: g };
 }
 

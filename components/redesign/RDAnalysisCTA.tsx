@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { trackEvent } from '@/lib/analytics';
+import GloLauncher from './GloLauncher';
 
 // Mevcut AnalysisWidget'ın modalını/formunu/API'sini/event sistemini aynen kullanır — burada
 // sadece /redesign'e uygun premium bir tetikleyici (trigger) render edilir, ayrı bir analiz
@@ -72,6 +73,9 @@ export default function RDAnalysisCTA({
     trackEvent('free_analysis_cta_click', { location: analyticsLocation });
     window.dispatchEvent(new Event('open-analysis-widget'));
   };
+
+  // Glo açıkken karakterli tanıtım düğmesi + tanışma balonu (aynı modal, aynı çakışma kuralları).
+  if (gloIcon) return <GloLauncher analyticsLocation={analyticsLocation} />;
 
   return (
     <>

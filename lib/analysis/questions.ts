@@ -24,7 +24,9 @@ export const questions: Question[] = [
     id: 'channels',
     title: 'Şu anda nerede satış yapıyorsunuz?',
     multi: true,
-    options: ['Amazon', 'Etsy', 'eBay', 'Shopify / Kendi Web Sitem', 'B2B / Toptan', 'Sosyal Medya', 'Henüz Satış Yapmıyorum'],
+    // "Diğer": listede olmayan kanal (ör. Trendyol). Hiçbir hizmet eşlemesi yoktur (lib/analysis/engine
+    // channelTagMap'te yok); skorda yalnız "gerçek bir satış kanalı var" sinyali sayılır. Kanal adı notta taşınır.
+    options: ['Amazon', 'Etsy', 'eBay', 'Shopify / Kendi Web Sitem', 'B2B / Toptan', 'Sosyal Medya', 'Diğer', 'Henüz Satış Yapmıyorum'],
   },
   {
     id: 'problem',

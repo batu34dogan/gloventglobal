@@ -7,9 +7,18 @@ import dynamic from 'next/dynamic';
 import { trackEvent } from '@/lib/analytics';
 import { focusRing } from '@/components/redesign/service-detail/RDServiceDetailPrimitives';
 import { questions, isQuestionAnswered, parseAnswers, type Answers, type QuestionId } from '@/lib/analysis/questions';
-import { GLO_MODE_EVENT, createGloState, type GloState } from '@/lib/glo/state';
+import {
+  GLO_MODE_EVENT,
+  OTHER_CHANNEL,
+  OTHER_CHANNEL_LIMIT,
+  OTHER_CHANNEL_NOTE,
+  createGloState,
+  otherCurrentNames,
+  upsertNoteLine,
+  withProductNote,
+  type GloState,
+} from '@/lib/glo/state';
 import type { GloAiMode, GloSurface } from '@/lib/glo/flag';
-import GloWelcome from './glo/GloWelcome';
 import {
   READINESS_COPY,
   READINESS_LEVELS,
@@ -34,8 +43,11 @@ import {
 // analyticsPrefix: preview'de 'redesign_', production'da ''. Event'lerde PII yok.
 
 // Glo (lib/glo/flag gloSurface):
-// - 'live' (canlı erken erişim): Glo karşılaması varsayılan açılır. Gerçek AI sağlayıcısı varsa sohbet (GloPanel),
-//   yoksa karşılama → normal form (GloWelcome; yapay yanıt yok). Başvuru ve analitik normal akıştaki gibi çalışır.
+// - 'live' (canlı erken erişim): Glo sohbeti (GloPanel) varsayılan açılır; AI sağlayıcısına bağlı değildir. AI
+//   kapalıyken sohbet sabit soru/seçeneklerle deterministik ilerler (genel serbest metin ve yapay yanıt yok; yalnız
+//   ürün/hizmet sorusunda olduğu gibi saklanan kısa metin); AI açıksa
+//   serbest metin gerçek sağlayıcıya gider. 7 adımlı form yalnız "Form ile devam et" ile açılır (cevaplar korunur).
+//   Başvuru ve analitik normal akıştaki gibi çalışır.
 // - 'prototype' (yalnız yerel, ?glo=1): Glo bir kez açıldıysa bu akıştan başvuru GÖNDERİLMEZ, analitik atılmaz.
 // - 'off': akış aynen. Panel ayrı chunk olarak ancak açılınca yüklenir.
 const GloPanel = dynamic(() => import('./glo/GloPanel'), {
@@ -80,6 +92,8 @@ export default function AnalysisFlow({
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [form, setForm] = useState(EMPTY_FORM);
+  // Kanal sorusunda "Diğer" seçildiyse listede olmayan kanalın kısa adı (ör. Trendyol).
+  const [otherChannel, setOtherChannel] = useState('');
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [hp, setHp] = useState(''); // gerçek honeypot
   const [errors, setErrors] = useState<AnalysisErrors>({});
@@ -87,15 +101,13 @@ export default function AnalysisFlow({
   const [submitting, setSubmitting] = useState(false);
   const gloRequested = useSyncExternalStore(subscribeNoop, readGloParam, () => false);
   const gloEnabled = gloSurface === 'live' || (gloSurface === 'prototype' && gloRequested);
-  // Sohbet yalnız yerel prototipte (kural tabanlı/test) veya gerçek sağlayıcı hazırken; canlıda aksi hâlde karşılama → form.
-  const chatAvailable = gloEnabled && (gloSurface === 'prototype' || gloAi === 'gemini');
   // Kullanıcının açıkça seçtiği mod (null = henüz seçmedi). Prototip açıkken varsayılan Glo'dur.
   const [modeChoice, setMode] = useState<'form' | 'glo' | null>(null);
   const mode: 'form' | 'glo' = modeChoice ?? (gloEnabled ? 'glo' : 'form');
   // null = Glo oturumu yok. Doluysa bu akış prototip oturumudur: gönderim ve analitik kapalı. Prototip
   // açıkken (bayrak + ?glo=1) Glo doğrudan açılır → oturum da ilk andan başlamış sayılır (autoGlo).
   const [gloState, setGloState] = useState<GloState | null>(null);
-  const autoGlo = useMemo(() => createGloState(0), []);
+  const autoGlo = useMemo(() => createGloState(0, { ai: gloAi !== 'off' }), [gloAi]);
   const glo = gloState ?? (gloEnabled ? autoGlo : null);
   const setGlo = (next: GloState | null | ((g: GloState | null) => GloState | null)) =>
     setGloState((prev) => (typeof next === 'function' ? next(prev ?? (gloEnabled ? autoGlo : null)) : next));
@@ -181,28 +193,60 @@ export default function AnalysisFlow({
 
   const openGlo = () => {
     const answeredCount = questions.filter((q) => isQuestionAnswered(answers, q)).length;
+    // Formda/sonuç ekranında yazılmış kendi notu varsa elle düzenlenmiş not olarak Glo özetine taşınır (ezilmez).
+    const ownNotes = (g: GloState | null) => (form.notes && form.notes !== g?.notesSent ? { notesRaw: form.notes } : {});
+    // Formda yazılan "Diğer" kanal adı Glo'ya taşınır (Glo aynı adı tekrar sormaz).
+    const name = isSelected('channels', OTHER_CHANNEL) ? otherChannel.replace(/\s+/g, ' ').trim().slice(0, OTHER_CHANNEL_LIMIT) : '';
+    const withOther = (g: GloState): GloState =>
+      name ? { ...g, otherChannels: [...(g.otherChannels ?? []).filter((o) => o.status !== 'current'), { name, status: 'current' }] } : g;
     setGlo((g) =>
       g
         ? {
-            ...g,
+            ...withOther(g),
+            ...ownNotes(g),
             messages: [...g.messages, { id: g.nextId, from: 'glo', tone: 'note', text: 'Formdaki cevaplarınızı da aldım; kaldığımız yerden devam edelim.' }],
             nextId: g.nextId + 1,
           }
-        : createGloState(answeredCount),
+        : { ...withOther(createGloState(answeredCount, { ai: gloAi !== 'off' })), ...ownNotes(null) },
     );
     setGloFocus(true);
     changeMode('glo');
   };
 
-  const switchToForm = () => {
+  // `notes`: Glo'da toplanan, forma karşılığı olmayan bağlam (başlangıç noktası, ürün/hizmet, hedef…). Formun not
+  // alanı boşsa ya da son aktarılan Glo notunu taşıyorsa güncellenir; kullanıcının kendi notu varsa ezilmez, yalnız
+  // ürün/hizmet satırı eklenir/güncellenir.
+  const switchToForm = (notes?: string) => {
     const firstMissing = questions.findIndex((q) => !isQuestionAnswered(answers, q));
     setStepIndex(firstMissing === -1 ? questions.length - 1 : firstMissing);
-    setGlo((g) => g); // otomatik açılan oturumu kalıcılaştır: forma dönülse de gönderim engeli sürer
+    // Glo'da alınan "Diğer" kanal adı formdaki kısa alana taşınır.
+    const gloOther = otherCurrentNames(glo);
+    if (gloOther) setOtherChannel(gloOther);
+    if (notes !== undefined) {
+      const next =
+        !form.notes || form.notes === glo?.notesSent
+          ? notes
+          : upsertNoteLine(withProductNote(form.notes, glo?.product), OTHER_CHANNEL_NOTE, gloOther || undefined);
+      setForm((f) => ({ ...f, notes: next }));
+      setGlo((g) => g && { ...g, notesSent: next });
+    } else setGlo((g) => g); // otomatik açılan oturumu kalıcılaştır: forma dönülse de gönderim engeli sürer
     changeMode('form');
   };
 
+  // Sonuç görüntüleme olayı aynı cevaplarla bir kez atılır (çift tıklama / sonuca tekrar dönüş mükerrer saymaz).
+  // Parametreler formdaki olayla aynıdır: cevap veya serbest metin içermez. Çerez izni trackEvent'te denetlenir.
+  const resultTracked = useRef<string | null>(null);
   const completeGlo = (notes: string) => {
     if (!parseAnswers(answers)) return;
+    const key = JSON.stringify(answers);
+    if (resultTracked.current !== key) {
+      resultTracked.current = key;
+      track('analysis_result_view', {
+        source,
+        readiness_level: level,
+        recommended_services: recommendations.map((r) => r.tag).join(','),
+      });
+    }
     setForm((f) => ({ ...f, notes }));
     setGlo((g) => g && { ...g, notesSent: notes });
     setStage('results');
@@ -222,6 +266,9 @@ export default function AnalysisFlow({
         readiness_level: level,
         recommended_services: recommendations.map((r) => r.tag).join(','),
       });
+      // "Diğer" kanalın adı notta taşınır (mevcut not ezilmez; "Diğer" kaldırıldıysa satır da kalkar).
+      const name = isSelected('channels', OTHER_CHANNEL) ? otherChannel.replace(/\s+/g, ' ').trim() : '';
+      setForm((f) => ({ ...f, notes: upsertNoteLine(f.notes, OTHER_CHANNEL_NOTE, name || undefined) }));
       setStage('results');
       return;
     }
@@ -246,6 +293,7 @@ export default function AnalysisFlow({
     setStepIndex(0);
     setAnswers({});
     setForm(EMPTY_FORM);
+    setOtherChannel('');
     setMarketingConsent(false);
     setErrors({});
     setServerMessage(null);
@@ -347,10 +395,6 @@ export default function AnalysisFlow({
   // ---------------------------------------------------------------------------
   // QUIZ
   // ---------------------------------------------------------------------------
-  if (stage === 'quiz' && mode === 'glo' && glo && !chatAvailable) {
-    return <GloWelcome headingLevel={variant === 'page' ? 'h2' : 'h3'} onStart={switchToForm} autoFocus={gloFocus} />;
-  }
-
   if (stage === 'quiz' && mode === 'glo' && glo) {
     return (
       <GloPanel
@@ -358,6 +402,7 @@ export default function AnalysisFlow({
         glo={glo}
         headingLevel={variant === 'page' ? 'h2' : 'h3'}
         onChange={(next) => {
+          markStarted();
           setAnswers(next.answers);
           setGlo(next.glo);
         }}
@@ -380,7 +425,7 @@ export default function AnalysisFlow({
           <p id={id('step')} className={eyebrow}>
             Adım {stepIndex + 1} / {questions.length}
           </p>
-          {chatAvailable && (
+          {gloEnabled && (
             <button
               type="button"
               onClick={openGlo}
@@ -456,6 +501,24 @@ export default function AnalysisFlow({
             );
           })}
         </div>
+        {question.id === 'channels' && isSelected('channels', OTHER_CHANNEL) && (
+          // Listede olmayan kanalın adı: hiçbir kanala eşlenmez, puana katılmaz; başvuru notunda taşınır.
+          <div className="mt-4">
+            <label htmlFor={id('other-channel')} className={labelCls}>
+              Diğer kanalın adı <span className="font-normal text-[#5A5A6A]">(isteğe bağlı)</span>
+            </label>
+            <input
+              id={id('other-channel')}
+              type="text"
+              autoComplete="off"
+              maxLength={OTHER_CHANNEL_LIMIT}
+              value={otherChannel}
+              onChange={(e) => setOtherChannel(e.target.value)}
+              placeholder="Örn. Trendyol"
+              className={inputCls(false)}
+            />
+          </div>
+        )}
 
         <div className="mt-7 flex items-center justify-between gap-3">
           <button type="button" onClick={back} disabled={stepIndex === 0} className={secondaryBtn}>

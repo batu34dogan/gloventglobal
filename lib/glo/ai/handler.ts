@@ -12,7 +12,8 @@ type Env = Record<string, string | undefined>;
 
 export const AI_RUNTIME_DEFAULTS = {
   maxOutputTokens: 800,
-  // Gerçek ölçümler: basit istek ~8 sn, başarılı Glo çağrıları 4–7 sn → 12 sn geçerli yanıtları kesebilirdi.
+  // Gerçek ölçümler (gemini-3.8-flash): basit metin isteği ~8 sn; başarılı Glo çağrıları 4–7 sn — yalnız kısa, tek bilgili
+  // mesajlarla. Çok bilgili mesajla henüz başarılı gerçek çağrı yok. 12 sn geçerli yanıtları kesebilirdi.
   timeoutMs: 20_000,
   maxCalls: 40, // süreç başına toplam sağlayıcı çağrısı (GLO_AI_MAX_CALLS ile düşürülebilir/yükseltilebilir)
   perIp: { windowMs: 10 * 60_000, max: 20 },
@@ -66,6 +67,7 @@ export async function handleGloTurn(
 
   runtime.calls += 1;
   runtime.inFlight.add(input.ip);
+  let headersMs: number | undefined; // yerel tanı: zaman aşımında başlık gelmiş miydi
   try {
     const out = await provider.generate({
       system: GLO_SYSTEM_INSTRUCTION,
@@ -73,6 +75,9 @@ export async function handleGloTurn(
       schema: aiResponseSchema(),
       maxOutputTokens: AI_RUNTIME_DEFAULTS.maxOutputTokens,
       signal,
+      onHeaders: (ms) => {
+        headersMs = ms;
+      },
     });
     let parsed: unknown;
     try {
@@ -82,7 +87,12 @@ export async function handleGloTurn(
     }
     // Dayanak (alıntı) kontrolü maskelenmiş mesaja karşı yapılır — modele giden metnin aynısı.
     const known = req.answers.channels;
-    const result = interpretModelOutput(parsed, { message: maskContact(req.message), step: req.step, knownChannels: Array.isArray(known) ? known : [] });
+    const result = interpretModelOutput(parsed, {
+      message: maskContact(req.message),
+      step: req.step,
+      knownChannels: Array.isArray(known) ? known : [],
+      answered: (Object.keys(req.answers) as (keyof typeof req.answers)[]).filter((k) => req.answers[k] !== undefined),
+    });
     if (!result) return { status: 502, body: { error: 'invalid_output' } };
     // Yerel tanı (GLO_AI_TRACE=1): yalnız içeriksiz sayılar — değer, alıntı veya mesaj yok.
     const p = parsed as { facts?: unknown; channels?: unknown };
@@ -103,7 +113,8 @@ export async function handleGloTurn(
       if (e.kind === 'invalid_output') return { status: 502, body: { error: 'invalid_output' } };
       return { status: 502, body: { error: 'upstream', detail: local ? e.detail : undefined } };
     }
-    if (signal.aborted) return { status: 504, body: { error: input.signal?.aborted ? 'cancelled' : 'timeout' } };
+    // Yerelde: headersMs yoksa yanıt başlıkları süre içinde hiç gelmedi; varsa gövde okunurken kesildi.
+    if (signal.aborted) return { status: 504, body: { error: input.signal?.aborted ? 'cancelled' : 'timeout', detail: local ? { headersMs } : undefined } };
     return { status: 502, body: { error: 'upstream' } };
   } finally {
     clearTimeout(timer);
