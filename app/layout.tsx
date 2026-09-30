@@ -4,6 +4,7 @@ import AnalysisWidget from "@/components/analysis/AnalysisWidget";
 import CookieConsent from "@/components/legal/CookieConsent";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import HydrationMark from "@/components/layout/HydrationMark";
+import { gloAiMode, gloSurface } from "@/lib/glo/flag";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -87,7 +88,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {/* Navbar/footer root layout'ta değil: her route (ve 404'ler) kendi RDNavbar/RDFooter'ını render eder. */}
         {children}
-        <AnalysisWidget />
+        <AnalysisWidget gloSurface={gloSurface()} gloAi={gloAiMode()} />
         <CookieConsent />
         <HydrationMark />
         {/* GA4 — sadece kullanıcı cookie'yi kabul ettikten sonra yüklenir.

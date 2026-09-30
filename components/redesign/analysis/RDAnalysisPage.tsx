@@ -3,6 +3,8 @@ import RDNavbar from '@/components/redesign/RDNavbar';
 import RDFooter from '@/components/redesign/RDFooter';
 import { focusRing, sectionShell } from '@/components/redesign/service-detail/RDServiceDetailPrimitives';
 import AnalysisFlow from '@/components/analysis/AnalysisFlow';
+import GloAwareIntro from '@/components/analysis/glo/GloAwareIntro';
+import type { GloAiMode, GloSurface } from '@/lib/glo/flag';
 import { analysisBenefits, analysisHero } from './analysisPageData';
 
 // "Ücretsiz Global Büyüme Analizi" ortak sayfa ağacı — şu an preview /redesign/analiz; production
@@ -18,7 +20,15 @@ const ICONS = [
   <path key="c" d="M5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm14-10a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM7 17h6a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6" />,
 ];
 
-export default function RDAnalysisPage({ analyticsPrefix = '' }: { analyticsPrefix?: string }) {
+export default function RDAnalysisPage({
+  analyticsPrefix = '',
+  gloSurface = 'off',
+  gloAi = 'off',
+}: {
+  analyticsPrefix?: string;
+  gloSurface?: GloSurface;
+  gloAi?: GloAiMode;
+}) {
   return (
     <div className="min-h-screen" style={{ fontFamily: 'var(--font-geist-sans),system-ui,sans-serif' }}>
       <RDNavbar />
@@ -32,11 +42,16 @@ export default function RDAnalysisPage({ analyticsPrefix = '' }: { analyticsPref
             >
               {analysisHero.title}
             </h1>
-            <p className="mt-3 max-w-[56ch] text-[15.5px] leading-relaxed text-[#4A4A5A] sm:mt-4 sm:text-[17px]">{analysisHero.description}</p>
+            <GloAwareIntro
+              variant="page"
+              hideInGlo
+              className="mt-3 max-w-[56ch] text-[15.5px] leading-relaxed text-[#4A4A5A] sm:mt-4 sm:text-[17px]"
+              text={analysisHero.description}
+            />
 
             <div className="mt-6 grid items-start gap-6 sm:mt-8 lg:mt-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_360px] xl:gap-14">
-              <div className="rounded-3xl border border-[#E5E5EC] bg-white p-5 shadow-[0_1px_2px_rgba(20,33,63,0.04),0_12px_40px_-24px_rgba(20,33,63,0.18)] sm:p-8 lg:p-10">
-                <AnalysisFlow variant="page" leadSource="analysis-page" analyticsPrefix={analyticsPrefix} />
+              <div className="min-w-0 rounded-3xl border border-[#E5E5EC] bg-white p-5 shadow-[0_1px_2px_rgba(20,33,63,0.04),0_12px_40px_-24px_rgba(20,33,63,0.18)] sm:p-8 lg:p-10">
+                <AnalysisFlow variant="page" leadSource="analysis-page" analyticsPrefix={analyticsPrefix} gloSurface={gloSurface} gloAi={gloAi} />
               </div>
 
               <aside aria-labelledby="an-aside" className="lg:sticky lg:top-28">

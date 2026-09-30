@@ -1,10 +1,15 @@
 'use client';
 
-import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { trackEvent } from '@/lib/analytics';
 import { focusRing } from '@/components/redesign/service-detail/RDServiceDetailPrimitives';
-import { questions, isQuestionAnswered, type Answers, type QuestionId } from '@/lib/analysis/questions';
+import { questions, isQuestionAnswered, parseAnswers, type Answers, type QuestionId } from '@/lib/analysis/questions';
+import { GLO_MODE_EVENT, createGloState, type GloState } from '@/lib/glo/state';
+import type { GloAiMode, GloSurface } from '@/lib/glo/flag';
+import GloWelcome from './glo/GloWelcome';
 import {
   READINESS_COPY,
   READINESS_LEVELS,
@@ -28,6 +33,18 @@ import {
 // sayı olarak gösterilmez, yalnızca "Global Büyüme Hazırlık Seviyesi"ne eşlenir.
 // analyticsPrefix: preview'de 'redesign_', production'da ''. Event'lerde PII yok.
 
+// Glo (lib/glo/flag gloSurface):
+// - 'live' (canlı erken erişim): Glo karşılaması varsayılan açılır. Gerçek AI sağlayıcısı varsa sohbet (GloPanel),
+//   yoksa karşılama → normal form (GloWelcome; yapay yanıt yok). Başvuru ve analitik normal akıştaki gibi çalışır.
+// - 'prototype' (yalnız yerel, ?glo=1): Glo bir kez açıldıysa bu akıştan başvuru GÖNDERİLMEZ, analitik atılmaz.
+// - 'off': akış aynen. Panel ayrı chunk olarak ancak açılınca yüklenir.
+const GloPanel = dynamic(() => import('./glo/GloPanel'), {
+  ssr: false,
+  loading: () => <p className="py-10 text-center text-[14px] text-[#5A5A6A]">Glo yükleniyor…</p>,
+});
+const subscribeNoop = () => () => {};
+const readGloParam = () => new URLSearchParams(window.location.search).get('glo') === '1';
+
 type Stage = 'quiz' | 'results' | 'success';
 type Variant = 'page' | 'modal';
 
@@ -42,12 +59,18 @@ export default function AnalysisFlow({
   analyticsPrefix = '',
   onRequestClose,
   onSuccess,
+  gloSurface = 'off',
+  gloAi = 'off',
 }: {
   variant: Variant;
   leadSource: 'analysis-page' | 'analysis-widget';
   analyticsPrefix?: string;
   onRequestClose?: (opts?: { restoreFocus?: boolean }) => void;
   onSuccess?: () => void;
+  /** Glo yüzeyi (lib/glo/flag). 'prototype' ayrıca URL'de ?glo=1 ister; 'live' herkese açılır. */
+  gloSurface?: GloSurface;
+  /** AI sohbet modu (lib/glo/flag gloAiMode). Canlıda 'off' → sohbet yok, karşılama + normal form. */
+  gloAi?: GloAiMode;
 }) {
   const uid = useId().replace(/:/g, '');
   const id = (name: string) => `af-${uid}-${name}`;
@@ -62,6 +85,24 @@ export default function AnalysisFlow({
   const [errors, setErrors] = useState<AnalysisErrors>({});
   const [serverMessage, setServerMessage] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const gloRequested = useSyncExternalStore(subscribeNoop, readGloParam, () => false);
+  const gloEnabled = gloSurface === 'live' || (gloSurface === 'prototype' && gloRequested);
+  // Sohbet yalnız yerel prototipte (kural tabanlı/test) veya gerçek sağlayıcı hazırken; canlıda aksi hâlde karşılama → form.
+  const chatAvailable = gloEnabled && (gloSurface === 'prototype' || gloAi === 'gemini');
+  // Kullanıcının açıkça seçtiği mod (null = henüz seçmedi). Prototip açıkken varsayılan Glo'dur.
+  const [modeChoice, setMode] = useState<'form' | 'glo' | null>(null);
+  const mode: 'form' | 'glo' = modeChoice ?? (gloEnabled ? 'glo' : 'form');
+  // null = Glo oturumu yok. Doluysa bu akış prototip oturumudur: gönderim ve analitik kapalı. Prototip
+  // açıkken (bayrak + ?glo=1) Glo doğrudan açılır → oturum da ilk andan başlamış sayılır (autoGlo).
+  const [gloState, setGloState] = useState<GloState | null>(null);
+  const autoGlo = useMemo(() => createGloState(0), []);
+  const glo = gloState ?? (gloEnabled ? autoGlo : null);
+  const setGlo = (next: GloState | null | ((g: GloState | null) => GloState | null)) =>
+    setGloState((prev) => (typeof next === 'function' ? next(prev ?? (gloEnabled ? autoGlo : null)) : next));
+  // Glo kullanıcı eylemiyle açıldıysa panel ilk seçeneğe odaklanır; otomatik açılışta odak çalınmaz.
+  const [gloFocus, setGloFocus] = useState(false);
+  // Yalnız yerel prototip oturumu başvuruyu ve analitiği kapatır; canlı erken erişimde normal akış geçerlidir.
+  const prototypeSession = gloSurface === 'prototype' && Boolean(glo);
 
   const questionRef = useRef<HTMLHeadingElement>(null);
   const resultRef = useRef<HTMLHeadingElement>(null);
@@ -97,24 +138,74 @@ export default function AnalysisFlow({
       mounted.current = true;
       return;
     }
-    if (stage === 'quiz') questionRef.current?.focus();
+    if (stage === 'quiz' && mode === 'form') questionRef.current?.focus();
     if (stage === 'results') resultRef.current?.focus();
     if (stage === 'success') successRef.current?.focus();
-  }, [stage, stepIndex]);
+  }, [stage, stepIndex, mode]);
+
+  // Prototip oturumunda analitik olay atılmaz.
+  const track = (name: string, params?: Record<string, unknown>) => {
+    if (prototypeSession) return;
+    trackEvent(name, params);
+  };
 
   const markStarted = () => {
     if (started.current) return;
     started.current = true;
-    trackEvent('analysis_start', { source });
+    track('analysis_start', { source });
   };
 
   const select = (qid: QuestionId, option: string, multi: boolean) => {
     markStarted();
+    // Glo'nun kanal cevabından türettiği satış hacmi, kanal formda değişince geçersizleşir.
+    const clearInferred = qid === 'channels' && Boolean(glo?.inferredVolume);
     setAnswers((prev) => {
-      if (!multi) return { ...prev, [qid]: option };
-      const current = Array.isArray(prev[qid]) ? (prev[qid] as string[]) : [];
-      return { ...prev, [qid]: current.includes(option) ? current.filter((o) => o !== option) : [...current, option] };
+      let next: Answers;
+      if (!multi) next = { ...prev, [qid]: option };
+      else {
+        const current = Array.isArray(prev[qid]) ? (prev[qid] as string[]) : [];
+        next = { ...prev, [qid]: current.includes(option) ? current.filter((o) => o !== option) : [...current, option] };
+      }
+      if (clearInferred) delete next.salesVolume;
+      return next;
     });
+    if (clearInferred) setGlo((g) => g && { ...g, inferredVolume: false });
+  };
+
+  // Glo paneli görünürken modal/sayfa üst metni sadeleşir (GLO_MODE_EVENT; yalnız olay yayınlanır).
+  const gloVisible = stage === 'quiz' && mode === 'glo' && Boolean(glo);
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent(GLO_MODE_EVENT, { detail: { variant, active: gloVisible } }));
+  }, [gloVisible, variant]);
+  const changeMode = (next: 'form' | 'glo') => setMode(next);
+
+  const openGlo = () => {
+    const answeredCount = questions.filter((q) => isQuestionAnswered(answers, q)).length;
+    setGlo((g) =>
+      g
+        ? {
+            ...g,
+            messages: [...g.messages, { id: g.nextId, from: 'glo', tone: 'note', text: 'Formdaki cevaplarınızı da aldım; kaldığımız yerden devam edelim.' }],
+            nextId: g.nextId + 1,
+          }
+        : createGloState(answeredCount),
+    );
+    setGloFocus(true);
+    changeMode('glo');
+  };
+
+  const switchToForm = () => {
+    const firstMissing = questions.findIndex((q) => !isQuestionAnswered(answers, q));
+    setStepIndex(firstMissing === -1 ? questions.length - 1 : firstMissing);
+    setGlo((g) => g); // otomatik açılan oturumu kalıcılaştır: forma dönülse de gönderim engeli sürer
+    changeMode('form');
+  };
+
+  const completeGlo = (notes: string) => {
+    if (!parseAnswers(answers)) return;
+    setForm((f) => ({ ...f, notes }));
+    setGlo((g) => g && { ...g, notesSent: notes });
+    setStage('results');
   };
 
   const isSelected = (qid: QuestionId, option: string) => {
@@ -124,9 +215,9 @@ export default function AnalysisFlow({
 
   const next = () => {
     if (!answered) return;
-    trackEvent('analysis_step_complete', { source, step_number: stepIndex + 1, question_id: question.id });
+    track('analysis_step_complete', { source, step_number: stepIndex + 1, question_id: question.id });
     if (isLast) {
-      trackEvent('analysis_result_view', {
+      track('analysis_result_view', {
         source,
         readiness_level: level,
         recommended_services: recommendations.map((r) => r.tag).join(','),
@@ -140,6 +231,12 @@ export default function AnalysisFlow({
   const back = () => setStepIndex((i) => Math.max(0, i - 1));
 
   const editAnswers = () => {
+    if (glo && mode === 'glo') {
+      // Sonuç ekranındaki not düzenlemesi Glo özetine geri taşınır.
+      if (form.notes !== glo.notesSent) setGlo({ ...glo, notesRaw: form.notes });
+      setStage('quiz');
+      return;
+    }
     setStage('quiz');
     setStepIndex(questions.length - 1);
   };
@@ -172,7 +269,7 @@ export default function AnalysisFlow({
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (submitting) return;
+    if (submitting || prototypeSession) return; // yerel prototip oturumu: başvuru gönderilmez
     setServerMessage(null);
     const contact = normalizeAnalysisContact(form);
     const clientErrors = validateAnalysisContact(contact);
@@ -250,6 +347,30 @@ export default function AnalysisFlow({
   // ---------------------------------------------------------------------------
   // QUIZ
   // ---------------------------------------------------------------------------
+  if (stage === 'quiz' && mode === 'glo' && glo && !chatAvailable) {
+    return <GloWelcome headingLevel={variant === 'page' ? 'h2' : 'h3'} onStart={switchToForm} autoFocus={gloFocus} />;
+  }
+
+  if (stage === 'quiz' && mode === 'glo' && glo) {
+    return (
+      <GloPanel
+        answers={answers}
+        glo={glo}
+        headingLevel={variant === 'page' ? 'h2' : 'h3'}
+        onChange={(next) => {
+          setAnswers(next.answers);
+          setGlo(next.glo);
+        }}
+        onSwitchToForm={switchToForm}
+        onComplete={completeGlo}
+        aiMode={gloAi}
+        surface={gloSurface}
+        variant={variant}
+        autoFocus={gloFocus}
+      />
+    );
+  }
+
   if (stage === 'quiz') {
     const progress = Math.round(((stepIndex + 1) / questions.length) * 100);
     return (
@@ -259,6 +380,16 @@ export default function AnalysisFlow({
           <p id={id('step')} className={eyebrow}>
             Adım {stepIndex + 1} / {questions.length}
           </p>
+          {chatAvailable && (
+            <button
+              type="button"
+              onClick={openGlo}
+              className={`inline-flex shrink-0 items-center gap-2 rounded-full border border-[#E5E5EC] bg-white py-1.5 pl-1.5 pr-3.5 text-[13px] font-semibold text-[#14213F] motion-safe:transition-colors hover:border-[#1B5CD6] hover:text-[#1B5CD6] ${focusRing}`}
+            >
+              <Image src="/images/glo/glo-avatar-216.webp" alt="" width={24} height={24} sizes="24px" quality={100} className="h-6 w-6 object-contain" />
+              Glo ile konuş
+            </button>
+          )}
         </div>
         <div
           role="progressbar"
@@ -383,6 +514,12 @@ export default function AnalysisFlow({
   const levelIndex = READINESS_LEVELS.indexOf(level);
   return (
     <div>
+      {prototypeSession && (
+        <p className="mb-5 rounded-xl border border-[#C9A876]/70 bg-[#F6F1E7] px-4 py-3 text-[13.5px] leading-relaxed text-[#6B5A36]">
+          <strong className="font-semibold">Etkileşim prototipi · AI bağlı değil.</strong> Bu akıştan başvuru gönderilmez. Aşağıdaki
+          değerlendirme mevcut analiz formunun sabit kurallarıyla hesaplanır.
+        </p>
+      )}
       <p className="sr-only" aria-live="polite">
         Ön değerlendirme hazır. Global büyüme hazırlık seviyeniz: {level}.
       </p>
@@ -553,9 +690,15 @@ export default function AnalysisFlow({
             </label>
           </div>
 
-          <button type="submit" disabled={submitting} className={`mt-6 w-full sm:w-auto ${primaryBtn}`}>
-            {submitting ? 'Gönderiliyor…' : 'Analiz Talebimi Gönder'}
-          </button>
+          {prototypeSession ? (
+            <p className="mt-6 inline-flex w-full justify-center rounded-full border-2 border-dashed border-[#6B5A36]/60 px-6 py-3 text-[15px] font-semibold text-[#6B5A36] sm:w-auto">
+              Prototip — başvuru gönderilmez
+            </p>
+          ) : (
+            <button type="submit" disabled={submitting} className={`mt-6 w-full sm:w-auto ${primaryBtn}`}>
+              {submitting ? 'Gönderiliyor…' : 'Analiz Talebimi Gönder'}
+            </button>
+          )}
           <p className="mt-4 text-[12.5px] leading-relaxed text-[#5A5A6A]">
             Formu göndererek bilgilerinizin talebinizin değerlendirilmesi ve sizinle iletişime geçilmesi amacıyla işlenmesini kabul etmiş
             olursunuz. Detaylı bilgi için{' '}

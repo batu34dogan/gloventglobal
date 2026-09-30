@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import RDAnalysisPage from '@/components/redesign/analysis/RDAnalysisPage';
 import JsonLd from '@/components/seo/JsonLd';
+import { gloAiMode, gloSurface } from '@/lib/glo/flag';
 import { ANALYSIS_DESCRIPTION, ANALYSIS_TITLE, ANALYSIS_URL } from '@/components/redesign/analysis/analysisPageData';
 
 // Route kendi canonical/OG/Twitter değerlerini tanımlamadığı için root layout'un homepage değerlerini
@@ -54,7 +55,7 @@ export default function AnalizPage() {
       {/* Onaylanan redesign (preview /redesign/analiz ile aynı RDAnalysisPage ağacı): paylaşılan
           AnalysisFlow variant="page", leadSource "analysis-page", analytics öneksiz. Metadata yukarıda;
           robots index,follow. */}
-      <RDAnalysisPage />
+      <RDAnalysisPage gloSurface={gloSurface()} gloAi={gloAiMode()} />
     </>
   );
 }

@@ -34,8 +34,10 @@ export default function RDHero({ analyticsLocation = 'home_hero' }: { analyticsL
           </div>
 
           <div className="mt-10 flex flex-wrap gap-x-3 gap-y-4 sm:gap-3">
+            {/* data-fab-avoid: dar/kısa ekranlarda sağ alttaki sabit analiz butonu bu CTA'ların üstüne gelmez. */}
             <Link
               href="/analiz"
+              data-fab-avoid
               onClick={() => trackEvent('free_analysis_cta_click', { location: analyticsLocation })}
               className="inline-flex items-center gap-2 rounded-full bg-[#14213F] px-7 py-3.5 text-[15.5px] font-semibold text-white transition-all hover:bg-[#1B5CD6]"
             >
@@ -43,6 +45,7 @@ export default function RDHero({ analyticsLocation = 'home_hero' }: { analyticsL
             </Link>
             <Link
               href="#hizmetler"
+              data-fab-avoid
               onClick={() => trackEvent('services_anchor_click', { location: analyticsLocation })}
               className="inline-flex items-center rounded-full border border-[#D6D6DC] bg-transparent px-7 py-3.5 text-[15.5px] font-semibold text-[#14213F] transition-all hover:border-[#1B5CD6] hover:text-[#1B5CD6]"
             >

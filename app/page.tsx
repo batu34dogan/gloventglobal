@@ -13,6 +13,7 @@ import RDGuides from '@/components/redesign/RDGuides';
 import RDWhy from '@/components/redesign/RDWhy';
 import RDFooter from '@/components/redesign/RDFooter';
 import RDAnalysisCTA from '@/components/redesign/RDAnalysisCTA';
+import { gloSurface } from '@/lib/glo/flag';
 import RDHomeMotion from '@/components/redesign/home/RDHomeMotion';
 import '@/components/redesign/home/home-motion.css';
 import RDHeroScene from '@/components/redesign/home/RDHeroScene';
@@ -73,7 +74,7 @@ export default function Home() {
       </main>
       <RDHomeMotion />
       <RDFooter />
-      <RDAnalysisCTA />
+      <RDAnalysisCTA gloIcon={gloSurface() !== 'off'} />
     </div>
   );
 }

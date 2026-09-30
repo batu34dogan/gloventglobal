@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import AnalysisFlow from './AnalysisFlow';
+import type { GloAiMode, GloSurface } from '@/lib/glo/flag';
+import GloAwareIntro from './glo/GloAwareIntro';
 import { trackEvent } from '@/lib/analytics';
 
 const FOCUSABLE =
@@ -10,7 +12,8 @@ const FOCUSABLE =
 
 // Global analiz modalı. Kendi tetikleyicisi yok: sayfalardaki CTA'lar (RDAnalysisCTA, hero/final CTA'lar,
 // footer) 'open-analysis-widget' custom event'i ile açar.
-export default function AnalysisWidget() {
+// gloSurface / gloAi: Glo yüzeyi ve AI modu (lib/glo/flag, sunucuda belirlenir); varsayılan kapalı.
+export default function AnalysisWidget({ gloSurface = 'off', gloAi = 'off' }: { gloSurface?: GloSurface; gloAi?: GloAiMode }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const modalRef = useRef<HTMLDivElement>(null);
@@ -121,9 +124,13 @@ export default function AnalysisWidget() {
                 <h2 id="analysis-dialog-title" className="text-[1.15rem] font-extrabold tracking-tight text-[#14213F] sm:text-[1.3rem]">
                   Ücretsiz Global Büyüme Analizi
                 </h2>
-                <p id="analysis-dialog-desc" className="mt-1 text-[13.5px] leading-relaxed text-[#5A5A6A] sm:text-[14.5px]">
-                  7 kısa soruyla mevcut yapınızı, önceliklerinizi ve büyüme alanlarınızı değerlendirin.
-                </p>
+                <GloAwareIntro
+                  variant="modal"
+                  hideInGlo
+                  id="analysis-dialog-desc"
+                  className="mt-1 text-[13.5px] leading-relaxed text-[#5A5A6A] sm:text-[14.5px]"
+                  text="7 kısa soruyla mevcut yapınızı, önceliklerinizi ve büyüme alanlarınızı değerlendirin."
+                />
               </div>
               <button
                 type="button"
@@ -138,7 +145,7 @@ export default function AnalysisWidget() {
             </div>
 
             <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-8">
-              <AnalysisFlow variant="modal" leadSource="analysis-widget" analyticsPrefix={analyticsPrefix} onRequestClose={closeModal} />
+              <AnalysisFlow variant="modal" leadSource="analysis-widget" analyticsPrefix={analyticsPrefix} onRequestClose={closeModal} gloSurface={gloSurface} gloAi={gloAi} />
             </div>
           </div>
         </div>
