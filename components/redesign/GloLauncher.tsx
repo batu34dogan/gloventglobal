@@ -109,7 +109,12 @@ export default function GloLauncher({ analyticsLocation }: { analyticsLocation: 
       const bubbleEl = bubbleRef.current;
       const own = (el: Element) => btn.contains(el) || Boolean(bubbleEl?.contains(el));
       const active = document.activeElement;
-      const focusEl = active instanceof HTMLElement && active !== document.body && !own(active) && active.matches(':focus-visible') ? active : null;
+      // Açık bir iletişim kutusunun (Glo modalı) içindeki odak sayılmaz: modal düğmeyi zaten örter; düğme gizlenirse
+      // modal kapanınca odak ona geri dönemez (mobilde alt sayfa düğme alanıyla çakışıyordu).
+      const focusEl =
+        active instanceof HTMLElement && active !== document.body && !own(active) && !active.closest('[role="dialog"]') && active.matches(':focus-visible')
+          ? active
+          : null;
       const fabCovers =
         Boolean(focusEl && hits(focusEl.getBoundingClientRect(), zone)) ||
         [...document.querySelectorAll('[data-fab-avoid]')].some((el) => hits(el.getBoundingClientRect(), zone));
